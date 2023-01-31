@@ -105,7 +105,7 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("PROTO_COM_SHADER_VTXTEX"),
-		CShader::Create(m_pDevice, m_pContext, TEXT("../Bin/ShaderFiles/SHADER_VTXTEX.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXTEX.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
 		return E_FAIL;
 
 	Safe_AddRef(m_pRenderer);

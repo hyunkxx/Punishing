@@ -15,6 +15,7 @@ public:
 	HRESULT Add_GameObject(CGameObject* pGameObject);
 	void Tick(_double TimeDelta);
 	void LateTick(_double TimeDelta);
+	void RenderGUI();
 
 public:
 	static CLayer* Create();

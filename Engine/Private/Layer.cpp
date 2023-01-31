@@ -32,6 +32,15 @@ void CLayer::LateTick(_double TimeDelta)
 	}
 }
 
+void CLayer::RenderGUI()
+{
+	for (auto& pGameObject : m_GameObjects)
+	{
+		if (nullptr != pGameObject)
+			pGameObject->RenderGUI();
+	}
+}
+
 CLayer* CLayer::Create()
 {
 	CLayer*	pInstance = new CLayer();

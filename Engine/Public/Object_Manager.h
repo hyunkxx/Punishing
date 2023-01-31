@@ -19,6 +19,7 @@ public:
 
 	void Tick(_double TimeDelta);
 	void LateTick(_double TimeDelta);
+	void RenderGUI();
 	void Clear(_uint iLevelIndex);
 
 private:

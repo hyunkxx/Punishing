@@ -3,7 +3,6 @@ c:\github\framework\engine\bin\vc140.idb
 c:\github\framework\engine\bin\component_manager.obj
 c:\github\framework\engine\bin\engine_struct.obj
 c:\github\framework\engine\bin\gameinstance.obj
-c:\github\framework\engine\bin\gameobject.obj
 c:\github\framework\engine\bin\graphic_device.obj
 c:\github\framework\engine\bin\input_device.obj
 c:\github\framework\engine\bin\layer.obj
@@ -23,18 +22,6 @@ c:\github\framework\engine\bin\vibuffer_terrain.obj
 c:\github\framework\engine\bin\base.obj
 c:\github\framework\engine\bin\camera.obj
 c:\github\framework\engine\bin\component.obj
-c:\github\framework\engine\bin\engine.lib
-c:\github\framework\engine\bin\engine.exp
-c:\github\framework\engine\bin\engine.ilk
-c:\github\framework\engine\bin\engine.dll
-c:\github\framework\engine\bin\engine.pdb
-c:\github\framework\engine\bin\../bin/engine.pdb
-c:\github\framework\engine\config\../bin/engine.dll
-c:\github\framework\engine\bin\../bin/engine.ilk
 c:\github\framework\engine\bin\engine.tlog\cl.command.1.tlog
 c:\github\framework\engine\bin\engine.tlog\cl.read.1.tlog
 c:\github\framework\engine\bin\engine.tlog\cl.write.1.tlog
-c:\github\framework\engine\bin\engine.tlog\engine.write.1u.tlog
-c:\github\framework\engine\bin\engine.tlog\link.command.1.tlog
-c:\github\framework\engine\bin\engine.tlog\link.read.1.tlog
-c:\github\framework\engine\bin\engine.tlog\link.write.1.tlog

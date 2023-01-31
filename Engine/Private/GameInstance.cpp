@@ -114,6 +114,14 @@ HRESULT CGameInstance::Add_GameObject(_uint iLevelIndex, const _tchar* pPrototyp
 	return m_pObject_Manager->Add_GameObject(iLevelIndex, pPrototypeTag, pLayerTag, pArg);
 }
 
+void CGameInstance::RenderGUI()
+{
+	if (nullptr == m_pObject_Manager)
+		return;
+
+	m_pObject_Manager->RenderGUI();
+}
+
 HRESULT CGameInstance::Add_Prototype(_uint iLevelIndex, const _tchar * pPrototypeTag, CComponent * pPrototype)
 {
 	if (nullptr == m_pComponent_Manager)

@@ -17,6 +17,7 @@ public:
 	virtual void Tick(_double TimeDelta);
 	virtual void LateTick(_double TimeDelta);
 	virtual HRESULT Render();
+	virtual void RenderGUI();
 
 protected: // ÄÄÆ÷³ÍÆ® ¸â¹öº¯¼ö¿Í ¸Ê¿¡ ¸ðµÎ º¸°üÇÔ , ¸â¹ö + ¸Ê
 	HRESULT Add_Component(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pComponentTag, class CComponent** ppOut, void* pArg = nullptr);

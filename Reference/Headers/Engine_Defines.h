@@ -5,6 +5,11 @@
 #pragma warning (disable : 4005)
 #pragma warning (disable : 4251)
 
+#include "../../Tool/ImGui/imgui.h"
+#include "../../Tool/ImGui/imgui_impl_win32.h"
+#include "../../Tool/ImGui/imgui_impl_dx11.h"
+#include <d3d11.h>
+
 #include <dinput.h>
 #include <d3d11.h>
 #include <DirectXMath.h>

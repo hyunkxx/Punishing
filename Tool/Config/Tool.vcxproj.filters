@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{0e602d74-83fa-43ce-82c0-b0adfd7aca57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{4c6d9a37-d91e-4be6-bed8-e8fb315e6343}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\pch">
+      <UniqueIdentifier>{a03e9cba-1a7f-496a-a35c-2c52309da258}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\00. ToolMain">
+      <UniqueIdentifier>{467b0feb-8c7c-415e-ab8b-41d3861e1a6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\imgui">
+      <UniqueIdentifier>{215252f0-6010-446c-81cd-05df1527ace0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\imgui\File">
+      <UniqueIdentifier>{dbfe64a6-aeba-4ebc-acf4-8b0571ffe6b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\imgui\Manager">
+      <UniqueIdentifier>{e65a69a2-8b33-4681-8512-c4d72f11a540}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\windows">
+      <UniqueIdentifier>{e95015aa-f6c6-4b4a-bcb7-86814ff4fc1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\res">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src\03. GameObject">
+      <UniqueIdentifier>{7c6bca5b-a06f-4bea-b0d6-f2119ed81960}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\03. GameObject\Terrain">
+      <UniqueIdentifier>{0fa0f92e-17c6-4e5f-890d-b4e8199013db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\01. MapTool">
+      <UniqueIdentifier>{ee39e547-4fb4-41b0-b388-06fd2be378d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\03. GameObject\Camera">
+      <UniqueIdentifier>{d042b94b-b1f5-4160-bd9d-d6e807923501}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Tool.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>config\pch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ToolMain.h">
+      <Filter>src\00. ToolMain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ImGui\imconfig.h">
+      <Filter>config\imgui\File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ImGui\imgui.h">
+      <Filter>config\imgui\File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ImGui\imgui_impl_dx11.h">
+      <Filter>config\imgui\File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ImGui\imgui_impl_win32.h">
+      <Filter>config\imgui\File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ImGui\imgui_internal.h">
+      <Filter>config\imgui\File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ImGui\imstb_rectpack.h">
+      <Filter>config\imgui\File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ImGui\imstb_textedit.h">
+      <Filter>config\imgui\File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ImGui\imstb_truetype.h">
+      <Filter>config\imgui\File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\GUIManager.h">
+      <Filter>config\imgui\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>config\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>config\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Terrain.h">
+      <Filter>src\03. GameObject\Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\MapTool.h">
+      <Filter>src\01. MapTool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ToolCamera.h">
+      <Filter>src\03. GameObject\Camera</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Tool.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>config\pch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ToolMain.cpp">
+      <Filter>src\00. ToolMain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ImGui\imgui.cpp">
+      <Filter>config\imgui\File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ImGui\imgui_demo.cpp">
+      <Filter>config\imgui\File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ImGui\imgui_draw.cpp">
+      <Filter>config\imgui\File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ImGui\imgui_impl_dx11.cpp">
+      <Filter>config\imgui\File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ImGui\imgui_impl_win32.cpp">
+      <Filter>config\imgui\File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ImGui\imgui_tables.cpp">
+      <Filter>config\imgui\File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ImGui\imgui_widgets.cpp">
+      <Filter>config\imgui\File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\GUIManager.cpp">
+      <Filter>config\imgui\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Terrain.cpp">
+      <Filter>src\03. GameObject\Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\MapTool.cpp">
+      <Filter>src\01. MapTool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ToolCamera.cpp">
+      <Filter>src\03. GameObject\Camera</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tool.rc">
+      <Filter>config\res</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>config\res</Filter>
+    </Image>
+    <Image Include="Tool.ico">
+      <Filter>config\res</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\ImGui\LICENSE.txt">
+      <Filter>config\imgui\File</Filter>
+    </Text>
+    <Text Include="ReadMe.txt">
+      <Filter>config\windows</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

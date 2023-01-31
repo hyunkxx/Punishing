@@ -74,6 +74,17 @@ void CObject_Manager::LateTick(_double TimeDelta)
 	}
 }
 
+void CObject_Manager::RenderGUI()
+{
+	for (_uint i = 0; i < m_iLevelMaxCount; ++i)
+	{
+		for (auto& pair : m_pLayers[i])
+		{
+			pair.second->RenderGUI();
+		}
+	}
+}
+
 void CObject_Manager::Clear(_uint iLevelIndex)
 {
 	for (auto& pair : m_pLayers[iLevelIndex])
