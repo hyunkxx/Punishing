@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8efdc4aa-e512-46e1-863d-576f7fea412b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{792f7ce0-d5a6-4b79-ad7b-af46212da221}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\res">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="config\pch">
+      <UniqueIdentifier>{b43a9dd1-9ee5-40c9-b95d-2cf09ed305b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header">
+      <UniqueIdentifier>{86482e6e-9ff7-40ae-8df5-63919f70d759}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\00. Application">
+      <UniqueIdentifier>{5a1dc353-75b1-482c-b427-d4091fdc6f55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\01. Levels">
+      <UniqueIdentifier>{c6e78f92-7038-4d76-92d9-fcd27e6cf583}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\01. Levels\00. Loading">
+      <UniqueIdentifier>{a6b0a0db-a03f-4c72-9c66-3dd22191fda8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\01. Levels\00. Loading\Loader">
+      <UniqueIdentifier>{b0e6ba28-d8ce-4b34-ae41-739490f8ed15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\00. Application\Manager">
+      <UniqueIdentifier>{340821c9-9f50-46c4-8493-a4160c0375eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\02. GameObjects">
+      <UniqueIdentifier>{103fe8f1-2e98-41b5-8543-5b4077cbec4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\99. ShaderFiles">
+      <UniqueIdentifier>{a2c67a9a-622f-427a-85ff-ff7d7f32481d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\01. Levels\02. GamePlay">
+      <UniqueIdentifier>{a0fe662c-f94a-4d4b-b072-e1a6b073e38a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\01. Levels\01. Logo">
+      <UniqueIdentifier>{8148b9dc-719b-4ca4-be27-3361a8cc2079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\02. GameObjects\02. BackGround">
+      <UniqueIdentifier>{dc6159ad-4ee9-4dec-9c7d-627205fe95e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\02. GameObjects\01. Camera">
+      <UniqueIdentifier>{dbf6febb-caa7-41c7-ba5b-66461a3365cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\02. GameObjects\00. Terrain">
+      <UniqueIdentifier>{8bbfe02c-4521-4c84-97f5-109e4df3f75a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Client.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>config\pch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Application.h">
+      <Filter>src\00. Application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Client_Defines.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>config\res</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>config\res</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Level_Loading.h">
+      <Filter>src\01. Levels\00. Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Loader.h">
+      <Filter>src\01. Levels\00. Loading\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Level_Logo.h">
+      <Filter>src\01. Levels\01. Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Level_GamePlay.h">
+      <Filter>src\01. Levels\02. GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ApplicationManager.h">
+      <Filter>src\00. Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\BackGround.h">
+      <Filter>src\02. GameObjects\02. BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Terrain.h">
+      <Filter>src\02. GameObjects\00. Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\DynamicCamera.h">
+      <Filter>src\02. GameObjects\01. Camera</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Client.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>config\pch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Application.cpp">
+      <Filter>src\00. Application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Level_Loading.cpp">
+      <Filter>src\01. Levels\00. Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Loader.cpp">
+      <Filter>src\01. Levels\00. Loading\Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Level_Logo.cpp">
+      <Filter>src\01. Levels\01. Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Level_GamePlay.cpp">
+      <Filter>src\01. Levels\02. GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ApplicationManager.cpp">
+      <Filter>src\00. Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\BackGround.cpp">
+      <Filter>src\02. GameObjects\02. BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Terrain.cpp">
+      <Filter>src\02. GameObjects\00. Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\DynamicCamera.cpp">
+      <Filter>src\02. GameObjects\01. Camera</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client.rc">
+      <Filter>config\res</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>config\res</Filter>
+    </Image>
+    <Image Include="Client.ico">
+      <Filter>config\res</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>config\res</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\Bin\ShaderFiles\SHADER_VTXTEX.hlsl">
+      <Filter>src\99. ShaderFiles</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\SHADER_VTXNORTEX.hlsl">
+      <Filter>src\99. ShaderFiles</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
