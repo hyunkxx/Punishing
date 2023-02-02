@@ -1,4 +1,5 @@
-﻿  VIBuffer_Terrain.cpp
+﻿  VIBuffer_Triangle.cpp
+  VIBuffer_Terrain.cpp
   VIBuffer_Rect.cpp
   VIBuffer.cpp
   Transform.cpp
@@ -17,9 +18,9 @@
   GameObject.cpp
   GameInstance.cpp
   Engine_Struct.cpp
-  Component_Manager.cpp
   코드를 생성하고 있습니다...
   컴파일하고 있습니다...
+  Component_Manager.cpp
   Component.cpp
   Camera.cpp
   Base.cpp

@@ -107,6 +107,10 @@ HRESULT CToolMain::Initialize_Components()
 		CVIBuffer_Rect::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_VIBUFFER_TRIANGLE"),
+		CVIBuffer_Triangle::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
 	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_VIBUFFER_TERRAIN"),
 		CVIBuffer_Terrain::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Terrain/Height.bmp")))))
 		return E_FAIL;
@@ -115,8 +119,20 @@ HRESULT CToolMain::Initialize_Components()
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXTEX.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_SHADER_ALPHA"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_ALPHA.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
+		return E_FAIL;
+
 	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_SHADER_VTXNORTEX"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXNORTEX.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_SHADER_GROUD"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_GROUD.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_SHADER_PHONG"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_PHONG.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_TEXTURE_TERRAIN"), CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Terrain/Tile0.dds")))))

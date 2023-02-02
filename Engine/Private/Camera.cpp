@@ -1,9 +1,11 @@
 #include "..\Public\Camera.h"
 #include "PipeLine.h"
 
+#include "GameInstance.h"
+
 CCamera::CCamera(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CGameObject(pDevice, pContext)
-	, m_pPipeLine { CPipeLine::GetInstance() }
+	, m_pPipeLine{ CPipeLine::GetInstance() }
 {
 	Safe_AddRef(m_pPipeLine);
 }
@@ -34,7 +36,6 @@ HRESULT CCamera::Initialize(void* pArg)
 	if (nullptr == m_pTransform)
 		return E_FAIL;
 
-	/* 카메라의 월드위치, 바라보는 위치등의 정보를 CTransform에 동기화 한다. */
 	m_pTransform->Set_State(CTransform::STATE_POSITION, XMLoadFloat3(&m_CameraDesc.vEye));
 	m_pTransform->LookAt(XMLoadFloat3(&m_CameraDesc.vAt));
 	m_pTransform->Set_TransformDesc(m_CameraDesc.TransformDesc);
@@ -44,8 +45,20 @@ HRESULT CCamera::Initialize(void* pArg)
 
 void CCamera::Tick(_double TimeDelta)
 {
+	CGameInstance* pInstance = CGameInstance::GetInstance();
+
 	m_pPipeLine->Set_Transform(CPipeLine::TS_VIEW, m_pTransform->Get_WorldMatrixInverse());
 	m_pPipeLine->Set_Transform(CPipeLine::TS_PROJ, XMMatrixPerspectiveFovLH(m_CameraDesc.fFovy, m_CameraDesc.fAspect, m_CameraDesc.fNear, m_CameraDesc.fFar));
+
+	//if (pInstance->Input_KeyState_Custom(DIK_LSHIFT) == KEY_STATE::HOLD)
+	//{
+	//	m_CameraDesc.TransformDesc.fMoveSpeed = m_CameraDesc.TransformDesc.fMoveSpeed * 2.f;
+	//}
+	//else
+	//{
+	//	m_CameraDesc.TransformDesc.fMoveSpeed = m_CameraDesc.TransformDesc.fMoveSpeed = m_CameraDesc.TransformDesc.fMoveSpeed * 0.5f;
+	//}
+
 }
 
 void CCamera::LateTick(_double TimeDelta)

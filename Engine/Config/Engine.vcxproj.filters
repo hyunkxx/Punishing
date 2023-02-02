@@ -49,18 +49,6 @@
     <Filter Include="utility\03. Components\02. Renderer">
       <UniqueIdentifier>{8b469877-102f-49bf-be97-3ba4b3d94be9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utility\03. Components\03. VIBuffer">
-      <UniqueIdentifier>{e215111d-d7b9-4358-8bfd-56a321f88ce3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="utility\03. Components\03. VIBuffer\Cube">
-      <UniqueIdentifier>{dc6ceb73-4d63-4020-9160-d3cec2398585}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="utility\03. Components\03. VIBuffer\Terrain">
-      <UniqueIdentifier>{bf91fe90-ca43-4f2b-8a08-3a9d014cdf5f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="utility\03. Components\03. VIBuffer\Rect">
-      <UniqueIdentifier>{994d36be-ba3a-4a80-87e2-457523633954}</UniqueIdentifier>
-    </Filter>
     <Filter Include="utility\03. Components\04. Shader">
       <UniqueIdentifier>{05416dd7-52d1-445f-b30e-de0532b4a9b0}</UniqueIdentifier>
     </Filter>
@@ -84,6 +72,21 @@
     </Filter>
     <Filter Include="system\02. Timers\Manager">
       <UniqueIdentifier>{c144352a-51db-4393-859b-a722668c48f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\02. Renderer\03. VIBuffer">
+      <UniqueIdentifier>{e215111d-d7b9-4358-8bfd-56a321f88ce3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\02. Renderer\03. VIBuffer\Cube">
+      <UniqueIdentifier>{dc6ceb73-4d63-4020-9160-d3cec2398585}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\02. Renderer\03. VIBuffer\Terrain">
+      <UniqueIdentifier>{bf91fe90-ca43-4f2b-8a08-3a9d014cdf5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\02. Renderer\03. VIBuffer\Rect">
+      <UniqueIdentifier>{994d36be-ba3a-4a80-87e2-457523633954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\02. Renderer\03. VIBuffer\Triangle">
+      <UniqueIdentifier>{befb40e1-ba7d-4325-88f9-22922d708c65}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -124,10 +127,10 @@
       <Filter>utility\03. Components\04. Shader</Filter>
     </ClCompile>
     <ClCompile Include="..\private\VIBuffer.cpp">
-      <Filter>utility\03. Components\03. VIBuffer</Filter>
+      <Filter>utility\03. Components\02. Renderer\03. VIBuffer</Filter>
     </ClCompile>
     <ClCompile Include="..\private\VIBuffer_Rect.cpp">
-      <Filter>utility\03. Components\03. VIBuffer\Rect</Filter>
+      <Filter>utility\03. Components\02. Renderer\03. VIBuffer\Rect</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\Engine_Struct.cpp">
       <Filter>header</Filter>
@@ -136,7 +139,7 @@
       <Filter>utility\03. Components\05. Texture</Filter>
     </ClCompile>
     <ClCompile Include="..\private\VIBuffer_Terrain.cpp">
-      <Filter>utility\03. Components\03. VIBuffer\Terrain</Filter>
+      <Filter>utility\03. Components\02. Renderer\03. VIBuffer\Terrain</Filter>
     </ClCompile>
     <ClCompile Include="..\private\Transform.cpp">
       <Filter>utility\03. Components\06. Transform</Filter>
@@ -155,6 +158,9 @@
     </ClCompile>
     <ClCompile Include="..\private\Input_Device.cpp">
       <Filter>system\01. Input_Device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\VIBuffer_Triangle.cpp">
+      <Filter>utility\03. Components\02. Renderer\03. VIBuffer\Triangle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -210,16 +216,16 @@
       <Filter>utility\03. Components\04. Shader</Filter>
     </ClInclude>
     <ClInclude Include="..\public\VIBuffer.h">
-      <Filter>utility\03. Components\03. VIBuffer</Filter>
+      <Filter>utility\03. Components\02. Renderer\03. VIBuffer</Filter>
     </ClInclude>
     <ClInclude Include="..\public\VIBuffer_Rect.h">
-      <Filter>utility\03. Components\03. VIBuffer\Rect</Filter>
+      <Filter>utility\03. Components\02. Renderer\03. VIBuffer\Rect</Filter>
     </ClInclude>
     <ClInclude Include="..\public\Texture.h">
       <Filter>utility\03. Components\05. Texture</Filter>
     </ClInclude>
     <ClInclude Include="..\public\VIBuffer_Terrain.h">
-      <Filter>utility\03. Components\03. VIBuffer\Terrain</Filter>
+      <Filter>utility\03. Components\02. Renderer\03. VIBuffer\Terrain</Filter>
     </ClInclude>
     <ClInclude Include="..\public\Transform.h">
       <Filter>utility\03. Components\06. Transform</Filter>
@@ -238,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="..\public\Input_Device.h">
       <Filter>system\01. Input_Device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\VIBuffer_Triangle.h">
+      <Filter>utility\03. Components\02. Renderer\03. VIBuffer\Triangle</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

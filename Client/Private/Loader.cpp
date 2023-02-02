@@ -57,7 +57,7 @@ HRESULT CLoader::Load_Level_Logo()
 	m_szLoadingStateText = L"텍스쳐를 로딩중입니다.";
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_LOGO, TEXT("PROTO_COM_TEXTURE_BACKGROUND"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Textures/Image/background.jpg")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/background.jpg")))))
 		return E_FAIL;
 
 	m_szLoadingStateText = L"정점버퍼를 로딩중입니다.";
@@ -95,11 +95,11 @@ HRESULT CLoader::Load_Level_GamePlay()
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("PROTO_COM_TEXTURE_TERRAIN"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Textures/Terrain/Tile0.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Terrain/Tile0.dds")))))
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("PROTO_COM_VIBUFFER_TERRAIN"),
-		CVIBuffer_Terrain::Create(m_pDevice, m_pContext, TEXT("../../Resource/Textures/Terrain/Height.bmp")))))
+		CVIBuffer_Terrain::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Terrain/Height.bmp")))))
 		return E_FAIL;
 
 	m_szLoadingStateText = L"정점버퍼를 로딩중입니다.";

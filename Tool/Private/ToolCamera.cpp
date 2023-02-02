@@ -65,6 +65,14 @@ void CToolCamera::Tick(_double TimeDelta)
 			m_pTransform->Rotate(m_pTransform->Get_State(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 0.1f);
 	}
 
+	if (pGameInstance->Input_KeyState_Custom(DIK_SPACE) == KEY_STATE::TAP)
+	{
+		m_pTransform->SetRotation(XMVectorSet(1.f, 0.f, 0.f, 0.f), 0.f);
+		m_pTransform->SetRotation(XMVectorSet(0.f, 1.f, 0.f, 0.f), 0.f);
+		m_pTransform->SetRotation(XMVectorSet(0.f, 0.f, 1.f, 0.f), 0.f);
+		m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
+	}
+
 	__super::Tick(TimeDelta);
 }
 

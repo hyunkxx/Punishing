@@ -3,6 +3,7 @@
 #include "GameObject.h"
 
 BEGIN(Engine)
+class CVIBuffer_Triangle;
 class CVIBuffer_Terrain;
 class CTransform;
 class CRenderer;
@@ -27,6 +28,9 @@ public:
 	virtual HRESULT Render() override; 
 	virtual void RenderGUI() override;
 
+public:
+	_bool Terrain_Picking();
+
 private:
 	HRESULT Add_Components();
 	HRESULT Setup_ShaderResources();
@@ -43,6 +47,12 @@ private:
 	CTransform*			m_pTransformComponent = { nullptr };
 	CVIBuffer_Terrain*	m_pVIBufferComponent = { nullptr };
 
+private:
+	_bool m_IsPick = { false };
+	_float m_fDistance = { 1000.f };
+	_float4 origin, dir, vCam;
+	_float4 pickPos;
+	_float3 m_v1, m_v2, m_v3;
 };
 
 END

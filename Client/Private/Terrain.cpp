@@ -79,7 +79,7 @@ HRESULT CTerrain::Add_Components()
 		TEXT("COM_VIBUFFER"), (CComponent**)&m_pVIBufferComponent)))
 		return E_FAIL;
 
-	if (FAILED(__super::Add_Component(LEVEL_GAMEPLAY, TEXT("PROTO_COM_SHADER_VTXNORTEX"),
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("PROTO_COM_SHADER_PHONG"),
 		TEXT("COM_SHADER"), (CComponent**)&m_pShaderComponent)))
 		return E_FAIL;
 
@@ -92,18 +92,14 @@ HRESULT CTerrain::Add_Components()
 
 HRESULT CTerrain::Setup_ShaderResources()
 {
+	CPipeLine* pPipeline= CPipeLine::GetInstance();
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
 	if (nullptr == m_pShaderComponent)
 		return E_FAIL;
 
-	//_float4x4 ViewMatrix, ProjMatrix;
-
-	////XMStoreFloat4x4(&ViewMatrix, XMMatrixLookAtLH(XMVectorSet(20.f, 50.f, 20.f, 1.f), XMVectorSet(50.f, 0.f, 50.f, 1.f), XMVectorSet(0.f, 1.f, 0.f, 0.f)));
-	////XMStoreFloat4x4(&ProjMatrix, XMMatrixPerspectiveFovLH(XMConvertToRadians(60.0f), g_iWinSizeX / (_float)g_iWinSizeY, 0.1f, 300.f));
-
 	if (FAILED(m_pTransformComponent->Setup_ShaderResource(m_pShaderComponent, "g_WorldMatrix")))
 		return E_FAIL;
-
-	CPipeLine* pPipeline= CPipeLine::GetInstance();
 
 	if (FAILED(m_pShaderComponent->SetMatrix("g_ViewMatrix", &pPipeline->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
 		return E_FAIL;
@@ -111,7 +107,10 @@ HRESULT CTerrain::Setup_ShaderResources()
 	if (FAILED(m_pShaderComponent->SetMatrix("g_ProjMatrix", &pPipeline->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
 		return E_FAIL;
 
-	if (FAILED(m_pTextureComponent->Setup_ShaderResource(m_pShaderComponent, "g_Texture", 0)))
+	if (FAILED(m_pShaderComponent->SetRawValue("g_vCamPosition", &pGameInstance->Get_CamPosition(), sizeof(_float4))))
+		return E_FAIL;
+
+	if (FAILED(m_pTextureComponent->Setup_ShaderResource(m_pShaderComponent, "g_DiffuseTexture", 0)))
 		return E_FAIL;
 
 	return S_OK;

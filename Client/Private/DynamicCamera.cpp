@@ -32,7 +32,7 @@ HRESULT CDynamicCamera::Initialize(void* pArg)
 void CDynamicCamera::Tick(_double TimeDelta)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
-
+	m_CameraDesc;
 	if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::HOLD)
 		m_pTransform->MoveForward(TimeDelta);
 

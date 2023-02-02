@@ -208,8 +208,14 @@
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="..\Bin\ShaderFiles\SHADER_VTXNORTEX.hlsl" />
-    <FxCompile Include="..\Bin\ShaderFiles\SHADER_VTXTEX.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_ALPHA.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_GROUD.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_PHONG.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_VTXNORTEX.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_VTXTEX.hlsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,6 +9,7 @@ CVIBuffer_Terrain::CVIBuffer_Terrain(const CVIBuffer_Terrain& rhs)
 	: CVIBuffer(rhs)
 	, m_dwVertexCountX(rhs.m_dwVertexCountX)
 	, m_dwVertexCountZ(rhs.m_dwVertexCountZ)
+	, m_VertexPos(rhs.m_VertexPos)
 {
 }
 
@@ -33,6 +34,8 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const _tchar* pHeightMapFilePath
 	ReadFile(hFile, pPixel, sizeof(_ulong) * ih.biWidth * ih.biHeight, &dwByte, nullptr);
 	CloseHandle(hFile);
 
+	m_VertexPos = new _float3[ih.biWidth * ih.biHeight];
+
 	m_iStride = sizeof(VTXNORTEX);
 	m_dwVertexCountX = ih.biWidth;
 	m_dwVertexCountZ = ih.biHeight;
@@ -47,16 +50,6 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const _tchar* pHeightMapFilePath
 
 
 #pragma region VERTEXBUFFER
-	ZeroMemory(&m_BufferDesc, sizeof m_BufferDesc);
-
-	m_BufferDesc.ByteWidth = m_iStride * m_iVerticesCount;
-	m_BufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	m_BufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-	m_BufferDesc.StructureByteStride = m_iStride;
-	m_BufferDesc.CPUAccessFlags = 0;
-	m_BufferDesc.MiscFlags = 0;
-
-	ZeroMemory(&m_SubResourceData, sizeof m_SubResourceData);
 
 	VTXNORTEX* pVertices = new VTXNORTEX[m_iVerticesCount];
 	ZeroMemory(pVertices, sizeof(VTXNORTEX) * m_iVerticesCount);
@@ -67,39 +60,17 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const _tchar* pHeightMapFilePath
 		{
 			_uint iIndex = i * m_dwVertexCountX + j;
 
-			pVertices[iIndex].vPosition = _float3((_float)j, (pPixel[iIndex] & 0x000000ff) / 15.0f, (_float)i);
-			pVertices[iIndex].vNormal = _float3(0.0f, 0.f, 0.f);
+			pVertices[iIndex].vPosition = _float3((_float)j, (pPixel[iIndex] & 0x000000ff) / 10.0f, (_float)i);
+			pVertices[iIndex].vNormal = _float3(0.f, 0.f, 0.f);
 			pVertices[iIndex].vTexUV = _float2((_float)j / (m_dwVertexCountX - 1.0f), i / (m_dwVertexCountZ - 1.0f));
+
+			m_VertexPos[iIndex] = pVertices[iIndex].vPosition;
 		}
 	}
-
-	m_SubResourceData.pSysMem = pVertices;
-
-	if (FAILED(__super::Create_VertexBuffer()))
-	{
-		Safe_Delete_Array(pVertices);
-		Safe_Delete_Array(pPixel);
-		return E_FAIL;
-	}
-
-	Safe_Delete_Array(pVertices);
-	Safe_Delete_Array(pPixel);
 
 #pragma endregion
 
 #pragma region INDEXBUFFER
-	ZeroMemory(&m_BufferDesc, sizeof m_BufferDesc);
-
-	/*내가 그릴려고하는 인덱스하나의 크기 * 인덱스의 갯수.
-	== 삼각형을 그리기위한 인덱스 세개의 크기 * 삼각형의갯수 */;
-	m_BufferDesc.ByteWidth = m_iPrimitiveIndexSize * m_iPrimitiveCount;
-	m_BufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	m_BufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
-	m_BufferDesc.StructureByteStride = 0;
-	m_BufferDesc.CPUAccessFlags = 0;
-	m_BufferDesc.MiscFlags = 0;
-
-	ZeroMemory(&m_SubResourceData, sizeof m_SubResourceData);
 
 	FACEINDICES32* pIndices = new FACEINDICES32[m_iPrimitiveCount];
 	ZeroMemory(pIndices, sizeof(FACEINDICES32) * m_iPrimitiveCount);
@@ -113,7 +84,7 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const _tchar* pHeightMapFilePath
 			/* 삼각형 두개를 정의하기위한 루프. */
 			_uint		iIndex = i * m_dwVertexCountX + j;
 
-			/* 사각혀으이 좌상, 우상, 우하, 좌하 인덱스를 의미한다. */
+			/* 사각형의 좌상, 우상, 우하, 좌하 인덱스를 의미한다. */
 			_uint		iIndices[] = {
 				iIndex + m_dwVertexCountX,
 				iIndex + m_dwVertexCountX + 1,
@@ -121,26 +92,73 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const _tchar* pHeightMapFilePath
 				iIndex
 			};
 
+			_vector vFirst, vSecond, vNormal;
+
 			/* 우상단 삼각형의 인덱스 세개를 구성하자. */
 			pIndices[iNumFaces]._0 = iIndices[0];
 			pIndices[iNumFaces]._1 = iIndices[1];
 			pIndices[iNumFaces]._2 = iIndices[2];
+
+			vFirst = XMLoadFloat3(&pVertices[pIndices[iNumFaces]._1].vPosition) - XMLoadFloat3(&pVertices[pIndices[iNumFaces]._0].vPosition);
+			vSecond = XMLoadFloat3(&pVertices[pIndices[iNumFaces]._2].vPosition) - XMLoadFloat3(&pVertices[pIndices[iNumFaces]._1].vPosition);
+			vNormal = XMVector3Normalize(XMVector3Cross(vFirst, vSecond));
+
+			XMStoreFloat3(&pVertices[pIndices[iNumFaces]._0].vNormal, vNormal + XMLoadFloat3(&pVertices[pIndices[iNumFaces]._0].vNormal) + vNormal);
+			XMStoreFloat3(&pVertices[pIndices[iNumFaces]._1].vNormal, vNormal + XMLoadFloat3(&pVertices[pIndices[iNumFaces]._1].vNormal) + vNormal);
+			XMStoreFloat3(&pVertices[pIndices[iNumFaces]._2].vNormal, vNormal + XMLoadFloat3(&pVertices[pIndices[iNumFaces]._2].vNormal) + vNormal);
+
 			++iNumFaces;
 
 			pIndices[iNumFaces]._0 = iIndices[0];
 			pIndices[iNumFaces]._1 = iIndices[2];
 			pIndices[iNumFaces]._2 = iIndices[3];
+
+			vFirst = XMLoadFloat3(&pVertices[pIndices[iNumFaces]._1].vPosition) - XMLoadFloat3(&pVertices[pIndices[iNumFaces]._0].vPosition);
+			vSecond = XMLoadFloat3(&pVertices[pIndices[iNumFaces]._2].vPosition) - XMLoadFloat3(&pVertices[pIndices[iNumFaces]._1].vPosition);
+			vNormal = XMVector3Normalize(XMVector3Cross(vFirst, vSecond));
+
+			XMStoreFloat3(&pVertices[pIndices[iNumFaces]._0].vNormal, vNormal + XMLoadFloat3(&pVertices[pIndices[iNumFaces]._0].vNormal) + vNormal);
+			XMStoreFloat3(&pVertices[pIndices[iNumFaces]._1].vNormal, vNormal + XMLoadFloat3(&pVertices[pIndices[iNumFaces]._1].vNormal) + vNormal);
+			XMStoreFloat3(&pVertices[pIndices[iNumFaces]._2].vNormal, vNormal + XMLoadFloat3(&pVertices[pIndices[iNumFaces]._2].vNormal) + vNormal);
+
 			++iNumFaces;
 		}
 	}
 
+	ZeroMemory(&m_BufferDesc, sizeof m_BufferDesc);
+
+	m_BufferDesc.ByteWidth = m_iStride * m_iVerticesCount;
+	m_BufferDesc.Usage = D3D11_USAGE_DEFAULT;
+	m_BufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	m_BufferDesc.StructureByteStride = m_iStride;
+	m_BufferDesc.CPUAccessFlags = 0;
+	m_BufferDesc.MiscFlags = 0;
+
+	ZeroMemory(&m_SubResourceData, sizeof m_SubResourceData);
+	m_SubResourceData.pSysMem = pVertices;
+
+	if (FAILED(__super::Create_VertexBuffer()))
+		return E_FAIL;
+
+	Safe_Delete_Array(pVertices);
+	Safe_Delete_Array(pPixel);
+
+	ZeroMemory(&m_BufferDesc, sizeof m_BufferDesc);
+
+	/*내가 그릴려고하는 인덱스하나의 크기 * 인덱스의 갯수.
+	== 삼각형을 그리기위한 인덱스 세개의 크기 * 삼각형의갯수 */;
+	m_BufferDesc.ByteWidth = m_iPrimitiveIndexSize * m_iPrimitiveCount;
+	m_BufferDesc.Usage = D3D11_USAGE_DEFAULT;
+	m_BufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
+	m_BufferDesc.StructureByteStride = 0;
+	m_BufferDesc.CPUAccessFlags = 0;
+	m_BufferDesc.MiscFlags = 0;
+
+	ZeroMemory(&m_SubResourceData, sizeof m_SubResourceData);
 	m_SubResourceData.pSysMem = pIndices;
 
 	if (FAILED(__super::Create_IndexBuffer()))
-	{
-		Safe_Delete_Array(pIndices);
 		return E_FAIL;
-	}
 
 	Safe_Delete_Array(pIndices);
 
@@ -183,4 +201,7 @@ CComponent* CVIBuffer_Terrain::Clone(void* pArg)
 void CVIBuffer_Terrain::Free()
 {
 	__super::Free();
+
+	if(false == m_isClone)
+		Safe_Delete_Array(m_VertexPos);
 }
