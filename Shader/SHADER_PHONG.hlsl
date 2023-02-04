@@ -11,7 +11,7 @@ vector g_vLightDiffuse = vector(1.f, 1.f, 1.f, 1.f);
 vector g_vLightAmbient = vector(1.f, 1.f, 1.f, 1.f);
 vector g_vLightSpecular = vector(1.f, 1.f, 1.f, 1.f);
 
-texture2D g_DiffuseTexture;
+texture2D g_DiffuseTexture = NULL;
 vector g_vMatAmbient = vector(0.3f, 0.3f, 0.3f, 1.f);
 vector g_vMatSpecular = vector(1.f, 1.f, 1.f, 1.f);
 float g_fPower = 50.f;

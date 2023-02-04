@@ -15,16 +15,16 @@ private:
 public:
 	HRESULT Reserve_Manager(_uint iLevelMaxCount);
 	HRESULT Add_Prototype(const _tchar* pPrototypeTag, class CGameObject* pPrototype);
-	HRESULT Add_GameObject(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pLayerTag, void* pArg = nullptr);
+	HRESULT Add_GameObject(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pLayerTag, wstring pObjectTag, void* pArg = nullptr);
 
 	void Tick(_double TimeDelta);
 	void LateTick(_double TimeDelta);
 	void RenderGUI();
 	void Clear(_uint iLevelIndex);
 
+	class CLayer* Find_Layer(_uint iLevelIndex, const _tchar* pLayerTag);
 private:
 	class CGameObject* Find_Prototype(const _tchar* pPrototypeTag);
-	class CLayer* Find_Layer(_uint iLevelIndex, const _tchar* pLayerTag);
 
 public:
 	virtual void Free() override;

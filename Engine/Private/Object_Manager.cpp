@@ -27,7 +27,7 @@ HRESULT CObject_Manager::Add_Prototype(const _tchar* pPrototypeTag, CGameObject*
 	return S_OK;
 }
 
-HRESULT CObject_Manager::Add_GameObject(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pLayerTag, void* pArg)
+HRESULT CObject_Manager::Add_GameObject(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pLayerTag, wstring strObjectTag, void* pArg)
 {
 	CGameObject*pPrototype = Find_Prototype(pPrototypeTag);
 	if (nullptr == pPrototype)
@@ -41,12 +41,12 @@ HRESULT CObject_Manager::Add_GameObject(_uint iLevelIndex, const _tchar* pProtot
 	if (nullptr == pLayer)
 	{
 		pLayer = CLayer::Create();
-		pLayer->Add_GameObject(pGameObject);
+		pLayer->Add_GameObject(strObjectTag, pGameObject);
 		m_pLayers[iLevelIndex].emplace(pLayerTag, pLayer);
 	}
 	else
 	{
-		pLayer->Add_GameObject(pGameObject);
+		pLayer->Add_GameObject(strObjectTag, pGameObject);
 	}
 
 	return S_OK;
@@ -128,7 +128,9 @@ void CObject_Manager::Free()
 	Safe_Delete_Array(m_pLayers);
 
 	for (auto& pair : m_Prototypes)
+	{
 		Safe_Release(pair.second);
+	}
 
 	m_Prototypes.clear();
 }

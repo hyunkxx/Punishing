@@ -39,10 +39,10 @@ private:
 	_float4x4	m_WorldMatrix, m_ViewMatrix, m_ProjMatrix;
 
 private:
-	CRenderer*		m_pRendererComponent = { nullptr };
-	CShader*		m_pShaderComponent = { nullptr };
-	CVIBuffer_Rect* m_pVIBufferComponent = { nullptr };
-	CTexture*		m_pTextureComponent = { nullptr };
+	CRenderer*		m_pRenderer = { nullptr };
+	CShader*		m_pShader = { nullptr };
+	CVIBuffer_Rect* m_pVIBuffer = { nullptr };
+	CTexture*		m_pTexture = { nullptr };
 };
 
 END

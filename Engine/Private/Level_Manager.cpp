@@ -22,6 +22,14 @@ void CLevel_Manager::Tick_Level(_double TimeDelta)
 	m_pCurrentLevel->Tick(TimeDelta);
 }
 
+void CLevel_Manager::RenderLevelUI()
+{
+	if (nullptr == m_pCurrentLevel)
+		return;
+
+	m_pCurrentLevel->RenderLevelUI();
+}
+
 void CLevel_Manager::Free()
 {
 	Safe_Release(m_pCurrentLevel);

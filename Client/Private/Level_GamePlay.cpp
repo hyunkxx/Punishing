@@ -12,10 +12,10 @@ CLevel_GamePlay::CLevel_GamePlay(ID3D11Device* pDevice, ID3D11DeviceContext* pCo
 
 HRESULT CLevel_GamePlay::Initialize()
 {
-	if(FAILED(Ready_Layer_BackGround(TEXT("LAYER_BACKGROUND"))))
+	if(FAILED(Ready_Layer_BackGround(TEXT("layer_background"))))
 		return E_FAIL;
 
-	if (FAILED(Ready_Layer_Camera(TEXT("LAYER_CAMERA"))))
+	if (FAILED(Ready_Layer_Camera(TEXT("layer_camera"))))
 		return E_FAIL;
 
 	return S_OK;
@@ -32,7 +32,7 @@ void CLevel_GamePlay::Tick(_double TimeDelta)
 HRESULT CLevel_GamePlay::Ready_Layer_BackGround(const _tchar* pLayerTag)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
-	if (FAILED(pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("PROTO_OBJ_TERRAIN"), pLayerTag)))
+	if (FAILED(pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_terrain", L"terrain", pLayerTag)))
 		return E_FAIL;
 
 	return S_OK;
@@ -57,7 +57,7 @@ HRESULT CLevel_GamePlay::Ready_Layer_Camera(const _tchar* pLayerTag)
 	CameraDesc.fNear = 0.1f;
 	CameraDesc.fFar = 1000.f;
 
-	if (FAILED(pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("PROTO_OBJ_DYNAMIC_CAMERA"), pLayerTag, &CameraDesc)))
+	if (FAILED(pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_dynamic_camera"), L"dynamic_camera", pLayerTag, &CameraDesc)))
 		return E_FAIL;
 
 	return S_OK;

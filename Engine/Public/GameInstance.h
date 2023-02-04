@@ -24,10 +24,11 @@ public: //Graphic_Device
 
 public: //Level_Manager
 	HRESULT Open_Level(_uint iLevelIndex, class CLevel* pCurrentLevel);
+	void RenderLevelUI();
 
 public: //Object_Manager
 	HRESULT Add_Prototype(const _tchar* pPrototypeTag, class CGameObject* pPrototype);
-	HRESULT Add_GameObject(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pLayerTag, void* pArg = nullptr);
+	HRESULT Add_GameObject(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pLayerTag, wstring strObjectTag, void* pArg = nullptr);
 	void	RenderGUI();
 
 public: //Component_Manager

@@ -2,6 +2,7 @@
 
 #include "VIBuffer_Triangle.h"
 #include "VIBuffer_Terrain.h"
+#include "VIBuffer_Cube.h"
 #include "VIBuffer_Rect.h"
 #include "Transform.h"
 #include "Renderer.h"

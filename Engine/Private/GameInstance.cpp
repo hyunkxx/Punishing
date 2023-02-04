@@ -98,6 +98,14 @@ HRESULT CGameInstance::Open_Level(_uint iLevelIndex, CLevel* pCurrentLevel)
 	return m_pLevel_Manager->Open_Level(iLevelIndex, pCurrentLevel);
 }
 
+void CGameInstance::RenderLevelUI()
+{
+	if (nullptr == m_pLevel_Manager)
+		return;
+
+	m_pLevel_Manager->RenderLevelUI();
+}
+
 HRESULT CGameInstance::Add_Prototype(const _tchar* pPrototypeTag, CGameObject* pPrototype)
 {
 	if (nullptr == m_pObject_Manager)
@@ -106,12 +114,12 @@ HRESULT CGameInstance::Add_Prototype(const _tchar* pPrototypeTag, CGameObject* p
 	return m_pObject_Manager->Add_Prototype(pPrototypeTag, pPrototype);
 }
 
-HRESULT CGameInstance::Add_GameObject(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pLayerTag, void* pArg)
+HRESULT CGameInstance::Add_GameObject(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pLayerTag, wstring strObjectTag, void* pArg)
 {
 	if (nullptr == m_pObject_Manager)
 		return E_FAIL;
 
-	return m_pObject_Manager->Add_GameObject(iLevelIndex, pPrototypeTag, pLayerTag, pArg);
+	return m_pObject_Manager->Add_GameObject(iLevelIndex, pPrototypeTag, pLayerTag, strObjectTag, pArg);
 }
 
 void CGameInstance::RenderGUI()

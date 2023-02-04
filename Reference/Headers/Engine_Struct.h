@@ -48,4 +48,17 @@ namespace Engine
 		static D3D11_INPUT_ELEMENT_DESC					Elements[3];
 	}VTXNORTEX_DECLARATION;
 
+	/* Cube */
+	typedef struct tagVertex_Position_Normal_TexCoord_CUBE
+	{
+		XMFLOAT3		vPosition;
+		XMFLOAT3		vNormal;
+		XMFLOAT3		vTexUV;
+	}VTXCUBE;
+
+	typedef struct ENGINE_DLL tagVertex_Position_Normal_Cube_Declaration
+	{
+		const static unsigned int						ElementCount = 2;
+		static D3D11_INPUT_ELEMENT_DESC					Elements[ElementCount];
+	}VTXCUBE_DECLARATION;
 }

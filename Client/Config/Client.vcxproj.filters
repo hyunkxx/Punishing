@@ -167,5 +167,8 @@
     <FxCompile Include="..\..\Shader\SHADER_ALPHA.hlsl">
       <Filter>src\99. ShaderFiles</Filter>
     </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_VTXCUBE.hlsl">
+      <Filter>src\99. ShaderFiles</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

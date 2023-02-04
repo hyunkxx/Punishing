@@ -10,24 +10,35 @@ CMapTool::CMapTool(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 
 HRESULT CMapTool::Initialize()
 {
-	if (FAILED(Ready_Layer_BackGround(TEXT("LAYER_BACKGROUND"))))
+	if (FAILED(Ready_Layer_BackGround(TEXT("layer_terrain"))))
 		return E_FAIL;
 
-	if (FAILED(Ready_Layre_Camera(TEXT("LAYER_CAMERA"))))
+	if (FAILED(Ready_Layre_Camera(TEXT("layer_camera"))))
 		return E_FAIL;
+
 	return S_OK;
 }
 
 void CMapTool::Tick(_double TimeDelta)
 {
-
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	
+	if (pGameInstance->Input_MouseState_Custom(DIMK_LB) == KEY_STATE::TAP)
+	{
+		wstring cube = L"cube" + to_wstring(m_CubeCount);
+		pGameInstance->Add_GameObject(TOOL_MAP, TEXT("proto_obj_cube"), L"layer_cube", cube.c_str());
+		m_CubeCount++;
+	}
 }
 
 HRESULT CMapTool::Ready_Layer_BackGround(const _tchar* pLayerTag)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	
+	if(FAILED(pGameInstance->Add_GameObject(TOOL_MAP, TEXT("proto_obj_terrain"), L"terrain", pLayerTag)))
+		return S_OK;
 
-	if(FAILED(pGameInstance->Add_GameObject(TOOL_MAP, TEXT("PROTO_OBJ_TERRAIN"), pLayerTag)))
+	if (FAILED(pGameInstance->Add_GameObject(TOOL_MAP, TEXT("proto_obj_cube"), L"cube", pLayerTag)))
 		return S_OK;
 
 	return S_OK;
@@ -52,10 +63,17 @@ HRESULT CMapTool::Ready_Layre_Camera(const _tchar* pLayerTag)
 	CameraDesc.fNear = 0.1f;
 	CameraDesc.fFar = 1000.f;
 
-	if (FAILED(pGameInstance->Add_GameObject(TOOL_MAP, TEXT("PROTO_OBJ_TOOL_CAMERA"), pLayerTag, &CameraDesc)))
+	if (FAILED(pGameInstance->Add_GameObject(TOOL_MAP, TEXT("proto_obj_tool_camera"), L"tool_camera", pLayerTag, &CameraDesc)))
 		return E_FAIL;
 
 	return S_OK;
+}
+
+void CMapTool::RenderLevelUI()
+{
+	ImGui::Begin("Level Layout");
+	ImGui::Text("Level Layour");
+	ImGui::End();
 }
 
 CMapTool* CMapTool::Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)

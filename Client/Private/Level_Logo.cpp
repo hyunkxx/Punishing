@@ -13,7 +13,7 @@ CLevel_Logo::CLevel_Logo(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 
 HRESULT CLevel_Logo::Initialize()
 {
-	if (FAILED(Ready_Layer_BackGround(TEXT("LAYER_BACKGROUND"))))
+	if (FAILED(Ready_Layer_BackGround(TEXT("layer_background"))))
 		return E_FAIL;
 
 	return S_OK;
@@ -39,7 +39,7 @@ HRESULT CLevel_Logo::Ready_Layer_BackGround(const _tchar* pLayerTag)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	if (FAILED(pGameInstance->Add_GameObject(LEVEL_LOGO, TEXT("PROTO_OBJ_BACKGROUND"), pLayerTag)))
+	if (FAILED(pGameInstance->Add_GameObject(LEVEL_LOGO, TEXT("proto_obj_background"), L"background", pLayerTag)))
 		return E_FAIL;
 
 	return S_OK;

@@ -3,10 +3,13 @@
 #include "Component_Manager.h"
 #include "GameInstance.h"
 #include "GUIManager.h"
-#include "Terrain.h"
-#include "ToolCamera.h"
+
 
 #include "MapTool.h"
+
+#include "ToolCamera.h"
+#include "Terrain.h"
+#include "Cube.h"
 
 CToolMain::CToolMain()
 	: m_pGUIManager{ CGUIManager::GetInstance() }
@@ -58,6 +61,7 @@ void CToolMain::LateTick(_double TimeDelta)
 void CToolMain::Render()
 {
 	m_pGUIManager->NewFrame();
+	m_pGameInstance->RenderLevelUI();
 	m_pGameInstance->RenderGUI();
 	m_pGUIManager->Render();
 
@@ -96,46 +100,58 @@ HRESULT CToolMain::Open_Level(TOOL_TYPE eType)
 
 HRESULT CToolMain::Initialize_Components()
 {
-	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_RENDERER"), m_pRenderer = CRenderer::Create(m_pDevice, m_pContext))))
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_renderer"), m_pRenderer = CRenderer::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 	
-	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_TRANSFORM"),
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_transform"),
 		CTransform::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
-	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_VIBUFFER_RECT"),
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_vibuffer_rect"),
 		CVIBuffer_Rect::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
-	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_VIBUFFER_TRIANGLE"),
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_vibuffer_cube"),
+		CVIBuffer_Cube::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_vibuffer_triangle"),
 		CVIBuffer_Triangle::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
-	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_VIBUFFER_TERRAIN"),
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_vibuffer_terrain"),
 		CVIBuffer_Terrain::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Terrain/Height.bmp")))))
 		return E_FAIL;
 
-	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_SHADER_VTXTEX"),
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_vibuffer_plane_terrain"),
+		CVIBuffer_Terrain::Create(m_pDevice, m_pContext, {64,64}))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_shader_vtxtex"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXTEX.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
 		return E_FAIL;
 
-	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_SHADER_ALPHA"),
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_shader_alpha"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_ALPHA.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
 		return E_FAIL;
-
-	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_SHADER_VTXNORTEX"),
+	
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_shader_vtxnortex"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXNORTEX.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
 		return E_FAIL;
 
-	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_SHADER_GROUD"),
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_shader_vtxcube"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXCUBE.hlsl"), VTXCUBE_DECLARATION::Elements, VTXCUBE_DECLARATION::ElementCount))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_shader_groud"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_GROUD.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
 		return E_FAIL;
 
-	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_SHADER_PHONG"),
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_shader_phong"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_PHONG.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
 		return E_FAIL;
 
-	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("PROTO_COM_TEXTURE_TERRAIN"), CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Terrain/Tile0.dds")))))
+	if (FAILED(m_pGameInstance->Add_Prototype(TOOL_STATIC, TEXT("proto_com_texture_terrain"), CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Terrain/Tile0.dds")))))
 		return E_FAIL;
 
 	Safe_AddRef(m_pRenderer);
@@ -145,10 +161,13 @@ HRESULT CToolMain::Initialize_Components()
 
 HRESULT CToolMain::Initialize_GameObjects()
 {
-	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("PROTO_OBJ_TERRAIN"), CTerrain::Create(m_pDevice, m_pContext))))
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_terrain"), CTerrain::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
-	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("PROTO_OBJ_TOOL_CAMERA"), CToolCamera::Create(m_pDevice, m_pContext))))
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_cube"), CCube::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_tool_camera"), CToolCamera::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
 	return S_OK;

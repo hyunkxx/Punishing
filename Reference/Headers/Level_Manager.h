@@ -15,6 +15,7 @@ private:
 public:
 	HRESULT Open_Level(_uint iLevelIndex, CLevel* pCurrentLevel);
 	void Tick_Level(_double TimeDelta);
+	void RenderLevelUI();
 public:
 	virtual void Free() override;
 

@@ -13,6 +13,7 @@ protected:
 public:
 	virtual HRESULT Initialize();
 	virtual void Tick(_double TimeDelta);
+	virtual void RenderLevelUI();
 
 public:
 	virtual void Free() override;

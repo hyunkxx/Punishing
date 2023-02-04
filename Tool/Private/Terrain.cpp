@@ -48,8 +48,8 @@ void CTerrain::LateTick(_double TimeDelta)
 {
 	__super::LateTick(TimeDelta);
 
-	if (nullptr != m_pRendererComponent)
-		m_pRendererComponent->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+	if (nullptr != m_pRenderer)
+		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 }
 
 HRESULT CTerrain::Render()
@@ -60,8 +60,8 @@ HRESULT CTerrain::Render()
 	if (FAILED(Setup_ShaderResources()))
 		return E_FAIL;
 
-	m_pShaderComponent->Begin(0);
-	m_pVIBufferComponent->Render();
+	m_pShader->Begin(0);
+	m_pVIBuffer->Render();
 
 	return S_OK;   
 }
@@ -119,9 +119,9 @@ _bool CTerrain::Terrain_Picking()
 
 	CVIBuffer_Terrain::TERRAIN_SIZE terrainSize;
 	ZeroMemory(&terrainSize, sizeof(terrainSize));
-	terrainSize = m_pVIBufferComponent->GetTerrainSize();
+	terrainSize = m_pVIBuffer->GetTerrainSize();
 
-	_float3* vertexPos = m_pVIBufferComponent->GetVertexPosition();
+	_float3* vertexPos = m_pVIBuffer->GetVertexPosition();
 
 	m_fDistance = 1000.f;
 	_float fDist = 1000.f;
@@ -178,8 +178,8 @@ _bool CTerrain::Terrain_Picking()
 
 HRESULT CTerrain::Add_Components()
 {
-	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("PROTO_COM_RENDERER"),
-		TEXT("COM_RENDERER"), (CComponent**)&m_pRendererComponent)))
+	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("proto_com_renderer"),
+		TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
 		return E_FAIL;
 
 	CTransform::TRANSFORM_DESC TransformDesc;
@@ -188,20 +188,20 @@ HRESULT CTerrain::Add_Components()
 	TransformDesc.fMoveSpeed = 5.f;
 	TransformDesc.fRotationSpeed = XMConvertToRadians(90.f);
 
-	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("PROTO_COM_TRANSFORM"),
-		TEXT("COM_TRANSFORM"), (CComponent**)&m_pTransformComponent)))
+	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("proto_com_transform"),
+		TEXT("com_transform"), (CComponent**)&m_pTransform)))
 		return E_FAIL;
 
-	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("PROTO_COM_VIBUFFER_TERRAIN"),
-		TEXT("COM_VIBUFFER"), (CComponent**)&m_pVIBufferComponent)))
+	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("proto_com_vibuffer_plane_terrain"),
+		TEXT("com_vibuffer"), (CComponent**)&m_pVIBuffer)))
 		return E_FAIL;
 
-	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("PROTO_COM_SHADER_PHONG"),
-		TEXT("COM_SHADER"), (CComponent**)&m_pShaderComponent)))
+	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("proto_com_shader_phong"),
+		TEXT("com_shader"), (CComponent**)&m_pShader)))
 		return E_FAIL;
 
-	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("PROTO_COM_TEXTURE_TERRAIN"),
-		TEXT("COM_TEXTURE"), (CComponent**)&m_pTextureComponent)))
+	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("proto_com_texture_terrain"),
+		TEXT("com_texture"), (CComponent**)&m_pTexture)))
 		return E_FAIL;
 
 	return S_OK;
@@ -209,24 +209,24 @@ HRESULT CTerrain::Add_Components()
 
 HRESULT CTerrain::Setup_ShaderResources()
 {
-	if (nullptr == m_pShaderComponent)
+	if (nullptr == m_pShader)
 		return E_FAIL;
 
 	CPipeLine* pPipeline= CPipeLine::GetInstance();
 
-	if (FAILED(m_pTransformComponent->Setup_ShaderResource(m_pShaderComponent, "g_WorldMatrix")))
+	if (FAILED(m_pTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
 		return E_FAIL;
 	
-	if (FAILED(m_pShaderComponent->SetMatrix("g_ViewMatrix", &pPipeline->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
+	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &pPipeline->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
 		return E_FAIL;
 
-	if (FAILED(m_pShaderComponent->SetMatrix("g_ProjMatrix", &pPipeline->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
+	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &pPipeline->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
 		return E_FAIL;
 
-	if (FAILED(m_pShaderComponent->SetRawValue("g_vCamPosition", &pPipeline->Get_CamPosition(), sizeof(_float4))))
+	if (FAILED(m_pShader->SetRawValue("g_vCamPosition", &pPipeline->Get_CamPosition(), sizeof(_float4))))
 		return E_FAIL;
 
-	if (FAILED(m_pTextureComponent->Setup_ShaderResource(m_pShaderComponent, "g_DiffuseTexture", 0)))
+	if (FAILED(m_pTexture->Setup_ShaderResource(m_pShader, "g_DiffuseTexture", 0)))
 		return E_FAIL;
 
 	return S_OK;
@@ -262,9 +262,9 @@ void CTerrain::Free()
 {
 	__super::Free();
 
-	Safe_Release(m_pTransformComponent);
-	Safe_Release(m_pVIBufferComponent);
-	Safe_Release(m_pShaderComponent);
-	Safe_Release(m_pRendererComponent);
-	Safe_Release(m_pTextureComponent);
+	Safe_Release(m_pTransform);
+	Safe_Release(m_pVIBuffer);
+	Safe_Release(m_pShader);
+	Safe_Release(m_pRenderer);
+	Safe_Release(m_pTexture);
 }

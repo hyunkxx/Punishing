@@ -50,8 +50,8 @@ void CBackGround::LateTick(_double TimeDelta)
 {
 	__super::LateTick(TimeDelta);
 
-	if (nullptr != m_pRendererComponent)
-		m_pRendererComponent->Add_RenderGroup(CRenderer::RENDER_PRIORITY, this);
+	if (nullptr != m_pRenderer)
+		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_PRIORITY, this);
 }
 
 HRESULT CBackGround::Render()
@@ -62,28 +62,28 @@ HRESULT CBackGround::Render()
 	if (FAILED(Setup_ShaderResources()))
 		return E_FAIL;
 
-	m_pShaderComponent->Begin(0);
-	m_pVIBufferComponent->Render();
+	m_pShader->Begin(0);
+	m_pVIBuffer->Render();
 
 	return S_OK;
 }
 
 HRESULT CBackGround::Add_Components()
 {
- 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("PROTO_COM_RENDERER"),
-		TEXT("COM_RENDERER"), (CComponent**)&m_pRendererComponent)))
+ 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"),
+		TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
 		return E_FAIL;
 
-	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("PROTO_COM_VIBUFFER_RECT"),
-		TEXT("COM_VIBUFFER"), (CComponent**)&m_pVIBufferComponent)))
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		TEXT("com_vibuffer"), (CComponent**)&m_pVIBuffer)))
 		return E_FAIL;
 
-	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("PROTO_COM_SHADER_VTXTEX"),
-		TEXT("COM_SHADER"), (CComponent**)&m_pShaderComponent)))
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxtex"),
+		TEXT("com_shader"), (CComponent**)&m_pShader)))
 		return E_FAIL;
 
-	if (FAILED(__super::Add_Component(LEVEL_LOGO, TEXT("PROTO_COM_TEXTURE_BACKGROUND"),
-		TEXT("COM_TEXTURE"), (CComponent**)&m_pTextureComponent)))
+	if (FAILED(__super::Add_Component(LEVEL_LOGO, TEXT("proto_com_texture_background"),
+		TEXT("com_texture"), (CComponent**)&m_pTexture)))
 		return E_FAIL;
 
 	return S_OK;
@@ -91,17 +91,17 @@ HRESULT CBackGround::Add_Components()
 
 HRESULT CBackGround::Setup_ShaderResources()
 {
-	if (nullptr == m_pShaderComponent || nullptr == m_pTextureComponent)
+	if (nullptr == m_pShader || nullptr == m_pTexture)
 		return E_FAIL;
 
-	if (FAILED(m_pShaderComponent->SetMatrix("g_WorldMatrix", &m_WorldMatrix)))
+	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_WorldMatrix)))
 		return E_FAIL;
-	if (FAILED(m_pShaderComponent->SetMatrix("g_ViewMatrix", &m_ViewMatrix)))
+	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &m_ViewMatrix)))
 		return E_FAIL;
-	if (FAILED(m_pShaderComponent->SetMatrix("g_ProjMatrix", &m_ProjMatrix)))
+	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &m_ProjMatrix)))
 		return E_FAIL;
 
-	if (FAILED(m_pTextureComponent->Setup_ShaderResource(m_pShaderComponent, "g_Texture")))
+	if (FAILED(m_pTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
 		return E_FAIL;
 	 
 	return S_OK;
@@ -137,8 +137,8 @@ void CBackGround::Free()
 {
 	__super::Free();
 
-	Safe_Release(m_pTextureComponent);
-	Safe_Release(m_pRendererComponent);
-	Safe_Release(m_pShaderComponent);
-	Safe_Release(m_pVIBufferComponent);
+	Safe_Release(m_pTexture);
+	Safe_Release(m_pRenderer);
+	Safe_Release(m_pShader);
+	Safe_Release(m_pVIBuffer);
 }

@@ -56,7 +56,7 @@ HRESULT CLoader::Load_Level_Logo()
 	
 	m_szLoadingStateText = L"텍스쳐를 로딩중입니다.";
 
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_LOGO, TEXT("PROTO_COM_TEXTURE_BACKGROUND"),
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_LOGO, TEXT("proto_com_texture_background"),
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/background.jpg")))))
 		return E_FAIL;
 
@@ -72,7 +72,7 @@ HRESULT CLoader::Load_Level_Logo()
 #pragma region GAMEOBJECTS
 	
 	m_szLoadingStateText = L"객체 원형을 준비중";
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("PROTO_OBJ_BACKGROUND"), CBackGround::Create(m_pDevice, m_pContext))))
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_background"), CBackGround::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
 #pragma endregion
@@ -90,15 +90,15 @@ HRESULT CLoader::Load_Level_GamePlay()
 #pragma region COMPONENTS
 	m_szLoadingStateText = L"텍스쳐를 로딩중입니다.";
 
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("PROTO_COM_SHADER_VTXNORTEX"),
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_shader_vtxnortex"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXNORTEX.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
 		return E_FAIL;
 
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("PROTO_COM_TEXTURE_TERRAIN"),
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_texture_terrain"),
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Terrain/Tile0.dds")))))
 		return E_FAIL;
 
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("PROTO_COM_VIBUFFER_TERRAIN"),
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_vibuffer_terrain"),
 		CVIBuffer_Terrain::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Terrain/Height.bmp")))))
 		return E_FAIL;
 
@@ -113,7 +113,7 @@ HRESULT CLoader::Load_Level_GamePlay()
 	//GamePlay GameObject
 #pragma region GAMEOBJECTS
 
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("PROTO_OBJ_TERRAIN"), CTerrain::Create(m_pDevice, m_pContext))))
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_terrain"), CTerrain::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
 #pragma endregion

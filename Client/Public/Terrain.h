@@ -36,11 +36,11 @@ public:
 	virtual void Free() override;
 
 private:
-	CShader*			m_pShaderComponent = { nullptr };
-	CTexture*			m_pTextureComponent = { nullptr };
-	CRenderer*			m_pRendererComponent = { nullptr };
-	CTransform*			m_pTransformComponent = { nullptr };
-	CVIBuffer_Terrain*	m_pVIBufferComponent = { nullptr };
+	CShader*			m_pShader = { nullptr };
+	CTexture*			m_pTexture = { nullptr };
+	CRenderer*			m_pRenderer = { nullptr };
+	CTransform*			m_pTransform = { nullptr };
+	CVIBuffer_Terrain*	m_pVIBuffer = { nullptr };
 
 };
 

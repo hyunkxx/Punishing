@@ -32,14 +32,17 @@
     <Filter Include="src\03. GameObject">
       <UniqueIdentifier>{7c6bca5b-a06f-4bea-b0d6-f2119ed81960}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\03. GameObject\Terrain">
-      <UniqueIdentifier>{0fa0f92e-17c6-4e5f-890d-b4e8199013db}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\01. MapTool">
       <UniqueIdentifier>{ee39e547-4fb4-41b0-b388-06fd2be378d4}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\03. GameObject\Camera">
       <UniqueIdentifier>{d042b94b-b1f5-4160-bd9d-d6e807923501}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\03. GameObject\Cube">
+      <UniqueIdentifier>{d5bb6a7c-c1cf-412f-8f9f-4b9232a42f21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\03. GameObject\Terrain">
+      <UniqueIdentifier>{0fa0f92e-17c6-4e5f-890d-b4e8199013db}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -88,11 +91,14 @@
     <ClInclude Include="..\Public\Terrain.h">
       <Filter>src\03. GameObject\Terrain</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\MapTool.h">
-      <Filter>src\01. MapTool</Filter>
-    </ClInclude>
     <ClInclude Include="..\public\ToolCamera.h">
       <Filter>src\03. GameObject\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Cube.h">
+      <Filter>src\03. GameObject\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\MapTool.h">
+      <Filter>src\01. MapTool</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +143,9 @@
     </ClCompile>
     <ClCompile Include="..\private\ToolCamera.cpp">
       <Filter>src\03. GameObject\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Cube.cpp">
+      <Filter>src\03. GameObject\Cube</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

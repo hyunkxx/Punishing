@@ -2,10 +2,6 @@
 
 #include "Base.h"
 
-// 뷰, 투영 행렬을 보관하는 객체
-// 매 프레임마다 각 객체들이 사용할 수 있는 뷰, 투영행렬의 역행렬을 구한다.
-// 뷰 행렬의 역행렬 = 카메라의, 월드행렬 즉, 카메라의 월드위치를 구하고 저장한다.
-
 BEGIN(Engine)
 
 class ENGINE_DLL CPipeLine : public CBase
@@ -14,6 +10,21 @@ class ENGINE_DLL CPipeLine : public CBase
 
 public:
 	enum TRANSFORM_STATE { TS_VIEW, TS_PROJ, TS_END };
+
+	struct RAY_DESC
+	{
+		_float3 mRayPos;
+		_float3 mRayDir;
+		_float3 mHitPos;
+		_float mRayDistance = 1000.f;
+		_float mHitDistance;
+	};
+
+	struct CLIENT_DESC
+	{
+		HWND hWnd;
+		POINT mViewportSize;
+	};
 
 private:
 	CPipeLine() = default;
@@ -28,6 +39,8 @@ public:
 
 public:
 	void Set_Transform(TRANSFORM_STATE eState, _fmatrix TransformMatrix);
+	_bool RaycastFromCusor(_vector v1, _vector v2, _vector v3, RAY_DESC* rayDesc, const CLIENT_DESC& ViewportSize);
+	_bool Raycast(_vector v1, _vector v2, _vector v3, RAY_DESC* rayDesc);
 
 public:
 	HRESULT Initialize();

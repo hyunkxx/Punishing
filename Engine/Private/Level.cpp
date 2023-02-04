@@ -18,6 +18,10 @@ void CLevel::Tick(_double TimeDelta)
 {
 }
 
+void CLevel::RenderLevelUI()
+{
+}
+
 void CLevel::Free()
 {
 	Safe_Release(m_pContext);

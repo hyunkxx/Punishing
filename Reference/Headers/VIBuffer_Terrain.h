@@ -20,7 +20,10 @@ protected:
 
 public:
 	virtual	HRESULT Initialize_Prototype(const _tchar* pHeightMapFilePath);
+	virtual	HRESULT Initialize_Prototype(const TERRAIN_SIZE& iSize);
 	virtual	HRESULT Initialize(void* pArg);
+
+	_bool IsHeightMap() { return m_isHeightMap; }
 	_float3* GetVertexPosition() { return m_VertexPos; };
 
 	TERRAIN_SIZE GetTerrainSize()
@@ -35,10 +38,12 @@ public:
 
 public:
 	static CVIBuffer_Terrain* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, const _tchar* pHeightMapFilePath);
+	static CVIBuffer_Terrain* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, const TERRAIN_SIZE& iSize);
 	virtual CComponent* Clone(void* pArg = nullptr);
 	virtual void Free() override;
 
 private:
+	_bool m_isHeightMap = { false };
 	_ulong m_dwVertexCountX = { 0 };
 	_ulong m_dwVertexCountZ = { 0 };
 
