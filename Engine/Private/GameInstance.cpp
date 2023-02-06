@@ -6,6 +6,7 @@
 #include "Component_Manager.h"
 #include "Timer_Manager.h"
 #include "Input_Device.h"
+#include "Layer.h"
 
 IMPLEMENT_SINGLETON(CGameInstance)
 
@@ -128,6 +129,36 @@ void CGameInstance::RenderGUI()
 		return;
 
 	m_pObject_Manager->RenderGUI();
+}
+
+CLayer* CGameInstance::Find_Layer(_uint iLevelIndex, const _tchar* pLayerTag)
+{
+	if (nullptr == m_pObject_Manager)
+		return nullptr;
+
+	return m_pObject_Manager->Find_Layer(iLevelIndex, pLayerTag);
+}
+
+CGameObject* CGameInstance::Find_GameObject(_uint iLevelIndex, const _tchar* pLayerTag, wstring strObjectTag)
+{
+	if (nullptr == m_pObject_Manager)
+		return nullptr;
+
+	CLayer* pLayer = m_pObject_Manager->Find_Layer(iLevelIndex, pLayerTag);
+	if (nullptr == pLayer)
+		return nullptr;
+
+	CGameObject* pGameObject = nullptr;
+	pGameObject = pLayer->Find_GameObject(strObjectTag);
+	if (nullptr == pGameObject)
+		return nullptr;
+
+	return pGameObject;
+}
+
+CComponent* CGameInstance::Find_Component(const _tchar * pComponentTag)
+{
+	return nullptr;
 }
 
 HRESULT CGameInstance::Add_Prototype(_uint iLevelIndex, const _tchar * pPrototypeTag, CComponent * pPrototype)

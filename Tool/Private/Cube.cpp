@@ -33,7 +33,8 @@ HRESULT CCube::Initialize(void* pArg)
 	if (FAILED(Add_Components()))
 		return E_FAIL;
 
-	m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(1.f, 1.f, m_iID * 1.f, 1.f));
+	m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(1.f, 1.f, m_iID * 3.f, 1.f));
+	m_pTransform->SetRotation(XMVectorSet(0.f, 1.f, 0.f, 0.f), 30.f);
 
 	return S_OK;
 }
@@ -41,7 +42,6 @@ HRESULT CCube::Initialize(void* pArg)
 void CCube::Tick(_double TimeDelta)
 {
 	__super::Tick(TimeDelta);
-
 }
 
 void CCube::LateTick(_double TimeDelta)
@@ -60,15 +60,148 @@ HRESULT CCube::Render()
 	if (FAILED(Setup_ShaderResources()))
 		return E_FAIL;
 
-	m_pShader->Begin(0);
+	if(m_IsSelect)
+		m_pShader->Begin(1);
+	else
+		m_pShader->Begin(0);
+
 	m_pVIBuffer->Render();
 
-	//동적리소스?ㅇㅇ
 	return S_OK;
 }
 
 void CCube::RenderGUI()
 {
+}
+
+_float CCube::Picking()
+{
+	CPipeLine* pPipeline = CPipeLine::GetInstance();
+
+	CPipeLine::RAY_DESC rayDesc;
+	ZeroMemory(&rayDesc, sizeof(rayDesc));
+	rayDesc.mRayDistance = 1000.f;
+	
+	CPipeLine::CLIENT_DESC clientDesc;
+	ZeroMemory(&clientDesc, sizeof(clientDesc));
+	clientDesc.hWnd = g_hWnd;
+	clientDesc.mViewportSize.x = g_iWinSizeX;
+	clientDesc.mViewportSize.y = g_iWinSizeY;
+	
+	_float3* pVertexPos = m_pVIBuffer->GetVertexPosition();
+	
+	_vector v0 = XMLoadFloat3(&pVertexPos[0]);
+	_vector v1 = XMLoadFloat3(&pVertexPos[1]);
+	_vector v2 = XMLoadFloat3(&pVertexPos[2]);
+	_vector v3 = XMLoadFloat3(&pVertexPos[3]);
+	_vector v4 = XMLoadFloat3(&pVertexPos[4]);
+	_vector v5 = XMLoadFloat3(&pVertexPos[5]);
+	_vector v6 = XMLoadFloat3(&pVertexPos[6]);
+	_vector v7 = XMLoadFloat3(&pVertexPos[7]);
+
+	rayDesc = pPipeline->CreateLocalRay(clientDesc, m_pTransform->Get_WorldMatrixInverse());
+
+	_vector rayPos = XMVectorSet(rayDesc.mRayPos.x, rayDesc.mRayPos.y, rayDesc.mRayPos.z, 1.f);
+	_vector rayDir = XMVectorSet(rayDesc.mRayDir.x, rayDesc.mRayDir.y, rayDesc.mRayDir.z, 0.f);
+
+	if (TriangleTests::Intersects(rayPos, rayDir, v0, v1, v2, rayDesc.mHitDistance))
+	{
+		if (rayDesc.mRayDistance > rayDesc.mHitDistance)
+		{
+			XMStoreFloat3(&rayDesc.mHitPos, rayPos + rayDir * rayDesc.mHitDistance);
+			return rayDesc.mHitDistance;
+		}
+	}
+	if (TriangleTests::Intersects(rayPos, rayDir, v0, v2, v3, rayDesc.mHitDistance))
+	{
+		if (rayDesc.mRayDistance > rayDesc.mHitDistance)
+		{
+			XMStoreFloat3(&rayDesc.mHitPos, rayPos + rayDir * rayDesc.mHitDistance);
+			return rayDesc.mHitDistance;
+		}
+	}
+	if (TriangleTests::Intersects(rayPos, rayDir, v7, v6, v5, rayDesc.mHitDistance))
+	{
+		if (rayDesc.mRayDistance > rayDesc.mHitDistance)
+		{
+			XMStoreFloat3(&rayDesc.mHitPos, rayPos + rayDir * rayDesc.mHitDistance);
+			return rayDesc.mHitDistance;
+		}
+	}
+	if (TriangleTests::Intersects(rayPos, rayDir, v7, v5, v4, rayDesc.mHitDistance))
+	{
+		if (rayDesc.mRayDistance > rayDesc.mHitDistance)
+		{
+			XMStoreFloat3(&rayDesc.mHitPos, rayPos + rayDir * rayDesc.mHitDistance);
+			return rayDesc.mHitDistance;
+		}
+	}
+	if (TriangleTests::Intersects(rayPos, rayDir, v3, v2, v6, rayDesc.mHitDistance))
+	{
+		if (rayDesc.mRayDistance > rayDesc.mHitDistance)
+		{
+			XMStoreFloat3(&rayDesc.mHitPos, rayPos + rayDir * rayDesc.mHitDistance);
+			return rayDesc.mHitDistance;
+		}
+	}
+	if (TriangleTests::Intersects(rayPos, rayDir, v3, v6, v7, rayDesc.mHitDistance))
+	{
+		if (rayDesc.mRayDistance > rayDesc.mHitDistance)
+		{
+			XMStoreFloat3(&rayDesc.mHitPos, rayPos + rayDir * rayDesc.mHitDistance);
+			return rayDesc.mHitDistance;
+		}
+	}
+	if (TriangleTests::Intersects(rayPos, rayDir, v4, v5, v1, rayDesc.mHitDistance))
+	{
+		if (rayDesc.mRayDistance > rayDesc.mHitDistance)
+		{
+			XMStoreFloat3(&rayDesc.mHitPos, rayPos + rayDir * rayDesc.mHitDistance);
+			return rayDesc.mHitDistance;
+		}
+	}
+	if (TriangleTests::Intersects(rayPos, rayDir, v4, v1, v0, rayDesc.mHitDistance))
+	{
+		if (rayDesc.mRayDistance > rayDesc.mHitDistance)
+		{
+			XMStoreFloat3(&rayDesc.mHitPos, rayPos + rayDir * rayDesc.mHitDistance);
+			return rayDesc.mHitDistance;
+		}
+	}
+	if (TriangleTests::Intersects(rayPos, rayDir, v4, v0, v3, rayDesc.mHitDistance))
+	{
+		if (rayDesc.mRayDistance > rayDesc.mHitDistance)
+		{
+			XMStoreFloat3(&rayDesc.mHitPos, rayPos + rayDir * rayDesc.mHitDistance);
+			return rayDesc.mHitDistance;
+		}
+	}
+	if (TriangleTests::Intersects(rayPos, rayDir, v4, v3, v7, rayDesc.mHitDistance))
+	{
+		if (rayDesc.mRayDistance > rayDesc.mHitDistance)
+		{
+			XMStoreFloat3(&rayDesc.mHitPos, rayPos + rayDir * rayDesc.mHitDistance);
+			return rayDesc.mHitDistance;
+		}
+	}
+	if (TriangleTests::Intersects(rayPos, rayDir, v1, v5, v6, rayDesc.mHitDistance))
+	{
+		if (rayDesc.mRayDistance > rayDesc.mHitDistance)
+		{
+			XMStoreFloat3(&rayDesc.mHitPos, rayPos + rayDir * rayDesc.mHitDistance);
+			return rayDesc.mHitDistance;
+		}
+	}
+	if (TriangleTests::Intersects(rayPos, rayDir, v1, v6, v2, rayDesc.mHitDistance))
+	{
+		if (rayDesc.mRayDistance > rayDesc.mHitDistance)
+		{
+			XMStoreFloat3(&rayDesc.mHitPos, rayPos + rayDir * rayDesc.mHitDistance);
+			return rayDesc.mHitDistance;
+		}
+	}
+
+	return rayDesc.mHitDistance;
 }
 
 HRESULT CCube::Add_Components()

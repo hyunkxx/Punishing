@@ -29,6 +29,10 @@ public:
 
 public:
 	_uint GetID() const { return m_iID;	}
+	_float Picking();
+	_bool IsSelect() { return m_IsSelect; }
+	void Select() { m_IsSelect = true; }
+	void UnSelect() { m_IsSelect = false; }
 
 private:
 	HRESULT Add_Components();
@@ -47,6 +51,7 @@ private:
 
 private:
 	static _uint m_iID;
+	bool m_IsSelect = false;
 
 };
 

@@ -70,12 +70,12 @@ void CTerrain::RenderGUI()
 {
 	ImGui::Begin("Terrain Component");
 	
-	m_IsPick ? ImGui::Text("Pick : TRUE") : ImGui::Text("Pick : FALSE");
-	
-	ImGui::InputFloat("Distance", (float*)&m_fDistance);
-	ImGui::DragFloat4("Origin", (float*)&origin);
-	ImGui::DragFloat4("Direction", (float*)&dir);
-	ImGui::DragFloat4("CamPosition", (float*)&vCam);
+	//m_IsPick ? ImGui::Text("Pick : TRUE") : ImGui::Text("Pick : FALSE");
+	//
+	//ImGui::InputFloat("Distance", (float*)&m_fDistance);
+	//ImGui::DragFloat4("Origin", (float*)&origin);
+	//ImGui::DragFloat4("Direction", (float*)&dir);
+	//ImGui::DragFloat4("CamPosition", (float*)&vCam);
 
 	ImGui::End();
 }
@@ -149,8 +149,10 @@ _bool CTerrain::Terrain_Picking()
 					ret = true;
 
 					XMStoreFloat3(&m_v1, v1);
-					XMStoreFloat3(&m_v1, v2);
-					XMStoreFloat3(&m_v1, v3);
+					XMStoreFloat3(&m_v2, v2);
+					XMStoreFloat3(&m_v3, v3);
+
+					XMStoreFloat4(&pickPos, vRayPos + vRayDir * fDist);
 				}
 			}
 
@@ -166,8 +168,10 @@ _bool CTerrain::Terrain_Picking()
 					ret = true;
 
 					XMStoreFloat3(&m_v1, v1);
-					XMStoreFloat3(&m_v1, v2);
-					XMStoreFloat3(&m_v1, v3);
+					XMStoreFloat3(&m_v2, v2);
+					XMStoreFloat3(&m_v3, v3);
+
+					XMStoreFloat4(&pickPos, vRayPos + vRayDir * fDist);
 				}
 			}
 		}

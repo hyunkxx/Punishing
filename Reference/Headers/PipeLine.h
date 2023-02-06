@@ -16,7 +16,7 @@ public:
 		_float3 mRayPos;
 		_float3 mRayDir;
 		_float3 mHitPos;
-		_float mRayDistance = 1000.f;
+		_float mRayDistance;
 		_float mHitDistance;
 	};
 
@@ -39,8 +39,8 @@ public:
 
 public:
 	void Set_Transform(TRANSFORM_STATE eState, _fmatrix TransformMatrix);
-	_bool RaycastFromCusor(_vector v1, _vector v2, _vector v3, RAY_DESC* rayDesc, const CLIENT_DESC& ViewportSize);
-	_bool Raycast(_vector v1, _vector v2, _vector v3, RAY_DESC* rayDesc);
+	RAY_DESC CreateWorldRay(const CLIENT_DESC& clientDesc, _float rayDistance = 1000.f);
+	RAY_DESC CreateLocalRay(const CLIENT_DESC& clientDesc, _matrix matWorldInverse, _float rayDistance = 1000.f);
 
 public:
 	HRESULT Initialize();

@@ -35,6 +35,9 @@ private:
 	HRESULT Setup_ShaderResources();
 
 public:
+	_float4 GetPickPosition() { return pickPos; }
+
+public:
 	static CTerrain* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	virtual CGameObject* Clone(void* pArg = nullptr) override;
 	virtual void Free() override;
@@ -50,7 +53,7 @@ private:
 	_bool m_IsPick = { false };
 	_float m_fDistance = { 1000.f };
 	_float4 origin, dir, vCam;
-	_float4 pickPos;
+	_float4 pickPos{ 0.f, 0.f, 0.f, 1.f };
 	_float3 m_v1, m_v2, m_v3;
 };
 

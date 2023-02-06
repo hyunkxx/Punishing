@@ -1,4 +1,5 @@
-matrix				g_WorldMatrix, g_ViewMatrix, g_ProjMatrix;
+matrix g_WorldMatrix, g_ViewMatrix, g_ProjMatrix;
+float4 vColor = float4(1.f, 1.f, 1.f, 1.f);
 
 sampler LinearSampler = sampler_state {
 	filter = min_mag_mip_linear;
@@ -23,7 +24,7 @@ struct VS_OUT
 	float4 vPosition : SV_POSITION;
 };
 
-VS_OUT VS_MAIN(VS_IN In)
+VS_OUT vs_main(VS_IN In)
 {
 	VS_OUT Out = (VS_OUT)0;
 
@@ -47,7 +48,7 @@ struct PS_OUT
 	float4 vColor : SV_TARGET0;
 };
 
-PS_OUT PS_MAIN(PS_IN In)
+PS_OUT ps_nonclick(PS_IN In)
 {
 	PS_OUT Out = (PS_OUT)0;
 
@@ -56,14 +57,32 @@ PS_OUT PS_MAIN(PS_IN In)
 	return Out;
 }
 
+PS_OUT ps_click(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+
+	Out.vColor = float4(0.5f, 0.0f, 0.5f, 1.f);
+
+	return Out;
+}
+
 technique11 DefaultTachnique
 {
-	pass Default
+	pass NonClickColor
 	{
-		VertexShader = compile vs_5_0 VS_MAIN();
+		VertexShader = compile vs_5_0 vs_main();
 		GeometryShader = NULL;
 		HullShader = NULL;
 		DomainShader = NULL;
-		PixelShader = compile ps_5_0 PS_MAIN();
+		PixelShader = compile ps_5_0 ps_nonclick();
+	}
+
+	pass ClickColor
+	{
+		VertexShader = compile vs_5_0 vs_main();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 ps_click();
 	}
 }

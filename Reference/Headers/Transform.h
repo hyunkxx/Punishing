@@ -28,6 +28,7 @@ public:
 	_vector Get_State(STATE eState) { return XMLoadFloat4x4(&m_WorldMatrix).r[eState]; }
 	_matrix Get_WorldMatrixInverse() { return XMMatrixInverse(nullptr, XMLoadFloat4x4(&m_WorldMatrix)); }
 	_float3 Get_Scale();
+	_float3 Get_Angle() const { return m_fAngle; };
 	void Set_State(STATE eState, _fvector vState);
 	void Set_TransformDesc(const TRANSFORM_DESC& TransformDesc) { m_TransformDesc = TransformDesc; }
 

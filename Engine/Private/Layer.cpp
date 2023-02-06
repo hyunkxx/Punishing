@@ -29,16 +29,31 @@ void CLayer::Tick(_double TimeDelta)
 	for (auto& pGameObject : m_GameObjects)
 	{
 		if (nullptr != pGameObject.second)
-			pGameObject.second->Tick(TimeDelta);
+		{
+			if(pGameObject.second->IsActive())
+				pGameObject.second->Tick(TimeDelta);
+		}
 	}
 }
 
 void CLayer::LateTick(_double TimeDelta)
 {
- 	for (auto& pGameObject : m_GameObjects)
+	for (auto iter = m_GameObjects.begin(); iter != m_GameObjects.end();)
 	{
-		if (nullptr != pGameObject.second)
-			pGameObject.second->LateTick(TimeDelta);
+		if (nullptr != iter->second)
+		{
+			if (iter->second->IsDestroy())
+			{
+				Safe_Release(iter->second);
+				iter = m_GameObjects.erase(iter);
+				continue;
+			}
+
+			if (iter->second->IsActive())
+				iter->second->LateTick(TimeDelta);
+
+			iter++;
+		}
 	}
 }
 

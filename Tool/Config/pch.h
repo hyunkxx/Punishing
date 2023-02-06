@@ -6,6 +6,7 @@
 
 #include "Engine_Defines.h"
 
+#include <limits>
 #include <windows.h>
 #include <stdlib.h>
 #include <malloc.h>
@@ -18,6 +19,9 @@ namespace Tool
 	const static _uint g_iWinSizeY = 720;
 
 	enum TOOL_TYPE { TOOL_STATIC, TOOL_MAP, TOOL_END };
+
+	const static float g_fDetailWidth = 400.f;
+	const static float g_fDetailHeight = 720.f;
 };
 
 extern HINSTANCE g_hInst;

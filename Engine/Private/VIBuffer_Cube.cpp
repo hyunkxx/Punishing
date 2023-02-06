@@ -7,6 +7,7 @@ CVIBuffer_Cube::CVIBuffer_Cube(ID3D11Device* pDevice, ID3D11DeviceContext* pCont
 
 CVIBuffer_Cube::CVIBuffer_Cube(const CVIBuffer_Cube& rhs)
 	: CVIBuffer(rhs)
+	, m_pVertexPosition(rhs.m_pVertexPosition)
 {
 }
 
@@ -25,21 +26,31 @@ HRESULT CVIBuffer_Cube::Initialize_Prototype()
 	VTXCUBE* pVertices = new VTXCUBE[m_iVerticesCount];
 	ZeroMemory(pVertices, sizeof(VTXCUBE) * m_iVerticesCount);
 
+	m_pVertexPosition = new _float3[m_iVerticesCount];
+	
 	pVertices[0].vPosition = { -1.f, 1.f, -1.f };
+	m_pVertexPosition[0] = pVertices[0].vPosition;
 
 	pVertices[1].vPosition = { 1.f, 1.f,-1.f };
+	m_pVertexPosition[1] = pVertices[1].vPosition;
 
 	pVertices[2].vPosition = { 1.f, -1.f, -1.f };
+	m_pVertexPosition[2] = pVertices[2].vPosition;
 
 	pVertices[3].vPosition = { -1.f, -1.f, -1.f };
+	m_pVertexPosition[3] = pVertices[3].vPosition;
 
 	pVertices[4].vPosition = { -1.f, 1.f, 1.f };
+	m_pVertexPosition[4] = pVertices[4].vPosition;
 
 	pVertices[5].vPosition = { 1.f, 1.f, 1.f };
+	m_pVertexPosition[5] = pVertices[5].vPosition;
 
 	pVertices[6].vPosition = { 1.f, -1.f, 1.f };
+	m_pVertexPosition[6] = pVertices[6].vPosition;
 
 	pVertices[7].vPosition = { -1.f, -1.f, 1.f };
+	m_pVertexPosition[7] = pVertices[7].vPosition;
 #pragma endregion
 
 
@@ -200,4 +211,7 @@ CComponent* CVIBuffer_Cube::Clone(void* pArg)
 void CVIBuffer_Cube::Free()
 {
 	__super::Free();
+
+	if (false == m_isClone)
+		Safe_Delete_Array(m_pVertexPosition);
 }

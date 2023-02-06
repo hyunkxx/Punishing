@@ -19,7 +19,7 @@ protected:
 	CTerrain(const CTerrain& rhs);
 	virtual ~CTerrain() = default;
 
-public:
+public: 
 	virtual	HRESULT Initialize_Prototype() override;
 	virtual	HRESULT Initialize(void* pArg) override;
 	virtual void Tick(_double TimeDelta) override;

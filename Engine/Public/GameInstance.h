@@ -31,6 +31,10 @@ public: //Object_Manager
 	HRESULT Add_GameObject(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pLayerTag, wstring strObjectTag, void* pArg = nullptr);
 	void	RenderGUI();
 
+	class CLayer* Find_Layer(_uint iLevelIndex, const _tchar* pLayerTag);
+	class CGameObject* Find_GameObject(_uint iLevelIndex, const _tchar* pLayerTag, wstring strObjectTag);
+	class CComponent* Find_Component(const _tchar* pComponentTag);
+
 public: //Component_Manager
 	HRESULT Add_Prototype(_uint iLevelIndex, const _tchar* pPrototypeTag, class CComponent* pPrototype);
 	class CComponent* Clone_Component(_uint iLevelIndex, const _tchar* pPrototypeTag, void* pArg = nullptr);

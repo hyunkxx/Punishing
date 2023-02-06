@@ -103,6 +103,25 @@ void CTransform::SetRotation(_fvector vAxis, _float fAngle)
 	Set_State(STATE::STATE_RIGHT, vRight);
 	Set_State(STATE::STATE_UP, vUp);
 	Set_State(STATE::STATE_LOOK, vLook);
+
+	//해당 축하나를 없애고 내적을통해서 회전해야하는 각도가 나옴
+	//vLook{ 0.2, 0.2, 0.3 }; 이라할때
+	//노멀라이즈->벡터의 길이가 1이되는것.
+	//0, 0, 1 == 위 길이 1인 벡터와 0, 0, 1 벡터와 내적을했을때  y각도나온다.
+
+	//180도 넘어갔을때 ?
+	//스칼라 acos->각도(라디안)->디그리각도(0~360);
+	//바라보는방향 , y를 영으로, -> 세축으ㅟ 호ㅠㅣ전향방을 구할
+
+	_vector vAxisUp = XMVectorSet(0.f, 1.f, 0.f, 0.f);
+
+	_vector vAxisZ = XMVector3Normalize(vLook);
+	_vector vAxisX = XMVector3Cross(vAxisUp, vAxisZ);
+	_vector vAxisY = XMVector3Cross(vAxisZ, vAxisX);
+
+	m_fAngle.x = XMConvertToDegrees(XMVectorGetX(XMVector3Dot(vAxisX, vRight)));
+	m_fAngle.y = XMConvertToDegrees(XMVectorGetX(XMVector3Dot(vAxisY, vUp)));
+	m_fAngle.z = XMConvertToDegrees(XMVectorGetX(XMVector3Dot(vAxisZ, vLook)));
 }
 
 void CTransform::Rotate(_fvector vAxis, _double TimeDelta)
@@ -116,7 +135,7 @@ void CTransform::Rotate(_fvector vAxis, _double TimeDelta)
 
 	_matrix RotationMatrix;
 	RotationMatrix = XMMatrixRotationAxis(vAxis, m_TransformDesc.fRotationSpeed * (_float)TimeDelta);
-
+	
 	vRight = XMVector3TransformNormal(vRight, RotationMatrix);
 	vUp = XMVector3TransformNormal(vUp, RotationMatrix);
 	vLook = XMVector3TransformNormal(vLook, RotationMatrix);

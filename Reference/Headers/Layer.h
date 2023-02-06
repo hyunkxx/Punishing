@@ -8,6 +8,10 @@ BEGIN(Engine)
 class CLayer final : public CBase
 {
 public:
+	typedef unordered_map<wstring, class CGameObject*>		GAMEOBJECTS;
+	unordered_map<wstring, class CGameObject*>				m_GameObjects;
+
+public:
 	CLayer();
 	virtual ~CLayer() = default;
 
@@ -22,11 +26,7 @@ public:
 public:
 	static CLayer* Create();
 	virtual void Free() override;
-
-private:
-	unordered_map<wstring ,class CGameObject*>				m_GameObjects;
-	typedef unordered_map<wstring ,class CGameObject*>		GAMEOBJECTS;
-
+	
 };
 
 END
