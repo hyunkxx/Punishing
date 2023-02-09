@@ -12,7 +12,7 @@ protected:
 	virtual ~CVIBuffer() = default;
 
 public:
-	virtual HRESULT Initialize_Protorype();
+	virtual HRESULT Initialize_Prototype();
 	virtual HRESULT Initialize(void* pArg);
 	virtual HRESULT Render();
 

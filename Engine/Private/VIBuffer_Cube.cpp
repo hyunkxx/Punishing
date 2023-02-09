@@ -14,19 +14,19 @@ CVIBuffer_Cube::CVIBuffer_Cube(const CVIBuffer_Cube& rhs)
 HRESULT CVIBuffer_Cube::Initialize_Prototype()
 {
 	m_iStride = sizeof(VTXCUBE);
-	m_iVerticesCount = 8;
-	m_iPrimitiveIndexSize = sizeof(FACEINDICES16);
-	m_iPrimitiveCount = 12;
-	m_iPrimitiveIndexCount = 3;
+	m_iVertexCount = 8;
+	m_iFaceIndexSize = sizeof(FACEINDICES16);
+	m_iFaceCount = 12;
+	m_iFaceIndexCount = 3;
 	m_iVertexBuffersCount = 1;
 	m_eIndexFormat = DXGI_FORMAT_R16_UINT;
 	m_eTopology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
 
 #pragma region 버텍스 버퍼 세팅
-	VTXCUBE* pVertices = new VTXCUBE[m_iVerticesCount];
-	ZeroMemory(pVertices, sizeof(VTXCUBE) * m_iVerticesCount);
+	VTXCUBE* pVertices = new VTXCUBE[m_iVertexCount];
+	ZeroMemory(pVertices, sizeof(VTXCUBE) * m_iVertexCount);
 
-	m_pVertexPosition = new _float3[m_iVerticesCount];
+	m_pVertexPosition = new _float3[m_iVertexCount];
 	
 	pVertices[0].vPosition = { -1.f, 1.f, -1.f };
 	m_pVertexPosition[0] = pVertices[0].vPosition;
@@ -56,8 +56,8 @@ HRESULT CVIBuffer_Cube::Initialize_Prototype()
 
 #pragma region 인덱스 버퍼 세팅
 
-	FACEINDICES16* pIndices = new FACEINDICES16[m_iPrimitiveCount];
-	ZeroMemory(pIndices, sizeof(FACEINDICES16) * m_iPrimitiveCount);
+	FACEINDICES16* pIndices = new FACEINDICES16[m_iFaceCount];
+	ZeroMemory(pIndices, sizeof(FACEINDICES16) * m_iFaceCount);
 
 	pIndices[0]._0 = 1;
 	pIndices[0]._1 = 5;
@@ -114,7 +114,7 @@ HRESULT CVIBuffer_Cube::Initialize_Prototype()
 	pIndices[11]._1 = 2;
 	pIndices[11]._2 = 3;
 
-	for (_uint i = 0; i < m_iPrimitiveCount ; ++i)
+	for (_uint i = 0; i < m_iFaceCount ; ++i)
 	{
 		_vector vSource, vTarget, vNormal;
 
@@ -129,7 +129,7 @@ HRESULT CVIBuffer_Cube::Initialize_Prototype()
 
 	/* 버텍스 */
 	ZeroMemory(&m_BufferDesc, sizeof m_BufferDesc);
-	m_BufferDesc.ByteWidth = m_iStride * m_iVerticesCount;
+	m_BufferDesc.ByteWidth = m_iStride * m_iVertexCount;
 	m_BufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	m_BufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	m_BufferDesc.StructureByteStride = m_iStride;
@@ -149,7 +149,7 @@ HRESULT CVIBuffer_Cube::Initialize_Prototype()
 
 	ZeroMemory(&m_BufferDesc, sizeof m_BufferDesc);
 
-	m_BufferDesc.ByteWidth = m_iPrimitiveIndexSize * m_iPrimitiveCount;
+	m_BufferDesc.ByteWidth = m_iFaceIndexSize * m_iFaceCount;
 	m_BufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	m_BufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	m_BufferDesc.StructureByteStride = 0;

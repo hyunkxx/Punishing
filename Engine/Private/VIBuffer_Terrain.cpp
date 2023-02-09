@@ -42,11 +42,11 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const _tchar* pHeightMapFilePath
 	m_iStride = sizeof(VTXNORTEX);
 	m_dwVertexCountX = ih.biWidth;
 	m_dwVertexCountZ = ih.biHeight;
-	m_iVerticesCount = m_dwVertexCountX * m_dwVertexCountZ;
+	m_iVertexCount = m_dwVertexCountX * m_dwVertexCountZ;
 
-	m_iPrimitiveIndexSize = sizeof(FACEINDICES32);
-	m_iPrimitiveCount = (m_dwVertexCountX - 1) * (m_dwVertexCountZ - 1) * 2;
-	m_iPrimitiveIndexCount = 3;
+	m_iFaceIndexSize = sizeof(FACEINDICES32);
+	m_iFaceCount = (m_dwVertexCountX - 1) * (m_dwVertexCountZ - 1) * 2;
+	m_iFaceIndexCount = 3;
 	m_iVertexBuffersCount = 1;
 	m_eIndexFormat = DXGI_FORMAT_R32_UINT;
 	m_eTopology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
@@ -54,8 +54,8 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const _tchar* pHeightMapFilePath
 
 #pragma region VERTEXBUFFER
 
-	VTXNORTEX* pVertices = new VTXNORTEX[m_iVerticesCount];
-	ZeroMemory(pVertices, sizeof(VTXNORTEX) * m_iVerticesCount);
+	VTXNORTEX* pVertices = new VTXNORTEX[m_iVertexCount];
+	ZeroMemory(pVertices, sizeof(VTXNORTEX) * m_iVertexCount);
 
 	for (_uint i = 0; i < m_dwVertexCountZ; ++i)
 	{
@@ -75,8 +75,8 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const _tchar* pHeightMapFilePath
 
 #pragma region INDEXBUFFER
 
-	FACEINDICES32* pIndices = new FACEINDICES32[m_iPrimitiveCount];
-	ZeroMemory(pIndices, sizeof(FACEINDICES32) * m_iPrimitiveCount);
+	FACEINDICES32* pIndices = new FACEINDICES32[m_iFaceCount];
+	ZeroMemory(pIndices, sizeof(FACEINDICES32) * m_iFaceCount);
 
 	_uint		iNumFaces = 0;
 
@@ -130,7 +130,7 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const _tchar* pHeightMapFilePath
 
 	ZeroMemory(&m_BufferDesc, sizeof m_BufferDesc);
 
-	m_BufferDesc.ByteWidth = m_iStride * m_iVerticesCount;
+	m_BufferDesc.ByteWidth = m_iStride * m_iVertexCount;
 	m_BufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	m_BufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	m_BufferDesc.StructureByteStride = m_iStride;
@@ -150,7 +150,7 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const _tchar* pHeightMapFilePath
 
 	/*내가 그릴려고하는 인덱스하나의 크기 * 인덱스의 갯수.
 	== 삼각형을 그리기위한 인덱스 세개의 크기 * 삼각형의갯수 */;
-	m_BufferDesc.ByteWidth = m_iPrimitiveIndexSize * m_iPrimitiveCount;
+	m_BufferDesc.ByteWidth = m_iFaceIndexSize * m_iFaceCount;
 	m_BufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	m_BufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	m_BufferDesc.StructureByteStride = 0;
@@ -179,11 +179,11 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const TERRAIN_SIZE& iSize)
 	m_iStride = sizeof(VTXNORTEX);
 	m_dwVertexCountX = iSize.mX;
 	m_dwVertexCountZ = iSize.mZ;
-	m_iVerticesCount = m_dwVertexCountX * m_dwVertexCountZ;
+	m_iVertexCount = m_dwVertexCountX * m_dwVertexCountZ;
 
-	m_iPrimitiveIndexSize = sizeof(FACEINDICES32);
-	m_iPrimitiveCount = (m_dwVertexCountX - 1) * (m_dwVertexCountZ - 1) * 2;
-	m_iPrimitiveIndexCount = 3;
+	m_iFaceIndexSize = sizeof(FACEINDICES32);
+	m_iFaceCount = (m_dwVertexCountX - 1) * (m_dwVertexCountZ - 1) * 2;
+	m_iFaceIndexCount = 3;
 	m_iVertexBuffersCount = 1;
 	m_eIndexFormat = DXGI_FORMAT_R32_UINT;
 	m_eTopology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
@@ -191,8 +191,8 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const TERRAIN_SIZE& iSize)
 
 #pragma region VERTEXBUFFER
 
-	VTXNORTEX* pVertices = new VTXNORTEX[m_iVerticesCount];
-	ZeroMemory(pVertices, sizeof(VTXNORTEX) * m_iVerticesCount);
+	VTXNORTEX* pVertices = new VTXNORTEX[m_iVertexCount];
+	ZeroMemory(pVertices, sizeof(VTXNORTEX) * m_iVertexCount);
 
 	for (_uint i = 0; i < m_dwVertexCountZ; ++i)
 	{
@@ -212,8 +212,8 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const TERRAIN_SIZE& iSize)
 
 #pragma region INDEXBUFFER
 
-	FACEINDICES32* pIndices = new FACEINDICES32[m_iPrimitiveCount];
-	ZeroMemory(pIndices, sizeof(FACEINDICES32) * m_iPrimitiveCount);
+	FACEINDICES32* pIndices = new FACEINDICES32[m_iFaceCount];
+	ZeroMemory(pIndices, sizeof(FACEINDICES32) * m_iFaceCount);
 
 	_uint		iNumFaces = 0;
 
@@ -246,7 +246,7 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const TERRAIN_SIZE& iSize)
 
 	ZeroMemory(&m_BufferDesc, sizeof m_BufferDesc);
 
-	m_BufferDesc.ByteWidth = m_iStride * m_iVerticesCount;
+	m_BufferDesc.ByteWidth = m_iStride * m_iVertexCount;
 	m_BufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	m_BufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	m_BufferDesc.StructureByteStride = m_iStride;
@@ -265,7 +265,7 @@ HRESULT CVIBuffer_Terrain::Initialize_Prototype(const TERRAIN_SIZE& iSize)
 
 	/*내가 그릴려고하는 인덱스하나의 크기 * 인덱스의 갯수.
 	== 삼각형을 그리기위한 인덱스 세개의 크기 * 삼각형의갯수 */;
-	m_BufferDesc.ByteWidth = m_iPrimitiveIndexSize * m_iPrimitiveCount;
+	m_BufferDesc.ByteWidth = m_iFaceIndexSize * m_iFaceCount;
 	m_BufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	m_BufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	m_BufferDesc.StructureByteStride = 0;

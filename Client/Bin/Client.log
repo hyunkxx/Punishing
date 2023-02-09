@@ -1,21 +1,21 @@
 ﻿FXC : warning X4717: Effects deprecated for D3DCompiler_47
   
-  compilation object save succeeded; see C:\Users\arcco\Documents\GitHub\Framework\Client\Bin\SHADER_ALPHA.cso
+  compilation object save succeeded; see C:\Github\Framework\Client\Bin\SHADER_ALPHA.cso
 FXC : warning X4717: Effects deprecated for D3DCompiler_47
   
-  compilation object save succeeded; see C:\Users\arcco\Documents\GitHub\Framework\Client\Bin\SHADER_GROUD.cso
+  compilation object save succeeded; see C:\Github\Framework\Client\Bin\SHADER_GROUD.cso
 FXC : warning X4717: Effects deprecated for D3DCompiler_47
   
-  compilation object save succeeded; see C:\Users\arcco\Documents\GitHub\Framework\Client\Bin\SHADER_PHONG.cso
+  compilation object save succeeded; see C:\Github\Framework\Client\Bin\SHADER_PHONG.cso
 FXC : warning X4717: Effects deprecated for D3DCompiler_47
   
-  compilation object save succeeded; see C:\Users\arcco\Documents\GitHub\Framework\Client\Bin\SHADER_VTXCUBE.cso
+  compilation object save succeeded; see C:\Github\Framework\Client\Bin\SHADER_VTXCUBE.cso
 FXC : warning X4717: Effects deprecated for D3DCompiler_47
   
-  compilation object save succeeded; see C:\Users\arcco\Documents\GitHub\Framework\Client\Bin\SHADER_VTXNORTEX.cso
+  compilation object save succeeded; see C:\Github\Framework\Client\Bin\SHADER_VTXNORTEX.cso
 FXC : warning X4717: Effects deprecated for D3DCompiler_47
   
-  compilation object save succeeded; see C:\Users\arcco\Documents\GitHub\Framework\Client\Bin\SHADER_VTXTEX.cso
+  compilation object save succeeded; see C:\Github\Framework\Client\Bin\SHADER_VTXTEX.cso
   pch.cpp
   Client.cpp
   Terrain.cpp
@@ -28,5 +28,5 @@ FXC : warning X4717: Effects deprecated for D3DCompiler_47
   ApplicationManager.cpp
   Application.cpp
   코드를 생성하고 있습니다...
-  Client.vcxproj -> C:\Users\arcco\Documents\GitHub\Framework\Client\Config\../Bin/Client.exe
+  Client.vcxproj -> C:\Github\Framework\Client\Config\../Bin/Client.exe
   Client.vcxproj -> ../Bin/Client.pdb (Full PDB)

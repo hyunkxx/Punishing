@@ -5,11 +5,18 @@
 #pragma warning (disable : 4005)
 #pragma warning (disable : 4251)
 
+//ImGui
 #include "../../Tool/ImGui/imgui.h"
 #include "../../Tool/ImGui/imgui_impl_win32.h"
 #include "../../Tool/ImGui/imgui_impl_dx11.h"
-#include <d3d11.h>
 
+// Assimp
+#include "Assimp/scene.h"
+#include "Assimp/Importer.hpp"
+#include "Assimp/postprocess.h"
+
+// DirectX
+#include <d3d11.h>
 #include <dinput.h>
 #include <d3d11.h>
 #include <DirectXMath.h>
@@ -21,6 +28,8 @@
 #include "DirectXTK/DDSTextureLoader.h"
 #include "DirectXTK/WICTextureLoader.h"
 
+// C++ & STL
+#include "commdlg.h"
 #include <assert.h>
 #include <cassert>
 #include <list>
@@ -33,11 +42,13 @@
 #include <string>
 #include <cstring>
 
+// Utility
 #include <time.h>
 
 using namespace std;
 using namespace DirectX;
 
+// Project
 #include "Engine_Macro.h"
 #include "Engine_Struct.h"
 #include "Engine_Template.h"

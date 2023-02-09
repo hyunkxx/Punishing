@@ -167,8 +167,10 @@
     <ClInclude Include="..\ImGui\imstb_textedit.h" />
     <ClInclude Include="..\ImGui\imstb_truetype.h" />
     <ClInclude Include="..\public\Cube.h" />
+    <ClInclude Include="..\public\GameObject_Tool.h" />
     <ClInclude Include="..\public\GUIManager.h" />
     <ClInclude Include="..\public\MapTool.h" />
+    <ClInclude Include="..\public\SaveLoader.h" />
     <ClInclude Include="..\Public\Terrain.h" />
     <ClInclude Include="..\public\ToolCamera.h" />
     <ClInclude Include="..\public\ToolMain.h" />
@@ -207,8 +209,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\private\Cube.cpp" />
+    <ClCompile Include="..\private\GameObject_Tool.cpp" />
     <ClCompile Include="..\private\GUIManager.cpp" />
     <ClCompile Include="..\private\MapTool.cpp" />
+    <ClCompile Include="..\private\SaveLoader.cpp" />
     <ClCompile Include="..\Private\Terrain.cpp" />
     <ClCompile Include="..\private\ToolCamera.cpp" />
     <ClCompile Include="..\private\ToolMain.cpp" />

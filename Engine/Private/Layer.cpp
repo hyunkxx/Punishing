@@ -77,6 +77,14 @@ CGameObject* CLayer::Find_GameObject(wstring strObjectTag)
 	return nullptr;
 }
 
+void CLayer::Clear()
+{
+	for (auto pair : m_GameObjects)
+		Safe_Release(pair.second);
+
+	m_GameObjects.clear();
+}
+
 CLayer* CLayer::Create()
 {
 	CLayer*	pInstance = new CLayer();

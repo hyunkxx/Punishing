@@ -27,15 +27,16 @@ HRESULT CObject_Manager::Add_Prototype(const _tchar* pPrototypeTag, CGameObject*
 	return S_OK;
 }
 
-HRESULT CObject_Manager::Add_GameObject(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pLayerTag, wstring strObjectTag, void* pArg)
+CGameObject* CObject_Manager::Add_GameObject(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pLayerTag, wstring strObjectTag, void* pArg)
 {
-	CGameObject*pPrototype = Find_Prototype(pPrototypeTag);
+	CGameObject* pPrototype = Find_Prototype(pPrototypeTag);
 	if (nullptr == pPrototype)
-		return E_FAIL;
+		return nullptr;
 
 	CGameObject* pGameObject = pPrototype->Clone(pArg);
+
 	if (nullptr == pGameObject)
-		return E_FAIL;
+		return nullptr;
 
 	CLayer*	pLayer = Find_Layer(iLevelIndex, pLayerTag);
 	if (nullptr == pLayer)
@@ -49,7 +50,7 @@ HRESULT CObject_Manager::Add_GameObject(_uint iLevelIndex, const _tchar* pProtot
 		pLayer->Add_GameObject(strObjectTag, pGameObject);
 	}
 
-	return S_OK;
+	return pGameObject;
 }
 
 void CObject_Manager::Tick(_double TimeDelta)

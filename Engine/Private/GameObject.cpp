@@ -2,6 +2,8 @@
 
 #include "GameInstance.h"
 
+_uint CGameObject::ObjectID = 0;
+
 CGameObject::CGameObject(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: m_pDevice(pDevice)
 	, m_pContext(pContext)
@@ -14,6 +16,7 @@ CGameObject::CGameObject(const CGameObject& rhs)
 	: m_pDevice{ rhs.m_pDevice }
 	, m_pContext{ rhs.m_pContext }
 {
+	ObjectID++;
 	Safe_AddRef(m_pDevice);
 	Safe_AddRef(m_pContext);
 }

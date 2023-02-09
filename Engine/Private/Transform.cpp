@@ -24,6 +24,31 @@ _float3 CTransform::Get_Scale()
 		XMVectorGetX(XMVector3Length(vLook)));
 }
 
+void CTransform::Set_Scale(_float3 fScale)
+{
+	_vector vRight = XMVector3Normalize(Get_State(STATE::STATE_RIGHT));
+	_vector vUp = XMVector3Normalize(Get_State(STATE::STATE_UP));
+	_vector vLook = XMVector3Normalize(Get_State(STATE::STATE_LOOK));
+	
+	if (fScale.x <= 0.005f)
+		fScale.x = 0.005f;
+
+	if (fScale.y <= 0.005f)
+		fScale.y = 0.005f;
+
+	if (fScale.z <= 0.005f)
+		fScale.z = 0.005f;
+
+	_matrix matScale = XMMatrixScaling(fScale.x, fScale.y, fScale.z);
+	vRight = XMVector3TransformNormal(vRight, matScale);
+	vUp = XMVector3TransformNormal(vUp, matScale);
+	vLook =XMVector3TransformNormal(vLook, matScale);
+
+	Set_State(STATE_RIGHT, vRight);
+	Set_State(STATE_UP, vUp);
+	Set_State(STATE_LOOK, vLook);
+}
+
 void CTransform::Set_State(STATE eState, _fvector vState)
 {
 	_float4 vStateFloat4;
@@ -84,7 +109,32 @@ void CTransform::MoveLeft(_double TimeDelta)
 	Set_State(STATE::STATE_POSITION, vPosition);
 }
 
-void CTransform::SetRotation(_fvector vAxis, _float fAngle)
+void CTransform::SetRotationXYZ(_float3 fRadian)
+{
+	_vector vRight, vUp, vLook;
+	_float3 vScale = Get_Scale();
+
+	vRight = XMVectorSet(1.f, 0.f, 0.f, 0.f) * vScale.x;
+	vUp = XMVectorSet(0.f, 1.f, 0.f, 0.f) * vScale.y;
+	vLook = XMVectorSet(0.f, 0.f, 1.f, 0.f) * vScale.z;
+
+	_matrix matrixRotX, matrixRotY, matrixRotZ, matrixRotXYZ;
+	matrixRotX = XMMatrixRotationX(XMConvertToRadians(fRadian.x));
+	matrixRotY = XMMatrixRotationY(XMConvertToRadians(fRadian.y));
+	matrixRotZ = XMMatrixRotationZ(XMConvertToRadians(fRadian.z));
+
+	matrixRotXYZ = matrixRotX * matrixRotY * matrixRotZ;
+
+	vRight = XMVector3TransformNormal(vRight, matrixRotXYZ);
+	vUp = XMVector3TransformNormal(vUp, matrixRotXYZ);
+	vLook = XMVector3TransformNormal(vLook, matrixRotXYZ);
+
+	Set_State(STATE_RIGHT, vRight);
+	Set_State(STATE_UP, vUp);
+	Set_State(STATE_LOOK, vLook);
+}
+
+void CTransform::SetRotation(_fvector vAxis, _float fRadian)
 {
 	_vector vRight, vUp, vLook;
 	_float3 vScale = Get_Scale();
@@ -94,7 +144,7 @@ void CTransform::SetRotation(_fvector vAxis, _float fAngle)
 	vLook = XMVectorSet(0.f, 0.f, 1.f, 0.f) * vScale.z;
 
 	_matrix RotationMatrix;
-	RotationMatrix = XMMatrixRotationAxis(vAxis, fAngle);
+	RotationMatrix = XMMatrixRotationAxis(vAxis, fRadian);
 
 	vRight = XMVector3TransformNormal(vRight, RotationMatrix);
 	vUp = XMVector3TransformNormal(vUp, RotationMatrix);
@@ -103,25 +153,34 @@ void CTransform::SetRotation(_fvector vAxis, _float fAngle)
 	Set_State(STATE::STATE_RIGHT, vRight);
 	Set_State(STATE::STATE_UP, vUp);
 	Set_State(STATE::STATE_LOOK, vLook);
+	
+	////행렬에서 라디안각도 뽑아내기. 외적으로 구분해야함 수정필
+	//_vector vAxisX, vAxisZ;
 
-	//해당 축하나를 없애고 내적을통해서 회전해야하는 각도가 나옴
-	//vLook{ 0.2, 0.2, 0.3 }; 이라할때
-	//노멀라이즈->벡터의 길이가 1이되는것.
-	//0, 0, 1 == 위 길이 1인 벡터와 0, 0, 1 벡터와 내적을했을때  y각도나온다.
+	//vAxisZ = vLook;
+	//vAxisZ = XMVector3Normalize(XMVectorSet(XMVectorGetX(vAxisZ), 0.f, XMVectorGetZ(vAxisZ), 0.f));
 
-	//180도 넘어갔을때 ?
-	//스칼라 acos->각도(라디안)->디그리각도(0~360);
-	//바라보는방향 , y를 영으로, -> 세축으ㅟ 호ㅠㅣ전향방을 구할
+	//vAxisX = vRight;
+	//vAxisX = XMVector3Normalize(XMVectorSet(XMVectorGetX(vAxisX), 0.f, XMVectorGetZ(vAxisX), 0.f));
 
-	_vector vAxisUp = XMVectorSet(0.f, 1.f, 0.f, 0.f);
-
-	_vector vAxisZ = XMVector3Normalize(vLook);
-	_vector vAxisX = XMVector3Cross(vAxisUp, vAxisZ);
-	_vector vAxisY = XMVector3Cross(vAxisZ, vAxisX);
-
-	m_fAngle.x = XMConvertToDegrees(XMVectorGetX(XMVector3Dot(vAxisX, vRight)));
-	m_fAngle.y = XMConvertToDegrees(XMVectorGetX(XMVector3Dot(vAxisY, vUp)));
-	m_fAngle.z = XMConvertToDegrees(XMVectorGetX(XMVector3Dot(vAxisZ, vLook)));
+	////X
+	//_float fValue = XMVectorGetX(XMVector3Cross(vLook, vAxisZ));
+	//if (fValue >= 0.f)
+	//	m_fAngle.x = XMConvertToDegrees(acos(XMVectorGetX(XMVector3Dot(XMVector3Normalize(vLook), vAxisZ))));
+	//else
+	//	m_fAngle.x = 180.f + XMConvertToDegrees(acos(XMVectorGetX(XMVector3Dot(XMVector3Normalize(vLook), vAxisZ))));
+	////Y
+	//fValue = XMVectorGetY(XMVector3Cross(XMVectorSet(0.f, 0.f, 1.f, 0.f), vAxisZ));
+	//if (fValue >= 0.f)
+	//	m_fAngle.y = XMConvertToDegrees(acos(XMVectorGetX(XMVector3Dot(XMVectorSet(0.f, 0.f, 1.f, 0.f), vAxisZ))));
+	//else
+	//	m_fAngle.y = 180.f + XMConvertToDegrees(acos(XMVectorGetX(XMVector3Dot(XMVectorSet(0.f, 0.f, 1.f, 0.f), vAxisZ))));
+	////Z
+	//fValue = XMVectorGetZ(XMVector3Cross(vRight, vAxisX));
+	//if (fValue >= 0.f)
+	//	m_fAngle.z = XMConvertToDegrees(acos(XMVectorGetX(XMVector3Dot(XMVector3Normalize(vRight), vAxisX))));
+	//else
+	//	m_fAngle.z = 180.f + XMConvertToDegrees(acos(XMVectorGetX(XMVector3Dot(XMVector3Normalize(vRight), vAxisX))));
 }
 
 void CTransform::Rotate(_fvector vAxis, _double TimeDelta)

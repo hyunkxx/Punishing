@@ -35,14 +35,23 @@
     <Filter Include="src\01. MapTool">
       <UniqueIdentifier>{ee39e547-4fb4-41b0-b388-06fd2be378d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\03. GameObject\Camera">
-      <UniqueIdentifier>{d042b94b-b1f5-4160-bd9d-d6e807923501}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\03. GameObject\Cube">
-      <UniqueIdentifier>{d5bb6a7c-c1cf-412f-8f9f-4b9232a42f21}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\03. GameObject\Terrain">
       <UniqueIdentifier>{0fa0f92e-17c6-4e5f-890d-b4e8199013db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\util">
+      <UniqueIdentifier>{e1a6fcf3-53bb-4bde-afed-ccdaaa356bfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\util\SaveLoader">
+      <UniqueIdentifier>{4acebbd6-0378-4922-a9b3-78e9a4b356a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\03. GameObject\00. GameObject_Tool">
+      <UniqueIdentifier>{233049b5-68d0-4525-ae10-6c423c47d3ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\03. GameObject\01. Camera">
+      <UniqueIdentifier>{d042b94b-b1f5-4160-bd9d-d6e807923501}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\03. GameObject\02. Cube">
+      <UniqueIdentifier>{d5bb6a7c-c1cf-412f-8f9f-4b9232a42f21}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -92,13 +101,19 @@
       <Filter>src\03. GameObject\Terrain</Filter>
     </ClInclude>
     <ClInclude Include="..\public\ToolCamera.h">
-      <Filter>src\03. GameObject\Camera</Filter>
+      <Filter>src\03. GameObject\01. Camera</Filter>
     </ClInclude>
     <ClInclude Include="..\public\Cube.h">
-      <Filter>src\03. GameObject\Cube</Filter>
+      <Filter>src\03. GameObject\02. Cube</Filter>
     </ClInclude>
     <ClInclude Include="..\public\MapTool.h">
       <Filter>src\01. MapTool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\SaveLoader.h">
+      <Filter>config\util\SaveLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\GameObject_Tool.h">
+      <Filter>src\03. GameObject\00. GameObject_Tool</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -142,10 +157,16 @@
       <Filter>src\01. MapTool</Filter>
     </ClCompile>
     <ClCompile Include="..\private\ToolCamera.cpp">
-      <Filter>src\03. GameObject\Camera</Filter>
+      <Filter>src\03. GameObject\01. Camera</Filter>
     </ClCompile>
     <ClCompile Include="..\private\Cube.cpp">
-      <Filter>src\03. GameObject\Cube</Filter>
+      <Filter>src\03. GameObject\02. Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\SaveLoader.cpp">
+      <Filter>config\util\SaveLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\GameObject_Tool.cpp">
+      <Filter>src\03. GameObject\00. GameObject_Tool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

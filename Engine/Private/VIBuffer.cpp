@@ -10,10 +10,10 @@ CVIBuffer::CVIBuffer(const CVIBuffer& rhs)
 	, m_pVB{ rhs.m_pVB }
 	, m_pIB{ rhs.m_pIB }
 	, m_iStride{ rhs.m_iStride }
-	, m_iVerticesCount{ rhs.m_iVerticesCount }
-	, m_iPrimitiveIndexSize{ rhs.m_iPrimitiveIndexSize }
-	, m_iPrimitiveCount{ rhs.m_iPrimitiveCount }
-	, m_iPrimitiveIndexCount{ rhs.m_iPrimitiveIndexCount }
+	, m_iVertexCount{ rhs.m_iVertexCount }
+	, m_iFaceIndexSize{ rhs.m_iFaceIndexSize }
+	, m_iFaceCount{ rhs.m_iFaceCount }
+	, m_iFaceIndexCount{ rhs.m_iFaceIndexCount }
 	, m_iVertexBuffersCount{ rhs.m_iVertexBuffersCount }
 	, m_eIndexFormat{ rhs.m_eIndexFormat }
 	, m_eTopology{ rhs.m_eTopology }
@@ -22,7 +22,7 @@ CVIBuffer::CVIBuffer(const CVIBuffer& rhs)
 	Safe_AddRef(m_pIB);
 }
 
-HRESULT CVIBuffer::Initialize_Protorype()
+HRESULT CVIBuffer::Initialize_Prototype()
 {
 	return S_OK;
 }
@@ -57,7 +57,7 @@ HRESULT CVIBuffer::Render()
 	m_pContext->IASetIndexBuffer(m_pIB, m_eIndexFormat, 0);
 	m_pContext->IASetPrimitiveTopology(m_eTopology);
 
-	m_pContext->DrawIndexed(m_iPrimitiveIndexCount * m_iPrimitiveCount, 0, 0);
+	m_pContext->DrawIndexed(m_iFaceIndexCount * m_iFaceCount, 0, 0);
 
 	return S_OK;
 }

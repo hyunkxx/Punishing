@@ -13,17 +13,17 @@ CVIBuffer_Rect::CVIBuffer_Rect(const CVIBuffer_Rect& rhs)
 HRESULT CVIBuffer_Rect::Initialize_Prototype()
 {
 	m_iStride = sizeof(VTXTEX);
-	m_iVerticesCount = 4;
-	m_iPrimitiveIndexSize = sizeof(FACEINDICES16);
-	m_iPrimitiveCount = 2;
-	m_iPrimitiveIndexCount = 3;
+	m_iVertexCount = 4;
+	m_iFaceCount = 2;
+	m_iFaceIndexCount = 3;
+	m_iFaceIndexSize = sizeof(FACEINDICES16);
 	m_iVertexBuffersCount = 1;
 	m_eIndexFormat = DXGI_FORMAT_R16_UINT;
 	m_eTopology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
 
 #pragma region 버텍스 버퍼 세팅
 	ZeroMemory(&m_BufferDesc, sizeof m_BufferDesc);
-	m_BufferDesc.ByteWidth = m_iStride * m_iVerticesCount;
+	m_BufferDesc.ByteWidth = m_iStride * m_iVertexCount;
 	m_BufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	m_BufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	m_BufferDesc.StructureByteStride = m_iStride;
@@ -32,8 +32,8 @@ HRESULT CVIBuffer_Rect::Initialize_Prototype()
 
 	ZeroMemory(&m_SubResourceData, sizeof m_SubResourceData);
 
-	VTXTEX* pVertices = new VTXTEX[m_iVerticesCount];
-	ZeroMemory(pVertices, sizeof(VTXTEX) * m_iVerticesCount);
+	VTXTEX* pVertices = new VTXTEX[m_iVertexCount];
+	ZeroMemory(pVertices, sizeof(VTXTEX) * m_iVertexCount);
 
 	pVertices[0].vPosition = _float3(-0.5f, 0.5f, 0.f);
 	pVertices[0].vTexUV = _float2(0.0f, 0.f);
@@ -63,7 +63,7 @@ HRESULT CVIBuffer_Rect::Initialize_Prototype()
 #pragma region 인덱스 버퍼 세팅
 	ZeroMemory(&m_BufferDesc, sizeof m_BufferDesc);
 
-	m_BufferDesc.ByteWidth = m_iPrimitiveIndexSize * m_iPrimitiveCount;
+	m_BufferDesc.ByteWidth = m_iFaceIndexSize * m_iFaceCount;
 	m_BufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	m_BufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	m_BufferDesc.StructureByteStride = 0;
@@ -72,8 +72,8 @@ HRESULT CVIBuffer_Rect::Initialize_Prototype()
 
 	ZeroMemory(&m_SubResourceData, sizeof m_SubResourceData);
 
-	FACEINDICES16* pIndices = new FACEINDICES16[m_iPrimitiveCount];
-	ZeroMemory(pIndices, sizeof(FACEINDICES16) * m_iPrimitiveCount);
+	FACEINDICES16* pIndices = new FACEINDICES16[m_iFaceCount];
+	ZeroMemory(pIndices, sizeof(FACEINDICES16) * m_iFaceCount);
 
 	pIndices[0]._0 = 0;
 	pIndices[0]._1 = 1;

@@ -40,7 +40,7 @@ void CGUIManager::RenderDrawData()
 void CGUIManager::Render()
 {
 	{
-		ImGui::SetNextWindowPos(ImVec2(0, 0));
+		ImGui::SetNextWindowPos(ImVec2(0, g_iWinSizeY - 30));
 		ImGui::SetNextWindowSize(ImVec2(210, 20));
 		ImGui::Begin("Frame", nullptr, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
 		ImGui::SameLine();

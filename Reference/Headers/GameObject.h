@@ -29,6 +29,8 @@ protected: // ÄÄÆ÷³ÍÆ® ¸â¹öº¯¼ö¿Í ¸Ê¿¡ ¸ðµÎ º¸°üÇÔ , ¸â¹ö + ¸Ê
 	HRESULT Add_Component(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pComponentTag, class CComponent** ppOut, void* pArg = nullptr);
 
 public:
+	_ulong GetID() { return ObjectID; }
+
 	void SetState(STATE eState) { m_eState = eState; }
 	void Destroy() { m_eState = STATE::DESTROY; }
 	_bool IsActive() { return m_eState == STATE::ACTIVE; }
@@ -44,6 +46,7 @@ protected:
 	ID3D11DeviceContext*		m_pContext;
 
 protected:
+	static _uint ObjectID;
 	STATE m_eState = { ACTIVE };
 
 };

@@ -22,6 +22,17 @@ namespace Tool
 
 	const static float g_fDetailWidth = 400.f;
 	const static float g_fDetailHeight = 720.f;
+
+	enum OBJ_TYPE { OBJ_CUBE, OBJ_PROB, OBJ_BUILDING, OBJ_NPC, OBJ_MONSTER, OBJ_PLAYER, OBJ_END };
+
+	typedef struct tagObject_Desc
+	{
+		OBJ_TYPE eType;			//오브젝트 타입 (실제 객체)
+		_uint mID;
+		_float3 vScale;
+		_float3 vRotation;
+		_float3 vPosition;
+	}OBJ_DESC;
 };
 
 extern HINSTANCE g_hInst;

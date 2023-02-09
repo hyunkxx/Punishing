@@ -23,6 +23,7 @@ public:
 	void RenderGUI();
 
 	CGameObject* Find_GameObject(wstring strObjectTag);
+	void Clear();
 public:
 	static CLayer* Create();
 	virtual void Free() override;

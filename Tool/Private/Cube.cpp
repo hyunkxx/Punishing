@@ -1,20 +1,18 @@
 #include "pch.h"
 #include "..\Public\Cube.h"
 
+#include "GameObject.h"
 #include "Component_Manager.h"
 #include "GameInstance.h"
 
-_uint CCube::m_iID = 0;
-
 CCube::CCube(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
-	: CGameObject(pDevice, pContext)
+	: CGameObject_Tool(pDevice, pContext)
 {
 }
 
 CCube::CCube(const CCube& rhs)
-	: CGameObject(rhs)
+	: CGameObject_Tool(rhs)
 {
-	m_iID++;
 }
 
 HRESULT CCube::Initialize_Prototype()
@@ -33,8 +31,12 @@ HRESULT CCube::Initialize(void* pArg)
 	if (FAILED(Add_Components()))
 		return E_FAIL;
 
-	m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(1.f, 1.f, m_iID * 3.f, 1.f));
-	m_pTransform->SetRotation(XMVectorSet(0.f, 1.f, 0.f, 0.f), 30.f);
+	if (nullptr != pArg)
+	{
+		m_ObjectDesc = *(OBJ_DESC*)pArg;
+	}
+
+	ApplyObjectDesc(m_ObjectDesc);
 
 	return S_OK;
 }
@@ -74,7 +76,7 @@ void CCube::RenderGUI()
 {
 }
 
-_float CCube::Picking()
+_float CCube::PickObject()
 {
 	CPipeLine* pPipeline = CPipeLine::GetInstance();
 
@@ -102,7 +104,7 @@ _float CCube::Picking()
 	rayDesc = pPipeline->CreateLocalRay(clientDesc, m_pTransform->Get_WorldMatrixInverse());
 
 	_vector rayPos = XMVectorSet(rayDesc.mRayPos.x, rayDesc.mRayPos.y, rayDesc.mRayPos.z, 1.f);
-	_vector rayDir = XMVectorSet(rayDesc.mRayDir.x, rayDesc.mRayDir.y, rayDesc.mRayDir.z, 0.f);
+	_vector rayDir = XMVector3Normalize(XMVectorSet(rayDesc.mRayDir.x, rayDesc.mRayDir.y, rayDesc.mRayDir.z, 0.f));
 
 	if (TriangleTests::Intersects(rayPos, rayDir, v0, v1, v2, rayDesc.mHitDistance))
 	{
@@ -206,20 +208,6 @@ _float CCube::Picking()
 
 HRESULT CCube::Add_Components()
 {
- 	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("proto_com_renderer"),
-		TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
-		return E_FAIL;
-
-	CTransform::TRANSFORM_DESC TransformDesc;
-	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
-
-	TransformDesc.fMoveSpeed = 5.f;
-	TransformDesc.fRotationSpeed = XMConvertToRadians(90.f);
-
-	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("proto_com_transform"),
-		TEXT("com_transform"), (CComponent**)&m_pTransform)))
-		return E_FAIL;
-
 	if (FAILED(__super::Add_Component(TOOL_STATIC, TEXT("proto_com_vibuffer_cube"),
 		TEXT("com_vibuffer"), (CComponent**)&m_pVIBuffer)))
 		return E_FAIL;
@@ -280,8 +268,6 @@ void CCube::Free()
 {
 	__super::Free();
 
-	Safe_Release(m_pTransform);
 	Safe_Release(m_pVIBuffer);
 	Safe_Release(m_pShader);
-	Safe_Release(m_pRenderer);
 }

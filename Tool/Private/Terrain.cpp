@@ -68,23 +68,12 @@ HRESULT CTerrain::Render()
 
 void CTerrain::RenderGUI()
 {
-	ImGui::Begin("Terrain Component");
-	
-	//m_IsPick ? ImGui::Text("Pick : TRUE") : ImGui::Text("Pick : FALSE");
-	//
-	//ImGui::InputFloat("Distance", (float*)&m_fDistance);
-	//ImGui::DragFloat4("Origin", (float*)&origin);
-	//ImGui::DragFloat4("Direction", (float*)&dir);
-	//ImGui::DragFloat4("CamPosition", (float*)&vCam);
-
-	ImGui::End();
 }
 
 _bool CTerrain::Terrain_Picking()
 {
 	_bool ret = false;
 
-	//bool Intersects(FXMVECTOR Origin, FXMVECTOR Direction, FXMVECTOR V0, GXMVECTOR V1, HXMVECTOR V2, _Out_ float& Dist);
 	CPipeLine* pPipeline = CPipeLine::GetInstance();
 
 	_float4x4 matProj = pPipeline->Get_Transform_float4x4(CPipeLine::TS_PROJ);

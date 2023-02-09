@@ -1,18 +1,17 @@
 #pragma once
 
-#include "GameObject.h"
+#include "GameObject_Tool.h"
 
 BEGIN(Engine)
-class CVIBuffer_Cube;
-class CTransform;
 class CRenderer;
-class CTexture;
+class CTransform;
+class CVIBuffer_Cube;
 class CShader;
 END
 
 BEGIN(Tool)
 
-class CCube : public CGameObject
+class CCube : public CGameObject_Tool
 {
 protected:
 	CCube(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
@@ -21,18 +20,14 @@ protected:
 
 public:
 	virtual	HRESULT Initialize_Prototype() override;
-	virtual	HRESULT Initialize(void* pArg) override;
+	virtual	HRESULT Initialize(void* pArg = nullptr) override;
 	virtual void Tick(_double TimeDelta) override;
 	virtual void LateTick(_double TimeDelta) override;
 	virtual HRESULT Render() override;
 	virtual void RenderGUI() override;
 
 public:
-	_uint GetID() const { return m_iID;	}
-	_float Picking();
-	_bool IsSelect() { return m_IsSelect; }
-	void Select() { m_IsSelect = true; }
-	void UnSelect() { m_IsSelect = false; }
+	virtual _float PickObject() override;
 
 private:
 	HRESULT Add_Components();
@@ -45,13 +40,7 @@ public:
 
 private:
 	CShader*			m_pShader = { nullptr };
-	CRenderer*			m_pRenderer = { nullptr };
-	CTransform*			m_pTransform = { nullptr };
 	CVIBuffer_Cube*		m_pVIBuffer = { nullptr };
-
-private:
-	static _uint m_iID;
-	bool m_IsSelect = false;
 
 };
 

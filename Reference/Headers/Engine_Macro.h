@@ -51,3 +51,9 @@
 			}													\
 			return dwRefCnt;									\
 		}
+
+#define IMGUI_DEFAULT  ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar
+
+#define VECTOR_RIGHT	XMVectorSet(1.f, 0.f, 0.f, 0.f)
+#define VECTOR_UP		XMVectorSet(0.f, 1.f, 0.f, 0.f)
+#define VECTOR_LOOK		XMVectorSet(0.f, 0.f, 1.f, 0.f)

@@ -88,6 +88,15 @@
     <Filter Include="utility\03. Components\02. Renderer\03. VIBuffer\Triangle">
       <UniqueIdentifier>{befb40e1-ba7d-4325-88f9-22922d708c65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utility\03. Components\07. Model">
+      <UniqueIdentifier>{7e94e36b-d4f6-473c-a1b5-af52add73baf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\07. Model\model">
+      <UniqueIdentifier>{eed8fde9-3d97-4773-8f43-8bffcf55d36a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\07. Model\mesh">
+      <UniqueIdentifier>{f5c64396-304c-4bf9-af44-bce37f966f06}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\private\Base.cpp">
@@ -164,6 +173,12 @@
     </ClCompile>
     <ClCompile Include="..\private\VIBuffer_Cube.cpp">
       <Filter>utility\03. Components\02. Renderer\03. VIBuffer\Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Model.cpp">
+      <Filter>utility\03. Components\07. Model\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Mesh.cpp">
+      <Filter>utility\03. Components\07. Model\mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +268,12 @@
     </ClInclude>
     <ClInclude Include="..\public\VIBuffer_Cube.h">
       <Filter>utility\03. Components\02. Renderer\03. VIBuffer\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Model.h">
+      <Filter>utility\03. Components\07. Model\model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Mesh.h">
+      <Filter>utility\03. Components\07. Model\mesh</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

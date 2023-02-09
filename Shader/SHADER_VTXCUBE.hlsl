@@ -60,8 +60,7 @@ PS_OUT ps_nonclick(PS_IN In)
 PS_OUT ps_click(PS_IN In)
 {
 	PS_OUT Out = (PS_OUT)0;
-
-	Out.vColor = float4(0.5f, 0.0f, 0.5f, 1.f);
+	Out.vColor = float4(0.62f, 0.98f, 0.59f, 1.f);
 
 	return Out;
 }
