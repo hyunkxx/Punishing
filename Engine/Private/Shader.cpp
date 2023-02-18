@@ -72,13 +72,13 @@ HRESULT CShader::Begin(_uint iPassIndex)
 	return S_OK;
 }
 
-HRESULT CShader::SetMatrix(const char* pName, const _float4x4* pMatrix)
+HRESULT CShader::SetMatrix(const char* pConstantName, const _float4x4* pMatrix)
 {
 	if (nullptr == m_pEffect)
 		return E_FAIL;
 
 	//전달해준 문자열과 같은 이름을 가진 쉐이더 전역변수의 핸들을 얻음
-	ID3DX11EffectVariable* pVariable = m_pEffect->GetVariableByName(pName);
+	ID3DX11EffectVariable* pVariable = m_pEffect->GetVariableByName(pConstantName);
 	if (nullptr == pVariable)
 		return E_FAIL;
 
@@ -90,6 +90,22 @@ HRESULT CShader::SetMatrix(const char* pName, const _float4x4* pMatrix)
 	return pMatrixVariable->SetMatrix((_float*)pMatrix);
 }
 
+HRESULT CShader::SetMatrixArray(const char* pConstantName, const _float4x4* pMatrix, _uint MatrixCount)
+{
+	if (nullptr == m_pEffect)
+		return E_FAIL;
+
+	ID3DX11EffectVariable* pVariable = m_pEffect->GetVariableByName(pConstantName);
+	if (nullptr == pVariable)
+		return E_FAIL;
+
+	ID3DX11EffectMatrixVariable* pMatrixVariable = pVariable->AsMatrix();
+	if (nullptr == pMatrixVariable)
+		return E_FAIL;
+
+	return pMatrixVariable->SetMatrixArray((_float*)pMatrix, 0, MatrixCount);
+}
+
 HRESULT CShader::SetRawValue(const char* pConstantName, const void* pData, _uint iSize)
 {
 	ID3DX11EffectVariable* pVariable = m_pEffect->GetVariableByName(pConstantName);
@@ -99,12 +115,12 @@ HRESULT CShader::SetRawValue(const char* pConstantName, const void* pData, _uint
 	return pVariable->SetRawValue(pData, 0, iSize);
 }
 
-HRESULT CShader::SetShaderResourceView(const char* pName, ID3D11ShaderResourceView* pSRV)
+HRESULT CShader::SetShaderResourceView(const char* pConstantName, ID3D11ShaderResourceView* pSRV)
 {
 	if (nullptr == m_pEffect)
 		return E_FAIL;
 
-	ID3DX11EffectVariable* pVariable = m_pEffect->GetVariableByName(pName);
+	ID3DX11EffectVariable* pVariable = m_pEffect->GetVariableByName(pConstantName);
 	if (nullptr == pVariable)
 		return E_FAIL;
 
@@ -113,6 +129,22 @@ HRESULT CShader::SetShaderResourceView(const char* pName, ID3D11ShaderResourceVi
 		return E_FAIL;
 
 	return pShaderResourceVariable->SetResource(pSRV);
+}
+
+HRESULT CShader::SetShaderResourceViewArray(const char* pConstantName, ID3D11ShaderResourceView ** ppSRVs, _uint iNumTexture)
+{
+	if (nullptr == m_pEffect)
+		return E_FAIL;
+
+	ID3DX11EffectVariable* pVariable = m_pEffect->GetVariableByName(pConstantName);
+	if (nullptr == pVariable)
+		return E_FAIL;
+
+	ID3DX11EffectShaderResourceVariable* pShaderResourceVariable = pVariable->AsShaderResource();
+	if (nullptr == pShaderResourceVariable)
+		return E_FAIL;
+
+	return pShaderResourceVariable->SetResourceArray(ppSRVs, 0, iNumTexture);
 }
 
 CShader* CShader::Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, const _tchar* pShaderFilePath, D3D11_INPUT_ELEMENT_DESC* pElement, _uint iElementCount)

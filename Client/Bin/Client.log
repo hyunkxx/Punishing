@@ -1,32 +1,3 @@
-﻿FXC : warning X4717: Effects deprecated for D3DCompiler_47
-  
-  compilation object save succeeded; see C:\Github\Framework\Client\Bin\SHADER_ALPHA.cso
-FXC : warning X4717: Effects deprecated for D3DCompiler_47
-  
-  compilation object save succeeded; see C:\Github\Framework\Client\Bin\SHADER_GROUD.cso
-FXC : warning X4717: Effects deprecated for D3DCompiler_47
-  
-  compilation object save succeeded; see C:\Github\Framework\Client\Bin\SHADER_PHONG.cso
-FXC : warning X4717: Effects deprecated for D3DCompiler_47
-  
-  compilation object save succeeded; see C:\Github\Framework\Client\Bin\SHADER_VTXCUBE.cso
-FXC : warning X4717: Effects deprecated for D3DCompiler_47
-  
-  compilation object save succeeded; see C:\Github\Framework\Client\Bin\SHADER_VTXNORTEX.cso
-FXC : warning X4717: Effects deprecated for D3DCompiler_47
-  
-  compilation object save succeeded; see C:\Github\Framework\Client\Bin\SHADER_VTXTEX.cso
-  pch.cpp
-  Client.cpp
-  Terrain.cpp
-  Loader.cpp
-  Level_Logo.cpp
-  Level_Loading.cpp
-  Level_GamePlay.cpp
-  DynamicCamera.cpp
-  BackGround.cpp
-  ApplicationManager.cpp
-  Application.cpp
-  코드를 생성하고 있습니다...
+﻿  Sleeve.cpp
   Client.vcxproj -> C:\Github\Framework\Client\Config\../Bin/Client.exe
   Client.vcxproj -> ../Bin/Client.pdb (Full PDB)

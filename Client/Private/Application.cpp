@@ -39,6 +39,22 @@ HRESULT CApplication::Initialize()
 	if (FAILED(Open_Level(LEVEL_LOGO)))
 		return E_FAIL;
 
+	ID3D11RasterizerState* RasterizerState;
+
+	D3D11_RASTERIZER_DESC RSDesc;
+	RSDesc.FillMode = D3D11_FILL_SOLID;
+	RSDesc.CullMode = D3D11_CULL_NONE;
+	RSDesc.FrontCounterClockwise = false;
+	RSDesc.DepthBias = 0;
+	RSDesc.DepthBiasClamp = 0;
+	RSDesc.SlopeScaledDepthBias = 0;
+	RSDesc.ScissorEnable = false;
+	RSDesc.MultisampleEnable = false;
+	RSDesc.AntialiasedLineEnable = false;
+	m_pDevice->CreateRasterizerState(&RSDesc, &RasterizerState);
+	m_pContext->RSSetState(RasterizerState);
+	
+
 	return S_OK;
 }
 
@@ -114,6 +130,10 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_phong"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_PHONG.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXMODEL.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
 		return E_FAIL;
 
 	Safe_AddRef(m_pRenderer);

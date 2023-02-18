@@ -62,6 +62,10 @@ public: //Timer_Manager
 	_float	GetTimer(const _tchar* pTimerTag);
 	void	SetTimer(const _tchar* pTimerTag);
 
+public: //LightManager
+	HRESULT AddLight(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, const LIGHT_DESC& LightDesc);
+	const LIGHT_DESC* GetLightDesc(_uint Index);
+
 public:
 	static void Engine_Release();
 	virtual void Free() override;
@@ -74,6 +78,7 @@ private:
 	class CPipeLine*				m_pPipeLine = { nullptr };
 	class CTimer_Manager*			m_pTimer_Manager = { nullptr };
 	class CInput_Device*			m_pInput_Device = { nullptr };
+	class CLightManager*			m_LightManager = { nullptr };
 };
 
 END

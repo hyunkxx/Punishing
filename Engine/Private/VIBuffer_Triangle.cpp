@@ -82,6 +82,7 @@ HRESULT CVIBuffer_Triangle::Initialize_Prototype()
 	{
 		Safe_Delete_Array(pIndices);
 		return E_FAIL;
+
 	}
 
 	Safe_Delete_Array(pIndices);

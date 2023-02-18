@@ -174,10 +174,13 @@
     <ClInclude Include="..\public\BackGround.h" />
     <ClInclude Include="..\Public\Client_Defines.h" />
     <ClInclude Include="..\public\DynamicCamera.h" />
+    <ClInclude Include="..\public\Kalienina.h" />
     <ClInclude Include="..\Public\Level_GamePlay.h" />
     <ClInclude Include="..\public\Level_Loading.h" />
     <ClInclude Include="..\Public\Level_Logo.h" />
     <ClInclude Include="..\public\Loader.h" />
+    <ClInclude Include="..\public\City.h" />
+    <ClInclude Include="..\public\Sleeve.h" />
     <ClInclude Include="..\public\Terrain.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="pch.h" />
@@ -189,10 +192,13 @@
     <ClCompile Include="..\private\ApplicationManager.cpp" />
     <ClCompile Include="..\private\BackGround.cpp" />
     <ClCompile Include="..\private\DynamicCamera.cpp" />
+    <ClCompile Include="..\private\Kalienina.cpp" />
     <ClCompile Include="..\Private\Level_GamePlay.cpp" />
     <ClCompile Include="..\private\Level_Loading.cpp" />
     <ClCompile Include="..\Private\Level_Logo.cpp" />
     <ClCompile Include="..\private\Loader.cpp" />
+    <ClCompile Include="..\private\City.cpp" />
+    <ClCompile Include="..\private\Sleeve.cpp" />
     <ClCompile Include="..\private\Terrain.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="pch.cpp">
@@ -214,7 +220,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_VTXANIMMODEL.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXCUBE.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_VTXMODEL.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXNORTEX.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXTEX.hlsl" />
   </ItemGroup>

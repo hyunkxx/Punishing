@@ -2,6 +2,33 @@
 
 namespace Engine
 {
+	typedef struct tagKeyFrame
+	{
+		XMFLOAT3 vScale;
+		XMFLOAT4 vRotation;
+		XMFLOAT3 vPosition;
+		double Time;
+	}KEY_FRAME;
+
+	typedef struct tagMaterial
+	{
+		class CTexture* pMaterialTexture[AI_TEXTURE_TYPE_MAX] = { nullptr };
+	}MATERIAL;
+
+	typedef struct tagLight_Desc
+	{
+		enum TYPE { TYPE_DIRECTIONAL, TYPE_POINT, TYPE_END };
+		TYPE eLightType = TYPE_END;
+		XMFLOAT4 vDirection;
+		XMFLOAT4 vPosition;
+		float fRange;
+
+		XMFLOAT4 vDiffuse;
+		XMFLOAT4 vAmbient;
+		XMFLOAT4 vSpecular;
+
+	}LIGHT_DESC;
+
 	typedef struct tagGraphic_Desc
 	{
 		enum WIN_MODE { MODE_FULL, MODE_WINDOW, MODE_END };
@@ -76,4 +103,23 @@ namespace Engine
 		const static unsigned int						ElementCount = 4;
 		static D3D11_INPUT_ELEMENT_DESC					Elements[ElementCount];
 	}VTXMODEL_DECLARATION;
+
+	typedef struct tagVertex_Anim_Model
+	{
+		XMFLOAT3		vPosition;
+		XMFLOAT3		vNormal;
+		XMFLOAT2		vTexUV;
+		XMFLOAT3		vTangent;
+
+		XMUINT4			vBlendIndices;
+		XMFLOAT4		vBlendWeights;
+
+	}VTXANIMMODEL;
+
+	typedef struct ENGINE_DLL tagVertex_Anim_Model_Declaration
+	{
+		const static unsigned int						ElementCount = 6;
+		static D3D11_INPUT_ELEMENT_DESC					Elements[ElementCount];
+	}VTXANIMMODEL_DECLARATION;
+
 }

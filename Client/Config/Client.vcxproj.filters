@@ -53,6 +53,12 @@
     <Filter Include="src\02. GameObjects\00. Terrain">
       <UniqueIdentifier>{8bbfe02c-4521-4c84-97f5-109e4df3f75a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\02. GameObjects\03. Stage_One">
+      <UniqueIdentifier>{c8dc90eb-54d9-4540-8928-aca43f14b5cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\02. GameObjects\04. Character">
+      <UniqueIdentifier>{34992378-d691-4837-9069-bedcb6bb75e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h">
@@ -97,6 +103,15 @@
     <ClInclude Include="..\public\DynamicCamera.h">
       <Filter>src\02. GameObjects\01. Camera</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Kalienina.h">
+      <Filter>src\02. GameObjects\04. Character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\City.h">
+      <Filter>src\02. GameObjects\03. Stage_One</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Sleeve.h">
+      <Filter>src\02. GameObjects\04. Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -131,6 +146,15 @@
     </ClCompile>
     <ClCompile Include="..\private\DynamicCamera.cpp">
       <Filter>src\02. GameObjects\01. Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Kalienina.cpp">
+      <Filter>src\02. GameObjects\04. Character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\City.cpp">
+      <Filter>src\02. GameObjects\03. Stage_One</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Sleeve.cpp">
+      <Filter>src\02. GameObjects\04. Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +192,12 @@
       <Filter>src\99. ShaderFiles</Filter>
     </FxCompile>
     <FxCompile Include="..\..\Shader\SHADER_VTXCUBE.hlsl">
+      <Filter>src\99. ShaderFiles</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_VTXMODEL.hlsl">
+      <Filter>src\99. ShaderFiles</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_VTXANIMMODEL.hlsl">
       <Filter>src\99. ShaderFiles</Filter>
     </FxCompile>
   </ItemGroup>

@@ -1,13 +1,22 @@
-﻿  pch.cpp
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : 'c:\github\framework\tool\bin\tool.pch' 파일은 다른 프로세스에서 사용 중이므로 프로세스에서 액세스할 수 없습니다.
+  pch.cpp
+  imgui_widgets.cpp
+  imgui_tables.cpp
+  imgui_impl_win32.cpp
+  imgui_impl_dx11.cpp
+  imgui_draw.cpp
+  imgui_demo.cpp
+  imgui.cpp
+  코드를 생성하고 있습니다...
   Tool.cpp
   ToolMain.cpp
   ToolCamera.cpp
+  Terrain.cpp
   SaveLoader.cpp
   MapTool.cpp
-  GameObject_Tool.cpp
   GUIManager.cpp
+  GameObject_Tool.cpp
   Cube.cpp
-  Terrain.cpp
   코드를 생성하고 있습니다...
   Tool.vcxproj -> C:\Github\Framework\Tool\Config\../Bin/Tool.exe
   Tool.vcxproj -> ../Bin/Tool.pdb (Full PDB)

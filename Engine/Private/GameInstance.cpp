@@ -6,6 +6,7 @@
 #include "Component_Manager.h"
 #include "Timer_Manager.h"
 #include "Input_Device.h"
+#include "LightManager.h"
 #include "Layer.h"
 
 IMPLEMENT_SINGLETON(CGameInstance)
@@ -18,6 +19,7 @@ CGameInstance::CGameInstance()
 	, m_pPipeLine { CPipeLine::GetInstance() }
 	, m_pTimer_Manager { CTimer_Manager::GetInstance() }
 	, m_pInput_Device { CInput_Device::GetInstance() }
+	, m_LightManager{ CLightManager::GetInstance() }
 {
 	Safe_AddRef(m_pInput_Device);
 	Safe_AddRef(m_pTimer_Manager);
@@ -26,6 +28,7 @@ CGameInstance::CGameInstance()
 	Safe_AddRef(m_pLevel_Manager);
 	Safe_AddRef(m_pObject_Manager);
 	Safe_AddRef(m_pComponent_Manager);
+	Safe_AddRef(m_LightManager);
 }
 
 HRESULT CGameInstance::Engine_Initialize(const GRAPHIC_DESC& GraphicDesc, _uint iLevelCount, ID3D11Device** ppDevice_out, ID3D11DeviceContext** ppContext_out)
@@ -310,10 +313,27 @@ void CGameInstance::SetTimer(const _tchar* pTimerTag)
 	m_pTimer_Manager->SetTimer(pTimerTag);
 }
 
+HRESULT CGameInstance::AddLight(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, const LIGHT_DESC& LightDesc)
+{
+	if (nullptr == m_LightManager)
+		return E_FAIL;
+
+	return m_LightManager->AddLight(pDevice, pContext, LightDesc);
+}
+
+const LIGHT_DESC* CGameInstance::GetLightDesc(_uint Index)
+{
+	if (nullptr == m_LightManager)
+		return nullptr;
+
+	return m_LightManager->GetLightDesc(Index);
+}
+
 void CGameInstance::Engine_Release()
 {
 	CGameInstance::DestroyInstance();
 	CInput_Device::DestroyInstance();
+	CLightManager::DestroyInstance();
 	CTimer_Manager::DestroyInstance();
 	CComponent_Manager::DestroyInstance();
 	CObject_Manager::DestroyInstance();
@@ -324,6 +344,7 @@ void CGameInstance::Engine_Release()
 
 void CGameInstance::Free()
 {
+	Safe_Release(m_LightManager);
 	Safe_Release(m_pInput_Device);
 	Safe_Release(m_pTimer_Manager);
 	Safe_Release(m_pPipeLine);

@@ -24,9 +24,11 @@ public:
 
 public:
 	HRESULT Begin(_uint iPassIndex);
-	HRESULT SetMatrix(const char* pName, const _float4x4* pMatrix);
+	HRESULT SetMatrix(const char* pConstantName, const _float4x4* pMatrix);
+	HRESULT SetMatrixArray(const char* pConstantName, const _float4x4* pMatrix, _uint MatrixCount);
 	HRESULT SetRawValue(const char* pConstantName, const void* pData, _uint iSize);
-	HRESULT SetShaderResourceView(const char* pName, ID3D11ShaderResourceView* pSRV);
+	HRESULT SetShaderResourceView(const char* pConstantName, ID3D11ShaderResourceView* pSRV);
+	HRESULT SetShaderResourceViewArray(const char* pConstantName, ID3D11ShaderResourceView** ppSRVs, _uint iNumTexture);
 
 public:
 	static CShader* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, const _tchar* pShaderFilePath, D3D11_INPUT_ELEMENT_DESC* pElement, _uint iElementCount);

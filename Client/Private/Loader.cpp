@@ -4,6 +4,9 @@
 
 #include "BackGround.h"
 #include "Terrain.h"
+#include "City.h"
+#include "Kalienina.h"
+#include "Sleeve.h"
 
 CLoader::CLoader(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: m_pDevice(pDevice)
@@ -49,6 +52,9 @@ HRESULT CLoader::Initialize(LEVEL_ID eNextLevel)
 
 HRESULT CLoader::Load_Level_Logo()
 {
+	_matrix	LocalMatrix = XMMatrixIdentity();
+	LocalMatrix = XMMatrixRotationY(XMConvertToRadians(180.0f));
+
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	//Logo Component
@@ -63,7 +69,7 @@ HRESULT CLoader::Load_Level_Logo()
 	m_szLoadingStateText = L"정점버퍼를 로딩중입니다.";
 
 	m_szLoadingStateText = L"모델를 로딩중입니다.";
-
+	
 	m_szLoadingStateText = L"셰이더를 로딩중입니다.";
 
 #pragma endregion
@@ -84,15 +90,14 @@ HRESULT CLoader::Load_Level_Logo()
 
 HRESULT CLoader::Load_Level_GamePlay()
 {
+	_matrix	LocalMatrix = XMMatrixIdentity();
+	LocalMatrix = XMMatrixRotationY(XMConvertToRadians(90.f));
+
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	//GamePlay Component
 #pragma region COMPONENTS
 	m_szLoadingStateText = L"텍스쳐를 로딩중입니다.";
-
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_shader_vtxnortex"),
-		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXNORTEX.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
-		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_texture_terrain"),
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Terrain/Tile0.dds")))))
@@ -106,7 +111,30 @@ HRESULT CLoader::Load_Level_GamePlay()
 
 	m_szLoadingStateText = L"모델를 로딩중입니다.";
 
+	_matrix	cityMatrix = XMMatrixIdentity();
+	cityMatrix = XMMatrixRotationY(XMConvertToRadians(90.f)) * XMMatrixTranslation(100.f, -6.f, -15.f);
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_city",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/StaticMesh/Level/City/City.fbx", cityMatrix))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_kalienina",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/SkeletalMesh/Character/Kalienina/KalieninaBody/Kalienina.fbx", LocalMatrix))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_weapon",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/SkeletalMesh/Character/Kalienina/KalieninaWeapon/KalieninaWeapon.fbx", LocalMatrix))))
+		return E_FAIL;
+
 	m_szLoadingStateText = L"셰이더를 로딩중입니다.";
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_shader_vtxnortex"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXNORTEX.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_shader_vtxanimmodel"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXANIMMODEL.hlsl"), VTXANIMMODEL_DECLARATION::Elements, VTXANIMMODEL_DECLARATION::ElementCount))))
+		return E_FAIL;
 
 #pragma endregion
 
@@ -114,6 +142,15 @@ HRESULT CLoader::Load_Level_GamePlay()
 #pragma region GAMEOBJECTS
 
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_terrain"), CTerrain::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_city"), CCity::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kalienina"), CKalienina::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kalienina_weapon"), CSleeve::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
 #pragma endregion

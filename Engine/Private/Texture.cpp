@@ -63,10 +63,24 @@ HRESULT CTexture::Initialize(void* pArg)
 
 HRESULT CTexture::Setup_ShaderResource(CShader* pShaderComponent, const char* pConstantName, _uint iTextureIndex)
 {
-	if (nullptr == pShaderComponent || iTextureIndex >= m_Textures.size())
+ 	if (nullptr == pShaderComponent || iTextureIndex >= m_Textures.size())
 		return E_FAIL;
 
 	return pShaderComponent->SetShaderResourceView(pConstantName, m_Textures[iTextureIndex]);
+}
+
+HRESULT CTexture::Setup_ShaderResourceArray(CShader * pShaderComponent, const char * pConstantName)
+{
+	if (nullptr == pShaderComponent)
+		return E_FAIL;
+
+	ID3D11ShaderResourceView* pSRVs[8] = { nullptr };
+
+	_uint iTextureIndex = 0;
+	for (auto& pSRV : m_Textures)
+		pSRVs[iTextureIndex++] = pSRV;
+
+	return pShaderComponent->SetShaderResourceViewArray(pConstantName, pSRVs, (int)m_Textures.size());
 }
 
 CTexture* CTexture::Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, const _tchar* pTextureFilePath, _uint iTextureCount)

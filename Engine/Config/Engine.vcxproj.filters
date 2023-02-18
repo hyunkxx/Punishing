@@ -58,9 +58,6 @@
     <Filter Include="utility\03. Components\06. Transform">
       <UniqueIdentifier>{d1bc52d4-a66b-4383-9804-b100537a62d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utility\04. PipeLine">
-      <UniqueIdentifier>{ed90767c-0efd-4311-93fa-f4142e29abfa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="utility\02. GameObjects\02. Camera">
       <UniqueIdentifier>{497ea018-b411-4dc6-a3fc-aae178661f66}</UniqueIdentifier>
     </Filter>
@@ -91,11 +88,26 @@
     <Filter Include="utility\03. Components\07. Model">
       <UniqueIdentifier>{7e94e36b-d4f6-473c-a1b5-af52add73baf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utility\03. Components\07. Model\model">
+    <Filter Include="utility\03. Components\07. Model\Model">
       <UniqueIdentifier>{eed8fde9-3d97-4773-8f43-8bffcf55d36a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utility\03. Components\07. Model\mesh">
+    <Filter Include="utility\04. PipeLine">
+      <UniqueIdentifier>{ed90767c-0efd-4311-93fa-f4142e29abfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\07. Model\Animation">
+      <UniqueIdentifier>{5b7a8846-61c9-41b3-8b04-eca6e1f1aa47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\07. Model\Bone">
+      <UniqueIdentifier>{03503825-442b-49ef-b6af-262632dcccd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\07. Model\Mesh">
       <UniqueIdentifier>{f5c64396-304c-4bf9-af44-bce37f966f06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\07. Model\Animation\Channel">
+      <UniqueIdentifier>{ab8e8cbd-b658-41e7-a52a-fd01ee8d5e6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\05. Lights">
+      <UniqueIdentifier>{a35da440-ebc0-4916-9edb-804b2f439484}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -175,10 +187,25 @@
       <Filter>utility\03. Components\02. Renderer\03. VIBuffer\Cube</Filter>
     </ClCompile>
     <ClCompile Include="..\private\Model.cpp">
-      <Filter>utility\03. Components\07. Model\model</Filter>
+      <Filter>utility\03. Components\07. Model\Model</Filter>
     </ClCompile>
     <ClCompile Include="..\private\Mesh.cpp">
-      <Filter>utility\03. Components\07. Model\mesh</Filter>
+      <Filter>utility\03. Components\07. Model\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Bone.cpp">
+      <Filter>utility\03. Components\07. Model\Bone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Channel.cpp">
+      <Filter>utility\03. Components\07. Model\Animation\Channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Animation.cpp">
+      <Filter>utility\03. Components\07. Model\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Light.cpp">
+      <Filter>utility\05. Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\LightManager.cpp">
+      <Filter>utility\05. Lights</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -270,10 +297,25 @@
       <Filter>utility\03. Components\02. Renderer\03. VIBuffer\Cube</Filter>
     </ClInclude>
     <ClInclude Include="..\public\Model.h">
-      <Filter>utility\03. Components\07. Model\model</Filter>
+      <Filter>utility\03. Components\07. Model\Model</Filter>
     </ClInclude>
     <ClInclude Include="..\public\Mesh.h">
-      <Filter>utility\03. Components\07. Model\mesh</Filter>
+      <Filter>utility\03. Components\07. Model\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Bone.h">
+      <Filter>utility\03. Components\07. Model\Bone</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Channel.h">
+      <Filter>utility\03. Components\07. Model\Animation\Channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Animation.h">
+      <Filter>utility\03. Components\07. Model\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Light.h">
+      <Filter>utility\05. Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\LightManager.h">
+      <Filter>utility\05. Lights</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

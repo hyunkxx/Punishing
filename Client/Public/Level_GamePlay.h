@@ -2,6 +2,10 @@
 
 #include "Level.h"
 
+BEGIN(Engine)
+class CGameObject;
+END
+
 BEGIN(Client)
 
 class CLevel_GamePlay final : public CLevel
@@ -15,6 +19,7 @@ public:
 	virtual void Tick(_double TimeDelta) override;
 
 private:
+	HRESULT Ready_Light();
 	HRESULT Ready_Layer_BackGround(const _tchar* pLayerTag);
 	HRESULT Ready_Layer_Camera(const _tchar* pLayerTag);
 	HRESULT Ready_Layer_Player(const _tchar* pLayerTag);
@@ -22,6 +27,8 @@ private:
 public:
 	static CLevel_GamePlay* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	virtual void Free() override;
+
+	CGameObject* mKalienina = nullptr;
 
 };
 

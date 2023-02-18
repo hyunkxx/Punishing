@@ -12,10 +12,16 @@ CLevel_GamePlay::CLevel_GamePlay(ID3D11Device* pDevice, ID3D11DeviceContext* pCo
 
 HRESULT CLevel_GamePlay::Initialize()
 {
+	if (FAILED(Ready_Light()))
+		return E_FAIL;
+
 	if(FAILED(Ready_Layer_BackGround(TEXT("layer_background"))))
 		return E_FAIL;
 
 	if (FAILED(Ready_Layer_Camera(TEXT("layer_camera"))))
+		return E_FAIL;
+
+	if (FAILED(Ready_Layer_Player(TEXT("layer_player"))))
 		return E_FAIL;
 
 	return S_OK;
@@ -29,10 +35,34 @@ void CLevel_GamePlay::Tick(_double TimeDelta)
 #endif
 }
 
+HRESULT CLevel_GamePlay::Ready_Light()
+{
+	CGameInstance* GameInstance = CGameInstance::GetInstance();
+	
+	LIGHT_DESC LightDesc;
+	ZeroMemory(&LightDesc, sizeof(LIGHT_DESC));
+	
+	LightDesc.eLightType = LIGHT_DESC::TYPE_DIRECTIONAL;
+	LightDesc.vDirection = _float4(0.f, -1.f, 1.f, 0.f);
+	LightDesc.vPosition = _float4(1.f, 1.f, 1.f, 1.f);
+	LightDesc.vDiffuse = _float4(1.f, 1.f, 1.f, 1.f);
+	LightDesc.vAmbient = _float4(1.f, 1.f, 1.f, 1.f);
+	LightDesc.vSpecular = _float4(1.f, 1.f, 1.f, 1.f);
+
+	if (FAILED(GameInstance->AddLight(m_pDevice, m_pContext, LightDesc)))
+		return E_FAIL;
+
+	return S_OK;
+}
+
 HRESULT CLevel_GamePlay::Ready_Layer_BackGround(const _tchar* pLayerTag)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
-	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_terrain", L"terrain", pLayerTag))
+
+	//if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_terrain", L"terrain", pLayerTag))
+	//	return E_FAIL;
+
+	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_city", L"city", pLayerTag))
 		return E_FAIL;
 
 	return S_OK;
@@ -46,10 +76,10 @@ HRESULT CLevel_GamePlay::Ready_Layer_Camera(const _tchar* pLayerTag)
 	ZeroMemory(&CameraDesc, sizeof(CCamera::CAMERA_DESC));
 
 	CameraDesc.TransformDesc.fMoveSpeed = 20.f;
-	CameraDesc.TransformDesc.fRotationSpeed = XMConvertToRadians(90.f);
+	CameraDesc.TransformDesc.fRotationSpeed = XMConvertToRadians(60.f);
 
-	CameraDesc.vEye = _float3(0.f, 10.f, -10.f);
-	CameraDesc.vAt = _float3(10.f, 3.f, 10.f);
+	CameraDesc.vEye = _float3(0.f, 10.f, -5.f);
+	CameraDesc.vAt = _float3(0.f, 0.f, 0.f);
 	CameraDesc.vAxisY = _float3(0.f, 1.f, 0.f);
 
 	CameraDesc.fFovy = XMConvertToRadians(45.f);
@@ -63,8 +93,18 @@ HRESULT CLevel_GamePlay::Ready_Layer_Camera(const _tchar* pLayerTag)
 	return S_OK;
 }
 
-HRESULT CLevel_GamePlay::Ready_Layer_Player(const _tchar * pLayerTag)
+HRESULT CLevel_GamePlay::Ready_Layer_Player(const _tchar* pLayerTag)
 {
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	mKalienina = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kalienina"), L"player1", pLayerTag);
+	if (nullptr == mKalienina)
+		return E_FAIL;
+
+	pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kalienina_weapon"), L"player_weapon", pLayerTag, mKalienina);
+	if (nullptr == mKalienina)
+		return E_FAIL;
+
 	return S_OK;
 }
 

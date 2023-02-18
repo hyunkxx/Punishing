@@ -17,6 +17,7 @@ public:
 
 public:
 	HRESULT Setup_ShaderResource(class CShader* pShaderComponent, const char* pConstantName, _uint iTextureIndex = 0);
+	HRESULT Setup_ShaderResourceArray(class CShader* pShaderComponent, const char* pConstantName);
 
 public:
 	static CTexture* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, const _tchar* pTexturePath, _uint iTextureCount = 1);
