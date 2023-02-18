@@ -1,9 +1,15 @@
 #include "pch.h"
 #include "..\Public\Kalienina.h"
 #include "GameInstance.h"
+#include "Bone.h"
 
 CKalienina::CKalienina(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CGameObject(pDevice, pContext)
+{
+}
+
+CKalienina::CKalienina(const CKalienina & rhs)
+	: CGameObject(rhs)
 {
 }
 
@@ -23,22 +29,38 @@ HRESULT CKalienina::Initialize(void* pArg)
 	if (FAILED(AddComponents()))
 		return E_FAIL;
 
-	mModel->Setup_Animation(0);
+	mModel->Setup_Animation(eCurrentClip);
 
 	return S_OK;
 }
 
 void CKalienina::Tick(_double TimeDelta)
 {
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
 	__super::Tick(TimeDelta);
+
+	AnimationControl();
+	Movement(TimeDelta);
+
+	mTransform->MoveForward(TimeDelta);
 }
 
 void CKalienina::LateTick(_double TimeDelta)
 {
 	__super::LateTick(TimeDelta);
 
-	mModel->Play_Animation(TimeDelta);
+	//CBone* pRootBone = mModel->GetBonePtr("R3KalieninaMd010031");
 
+	//_float4x4 BipMatrix = pBip->GetCombinedMatrix();
+	//vLeftToePos = XMVectorSet(BipMatrix._41, BipMatrix._42, BipMatrix._43, BipMatrix._44);
+	//_float4x4 vWorldMatrix = mTransform->Get_WorldMatrix();
+	
+	//mTransform->Set_State(CTransform::STATE_POSITION, );
+	//pRootBone->SetTransformationMatrix(XMLoadFloat4x4(&vWorldMatrix));
+
+	mModel->Play_Animation(TimeDelta);
+	
 	if (nullptr != mRenderer)
 		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 }
@@ -67,6 +89,29 @@ HRESULT CKalienina::Render()
 
 void CKalienina::RenderGUI()
 {
+	const CBone* pRootBone = mModel->GetBonePtr("R3KalieninaMd010031");
+	_float4x4 RootMatrix = pRootBone->GetCombinedMatrix();
+	_vector vPosition = XMVectorSet(RootMatrix._41, RootMatrix._42, RootMatrix._43, RootMatrix._44);
+	mTransform->Set_State(CTransform::STATE_POSITION, vPosition);
+
+	ImGui::Begin("Transform");
+	_float3 vPos;
+	XMStoreFloat3(&vPos, mTransform->Get_State(CTransform::STATE_POSITION));
+
+	float a[3];
+	_float3 vp;
+	//XMStoreFloat3(a, vLeftToePos);
+	a[0] = vPos.x;
+	a[1] = vPos.y;
+	a[2] = vPos.z;
+	ImGui::InputFloat3("Position", a);
+
+	ImGui::End();
+}
+
+const CBone * CKalienina::GetBone(const char * szBoneName) const
+{
+	return mModel->GetBonePtr(szBoneName);
 }
 
 HRESULT CKalienina::AddComponents()
@@ -74,7 +119,13 @@ HRESULT CKalienina::AddComponents()
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&mRenderer)))
 		return E_FAIL;
 
-	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&mTransform)))
+	CTransform::TRANSFORM_DESC TransformDesc;
+	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
+
+	TransformDesc.fMoveSpeed = 5.f;
+	TransformDesc.fRotationSpeed = XMConvertToRadians(90.0f);
+
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&mTransform, &TransformDesc)))
 		return E_FAIL;
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_shader_vtxanimmodel"), TEXT("com_shader"), (CComponent**)&mShader)))
@@ -82,7 +133,6 @@ HRESULT CKalienina::AddComponents()
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kalienina"), TEXT("com_model"), (CComponent**)&mModel)))
 		return E_FAIL;
-
 
 	return S_OK;
 }
@@ -120,6 +170,34 @@ HRESULT CKalienina::SetupShaderResources()
 		return E_FAIL;
 
 	return S_OK;
+}
+
+void CKalienina::Movement(_double TimeDelta)
+{
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_UPARROW) == KEY_STATE::HOLD)
+	{
+		eCurrentClip = CLIP::RUN;
+		mTransform->MoveForward(TimeDelta);
+	}
+}
+
+void CKalienina::AnimationControl()
+{
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_Z) == KEY_STATE::TAP)
+	{
+		eCurrentClip = CLIP::ATTACK1;
+	}
+
+	if (mModel->AnimationIsFinish())
+	{
+		eCurrentClip = CLIP::STAND1;
+	}
+	
+	mModel->Setup_Animation(eCurrentClip);
 }
 
 CKalienina* CKalienina::Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)

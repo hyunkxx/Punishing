@@ -56,6 +56,9 @@ HRESULT CChannel::Initialize(aiNodeAnim* pAIChannel, CModel* pModel)
 
 void CChannel::InvalidateTransform(_double TrackPosition)
 {
+	if (0.0 == TrackPosition)
+		m_iCurrentKeyFrame = 0;
+
 	_vector vScale;
 	_vector vRotation;
 	_vector vPosition;

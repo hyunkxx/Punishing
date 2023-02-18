@@ -3,6 +3,8 @@
 
 #include "ApplicationManager.h"
 #include "GameInstance.h"
+#include "ImGUIManager.h"
+
 #include "Level_Loading.h"
 
 #include "BackGround.h"
@@ -10,6 +12,7 @@
 
 CApplication::CApplication()
 	: m_pGameInstance { CGameInstance::GetInstance() }
+	, m_pGUIManager { CImGUIManager::GetInstance() }
 {
 	Safe_AddRef(m_pGameInstance);
 }
@@ -26,6 +29,8 @@ HRESULT CApplication::Initialize()
 	
 	if (FAILED(m_pGameInstance->Engine_Initialize(GraphicDesc, LEVEL_END, &m_pDevice, &m_pContext)))
 		return E_FAIL;
+
+	m_pGUIManager->Initialize(m_pDevice, m_pContext);
 
 	if (FAILED(InitializeManager()))
 		return E_FAIL;
@@ -71,10 +76,16 @@ HRESULT CApplication::Render()
 	if (!m_pGameInstance || !m_pRenderer)
 		return E_FAIL;
 
+	m_pGUIManager->NewFrame();
+	m_pGameInstance->RenderLevelUI();
+	m_pGameInstance->RenderGUI();
+	m_pGUIManager->Render();
+
 	m_pGameInstance->Clear_RenderTargetView(_float4(0.f, 0.f, 1.f, 1.f));
 	m_pGameInstance->Clear_DepthStencilView();
 
 	m_pRenderer->Draw();
+	m_pGUIManager->RenderDrawData();
 
 	m_pGameInstance->Present();
 
@@ -159,6 +170,7 @@ HRESULT CApplication::InitializeManager()
 
 void CApplication::DestroyManager()
 {
+	CImGUIManager::DestroyInstance();
 	CApplicationManager::DestroyInstance();
 }
 

@@ -40,6 +40,8 @@ private:
 	CGameInstance*				m_pGameInstance = { nullptr };
 
 	CRenderer*					m_pRenderer = { nullptr };
+
+	class CImGUIManager*		m_pGUIManager = { nullptr };
 };
 
 END

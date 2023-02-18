@@ -35,9 +35,6 @@
     <Filter Include="src\02. GameObjects">
       <UniqueIdentifier>{103fe8f1-2e98-41b5-8543-5b4077cbec4a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\99. ShaderFiles">
-      <UniqueIdentifier>{a2c67a9a-622f-427a-85ff-ff7d7f32481d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\01. Levels\02. GamePlay">
       <UniqueIdentifier>{a0fe662c-f94a-4d4b-b072-e1a6b073e38a}</UniqueIdentifier>
     </Filter>
@@ -53,11 +50,20 @@
     <Filter Include="src\02. GameObjects\00. Terrain">
       <UniqueIdentifier>{8bbfe02c-4521-4c84-97f5-109e4df3f75a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\02. GameObjects\03. Stage_One">
-      <UniqueIdentifier>{c8dc90eb-54d9-4540-8928-aca43f14b5cf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\02. GameObjects\04. Character">
       <UniqueIdentifier>{34992378-d691-4837-9069-bedcb6bb75e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\imgui">
+      <UniqueIdentifier>{35114f54-5aa3-418b-99de-d71622c7367f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\imgui\imgui">
+      <UniqueIdentifier>{83d9e8cc-9220-4fc2-897b-ecbddec45b98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\99. Shader">
+      <UniqueIdentifier>{a2c67a9a-622f-427a-85ff-ff7d7f32481d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\02. GameObjects\03. Stage">
+      <UniqueIdentifier>{c8dc90eb-54d9-4540-8928-aca43f14b5cf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -107,10 +113,37 @@
       <Filter>src\02. GameObjects\04. Character</Filter>
     </ClInclude>
     <ClInclude Include="..\public\City.h">
-      <Filter>src\02. GameObjects\03. Stage_One</Filter>
+      <Filter>src\02. GameObjects\03. Stage</Filter>
     </ClInclude>
     <ClInclude Include="..\public\Sleeve.h">
       <Filter>src\02. GameObjects\04. Character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\ImGUIManager.h">
+      <Filter>config\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Tool\ImGui\imconfig.h">
+      <Filter>config\imgui\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Tool\ImGui\imgui.h">
+      <Filter>config\imgui\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Tool\ImGui\imgui_impl_dx11.h">
+      <Filter>config\imgui\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Tool\ImGui\imgui_impl_win32.h">
+      <Filter>config\imgui\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Tool\ImGui\imgui_internal.h">
+      <Filter>config\imgui\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Tool\ImGui\imstb_rectpack.h">
+      <Filter>config\imgui\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Tool\ImGui\imstb_textedit.h">
+      <Filter>config\imgui\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Tool\ImGui\imstb_truetype.h">
+      <Filter>config\imgui\imgui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -151,10 +184,34 @@
       <Filter>src\02. GameObjects\04. Character</Filter>
     </ClCompile>
     <ClCompile Include="..\private\City.cpp">
-      <Filter>src\02. GameObjects\03. Stage_One</Filter>
+      <Filter>src\02. GameObjects\03. Stage</Filter>
     </ClCompile>
     <ClCompile Include="..\private\Sleeve.cpp">
       <Filter>src\02. GameObjects\04. Character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\ImGUIManager.cpp">
+      <Filter>config\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Tool\ImGui\imgui.cpp">
+      <Filter>config\imgui\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Tool\ImGui\imgui_demo.cpp">
+      <Filter>config\imgui\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Tool\ImGui\imgui_draw.cpp">
+      <Filter>config\imgui\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Tool\ImGui\imgui_impl_dx11.cpp">
+      <Filter>config\imgui\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Tool\ImGui\imgui_impl_win32.cpp">
+      <Filter>config\imgui\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Tool\ImGui\imgui_tables.cpp">
+      <Filter>config\imgui\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Tool\ImGui\imgui_widgets.cpp">
+      <Filter>config\imgui\imgui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -174,31 +231,34 @@
     <Text Include="ReadMe.txt">
       <Filter>config\res</Filter>
     </Text>
+    <Text Include="..\..\Tool\ImGui\LICENSE.txt">
+      <Filter>config\imgui\imgui</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\..\Shader\SHADER_VTXNORTEX.hlsl">
-      <Filter>src\99. ShaderFiles</Filter>
+      <Filter>src\99. Shader</Filter>
     </FxCompile>
     <FxCompile Include="..\..\Shader\SHADER_VTXTEX.hlsl">
-      <Filter>src\99. ShaderFiles</Filter>
+      <Filter>src\99. Shader</Filter>
     </FxCompile>
     <FxCompile Include="..\..\Shader\SHADER_GROUD.hlsl">
-      <Filter>src\99. ShaderFiles</Filter>
+      <Filter>src\99. Shader</Filter>
     </FxCompile>
     <FxCompile Include="..\..\Shader\SHADER_PHONG.hlsl">
-      <Filter>src\99. ShaderFiles</Filter>
+      <Filter>src\99. Shader</Filter>
     </FxCompile>
     <FxCompile Include="..\..\Shader\SHADER_ALPHA.hlsl">
-      <Filter>src\99. ShaderFiles</Filter>
+      <Filter>src\99. Shader</Filter>
     </FxCompile>
     <FxCompile Include="..\..\Shader\SHADER_VTXCUBE.hlsl">
-      <Filter>src\99. ShaderFiles</Filter>
+      <Filter>src\99. Shader</Filter>
     </FxCompile>
     <FxCompile Include="..\..\Shader\SHADER_VTXMODEL.hlsl">
-      <Filter>src\99. ShaderFiles</Filter>
+      <Filter>src\99. Shader</Filter>
     </FxCompile>
     <FxCompile Include="..\..\Shader\SHADER_VTXANIMMODEL.hlsl">
-      <Filter>src\99. ShaderFiles</Filter>
+      <Filter>src\99. Shader</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>

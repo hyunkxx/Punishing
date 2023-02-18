@@ -2,6 +2,8 @@
 #include "..\Public\Sleeve.h"
 
 #include "GameInstance.h"
+#include "Kalienina.h"
+#include "Bone.h"
 
 CSleeve::CSleeve(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
 	: CGameObject(pDevice, pContext)
@@ -41,6 +43,16 @@ void CSleeve::LateTick(_double TimeDelta)
 {
 	__super::LateTick(TimeDelta);
 
+	CKalienina* Player = static_cast<CKalienina*>(mOwner);
+	const CBone* WeaponCase = Player->GetBone("WeaponCase1");
+
+	_float4x4 WeaponPos = WeaponCase->GetCombinedMatrix();
+	mTransform->Set_WorldMatrix(WeaponPos);
+
+	if (WeaponCase == nullptr)
+		MSG_BOX("WEAPON CASE NULL");
+
+
 	if (nullptr != mRenderer)
 		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 }
@@ -57,8 +69,7 @@ HRESULT CSleeve::Render()
 	for (_uint i = 0; i < MeshCount; ++i)
 	{
 		mModel->Setup_ShaderMaterialResource(mShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
-		//m_pModelCom->SetUp_ShaderMaterialResource(m_pShaderCom, "g_AmbientTexture", i, aiTextureType_AMBIENT);
-
+		
 		mShader->Begin(0);
 		mModel->Render(i);
 	}
@@ -78,7 +89,7 @@ HRESULT CSleeve::AddComponents()
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&mTransform)))
 		return E_FAIL;
 
-	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_shader_vtxmodel"), TEXT("com_shader"), (CComponent**)&mShader)))
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"), TEXT("com_shader"), (CComponent**)&mShader)))
 		return E_FAIL;
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_weapon"), TEXT("com_model"), (CComponent**)&mModel)))

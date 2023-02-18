@@ -17,6 +17,9 @@ public:
 	void PlayAnimation(_double TimeDelta);
 	const char* GetName() const { return m_szName; }
 	_uint GetChannelIndex(const char* pAnimationName) const;
+
+	void SetFinish(bool valus) { m_isFinish = valus; }
+	_bool IsFinish() const { return m_isFinish; }
 	void Reset();
 
 public:

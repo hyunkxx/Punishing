@@ -30,7 +30,7 @@ void CAnimation::PlayAnimation(_double TimeDelta)
 		if (true == m_isLoop)
 		{
 			m_LocalTime = 0.0;
-			m_isFinish = false;
+			m_isFinish = true;
 			Reset();
 		}
 		else
@@ -39,10 +39,12 @@ void CAnimation::PlayAnimation(_double TimeDelta)
 		}
 	}
 
-	// 해당 애니메이션에 사용되는 뼈대를 갱신함.
-	for (auto& pChannel : m_Channels)
+	if (false == m_isFinish || true == m_isLoop)
 	{
-		pChannel->InvalidateTransform(m_LocalTime);
+		for (auto& pChannel : m_Channels)
+		{
+			pChannel->InvalidateTransform(m_LocalTime);
+		}
 	}
 }
 
@@ -73,4 +75,8 @@ CAnimation* CAnimation::Create(aiAnimation* pAIAnimation, CModel* pModel)
 
 void CAnimation::Free()
 {
+	for (auto& pChannel : m_Channels)
+		Safe_Release(pChannel);
+
+	m_Channels.clear();
 }

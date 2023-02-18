@@ -32,6 +32,9 @@ public:
 	_uint Get_MeshCount() { return m_iMeshCount; }
 	class CBone* GetBonePtr(const char* pBoneName);
 
+	// Animation
+	_bool AnimationIsFinish();
+
 public:
 	static CModel* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, MESH_TYPE eType, const char* pPath, _fmatrix LocalMatrix);
 	virtual CComponent* Clone(void* pArg = nullptr) override;

@@ -78,7 +78,7 @@ HRESULT CBackGround::Add_Components()
 		TEXT("com_vibuffer"), (CComponent**)&m_pVIBuffer)))
 		return E_FAIL;
 
-	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"),
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxtex"),
 		TEXT("com_shader"), (CComponent**)&m_pShader)))
 		return E_FAIL;
 

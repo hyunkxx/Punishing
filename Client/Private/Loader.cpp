@@ -52,9 +52,6 @@ HRESULT CLoader::Initialize(LEVEL_ID eNextLevel)
 
 HRESULT CLoader::Load_Level_Logo()
 {
-	_matrix	LocalMatrix = XMMatrixIdentity();
-	LocalMatrix = XMMatrixRotationY(XMConvertToRadians(180.0f));
-
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	//Logo Component
@@ -90,9 +87,6 @@ HRESULT CLoader::Load_Level_Logo()
 
 HRESULT CLoader::Load_Level_GamePlay()
 {
-	_matrix	LocalMatrix = XMMatrixIdentity();
-	LocalMatrix = XMMatrixRotationY(XMConvertToRadians(90.f));
-
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	//GamePlay Component
@@ -117,6 +111,9 @@ HRESULT CLoader::Load_Level_GamePlay()
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_city",
 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/StaticMesh/Level/City/City.fbx", cityMatrix))))
 		return E_FAIL;
+
+	_matrix	LocalMatrix = XMMatrixIdentity();
+	//LocalMatrix = XMMatrixRotationY(XMConvertToRadians(180.0f));
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_kalienina",
 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/SkeletalMesh/Character/Kalienina/KalieninaBody/Kalienina.fbx", LocalMatrix))))

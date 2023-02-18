@@ -56,6 +56,11 @@ HRESULT CModel::Initialize_Prototype(MESH_TYPE eType, const char* pPath, _fmatri
 	if (nullptr == m_pAIScene)
 		return E_FAIL;
 
+	if (m_eType == MESH_TYPE::SKELETAL_MESH)
+	{
+
+	}
+
 	if (FAILED(InitializeBones(m_pAIScene->mRootNode, nullptr)))
 		return E_FAIL;
 
@@ -63,7 +68,7 @@ HRESULT CModel::Initialize_Prototype(MESH_TYPE eType, const char* pPath, _fmatri
 
 	if (FAILED(InitializeMesh(LocalMatrix)))
 		return E_FAIL;
-
+	
 	if (FAILED(InitializeMaterials(pPath)))
 		return E_FAIL;
 
@@ -207,6 +212,7 @@ HRESULT CModel::Setup_Animation(_uint AnimationIndex)
 	if (AnimationIndex >= m_iAnimationCount)
 		return E_FAIL;
 
+	m_Animations[m_iCurrentAnimation]->SetFinish(false);
 	m_iCurrentAnimation = AnimationIndex;
 	return S_OK;
 }
@@ -232,12 +238,24 @@ HRESULT CModel::Render(_uint iMeshIndex)
 
 CBone* CModel::GetBonePtr(const char* pBoneName)
 {
-	auto iter = find_if(m_Bones.begin(), m_Bones.end(), [&](CBone* pBone)
-	{
-		return !strcmp(pBone->GetName(), pBoneName);
-	});
+	//auto iter = find_if(m_Bones.begin(), m_Bones.end(), [&](CBone* pBone)
+	//{
+	//	return !strcmp(pBone->GetName(), pBoneName);
+	//});
 
-	return *iter;
+	CBone* Bone = nullptr;
+	for (auto& pBone : m_Bones)
+	{
+		if (!strcmp(pBone->GetName(), pBoneName))
+			Bone = pBone;
+	}
+
+	return Bone;
+}
+
+_bool CModel::AnimationIsFinish()
+{
+	return m_Animations[m_iCurrentAnimation]->IsFinish();
 }
 
 CModel* CModel::Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, MESH_TYPE eType, const char* pPath, _fmatrix LocalMatrix)
