@@ -96,15 +96,21 @@ PS_OUT PS_MAIN(PS_IN In)
 
 	float fShade = saturate(dot(normalize(g_vLightDir) * -1.f, In.vNormal));
 
+	if (fShade > 0.6f)
+		fShade = 1.f;
+	else if (fShade > 0.4f)
+		fShade = 0.6f;
+	else if (fShade > 0.1f)
+		fShade = 0.4f;
+	else if (fShade > 0.1f)
+		fShade = 0.0f;
+
 	vector vReflect = reflect(normalize(g_vLightDir), In.vNormal);
 	vector vLook = In.vWorldPos - g_vCamPosition;
 
 	float fSpecular = pow(saturate(dot(normalize(vReflect) * -1.f, normalize(vLook))), 30.f);
 
-	Out.vColor = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient)) +
-		(g_vLightSpecular * g_vMtrlSpecular) * fSpecular;
-
-
+	Out.vColor = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
 
 	return Out;
 }

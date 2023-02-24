@@ -7,6 +7,7 @@
 #include "Loader.h"
 #include "Level_Logo.h"
 #include "Level_GamePlay.h"
+#include "BackGround.h"
 
 CLevel_Loading::CLevel_Loading(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CLevel(pDevice, pContext)
@@ -19,6 +20,11 @@ HRESULT CLevel_Loading::Initialize(LEVEL_ID eNextLevel)
 
 	m_pLoader = CLoader::Create(m_pDevice, m_pContext, m_eNextLevel);
 	if (nullptr == m_pLoader)
+		return E_FAIL;
+
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	m_pBackground = pGameInstance->Add_GameObject(LEVEL_LOADING, TEXT("proto_obj_background"), L"background", L"Layer_Background");
+	if (nullptr == m_pBackground)
 		return E_FAIL;
 
 	return S_OK;

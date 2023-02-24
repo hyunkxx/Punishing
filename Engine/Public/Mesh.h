@@ -22,7 +22,7 @@ private:
 
 public:
 	_uint GetMaterialIndex() const { return m_iMaterialIndex; }
-	void GetBoneMatrices(_float4x4* pMeshBoneMatrices);
+	void GetBoneMatrices(_float4x4* pMeshBoneMatrices, _fmatrix LocalMatrix);
 
 public:
 	static CMesh* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, CModel::MESH_TYPE eType, const aiMesh* pAIMesh, class CModel* pModel, _fmatrix LocalMatrix);

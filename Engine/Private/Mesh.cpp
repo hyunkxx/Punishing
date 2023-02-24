@@ -200,13 +200,13 @@ HRESULT CMesh::InitSkeletalMeshVertexBuffer(const aiMesh * pAIMesh, CModel * pMo
 	return S_OK;
 }
 
-void CMesh::GetBoneMatrices(_float4x4* pMeshBoneMatrices)
+void CMesh::GetBoneMatrices(_float4x4* pMeshBoneMatrices, _fmatrix LocalMatrix)
 {
 	_uint iIndex = 0;
 
 	for (auto& pBone : m_Bones)
 	{
-		XMStoreFloat4x4(&pMeshBoneMatrices[iIndex++], XMLoadFloat4x4(&pBone->GetOffSetMatrix()) * XMLoadFloat4x4(&pBone->GetCombinedMatrix()));
+		XMStoreFloat4x4(&pMeshBoneMatrices[iIndex++], XMLoadFloat4x4(&pBone->GetOffSetMatrix()) * XMLoadFloat4x4(&pBone->GetCombinedMatrix()) * LocalMatrix);
 	}
 }
 

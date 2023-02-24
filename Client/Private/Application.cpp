@@ -45,7 +45,6 @@ HRESULT CApplication::Initialize()
 		return E_FAIL;
 
 	ID3D11RasterizerState* RasterizerState;
-
 	D3D11_RASTERIZER_DESC RSDesc;
 	RSDesc.FillMode = D3D11_FILL_SOLID;
 	RSDesc.CullMode = D3D11_CULL_NONE;
@@ -59,7 +58,6 @@ HRESULT CApplication::Initialize()
 	m_pDevice->CreateRasterizerState(&RSDesc, &RasterizerState);
 	m_pContext->RSSetState(RasterizerState);
 	
-
 	return S_OK;
 }
 
@@ -147,6 +145,10 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXMODEL.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_LOADING, TEXT("proto_com_texture_background"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/background.jpg")))))
+		return E_FAIL;
+
 	Safe_AddRef(m_pRenderer);
 
 	return S_OK;
@@ -156,6 +158,10 @@ HRESULT CApplication::Ready_Prototype_Static_GameObject()
 {
 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_dynamic_camera"),
 		CDynamicCamera::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_background"),
+		CBackGround::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
 	return S_OK;
@@ -170,7 +176,7 @@ HRESULT CApplication::InitializeManager()
 
 void CApplication::DestroyManager()
 {
-	CImGUIManager::DestroyInstance();
+	m_pGUIManager->Shutdown();
 	CApplicationManager::DestroyInstance();
 }
 

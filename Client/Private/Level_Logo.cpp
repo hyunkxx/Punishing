@@ -21,6 +21,7 @@ HRESULT CLevel_Logo::Initialize()
 
 void CLevel_Logo::Tick(_double TimeDelta)
 {
+
 #ifdef _DEBUG
 	CApplicationManager* pApplicationManager = CApplicationManager::GetInstance();
 	pApplicationManager->SetTitle(L"LEVEL_LOGO");
@@ -39,7 +40,7 @@ HRESULT CLevel_Logo::Ready_Layer_BackGround(const _tchar* pLayerTag)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	if (nullptr == pGameInstance->Add_GameObject(LEVEL_LOGO, TEXT("proto_obj_background"), L"background", pLayerTag))
+	if (nullptr == pGameInstance->Add_GameObject(LEVEL_LOADING, TEXT("proto_obj_background"), L"background", pLayerTag))
 		return E_FAIL;
 
 	return S_OK;

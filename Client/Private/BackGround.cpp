@@ -68,6 +68,10 @@ HRESULT CBackGround::Render()
 	return S_OK;
 }
 
+void CBackGround::RenderGUI()
+{
+}
+
 HRESULT CBackGround::Add_Components()
 {
  	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"),
@@ -82,7 +86,7 @@ HRESULT CBackGround::Add_Components()
 		TEXT("com_shader"), (CComponent**)&m_pShader)))
 		return E_FAIL;
 
-	if (FAILED(__super::Add_Component(LEVEL_LOGO, TEXT("proto_com_texture_background"),
+	if (FAILED(__super::Add_Component(LEVEL_LOADING, TEXT("proto_com_texture_background"),
 		TEXT("com_texture"), (CComponent**)&m_pTexture)))
 		return E_FAIL;
 

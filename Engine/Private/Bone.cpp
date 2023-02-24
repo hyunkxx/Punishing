@@ -2,15 +2,15 @@
 
 HRESULT CBone::Initialize(aiNode* pAINode, CBone* pParent)
 {
-	m_pParent = pParent;
-	Safe_AddRef(pParent);
-
 	strcpy_s(m_szName, pAINode->mName.data);
-	
 	memcpy(&m_TransformationMatrix, &pAINode->mTransformation, sizeof(_float4x4));
 	XMStoreFloat4x4(&m_TransformationMatrix, XMMatrixTranspose(XMLoadFloat4x4(&m_TransformationMatrix)));
-	
+
 	XMStoreFloat4x4(&m_CombinedMatrix, XMMatrixIdentity());
+	XMStoreFloat4x4(&m_OffsetMatrix, XMMatrixIdentity());
+
+	m_pParent = pParent;
+	Safe_AddRef(m_pParent);
 
 	return S_OK;
 }

@@ -54,17 +54,6 @@ void CToolCamera::Tick(_double TimeDelta)
 		m_isRotationLock = true;
 	}
 
-	if (m_isRotationLock)
-	{
-		_long MouseMove = 0;
-
-		if (MouseMove = pGameInstance->Input_MouseMove(DIMM_X))
-			m_pTransform->Rotate(XMVectorSet(0.f, 1.f, 0.f, 0.f), MouseMove * TimeDelta * 0.1f);
-
-		if (MouseMove = pGameInstance->Input_MouseMove(DIMM_Y))
-			m_pTransform->Rotate(m_pTransform->Get_State(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 0.1f);
-	}
-
 	if (pGameInstance->Input_KeyState_Custom(DIK_SPACE) == KEY_STATE::TAP)
 	{
 		m_pTransform->SetRotation(XMVectorSet(1.f, 0.f, 0.f, 0.f), 0.f);

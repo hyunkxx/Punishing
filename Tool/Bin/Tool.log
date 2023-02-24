@@ -1,5 +1,4 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : 'c:\github\framework\tool\bin\tool.pch' 파일은 다른 프로세스에서 사용 중이므로 프로세스에서 액세스할 수 없습니다.
-  pch.cpp
+﻿  pch.cpp
   imgui_widgets.cpp
   imgui_tables.cpp
   imgui_impl_win32.cpp

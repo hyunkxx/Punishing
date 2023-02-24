@@ -29,7 +29,7 @@ HRESULT CSleeve::Initialize(void * pArg)
 	if (nullptr == pArg)
 		return E_FAIL;
 
-	mOwner = (CGameObject*)pArg;
+	m_descOwner = *(OWNER_DESC*)pArg;
 
 	return S_OK;
 }
@@ -43,15 +43,19 @@ void CSleeve::LateTick(_double TimeDelta)
 {
 	__super::LateTick(TimeDelta);
 
-	CKalienina* Player = static_cast<CKalienina*>(mOwner);
-	const CBone* WeaponCase = Player->GetBone("WeaponCase1");
+	_float4x4 playerWorldMatrix = m_descOwner.pTransform->Get_WorldMatrix();
+	
+	assert(m_descOwner.pModel);
+	assert(m_descOwner.pTransform);
+	assert(m_descOwner.pWeaponCase);
 
-	_float4x4 WeaponPos = WeaponCase->GetCombinedMatrix();
-	mTransform->Set_WorldMatrix(WeaponPos);
+	//무기 본 위치
+	_float4x4 WeaponBoneMatrix;
+	XMStoreFloat4x4(&WeaponBoneMatrix, 
+		XMLoadFloat4x4(&m_descOwner.pWeaponCase->GetOffSetMatrix()) * XMLoadFloat4x4(&m_descOwner.pWeaponCase->GetCombinedMatrix())
+		* XMLoadFloat4x4(&m_descOwner.pModel->GetLocalMatrix()) * XMLoadFloat4x4(&playerWorldMatrix));
 
-	if (WeaponCase == nullptr)
-		MSG_BOX("WEAPON CASE NULL");
-
+	mTransform->Set_WorldMatrix(WeaponBoneMatrix);
 
 	if (nullptr != mRenderer)
 		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);

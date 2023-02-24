@@ -7,6 +7,8 @@ class CRenderer;
 class CTransform;
 class CModel;
 class CShader;
+class CBone;
+class CModel;
 END
 
 BEGIN(Client)
@@ -14,6 +16,14 @@ BEGIN(Client)
 //Kalienina Weapon
 class CSleeve final : public CGameObject
 {
+public:
+	typedef struct tagOwner
+	{
+		CModel* pModel;
+		CTransform* pTransform;
+		const CBone* pWeaponCase;
+	}OWNER_DESC;
+
 private:
 	CSleeve(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	virtual ~CSleeve() = default;
@@ -42,7 +52,7 @@ private:
 	CShader* mShader = nullptr;
 
 private:
-	CGameObject* mOwner = nullptr;
+	OWNER_DESC m_descOwner;
 
 };
 

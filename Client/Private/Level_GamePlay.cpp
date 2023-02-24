@@ -18,10 +18,10 @@ HRESULT CLevel_GamePlay::Initialize()
 	if(FAILED(Ready_Layer_BackGround(TEXT("layer_background"))))
 		return E_FAIL;
 
-	if (FAILED(Ready_Layer_Camera(TEXT("layer_camera"))))
+	if (FAILED(Ready_Layer_Player(TEXT("layer_player"))))
 		return E_FAIL;
 
-	if (FAILED(Ready_Layer_Player(TEXT("layer_player"))))
+	if (FAILED(Ready_Layer_Camera(TEXT("layer_camera"))))
 		return E_FAIL;
 
 	return S_OK;
@@ -59,9 +59,6 @@ HRESULT CLevel_GamePlay::Ready_Layer_BackGround(const _tchar* pLayerTag)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	//if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_terrain", L"terrain", pLayerTag))
-	//	return E_FAIL;
-
 	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_city", L"city", pLayerTag))
 		return E_FAIL;
 
@@ -87,7 +84,12 @@ HRESULT CLevel_GamePlay::Ready_Layer_Camera(const _tchar* pLayerTag)
 	CameraDesc.fNear = 0.1f;
 	CameraDesc.fFar = 1000.f;
 
-	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_dynamic_camera"), L"dynamic_camera", pLayerTag, &CameraDesc))
+	//if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_dynamic_camera"), L"dynamic_camera", pLayerTag, &CameraDesc))
+	//	return E_FAIL;
+
+	assert(mKalienina);
+
+	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_player_camera"), L"player_camera", pLayerTag, mKalienina))
 		return E_FAIL;
 
 	return S_OK;
@@ -98,12 +100,6 @@ HRESULT CLevel_GamePlay::Ready_Layer_Player(const _tchar* pLayerTag)
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	mKalienina = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kalienina"), L"player1", pLayerTag);
-	if (nullptr == mKalienina)
-		return E_FAIL;
-
-	pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kalienina_weapon"), L"player_weapon", pLayerTag, mKalienina);
-	if (nullptr == mKalienina)
-		return E_FAIL;
 
 	return S_OK;
 }

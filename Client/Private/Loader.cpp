@@ -2,6 +2,7 @@
 #include "..\Public\Loader.h"
 #include "GameInstance.h"
 
+#include "PlayerCamera.h"
 #include "BackGround.h"
 #include "Terrain.h"
 #include "City.h"
@@ -59,10 +60,6 @@ HRESULT CLoader::Load_Level_Logo()
 	
 	m_szLoadingStateText = L"텍스쳐를 로딩중입니다.";
 
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_LOGO, TEXT("proto_com_texture_background"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/background.jpg")))))
-		return E_FAIL;
-
 	m_szLoadingStateText = L"정점버퍼를 로딩중입니다.";
 
 	m_szLoadingStateText = L"모델를 로딩중입니다.";
@@ -75,8 +72,6 @@ HRESULT CLoader::Load_Level_Logo()
 #pragma region GAMEOBJECTS
 	
 	m_szLoadingStateText = L"객체 원형을 준비중";
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_background"), CBackGround::Create(m_pDevice, m_pContext))))
-		return E_FAIL;
 
 #pragma endregion
 
@@ -109,18 +104,21 @@ HRESULT CLoader::Load_Level_GamePlay()
 	cityMatrix = XMMatrixRotationY(XMConvertToRadians(90.f)) * XMMatrixTranslation(100.f, -6.f, -15.f);
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_city",
-		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/StaticMesh/Level/City/City.fbx", cityMatrix))))
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Level/City/City.fbx", cityMatrix))))
 		return E_FAIL;
-
+	
+	// 무기는 정방향
 	_matrix	LocalMatrix = XMMatrixIdentity();
-	//LocalMatrix = XMMatrixRotationY(XMConvertToRadians(180.0f));
-
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_kalienina",
-		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/SkeletalMesh/Character/Kalienina/KalieninaBody/Kalienina.fbx", LocalMatrix))))
-		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_weapon",
-		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/SkeletalMesh/Character/Kalienina/KalieninaWeapon/KalieninaWeapon.fbx", LocalMatrix))))
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Character/Kalienina/KalieninaWeapon/KalieninaWeapon.fbx", LocalMatrix))))
+		return E_FAIL;
+
+	// 플레이어 모델부터 로컬 메트릭스 설정 (Y축 회전 180도)
+	LocalMatrix = XMMatrixRotationY(XMConvertToRadians(180.0f));
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_kalienina",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Character/Kalienina/KalieninaBody/Kalienina.fbx", LocalMatrix, CKalienina::CLIP_END))))
 		return E_FAIL;
 
 	m_szLoadingStateText = L"셰이더를 로딩중입니다.";
@@ -148,6 +146,9 @@ HRESULT CLoader::Load_Level_GamePlay()
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kalienina_weapon"), CSleeve::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_player_camera"), CPlayerCamera::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
 #pragma endregion

@@ -1,0 +1,8 @@
+﻿1>------ 빌드 시작: 프로젝트: Client, 구성: Debug x64 ------
+1>FXC : warning X4717: Effects deprecated for D3DCompiler_47
+1>C:\Github\Framework\Shader\SHADER_VTXMODEL.hlsl(105,26-71): warning X3206: 'dot': implicit truncation of vector type
+1>C:\Github\Framework\Shader\SHADER_VTXMODEL.hlsl(116,20-62): warning X3206: 'reflect': implicit truncation of vector type
+1>C:\Github\Framework\Shader\SHADER_VTXMODEL.hlsl(116,9-62): error X3017: cannot implicitly convert from 'const float3' to 'float4'
+1>
+1>  compilation failed; no code produced
+========== 빌드: 성공 0, 실패 1, 최신 0, 생략 0 ==========

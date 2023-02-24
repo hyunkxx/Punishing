@@ -299,9 +299,6 @@
     <ClInclude Include="..\public\Model.h">
       <Filter>utility\03. Components\07. Model\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\Mesh.h">
-      <Filter>utility\03. Components\07. Model\Mesh</Filter>
-    </ClInclude>
     <ClInclude Include="..\public\Bone.h">
       <Filter>utility\03. Components\07. Model\Bone</Filter>
     </ClInclude>
@@ -316,6 +313,9 @@
     </ClInclude>
     <ClInclude Include="..\public\LightManager.h">
       <Filter>utility\05. Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Mesh.h">
+      <Filter>utility\03. Components\07. Model\Mesh</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

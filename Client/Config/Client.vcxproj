@@ -107,12 +107,15 @@
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>../Public/;./;../../Reference/Headers</AdditionalIncludeDirectories>
+      <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerOutput>All</AssemblerOutput>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../../Reference/Librarys</AdditionalLibraryDirectories>
       <AdditionalDependencies>Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateMapFile>true</GenerateMapFile>
     </Link>
     <FxCompile>
       <ShaderType>Effect</ShaderType>
@@ -182,6 +185,7 @@
     <ClInclude Include="..\public\ApplicationManager.h" />
     <ClInclude Include="..\public\BackGround.h" />
     <ClInclude Include="..\Public\Client_Defines.h" />
+    <ClInclude Include="..\public\CommandSystem.h" />
     <ClInclude Include="..\public\DynamicCamera.h" />
     <ClInclude Include="..\public\ImGUIManager.h" />
     <ClInclude Include="..\public\Kalienina.h" />
@@ -190,6 +194,7 @@
     <ClInclude Include="..\Public\Level_Logo.h" />
     <ClInclude Include="..\public\Loader.h" />
     <ClInclude Include="..\public\City.h" />
+    <ClInclude Include="..\public\PlayerCamera.h" />
     <ClInclude Include="..\public\Sleeve.h" />
     <ClInclude Include="..\public\Terrain.h" />
     <ClInclude Include="Client.h" />
@@ -229,6 +234,7 @@
     <ClCompile Include="..\private\Application.cpp" />
     <ClCompile Include="..\private\ApplicationManager.cpp" />
     <ClCompile Include="..\private\BackGround.cpp" />
+    <ClCompile Include="..\private\CommandSystem.cpp" />
     <ClCompile Include="..\private\DynamicCamera.cpp" />
     <ClCompile Include="..\private\ImGUIManager.cpp" />
     <ClCompile Include="..\private\Kalienina.cpp" />
@@ -237,6 +243,7 @@
     <ClCompile Include="..\Private\Level_Logo.cpp" />
     <ClCompile Include="..\private\Loader.cpp" />
     <ClCompile Include="..\private\City.cpp" />
+    <ClCompile Include="..\private\PlayerCamera.cpp" />
     <ClCompile Include="..\private\Sleeve.cpp" />
     <ClCompile Include="..\private\Terrain.cpp" />
     <ClCompile Include="Client.cpp" />

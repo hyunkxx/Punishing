@@ -104,12 +104,21 @@ PS_OUT PS_BACKGROUND(PS_IN In)
 	vector vWorldNormal = normalize(mul(float4(In.vNormal, 0.f), g_WorldMatrix));
 	float fShade = max(dot(normalize(g_vLightDir) * -1.f, vWorldNormal), 0.f);
 
+	if (fShade > 0.6f)
+		fShade = 1.f;
+	else if (fShade > 0.4f)
+		fShade = 0.6f;
+	else if (fShade > 0.1f)
+		fShade = 0.4f;
+	else if (fShade > 0.1f)
+		fShade = 0.0f;
+
 	vector vReflect = reflect(normalize(g_vLightDir), vWorldNormal);
 
 	float fSpecular = pow(max(dot(normalize(vReflect) * -1.f, normalize(In.vLook)), 0.f), g_fPower);
 	vector vMatDiffuse = g_DiffuseTexture.Sample(LinearSampler, In.vTexUV);
 
-	Out.vColor = (g_vLightDiffuse * vMatDiffuse) * saturate(fShade + (g_vLightAmbient * g_vMatAmbient)) + (g_vLightSpecular * g_vMatSpecular) * fSpecular;
+	Out.vColor = (g_vLightDiffuse * vMatDiffuse) * saturate(fShade + (g_vLightAmbient * g_vMatAmbient));
 
 	if (Out.vColor.a <= 0.1f)
 		discard;

@@ -24,6 +24,7 @@ public:
 	virtual void Tick(_double TimeDelta) override;
 	virtual void LateTick(_double TimeDelta) override;
 	virtual HRESULT Render() override;
+	virtual void RenderGUI() override;
 
 private:
 	HRESULT Add_Components();

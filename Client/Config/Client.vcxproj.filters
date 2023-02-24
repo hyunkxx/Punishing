@@ -65,6 +65,9 @@
     <Filter Include="src\02. GameObjects\03. Stage">
       <UniqueIdentifier>{c8dc90eb-54d9-4540-8928-aca43f14b5cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\02. GameObjects\04. Character\Command">
+      <UniqueIdentifier>{3b6f5ac3-292e-406d-ab20-7172fe85ab5d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h">
@@ -85,9 +88,6 @@
     <ClInclude Include="targetver.h">
       <Filter>config\res</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\Level_Loading.h">
-      <Filter>src\01. Levels\00. Loading</Filter>
-    </ClInclude>
     <ClInclude Include="..\public\Loader.h">
       <Filter>src\01. Levels\00. Loading\Loader</Filter>
     </ClInclude>
@@ -99,9 +99,6 @@
     </ClInclude>
     <ClInclude Include="..\public\ApplicationManager.h">
       <Filter>src\00. Application\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\public\BackGround.h">
-      <Filter>src\02. GameObjects\02. BackGround</Filter>
     </ClInclude>
     <ClInclude Include="..\public\Terrain.h">
       <Filter>src\02. GameObjects\00. Terrain</Filter>
@@ -144,6 +141,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Tool\ImGui\imstb_truetype.h">
       <Filter>config\imgui\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\PlayerCamera.h">
+      <Filter>src\02. GameObjects\01. Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\CommandSystem.h">
+      <Filter>src\02. GameObjects\04. Character\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\BackGround.h">
+      <Filter>src\02. GameObjects\02. BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Level_Loading.h">
+      <Filter>src\01. Levels\00. Loading</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +221,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Tool\ImGui\imgui_widgets.cpp">
       <Filter>config\imgui\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\PlayerCamera.cpp">
+      <Filter>src\02. GameObjects\01. Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\CommandSystem.cpp">
+      <Filter>src\02. GameObjects\04. Character\Command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

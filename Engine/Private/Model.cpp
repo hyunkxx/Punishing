@@ -2,9 +2,11 @@
 
 #include "Mesh.h"
 #include "Bone.h"
+#include "Channel.h"
 #include "Shader.h"
 #include "Texture.h"
 #include "Animation.h"
+#include "Transform.h"
 
 CModel::CModel(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CComponent(pDevice, pContext)
@@ -14,26 +16,12 @@ CModel::CModel(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 CModel::CModel(const CModel& rhs)
 	: CComponent(rhs)
 	, m_pAIScene(rhs.m_pAIScene)
-	, m_Meshs(rhs.m_Meshs)
-	, m_iMeshCount(rhs.m_iMeshCount)
 	, m_Materials(rhs.m_Materials)
 	, m_iMaterialCount(rhs.m_iMaterialCount)
 	, m_LocalMatrix(rhs.m_LocalMatrix)
 	, m_eType(rhs.m_eType)
-	, m_Bones(rhs.m_Bones)
-	, m_iBoneCount(rhs.m_iBoneCount)
-	, m_Animations(rhs.m_Animations)
 	, m_iAnimationCount(rhs.m_iAnimationCount)
 {
-	for (auto& pMesh : m_Meshs)
-		Safe_AddRef(pMesh);
-
-	for (auto& pBone : m_Bones)
-		Safe_AddRef(pBone);
-
-	for (auto& pAnimation : m_Animations)
-		Safe_AddRef(pAnimation);
-
 	for (auto& Material : m_Materials)
 	{
 		for (_uint i = 0; i < AI_TEXTURE_TYPE_MAX; ++i)
@@ -43,11 +31,12 @@ CModel::CModel(const CModel& rhs)
 	}
 }
 
-HRESULT CModel::Initialize_Prototype(MESH_TYPE eType, const char* pPath, _fmatrix LocalMatrix)
+HRESULT CModel::Initialize_Prototype(MESH_TYPE eType, const char* pPath, _fmatrix LocalMatrix, _uint iAnimationCount)
 {
 	m_eType = eType;
+	m_iAnimationCount = iAnimationCount;
 	XMStoreFloat4x4(&m_LocalMatrix, LocalMatrix);
-
+	
 	_uint iFlags = aiProcessPreset_TargetRealtime_Fast | aiProcess_ConvertToLeftHanded;
 	if (eType == MESH_TYPE::STATIC_MESH)
 		iFlags |= aiProcess_PreTransformVertices;
@@ -55,24 +44,8 @@ HRESULT CModel::Initialize_Prototype(MESH_TYPE eType, const char* pPath, _fmatri
 	m_pAIScene = m_Importer.ReadFile(pPath, iFlags);
 	if (nullptr == m_pAIScene)
 		return E_FAIL;
-
-	if (m_eType == MESH_TYPE::SKELETAL_MESH)
-	{
-
-	}
-
-	if (FAILED(InitializeBones(m_pAIScene->mRootNode, nullptr)))
-		return E_FAIL;
-
-	m_iBoneCount = (_uint)m_Bones.size();
-
-	if (FAILED(InitializeMesh(LocalMatrix)))
-		return E_FAIL;
 	
 	if (FAILED(InitializeMaterials(pPath)))
-		return E_FAIL;
-
-	if (FAILED(InitializeAnimtaion()))
 		return E_FAIL;
 
 	return S_OK;
@@ -80,6 +53,16 @@ HRESULT CModel::Initialize_Prototype(MESH_TYPE eType, const char* pPath, _fmatri
 
 HRESULT CModel::Initialize(void* pArg)
 {
+	if (FAILED(InitializeBones(m_pAIScene->mRootNode, nullptr)))
+		return E_FAIL;
+	m_iBoneCount = (_uint)m_Bones.size();
+
+	if (FAILED(InitializeMesh(XMLoadFloat4x4(&m_LocalMatrix))))
+		return E_FAIL;
+
+	if (FAILED(InitializeAnimtaion(m_iAnimationCount)))
+		return E_FAIL;
+
 	return S_OK;
 }
 
@@ -142,6 +125,7 @@ HRESULT CModel::InitializeMaterials(const char * pModelFilePath)
 			MultiByteToWideChar(CP_ACP, 0, szFullPath, (int)strlen(szFullPath), szMaterialTexturePath, MAX_PATH);
 
 			ModelMaterial.pMaterialTexture[j] = CTexture::Create(m_pDevice, m_pContext, szMaterialTexturePath);
+
 			if (nullptr == ModelMaterial.pMaterialTexture[j])
 				return E_FAIL;
 		}
@@ -167,16 +151,19 @@ HRESULT CModel::InitializeBones(aiNode* pAINode, CBone* pParent)
 	return S_OK;
 }
 
-HRESULT CModel::InitializeAnimtaion()
+HRESULT CModel::InitializeAnimtaion(_uint iAnimationCount)
 {
-	m_iAnimationCount = m_pAIScene->mNumAnimations;
+	if (iAnimationCount > m_pAIScene->mNumAnimations)
+		iAnimationCount = m_pAIScene->mNumAnimations;
+
+	m_iAnimationCount = iAnimationCount;
 	for (_uint i = 0; i < m_iAnimationCount; ++i)
 	{
 		CAnimation* pAnimation = CAnimation::Create(m_pAIScene->mAnimations[i], this);
 		if (nullptr == pAnimation)
 			return E_FAIL;
 
-		m_Animations.push_back(pAnimation);
+ 		m_Animations.push_back(pAnimation);
 	}
 
 	return S_OK;
@@ -199,7 +186,7 @@ HRESULT CModel::Setup_BoneMatrices(CShader* pShader, const char* pConstantName, 
 		return E_FAIL;
 
 	_float4x4 MeshBoneMatrices[256];
-	m_Meshs[iMeshIndex]->GetBoneMatrices(MeshBoneMatrices);
+	m_Meshs[iMeshIndex]->GetBoneMatrices(MeshBoneMatrices, XMLoadFloat4x4(&m_LocalMatrix));
 
 	if (FAILED(pShader->SetMatrixArray(pConstantName, MeshBoneMatrices, 256)))
 		return E_FAIL;
@@ -212,14 +199,25 @@ HRESULT CModel::Setup_Animation(_uint AnimationIndex)
 	if (AnimationIndex >= m_iAnimationCount)
 		return E_FAIL;
 
-	m_Animations[m_iCurrentAnimation]->SetFinish(false);
-	m_iCurrentAnimation = AnimationIndex;
+	if (m_iCurrentAnimation != AnimationIndex)
+	{
+		m_bLerpAnimation = true;
+		m_CurrentKeyFrames = m_Animations[m_iCurrentAnimation]->GetCurrentKeyFrames(m_iCurrentAnimation);
+		m_iCurrentAnimation = AnimationIndex;
+	}
+	else
+	{
+		m_bLerpAnimation = false;
+		m_iCurrentAnimation = AnimationIndex;
+	}
+
 	return S_OK;
 }
 
-HRESULT CModel::Play_Animation(_double TimeDelta)
+HRESULT CModel::Play_Animation(_double TimeDelta, CTransform* pTransform,  CAnimation::TYPE eType)
 {
-	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta);
+	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta, pTransform, eType, m_bLerpAnimation, m_CurrentKeyFrames);
+
 	for (auto& pBone : m_Bones)
 		pBone->InvalidateCombinedMatrix();
 
@@ -242,7 +240,6 @@ CBone* CModel::GetBonePtr(const char* pBoneName)
 	//{
 	//	return !strcmp(pBone->GetName(), pBoneName);
 	//});
-
 	CBone* Bone = nullptr;
 	for (auto& pBone : m_Bones)
 	{
@@ -255,13 +252,22 @@ CBone* CModel::GetBonePtr(const char* pBoneName)
 
 _bool CModel::AnimationIsFinish()
 {
-	return m_Animations[m_iCurrentAnimation]->IsFinish();
+	_bool isFinish = false;
+	if(isFinish = m_Animations[m_iCurrentAnimation]->IsFinish())
+		m_Animations[m_iCurrentAnimation]->Reset();
+
+	return isFinish;
 }
 
-CModel* CModel::Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, MESH_TYPE eType, const char* pPath, _fmatrix LocalMatrix)
+void CModel::SetFinish(_bool Value)
+{
+	m_Animations[m_iCurrentAnimation]->SetFinish(Value);
+}
+
+CModel* CModel::Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, MESH_TYPE eType, const char* pPath, _fmatrix LocalMatrix, _uint iAnimationCount)
 {
 	CModel* pInstance = new CModel(pDevice, pContext);
-	if (FAILED(pInstance->Initialize_Prototype(eType, pPath, LocalMatrix)))
+	if (FAILED(pInstance->Initialize_Prototype(eType, pPath, LocalMatrix, iAnimationCount)))
 	{
 		MSG_BOX("Failed to Create : CModel");
 		Safe_Release(pInstance);
@@ -285,7 +291,7 @@ CComponent* CModel::Clone(void* pArg)
 void CModel::Free()
 {
 	__super::Free();
-
+	
 	for (auto& Material : m_Materials)
 	{
 		for (_uint i = 0; i < AI_TEXTURE_TYPE_MAX; ++i)
@@ -295,16 +301,15 @@ void CModel::Free()
 	}
 	m_Materials.clear();
 
-
 	for (auto& pMesh : m_Meshs)
-		Safe_AddRef(pMesh);
+		Safe_Release(pMesh);
 	m_Meshs.clear();
 
 	for (auto& pBone : m_Bones)
-		Safe_AddRef(pBone);
+		Safe_Release(pBone);
 	m_Bones.clear();
 
 	for (auto& pAnimation : m_Animations)
-		Safe_AddRef(pAnimation);
+		Safe_Release(pAnimation);
 	m_Animations.clear();
 }

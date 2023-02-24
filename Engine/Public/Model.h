@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Component.h"
+#include "Animation.h"
 
 BEGIN(Engine)
 
@@ -14,29 +15,31 @@ private:
 	virtual ~CModel() = default;
 
 public:
-	virtual HRESULT Initialize_Prototype(MESH_TYPE eType, const char* pPath, _fmatrix LocalMatrix);
+	virtual HRESULT Initialize_Prototype(MESH_TYPE eType, const char* pPath, _fmatrix LocalMatrix, _uint iAnimationCount = 0);
 	virtual HRESULT Initialize(void* pArg = nullptr);
 
 public:
 	HRESULT InitializeMesh(_fmatrix LocalMatrix);
 	HRESULT InitializeMaterials(const char* pModelFilePath);
 	HRESULT InitializeBones(aiNode* pAINode, class CBone* pParent);
-	HRESULT InitializeAnimtaion();
+	HRESULT InitializeAnimtaion(_uint iAnimationCount);
 
 	HRESULT Setup_ShaderMaterialResource(class CShader* pShader, const char* pConstantName, _uint iMeshIndex, aiTextureType eType);
 	HRESULT Setup_BoneMatrices(class CShader* pShader, const char* pConstantName, _uint iMeshIndex);
 	HRESULT Setup_Animation(_uint AnimationIndex);
-	HRESULT Play_Animation(_double TimeDelta);
+	HRESULT Play_Animation(_double TimeDelta, class CTransform* pTransform, CAnimation::TYPE eType);
 	HRESULT Render(_uint iMeshIndex);
 
 	_uint Get_MeshCount() { return m_iMeshCount; }
 	class CBone* GetBonePtr(const char* pBoneName);
+	_float4x4 GetLocalMatrix() const { return m_LocalMatrix; }
 
 	// Animation
 	_bool AnimationIsFinish();
+	void SetFinish(_bool Value);
 
 public:
-	static CModel* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, MESH_TYPE eType, const char* pPath, _fmatrix LocalMatrix);
+	static CModel* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, MESH_TYPE eType, const char* pPath, _fmatrix LocalMatrix, _uint iAnimationCount = 0);
 	virtual CComponent* Clone(void* pArg = nullptr) override;
 	virtual void Free() override;
 
@@ -63,6 +66,10 @@ private:
 	_uint m_iAnimationCount = { 0 };
 	_uint m_iCurrentAnimation = { 0 };
 	vector<class CAnimation*> m_Animations;
+
+	//Lerp
+	_bool m_bLerpAnimation = false;
+	vector<KEY_FRAME> m_CurrentKeyFrames;
 };
 
 END

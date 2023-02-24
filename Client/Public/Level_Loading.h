@@ -2,6 +2,10 @@
 
 #include "Level.h"
 
+BEGIN(Engine)
+class CGameObject;
+END
+
 BEGIN(Client)
 
 class CLevel_Loading final : public CLevel
@@ -21,6 +25,7 @@ private:
 	LEVEL_ID		m_eNextLevel = { LEVEL_END };
 	class CLoader*	m_pLoader = { nullptr };
 
+	class CGameObject* m_pBackground = nullptr;
 };
 
 END
