@@ -1,2 +1,18 @@
-﻿  Client.vcxproj -> C:\Github\Framework\Client\Config\../Bin/Client.exe
+﻿  Client.cpp
+  Terrain.cpp
+  Sleeve.cpp
+  PlayerCamera.cpp
+  Loader.cpp
+  Level_Loading.cpp
+  Kalienina.cpp
+  DynamicCamera.cpp
+  City.cpp
+  BackGround.cpp
+  Application.cpp
+  Level_Logo.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  Level_GamePlay.cpp
+  코드를 생성하고 있습니다...
+  Client.vcxproj -> C:\Github\Framework\Client\Config\../Bin/Client.exe
   Client.vcxproj -> ../Bin/Client.pdb (Full PDB)

@@ -19,33 +19,31 @@ HRESULT CAnimation::Initialize(aiAnimation* pAIAnimation, CModel* pModel)
 
 		m_Channels.push_back(pChannel);
 	}
-	
+
+	m_PrevData.szName = m_szName;
+	m_PrevData.ChannelCount = m_iChannelsCount;
+	m_PrevData.pChannels = &m_Channels;
+
 	return S_OK;
 }
 
-_bool CAnimation::PlayAnimation(_double TimeDelta, CTransform* pTransform, TYPE eType, _bool bLerp, vector<KEY_FRAME> CurrentKeyFrames)
+void CAnimation::PlayAnimation(_double TimeDelta, CTransform* pTransform, TYPE eType, _bool bLerp, PREV_DATA PrevData)
 {
-	_bool bRet = false;
-	m_CurrentKeyFrames = CurrentKeyFrames;
-
 	switch (eType)
 	{
 	case ONE:
-		bRet = PlayOne(TimeDelta, pTransform, bLerp);
+		PlayOne(TimeDelta, pTransform, bLerp, PrevData);
 		break;
 	case LOOP:
-		bRet = PlayLoop(TimeDelta, pTransform, bLerp);
+		PlayLoop(TimeDelta, pTransform, bLerp, PrevData);
 		break;
 	}
-
-	return bRet;
 }
 
 void CAnimation::Reset()
 {
 	m_LocalTime = 0.0;
 	m_isFinish = false;
-	m_bLerpFinish = false;
 
 	for (auto& pChannel : m_Channels)
 	{
@@ -53,34 +51,48 @@ void CAnimation::Reset()
 	}
 }
 
-_bool CAnimation::PlayLoop(_double TimeDelta, CTransform* pTransform, _bool bLerp)
+void CAnimation::LerpFinish()
+{
+	for (auto& pChannel : m_Channels)
+	{
+		pChannel->LerpFinish();
+	}
+}
+
+void CAnimation::PlayLoop(_double TimeDelta, CTransform* pTransform, _bool bLerp, PREV_DATA PrevData)
 {
 	m_LocalTime += m_TickPerSecond * TimeDelta;
 
 	if (m_LocalTime >= m_Duration)
 	{
-		m_LocalTime = 0.f;
+		m_isFinish = false;
+		m_LocalTime = 0.0;
 	}
-	
-	if (false == bLerp)
+
+	if (bLerp)
+	{
+		if(!m_isFirstLerp)
+		{
+			m_isFirstLerp = true;
+		}
+
+		for (auto& pChannel : m_Channels)
+		{
+			pChannel->InvalidateTransformLerp(m_LocalTime, m_Duration, pTransform, PrevData);
+		}
+
+	}
+	else
 	{
 		for (auto& pChannel : m_Channels)
 		{
 			pChannel->InvalidateTransform(m_LocalTime, pTransform);
 		}
 	}
-	else
-	{
-		for (auto& pChannel : m_Channels)
-		{
-			pChannel->InvalidateTransformLerp(m_LocalTime, m_Duration, pTransform, m_CurrentKeyFrames);
-		}
-	}
 
-	return false;
 }
 
-_bool CAnimation::PlayOne(_double TimeDelta, CTransform* pTransform, _bool bLerp)
+void CAnimation::PlayOne(_double TimeDelta, CTransform* pTransform, _bool bLerp, PREV_DATA PrevData)
 {
 	m_LocalTime += m_TickPerSecond * TimeDelta;
 
@@ -88,26 +100,29 @@ _bool CAnimation::PlayOne(_double TimeDelta, CTransform* pTransform, _bool bLerp
 	{
 		m_isFinish = true;
 	}
+
+	if (bLerp)
+	{
+		if (!m_isFirstLerp)
+		{
+			m_isFirstLerp = true;
+			m_LocalTime = 0.0;
+		}
+
+		for (auto& pChannel : m_Channels)
+		{
+			pChannel->InvalidateTransformLerp(m_LocalTime, m_Duration, pTransform, PrevData);
+		}
+
+	}
 	else
 	{
-		if (false == bLerp)
+		for (auto& pChannel : m_Channels)
 		{
-			for (auto& pChannel : m_Channels)
-			{
-				pChannel->InvalidateTransform(m_LocalTime, pTransform);
-			}
-		}
-		else
-		{
-			for (auto& pChannel : m_Channels)
-			{
-				pChannel->InvalidateTransformLerp(m_LocalTime, m_Duration, pTransform, m_CurrentKeyFrames);
-			}
+			pChannel->InvalidateTransform(m_LocalTime, pTransform);
 		}
 	}
 
-
-	return false;
 }
 
 CAnimation* CAnimation::Create(aiAnimation* pAIAnimation, CModel* pModel)

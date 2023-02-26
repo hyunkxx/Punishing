@@ -10,6 +10,13 @@ namespace Engine
 		double Time;
 	}KEY_FRAME;
 
+	typedef struct tagAnimationData
+	{
+		const char* szName;
+		unsigned int ChannelCount;
+		vector<class CChannel*>* pChannels;
+	}PREV_DATA;
+
 	typedef struct tagMaterial
 	{
 		class CTexture* pMaterialTexture[AI_TEXTURE_TYPE_MAX] = { nullptr };

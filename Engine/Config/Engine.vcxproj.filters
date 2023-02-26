@@ -94,20 +94,20 @@
     <Filter Include="utility\04. PipeLine">
       <UniqueIdentifier>{ed90767c-0efd-4311-93fa-f4142e29abfa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utility\03. Components\07. Model\Animation">
-      <UniqueIdentifier>{5b7a8846-61c9-41b3-8b04-eca6e1f1aa47}</UniqueIdentifier>
-    </Filter>
     <Filter Include="utility\03. Components\07. Model\Bone">
       <UniqueIdentifier>{03503825-442b-49ef-b6af-262632dcccd1}</UniqueIdentifier>
     </Filter>
     <Filter Include="utility\03. Components\07. Model\Mesh">
       <UniqueIdentifier>{f5c64396-304c-4bf9-af44-bce37f966f06}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utility\03. Components\07. Model\Animation\Channel">
-      <UniqueIdentifier>{ab8e8cbd-b658-41e7-a52a-fd01ee8d5e6f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="utility\05. Lights">
       <UniqueIdentifier>{a35da440-ebc0-4916-9edb-804b2f439484}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\07. Model\Animation">
+      <UniqueIdentifier>{5b7a8846-61c9-41b3-8b04-eca6e1f1aa47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\07. Model\Animation\Channel">
+      <UniqueIdentifier>{ab8e8cbd-b658-41e7-a52a-fd01ee8d5e6f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

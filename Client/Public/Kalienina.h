@@ -86,7 +86,7 @@ private:
 
 	_bool AnimationCompare(CLIP eClip);
 	_bool FinishCheckPlay(CLIP eClip, CAnimation::TYPE eAnimationType);
-	void SetAnimation(CLIP eClip, CAnimation::TYPE eAnimationType);
+	void SetAnimation(CLIP eClip, CAnimation::TYPE eAnimationType, _bool bLerp = true);
 	void AnimationControl(_double TimeDelta);
 
 private://Camera
@@ -99,6 +99,7 @@ private://Camera
 	void InputWASD(_double TimeDelta);
 
 private:
+	void LerpTest(_double TimeDelta);
 	void KeyInput(_double TimeDelta);
 
 	void Idle();
