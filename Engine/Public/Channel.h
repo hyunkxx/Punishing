@@ -16,15 +16,14 @@ public:
 	void InvalidateTransform(_double TrackPosition, class CTransform* pTransform);
 	void InvalidateTransformLerp(_double TrackPosition, _double Duration, class CTransform* pTransform, PREV_DATA PrevData);
 
-	const char* GetName() { return m_szName; }
+	const char* GetName() const { return m_szName; }
 	_bool Equal(const char* pName);
 	void SetOriginPos(_float3 vPos) { m_vIdleOriginPos = vPos; }
-	void Reset() { m_iCurrentIndex = 0;  m_bSetPivot = false; }
+	void Reset() { m_iCurrentIndex = 0;  m_bSetPivot = false; m_bLerpEnd = false; }
 
 	//Lerp
 	KEY_FRAME GetCurrentKeyFrame() const { return m_CurrentKeyFrame; }
 	KEY_FRAME GetFirstKeyFrame() const { return m_KeyFrames[0]; }
-	void LerpFinish() { m_bLerpEnd = false; }
 	_bool IsLerpFinish() const { return m_bLerpEnd; }
 
 public:

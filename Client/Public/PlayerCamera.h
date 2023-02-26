@@ -30,7 +30,7 @@ private:
 	CGameObject* m_pTarget = nullptr;
 	CTransform* m_pTargetTransform = nullptr;
 
-	_float3 vDistance = { 0.f, 2.f, 6.f };
+	_float3 vDistance = { 0.f, 3.f, 6.f };
 	_bool m_bMouseLock = true;
 };
 

@@ -86,7 +86,7 @@ private:
 
 	_bool AnimationCompare(CLIP eClip);
 	_bool FinishCheckPlay(CLIP eClip, CAnimation::TYPE eAnimationType);
-	void SetAnimation(CLIP eClip, CAnimation::TYPE eAnimationType, _bool bLerp = true);
+	void SetAnimation(CLIP eClip, CAnimation::TYPE eAnimationType);
 	void AnimationControl(_double TimeDelta);
 
 private://Camera

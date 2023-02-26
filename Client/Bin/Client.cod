@@ -1433,7 +1433,7 @@ $unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z DD 025053901H
 	DD	05015H
 xdata	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCApplication@Client@@@Engine@@YAKAEAPEAVCApplication@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -1512,7 +1512,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCApplication@Client@@@Engine@@YAKAEAPEAVCApplication@Client@@@Z ENDP ; Engine::Safe_Release<Client::CApplication * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\config\client.cpp
+; File c:\users\arcco\documents\github\framework\client\config\client.cpp
 ;	COMDAT ?WndProc@@YA_JPEAUHWND__@@I_K_J@Z
 _TEXT	SEGMENT
 ps$4 = 16
@@ -1667,7 +1667,7 @@ $LN1@WndProc:
 ?WndProc@@YA_JPEAUHWND__@@I_K_J@Z ENDP			; WndProc
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\config\client.cpp
+; File c:\users\arcco\documents\github\framework\client\config\client.cpp
 ;	COMDAT ?InitInstance@@YAHPEAUHINSTANCE__@@H@Z
 _TEXT	SEGMENT
 rcWindow$ = 8
@@ -1828,7 +1828,7 @@ $LN1@InitInstan:
 ?InitInstance@@YAHPEAUHINSTANCE__@@H@Z ENDP		; InitInstance
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\config\client.cpp
+; File c:\users\arcco\documents\github\framework\client\config\client.cpp
 ;	COMDAT ?MyRegisterClass@@YAGPEAUHINSTANCE__@@@Z
 _TEXT	SEGMENT
 wcex$ = 16
@@ -1960,7 +1960,7 @@ $LN3:
 ?MyRegisterClass@@YAGPEAUHINSTANCE__@@@Z ENDP		; MyRegisterClass
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\config\client.cpp
+; File c:\users\arcco\documents\github\framework\client\config\client.cpp
 ;	COMDAT wWinMain
 _TEXT	SEGMENT
 pApplication$ = 8
@@ -2305,7 +2305,7 @@ $LN1@wWinMain:
 wWinMain ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\config\client.cpp
+; File c:\users\arcco\documents\github\framework\client\config\client.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -2336,7 +2336,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\config\client.cpp
+; File c:\users\arcco\documents\github\framework\client\config\client.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

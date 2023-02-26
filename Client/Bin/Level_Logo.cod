@@ -1299,7 +1299,7 @@ PUBLIC	??_C@_1BG@CIMPPFLB@?$AAL?$AAE?$AAV?$AAE?$AAL?$AA_?$AAL?$AAO?$AAG?$AAO?$AA
 PUBLIC	??_C@_1BG@HMGELKDN@?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CK@EFMCMFNH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Create@CLevel_Logo@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CLevel_Logo::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0DC@DHLFMEAH@c?3?2github?2framework?2client?2priva@ ; `string'
+PUBLIC	??_C@_0EI@ILHJHDCP@c?3?2users?2arcco?2documents?2github?2@ ; `string'
 PUBLIC	??_C@_1DO@DCNECNJD@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAe?$AAv?$AAe?$AAl?$AA_?$AAL?$AAo?$AAg?$AAo?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1IO@EADHKMNI@?$AAc?$AA?3?$AA?2?$AAp?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAf?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAm?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ ; `string'
@@ -2206,10 +2206,11 @@ CONST	SEGMENT
 	DB	'L', 00H, 'e', 00H, 'v', 00H, 'e', 00H, 'l', 00H, '_', 00H, 'L'
 	DB	00H, 'o', 00H, 'g', 00H, 'o', 00H, 00H, 00H	; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0DC@DHLFMEAH@c?3?2github?2framework?2client?2priva@
+;	COMDAT ??_C@_0EI@ILHJHDCP@c?3?2users?2arcco?2documents?2github?2@
 CONST	SEGMENT
-??_C@_0DC@DHLFMEAH@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
-	DB	'ramework\client\private\level_logo.cpp', 00H ; `string'
+??_C@_0EI@ILHJHDCP@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
+	DB	'rcco\documents\github\framework\client\private\level_logo.cpp'
+	DB	00H						; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CLevel_Logo@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -4953,7 +4954,7 @@ $LN4:
 ??$?0$$V@?$_Compressed_pair@U?$_Wrap_alloc@V?$allocator@_W@std@@@std@@V?$_String_val@U?$_Simple_types@_W@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1>::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCLevel_Logo@Client@@@Engine@@YAKAEAPEAVCLevel_Logo@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -5074,7 +5075,7 @@ $LN2@scalar:
 ??_GCLevel_Logo@Client@@EEAAPEAXI@Z ENDP		; Client::CLevel_Logo::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_logo.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_logo.cpp
 ;	COMDAT ?Free@CLevel_Logo@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -5113,7 +5114,7 @@ $LN3:
 ?Free@CLevel_Logo@Client@@UEAAXXZ ENDP			; Client::CLevel_Logo::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_logo.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_logo.cpp
 ;	COMDAT ?Create@CLevel_Logo@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -5159,7 +5160,7 @@ $LN8:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@DHLFMEAH@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@ILHJHDCP@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 20 00 00 00	 mov	 ecx, 32			; 00000020H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -5278,7 +5279,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CLevel_Logo@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@DHLFMEAH@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@ILHJHDCP@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -5335,7 +5336,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CLevel_Logo@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@DHLFMEAH@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@ILHJHDCP@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -5374,7 +5375,7 @@ pContext$ = 440
 ?dtor$1@?0??Create@CLevel_Logo@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CLevel_Logo::Create'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_logo.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_logo.cpp
 ;	COMDAT ?Ready_Layer_BackGround@CLevel_Logo@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -5460,7 +5461,7 @@ $LN1@Ready_Laye:
 ?Ready_Layer_BackGround@CLevel_Logo@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_Logo::Ready_Layer_BackGround
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_logo.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_logo.cpp
 ;	COMDAT ?Tick@CLevel_Logo@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pApplicationManager$ = 8
@@ -5565,7 +5566,7 @@ $LN2@Tick:
 ?Tick@CLevel_Logo@Client@@UEAAXN@Z ENDP			; Client::CLevel_Logo::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_logo.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_logo.cpp
 ;	COMDAT ?Initialize@CLevel_Logo@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -5619,7 +5620,7 @@ $LN1@Initialize:
 ?Initialize@CLevel_Logo@Client@@UEAAJXZ ENDP		; Client::CLevel_Logo::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_logo.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_logo.cpp
 ;	COMDAT ??1CLevel_Logo@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -5652,7 +5653,7 @@ $LN3:
 ??1CLevel_Logo@Client@@EEAA@XZ ENDP			; Client::CLevel_Logo::~CLevel_Logo
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_logo.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_logo.cpp
 ;	COMDAT ??0CLevel_Logo@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -10708,7 +10709,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_logo.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_logo.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -10737,7 +10738,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_logo.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_logo.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

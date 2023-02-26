@@ -1199,7 +1199,7 @@ PUBLIC	??_C@_1BK@FHLBGAOP@?$AAp?$AAD?$AAe?$AAs?$AAt?$AAi?$AAn?$AAa?$AAt?$AAi?$AA
 PUBLIC	?__LINE__Var@?0??XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@2@UXMMATRIX@2@@Z@4JA ; `DirectX::XMStoreFloat4x4'::`1'::__LINE__Var
 PUBLIC	??_7CSleeve@Client@@6B@				; Client::CSleeve::`vftable'
 PUBLIC	?__LINE__Var@?0??LateTick@CSleeve@Client@@UEAAXN@Z@4JA ; `Client::CSleeve::LateTick'::`1'::__LINE__Var
-PUBLIC	??_C@_1FM@BFHBHLAJ@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@ ; `string'
+PUBLIC	??_C@_1II@CGANBJMH@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@ ; `string'
 PUBLIC	??_C@_1CG@FHFHBABA@?$AAm?$AA_?$AAd?$AAe?$AAs?$AAc?$AAO?$AAw?$AAn?$AAe?$AAr?$AA?4?$AAp?$AAM?$AAo?$AAd?$AAe?$AAl?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CO@FENGICBB@?$AAm?$AA_?$AAd?$AAe?$AAs?$AAc?$AAO?$AAw?$AAn?$AAe?$AAr?$AA?4?$AAp?$AAT?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DA@HGAKJHPK@?$AAm?$AA_?$AAd?$AAe?$AAs?$AAc?$AAO?$AAw?$AAn?$AAe?$AAr?$AA?4?$AAp?$AAW?$AAe?$AAa?$AAp?$AAo?$AAn?$AAC?$AAa?$AAs?$AAe?$AA?$AA@ ; `string'
@@ -1221,7 +1221,7 @@ PUBLIC	??_C@_0BA@PCOGIHOF@g_vLightDiffuse?$AA@		; `string'
 PUBLIC	??_C@_0BB@IJIIKIH@g_vLightSpecular?$AA@		; `string'
 PUBLIC	??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@		; `string'
 PUBLIC	?__LINE__Var@?0??Create@CSleeve@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CSleeve::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0CO@EFMOBKLF@c?3?2github?2framework?2client?2priva@ ; `string'
+PUBLIC	??_C@_0EE@GABKHCP@c?3?2users?2arcco?2documents?2github?2@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DG@KHONHODN@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAS?$AAl?$AAe?$AAe?$AAv?$AAe?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CSleeve@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CSleeve::Clone'::`1'::__LINE__Var
@@ -1609,10 +1609,10 @@ CONST	SEGMENT
 	DB	'e', 00H, 's', 00H, 's', 00H, 'a', 00H, 'g', 00H, 'e', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0CO@EFMOBKLF@c?3?2github?2framework?2client?2priva@
+;	COMDAT ??_C@_0EE@GABKHCP@c?3?2users?2arcco?2documents?2github?2@
 CONST	SEGMENT
-??_C@_0CO@EFMOBKLF@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
-	DB	'ramework\client\private\sleeve.cpp', 00H	; `string'
+??_C@_0EE@GABKHCP@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\ar'
+	DB	'cco\documents\github\framework\client\private\sleeve.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CSleeve@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -1732,16 +1732,20 @@ CONST	SEGMENT
 	DB	'w', 00H, 'n', 00H, 'e', 00H, 'r', 00H, '.', 00H, 'p', 00H, 'M'
 	DB	00H, 'o', 00H, 'd', 00H, 'e', 00H, 'l', 00H, 00H, 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1FM@BFHBHLAJ@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@
+;	COMDAT ??_C@_1II@CGANBJMH@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@
 CONST	SEGMENT
-??_C@_1FM@BFHBHLAJ@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@ DB 'c'
-	DB	00H, ':', 00H, '\', 00H, 'g', 00H, 'i', 00H, 't', 00H, 'h', 00H
-	DB	'u', 00H, 'b', 00H, '\', 00H, 'f', 00H, 'r', 00H, 'a', 00H, 'm'
-	DB	00H, 'e', 00H, 'w', 00H, 'o', 00H, 'r', 00H, 'k', 00H, '\', 00H
-	DB	'c', 00H, 'l', 00H, 'i', 00H, 'e', 00H, 'n', 00H, 't', 00H, '\'
-	DB	00H, 'p', 00H, 'r', 00H, 'i', 00H, 'v', 00H, 'a', 00H, 't', 00H
-	DB	'e', 00H, '\', 00H, 's', 00H, 'l', 00H, 'e', 00H, 'e', 00H, 'v'
-	DB	00H, 'e', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p', 00H, 00H, 00H ; `string'
+??_C@_1II@CGANBJMH@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@ DB 'c'
+	DB	00H, ':', 00H, '\', 00H, 'u', 00H, 's', 00H, 'e', 00H, 'r', 00H
+	DB	's', 00H, '\', 00H, 'a', 00H, 'r', 00H, 'c', 00H, 'c', 00H, 'o'
+	DB	00H, '\', 00H, 'd', 00H, 'o', 00H, 'c', 00H, 'u', 00H, 'm', 00H
+	DB	'e', 00H, 'n', 00H, 't', 00H, 's', 00H, '\', 00H, 'g', 00H, 'i'
+	DB	00H, 't', 00H, 'h', 00H, 'u', 00H, 'b', 00H, '\', 00H, 'f', 00H
+	DB	'r', 00H, 'a', 00H, 'm', 00H, 'e', 00H, 'w', 00H, 'o', 00H, 'r'
+	DB	00H, 'k', 00H, '\', 00H, 'c', 00H, 'l', 00H, 'i', 00H, 'e', 00H
+	DB	'n', 00H, 't', 00H, '\', 00H, 'p', 00H, 'r', 00H, 'i', 00H, 'v'
+	DB	00H, 'a', 00H, 't', 00H, 'e', 00H, '\', 00H, 's', 00H, 'l', 00H
+	DB	'e', 00H, 'e', 00H, 'v', 00H, 'e', 00H, '.', 00H, 'c', 00H, 'p'
+	DB	00H, 'p', 00H, 00H, 00H			; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??LateTick@CSleeve@Client@@UEAAXN@Z@4JA
 _DATA	SEGMENT
@@ -2242,7 +2246,7 @@ $unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z DD 025053901H
 	DD	05015H
 xdata	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -2321,7 +2325,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ENDP ; Engine::Safe_Release<Engine::CShader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -2400,7 +2404,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ENDP ; Engine::Safe_Release<Engine::CModel * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -2479,7 +2483,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ENDP ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -2558,7 +2562,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCSleeve@Client@@@Engine@@YAKAEAPEAVCSleeve@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -2637,7 +2641,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCSleeve@Client@@@Engine@@YAKAEAPEAVCSleeve@Client@@@Z ENDP ; Engine::Safe_Release<Client::CSleeve * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\bone.h
+; File c:\users\arcco\documents\github\framework\reference\headers\bone.h
 ;	COMDAT ?GetCombinedMatrix@CBone@Engine@@QEBA?AUXMFLOAT4X4@DirectX@@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2680,7 +2684,7 @@ $LN3:
 ?GetCombinedMatrix@CBone@Engine@@QEBA?AUXMFLOAT4X4@DirectX@@XZ ENDP ; Engine::CBone::GetCombinedMatrix
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\bone.h
+; File c:\users\arcco\documents\github\framework\reference\headers\bone.h
 ;	COMDAT ?GetOffSetMatrix@CBone@Engine@@QEBA?AUXMFLOAT4X4@DirectX@@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2847,7 +2851,7 @@ $LN4:
 ??0CSleeve@Client@@QEAA@AEBV01@@Z ENDP			; Client::CSleeve::CSleeve
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?Free@CSleeve@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2923,7 +2927,7 @@ $LN3:
 ?Free@CSleeve@Client@@UEAAXXZ ENDP			; Client::CSleeve::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?Clone@CSleeve@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -2968,7 +2972,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CO@EFMOBKLF@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EE@GABKHCP@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 b0 00 00 00	 mov	 ecx, 176		; 000000b0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -3071,7 +3075,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CSleeve@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CO@EFMOBKLF@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EE@GABKHCP@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -3104,7 +3108,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CSleeve@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CO@EFMOBKLF@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EE@GABKHCP@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -3116,7 +3120,7 @@ pArg$ = 376
 ?dtor$0@?0??Clone@CSleeve@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CSleeve::Clone'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?Create@CSleeve@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -3161,7 +3165,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CO@EFMOBKLF@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EE@GABKHCP@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 b0 00 00 00	 mov	 ecx, 176		; 000000b0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -3264,7 +3268,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CSleeve@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CO@EFMOBKLF@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EE@GABKHCP@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -3297,7 +3301,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CSleeve@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CO@EFMOBKLF@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EE@GABKHCP@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -3309,7 +3313,7 @@ pContext$ = 376
 ?dtor$0@?0??Create@CSleeve@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CSleeve::Create'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?SetupShaderResources@CSleeve@Client@@AEAAJXZ
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -3598,7 +3602,7 @@ $LN1@SetupShade:
 ?SetupShaderResources@CSleeve@Client@@AEAAJXZ ENDP	; Client::CSleeve::SetupShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?AddComponents@CSleeve@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -3746,7 +3750,7 @@ $LN1@AddCompone:
 ?AddComponents@CSleeve@Client@@AEAAJXZ ENDP		; Client::CSleeve::AddComponents
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?RenderGUI@CSleeve@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -3778,7 +3782,7 @@ $LN3:
 ?RenderGUI@CSleeve@Client@@UEAAXXZ ENDP			; Client::CSleeve::RenderGUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?Render@CSleeve@Client@@UEAAJXZ
 _TEXT	SEGMENT
 MeshCount$ = 4
@@ -3918,7 +3922,7 @@ $LN1@Render:
 ?Render@CSleeve@Client@@UEAAJXZ ENDP			; Client::CSleeve::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?LateTick@CSleeve@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 playerWorldMatrix$ = 16
@@ -4003,7 +4007,7 @@ $LN7:
   00086	83 c0 05	 add	 eax, 5
   00089	44 8b c0	 mov	 r8d, eax
   0008c	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1FM@BFHBHLAJ@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1II@CGANBJMH@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@
   00093	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_C@_1CG@FHFHBABA@?$AAm?$AA_?$AAd?$AAe?$AAs?$AAc?$AAO?$AAw?$AAn?$AAe?$AAr?$AA?4?$AAp?$AAM?$AAo?$AAd?$AAe?$AAl?$AA?$AA@
   0009a	ff 15 00 00 00
@@ -4023,7 +4027,7 @@ $LN4@LateTick:
   000b9	83 c0 06	 add	 eax, 6
   000bc	44 8b c0	 mov	 r8d, eax
   000bf	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1FM@BFHBHLAJ@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1II@CGANBJMH@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@
   000c6	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_C@_1CO@FENGICBB@?$AAm?$AA_?$AAd?$AAe?$AAs?$AAc?$AAO?$AAw?$AAn?$AAe?$AAr?$AA?4?$AAp?$AAT?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
   000cd	ff 15 00 00 00
@@ -4043,7 +4047,7 @@ $LN5@LateTick:
   000ec	83 c0 07	 add	 eax, 7
   000ef	44 8b c0	 mov	 r8d, eax
   000f2	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1FM@BFHBHLAJ@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1II@CGANBJMH@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@
   000f9	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_C@_1DA@HGAKJHPK@?$AAm?$AA_?$AAd?$AAe?$AAs?$AAc?$AAO?$AAw?$AAn?$AAe?$AAr?$AA?4?$AAp?$AAW?$AAe?$AAa?$AAp?$AAo?$AAn?$AAC?$AAa?$AAs?$AAe?$AA?$AA@
   00100	ff 15 00 00 00
@@ -4306,7 +4310,7 @@ $LN2@LateTick:
 ?LateTick@CSleeve@Client@@UEAAXN@Z ENDP			; Client::CSleeve::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?Tick@CSleeve@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4350,7 +4354,7 @@ $LN3:
 ?Tick@CSleeve@Client@@UEAAXN@Z ENDP			; Client::CSleeve::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?Initialize@CSleeve@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4449,7 +4453,7 @@ $LN1@Initialize:
 ?Initialize@CSleeve@Client@@UEAAJPEAX@Z ENDP		; Client::CSleeve::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?Initialize_Prototype@CSleeve@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4502,7 +4506,7 @@ $LN1@Initialize:
 ?Initialize_Prototype@CSleeve@Client@@UEAAJXZ ENDP	; Client::CSleeve::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ??1CSleeve@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4535,9 +4539,9 @@ $LN3:
 ??1CSleeve@Client@@EEAA@XZ ENDP				; Client::CSleeve::~CSleeve
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
-; File c:\github\framework\client\public\sleeve.h
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\public\sleeve.h
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ??0CSleeve@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4581,7 +4585,7 @@ $LN4:
   00056	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CSleeve@Client@@6B@
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\github\framework\client\public\sleeve.h
+; File c:\users\arcco\documents\github\framework\client\public\sleeve.h
 
 ; 49   : 	CRenderer* mRenderer = nullptr;
 
@@ -4613,7 +4617,7 @@ $LN4:
   0009a	48 c7 80 90 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+144], 0
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 
 ; 11   : }
 
@@ -5961,7 +5965,7 @@ $LN3:
 ??0XMMATRIX@DirectX@@QEAA@XZ ENDP			; DirectX::XMMATRIX::XMMATRIX
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -5990,7 +5994,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\sleeve.cpp
+; File c:\users\arcco\documents\github\framework\client\private\sleeve.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

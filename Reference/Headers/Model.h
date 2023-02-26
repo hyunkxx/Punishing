@@ -26,11 +26,8 @@ public:
 
 	HRESULT Setup_ShaderMaterialResource(class CShader* pShader, const char* pConstantName, _uint iMeshIndex, aiTextureType eType);
 	HRESULT Setup_BoneMatrices(class CShader* pShader, const char* pConstantName, _uint iMeshIndex);
-	HRESULT Setup_Animation(_uint AnimationIndex, _bool bLerp);
+	HRESULT Setup_Animation(_uint AnimationIndex);
 	HRESULT Play_Animation(_double TimeDelta, class CTransform* pTransform, CAnimation::TYPE eType);
-
-	HRESULT AnimationChange(_double TimeDelta, CTransform* pTransform, CAnimation::TYPE eType, PREV_DATA PrevData);
-	HRESULT AnimationPlay(_double TimeDelta, CTransform* pTransform, CAnimation::TYPE eType);
 
 	HRESULT Render(_uint iMeshIndex);
 
@@ -69,11 +66,13 @@ private:
 	// Animation
 	_uint m_iAnimationCount = { 0 };
 	_uint m_iCurrentAnimation = { 0 };
+	_uint m_iPrevAnimation = { 0 };
 	vector<class CAnimation*> m_Animations;
 
 	//Lerp
 	_bool m_bLerp = false;
 	PREV_DATA m_PrevData;
+
 
 };
 

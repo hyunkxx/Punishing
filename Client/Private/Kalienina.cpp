@@ -25,7 +25,7 @@ HRESULT CKalienina::Initialize_Prototype()
 	CGameInstance::GetInstance()->CreateTimer(L"Combo");
 
 	ZeroMemory(&ANIM_DESC, sizeof(CAnimation::ANIMATION_DESC));
-	SetAnimation(CLIP::STAND2, CAnimation::TYPE::LOOP, false);
+	SetAnimation(CLIP::STAND2, CAnimation::TYPE::LOOP);
 
 	return S_OK;
 }
@@ -56,8 +56,7 @@ void CKalienina::Tick(_double TimeDelta)
 
 	__super::Tick(TimeDelta);
 
-	LerpTest(TimeDelta);
-	//KeyInput(TimeDelta);
+	KeyInput(TimeDelta);
 }
 
 void CKalienina::LateTick(_double TimeDelta)
@@ -72,7 +71,7 @@ void CKalienina::LateTick(_double TimeDelta)
 	if (m_bOnTerrain)
 	{
 		_vector vPosition = mTransform->Get_State(CTransform::STATE_POSITION);
-		_float fOverY = XMVectorGetY(vPosition) - 0.f;
+		_float fOverY = XMVectorGetY(vPosition) - 0.2f;
 
 		if (fOverY < 0.f)
 		{
@@ -200,31 +199,6 @@ HRESULT CKalienina::SetupShaderResources()
 	return S_OK;
 }
 
-void CKalienina::LerpTest(_double TimeDelta)
-{
-	CGameInstance* pGameInstance = CGameInstance::GetInstance();
-
-	if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::HOLD)
-	{
-		SetAnimation(CLIP::RUN, CAnimation::TYPE::LOOP, true);
-	}
-	else if(AnimationCompare(CLIP::RUN))
-	{
-		if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::AWAY)
-			SetAnimation(CLIP::STOP, CAnimation::TYPE::ONE, true);
-	}
-	
-	
-	if (pGameInstance->Input_KeyState_Custom(DIK_Q) == KEY_STATE::TAP)
-	{
-		SetAnimation(CLIP::ATTACK1, CAnimation::TYPE::ONE, true);
-	}
-
-	if(mModel->AnimationIsFinish())
-		SetAnimation(CLIP::STAND2, CAnimation::TYPE::LOOP, false);
-
-}
-
 void CKalienina::KeyInput(_double TimeDelta)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
@@ -253,7 +227,7 @@ void CKalienina::Idle()
 	m_bAttackable = true;
 	m_bMoveable = true;
 
-	SetAnimation(CLIP::STAND2, CAnimation::TYPE::LOOP, false);
+	SetAnimation(CLIP::STAND2, CAnimation::TYPE::LOOP);
 }
 
 void CKalienina::MoveForward(_double TimeDelta)
@@ -320,18 +294,17 @@ void CKalienina::Attack()
 	SetAnimation(CLIP::ATTACK1, CAnimation::TYPE::ONE);
 }
 
-void CKalienina::SetAnimation(CLIP eClip, CAnimation::TYPE eAnimationType, _bool bLerp)
+void CKalienina::SetAnimation(CLIP eClip, CAnimation::TYPE eAnimationType)
 {
 	ANIM_DESC.Clip = eClip;
 	ANIM_DESC.Type = eAnimationType;
-	ANIM_DESC.Lerp = bLerp;
 }
 
 void CKalienina::AnimationControl(_double TimeDelta)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	mModel->Setup_Animation(ANIM_DESC.Clip, ANIM_DESC.Lerp);
+	mModel->Setup_Animation(ANIM_DESC.Clip);
 	mModel->Play_Animation(TimeDelta, mTransform, ANIM_DESC.Type);
 }
 

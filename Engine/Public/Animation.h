@@ -16,7 +16,6 @@ public:
 	{
 		_uint Clip;
 		TYPE Type;
-		_bool Lerp;
 	};
 
 private:
@@ -32,17 +31,19 @@ public:
 	_bool IsFinish() const { return m_isFinish; }
 	void LocalReset() { m_LocalTime = 0.0; }
 	void Reset();
-
 	void LerpFinish();
 
 	//Lerp
 	const PREV_DATA& GetAnimationData() const { return m_PrevData; };
 	_uint GetChannelCount() const { return m_iChannelsCount; }
-	_bool IsLerpFinish() { return m_Channels[m_iChannelsCount - 1]->IsLerpFinish(); }
+	_bool IsLerpFinish() { return m_Channels[0]->IsLerpFinish(); }
 
 private:
-	void PlayLoop(_double TimeDelta, CTransform* pTransform, _bool bLerp, PREV_DATA PrevAnimation);
-	void PlayOne(_double TimeDelta, CTransform* pTransform, _bool bLerp, PREV_DATA PrevAnimation);
+	void PlayLoopLerp(_double TimeDelta, CTransform* pTransform, PREV_DATA PrevData);
+	void PlayOneLerp(_double TimeDelta, CTransform* pTransform, PREV_DATA PrevData);
+
+	void PlayLoop(_double TimeDelta, CTransform* pTransform);
+	void PlayOne(_double TimeDelta, CTransform* pTransform);
 
 public:
 	static CAnimation* Create(aiAnimation* pAIAnimation, class CModel* pModel);
@@ -62,7 +63,7 @@ private:
 	_double m_LocalTime = { 0.0 };
 
 	_bool m_isFinish = false;
-	_bool m_isFirstLerp = false;
+	_bool m_bLerpFinish = false;
 };
 
 END

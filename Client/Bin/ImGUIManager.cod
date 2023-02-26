@@ -1185,7 +1185,7 @@ PUBLIC	??$Safe_AddRef@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceCo
 PUBLIC	??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z ; Engine::Safe_Release<ID3D11DeviceContext * __ptr64>
 PUBLIC	??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z ; Engine::Safe_Release<ID3D11Device * __ptr64>
 PUBLIC	??_7CImGUIManager@Client@@6B@			; Client::CImGUIManager::`vftable'
-PUBLIC	??_C@_0DE@JOINJLJN@c?3?2github?2framework?2client?2priva@ ; `string'
+PUBLIC	??_C@_0EK@JGNFKPNE@c?3?2users?2arcco?2documents?2github?2@ ; `string'
 PUBLIC	??_C@_0L@GMOEAHPG@1?489?43?5WIP?$AA@		; `string'
 PUBLIC	??_C@_05MPDBFDHF@Frame?$AA@			; `string'
 PUBLIC	??_C@_0BJ@FHAPJNML@?$CF?43f?5ms?1frame?5?$CI?$CF?41f?5FPS?$CJ?$AA@ ; `string'
@@ -1464,10 +1464,11 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_0L@GMOEAHPG@1?489?43?5WIP?$AA@ DB '1.89.3 WIP', 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0DE@JOINJLJN@c?3?2github?2framework?2client?2priva@
+;	COMDAT ??_C@_0EK@JGNFKPNE@c?3?2users?2arcco?2documents?2github?2@
 CONST	SEGMENT
-??_C@_0DE@JOINJLJN@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
-	DB	'ramework\client\private\imguimanager.cpp', 00H ; `string'
+??_C@_0EK@JGNFKPNE@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
+	DB	'rcco\documents\github\framework\client\private\imguimanager.c'
+	DB	'pp', 00H					; `string'
 CONST	ENDS
 ;	COMDAT ??_7CImGUIManager@Client@@6B@
 CONST	SEGMENT
@@ -1643,7 +1644,7 @@ $unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z DD 025053901H
 	DD	05015H
 xdata	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -1725,7 +1726,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z ENDP ; Engine::Safe_Release<ID3D11Device * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -1807,7 +1808,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z ENDP ; Engine::Safe_Release<ID3D11DeviceContext * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_AddRef@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -1870,7 +1871,7 @@ $LN2@Safe_AddRe:
 ??$Safe_AddRef@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z ENDP ; Engine::Safe_AddRef<ID3D11DeviceContext * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_AddRef@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -1975,7 +1976,7 @@ $LN2@scalar:
 ??_GCImGUIManager@Client@@UEAAPEAXI@Z ENDP		; Client::CImGUIManager::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 ;	COMDAT ?Free@CImGUIManager@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2007,7 +2008,7 @@ $LN3:
 ?Free@CImGUIManager@Client@@UEAAXXZ ENDP		; Client::CImGUIManager::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 ;	COMDAT ?Shutdown@CImGUIManager@Client@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2074,7 +2075,7 @@ $LN3:
 ?Shutdown@CImGUIManager@Client@@QEAAXXZ ENDP		; Client::CImGUIManager::Shutdown
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 ;	COMDAT ?Render@CImGUIManager@Client@@QEAAXXZ
 _TEXT	SEGMENT
 $T1 = 196
@@ -2196,7 +2197,7 @@ $LN3:
 ?Render@CImGUIManager@Client@@QEAAXXZ ENDP		; Client::CImGUIManager::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 ;	COMDAT ?RenderDrawData@CImGUIManager@Client@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2234,7 +2235,7 @@ $LN3:
 ?RenderDrawData@CImGUIManager@Client@@QEAAXXZ ENDP	; Client::CImGUIManager::RenderDrawData
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 ;	COMDAT ?NewFrame@CImGUIManager@Client@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2278,7 +2279,7 @@ $LN3:
 ?NewFrame@CImGUIManager@Client@@QEAAXXZ ENDP		; Client::CImGUIManager::NewFrame
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 ;	COMDAT ?Initialize@CImGUIManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 io$ = 8
@@ -2399,7 +2400,7 @@ $LN3:
 ?Initialize@CImGUIManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ENDP ; Client::CImGUIManager::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 ;	COMDAT ??1CImGUIManager@Client@@UEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2440,9 +2441,9 @@ $LN3:
 ??1CImGUIManager@Client@@UEAA@XZ ENDP			; Client::CImGUIManager::~CImGUIManager
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\imguimanager.cpp
-; File c:\github\framework\client\public\imguimanager.h
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\public\imguimanager.h
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 ;	COMDAT ??0CImGUIManager@Client@@QEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2472,7 +2473,7 @@ $LN4:
   0003e	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CImGUIManager@Client@@6B@
   00045	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\github\framework\client\public\imguimanager.h
+; File c:\users\arcco\documents\github\framework\client\public\imguimanager.h
 
 ; 25   : 	ID3D11Device*		 m_pDevice{ nullptr };
 
@@ -2487,7 +2488,7 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0005e	48 c7 40 18 00
 	00 00 00	 mov	 QWORD PTR [rax+24], 0
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 
 ; 8    : }
 
@@ -2501,7 +2502,7 @@ $LN4:
 ??0CImGUIManager@Client@@QEAA@XZ ENDP			; Client::CImGUIManager::CImGUIManager
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 ;	COMDAT ?DestroyInstance@CImGUIManager@Client@@SAKXZ
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -2545,7 +2546,7 @@ $LN2@DestroyIns:
 ?DestroyInstance@CImGUIManager@Client@@SAKXZ ENDP	; Client::CImGUIManager::DestroyInstance
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 ;	COMDAT ?GetInstance@CImGUIManager@Client@@SAPEAV12@XZ
 _TEXT	SEGMENT
 $T1 = 200
@@ -2575,7 +2576,7 @@ $LN7:
   00033	41 b9 04 00 00
 	00		 mov	 r9d, 4
   00039	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@JOINJLJN@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@JGNFKPNE@c?3?2users?2arcco?2documents?2github?2@
   00040	ba 01 00 00 00	 mov	 edx, 1
   00045	b9 20 00 00 00	 mov	 ecx, 32			; 00000020H
   0004a	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -2629,7 +2630,7 @@ tv81 = 280
   00014	41 b9 04 00 00
 	00		 mov	 r9d, 4
   0001a	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@JOINJLJN@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@JGNFKPNE@c?3?2users?2arcco?2documents?2github?2@
   00021	ba 01 00 00 00	 mov	 edx, 1
   00026	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
@@ -2657,7 +2658,7 @@ tv81 = 280
   00014	41 b9 04 00 00
 	00		 mov	 r9d, 4
   0001a	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@JOINJLJN@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@JGNFKPNE@c?3?2users?2arcco?2documents?2github?2@
   00021	ba 01 00 00 00	 mov	 edx, 1
   00026	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
@@ -2669,7 +2670,7 @@ tv81 = 280
 ?dtor$0@?0??GetInstance@CImGUIManager@Client@@SAPEAV12@XZ@4HA ENDP ; `Client::CImGUIManager::GetInstance'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /ZI
-; File c:\github\framework\tool\imgui\imgui.h
+; File c:\users\arcco\documents\github\framework\tool\imgui\imgui.h
 ;	COMDAT ??0ImVec2@@QEAA@MM@Z
 _TEXT	SEGMENT
 this$ = 80
@@ -2701,7 +2702,7 @@ $LN3:
 ??0ImVec2@@QEAA@MM@Z ENDP				; ImVec2::ImVec2
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -2730,7 +2731,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\imguimanager.cpp
+; File c:\users\arcco\documents\github\framework\client\private\imguimanager.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

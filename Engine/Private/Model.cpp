@@ -194,71 +194,32 @@ HRESULT CModel::Setup_BoneMatrices(CShader* pShader, const char* pConstantName, 
 	return S_OK;
 }
 
-HRESULT CModel::Setup_Animation(_uint AnimationIndex, _bool bLerp)
+HRESULT CModel::Setup_Animation(_uint AnimationIndex)
 {
 	if (AnimationIndex >= m_iAnimationCount)
 		return E_FAIL;
-	
-	//보간 시작
+
 	if (m_iCurrentAnimation != AnimationIndex)
 	{
 		m_bLerp = true;
+		m_iPrevAnimation = m_iCurrentAnimation;
+		m_Animations[m_iCurrentAnimation]->Reset();
 		m_PrevData = m_Animations[m_iCurrentAnimation]->GetAnimationData();
-		m_iCurrentAnimation = AnimationIndex;/*
-		m_Animations[m_iCurrentAnimation]->LocalReset();
-		m_Animations[m_iCurrentAnimation]->LerpFinish();*/
+		m_iCurrentAnimation = AnimationIndex;
 	}
-	else
+
+	else if (m_Animations[m_iCurrentAnimation]->IsLerpFinish())
 	{
-		if (bLerp)
-		{
-			if (m_Animations[AnimationIndex]->IsLerpFinish()
-				|| m_Animations[AnimationIndex]->IsFinish())
-			{
-				m_bLerp = false;
-				m_iCurrentAnimation = AnimationIndex;
-				m_Animations[m_iCurrentAnimation]->Reset();
-				m_Animations[m_iCurrentAnimation]->LerpFinish();
-			}
-			else
-			{
-				m_bLerp = false;
-				m_iCurrentAnimation = AnimationIndex;
-			}
-		}
-		else
-		{
-			m_bLerp = false;
-			m_iCurrentAnimation = AnimationIndex;
-			m_Animations[m_iCurrentAnimation]->Reset();
-			m_Animations[m_iCurrentAnimation]->LerpFinish();
-		}
+		m_bLerp = false;
+		m_PrevData = m_Animations[m_iCurrentAnimation]->GetAnimationData();
+		m_iCurrentAnimation = AnimationIndex;
+		m_Animations[m_iCurrentAnimation]->Reset();
 	}
 
 	return S_OK;
 }
 
 HRESULT CModel::Play_Animation(_double TimeDelta, CTransform* pTransform, CAnimation::TYPE eType)
-{
-	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta, pTransform, eType, m_bLerp, m_PrevData);
-
-	for (auto& pBone : m_Bones)
-		pBone->InvalidateCombinedMatrix();
-
-	return S_OK;
-}
-
-HRESULT CModel::AnimationChange(_double TimeDelta, CTransform * pTransform, CAnimation::TYPE eType, PREV_DATA PrevData)
-{
-	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta, pTransform, eType, m_bLerp, m_PrevData);
-
-	for (auto& pBone : m_Bones)
-		pBone->InvalidateCombinedMatrix();
-
-	return S_OK;
-}
-
-HRESULT CModel::AnimationPlay(_double TimeDelta, CTransform * pTransform, CAnimation::TYPE eType)
 {
 	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta, pTransform, eType, m_bLerp, m_PrevData);
 

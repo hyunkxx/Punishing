@@ -82,9 +82,9 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 	if (TrackPosition >= LastKeyFrame.Time)
 	{
 		//애니메이션이 종료됬다면 최종 프레임의 상태를 유지
-		vScale = XMLoadFloat3(&LastKeyFrame.vScale);
-		vRotation = XMLoadFloat4(&LastKeyFrame.vRotation);
-		vPosition = XMLoadFloat3(&LastKeyFrame.vPosition);
+		vScale = XMLoadFloat3(&m_CurrentKeyFrame.vScale);
+		vRotation = XMLoadFloat4(&m_CurrentKeyFrame.vRotation);
+		vPosition = XMLoadFloat3(&m_CurrentKeyFrame.vPosition);
 
 		//최종 프레임일때 피봇 포지션 초기화
 		if (!strcmp(m_pBone->GetName(), "Bip001"))
@@ -93,8 +93,6 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 			XMStoreFloat3(&m_vPrevBonePos, vPosition);
 			vPosition = XMLoadFloat3(&m_vIdleOriginPos);
 		}
-
-		Reset();
 	}
 	else
 	{
@@ -195,9 +193,9 @@ void CChannel::InvalidateTransformLerp(_double TrackPosition, _double Duration, 
 	if (m_bLerpEnd)
 	{
 		//애니메이션이 종료됬다면 최종 프레임의 상태를 유지
-		vScale = XMLoadFloat3(&m_KeyFrames[0].vScale);
-		vRotation = XMLoadFloat4(&m_KeyFrames[0].vRotation);
-		vPosition = XMLoadFloat3(&m_KeyFrames[0].vPosition);
+		vScale = XMLoadFloat3(&m_CurrentKeyFrame.vScale);
+		vRotation = XMLoadFloat4(&m_CurrentKeyFrame.vRotation);
+		vPosition = XMLoadFloat3(&m_CurrentKeyFrame.vPosition);
 
 		//최종 프레임일때 피봇 포지션 초기화
 		if (!strcmp(m_pBone->GetName(), "Bip001"))
@@ -206,14 +204,11 @@ void CChannel::InvalidateTransformLerp(_double TrackPosition, _double Duration, 
 			XMStoreFloat3(&m_vPrevBonePos, vPosition);
 			vPosition = XMLoadFloat3(&m_vIdleOriginPos);
 		}
-
-		m_bSetPivot = false;
-		m_iCurrentIndex = 0;
 	}
 	else
 	{
 		//현재 트렉의 진행도를 (이전프레임)0.f ~ 1.f(다음프레임)로 만듦
-		_double Ratio = TrackPosition / 0.2;
+		_double Ratio = TrackPosition / 0.15;
 
 		if (Ratio > 1.0)
 			m_bLerpEnd = true;
