@@ -14,8 +14,10 @@ HRESULT CChannel::Initialize(aiNodeAnim* pAIChannel, CModel* pModel)
 	m_iCurrentIndex = { 0 };
 
 	m_bLerpEnd = false;
-	m_bSetPivot = false;
+	m_bAlignPivot = false;
+	m_bAlignPosY = false;
 
+	m_AlignLocal = 0.0;
 	m_vPrevBonePos = { 0.f, 0.f, 0.f };
 	m_vIdleOriginPos = { 0.00798827875f, 0.790838718f, 0.0612164661f };
 
@@ -69,7 +71,44 @@ HRESULT CChannel::Initialize(aiNodeAnim* pAIChannel, CModel* pModel)
 	return S_OK;
 }
 
-void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform)
+_bool CChannel::AlignPositionY(_double TimeDelta, CTransform* pTransform)
+{
+	_bool ret = false;
+
+	if (pTransform == nullptr)
+		return false;
+
+	if (!strcmp(m_pBone->GetName(), "Bip001"))
+	{
+		if (!m_bAlignPosY)
+		{
+			m_AlignLocal = 0.0;
+		}
+
+		m_AlignLocal += TimeDelta / 0.5f;
+
+		_vector vPosition;
+		_vector vSourPosition = XMLoadFloat3(&m_KeyFrames[m_iCurrentIndex].vPosition);
+		_vector vDestPosition = { 0.00798827875f, 0.790838718f, 0.0612164661f, 1.f };
+
+		vPosition = XMVectorLerp(vSourPosition, vDestPosition, (_float)m_AlignLocal);
+
+		//첫번째 프레임의 위치에 애니메이션 루트본 고정
+		XMStoreFloat3(&m_vPrevBonePos, vPosition);
+		vPosition = XMLoadFloat3(&m_vIdleOriginPos);
+
+		_vector vPos = pTransform->Get_State(CTransform::STATE_POSITION);
+		vPos = XMVectorSetY(vPos, XMVectorGetY(vPosition));
+		pTransform->Set_State(CTransform::STATE_POSITION, vPos);
+	}
+
+	if (m_AlignLocal > 0.5)
+		return true;
+
+	return ret;
+}
+
+void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform, _bool bHoldAxisY)
 {
 	if (0.0 == TrackPosition)
 		m_iCurrentIndex = 0;
@@ -77,21 +116,21 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 	_vector vScale;
 	_vector vRotation;
 	_vector vPosition;
- 
+
 	KEY_FRAME LastKeyFrame = m_KeyFrames.back();
 	if (TrackPosition >= LastKeyFrame.Time)
 	{
 		//애니메이션이 종료됬다면 최종 프레임의 상태를 유지
-		vScale = XMLoadFloat3(&m_CurrentKeyFrame.vScale);
-		vRotation = XMLoadFloat4(&m_CurrentKeyFrame.vRotation);
-		vPosition = XMLoadFloat3(&m_CurrentKeyFrame.vPosition);
+		vScale = XMLoadFloat3(&LastKeyFrame.vScale);
+		vRotation = XMLoadFloat4(&LastKeyFrame.vRotation);
+		vPosition = XMLoadFloat3(&LastKeyFrame.vPosition);
 
 		//최종 프레임일때 피봇 포지션 초기화
 		if (!strcmp(m_pBone->GetName(), "Bip001"))
 		{
-			m_vPrevBonePos;
+			vPosition = XMVectorSetY(vPosition, LastKeyFrame.vPosition.y);
 			XMStoreFloat3(&m_vPrevBonePos, vPosition);
-			vPosition = XMLoadFloat3(&m_vIdleOriginPos);
+			vPosition = XMVectorSet(m_vIdleOriginPos.x, LastKeyFrame.vPosition.y, m_vIdleOriginPos. z, 1.f);
 		}
 	}
 	else
@@ -115,7 +154,7 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 		vDestScale = XMLoadFloat3(&m_KeyFrames[m_iCurrentIndex + 1].vScale);
 		vDestRotation = XMLoadFloat4(&m_KeyFrames[m_iCurrentIndex + 1].vRotation);
 		vDestPosition = XMLoadFloat3(&m_KeyFrames[m_iCurrentIndex + 1].vPosition);
-
+		
 		vScale = XMVectorLerp(vSourScale, vDestScale, (_float)Ratio);
 		vRotation = XMQuaternionSlerp(vSourRotation, vDestRotation, (_float)Ratio);
 		vPosition = XMVectorLerp(vSourPosition, vDestPosition, (_float)Ratio);
@@ -128,12 +167,6 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 		//해당 본이 기준 뼈라면 루트를 000고정
 		if (!strcmp(m_pBone->GetName(), "Bip001"))
 		{
-			if (!m_bSetPivot)
-			{
-				m_bSetPivot = true;
-				m_vPrevBonePos = m_vIdleOriginPos;
-			}
-
 			_vector vMoveValue = vPosition - XMLoadFloat3(&m_vPrevBonePos);
 			_vector vFixMoveValue; // 180도 회전 (X,Y축 * -1) & 플레이어의 룩방향 기준축 생성
 
@@ -151,6 +184,7 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 			_vector vCurrentPos = pTransform->Get_State(CTransform::STATE_POSITION);
 
 			//트렌스폼 위치 조정
+			vAlignPos = XMVectorSetY(vAlignPos, 0.0);
 			_vector vFinalPos = vCurrentPos + vAlignPos;
 			pTransform->Set_State(CTransform::STATE_POSITION, vFinalPos);
 
@@ -158,7 +192,7 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 			XMStoreFloat3(&m_vPrevBonePos, vPosition);
 
 			//첫번째 프레임의 위치에 애니메이션 루트본 고정
-			vPosition = XMLoadFloat3(&m_vIdleOriginPos);
+			vPosition = XMVectorSet(m_vIdleOriginPos.x, XMVectorGetY(vPosition), m_vIdleOriginPos.z, 1.0f);
 		}
 	}
 
@@ -167,7 +201,7 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 	m_pBone->SetTransformationMatrix(TransformationMatrix);
 }
 
-void CChannel::InvalidateTransformLerp(_double TrackPosition, _double Duration, CTransform * pTransform, PREV_DATA PrevData)
+void CChannel::InvalidateTransformLerp(_double Ratio, CTransform * pTransform, PREV_DATA PrevData)
 {
 	_vector vScale;
 	_vector vRotation;
@@ -181,7 +215,7 @@ void CChannel::InvalidateTransformLerp(_double TrackPosition, _double Duration, 
 	{
 		if (Equal((*PrevData.pChannels)[i]->GetName()))
 		{
-			PrevKeyFrame = (*PrevData.pChannels)[i]->GetFirstKeyFrame();
+			PrevKeyFrame = (*PrevData.pChannels)[i]->GetCurrentKeyFrame();
 			hasValue = true;
 			break;
 		}
@@ -190,85 +224,35 @@ void CChannel::InvalidateTransformLerp(_double TrackPosition, _double Duration, 
 	if (false == hasValue)
 		return;
 
-	if (m_bLerpEnd)
+	if (Ratio > 1.0)
 	{
-		//애니메이션이 종료됬다면 최종 프레임의 상태를 유지
-		vScale = XMLoadFloat3(&m_CurrentKeyFrame.vScale);
-		vRotation = XMLoadFloat4(&m_CurrentKeyFrame.vRotation);
-		vPosition = XMLoadFloat3(&m_CurrentKeyFrame.vPosition);
-
-		//최종 프레임일때 피봇 포지션 초기화
-		if (!strcmp(m_pBone->GetName(), "Bip001"))
-		{
-			m_vPrevBonePos;
-			XMStoreFloat3(&m_vPrevBonePos, vPosition);
-			vPosition = XMLoadFloat3(&m_vIdleOriginPos);
-		}
+		Ratio = 1.0;
+		m_bLerpEnd = true;
 	}
-	else
+
+	_vector vSourScale, vDestScale;
+	_vector vSourRotation, vDestRotation;
+	_vector vSourPosition, vDestPosition;
+
+	vSourScale = XMLoadFloat3(&PrevKeyFrame.vScale);
+	vSourRotation = XMLoadFloat4(&PrevKeyFrame.vRotation);
+	vSourPosition = XMLoadFloat3(&PrevKeyFrame.vPosition);
+
+	vDestScale = XMLoadFloat3(&m_KeyFrames[0].vScale);
+	vDestRotation = XMLoadFloat4(&m_KeyFrames[0].vRotation);
+	vDestPosition = XMLoadFloat3(&m_KeyFrames[0].vPosition);
+
+	vScale = XMVectorLerp(vSourScale, vDestScale, (_float)Ratio);
+	vRotation = XMQuaternionSlerp(vSourRotation, vDestRotation, (_float)Ratio);
+	vPosition = XMVectorLerp(vSourPosition, vDestPosition, (_float)Ratio);
+
+	//해당 본이 기준 뼈라면 루트를 000고정
+	if (!strcmp(m_pBone->GetName(), "Bip001"))
 	{
-		//현재 트렉의 진행도를 (이전프레임)0.f ~ 1.f(다음프레임)로 만듦
-		_double Ratio = TrackPosition / 0.15;
-
-		if (Ratio > 1.0)
-			m_bLerpEnd = true;
-
-		_vector vSourScale, vDestScale;
-		_vector vSourRotation, vDestRotation;
-		_vector vSourPosition, vDestPosition;
-
-		vSourScale = XMLoadFloat3(&PrevKeyFrame.vScale);
-		vSourRotation = XMLoadFloat4(&PrevKeyFrame.vRotation);
-		vSourPosition = XMLoadFloat3(&PrevKeyFrame.vPosition);
-
-		vDestScale = XMLoadFloat3(&m_KeyFrames[0].vScale);
-		vDestRotation = XMLoadFloat4(&m_KeyFrames[0].vRotation);
-		vDestPosition = XMLoadFloat3(&m_KeyFrames[0].vPosition);
-
-		vScale = XMVectorLerp(vSourScale, vDestScale, (_float)Ratio);
-		vRotation = XMQuaternionSlerp(vSourRotation, vDestRotation, (_float)Ratio);
-		vPosition = XMVectorLerp(vSourPosition, vDestPosition, (_float)Ratio);
-
-		//현재 키프레임 저장
-		XMStoreFloat3(&m_CurrentKeyFrame.vScale, vScale);
-		XMStoreFloat4(&m_CurrentKeyFrame.vRotation, vRotation);
-		XMStoreFloat3(&m_CurrentKeyFrame.vPosition, vPosition);
-
-		//해당 본이 기준 뼈라면 루트를 000고정
-		if (!strcmp(m_pBone->GetName(), "Bip001"))
-		{
-			if (!m_bSetPivot)
-			{
-				m_bSetPivot = true;
-				m_vPrevBonePos = m_vIdleOriginPos;
-			}
-
-			_vector vMoveValue = vPosition - XMLoadFloat3(&m_vPrevBonePos);
-			_vector vFixMoveValue; // 180도 회전 (X,Y축 * -1) & 플레이어의 룩방향 기준축 생성
-
-			_vector vRight = XMVector3Normalize(pTransform->Get_State(CTransform::STATE_RIGHT));
-			_vector vUp = XMVector3Normalize(pTransform->Get_State(CTransform::STATE_UP));
-			_vector vLook = XMVector3Normalize(pTransform->Get_State(CTransform::STATE_LOOK));
-
-			vFixMoveValue = XMVectorSet(
-				XMVectorGetX(vMoveValue) * -1.f,
-				XMVectorGetY(vMoveValue),
-				XMVectorGetZ(vMoveValue) * -1.f,
-				1.f);
-
-			_vector vAlignPos = ((vRight * XMVectorGetX(vFixMoveValue)) + (vUp * XMVectorGetY(vFixMoveValue)) + (vLook * XMVectorGetZ(vFixMoveValue)));
-			_vector vCurrentPos = pTransform->Get_State(CTransform::STATE_POSITION);
-
-			//트렌스폼 위치 조정
-			_vector vFinalPos = vCurrentPos + vAlignPos;
-			pTransform->Set_State(CTransform::STATE_POSITION, vFinalPos);
-
-			//현재 키프레임의 본 위치 저장
-			XMStoreFloat3(&m_vPrevBonePos, vPosition);
-
-			//첫번째 프레임의 위치에 애니메이션 루트본 고정
-			vPosition = XMLoadFloat3(&m_vIdleOriginPos);
-		}
+		//첫번째 프레임의 위치에 애니메이션 루트본 고정
+		vPosition = XMVectorSetY(vPosition, PrevKeyFrame.vPosition.y);
+		XMStoreFloat3(&m_vPrevBonePos, vPosition);
+		vPosition = XMVectorSet(m_vIdleOriginPos.x, PrevKeyFrame.vPosition.y, m_vIdleOriginPos.z, 1.f);
 	}
 
 	// 키프레임의 상태를 보간후 SRT를 적용하여 뼈 행렬 업데이트

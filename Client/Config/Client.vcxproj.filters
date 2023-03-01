@@ -106,14 +106,8 @@
     <ClInclude Include="..\public\DynamicCamera.h">
       <Filter>src\02. GameObjects\01. Camera</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\Kalienina.h">
-      <Filter>src\02. GameObjects\04. Character</Filter>
-    </ClInclude>
     <ClInclude Include="..\public\City.h">
       <Filter>src\02. GameObjects\03. Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="..\public\Sleeve.h">
-      <Filter>src\02. GameObjects\04. Character</Filter>
     </ClInclude>
     <ClInclude Include="..\public\ImGUIManager.h">
       <Filter>config\imgui</Filter>
@@ -154,6 +148,12 @@
     <ClInclude Include="..\public\Level_Loading.h">
       <Filter>src\01. Levels\00. Loading</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Weapon.h">
+      <Filter>src\02. GameObjects\04. Character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Character.h">
+      <Filter>src\02. GameObjects\04. Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -189,14 +189,8 @@
     <ClCompile Include="..\private\DynamicCamera.cpp">
       <Filter>src\02. GameObjects\01. Camera</Filter>
     </ClCompile>
-    <ClCompile Include="..\private\Kalienina.cpp">
-      <Filter>src\02. GameObjects\04. Character</Filter>
-    </ClCompile>
     <ClCompile Include="..\private\City.cpp">
       <Filter>src\02. GameObjects\03. Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="..\private\Sleeve.cpp">
-      <Filter>src\02. GameObjects\04. Character</Filter>
     </ClCompile>
     <ClCompile Include="..\private\ImGUIManager.cpp">
       <Filter>config\imgui</Filter>
@@ -227,6 +221,12 @@
     </ClCompile>
     <ClCompile Include="..\private\CommandSystem.cpp">
       <Filter>src\02. GameObjects\04. Character\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Weapon.cpp">
+      <Filter>src\02. GameObjects\04. Character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Character.cpp">
+      <Filter>src\02. GameObjects\04. Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -5,9 +5,9 @@ include listing.inc
 INCLUDELIB MSVCRTD
 INCLUDELIB OLDNAMES
 
-PUBLIC	__@@_PchSym_@00@UfhvihUzixxlUwlxfnvmghUtrgsfyUuiznvdlipUxorvmgUyrmUkxsOlyq@D33DE22D643B3CDE
-;	COMDAT __@@_PchSym_@00@UfhvihUzixxlUwlxfnvmghUtrgsfyUuiznvdlipUxorvmgUyrmUkxsOlyq@D33DE22D643B3CDE
+PUBLIC	__@@_PchSym_@00@UtrgsfyUuiznvdlipUxorvmgUyrmUkxsOlyq@A72CDF0E0E97F06A
+;	COMDAT __@@_PchSym_@00@UtrgsfyUuiznvdlipUxorvmgUyrmUkxsOlyq@A72CDF0E0E97F06A
 _BSS	SEGMENT
-__@@_PchSym_@00@UfhvihUzixxlUwlxfnvmghUtrgsfyUuiznvdlipUxorvmgUyrmUkxsOlyq@D33DE22D643B3CDE DD 01H DUP (?)
+__@@_PchSym_@00@UtrgsfyUuiznvdlipUxorvmgUyrmUkxsOlyq@A72CDF0E0E97F06A DD 01H DUP (?)
 _BSS	ENDS
 END

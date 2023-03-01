@@ -1166,8 +1166,6 @@ PUBLIC	?__empty_global_delete@@YAXPEAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPEAX_K@Z		; __empty_global_delete
 PUBLIC	wmemcpy
 PUBLIC	wmemmove
-PUBLIC	fabsf
-PUBLIC	?abs@@YAMM@Z					; abs
 PUBLIC	?acos@@YAMM@Z					; acos
 PUBLIC	??2@YAPEAX_KPEAX@Z				; operator new
 PUBLIC	?length@?$char_traits@_W@std@@SA_KPEB_W@Z	; std::char_traits<wchar_t>::length
@@ -1377,7 +1375,7 @@ PUBLIC	??_C@_0BA@PCOGIHOF@g_vLightDiffuse?$AA@		; `string'
 PUBLIC	??_C@_0BB@IJIIKIH@g_vLightSpecular?$AA@		; `string'
 PUBLIC	??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@		; `string'
 PUBLIC	?__LINE__Var@?0??Create@CKalienina@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CKalienina::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EH@DBJDBGMM@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DB@JLKHCEHN@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DM@ICLKDEHF@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAK?$AAa?$AAl?$AAi?$AAe?$AAn?$AAi?$AAn?$AAa?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CKalienina@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CKalienina::Clone'::`1'::__LINE__Var
@@ -1401,7 +1399,6 @@ PUBLIC	??_R3CBase@Engine@@8				; Engine::CBase::`RTTI Class Hierarchy Descriptor
 PUBLIC	??_R2CBase@Engine@@8				; Engine::CBase::`RTTI Base Class Array'
 PUBLIC	__real@00000000
 PUBLIC	__real@3c8efa35
-PUBLIC	__real@3e4ccccd
 PUBLIC	__real@3f800000
 PUBLIC	__real@40a00000
 PUBLIC	__real@43700000
@@ -1421,7 +1418,6 @@ EXTRN	?End@ImGui@@YAXXZ:PROC				; ImGui::End
 EXTRN	?InputFloat3@ImGui@@YA_NPEBDQEAM0H@Z:PROC	; ImGui::InputFloat3
 EXTRN	__imp_??0_Lockit@std@@QEAA@H@Z:PROC
 EXTRN	__imp_??1_Lockit@std@@QEAA@XZ:PROC
-EXTRN	fabs:PROC
 EXTRN	__imp_acosf:PROC
 EXTRN	??2@YAPEAX_KHPEBDH@Z:PROC			; operator new
 EXTRN	??3@YAXPEAXHPEBDH@Z:PROC			; operator delete
@@ -1450,6 +1446,7 @@ EXTRN	__imp_?Render@CModel@Engine@@QEAAJI@Z:PROC
 EXTRN	__imp_?Get_MeshCount@CModel@Engine@@QEAAIXZ:PROC
 EXTRN	__imp_?GetBonePtr@CModel@Engine@@QEAAPEAVCBone@2@PEBD@Z:PROC
 EXTRN	__imp_?AnimationIsFinish@CModel@Engine@@QEAA_NXZ:PROC
+EXTRN	__imp_?AnimationIsPreFinish@CModel@Engine@@QEAA_NXZ:PROC
 EXTRN	__imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z:PROC
 EXTRN	__imp_?Set_WorldMatrix@CTransform@Engine@@QEAAXUXMFLOAT4X4@DirectX@@@Z:PROC
 EXTRN	__imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z:PROC
@@ -1509,18 +1506,6 @@ pdata	SEGMENT
 $pdata$wmemmove DD imagerel $LN3
 	DD	imagerel $LN3+95
 	DD	imagerel $unwind$wmemmove
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$fabsf DD	imagerel $LN3
-	DD	imagerel $LN3+62
-	DD	imagerel $unwind$fabsf
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?abs@@YAMM@Z DD imagerel $LN3
-	DD	imagerel $LN3+58
-	DD	imagerel $unwind$?abs@@YAMM@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -2082,8 +2067,8 @@ $pdata$?Tick@CKalienina@Client@@UEAAXN@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?LateTick@CKalienina@Client@@UEAAXN@Z DD imagerel $LN6
-	DD	imagerel $LN6+400
+$pdata$?LateTick@CKalienina@Client@@UEAAXN@Z DD imagerel $LN5
+	DD	imagerel $LN5+323
 	DD	imagerel $unwind$?LateTick@CKalienina@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2232,8 +2217,8 @@ $pdata$?MoveStop@CKalienina@Client@@AEAAXXZ DD imagerel $LN5
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Attack@CKalienina@Client@@AEAAXXZ DD imagerel $LN4
-	DD	imagerel $LN4+113
+$pdata$?Attack@CKalienina@Client@@AEAAXXZ DD imagerel $LN12
+	DD	imagerel $LN12+331
 	DD	imagerel $unwind$?Attack@CKalienina@Client@@AEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -2499,10 +2484,6 @@ CONST	ENDS
 CONST	SEGMENT
 __real@3f800000 DD 03f800000r			; 1
 CONST	ENDS
-;	COMDAT __real@3e4ccccd
-CONST	SEGMENT
-__real@3e4ccccd DD 03e4ccccdr			; 0.2
-CONST	ENDS
 ;	COMDAT __real@3c8efa35
 CONST	SEGMENT
 __real@3c8efa35 DD 03c8efa35r			; 0.0174533
@@ -2658,7 +2639,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CKalienina@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CKalienina@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 01ffH ; `Client::CKalienina::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CKalienina@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0213H ; `Client::CKalienina::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1DM@ICLKDEHF@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAK?$AAa?$AAl?$AAi?$AAe?$AAn?$AAi?$AAn?$AAa?$AA?$AA@
 CONST	SEGMENT
@@ -2675,14 +2656,14 @@ CONST	SEGMENT
 	DB	'e', 00H, 's', 00H, 's', 00H, 'a', 00H, 'g', 00H, 'e', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EH@DBJDBGMM@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DB@JLKHCEHN@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EH@DBJDBGMM@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\kalienina.cpp', 00H ; `string'
+??_C@_0DB@JLKHCEHN@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\kalienina.cpp', 00H	; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CKalienina@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CKalienina@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 01f3H ; `Client::CKalienina::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CKalienina@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0207H ; `Client::CKalienina::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@
 CONST	SEGMENT
@@ -3809,10 +3790,10 @@ xdata	ENDS
 xdata	SEGMENT
 $unwind$?LateTick@CKalienina@Client@@UEAAXN@Z DD 025054119H
 	DD	01142319H
-	DD	0700d0033H
+	DD	0700d002fH
 	DD	0500cH
 	DD	imagerel __GSHandlerCheck
-	DD	0188H
+	DD	0168H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -4814,20 +4795,6 @@ xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$?acos@@YAMM@Z DD 035052301H
-	DD	010f3314H
-	DD	07008001fH
-	DD	05007H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?abs@@YAMM@Z DD 035052301H
-	DD	010f3314H
-	DD	07008001fH
-	DD	05007H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$fabsf DD 035052301H
 	DD	010f3314H
 	DD	07008001fH
 	DD	05007H
@@ -6192,7 +6159,7 @@ $LN4:
 ??$?0$$V@?$_Compressed_pair@U?$_Wrap_alloc@V?$allocator@_W@std@@@std@@V?$_String_val@U?$_Simple_types@_W@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1>::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6271,7 +6238,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ENDP ; Engine::Safe_Release<Engine::CShader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6350,7 +6317,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ENDP ; Engine::Safe_Release<Engine::CModel * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6429,7 +6396,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ENDP ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6508,7 +6475,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCKalienina@Client@@@Engine@@YAKAEAPEAVCKalienina@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6629,13 +6596,13 @@ $LN2@scalar:
 ??_GCKalienina@Client@@EEAAPEAXI@Z ENDP			; Client::CKalienina::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?Free@CKalienina@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
 ?Free@CKalienina@Client@@UEAAXXZ PROC			; Client::CKalienina::Free, COMDAT
 
-; 523  : { 
+; 543  : { 
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -6651,15 +6618,15 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 524  : 	__super::Free();
+; 544  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CGameObject@Engine@@UEAAXXZ
 
-; 525  : 
-; 526  : 	Safe_Release(mRenderer);
+; 545  : 
+; 546  : 	Safe_Release(mRenderer);
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6667,7 +6634,7 @@ $LN3:
   00042	48 8b c8	 mov	 rcx, rax
   00045	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
-; 527  : 	Safe_Release(mTransform);
+; 547  : 	Safe_Release(mTransform);
 
   0004a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6676,7 +6643,7 @@ $LN3:
   00057	48 8b c8	 mov	 rcx, rax
   0005a	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 528  : 	Safe_Release(mCameraSocketTransform);
+; 548  : 	Safe_Release(mCameraSocketTransform);
 
   0005f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6685,7 +6652,7 @@ $LN3:
   0006c	48 8b c8	 mov	 rcx, rax
   0006f	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 529  : 	Safe_Release(mModel);
+; 549  : 	Safe_Release(mModel);
 
   00074	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6694,7 +6661,7 @@ $LN3:
   00081	48 8b c8	 mov	 rcx, rax
   00084	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ; Engine::Safe_Release<Engine::CModel * __ptr64>
 
-; 530  : 	Safe_Release(mShader);
+; 550  : 	Safe_Release(mShader);
 
   00089	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6703,7 +6670,7 @@ $LN3:
   00096	48 8b c8	 mov	 rcx, rax
   00099	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ; Engine::Safe_Release<Engine::CShader * __ptr64>
 
-; 531  : }
+; 551  : }
 
   0009e	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -6713,7 +6680,7 @@ $LN3:
 ?Free@CKalienina@Client@@UEAAXXZ ENDP			; Client::CKalienina::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?Clone@CKalienina@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -6726,7 +6693,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CKalienina@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CKalienina::Clone, COMDAT
 
-; 511  : {
+; 531  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -6751,14 +6718,14 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 512  :  	CKalienina* pInstance = new CKalienina(*this);
+; 532  :  	CKalienina* pInstance = new CKalienina(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CKalienina@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EH@DBJDBGMM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DB@JLKHCEHN@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 e0 00 00 00	 mov	 ecx, 224		; 000000e0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -6788,7 +6755,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 513  : 	if (FAILED(pInstance->Initialize(pArg)))
+; 533  : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 78 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -6797,8 +6764,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Clone
 
-; 514  : 	{
-; 515  : 		MSG_BOX("Failed to Clone : CKalienina");
+; 534  : 	{
+; 535  : 		MSG_BOX("Failed to Clone : CKalienina");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -6809,19 +6776,19 @@ $LN5@Clone:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 516  : 		Safe_Release(pInstance);
+; 536  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCKalienina@Client@@@Engine@@YAKAEAPEAVCKalienina@Client@@@Z ; Engine::Safe_Release<Client::CKalienina * __ptr64>
 $LN2@Clone:
 
-; 517  : 	}
-; 518  : 
-; 519  : 	return pInstance;
+; 537  : 	}
+; 538  : 
+; 539  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 520  : }
+; 540  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -6861,7 +6828,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CKalienina@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EH@DBJDBGMM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DB@JLKHCEHN@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -6894,7 +6861,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CKalienina@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EH@DBJDBGMM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DB@JLKHCEHN@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -6906,7 +6873,7 @@ pArg$ = 376
 ?dtor$0@?0??Clone@CKalienina@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CKalienina::Clone'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?Create@CKalienina@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -6919,7 +6886,7 @@ pDevice$ = 368
 pContext$ = 376
 ?Create@CKalienina@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CKalienina::Create, COMDAT
 
-; 499  : {
+; 519  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -6944,14 +6911,14 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 500  : 	CKalienina*	pInstance = new CKalienina(pDevice, pContext);
+; 520  : 	CKalienina*	pInstance = new CKalienina(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CKalienina@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EH@DBJDBGMM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DB@JLKHCEHN@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 e0 00 00 00	 mov	 ecx, 224		; 000000e0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -6983,15 +6950,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 501  : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 521  : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CKalienina@Client@@UEAAJXZ ; Client::CKalienina::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Create
 
-; 502  : 	{
-; 503  : 		MSG_BOX("Failed to Create : CKalienina");
+; 522  : 	{
+; 523  : 		MSG_BOX("Failed to Create : CKalienina");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -7002,19 +6969,19 @@ $LN5@Create:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 504  : 		Safe_Release(pInstance);
+; 524  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCKalienina@Client@@@Engine@@YAKAEAPEAVCKalienina@Client@@@Z ; Engine::Safe_Release<Client::CKalienina * __ptr64>
 $LN2@Create:
 
-; 505  : 	}
-; 506  : 
-; 507  : 	return pInstance;
+; 525  : 	}
+; 526  : 
+; 527  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 508  : }
+; 528  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -7054,7 +7021,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CKalienina@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EH@DBJDBGMM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DB@JLKHCEHN@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -7087,7 +7054,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CKalienina@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EH@DBJDBGMM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DB@JLKHCEHN@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -7099,16 +7066,17 @@ pContext$ = 376
 ?dtor$0@?0??Create@CKalienina@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CKalienina::Create'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?Attack@CKalienina@Client@@AEAAXXZ
 _TEXT	SEGMENT
 pGameInstance$ = 8
+tv82 = 212
 this$ = 256
 ?Attack@CKalienina@Client@@AEAAXXZ PROC			; Client::CKalienina::Attack, COMDAT
 
-; 281  : {
+; 284  : {
 
-$LN4:
+$LN12:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	57		 push	 rdi
@@ -7122,67 +7090,178 @@ $LN4:
   00022	48 8b 8c 24 28
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
 
-; 282  : 	if (!m_bAttackable)
+; 285  : 	if (!m_bAttackable)
 
   0002a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00031	0f b6 80 c9 00
 	00 00		 movzx	 eax, BYTE PTR [rax+201]
   00038	85 c0		 test	 eax, eax
-  0003a	75 02		 jne	 SHORT $LN2@Attack
+  0003a	75 05		 jne	 SHORT $LN4@Attack
 
-; 283  : 		return;
+; 286  : 		return;
 
-  0003c	eb 29		 jmp	 SHORT $LN1@Attack
-$LN2@Attack:
+  0003c	e9 00 01 00 00	 jmp	 $LN1@Attack
+$LN4@Attack:
 
-; 284  : 
-; 285  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 287  : 
+; 288  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-  0003e	ff 15 00 00 00
+  00041	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
-  00044	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
+  00047	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 286  : 
-; 287  : 	m_bMoveable = false;
+; 289  : 
+; 290  : 	m_bMoveable = false;
 
-  00048	48 8b 85 00 01
+  0004b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0004f	c6 80 c8 00 00
+  00052	c6 80 c8 00 00
 	00 00		 mov	 BYTE PTR [rax+200], 0
 
-; 288  : 
-; 289  : 	//if (pGameInstance->GetTimer(L"Combo") > m_fComboTimerMax)
-; 290  : 	//	m_bCombo = false;
-; 291  : 	//m_bCombo = true;
-; 292  : 	//pGameInstance->SetTimer(L"Combo");
-; 293  : 	
-; 294  : 	SetAnimation(CLIP::ATTACK1, CAnimation::TYPE::ONE);
+; 291  : 
+; 292  : 	m_iCurAttackCount++;
 
-  00056	45 33 c0	 xor	 r8d, r8d
-  00059	33 d2		 xor	 edx, edx
-  0005b	48 8b 8d 00 01
+  00059	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00060	8b 80 bc 00 00
+	00		 mov	 eax, DWORD PTR [rax+188]
+  00066	ff c0		 inc	 eax
+  00068	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00062	e8 00 00 00 00	 call	 ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ; Client::CKalienina::SetAnimation
+  0006f	89 81 bc 00 00
+	00		 mov	 DWORD PTR [rcx+188], eax
+
+; 293  : 
+; 294  : 	if(m_iCurAttackCount > 3)
+
+  00075	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0007c	83 b8 bc 00 00
+	00 03		 cmp	 DWORD PTR [rax+188], 3
+  00083	76 11		 jbe	 SHORT $LN5@Attack
+
+; 295  : 		m_iCurAttackCount = 0;
+
+  00085	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0008c	c7 80 bc 00 00
+	00 00 00 00 00	 mov	 DWORD PTR [rax+188], 0
+$LN5@Attack:
+
+; 296  : 
+; 297  : 	if (mModel->AnimationIsPreFinish())
+
+  00096	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0009d	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
+  000a4	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?AnimationIsPreFinish@CModel@Engine@@QEAA_NXZ
+  000aa	0f b6 c0	 movzx	 eax, al
+  000ad	85 c0		 test	 eax, eax
+  000af	0f 84 8c 00 00
+	00		 je	 $LN6@Attack
+
+; 298  : 	{
+; 299  : 		switch (m_iCurAttackCount)
+
+  000b5	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000bc	8b 80 bc 00 00
+	00		 mov	 eax, DWORD PTR [rax+188]
+  000c2	89 85 d4 00 00
+	00		 mov	 DWORD PTR tv82[rbp], eax
+  000c8	83 bd d4 00 00
+	00 00		 cmp	 DWORD PTR tv82[rbp], 0
+  000cf	74 1d		 je	 SHORT $LN7@Attack
+  000d1	83 bd d4 00 00
+	00 01		 cmp	 DWORD PTR tv82[rbp], 1
+  000d8	74 27		 je	 SHORT $LN8@Attack
+  000da	83 bd d4 00 00
+	00 02		 cmp	 DWORD PTR tv82[rbp], 2
+  000e1	74 34		 je	 SHORT $LN9@Attack
+  000e3	83 bd d4 00 00
+	00 03		 cmp	 DWORD PTR tv82[rbp], 3
+  000ea	74 41		 je	 SHORT $LN10@Attack
+  000ec	eb 53		 jmp	 SHORT $LN2@Attack
+$LN7@Attack:
+
+; 300  : 		{
+; 301  : 		case 0:
+; 302  : 			SetAnimation(CLIP::ATTACK1, CAnimation::TYPE::ONE);
+
+  000ee	45 33 c0	 xor	 r8d, r8d
+  000f1	33 d2		 xor	 edx, edx
+  000f3	48 8b 8d 00 01
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  000fa	e8 00 00 00 00	 call	 ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ; Client::CKalienina::SetAnimation
+
+; 303  : 			break;
+
+  000ff	eb 40		 jmp	 SHORT $LN2@Attack
+$LN8@Attack:
+
+; 304  : 		case 1:
+; 305  : 			SetAnimation(CLIP::ATTACK2, CAnimation::TYPE::ONE);
+
+  00101	45 33 c0	 xor	 r8d, r8d
+  00104	ba 01 00 00 00	 mov	 edx, 1
+  00109	48 8b 8d 00 01
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  00110	e8 00 00 00 00	 call	 ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ; Client::CKalienina::SetAnimation
+
+; 306  : 			break;
+
+  00115	eb 2a		 jmp	 SHORT $LN2@Attack
+$LN9@Attack:
+
+; 307  : 		case 2:
+; 308  : 			SetAnimation(CLIP::ATTACK3, CAnimation::TYPE::ONE);
+
+  00117	45 33 c0	 xor	 r8d, r8d
+  0011a	ba 02 00 00 00	 mov	 edx, 2
+  0011f	48 8b 8d 00 01
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  00126	e8 00 00 00 00	 call	 ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ; Client::CKalienina::SetAnimation
+
+; 309  : 			break;
+
+  0012b	eb 14		 jmp	 SHORT $LN2@Attack
+$LN10@Attack:
+
+; 310  : 		case 3:
+; 311  : 			SetAnimation(CLIP::ATTACK4, CAnimation::TYPE::ONE);
+
+  0012d	45 33 c0	 xor	 r8d, r8d
+  00130	ba 03 00 00 00	 mov	 edx, 3
+  00135	48 8b 8d 00 01
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  0013c	e8 00 00 00 00	 call	 ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ; Client::CKalienina::SetAnimation
+$LN2@Attack:
+$LN6@Attack:
 $LN1@Attack:
 
-; 295  : }
+; 312  : 			break;
+; 313  : 		}
+; 314  : 	}
+; 315  : }
 
-  00067	48 8d a5 e8 00
+  00141	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
-  0006e	5f		 pop	 rdi
-  0006f	5d		 pop	 rbp
-  00070	c3		 ret	 0
+  00148	5f		 pop	 rdi
+  00149	5d		 pop	 rbp
+  0014a	c3		 ret	 0
 ?Attack@CKalienina@Client@@AEAAXXZ ENDP			; Client::CKalienina::Attack
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?MoveStop@CKalienina@Client@@AEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
 ?MoveStop@CKalienina@Client@@AEAAXXZ PROC		; Client::CKalienina::MoveStop, COMDAT
 
-; 270  : {
+; 273  : {
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7198,16 +7277,16 @@ $LN5:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 271  : 	if (AnimationCompare(CLIP::RUN) || AnimationCompare(CLIP::RUN_START))
+; 274  : 	if (AnimationCompare(CLIP::RUN) || AnimationCompare(CLIP::RUN_START))
 
-  0002a	ba 19 00 00 00	 mov	 edx, 25
+  0002a	ba 22 00 00 00	 mov	 edx, 34			; 00000022H
   0002f	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00036	e8 00 00 00 00	 call	 ?AnimationCompare@CKalienina@Client@@AEAA_NW4CLIP@12@@Z ; Client::CKalienina::AnimationCompare
   0003b	0f b6 c0	 movzx	 eax, al
   0003e	85 c0		 test	 eax, eax
   00040	75 18		 jne	 SHORT $LN3@MoveStop
-  00042	ba 1c 00 00 00	 mov	 edx, 28
+  00042	ba 25 00 00 00	 mov	 edx, 37			; 00000025H
   00047	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0004e	e8 00 00 00 00	 call	 ?AnimationCompare@CKalienina@Client@@AEAA_NW4CLIP@12@@Z ; Client::CKalienina::AnimationCompare
@@ -7216,39 +7295,39 @@ $LN5:
   00058	74 3e		 je	 SHORT $LN2@MoveStop
 $LN3@MoveStop:
 
-; 272  : 	{
-; 273  : 		m_bMove= false;
+; 275  : 	{
+; 276  : 		m_bMove= false;
 
   0005a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00061	c6 80 d0 00 00
 	00 00		 mov	 BYTE PTR [rax+208], 0
 
-; 274  : 		m_bRun = false;
+; 277  : 		m_bRun = false;
 
   00068	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0006f	c6 80 d1 00 00
 	00 00		 mov	 BYTE PTR [rax+209], 0
 
-; 275  : 		m_bMoveable = true;
+; 278  : 		m_bMoveable = true;
 
   00076	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0007d	c6 80 c8 00 00
 	00 01		 mov	 BYTE PTR [rax+200], 1
 
-; 276  : 		SetAnimation(CLIP::STOP, CAnimation::TYPE::ONE);
+; 279  : 		SetAnimation(CLIP::STOP, CAnimation::TYPE::ONE);
 
   00084	45 33 c0	 xor	 r8d, r8d
-  00087	ba 24 00 00 00	 mov	 edx, 36			; 00000024H
+  00087	ba 2d 00 00 00	 mov	 edx, 45			; 0000002dH
   0008c	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00093	e8 00 00 00 00	 call	 ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ; Client::CKalienina::SetAnimation
 $LN2@MoveStop:
 
-; 277  : 	}
-; 278  : }
+; 280  : 	}
+; 281  : }
 
   00098	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -7258,14 +7337,14 @@ $LN2@MoveStop:
 ?MoveStop@CKalienina@Client@@AEAAXXZ ENDP		; Client::CKalienina::MoveStop
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?MoveLeft@CKalienina@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
 TimeDelta$ = 232
 ?MoveLeft@CKalienina@Client@@AEAAXN@Z PROC		; Client::CKalienina::MoveLeft, COMDAT
 
-; 261  : {
+; 264  : {
 
 $LN4:
   00000	f2 0f 11 4c 24
@@ -7283,7 +7362,7 @@ $LN4:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 262  : 	if (!m_bMoveable)
+; 265  : 	if (!m_bMoveable)
 
   00030	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7292,13 +7371,13 @@ $LN4:
   0003e	85 c0		 test	 eax, eax
   00040	75 02		 jne	 SHORT $LN2@MoveLeft
 
-; 263  : 		return;
+; 266  : 		return;
 
   00042	eb 28		 jmp	 SHORT $LN1@MoveLeft
 $LN2@MoveLeft:
 
-; 264  : 
-; 265  : 	LeftRotation(TimeDelta);
+; 267  : 
+; 268  : 	LeftRotation(TimeDelta);
 
   00044	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7306,7 +7385,7 @@ $LN2@MoveLeft:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ?LeftRotation@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::LeftRotation
 
-; 266  : 	Movement(TimeDelta);
+; 269  : 	Movement(TimeDelta);
 
   00058	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7315,7 +7394,7 @@ $LN2@MoveLeft:
   00067	e8 00 00 00 00	 call	 ?Movement@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::Movement
 $LN1@MoveLeft:
 
-; 267  : }
+; 270  : }
 
   0006c	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -7325,14 +7404,14 @@ $LN1@MoveLeft:
 ?MoveLeft@CKalienina@Client@@AEAAXN@Z ENDP		; Client::CKalienina::MoveLeft
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?MoveRight@CKalienina@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
 TimeDelta$ = 232
 ?MoveRight@CKalienina@Client@@AEAAXN@Z PROC		; Client::CKalienina::MoveRight, COMDAT
 
-; 252  : {
+; 255  : {
 
 $LN4:
   00000	f2 0f 11 4c 24
@@ -7350,7 +7429,7 @@ $LN4:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 253  : 	if (!m_bMoveable)
+; 256  : 	if (!m_bMoveable)
 
   00030	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7359,13 +7438,13 @@ $LN4:
   0003e	85 c0		 test	 eax, eax
   00040	75 02		 jne	 SHORT $LN2@MoveRight
 
-; 254  : 		return;
+; 257  : 		return;
 
   00042	eb 28		 jmp	 SHORT $LN1@MoveRight
 $LN2@MoveRight:
 
-; 255  : 
-; 256  : 	RigthRotation(TimeDelta);
+; 258  : 
+; 259  : 	RigthRotation(TimeDelta);
 
   00044	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7373,7 +7452,7 @@ $LN2@MoveRight:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ?RigthRotation@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::RigthRotation
 
-; 257  : 	Movement(TimeDelta);
+; 260  : 	Movement(TimeDelta);
 
   00058	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7382,7 +7461,7 @@ $LN2@MoveRight:
   00067	e8 00 00 00 00	 call	 ?Movement@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::Movement
 $LN1@MoveRight:
 
-; 258  : }
+; 261  : }
 
   0006c	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -7392,14 +7471,14 @@ $LN1@MoveRight:
 ?MoveRight@CKalienina@Client@@AEAAXN@Z ENDP		; Client::CKalienina::MoveRight
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?MoveBackward@CKalienina@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
 TimeDelta$ = 232
 ?MoveBackward@CKalienina@Client@@AEAAXN@Z PROC		; Client::CKalienina::MoveBackward, COMDAT
 
-; 243  : {
+; 246  : {
 
 $LN4:
   00000	f2 0f 11 4c 24
@@ -7417,7 +7496,7 @@ $LN4:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 244  : 	if (!m_bMoveable)
+; 247  : 	if (!m_bMoveable)
 
   00030	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7426,13 +7505,13 @@ $LN4:
   0003e	85 c0		 test	 eax, eax
   00040	75 02		 jne	 SHORT $LN2@MoveBackwa
 
-; 245  : 		return;
+; 248  : 		return;
 
   00042	eb 28		 jmp	 SHORT $LN1@MoveBackwa
 $LN2@MoveBackwa:
 
-; 246  : 
-; 247  : 	BackwardRotaion(TimeDelta);
+; 249  : 
+; 250  : 	BackwardRotaion(TimeDelta);
 
   00044	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7440,7 +7519,7 @@ $LN2@MoveBackwa:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ?BackwardRotaion@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::BackwardRotaion
 
-; 248  : 	Movement(TimeDelta);
+; 251  : 	Movement(TimeDelta);
 
   00058	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7449,7 +7528,7 @@ $LN2@MoveBackwa:
   00067	e8 00 00 00 00	 call	 ?Movement@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::Movement
 $LN1@MoveBackwa:
 
-; 249  : }
+; 252  : }
 
   0006c	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -7459,14 +7538,14 @@ $LN1@MoveBackwa:
 ?MoveBackward@CKalienina@Client@@AEAAXN@Z ENDP		; Client::CKalienina::MoveBackward
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?MoveForward@CKalienina@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
 TimeDelta$ = 232
 ?MoveForward@CKalienina@Client@@AEAAXN@Z PROC		; Client::CKalienina::MoveForward, COMDAT
 
-; 234  : {
+; 237  : {
 
 $LN4:
   00000	f2 0f 11 4c 24
@@ -7484,7 +7563,7 @@ $LN4:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 235  : 	if (!m_bMoveable)
+; 238  : 	if (!m_bMoveable)
 
   00030	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7493,13 +7572,13 @@ $LN4:
   0003e	85 c0		 test	 eax, eax
   00040	75 02		 jne	 SHORT $LN2@MoveForwar
 
-; 236  : 		return;
+; 239  : 		return;
 
   00042	eb 28		 jmp	 SHORT $LN1@MoveForwar
 $LN2@MoveForwar:
 
-; 237  : 	
-; 238  : 	ForwardRotaion(TimeDelta);
+; 240  : 	
+; 241  : 	ForwardRotaion(TimeDelta);
 
   00044	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7507,7 +7586,7 @@ $LN2@MoveForwar:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ?ForwardRotaion@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::ForwardRotaion
 
-; 239  : 	Movement(TimeDelta);
+; 242  : 	Movement(TimeDelta);
 
   00058	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7516,7 +7595,7 @@ $LN2@MoveForwar:
   00067	e8 00 00 00 00	 call	 ?Movement@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::Movement
 $LN1@MoveForwar:
 
-; 240  : }
+; 243  : }
 
   0006c	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -7526,13 +7605,13 @@ $LN1@MoveForwar:
 ?MoveForward@CKalienina@Client@@AEAAXN@Z ENDP		; Client::CKalienina::MoveForward
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?Idle@CKalienina@Client@@AEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
 ?Idle@CKalienina@Client@@AEAAXXZ PROC			; Client::CKalienina::Idle, COMDAT
 
-; 226  : {
+; 229  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7548,31 +7627,31 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 227  : 	m_bAttackable = true;
+; 230  : 	m_bAttackable = true;
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00031	c6 80 c9 00 00
 	00 01		 mov	 BYTE PTR [rax+201], 1
 
-; 228  : 	m_bMoveable = true;
+; 231  : 	m_bMoveable = true;
 
   00038	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0003f	c6 80 c8 00 00
 	00 01		 mov	 BYTE PTR [rax+200], 1
 
-; 229  : 
-; 230  : 	SetAnimation(CLIP::STAND2, CAnimation::TYPE::LOOP);
+; 232  : 
+; 233  : 	SetAnimation(CLIP::STAND2, CAnimation::TYPE::LOOP);
 
   00046	41 b8 01 00 00
 	00		 mov	 r8d, 1
-  0004c	ba 20 00 00 00	 mov	 edx, 32			; 00000020H
+  0004c	ba 29 00 00 00	 mov	 edx, 41			; 00000029H
   00051	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00058	e8 00 00 00 00	 call	 ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ; Client::CKalienina::SetAnimation
 
-; 231  : }
+; 234  : }
 
   0005d	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -7582,7 +7661,7 @@ $LN3:
 ?Idle@CKalienina@Client@@AEAAXXZ ENDP			; Client::CKalienina::Idle
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?KeyInput@CKalienina@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -7590,7 +7669,7 @@ this$ = 256
 TimeDelta$ = 264
 ?KeyInput@CKalienina@Client@@AEAAXN@Z PROC		; Client::CKalienina::KeyInput, COMDAT
 
-; 203  : {
+; 206  : {
 
 $LN6:
   00000	f2 0f 11 4c 24
@@ -7608,14 +7687,14 @@ $LN6:
   00028	48 8b 8c 24 28
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
 
-; 204  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 207  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00030	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00036	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 205  : 
-; 206  : 	InputWASD(TimeDelta);
+; 208  : 
+; 209  : 	InputWASD(TimeDelta);
 
   0003a	f2 0f 10 8d 08
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7623,10 +7702,10 @@ $LN6:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00049	e8 00 00 00 00	 call	 ?InputWASD@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::InputWASD
 
-; 207  : 
-; 208  : 	if (AnimationCompare(CLIP::MOVE1))
+; 210  : 
+; 211  : 	if (AnimationCompare(CLIP::MOVE1))
 
-  0004e	ba 17 00 00 00	 mov	 edx, 23
+  0004e	ba 20 00 00 00	 mov	 edx, 32			; 00000020H
   00053	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0005a	e8 00 00 00 00	 call	 ?AnimationCompare@CKalienina@Client@@AEAA_NW4CLIP@12@@Z ; Client::CKalienina::AnimationCompare
@@ -7634,8 +7713,8 @@ $LN6:
   00062	85 c0		 test	 eax, eax
   00064	74 0e		 je	 SHORT $LN2@KeyInput
 
-; 209  : 	{
-; 210  : 		m_bDashReady = false;
+; 212  : 	{
+; 213  : 		m_bDashReady = false;
 
   00066	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7643,9 +7722,9 @@ $LN6:
 	00 00		 mov	 BYTE PTR [rax+210], 0
 $LN2@KeyInput:
 
-; 211  : 	}
-; 212  : 
-; 213  : 	if (pGameInstance->Input_MouseState_Custom(DIMK_LB) == KEY_STATE::TAP)
+; 214  : 	}
+; 215  : 
+; 216  : 	if (pGameInstance->Input_MouseState_Custom(DIMK_LB) == KEY_STATE::TAP)
 
   00074	33 d2		 xor	 edx, edx
   00076	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -7654,17 +7733,17 @@ $LN2@KeyInput:
   00080	83 f8 01	 cmp	 eax, 1
   00083	75 0c		 jne	 SHORT $LN3@KeyInput
 
-; 214  : 	{
-; 215  : 		Attack();
+; 217  : 	{
+; 218  : 		Attack();
 
   00085	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0008c	e8 00 00 00 00	 call	 ?Attack@CKalienina@Client@@AEAAXXZ ; Client::CKalienina::Attack
 $LN3@KeyInput:
 
-; 216  : 	}
-; 217  : 	
-; 218  : 	if (mModel->AnimationIsFinish())
+; 219  : 	}
+; 220  : 	
+; 221  : 	if (mModel->AnimationIsFinish())
 
   00091	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7676,17 +7755,17 @@ $LN3@KeyInput:
   000a8	85 c0		 test	 eax, eax
   000aa	74 0c		 je	 SHORT $LN4@KeyInput
 
-; 219  : 	{
-; 220  : 		Idle();
+; 222  : 	{
+; 223  : 		Idle();
 
   000ac	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   000b3	e8 00 00 00 00	 call	 ?Idle@CKalienina@Client@@AEAAXXZ ; Client::CKalienina::Idle
 $LN4@KeyInput:
 
-; 221  : 	}
-; 222  : 
-; 223  : }
+; 224  : 	}
+; 225  : 
+; 226  : }
 
   000b8	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
@@ -7696,7 +7775,7 @@ $LN4@KeyInput:
 ?KeyInput@CKalienina@Client@@AEAAXN@Z ENDP		; Client::CKalienina::KeyInput
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?InputWASD@CKalienina@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -7704,7 +7783,7 @@ this$ = 256
 TimeDelta$ = 264
 ?InputWASD@CKalienina@Client@@AEAAXN@Z PROC		; Client::CKalienina::InputWASD, COMDAT
 
-; 411  : {
+; 431  : {
 
 $LN20:
   00000	f2 0f 11 4c 24
@@ -7722,24 +7801,24 @@ $LN20:
   00028	48 8b 8c 24 28
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
 
-; 412  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 432  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00030	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00036	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 413  : 
-; 414  : 	//if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::TAP)
-; 415  : 	//{
-; 416  : 	//	if (m_bDashReady == false)
-; 417  : 	//		m_bDashReady = true;
-; 418  : 	//	else
-; 419  : 	//	{
-; 420  : 	//		SetAnimation(CLIP::MOVE1, CAnimation::TYPE::ONE);
-; 421  : 	//	}
-; 422  : 	//}
-; 423  : 
-; 424  : 	if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::TAP)
+; 433  : 
+; 434  : 	//if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::TAP)
+; 435  : 	//{
+; 436  : 	//	if (m_bDashReady == false)
+; 437  : 	//		m_bDashReady = true;
+; 438  : 	//	else
+; 439  : 	//	{
+; 440  : 	//		SetAnimation(CLIP::MOVE1, CAnimation::TYPE::ONE);
+; 441  : 	//	}
+; 442  : 	//}
+; 443  : 
+; 444  : 	if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::TAP)
 
   0003a	ba 11 00 00 00	 mov	 edx, 17
   0003f	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -7748,7 +7827,7 @@ $LN20:
   00049	83 f8 01	 cmp	 eax, 1
   0004c	75 1e		 jne	 SHORT $LN2@InputWASD
 
-; 425  : 		m_iWASDCount++;
+; 445  : 		m_iWASDCount++;
 
   0004e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7762,7 +7841,7 @@ $LN20:
   0006a	eb 30		 jmp	 SHORT $LN3@InputWASD
 $LN2@InputWASD:
 
-; 426  : 	else if(pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::AWAY)
+; 446  : 	else if(pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::AWAY)
 
   0006c	ba 11 00 00 00	 mov	 edx, 17
   00071	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -7771,7 +7850,7 @@ $LN2@InputWASD:
   0007b	83 f8 02	 cmp	 eax, 2
   0007e	75 1c		 jne	 SHORT $LN4@InputWASD
 
-; 427  : 		m_iWASDCount--;
+; 447  : 		m_iWASDCount--;
 
   00080	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7785,8 +7864,8 @@ $LN2@InputWASD:
 $LN4@InputWASD:
 $LN3@InputWASD:
 
-; 428  : 
-; 429  : 	if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::TAP)
+; 448  : 
+; 449  : 	if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::TAP)
 
   0009c	ba 1e 00 00 00	 mov	 edx, 30
   000a1	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -7795,7 +7874,7 @@ $LN3@InputWASD:
   000ab	83 f8 01	 cmp	 eax, 1
   000ae	75 1e		 jne	 SHORT $LN5@InputWASD
 
-; 430  : 		m_iWASDCount++;
+; 450  : 		m_iWASDCount++;
 
   000b0	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7809,7 +7888,7 @@ $LN3@InputWASD:
   000cc	eb 30		 jmp	 SHORT $LN6@InputWASD
 $LN5@InputWASD:
 
-; 431  : 	else if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::AWAY)
+; 451  : 	else if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::AWAY)
 
   000ce	ba 1e 00 00 00	 mov	 edx, 30
   000d3	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -7818,7 +7897,7 @@ $LN5@InputWASD:
   000dd	83 f8 02	 cmp	 eax, 2
   000e0	75 1c		 jne	 SHORT $LN7@InputWASD
 
-; 432  : 		m_iWASDCount--;
+; 452  : 		m_iWASDCount--;
 
   000e2	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7832,8 +7911,8 @@ $LN5@InputWASD:
 $LN7@InputWASD:
 $LN6@InputWASD:
 
-; 433  : 
-; 434  : 	if (pGameInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::TAP)
+; 453  : 
+; 454  : 	if (pGameInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::TAP)
 
   000fe	ba 1f 00 00 00	 mov	 edx, 31
   00103	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -7842,7 +7921,7 @@ $LN6@InputWASD:
   0010d	83 f8 01	 cmp	 eax, 1
   00110	75 1e		 jne	 SHORT $LN8@InputWASD
 
-; 435  : 		m_iWASDCount++;
+; 455  : 		m_iWASDCount++;
 
   00112	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7856,7 +7935,7 @@ $LN6@InputWASD:
   0012e	eb 30		 jmp	 SHORT $LN9@InputWASD
 $LN8@InputWASD:
 
-; 436  : 	else if (pGameInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::AWAY)
+; 456  : 	else if (pGameInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::AWAY)
 
   00130	ba 1f 00 00 00	 mov	 edx, 31
   00135	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -7865,7 +7944,7 @@ $LN8@InputWASD:
   0013f	83 f8 02	 cmp	 eax, 2
   00142	75 1c		 jne	 SHORT $LN10@InputWASD
 
-; 437  : 		m_iWASDCount--;
+; 457  : 		m_iWASDCount--;
 
   00144	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7879,8 +7958,8 @@ $LN8@InputWASD:
 $LN10@InputWASD:
 $LN9@InputWASD:
 
-; 438  : 
-; 439  : 	if (pGameInstance->Input_KeyState_Custom(DIK_D) == KEY_STATE::TAP)
+; 458  : 
+; 459  : 	if (pGameInstance->Input_KeyState_Custom(DIK_D) == KEY_STATE::TAP)
 
   00160	ba 20 00 00 00	 mov	 edx, 32			; 00000020H
   00165	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -7889,7 +7968,7 @@ $LN9@InputWASD:
   0016f	83 f8 01	 cmp	 eax, 1
   00172	75 1e		 jne	 SHORT $LN11@InputWASD
 
-; 440  : 		m_iWASDCount++;
+; 460  : 		m_iWASDCount++;
 
   00174	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7903,7 +7982,7 @@ $LN9@InputWASD:
   00190	eb 30		 jmp	 SHORT $LN12@InputWASD
 $LN11@InputWASD:
 
-; 441  : 	else if (pGameInstance->Input_KeyState_Custom(DIK_D) == KEY_STATE::AWAY)
+; 461  : 	else if (pGameInstance->Input_KeyState_Custom(DIK_D) == KEY_STATE::AWAY)
 
   00192	ba 20 00 00 00	 mov	 edx, 32			; 00000020H
   00197	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -7912,7 +7991,7 @@ $LN11@InputWASD:
   001a1	83 f8 02	 cmp	 eax, 2
   001a4	75 1c		 jne	 SHORT $LN13@InputWASD
 
-; 442  : 		m_iWASDCount--;
+; 462  : 		m_iWASDCount--;
 
   001a6	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7926,14 +8005,14 @@ $LN11@InputWASD:
 $LN13@InputWASD:
 $LN12@InputWASD:
 
-; 443  : 
-; 444  : 	//대기
-; 445  : 	//CTransform::TRANSFORM_DESC desc;
-; 446  : 	//ZeroMemory(&desc, sizeof(CTransform::TRANSFORM_DESC));
-; 447  : 	//desc.fMoveSpeed = m_fMoveSpeed;
-; 448  : 	//desc.fRotationSpeed = XMConvertToRadians(m_fRotationSpeed);
-; 449  : 
-; 450  : 	TimeDelta = TimeDelta / m_iWASDCount;
+; 463  : 
+; 464  : 	//대기
+; 465  : 	//CTransform::TRANSFORM_DESC desc;
+; 466  : 	//ZeroMemory(&desc, sizeof(CTransform::TRANSFORM_DESC));
+; 467  : 	//desc.fMoveSpeed = m_fMoveSpeed;
+; 468  : 	//desc.fRotationSpeed = XMConvertToRadians(m_fRotationSpeed);
+; 469  : 
+; 470  : 	TimeDelta = TimeDelta / m_iWASDCount;
 
   001c2	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7946,8 +8025,8 @@ $LN12@InputWASD:
   001e0	f2 0f 11 85 08
 	01 00 00	 movsd	 QWORD PTR TimeDelta$[rbp], xmm0
 
-; 451  : 
-; 452  : 	if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::HOLD)
+; 471  : 
+; 472  : 	if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::HOLD)
 
   001e8	ba 11 00 00 00	 mov	 edx, 17
   001ed	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -7956,8 +8035,8 @@ $LN12@InputWASD:
   001f7	85 c0		 test	 eax, eax
   001f9	75 14		 jne	 SHORT $LN14@InputWASD
 
-; 453  : 	{
-; 454  : 		MoveForward(TimeDelta);
+; 473  : 	{
+; 474  : 		MoveForward(TimeDelta);
 
   001fb	f2 0f 10 8d 08
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7966,9 +8045,9 @@ $LN12@InputWASD:
   0020a	e8 00 00 00 00	 call	 ?MoveForward@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::MoveForward
 $LN14@InputWASD:
 
-; 455  : 	}
-; 456  : 
-; 457  : 	if (pGameInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::HOLD)
+; 475  : 	}
+; 476  : 
+; 477  : 	if (pGameInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::HOLD)
 
   0020f	ba 1f 00 00 00	 mov	 edx, 31
   00214	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -7977,8 +8056,8 @@ $LN14@InputWASD:
   0021e	85 c0		 test	 eax, eax
   00220	75 14		 jne	 SHORT $LN15@InputWASD
 
-; 458  : 	{
-; 459  : 		MoveBackward(TimeDelta);
+; 478  : 	{
+; 479  : 		MoveBackward(TimeDelta);
 
   00222	f2 0f 10 8d 08
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7987,9 +8066,9 @@ $LN14@InputWASD:
   00231	e8 00 00 00 00	 call	 ?MoveBackward@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::MoveBackward
 $LN15@InputWASD:
 
-; 460  : 	}
-; 461  : 
-; 462  : 	if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::HOLD)
+; 480  : 	}
+; 481  : 
+; 482  : 	if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::HOLD)
 
   00236	ba 1e 00 00 00	 mov	 edx, 30
   0023b	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -7998,8 +8077,8 @@ $LN15@InputWASD:
   00245	85 c0		 test	 eax, eax
   00247	75 14		 jne	 SHORT $LN16@InputWASD
 
-; 463  : 	{
-; 464  : 		MoveLeft(TimeDelta);
+; 483  : 	{
+; 484  : 		MoveLeft(TimeDelta);
 
   00249	f2 0f 10 8d 08
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -8008,9 +8087,9 @@ $LN15@InputWASD:
   00258	e8 00 00 00 00	 call	 ?MoveLeft@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::MoveLeft
 $LN16@InputWASD:
 
-; 465  : 	}
-; 466  : 
-; 467  : 	if (pGameInstance->Input_KeyState_Custom(DIK_D) == KEY_STATE::HOLD)
+; 485  : 	}
+; 486  : 
+; 487  : 	if (pGameInstance->Input_KeyState_Custom(DIK_D) == KEY_STATE::HOLD)
 
   0025d	ba 20 00 00 00	 mov	 edx, 32			; 00000020H
   00262	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -8019,8 +8098,8 @@ $LN16@InputWASD:
   0026c	85 c0		 test	 eax, eax
   0026e	75 14		 jne	 SHORT $LN17@InputWASD
 
-; 468  : 	{
-; 469  : 		MoveRight(TimeDelta);
+; 488  : 	{
+; 489  : 		MoveRight(TimeDelta);
 
   00270	f2 0f 10 8d 08
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -8029,12 +8108,12 @@ $LN16@InputWASD:
   0027f	e8 00 00 00 00	 call	 ?MoveRight@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::MoveRight
 $LN17@InputWASD:
 
-; 470  : 	}
-; 471  : 
-; 472  : 	if (m_bMove &&
-; 473  : 		pGameInstance->Input_KeyState_Custom(DIK_W) != KEY_STATE::HOLD &&
-; 474  : 		pGameInstance->Input_KeyState_Custom(DIK_A) != KEY_STATE::HOLD &&
-; 475  : 		pGameInstance->Input_KeyState_Custom(DIK_S) != KEY_STATE::HOLD &&
+; 490  : 	}
+; 491  : 
+; 492  : 	if (m_bMove &&
+; 493  : 		pGameInstance->Input_KeyState_Custom(DIK_W) != KEY_STATE::HOLD &&
+; 494  : 		pGameInstance->Input_KeyState_Custom(DIK_A) != KEY_STATE::HOLD &&
+; 495  : 		pGameInstance->Input_KeyState_Custom(DIK_S) != KEY_STATE::HOLD &&
 
   00284	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8067,17 +8146,17 @@ $LN17@InputWASD:
   002de	85 c0		 test	 eax, eax
   002e0	74 0c		 je	 SHORT $LN18@InputWASD
 
-; 476  : 		pGameInstance->Input_KeyState_Custom(DIK_D) != KEY_STATE::HOLD)
-; 477  : 	{
-; 478  : 		MoveStop();
+; 496  : 		pGameInstance->Input_KeyState_Custom(DIK_D) != KEY_STATE::HOLD)
+; 497  : 	{
+; 498  : 		MoveStop();
 
   002e2	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   002e9	e8 00 00 00 00	 call	 ?MoveStop@CKalienina@Client@@AEAAXXZ ; Client::CKalienina::MoveStop
 $LN18@InputWASD:
 
-; 479  : 	}
-; 480  : }
+; 499  : 	}
+; 500  : }
 
   002ee	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
@@ -8087,14 +8166,14 @@ $LN18@InputWASD:
 ?InputWASD@CKalienina@Client@@AEAAXN@Z ENDP		; Client::CKalienina::InputWASD
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?Movement@CKalienina@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
 TimeDelta$ = 232
 ?Movement@CKalienina@Client@@AEAAXN@Z PROC		; Client::CKalienina::Movement, COMDAT
 
-; 389  : {
+; 409  : {
 
 $LN11:
   00000	f2 0f 11 4c 24
@@ -8112,30 +8191,30 @@ $LN11:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 390  : 	if (AnimationCompare(CLIP::STAND1) || AnimationCompare(CLIP::STAND2) || AnimationCompare(CLIP::RUN_START_END) || AnimationCompare(CLIP::STOP))
+; 410  : 	if (AnimationCompare(CLIP::STAND1) || AnimationCompare(CLIP::STAND2) || AnimationCompare(CLIP::RUN_START_END) || AnimationCompare(CLIP::STOP))
 
-  00030	ba 1f 00 00 00	 mov	 edx, 31
+  00030	ba 28 00 00 00	 mov	 edx, 40			; 00000028H
   00035	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0003c	e8 00 00 00 00	 call	 ?AnimationCompare@CKalienina@Client@@AEAA_NW4CLIP@12@@Z ; Client::CKalienina::AnimationCompare
   00041	0f b6 c0	 movzx	 eax, al
   00044	85 c0		 test	 eax, eax
   00046	75 48		 jne	 SHORT $LN4@Movement
-  00048	ba 20 00 00 00	 mov	 edx, 32			; 00000020H
+  00048	ba 29 00 00 00	 mov	 edx, 41			; 00000029H
   0004d	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00054	e8 00 00 00 00	 call	 ?AnimationCompare@CKalienina@Client@@AEAA_NW4CLIP@12@@Z ; Client::CKalienina::AnimationCompare
   00059	0f b6 c0	 movzx	 eax, al
   0005c	85 c0		 test	 eax, eax
   0005e	75 30		 jne	 SHORT $LN4@Movement
-  00060	ba 1d 00 00 00	 mov	 edx, 29
+  00060	ba 26 00 00 00	 mov	 edx, 38			; 00000026H
   00065	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0006c	e8 00 00 00 00	 call	 ?AnimationCompare@CKalienina@Client@@AEAA_NW4CLIP@12@@Z ; Client::CKalienina::AnimationCompare
   00071	0f b6 c0	 movzx	 eax, al
   00074	85 c0		 test	 eax, eax
   00076	75 18		 jne	 SHORT $LN4@Movement
-  00078	ba 24 00 00 00	 mov	 edx, 36			; 00000024H
+  00078	ba 2d 00 00 00	 mov	 edx, 45			; 0000002dH
   0007d	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00084	e8 00 00 00 00	 call	 ?AnimationCompare@CKalienina@Client@@AEAA_NW4CLIP@12@@Z ; Client::CKalienina::AnimationCompare
@@ -8144,28 +8223,28 @@ $LN11:
   0008e	74 27		 je	 SHORT $LN2@Movement
 $LN4@Movement:
 
-; 391  : 	{
-; 392  : 		m_bMove = true;
+; 411  : 	{
+; 412  : 		m_bMove = true;
 
   00090	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00097	c6 80 d0 00 00
 	00 01		 mov	 BYTE PTR [rax+208], 1
 
-; 393  : 		SetAnimation(CLIP::RUN_START, CAnimation::TYPE::ONE);
+; 413  : 		SetAnimation(CLIP::RUN_START, CAnimation::TYPE::ONE);
 
   0009e	45 33 c0	 xor	 r8d, r8d
-  000a1	ba 1c 00 00 00	 mov	 edx, 28
+  000a1	ba 25 00 00 00	 mov	 edx, 37			; 00000025H
   000a6	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   000ad	e8 00 00 00 00	 call	 ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ; Client::CKalienina::SetAnimation
   000b2	e9 90 00 00 00	 jmp	 $LN3@Movement
 $LN2@Movement:
 
-; 394  : 	}
-; 395  : 	else if (AnimationCompare(CLIP::RUN_START))
+; 414  : 	}
+; 415  : 	else if (AnimationCompare(CLIP::RUN_START))
 
-  000b7	ba 1c 00 00 00	 mov	 edx, 28
+  000b7	ba 25 00 00 00	 mov	 edx, 37			; 00000025H
   000bc	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   000c3	e8 00 00 00 00	 call	 ?AnimationCompare@CKalienina@Client@@AEAA_NW4CLIP@12@@Z ; Client::CKalienina::AnimationCompare
@@ -8173,12 +8252,12 @@ $LN2@Movement:
   000cb	85 c0		 test	 eax, eax
   000cd	74 2e		 je	 SHORT $LN5@Movement
 
-; 396  : 	{
-; 397  : 		if (FinishCheckPlay(CLIP::RUN, CAnimation::TYPE::LOOP))
+; 416  : 	{
+; 417  : 		if (FinishCheckPlay(CLIP::RUN, CAnimation::TYPE::LOOP))
 
   000cf	41 b8 01 00 00
 	00		 mov	 r8d, 1
-  000d5	ba 19 00 00 00	 mov	 edx, 25
+  000d5	ba 22 00 00 00	 mov	 edx, 34			; 00000022H
   000da	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   000e1	e8 00 00 00 00	 call	 ?FinishCheckPlay@CKalienina@Client@@AEAA_NW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ; Client::CKalienina::FinishCheckPlay
@@ -8186,7 +8265,7 @@ $LN2@Movement:
   000e9	85 c0		 test	 eax, eax
   000eb	74 0e		 je	 SHORT $LN7@Movement
 
-; 398  : 			m_bRun = true;
+; 418  : 			m_bRun = true;
 
   000ed	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8194,14 +8273,14 @@ $LN2@Movement:
 	00 01		 mov	 BYTE PTR [rax+209], 1
 $LN7@Movement:
 
-; 399  : 	}
+; 419  : 	}
 
   000fb	eb 4a		 jmp	 SHORT $LN6@Movement
 $LN5@Movement:
 
-; 400  : 	else if (AnimationCompare(CLIP::RUN))
+; 420  : 	else if (AnimationCompare(CLIP::RUN))
 
-  000fd	ba 19 00 00 00	 mov	 edx, 25
+  000fd	ba 22 00 00 00	 mov	 edx, 34			; 00000022H
   00102	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00109	e8 00 00 00 00	 call	 ?AnimationCompare@CKalienina@Client@@AEAA_NW4CLIP@12@@Z ; Client::CKalienina::AnimationCompare
@@ -8209,8 +8288,8 @@ $LN5@Movement:
   00111	85 c0		 test	 eax, eax
   00113	74 1e		 je	 SHORT $LN8@Movement
 
-; 401  : 	{
-; 402  : 		mTransform->MoveForward(TimeDelta);
+; 421  : 	{
+; 422  : 		mTransform->MoveForward(TimeDelta);
 
   00115	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -8221,17 +8300,17 @@ $LN5@Movement:
   0012b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?MoveForward@CTransform@Engine@@QEAAXN@Z
 
-; 403  : 	}
-; 404  : 	else
+; 423  : 	}
+; 424  : 	else
 
   00131	eb 14		 jmp	 SHORT $LN9@Movement
 $LN8@Movement:
 
-; 405  : 	{
-; 406  : 		FinishCheckPlay(CLIP::RUN_START, CAnimation::TYPE::ONE);
+; 425  : 	{
+; 426  : 		FinishCheckPlay(CLIP::RUN_START, CAnimation::TYPE::ONE);
 
   00133	45 33 c0	 xor	 r8d, r8d
-  00136	ba 1c 00 00 00	 mov	 edx, 28
+  00136	ba 25 00 00 00	 mov	 edx, 37			; 00000025H
   0013b	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00142	e8 00 00 00 00	 call	 ?FinishCheckPlay@CKalienina@Client@@AEAA_NW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ; Client::CKalienina::FinishCheckPlay
@@ -8239,8 +8318,8 @@ $LN9@Movement:
 $LN6@Movement:
 $LN3@Movement:
 
-; 407  : 	}
-; 408  : }
+; 427  : 	}
+; 428  : }
 
   00147	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8250,7 +8329,7 @@ $LN3@Movement:
 ?Movement@CKalienina@Client@@AEAAXN@Z ENDP		; Client::CKalienina::Movement
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?LeftRotation@CKalienina@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -8276,7 +8355,7 @@ this$ = 1280
 TimeDelta$ = 1288
 ?LeftRotation@CKalienina@Client@@AEAAXN@Z PROC		; Client::CKalienina::LeftRotation, COMDAT
 
-; 372  : {
+; 392  : {
 
 $LN5:
   00000	f2 0f 11 4c 24
@@ -8299,13 +8378,13 @@ $LN5:
   0003a	48 89 85 d8 04
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 373  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 393  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00041	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00047	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 374  : 	_matrix cameraMatrix = pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TRANSFORM_STATE::TS_VIEW);
+; 394  : 	_matrix cameraMatrix = pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TRANSFORM_STATE::TS_VIEW);
 
   0004b	45 33 c0	 xor	 r8d, r8d
   0004e	48 8d 55 30	 lea	 rdx, QWORD PTR cameraMatrix$[rbp]
@@ -8313,7 +8392,7 @@ $LN5:
   00056	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_Transform_Matrix_Inverse@CGameInstance@Engine@@QEAA?AUXMMATRIX@DirectX@@W4TRANSFORM_STATE@CPipeLine@2@@Z
 
-; 375  : 	_vector vCameraRight = cameraMatrix.r[0];
+; 395  : 	_vector vCameraRight = cameraMatrix.r[0];
 
   0005c	b8 10 00 00 00	 mov	 eax, 16
   00061	48 6b c0 00	 imul	 rax, rax, 0
@@ -8321,7 +8400,7 @@ $LN5:
   0006a	0f 11 85 90 00
 	00 00		 movups	 XMMWORD PTR vCameraRight$[rbp], xmm0
 
-; 376  : 	_vector vCameraLook = XMVector3Normalize(XMVector3Cross(vCameraRight, VECTOR_UP));
+; 396  : 	_vector vCameraLook = XMVector3Normalize(XMVector3Cross(vCameraRight, VECTOR_UP));
 
   00071	0f 57 db	 xorps	 xmm3, xmm3
   00074	0f 57 d2	 xorps	 xmm2, xmm2
@@ -8348,7 +8427,7 @@ $LN5:
   000c2	0f 29 85 c0 00
 	00 00		 movaps	 XMMWORD PTR vCameraLook$[rbp], xmm0
 
-; 377  : 	_vector vPlayerRight = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_RIGHT));
+; 397  : 	_vector vPlayerRight = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_RIGHT));
 
   000c9	45 33 c0	 xor	 r8d, r8d
   000cc	48 8d 95 a0 03
@@ -8368,8 +8447,8 @@ $LN5:
   000fd	0f 29 85 f0 00
 	00 00		 movaps	 XMMWORD PTR vPlayerRight$[rbp], xmm0
 
-; 378  : 
-; 379  : 	_float fRadianAngle = acos(XMVectorGetX(XMVector3Dot(vCameraLook, vPlayerRight)));
+; 398  : 
+; 399  : 	_float fRadianAngle = acos(XMVectorGetX(XMVector3Dot(vCameraLook, vPlayerRight)));
 
   00104	0f 28 8d f0 00
 	00 00		 movaps	 xmm1, XMMWORD PTR vPlayerRight$[rbp]
@@ -8385,7 +8464,7 @@ $LN5:
   0012f	f3 0f 11 85 14
 	01 00 00	 movss	 DWORD PTR fRadianAngle$[rbp], xmm0
 
-; 380  : 	_float AxisY = XMVectorGetY(XMVector3Cross(vPlayerRight, vCameraLook));
+; 400  : 	_float AxisY = XMVectorGetY(XMVector3Cross(vPlayerRight, vCameraLook));
 
   00137	0f 28 8d c0 00
 	00 00		 movaps	 xmm1, XMMWORD PTR vCameraLook$[rbp]
@@ -8400,8 +8479,8 @@ $LN5:
   0015d	f3 0f 11 85 34
 	01 00 00	 movss	 DWORD PTR AxisY$[rbp], xmm0
 
-; 381  : 
-; 382  : 	if (AxisY >= 0.f)
+; 401  : 
+; 402  : 	if (AxisY >= 0.f)
 
   00165	f3 0f 10 85 34
 	01 00 00	 movss	 xmm0, DWORD PTR AxisY$[rbp]
@@ -8409,7 +8488,7 @@ $LN5:
 	00 00		 comiss	 xmm0, DWORD PTR __real@00000000
   00174	72 62		 jb	 SHORT $LN2@LeftRotati
 
-; 383  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * fRadianAngle);
+; 403  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * fRadianAngle);
 
   00176	0f 57 db	 xorps	 xmm3, xmm3
   00179	0f 57 d2	 xorps	 xmm2, xmm2
@@ -8439,12 +8518,12 @@ $LN5:
   001d0	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
 
-; 384  : 	else
+; 404  : 	else
 
   001d6	eb 6b		 jmp	 SHORT $LN3@LeftRotati
 $LN2@LeftRotati:
 
-; 385  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * -fRadianAngle);
+; 405  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * -fRadianAngle);
 
   001d8	0f 57 db	 xorps	 xmm3, xmm3
   001db	0f 57 d2	 xorps	 xmm2, xmm2
@@ -8478,7 +8557,7 @@ $LN2@LeftRotati:
 	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
 $LN3@LeftRotati:
 
-; 386  : }
+; 406  : }
 
   00243	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
   00247	48 8d 15 00 00
@@ -8496,7 +8575,7 @@ $LN3@LeftRotati:
 ?LeftRotation@CKalienina@Client@@AEAAXN@Z ENDP		; Client::CKalienina::LeftRotation
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?RigthRotation@CKalienina@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -8523,7 +8602,7 @@ this$ = 1328
 TimeDelta$ = 1336
 ?RigthRotation@CKalienina@Client@@AEAAXN@Z PROC		; Client::CKalienina::RigthRotation, COMDAT
 
-; 355  : {
+; 375  : {
 
 $LN5:
   00000	f2 0f 11 4c 24
@@ -8546,13 +8625,13 @@ $LN5:
   0003a	48 89 85 08 05
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 356  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 376  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00041	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00047	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 357  : 	_matrix cameraMatrix = pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TRANSFORM_STATE::TS_VIEW);
+; 377  : 	_matrix cameraMatrix = pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TRANSFORM_STATE::TS_VIEW);
 
   0004b	45 33 c0	 xor	 r8d, r8d
   0004e	48 8d 55 30	 lea	 rdx, QWORD PTR cameraMatrix$[rbp]
@@ -8560,7 +8639,7 @@ $LN5:
   00056	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_Transform_Matrix_Inverse@CGameInstance@Engine@@QEAA?AUXMMATRIX@DirectX@@W4TRANSFORM_STATE@CPipeLine@2@@Z
 
-; 358  : 	_vector vCameraRight = cameraMatrix.r[0];
+; 378  : 	_vector vCameraRight = cameraMatrix.r[0];
 
   0005c	b8 10 00 00 00	 mov	 eax, 16
   00061	48 6b c0 00	 imul	 rax, rax, 0
@@ -8568,7 +8647,7 @@ $LN5:
   0006a	0f 11 85 90 00
 	00 00		 movups	 XMMWORD PTR vCameraRight$[rbp], xmm0
 
-; 359  : 	_vector vCameraLook = -XMVector3Normalize(XMVector3Cross(vCameraRight, VECTOR_UP));
+; 379  : 	_vector vCameraLook = -XMVector3Normalize(XMVector3Cross(vCameraRight, VECTOR_UP));
 
   00071	0f 57 db	 xorps	 xmm3, xmm3
   00074	0f 57 d2	 xorps	 xmm2, xmm2
@@ -8600,7 +8679,7 @@ $LN5:
   000d5	0f 29 85 c0 00
 	00 00		 movaps	 XMMWORD PTR vCameraLook$[rbp], xmm0
 
-; 360  : 	_vector vPlayerRight = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_RIGHT));
+; 380  : 	_vector vPlayerRight = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_RIGHT));
 
   000dc	45 33 c0	 xor	 r8d, r8d
   000df	48 8d 95 d0 03
@@ -8620,8 +8699,8 @@ $LN5:
   00110	0f 29 85 f0 00
 	00 00		 movaps	 XMMWORD PTR vPlayerRight$[rbp], xmm0
 
-; 361  : 
-; 362  : 	_float fRadianAngle = acos(XMVectorGetX(XMVector3Dot(vCameraLook, vPlayerRight)));
+; 381  : 
+; 382  : 	_float fRadianAngle = acos(XMVectorGetX(XMVector3Dot(vCameraLook, vPlayerRight)));
 
   00117	0f 28 8d f0 00
 	00 00		 movaps	 xmm1, XMMWORD PTR vPlayerRight$[rbp]
@@ -8637,7 +8716,7 @@ $LN5:
   00142	f3 0f 11 85 14
 	01 00 00	 movss	 DWORD PTR fRadianAngle$[rbp], xmm0
 
-; 363  : 	_float AxisY = XMVectorGetY(XMVector3Cross(vPlayerRight, vCameraLook));
+; 383  : 	_float AxisY = XMVectorGetY(XMVector3Cross(vPlayerRight, vCameraLook));
 
   0014a	0f 28 8d c0 00
 	00 00		 movaps	 xmm1, XMMWORD PTR vCameraLook$[rbp]
@@ -8652,8 +8731,8 @@ $LN5:
   00170	f3 0f 11 85 34
 	01 00 00	 movss	 DWORD PTR AxisY$[rbp], xmm0
 
-; 364  :    
-; 365  : 	if (AxisY >= 0.f)
+; 384  :    
+; 385  : 	if (AxisY >= 0.f)
 
   00178	f3 0f 10 85 34
 	01 00 00	 movss	 xmm0, DWORD PTR AxisY$[rbp]
@@ -8661,7 +8740,7 @@ $LN5:
 	00 00		 comiss	 xmm0, DWORD PTR __real@00000000
   00187	72 62		 jb	 SHORT $LN2@RigthRotat
 
-; 366  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * fRadianAngle);
+; 386  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * fRadianAngle);
 
   00189	0f 57 db	 xorps	 xmm3, xmm3
   0018c	0f 57 d2	 xorps	 xmm2, xmm2
@@ -8691,12 +8770,12 @@ $LN5:
   001e3	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
 
-; 367  : 	else
+; 387  : 	else
 
   001e9	eb 6b		 jmp	 SHORT $LN3@RigthRotat
 $LN2@RigthRotat:
 
-; 368  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * -fRadianAngle);
+; 388  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * -fRadianAngle);
 
   001eb	0f 57 db	 xorps	 xmm3, xmm3
   001ee	0f 57 d2	 xorps	 xmm2, xmm2
@@ -8730,7 +8809,7 @@ $LN2@RigthRotat:
 	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
 $LN3@RigthRotat:
 
-; 369  : }
+; 389  : }
 
   00256	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
   0025a	48 8d 15 00 00
@@ -8748,7 +8827,7 @@ $LN3@RigthRotat:
 ?RigthRotation@CKalienina@Client@@AEAAXN@Z ENDP		; Client::CKalienina::RigthRotation
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?BackwardRotaion@CKalienina@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -8775,7 +8854,7 @@ this$ = 1328
 TimeDelta$ = 1336
 ?BackwardRotaion@CKalienina@Client@@AEAAXN@Z PROC	; Client::CKalienina::BackwardRotaion, COMDAT
 
-; 338  : {
+; 358  : {
 
 $LN5:
   00000	f2 0f 11 4c 24
@@ -8798,13 +8877,13 @@ $LN5:
   0003a	48 89 85 08 05
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 339  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 359  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00041	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00047	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 340  : 	_matrix cameraMatrix = pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TRANSFORM_STATE::TS_VIEW);
+; 360  : 	_matrix cameraMatrix = pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TRANSFORM_STATE::TS_VIEW);
 
   0004b	45 33 c0	 xor	 r8d, r8d
   0004e	48 8d 55 30	 lea	 rdx, QWORD PTR cameraMatrix$[rbp]
@@ -8812,7 +8891,7 @@ $LN5:
   00056	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_Transform_Matrix_Inverse@CGameInstance@Engine@@QEAA?AUXMMATRIX@DirectX@@W4TRANSFORM_STATE@CPipeLine@2@@Z
 
-; 341  : 	_vector vCameraRight = cameraMatrix.r[0];
+; 361  : 	_vector vCameraRight = cameraMatrix.r[0];
 
   0005c	b8 10 00 00 00	 mov	 eax, 16
   00061	48 6b c0 00	 imul	 rax, rax, 0
@@ -8820,7 +8899,7 @@ $LN5:
   0006a	0f 11 85 90 00
 	00 00		 movups	 XMMWORD PTR vCameraRight$[rbp], xmm0
 
-; 342  : 	_vector vCameraLook = -XMVector3Normalize(XMVector3Cross(vCameraRight, VECTOR_UP));
+; 362  : 	_vector vCameraLook = -XMVector3Normalize(XMVector3Cross(vCameraRight, VECTOR_UP));
 
   00071	0f 57 db	 xorps	 xmm3, xmm3
   00074	0f 57 d2	 xorps	 xmm2, xmm2
@@ -8852,7 +8931,7 @@ $LN5:
   000d5	0f 29 85 c0 00
 	00 00		 movaps	 XMMWORD PTR vCameraLook$[rbp], xmm0
 
-; 343  : 	_vector vPlayerLook = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_LOOK));
+; 363  : 	_vector vPlayerLook = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_LOOK));
 
   000dc	41 b8 02 00 00
 	00		 mov	 r8d, 2
@@ -8873,8 +8952,8 @@ $LN5:
   00113	0f 29 85 f0 00
 	00 00		 movaps	 XMMWORD PTR vPlayerLook$[rbp], xmm0
 
-; 344  : 
-; 345  : 	_float fRadianAngle = acos(XMVectorGetX(XMVector3Dot(vCameraLook, vPlayerLook)));
+; 364  : 
+; 365  : 	_float fRadianAngle = acos(XMVectorGetX(XMVector3Dot(vCameraLook, vPlayerLook)));
 
   0011a	0f 28 8d f0 00
 	00 00		 movaps	 xmm1, XMMWORD PTR vPlayerLook$[rbp]
@@ -8890,7 +8969,7 @@ $LN5:
   00145	f3 0f 11 85 14
 	01 00 00	 movss	 DWORD PTR fRadianAngle$[rbp], xmm0
 
-; 346  : 	_float AxisY = XMVectorGetY(XMVector3Cross(vPlayerLook, vCameraLook));
+; 366  : 	_float AxisY = XMVectorGetY(XMVector3Cross(vPlayerLook, vCameraLook));
 
   0014d	0f 28 8d c0 00
 	00 00		 movaps	 xmm1, XMMWORD PTR vCameraLook$[rbp]
@@ -8905,8 +8984,8 @@ $LN5:
   00173	f3 0f 11 85 34
 	01 00 00	 movss	 DWORD PTR AxisY$[rbp], xmm0
 
-; 347  : 
-; 348  : 	if (AxisY >= 0.f)
+; 367  : 
+; 368  : 	if (AxisY >= 0.f)
 
   0017b	f3 0f 10 85 34
 	01 00 00	 movss	 xmm0, DWORD PTR AxisY$[rbp]
@@ -8914,7 +8993,7 @@ $LN5:
 	00 00		 comiss	 xmm0, DWORD PTR __real@00000000
   0018a	72 62		 jb	 SHORT $LN2@BackwardRo
 
-; 349  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * fRadianAngle);
+; 369  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * fRadianAngle);
 
   0018c	0f 57 db	 xorps	 xmm3, xmm3
   0018f	0f 57 d2	 xorps	 xmm2, xmm2
@@ -8944,12 +9023,12 @@ $LN5:
   001e6	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
 
-; 350  : 	else
+; 370  : 	else
 
   001ec	eb 6b		 jmp	 SHORT $LN3@BackwardRo
 $LN2@BackwardRo:
 
-; 351  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * -fRadianAngle);
+; 371  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * -fRadianAngle);
 
   001ee	0f 57 db	 xorps	 xmm3, xmm3
   001f1	0f 57 d2	 xorps	 xmm2, xmm2
@@ -8983,7 +9062,7 @@ $LN2@BackwardRo:
 	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
 $LN3@BackwardRo:
 
-; 352  : }
+; 372  : }
 
   00259	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
   0025d	48 8d 15 00 00
@@ -9001,7 +9080,7 @@ $LN3@BackwardRo:
 ?BackwardRotaion@CKalienina@Client@@AEAAXN@Z ENDP	; Client::CKalienina::BackwardRotaion
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?ForwardRotaion@CKalienina@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -9027,7 +9106,7 @@ this$ = 1280
 TimeDelta$ = 1288
 ?ForwardRotaion@CKalienina@Client@@AEAAXN@Z PROC	; Client::CKalienina::ForwardRotaion, COMDAT
 
-; 320  : {
+; 340  : {
 
 $LN5:
   00000	f2 0f 11 4c 24
@@ -9050,13 +9129,13 @@ $LN5:
   0003a	48 89 85 d8 04
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 321  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 341  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00041	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00047	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 322  : 	_matrix cameraMatrix = pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TRANSFORM_STATE::TS_VIEW);
+; 342  : 	_matrix cameraMatrix = pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TRANSFORM_STATE::TS_VIEW);
 
   0004b	45 33 c0	 xor	 r8d, r8d
   0004e	48 8d 55 30	 lea	 rdx, QWORD PTR cameraMatrix$[rbp]
@@ -9064,7 +9143,7 @@ $LN5:
   00056	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_Transform_Matrix_Inverse@CGameInstance@Engine@@QEAA?AUXMMATRIX@DirectX@@W4TRANSFORM_STATE@CPipeLine@2@@Z
 
-; 323  : 	_vector vCameraRight = cameraMatrix.r[0];
+; 343  : 	_vector vCameraRight = cameraMatrix.r[0];
 
   0005c	b8 10 00 00 00	 mov	 eax, 16
   00061	48 6b c0 00	 imul	 rax, rax, 0
@@ -9072,7 +9151,7 @@ $LN5:
   0006a	0f 11 85 90 00
 	00 00		 movups	 XMMWORD PTR vCameraRight$[rbp], xmm0
 
-; 324  : 	_vector vCameraLook = XMVector3Normalize(XMVector3Cross(vCameraRight, VECTOR_UP));
+; 344  : 	_vector vCameraLook = XMVector3Normalize(XMVector3Cross(vCameraRight, VECTOR_UP));
 
   00071	0f 57 db	 xorps	 xmm3, xmm3
   00074	0f 57 d2	 xorps	 xmm2, xmm2
@@ -9099,7 +9178,7 @@ $LN5:
   000c2	0f 29 85 c0 00
 	00 00		 movaps	 XMMWORD PTR vCameraLook$[rbp], xmm0
 
-; 325  : 	_vector vPlayerLook = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_LOOK));
+; 345  : 	_vector vPlayerLook = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_LOOK));
 
   000c9	41 b8 02 00 00
 	00		 mov	 r8d, 2
@@ -9120,8 +9199,8 @@ $LN5:
   00100	0f 29 85 f0 00
 	00 00		 movaps	 XMMWORD PTR vPlayerLook$[rbp], xmm0
 
-; 326  : 
-; 327  : 	_float fRadianAngle = acos(XMVectorGetX(XMVector3Dot(vCameraLook, vPlayerLook)));
+; 346  : 
+; 347  : 	_float fRadianAngle = acos(XMVectorGetX(XMVector3Dot(vCameraLook, vPlayerLook)));
 
   00107	0f 28 8d f0 00
 	00 00		 movaps	 xmm1, XMMWORD PTR vPlayerLook$[rbp]
@@ -9137,7 +9216,7 @@ $LN5:
   00132	f3 0f 11 85 14
 	01 00 00	 movss	 DWORD PTR fRadianAngle$[rbp], xmm0
 
-; 328  : 	_float AxisY = XMVectorGetY(XMVector3Cross(vPlayerLook, vCameraLook));
+; 348  : 	_float AxisY = XMVectorGetY(XMVector3Cross(vPlayerLook, vCameraLook));
 
   0013a	0f 28 8d c0 00
 	00 00		 movaps	 xmm1, XMMWORD PTR vCameraLook$[rbp]
@@ -9152,8 +9231,8 @@ $LN5:
   00160	f3 0f 11 85 34
 	01 00 00	 movss	 DWORD PTR AxisY$[rbp], xmm0
 
-; 329  : 
-; 330  : 	if(AxisY >= 0.f)
+; 349  : 
+; 350  : 	if(AxisY >= 0.f)
 
   00168	f3 0f 10 85 34
 	01 00 00	 movss	 xmm0, DWORD PTR AxisY$[rbp]
@@ -9161,7 +9240,7 @@ $LN5:
 	00 00		 comiss	 xmm0, DWORD PTR __real@00000000
   00177	72 62		 jb	 SHORT $LN2@ForwardRot
 
-; 331  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * fRadianAngle);
+; 351  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * fRadianAngle);
 
   00179	0f 57 db	 xorps	 xmm3, xmm3
   0017c	0f 57 d2	 xorps	 xmm2, xmm2
@@ -9191,12 +9270,12 @@ $LN5:
   001d3	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
 
-; 332  : 	else
+; 352  : 	else
 
   001d9	eb 6b		 jmp	 SHORT $LN3@ForwardRot
 $LN2@ForwardRot:
 
-; 333  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * -fRadianAngle);
+; 353  : 		mTransform->Rotate(VECTOR_UP, TimeDelta * -fRadianAngle);
 
   001db	0f 57 db	 xorps	 xmm3, xmm3
   001de	0f 57 d2	 xorps	 xmm2, xmm2
@@ -9230,8 +9309,8 @@ $LN2@ForwardRot:
 	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
 $LN3@ForwardRot:
 
-; 334  : 
-; 335  : }
+; 354  : 
+; 355  : }
 
   00246	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
   0024a	48 8d 15 00 00
@@ -9249,7 +9328,7 @@ $LN3@ForwardRot:
 ?ForwardRotaion@CKalienina@Client@@AEAAXN@Z ENDP	; Client::CKalienina::ForwardRotaion
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?CameraSocketUpdate@CKalienina@Client@@AEAAXXZ
 _TEXT	SEGMENT
 cameraPos$ = 16
@@ -9259,7 +9338,7 @@ __$ArrayPad$ = 328
 this$ = 368
 ?CameraSocketUpdate@CKalienina@Client@@AEAAXXZ PROC	; Client::CKalienina::CameraSocketUpdate, COMDAT
 
-; 312  : {
+; 332  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -9280,7 +9359,7 @@ $LN3:
   00034	48 89 85 48 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 313  : 	_vector cameraPos = mTransform->Get_State(CTransform::STATE_POSITION);
+; 333  : 	_vector cameraPos = mTransform->Get_State(CTransform::STATE_POSITION);
 
   0003b	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -9292,7 +9371,7 @@ $LN3:
   00053	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 314  : 	cameraPos = XMVectorSetY(cameraPos, XMVectorGetY(cameraPos) + 1);
+; 334  : 	cameraPos = XMVectorSetY(cameraPos, XMVectorGetY(cameraPos) + 1);
 
   00059	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR cameraPos$[rbp]
   0005d	e8 00 00 00 00	 call	 ?XMVectorGetY@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetY
@@ -9307,8 +9386,8 @@ $LN3:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T4[rbp]
   00084	0f 29 45 10	 movaps	 XMMWORD PTR cameraPos$[rbp], xmm0
 
-; 315  : 
-; 316  : 	mCameraSocketTransform->Set_State(CTransform::STATE_POSITION, cameraPos);
+; 335  : 
+; 336  : 	mCameraSocketTransform->Set_State(CTransform::STATE_POSITION, cameraPos);
 
   00088	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR cameraPos$[rbp]
   0008c	0f 29 85 30 01
@@ -9323,7 +9402,7 @@ $LN3:
   000ad	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 317  : }
+; 337  : }
 
   000b3	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
   000b7	48 8d 15 00 00
@@ -9341,7 +9420,7 @@ $LN3:
 ?CameraSocketUpdate@CKalienina@Client@@AEAAXXZ ENDP	; Client::CKalienina::CameraSocketUpdate
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?AnimationControl@CKalienina@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -9349,7 +9428,7 @@ this$ = 256
 TimeDelta$ = 264
 ?AnimationControl@CKalienina@Client@@AEAAXN@Z PROC	; Client::CKalienina::AnimationControl, COMDAT
 
-; 304  : {
+; 324  : {
 
 $LN3:
   00000	f2 0f 11 4c 24
@@ -9367,14 +9446,14 @@ $LN3:
   00028	48 8b 8c 24 28
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
 
-; 305  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 325  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00030	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00036	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 306  : 
-; 307  : 	mModel->Setup_Animation(ANIM_DESC.Clip);
+; 326  : 
+; 327  : 	mModel->Setup_Animation(ANIM_DESC.Clip);
 
   0003a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9387,7 +9466,7 @@ $LN3:
   00055	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_Animation@CModel@Engine@@QEAAJI@Z
 
-; 308  : 	mModel->Play_Animation(TimeDelta, mTransform, ANIM_DESC.Type);
+; 328  : 	mModel->Play_Animation(TimeDelta, mTransform, ANIM_DESC.Type);
 
   0005b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9406,7 +9485,7 @@ $LN3:
   0008d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@W4TYPE@CAnimation@2@@Z
 
-; 309  : }
+; 329  : }
 
   00093	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
@@ -9416,7 +9495,7 @@ $LN3:
 ?AnimationControl@CKalienina@Client@@AEAAXN@Z ENDP	; Client::CKalienina::AnimationControl
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -9424,7 +9503,7 @@ eClip$ = 232
 eAnimationType$ = 240
 ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z PROC ; Client::CKalienina::SetAnimation, COMDAT
 
-; 298  : {
+; 318  : {
 
 $LN3:
   00000	44 89 44 24 18	 mov	 DWORD PTR [rsp+24], r8d
@@ -9442,7 +9521,7 @@ $LN3:
   00029	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 299  : 	ANIM_DESC.Clip = eClip;
+; 319  : 	ANIM_DESC.Clip = eClip;
 
   00031	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9451,7 +9530,7 @@ $LN3:
   0003e	89 88 a0 00 00
 	00		 mov	 DWORD PTR [rax+160], ecx
 
-; 300  : 	ANIM_DESC.Type = eAnimationType;
+; 320  : 	ANIM_DESC.Type = eAnimationType;
 
   00044	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9460,7 +9539,7 @@ $LN3:
   00051	89 88 a4 00 00
 	00		 mov	 DWORD PTR [rax+164], ecx
 
-; 301  : }
+; 321  : }
 
   00057	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -9470,7 +9549,7 @@ $LN3:
 ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ENDP ; Client::CKalienina::SetAnimation
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?FinishCheckPlay@CKalienina@Client@@AEAA_NW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -9478,7 +9557,7 @@ eClip$ = 232
 eAnimationType$ = 240
 ?FinishCheckPlay@CKalienina@Client@@AEAA_NW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z PROC ; Client::CKalienina::FinishCheckPlay, COMDAT
 
-; 488  : {
+; 508  : {
 
 $LN4:
   00000	44 89 44 24 18	 mov	 DWORD PTR [rsp+24], r8d
@@ -9496,7 +9575,7 @@ $LN4:
   0002b	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 489  : 	if (mModel->AnimationIsFinish())
+; 509  : 	if (mModel->AnimationIsFinish())
 
   00033	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9508,8 +9587,8 @@ $LN4:
   0004a	85 c0		 test	 eax, eax
   0004c	74 1d		 je	 SHORT $LN2@FinishChec
 
-; 490  : 	{
-; 491  : 		SetAnimation(eClip, eAnimationType);
+; 510  : 	{
+; 511  : 		SetAnimation(eClip, eAnimationType);
 
   0004e	44 8b 85 f0 00
 	00 00		 mov	 r8d, DWORD PTR eAnimationType$[rbp]
@@ -9519,20 +9598,20 @@ $LN4:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00062	e8 00 00 00 00	 call	 ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ; Client::CKalienina::SetAnimation
 
-; 492  : 		return true;
+; 512  : 		return true;
 
   00067	b0 01		 mov	 al, 1
   00069	eb 02		 jmp	 SHORT $LN1@FinishChec
 $LN2@FinishChec:
 
-; 493  : 	}
-; 494  : 
-; 495  : 	return false;
+; 513  : 	}
+; 514  : 
+; 515  : 	return false;
 
   0006b	32 c0		 xor	 al, al
 $LN1@FinishChec:
 
-; 496  : }
+; 516  : }
 
   0006d	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -9542,7 +9621,7 @@ $LN1@FinishChec:
 ?FinishCheckPlay@CKalienina@Client@@AEAA_NW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ENDP ; Client::CKalienina::FinishCheckPlay
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?AnimationCompare@CKalienina@Client@@AEAA_NW4CLIP@12@@Z
 _TEXT	SEGMENT
 tv67 = 192
@@ -9550,7 +9629,7 @@ this$ = 240
 eClip$ = 248
 ?AnimationCompare@CKalienina@Client@@AEAA_NW4CLIP@12@@Z PROC ; Client::CKalienina::AnimationCompare, COMDAT
 
-; 483  : {
+; 503  : {
 
 $LN5:
   00000	89 54 24 10	 mov	 DWORD PTR [rsp+16], edx
@@ -9567,7 +9646,7 @@ $LN5:
   00024	48 8b 8c 24 f8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+248]
 
-; 484  : 	return ANIM_DESC.Clip == eClip;
+; 504  : 	return ANIM_DESC.Clip == eClip;
 
   0002c	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9586,7 +9665,7 @@ $LN4@AnimationC:
   00057	0f b6 85 c0 00
 	00 00		 movzx	 eax, BYTE PTR tv67[rbp]
 
-; 485  : }
+; 505  : }
 
   0005e	48 8d a5 d8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+216]
@@ -9596,7 +9675,7 @@ $LN4@AnimationC:
 ?AnimationCompare@CKalienina@Client@@AEAA_NW4CLIP@12@@Z ENDP ; Client::CKalienina::AnimationCompare
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?SetupShaderResources@CKalienina@Client@@AEAAJXZ
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -9607,7 +9686,7 @@ $T3 = 452
 this$ = 528
 ?SetupShaderResources@CKalienina@Client@@AEAAJXZ PROC	; Client::CKalienina::SetupShaderResources, COMDAT
 
-; 168  : {
+; 171  : {
 
 $LN13:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -9623,7 +9702,7 @@ $LN13:
   00022	48 8b 8c 24 38
 	02 00 00	 mov	 rcx, QWORD PTR [rsp+568]
 
-; 169  : 	if (nullptr == mShader)
+; 172  : 	if (nullptr == mShader)
 
   0002a	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9631,21 +9710,21 @@ $LN13:
 	00 00 00	 cmp	 QWORD PTR [rax+144], 0
   00039	75 0a		 jne	 SHORT $LN2@SetupShade
 
-; 170  : 		return E_FAIL;
+; 173  : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00040	e9 09 02 00 00	 jmp	 $LN1@SetupShade
 $LN2@SetupShade:
 
-; 171  : 
-; 172  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
+; 174  : 
+; 175  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
 
   00045	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0004b	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 173  : 
-; 174  : 	if (FAILED(mTransform->Setup_ShaderResource(mShader, "g_WorldMatrix")))
+; 176  : 
+; 177  : 	if (FAILED(mTransform->Setup_ShaderResource(mShader, "g_WorldMatrix")))
 
   0004f	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
@@ -9662,14 +9741,14 @@ $LN2@SetupShade:
   00078	85 c0		 test	 eax, eax
   0007a	7d 0a		 jge	 SHORT $LN3@SetupShade
 
-; 175  : 		return E_FAIL;
+; 178  : 		return E_FAIL;
 
   0007c	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00081	e9 c8 01 00 00	 jmp	 $LN1@SetupShade
 $LN3@SetupShade:
 
-; 176  : 
-; 177  : 	if (FAILED(mShader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
+; 179  : 
+; 180  : 	if (FAILED(mShader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
 
   00086	45 33 c0	 xor	 r8d, r8d
   00089	48 8d 95 04 01
@@ -9689,14 +9768,14 @@ $LN3@SetupShade:
   000b8	85 c0		 test	 eax, eax
   000ba	7d 0a		 jge	 SHORT $LN4@SetupShade
 
-; 178  : 		return E_FAIL;
+; 181  : 		return E_FAIL;
 
   000bc	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000c1	e9 88 01 00 00	 jmp	 $LN1@SetupShade
 $LN4@SetupShade:
 
-; 179  : 
-; 180  : 	if (FAILED(mShader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
+; 182  : 
+; 183  : 	if (FAILED(mShader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
 
   000c6	41 b8 01 00 00
 	00		 mov	 r8d, 1
@@ -9717,14 +9796,14 @@ $LN4@SetupShade:
   000fb	85 c0		 test	 eax, eax
   000fd	7d 0a		 jge	 SHORT $LN5@SetupShade
 
-; 181  : 		return E_FAIL;
+; 184  : 		return E_FAIL;
 
   000ff	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00104	e9 45 01 00 00	 jmp	 $LN1@SetupShade
 $LN5@SetupShade:
 
-; 182  : 
-; 183  : 	if (FAILED(mShader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
+; 185  : 
+; 186  : 	if (FAILED(mShader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
 
   00109	48 8d 95 c4 01
 	00 00		 lea	 rdx, QWORD PTR $T3[rbp]
@@ -9745,14 +9824,14 @@ $LN5@SetupShade:
   0013e	85 c0		 test	 eax, eax
   00140	7d 0a		 jge	 SHORT $LN6@SetupShade
 
-; 184  : 		return E_FAIL;
+; 187  : 		return E_FAIL;
 
   00142	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00147	e9 02 01 00 00	 jmp	 $LN1@SetupShade
 $LN6@SetupShade:
 
-; 185  : 
-; 186  : 	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
+; 188  : 
+; 189  : 	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
 
   0014c	33 d2		 xor	 edx, edx
   0014e	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
@@ -9760,19 +9839,19 @@ $LN6@SetupShade:
 	00		 call	 QWORD PTR __imp_?GetLightDesc@CGameInstance@Engine@@QEAAPEBUtagLight_Desc@2@I@Z
   00158	48 89 45 28	 mov	 QWORD PTR LightDesc$[rbp], rax
 
-; 187  : 	if (nullptr == LightDesc)
+; 190  : 	if (nullptr == LightDesc)
 
   0015c	48 83 7d 28 00	 cmp	 QWORD PTR LightDesc$[rbp], 0
   00161	75 0a		 jne	 SHORT $LN7@SetupShade
 
-; 188  : 		return E_FAIL;
+; 191  : 		return E_FAIL;
 
   00163	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00168	e9 e1 00 00 00	 jmp	 $LN1@SetupShade
 $LN7@SetupShade:
 
-; 189  : 
-; 190  : 	if (FAILED(mShader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
+; 192  : 
+; 193  : 	if (FAILED(mShader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
 
   0016d	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   00171	48 83 c0 04	 add	 rax, 4
@@ -9790,13 +9869,13 @@ $LN7@SetupShade:
   00199	85 c0		 test	 eax, eax
   0019b	7d 0a		 jge	 SHORT $LN8@SetupShade
 
-; 191  : 		return E_FAIL;
+; 194  : 		return E_FAIL;
 
   0019d	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001a2	e9 a7 00 00 00	 jmp	 $LN1@SetupShade
 $LN8@SetupShade:
 
-; 192  : 	if (FAILED(mShader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
+; 195  : 	if (FAILED(mShader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
 
   001a7	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   001ab	48 83 c0 28	 add	 rax, 40			; 00000028H
@@ -9814,13 +9893,13 @@ $LN8@SetupShade:
   001d3	85 c0		 test	 eax, eax
   001d5	7d 07		 jge	 SHORT $LN9@SetupShade
 
-; 193  : 		return E_FAIL;
+; 196  : 		return E_FAIL;
 
   001d7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001dc	eb 70		 jmp	 SHORT $LN1@SetupShade
 $LN9@SetupShade:
 
-; 194  : 	if (FAILED(mShader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
+; 197  : 	if (FAILED(mShader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
 
   001de	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   001e2	48 83 c0 48	 add	 rax, 72			; 00000048H
@@ -9838,13 +9917,13 @@ $LN9@SetupShade:
   0020a	85 c0		 test	 eax, eax
   0020c	7d 07		 jge	 SHORT $LN10@SetupShade
 
-; 195  : 		return E_FAIL;
+; 198  : 		return E_FAIL;
 
   0020e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00213	eb 39		 jmp	 SHORT $LN1@SetupShade
 $LN10@SetupShade:
 
-; 196  : 	if (FAILED(mShader->SetRawValue("g_vLightAmbient", &LightDesc->vAmbient, sizeof(_float4))))
+; 199  : 	if (FAILED(mShader->SetRawValue("g_vLightAmbient", &LightDesc->vAmbient, sizeof(_float4))))
 
   00215	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   00219	48 83 c0 38	 add	 rax, 56			; 00000038H
@@ -9862,19 +9941,19 @@ $LN10@SetupShade:
   00241	85 c0		 test	 eax, eax
   00243	7d 07		 jge	 SHORT $LN11@SetupShade
 
-; 197  : 		return E_FAIL;
+; 200  : 		return E_FAIL;
 
   00245	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0024a	eb 02		 jmp	 SHORT $LN1@SetupShade
 $LN11@SetupShade:
 
-; 198  : 
-; 199  : 	return S_OK;
+; 201  : 
+; 202  : 	return S_OK;
 
   0024c	33 c0		 xor	 eax, eax
 $LN1@SetupShade:
 
-; 200  : }
+; 203  : }
 
   0024e	48 8d a5 f8 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+504]
@@ -9884,7 +9963,7 @@ $LN1@SetupShade:
 ?SetupShaderResources@CKalienina@Client@@AEAAJXZ ENDP	; Client::CKalienina::SetupShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?AddComponents@CKalienina@Client@@AEAAJXZ
 _TEXT	SEGMENT
 TransformDesc$ = 8
@@ -9892,7 +9971,7 @@ __$ArrayPad$ = 216
 this$ = 256
 ?AddComponents@CKalienina@Client@@AEAAJXZ PROC		; Client::CKalienina::AddComponents, COMDAT
 
-; 142  : {
+; 145  : {
 
 $LN8:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -9913,7 +9992,7 @@ $LN8:
   00034	48 89 85 d8 00
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 143  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&mRenderer)))
+; 146  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&mRenderer)))
 
   0003b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9933,15 +10012,15 @@ $LN8:
   00071	85 c0		 test	 eax, eax
   00073	7d 0a		 jge	 SHORT $LN2@AddCompone
 
-; 144  : 		return E_FAIL;
+; 147  : 		return E_FAIL;
 
   00075	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0007a	e9 58 01 00 00	 jmp	 $LN1@AddCompone
 $LN2@AddCompone:
 
-; 145  : 
-; 146  : 	CTransform::TRANSFORM_DESC TransformDesc;
-; 147  : 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
+; 148  : 
+; 149  : 	CTransform::TRANSFORM_DESC TransformDesc;
+; 150  : 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
 
   0007f	41 b8 08 00 00
 	00		 mov	 r8d, 8
@@ -9949,8 +10028,8 @@ $LN2@AddCompone:
   00087	48 8d 4d 08	 lea	 rcx, QWORD PTR TransformDesc$[rbp]
   0008b	e8 00 00 00 00	 call	 memset
 
-; 148  : 
-; 149  : 	TransformDesc.fMoveSpeed = m_fMoveSpeed;
+; 151  : 
+; 152  : 	TransformDesc.fMoveSpeed = m_fMoveSpeed;
 
   00090	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9958,7 +10037,7 @@ $LN2@AddCompone:
 	00 00 00	 movss	 xmm0, DWORD PTR [rax+212]
   0009f	f3 0f 11 45 08	 movss	 DWORD PTR TransformDesc$[rbp], xmm0
 
-; 150  : 	TransformDesc.fRotationSpeed = XMConvertToRadians(m_fRotationSpeed);
+; 153  : 	TransformDesc.fRotationSpeed = XMConvertToRadians(m_fRotationSpeed);
 
   000a4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9967,8 +10046,8 @@ $LN2@AddCompone:
   000b3	e8 00 00 00 00	 call	 ?XMConvertToRadians@DirectX@@YAMM@Z ; DirectX::XMConvertToRadians
   000b8	f3 0f 11 45 0c	 movss	 DWORD PTR TransformDesc$[rbp+4], xmm0
 
-; 151  : 
-; 152  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&mTransform, &TransformDesc)))
+; 154  : 
+; 155  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&mTransform, &TransformDesc)))
 
   000bd	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9989,14 +10068,14 @@ $LN2@AddCompone:
   000f5	85 c0		 test	 eax, eax
   000f7	7d 0a		 jge	 SHORT $LN3@AddCompone
 
-; 153  : 		return E_FAIL;
+; 156  : 		return E_FAIL;
 
   000f9	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000fe	e9 d4 00 00 00	 jmp	 $LN1@AddCompone
 $LN3@AddCompone:
 
-; 154  : 
-; 155  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_camera_socket_transform"), (CComponent**)&mCameraSocketTransform, &TransformDesc)))
+; 157  : 
+; 158  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_camera_socket_transform"), (CComponent**)&mCameraSocketTransform, &TransformDesc)))
 
   00103	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10017,14 +10096,14 @@ $LN3@AddCompone:
   0013b	85 c0		 test	 eax, eax
   0013d	7d 0a		 jge	 SHORT $LN4@AddCompone
 
-; 156  : 		return E_FAIL;
+; 159  : 		return E_FAIL;
 
   0013f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00144	e9 8e 00 00 00	 jmp	 $LN1@AddCompone
 $LN4@AddCompone:
 
-; 157  : 
-; 158  : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_shader_vtxanimmodel"), TEXT("com_shader"), (CComponent**)&mShader)))
+; 160  : 
+; 161  : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_shader_vtxanimmodel"), TEXT("com_shader"), (CComponent**)&mShader)))
 
   00149	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10045,14 +10124,14 @@ $LN4@AddCompone:
   00184	85 c0		 test	 eax, eax
   00186	7d 07		 jge	 SHORT $LN5@AddCompone
 
-; 159  : 		return E_FAIL;
+; 162  : 		return E_FAIL;
 
   00188	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0018d	eb 48		 jmp	 SHORT $LN1@AddCompone
 $LN5@AddCompone:
 
-; 160  : 
-; 161  : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kalienina"), TEXT("com_model"), (CComponent**)&mModel)))
+; 163  : 
+; 164  : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kalienina"), TEXT("com_model"), (CComponent**)&mModel)))
 
   0018f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10073,19 +10152,19 @@ $LN5@AddCompone:
   001ca	85 c0		 test	 eax, eax
   001cc	7d 07		 jge	 SHORT $LN6@AddCompone
 
-; 162  : 		return E_FAIL;
+; 165  : 		return E_FAIL;
 
   001ce	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001d3	eb 02		 jmp	 SHORT $LN1@AddCompone
 $LN6@AddCompone:
 
-; 163  : 
-; 164  : 	return S_OK;
+; 166  : 
+; 167  : 	return S_OK;
 
   001d5	33 c0		 xor	 eax, eax
 $LN1@AddCompone:
 
-; 165  : }
+; 168  : }
 
   001d7	48 8b f8	 mov	 rdi, rax
   001da	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
@@ -10105,7 +10184,7 @@ $LN1@AddCompone:
 ?AddComponents@CKalienina@Client@@AEAAJXZ ENDP		; Client::CKalienina::AddComponents
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?AddWeapon@CKalienina@Client@@AEAAJXZ
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -10117,7 +10196,7 @@ __$ArrayPad$ = 368
 this$ = 416
 ?AddWeapon@CKalienina@Client@@AEAAJXZ PROC		; Client::CKalienina::AddWeapon, COMDAT
 
-; 126  : {
+; 129  : {
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -10138,16 +10217,16 @@ $LN5:
   00034	48 89 85 70 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 127  : 	//레이어 삭제시 삭제됨
-; 128  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 130  : 	//레이어 삭제시 삭제됨
+; 131  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   0003b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00041	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 129  : 
-; 130  : 	CSleeve::OWNER_DESC descOwner;
-; 131  : 	descOwner.pModel = mModel;
+; 132  : 
+; 133  : 	CSleeve::OWNER_DESC descOwner;
+; 134  : 	descOwner.pModel = mModel;
 
   00045	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10155,7 +10234,7 @@ $LN5:
 	00 00		 mov	 rax, QWORD PTR [rax+136]
   00053	48 89 45 28	 mov	 QWORD PTR descOwner$[rbp], rax
 
-; 132  : 	descOwner.pWeaponCase = mModel->GetBonePtr("WeaponCase1");
+; 135  : 	descOwner.pWeaponCase = mModel->GetBonePtr("WeaponCase1");
 
   00057	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0M@CNNLLOGJ@WeaponCase1?$AA@
@@ -10167,7 +10246,7 @@ $LN5:
 	00		 call	 QWORD PTR __imp_?GetBonePtr@CModel@Engine@@QEAAPEAVCBone@2@PEBD@Z
   00072	48 89 45 38	 mov	 QWORD PTR descOwner$[rbp+16], rax
 
-; 133  : 	descOwner.pTransform = mTransform;
+; 136  : 	descOwner.pTransform = mTransform;
 
   00076	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10175,8 +10254,8 @@ $LN5:
 	00 00		 mov	 rax, QWORD PTR [rax+128]
   00084	48 89 45 30	 mov	 QWORD PTR descOwner$[rbp+8], rax
 
-; 134  : 
-; 135  : 	if (nullptr == (pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kalienina_weapon"), L"player_weapon", L"weapon", &descOwner)))
+; 137  : 
+; 138  : 	if (nullptr == (pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kalienina_weapon"), L"player_weapon", L"weapon", &descOwner)))
 
   00088	48 8d 85 18 01
 	00 00		 lea	 rax, QWORD PTR $T4[rbp]
@@ -10205,19 +10284,19 @@ $LN5:
   000e2	48 85 c0	 test	 rax, rax
   000e5	75 07		 jne	 SHORT $LN2@AddWeapon
 
-; 136  : 		return E_FAIL;
+; 139  : 		return E_FAIL;
 
   000e7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000ec	eb 02		 jmp	 SHORT $LN1@AddWeapon
 $LN2@AddWeapon:
 
-; 137  : 
-; 138  : 	return S_OK;
+; 140  : 
+; 141  : 	return S_OK;
 
   000ee	33 c0		 xor	 eax, eax
 $LN1@AddWeapon:
 
-; 139  : }
+; 142  : }
 
   000f0	48 8b f8	 mov	 rdi, rax
   000f3	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
@@ -10237,14 +10316,14 @@ $LN1@AddWeapon:
 ?AddWeapon@CKalienina@Client@@AEAAJXZ ENDP		; Client::CKalienina::AddWeapon
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?GetBone@CKalienina@Client@@QEBAPEBVCBone@Engine@@PEBD@Z
 _TEXT	SEGMENT
 this$ = 224
 szBoneName$ = 232
 ?GetBone@CKalienina@Client@@QEBAPEBVCBone@Engine@@PEBD@Z PROC ; Client::CKalienina::GetBone, COMDAT
 
-; 121  : {
+; 124  : {
 
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -10261,7 +10340,7 @@ $LN3:
   00027	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 122  : 	return mModel->GetBonePtr(szBoneName);
+; 125  : 	return mModel->GetBonePtr(szBoneName);
 
   0002f	48 8b 95 e8 00
 	00 00		 mov	 rdx, QWORD PTR szBoneName$[rbp]
@@ -10272,7 +10351,7 @@ $LN3:
   00044	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetBonePtr@CModel@Engine@@QEAAPEAVCBone@2@PEBD@Z
 
-; 123  : }
+; 126  : }
 
   0004a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -10282,7 +10361,7 @@ $LN3:
 ?GetBone@CKalienina@Client@@QEBAPEBVCBone@Engine@@PEBD@Z ENDP ; Client::CKalienina::GetBone
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?RenderGUI@CKalienina@Client@@UEAAXXZ
 _TEXT	SEGMENT
 vPos$ = 8
@@ -10291,7 +10370,7 @@ __$ArrayPad$ = 280
 this$ = 320
 ?RenderGUI@CKalienina@Client@@UEAAXXZ PROC		; Client::CKalienina::RenderGUI, COMDAT
 
-; 110  : {
+; 113  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -10312,7 +10391,7 @@ $LN3:
   00034	48 89 85 18 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 111  : 	ImGui::Begin("Transform");
+; 114  : 	ImGui::Begin("Transform");
 
   0003b	45 33 c0	 xor	 r8d, r8d
   0003e	33 d2		 xor	 edx, edx
@@ -10320,12 +10399,12 @@ $LN3:
 	00 00		 lea	 rcx, OFFSET FLAT:??_C@_09MKLAHOHG@Transform?$AA@
   00047	e8 00 00 00 00	 call	 ?Begin@ImGui@@YA_NPEBDPEA_NH@Z ; ImGui::Begin
 
-; 112  : 	_float3 vPos;
+; 115  : 	_float3 vPos;
 
   0004c	48 8d 4d 08	 lea	 rcx, QWORD PTR vPos$[rbp]
   00050	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@XZ ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 113  : 	XMStoreFloat3(&vPos, mTransform->Get_State(CTransform::STATE_POSITION));
+; 116  : 	XMStoreFloat3(&vPos, mTransform->Get_State(CTransform::STATE_POSITION));
 
   00055	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -10341,8 +10420,8 @@ $LN3:
   00079	48 8d 4d 08	 lea	 rcx, QWORD PTR vPos$[rbp]
   0007d	e8 00 00 00 00	 call	 ?XMStoreFloat3@DirectX@@YQXPEAUXMFLOAT3@1@T__m128@@@Z ; DirectX::XMStoreFloat3
 
-; 114  : 
-; 115  : 	ImGui::InputFloat3("Position", (_float*)&vPos);
+; 117  : 
+; 118  : 	ImGui::InputFloat3("Position", (_float*)&vPos);
 
   00082	45 33 c9	 xor	 r9d, r9d
   00085	4c 8d 05 00 00
@@ -10352,12 +10431,12 @@ $LN3:
 	00 00		 lea	 rcx, OFFSET FLAT:??_C@_08GCJNLIKG@Position?$AA@
   00097	e8 00 00 00 00	 call	 ?InputFloat3@ImGui@@YA_NPEBDQEAM0H@Z ; ImGui::InputFloat3
 
-; 116  : 
-; 117  : 	ImGui::End();
+; 119  : 
+; 120  : 	ImGui::End();
 
   0009c	e8 00 00 00 00	 call	 ?End@ImGui@@YAXXZ	; ImGui::End
 
-; 118  : }
+; 121  : }
 
   000a1	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
   000a5	48 8d 15 00 00
@@ -10375,7 +10454,7 @@ $LN3:
 ?RenderGUI@CKalienina@Client@@UEAAXXZ ENDP		; Client::CKalienina::RenderGUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?Render@CKalienina@Client@@UEAAJXZ
 _TEXT	SEGMENT
 MeshCount$ = 4
@@ -10383,7 +10462,7 @@ i$1 = 36
 this$ = 288
 ?Render@CKalienina@Client@@UEAAJXZ PROC			; Client::CKalienina::Render, COMDAT
 
-; 88   : {
+; 91   : {
 
 $LN8:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -10399,7 +10478,7 @@ $LN8:
   00022	48 8b 8c 24 58
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+344]
 
-; 89   : 	if (FAILED(__super::Render()))
+; 92   : 	if (FAILED(__super::Render()))
 
   0002a	48 8b 8d 20 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -10408,14 +10487,14 @@ $LN8:
   00037	85 c0		 test	 eax, eax
   00039	7d 0a		 jge	 SHORT $LN5@Render
 
-; 90   : 		return E_FAIL;
+; 93   : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00040	e9 e4 00 00 00	 jmp	 $LN1@Render
 $LN5@Render:
 
-; 91   : 
-; 92   : 	if (FAILED(SetupShaderResources()))
+; 94   : 
+; 95   : 	if (FAILED(SetupShaderResources()))
 
   00045	48 8b 8d 20 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -10423,14 +10502,14 @@ $LN5@Render:
   00051	85 c0		 test	 eax, eax
   00053	7d 0a		 jge	 SHORT $LN6@Render
 
-; 93   : 		return E_FAIL;
+; 96   : 		return E_FAIL;
 
   00055	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0005a	e9 ca 00 00 00	 jmp	 $LN1@Render
 $LN6@Render:
 
-; 94   : 
-; 95   : 	_uint MeshCount = mModel->Get_MeshCount();
+; 97   : 
+; 98   : 	_uint MeshCount = mModel->Get_MeshCount();
 
   0005f	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10440,7 +10519,7 @@ $LN6@Render:
 	00		 call	 QWORD PTR __imp_?Get_MeshCount@CModel@Engine@@QEAAIXZ
   00073	89 45 04	 mov	 DWORD PTR MeshCount$[rbp], eax
 
-; 96   : 	for (_uint i = 0; i < MeshCount; ++i)
+; 99   : 	for (_uint i = 0; i < MeshCount; ++i)
 
   00076	c7 45 24 00 00
 	00 00		 mov	 DWORD PTR i$1[rbp], 0
@@ -10455,8 +10534,8 @@ $LN4@Render:
   0008d	0f 83 94 00 00
 	00		 jae	 $LN3@Render
 
-; 97   : 	{
-; 98   : 		mModel->Setup_ShaderMaterialResource(mShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+; 100  : 	{
+; 101  : 		mModel->Setup_ShaderMaterialResource(mShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
 
   00093	c7 44 24 20 01
 	00 00 00	 mov	 DWORD PTR [rsp+32], 1
@@ -10474,9 +10553,9 @@ $LN4@Render:
   000c2	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderMaterialResource@CModel@Engine@@QEAAJPEAVCShader@2@PEBDIW4aiTextureType@@@Z
 
-; 99   : 		//m_pModelCom->SetUp_ShaderMaterialResource(m_pShaderCom, "g_AmbientTexture", i, aiTextureType_AMBIENT);
-; 100  : 
-; 101  : 		mModel->Setup_BoneMatrices(mShader, "g_BoneMatrix", i);
+; 102  : 		//m_pModelCom->SetUp_ShaderMaterialResource(m_pShaderCom, "g_AmbientTexture", i, aiTextureType_AMBIENT);
+; 103  : 
+; 104  : 		mModel->Setup_BoneMatrices(mShader, "g_BoneMatrix", i);
 
   000c8	44 8b 4d 24	 mov	 r9d, DWORD PTR i$1[rbp]
   000cc	4c 8d 05 00 00
@@ -10492,7 +10571,7 @@ $LN4@Render:
   000ef	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_BoneMatrices@CModel@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
 
-; 102  : 		mShader->Begin(0);
+; 105  : 		mShader->Begin(0);
 
   000f5	33 d2		 xor	 edx, edx
   000f7	48 8b 85 20 01
@@ -10502,7 +10581,7 @@ $LN4@Render:
   00105	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
-; 103  : 		mModel->Render(i);
+; 106  : 		mModel->Render(i);
 
   0010b	8b 55 24	 mov	 edx, DWORD PTR i$1[rbp]
   0010e	48 8b 85 20 01
@@ -10512,18 +10591,18 @@ $LN4@Render:
   0011c	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CModel@Engine@@QEAAJI@Z
 
-; 104  : 	}
+; 107  : 	}
 
   00122	e9 58 ff ff ff	 jmp	 $LN2@Render
 $LN3@Render:
 
-; 105  : 	
-; 106  : 	return S_OK;
+; 108  : 	
+; 109  : 	return S_OK;
 
   00127	33 c0		 xor	 eax, eax
 $LN1@Render:
 
-; 107  : }
+; 110  : }
 
   00129	48 8d a5 08 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+264]
@@ -10533,47 +10612,45 @@ $LN1@Render:
 ?Render@CKalienina@Client@@UEAAJXZ ENDP			; Client::CKalienina::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?LateTick@CKalienina@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 vPosition$4 = 16
-fOverY$5 = 52
-$T6 = 288
-$T7 = 336
-tv85 = 356
-__$ArrayPad$ = 360
-this$ = 400
-TimeDelta$ = 408
+$T5 = 256
+$T6 = 304
+__$ArrayPad$ = 328
+this$ = 368
+TimeDelta$ = 376
 ?LateTick@CKalienina@Client@@UEAAXN@Z PROC		; Client::CKalienina::LateTick, COMDAT
 
 ; 63   : {
 
-$LN6:
+$LN5:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0000b	55		 push	 rbp
   0000c	57		 push	 rdi
-  0000d	48 81 ec 98 01
-	00 00		 sub	 rsp, 408		; 00000198H
+  0000d	48 81 ec 78 01
+	00 00		 sub	 rsp, 376		; 00000178H
   00014	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
   00019	48 8b fc	 mov	 rdi, rsp
-  0001c	b9 66 00 00 00	 mov	 ecx, 102		; 00000066H
+  0001c	b9 5e 00 00 00	 mov	 ecx, 94			; 0000005eH
   00021	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00026	f3 ab		 rep stosd
-  00028	48 8b 8c 24 b8
-	01 00 00	 mov	 rcx, QWORD PTR [rsp+440]
+  00028	48 8b 8c 24 98
+	01 00 00	 mov	 rcx, QWORD PTR [rsp+408]
   00030	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR __security_cookie
   00037	48 33 c5	 xor	 rax, rbp
-  0003a	48 89 85 68 01
+  0003a	48 89 85 48 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
 ; 64   : 	__super::LateTick(TimeDelta);
 
-  00041	f2 0f 10 8d 98
+  00041	f2 0f 10 8d 78
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  00049	48 8b 8d 90 01
+  00049	48 8b 8d 70 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00050	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?LateTick@CGameObject@Engine@@UEAAXN@Z
@@ -10582,138 +10659,117 @@ $LN6:
 ; 66   : 
 ; 67   : 	AnimationControl(TimeDelta);
 
-  00056	f2 0f 10 8d 98
+  00056	f2 0f 10 8d 78
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  0005e	48 8b 8d 90 01
+  0005e	48 8b 8d 70 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00065	e8 00 00 00 00	 call	 ?AnimationControl@CKalienina@Client@@AEAAXN@Z ; Client::CKalienina::AnimationControl
 
 ; 68   : 
 ; 69   : 	CameraSocketUpdate();
 
-  0006a	48 8b 8d 90 01
+  0006a	48 8b 8d 70 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00071	e8 00 00 00 00	 call	 ?CameraSocketUpdate@CKalienina@Client@@AEAAXXZ ; Client::CKalienina::CameraSocketUpdate
 
 ; 70   : 
 ; 71   : 	if (m_bOnTerrain)
 
-  00076	48 8b 85 90 01
+  00076	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0007d	0f b6 80 d3 00
 	00 00		 movzx	 eax, BYTE PTR [rax+211]
   00084	85 c0		 test	 eax, eax
-  00086	0f 84 b0 00 00
-	00		 je	 $LN2@LateTick
+  00086	74 67		 je	 SHORT $LN2@LateTick
 
 ; 72   : 	{
-; 73   : 		_vector vPosition = mTransform->Get_State(CTransform::STATE_POSITION);
+; 73   : 		//_vector vPosition = mTransform->Get_State(CTransform::STATE_POSITION);
+; 74   : 		//_float fOverY = XMVectorGetY(vPosition) - 0.2f;
+; 75   : 
+; 76   : 		//if (fOverY < 0.f)
+; 77   : 		//{
+; 78   : 		//	vPosition = XMVectorSetY(vPosition, XMVectorGetY(vPosition) + abs(fOverY));
+; 79   : 		//	mTransform->Set_State(CTransform::STATE_POSITION, vPosition);
+; 80   : 		//}
+; 81   : 		_vector vPosition = mTransform->Get_State(CTransform::STATE_POSITION);
 
-  0008c	41 b8 03 00 00
+  00088	41 b8 03 00 00
 	00		 mov	 r8d, 3
-  00092	48 8d 55 10	 lea	 rdx, QWORD PTR vPosition$4[rbp]
-  00096	48 8b 85 90 01
+  0008e	48 8d 55 10	 lea	 rdx, QWORD PTR vPosition$4[rbp]
+  00092	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0009d	48 8b 88 80 00
+  00099	48 8b 88 80 00
 	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  000a4	ff 15 00 00 00
+  000a0	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 74   : 		_float fOverY = XMVectorGetY(vPosition) - 0.2f;
+; 82   : 		vPosition = XMVectorSetY(vPosition, 0.f);
 
-  000aa	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vPosition$4[rbp]
-  000ae	e8 00 00 00 00	 call	 ?XMVectorGetY@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetY
-  000b3	f3 0f 5c 05 00
-	00 00 00	 subss	 xmm0, DWORD PTR __real@3e4ccccd
-  000bb	f3 0f 11 45 34	 movss	 DWORD PTR fOverY$5[rbp], xmm0
+  000a6	0f 57 c9	 xorps	 xmm1, xmm1
+  000a9	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vPosition$4[rbp]
+  000ad	e8 00 00 00 00	 call	 ?XMVectorSetY@DirectX@@YQ?AT__m128@@T2@M@Z ; DirectX::XMVectorSetY
+  000b2	0f 29 85 00 01
+	00 00		 movaps	 XMMWORD PTR $T5[rbp], xmm0
+  000b9	0f 28 85 00 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T5[rbp]
+  000c0	0f 29 45 10	 movaps	 XMMWORD PTR vPosition$4[rbp], xmm0
 
-; 75   : 
-; 76   : 		if (fOverY < 0.f)
+; 83   : 		mTransform->Set_State(CTransform::STATE_POSITION, vPosition);
 
-  000c0	0f 57 c0	 xorps	 xmm0, xmm0
-  000c3	0f 2f 45 34	 comiss	 xmm0, DWORD PTR fOverY$5[rbp]
-  000c7	76 73		 jbe	 SHORT $LN3@LateTick
-
-; 77   : 		{
-; 78   : 			vPosition = XMVectorSetY(vPosition, XMVectorGetY(vPosition) + abs(fOverY));
-
-  000c9	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vPosition$4[rbp]
-  000cd	e8 00 00 00 00	 call	 ?XMVectorGetY@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetY
-  000d2	f3 0f 11 85 64
-	01 00 00	 movss	 DWORD PTR tv85[rbp], xmm0
-  000da	f3 0f 10 45 34	 movss	 xmm0, DWORD PTR fOverY$5[rbp]
-  000df	e8 00 00 00 00	 call	 ?abs@@YAMM@Z		; abs
-  000e4	f3 0f 10 8d 64
-	01 00 00	 movss	 xmm1, DWORD PTR tv85[rbp]
-  000ec	f3 0f 58 c8	 addss	 xmm1, xmm0
-  000f0	0f 28 c1	 movaps	 xmm0, xmm1
-  000f3	0f 28 c8	 movaps	 xmm1, xmm0
-  000f6	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vPosition$4[rbp]
-  000fa	e8 00 00 00 00	 call	 ?XMVectorSetY@DirectX@@YQ?AT__m128@@T2@M@Z ; DirectX::XMVectorSetY
-  000ff	0f 29 85 20 01
+  000c4	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vPosition$4[rbp]
+  000c8	0f 29 85 30 01
 	00 00		 movaps	 XMMWORD PTR $T6[rbp], xmm0
-  00106	0f 28 85 20 01
-	00 00		 movaps	 xmm0, XMMWORD PTR $T6[rbp]
-  0010d	0f 29 45 10	 movaps	 XMMWORD PTR vPosition$4[rbp], xmm0
-
-; 79   : 			mTransform->Set_State(CTransform::STATE_POSITION, vPosition);
-
-  00111	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vPosition$4[rbp]
-  00115	0f 29 85 50 01
-	00 00		 movaps	 XMMWORD PTR $T7[rbp], xmm0
-  0011c	4c 8d 85 50 01
-	00 00		 lea	 r8, QWORD PTR $T7[rbp]
-  00123	ba 03 00 00 00	 mov	 edx, 3
-  00128	48 8b 85 90 01
+  000cf	4c 8d 85 30 01
+	00 00		 lea	 r8, QWORD PTR $T6[rbp]
+  000d6	ba 03 00 00 00	 mov	 edx, 3
+  000db	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0012f	48 8b 88 80 00
+  000e2	48 8b 88 80 00
 	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  00136	ff 15 00 00 00
+  000e9	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
-$LN3@LateTick:
 $LN2@LateTick:
 
-; 80   : 		}
-; 81   : 	}
-; 82   : 
-; 83   : 	if (nullptr != mRenderer)
+; 84   : 	}
+; 85   : 
+; 86   : 	if (nullptr != mRenderer)
 
-  0013c	48 8b 85 90 01
+  000ef	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00143	48 83 78 78 00	 cmp	 QWORD PTR [rax+120], 0
-  00148	74 1d		 je	 SHORT $LN4@LateTick
+  000f6	48 83 78 78 00	 cmp	 QWORD PTR [rax+120], 0
+  000fb	74 1d		 je	 SHORT $LN3@LateTick
 
-; 84   : 		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+; 87   : 		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 
-  0014a	4c 8b 85 90 01
+  000fd	4c 8b 85 70 01
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
-  00151	ba 01 00 00 00	 mov	 edx, 1
-  00156	48 8b 85 90 01
+  00104	ba 01 00 00 00	 mov	 edx, 1
+  00109	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0015d	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
-  00161	ff 15 00 00 00
+  00110	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
+  00114	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z
-$LN4@LateTick:
+$LN3@LateTick:
 
-; 85   : }
+; 88   : }
 
-  00167	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  0016b	48 8d 15 00 00
+  0011a	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  0011e	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?LateTick@CKalienina@Client@@UEAAXN@Z$rtcFrameData
-  00172	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  00177	48 8b 8d 68 01
+  00125	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  0012a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  0017e	48 33 cd	 xor	 rcx, rbp
-  00181	e8 00 00 00 00	 call	 __security_check_cookie
-  00186	48 8d a5 78 01
-	00 00		 lea	 rsp, QWORD PTR [rbp+376]
-  0018d	5f		 pop	 rdi
-  0018e	5d		 pop	 rbp
-  0018f	c3		 ret	 0
+  00131	48 33 cd	 xor	 rcx, rbp
+  00134	e8 00 00 00 00	 call	 __security_check_cookie
+  00139	48 8d a5 58 01
+	00 00		 lea	 rsp, QWORD PTR [rbp+344]
+  00140	5f		 pop	 rdi
+  00141	5d		 pop	 rbp
+  00142	c3		 ret	 0
 ?LateTick@CKalienina@Client@@UEAAXN@Z ENDP		; Client::CKalienina::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?Tick@CKalienina@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -10774,7 +10830,7 @@ $LN3:
 ?Tick@CKalienina@Client@@UEAAXN@Z ENDP			; Client::CKalienina::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?Initialize@CKalienina@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 camMatrix$ = 16
@@ -10964,7 +11020,7 @@ $LN1@Initialize:
 ?Initialize@CKalienina@Client@@UEAAJPEAX@Z ENDP		; Client::CKalienina::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?Initialize_Prototype@CKalienina@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -11029,7 +11085,7 @@ $LN2@Initialize:
 
   00075	41 b8 01 00 00
 	00		 mov	 r8d, 1
-  0007b	ba 20 00 00 00	 mov	 edx, 32			; 00000020H
+  0007b	ba 29 00 00 00	 mov	 edx, 41			; 00000029H
   00080	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00087	e8 00 00 00 00	 call	 ?SetAnimation@CKalienina@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ; Client::CKalienina::SetAnimation
@@ -11050,7 +11106,7 @@ $LN1@Initialize:
 ?Initialize_Prototype@CKalienina@Client@@UEAAJXZ ENDP	; Client::CKalienina::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ??1CKalienina@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -11083,11 +11139,11 @@ $LN3:
 ??1CKalienina@Client@@EEAA@XZ ENDP			; Client::CKalienina::~CKalienina
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
-; File c:\users\arcco\documents\github\framework\client\public\kalienina.h
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
-; File c:\users\arcco\documents\github\framework\client\public\kalienina.h
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\public\kalienina.h
+; File c:\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\public\kalienina.h
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ??0CKalienina@Client@@AEAA@AEBV01@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -11127,16 +11183,16 @@ $LN4:
   0004a	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CKalienina@Client@@6B@
   00051	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\kalienina.h
+; File c:\github\framework\client\public\kalienina.h
 
-; 119  : 	CRenderer* mRenderer = nullptr;
+; 173  : 	CRenderer* mRenderer = nullptr;
 
   00054	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0005b	48 c7 40 78 00
 	00 00 00	 mov	 QWORD PTR [rax+120], 0
 
-; 120  : 	CTransform* mTransform = nullptr;
+; 174  : 	CTransform* mTransform = nullptr;
 
   00063	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11144,7 +11200,7 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+128], 0
 
-; 121  : 	CModel* mModel = nullptr;
+; 175  : 	CModel* mModel = nullptr;
 
   00075	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11152,14 +11208,14 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+136], 0
 
-; 122  : 	CShader* mShader = nullptr;
+; 176  : 	CShader* mShader = nullptr;
 
   00087	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0008e	48 c7 80 90 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+144], 0
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 
 ; 16   : 	, ANIM_DESC(rhs.ANIM_DESC)
 
@@ -11171,9 +11227,9 @@ $LN4:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   000ae	48 89 81 a0 00
 	00 00		 mov	 QWORD PTR [rcx+160], rax
-; File c:\users\arcco\documents\github\framework\client\public\kalienina.h
+; File c:\github\framework\client\public\kalienina.h
 
-; 130  : 	CTransform* mCameraSocketTransform = nullptr;
+; 184  : 	CTransform* mCameraSocketTransform = nullptr;
 
   000b5	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11181,7 +11237,7 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+168], 0
 
-; 131  : 	CTransform* mCameraPosition = nullptr;
+; 185  : 	CTransform* mCameraPosition = nullptr;
 
   000c7	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11189,31 +11245,31 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+176], 0
 
-; 132  : 
-; 133  : private: // Command
-; 134  : 	_uint m_iAttackCount = 4;
+; 186  : 
+; 187  : private: // Command
+; 188  : 	_uint m_iAttackCount = 4;
 
   000d9	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000e0	c7 80 b8 00 00
 	00 04 00 00 00	 mov	 DWORD PTR [rax+184], 4
 
-; 135  : 	_uint m_iCurAttackCount = 0;
+; 189  : 	_uint m_iCurAttackCount = 0;
 
   000ea	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000f1	c7 80 bc 00 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+188], 0
 
-; 136  : 	
-; 137  : 	_bool m_bCombo = false;
+; 190  : 	
+; 191  : 	_bool m_bCombo = false;
 
   000fb	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00102	c6 80 c0 00 00
 	00 00		 mov	 BYTE PTR [rax+192], 0
 
-; 138  : 	const _float m_fComboTimerMax = 1.f;
+; 192  : 	const _float m_fComboTimerMax = 1.f;
 
   00109	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11222,59 +11278,59 @@ $LN4:
   00118	f3 0f 11 80 c4
 	00 00 00	 movss	 DWORD PTR [rax+196], xmm0
 
-; 139  : 
-; 140  : 	_bool m_bMoveable = true;
+; 193  : 
+; 194  : 	_bool m_bMoveable = true;
 
   00120	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00127	c6 80 c8 00 00
 	00 01		 mov	 BYTE PTR [rax+200], 1
 
-; 141  : 	_bool m_bAttackable = true;
+; 195  : 	_bool m_bAttackable = true;
 
   0012e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00135	c6 80 c9 00 00
 	00 01		 mov	 BYTE PTR [rax+201], 1
 
-; 142  : 
-; 143  : 	_int m_iWASDCount = 0;
+; 196  : 
+; 197  : 	_int m_iWASDCount = 0;
 
   0013c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00143	c7 80 cc 00 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+204], 0
 
-; 144  : 	_bool m_bMove = false;
+; 198  : 	_bool m_bMove = false;
 
   0014d	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00154	c6 80 d0 00 00
 	00 00		 mov	 BYTE PTR [rax+208], 0
 
-; 145  : 	_bool m_bRun = false;
+; 199  : 	_bool m_bRun = false;
 
   0015b	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00162	c6 80 d1 00 00
 	00 00		 mov	 BYTE PTR [rax+209], 0
 
-; 146  : 	_bool m_bDashReady = false;
+; 200  : 	_bool m_bDashReady = false;
 
   00169	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00170	c6 80 d2 00 00
 	00 00		 mov	 BYTE PTR [rax+210], 0
 
-; 147  : 	_bool m_bOnTerrain = true;
+; 201  : 	_bool m_bOnTerrain = true;
 
   00177	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0017e	c6 80 d3 00 00
 	00 01		 mov	 BYTE PTR [rax+211], 1
 
-; 148  : 
-; 149  : 	_float m_fMoveSpeed = 5.f;
+; 202  : 
+; 203  : 	_float m_fMoveSpeed = 5.f;
 
   00185	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11283,7 +11339,7 @@ $LN4:
   00194	f3 0f 11 80 d4
 	00 00 00	 movss	 DWORD PTR [rax+212], xmm0
 
-; 150  : 	_float m_fRotationSpeed = 240.f;
+; 204  : 	_float m_fRotationSpeed = 240.f;
 
   0019c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11291,7 +11347,7 @@ $LN4:
 	00 00 00	 movss	 xmm0, DWORD PTR __real@43700000
   001ab	f3 0f 11 80 d8
 	00 00 00	 movss	 DWORD PTR [rax+216], xmm0
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 
 ; 18   : }
 
@@ -11305,9 +11361,9 @@ $LN4:
 ??0CKalienina@Client@@AEAA@AEBV01@@Z ENDP		; Client::CKalienina::CKalienina
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
-; File c:\users\arcco\documents\github\framework\client\public\kalienina.h
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\public\kalienina.h
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ??0CKalienina@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -11351,16 +11407,16 @@ $LN4:
   00056	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CKalienina@Client@@6B@
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\kalienina.h
+; File c:\github\framework\client\public\kalienina.h
 
-; 119  : 	CRenderer* mRenderer = nullptr;
+; 173  : 	CRenderer* mRenderer = nullptr;
 
   00060	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00067	48 c7 40 78 00
 	00 00 00	 mov	 QWORD PTR [rax+120], 0
 
-; 120  : 	CTransform* mTransform = nullptr;
+; 174  : 	CTransform* mTransform = nullptr;
 
   0006f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11368,7 +11424,7 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+128], 0
 
-; 121  : 	CModel* mModel = nullptr;
+; 175  : 	CModel* mModel = nullptr;
 
   00081	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11376,7 +11432,7 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+136], 0
 
-; 122  : 	CShader* mShader = nullptr;
+; 176  : 	CShader* mShader = nullptr;
 
   00093	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11384,14 +11440,14 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+144], 0
 
-; 123  : 
-; 124  : private: //레이어 삭제시 삭제됨
-; 125  : 	class CSleeve* m_pWeapon;
-; 126  : 
-; 127  : 	CAnimation::ANIMATION_DESC ANIM_DESC;
-; 128  : 
-; 129  : private: // camera
-; 130  : 	CTransform* mCameraSocketTransform = nullptr;
+; 177  : 
+; 178  : private: //레이어 삭제시 삭제됨
+; 179  : 	class CSleeve* m_pWeapon;
+; 180  : 
+; 181  : 	CAnimation::ANIMATION_DESC ANIM_DESC;
+; 182  : 
+; 183  : private: // camera
+; 184  : 	CTransform* mCameraSocketTransform = nullptr;
 
   000a5	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11399,7 +11455,7 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+168], 0
 
-; 131  : 	CTransform* mCameraPosition = nullptr;
+; 185  : 	CTransform* mCameraPosition = nullptr;
 
   000b7	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11407,31 +11463,31 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+176], 0
 
-; 132  : 
-; 133  : private: // Command
-; 134  : 	_uint m_iAttackCount = 4;
+; 186  : 
+; 187  : private: // Command
+; 188  : 	_uint m_iAttackCount = 4;
 
   000c9	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000d0	c7 80 b8 00 00
 	00 04 00 00 00	 mov	 DWORD PTR [rax+184], 4
 
-; 135  : 	_uint m_iCurAttackCount = 0;
+; 189  : 	_uint m_iCurAttackCount = 0;
 
   000da	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000e1	c7 80 bc 00 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+188], 0
 
-; 136  : 	
-; 137  : 	_bool m_bCombo = false;
+; 190  : 	
+; 191  : 	_bool m_bCombo = false;
 
   000eb	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000f2	c6 80 c0 00 00
 	00 00		 mov	 BYTE PTR [rax+192], 0
 
-; 138  : 	const _float m_fComboTimerMax = 1.f;
+; 192  : 	const _float m_fComboTimerMax = 1.f;
 
   000f9	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11440,59 +11496,59 @@ $LN4:
   00108	f3 0f 11 80 c4
 	00 00 00	 movss	 DWORD PTR [rax+196], xmm0
 
-; 139  : 
-; 140  : 	_bool m_bMoveable = true;
+; 193  : 
+; 194  : 	_bool m_bMoveable = true;
 
   00110	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00117	c6 80 c8 00 00
 	00 01		 mov	 BYTE PTR [rax+200], 1
 
-; 141  : 	_bool m_bAttackable = true;
+; 195  : 	_bool m_bAttackable = true;
 
   0011e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00125	c6 80 c9 00 00
 	00 01		 mov	 BYTE PTR [rax+201], 1
 
-; 142  : 
-; 143  : 	_int m_iWASDCount = 0;
+; 196  : 
+; 197  : 	_int m_iWASDCount = 0;
 
   0012c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00133	c7 80 cc 00 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+204], 0
 
-; 144  : 	_bool m_bMove = false;
+; 198  : 	_bool m_bMove = false;
 
   0013d	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00144	c6 80 d0 00 00
 	00 00		 mov	 BYTE PTR [rax+208], 0
 
-; 145  : 	_bool m_bRun = false;
+; 199  : 	_bool m_bRun = false;
 
   0014b	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00152	c6 80 d1 00 00
 	00 00		 mov	 BYTE PTR [rax+209], 0
 
-; 146  : 	_bool m_bDashReady = false;
+; 200  : 	_bool m_bDashReady = false;
 
   00159	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00160	c6 80 d2 00 00
 	00 00		 mov	 BYTE PTR [rax+210], 0
 
-; 147  : 	_bool m_bOnTerrain = true;
+; 201  : 	_bool m_bOnTerrain = true;
 
   00167	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0016e	c6 80 d3 00 00
 	00 01		 mov	 BYTE PTR [rax+211], 1
 
-; 148  : 
-; 149  : 	_float m_fMoveSpeed = 5.f;
+; 202  : 
+; 203  : 	_float m_fMoveSpeed = 5.f;
 
   00175	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11501,7 +11557,7 @@ $LN4:
   00184	f3 0f 11 80 d4
 	00 00 00	 movss	 DWORD PTR [rax+212], xmm0
 
-; 150  : 	_float m_fRotationSpeed = 240.f;
+; 204  : 	_float m_fRotationSpeed = 240.f;
 
   0018c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11509,7 +11565,7 @@ $LN4:
 	00 00 00	 movss	 xmm0, DWORD PTR __real@43700000
   0019b	f3 0f 11 80 d8
 	00 00 00	 movss	 DWORD PTR [rax+216], xmm0
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 
 ; 12   : }
 
@@ -17895,81 +17951,6 @@ $LN3:
 ?acos@@YAMM@Z ENDP					; acos
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\cmath
-;	COMDAT ?abs@@YAMM@Z
-_TEXT	SEGMENT
-_Xx$ = 224
-?abs@@YAMM@Z PROC					; abs, COMDAT
-
-; 31   : 	{
-
-$LN3:
-  00000	f3 0f 11 44 24
-	08		 movss	 DWORD PTR [rsp+8], xmm0
-  00006	55		 push	 rbp
-  00007	57		 push	 rdi
-  00008	48 81 ec f8 00
-	00 00		 sub	 rsp, 248		; 000000f8H
-  0000f	48 8d 6c 24 30	 lea	 rbp, QWORD PTR [rsp+48]
-  00014	48 8b fc	 mov	 rdi, rsp
-  00017	b9 3e 00 00 00	 mov	 ecx, 62			; 0000003eH
-  0001c	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
-  00021	f3 ab		 rep stosd
-
-; 32   : 	return (_CSTD fabsf(_Xx));
-
-  00023	f3 0f 10 85 e0
-	00 00 00	 movss	 xmm0, DWORD PTR _Xx$[rbp]
-  0002b	e8 00 00 00 00	 call	 fabsf
-
-; 33   : 	}
-
-  00030	48 8d a5 c8 00
-	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  00037	5f		 pop	 rdi
-  00038	5d		 pop	 rbp
-  00039	c3		 ret	 0
-?abs@@YAMM@Z ENDP					; abs
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\math.h
-;	COMDAT fabsf
-_TEXT	SEGMENT
-_X$ = 224
-fabsf	PROC						; COMDAT
-
-; 657  :     {
-
-$LN3:
-  00000	f3 0f 11 44 24
-	08		 movss	 DWORD PTR [rsp+8], xmm0
-  00006	55		 push	 rbp
-  00007	57		 push	 rdi
-  00008	48 81 ec f8 00
-	00 00		 sub	 rsp, 248		; 000000f8H
-  0000f	48 8d 6c 24 30	 lea	 rbp, QWORD PTR [rsp+48]
-  00014	48 8b fc	 mov	 rdi, rsp
-  00017	b9 3e 00 00 00	 mov	 ecx, 62			; 0000003eH
-  0001c	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
-  00021	f3 ab		 rep stosd
-
-; 658  :         return (float)fabs(_X);
-
-  00023	f3 0f 5a 85 e0
-	00 00 00	 cvtss2sd xmm0, DWORD PTR _X$[rbp]
-  0002b	e8 00 00 00 00	 call	 fabs
-  00030	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
-
-; 659  :     }
-
-  00034	48 8d a5 c8 00
-	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  0003b	5f		 pop	 rdi
-  0003c	5d		 pop	 rbp
-  0003d	c3		 ret	 0
-fabsf	ENDP
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\wchar.h
 ;	COMDAT wmemmove
 _TEXT	SEGMENT
@@ -18073,7 +18054,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -18102,7 +18083,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\kalienina.cpp
+; File c:\github\framework\client\private\kalienina.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

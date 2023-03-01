@@ -24,11 +24,12 @@ private:
 
 public:
 	HRESULT Initialize(aiAnimation* pAIAnimation, class CModel* pModel);
-	void PlayAnimation(_double TimeDelta, class CTransform* pTransform, TYPE eType, _bool bLerp, PREV_DATA PrevAnimation);
+	void PlayAnimation(_double TimeDelta, class CTransform* pTransform, TYPE eType, _bool bLerp, PREV_DATA PrevAnimation, const _double RatioValue, _bool bHoldY = false);
 
 	const char* GetName() const { return m_szName; }
 	void SetFinish(bool valus) { m_isFinish = valus; }
 	_bool IsFinish() const { return m_isFinish; }
+	_bool IsPreFinish() const { return m_isPreFinish; }
 	void LocalReset() { m_LocalTime = 0.0; }
 	void Reset();
 	void LerpFinish();
@@ -39,11 +40,10 @@ public:
 	_bool IsLerpFinish() { return m_Channels[0]->IsLerpFinish(); }
 
 private:
-	void PlayLoopLerp(_double TimeDelta, CTransform* pTransform, PREV_DATA PrevData);
-	void PlayOneLerp(_double TimeDelta, CTransform* pTransform, PREV_DATA PrevData);
+	void AnimationLerp(_double TimeDelta, CTransform* pTransform, PREV_DATA PrevData, const _double RatioValue);
 
-	void PlayLoop(_double TimeDelta, CTransform* pTransform);
-	void PlayOne(_double TimeDelta, CTransform* pTransform);
+	void PlayLoop(_double TimeDelta, CTransform* pTransform, _bool bHoldAxisY = false);
+	void PlayOne(_double TimeDelta, CTransform* pTransform, _bool bHoldAxisY = false);
 
 public:
 	static CAnimation* Create(aiAnimation* pAIAnimation, class CModel* pModel);
@@ -63,6 +63,7 @@ private:
 	_double m_LocalTime = { 0.0 };
 
 	_bool m_isFinish = false;
+	_bool m_isPreFinish = false;
 	_bool m_bLerpFinish = false;
 };
 

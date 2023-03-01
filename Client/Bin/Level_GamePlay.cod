@@ -1313,14 +1313,14 @@ PUBLIC	??_C@_1BO@GNGHHENH@?$AAL?$AAE?$AAV?$AAE?$AAL?$AA_?$AAG?$AAA?$AAM?$AAE?$AA
 PUBLIC	??_C@_19GPIFDDKL@?$AAc?$AAi?$AAt?$AAy?$AA?$AA@	; `string'
 PUBLIC	??_C@_1BO@MGDCPKMN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAc?$AAi?$AAt?$AAy?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z@4JA ; `Client::CLevel_GamePlay::Ready_Layer_Camera'::`1'::__LINE__Var
-PUBLIC	??_C@_1JI@BMGMJGOL@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@ ; `string'
-PUBLIC	??_C@_1BG@FFCJCPCF@?$AAm?$AAK?$AAa?$AAl?$AAi?$AAe?$AAn?$AAi?$AAn?$AAa?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1GM@NOPMCMLF@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@ ; `string'
+PUBLIC	??_C@_1BA@DNCJICGL@?$AAm?$AAP?$AAl?$AAa?$AAy?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BM@KDGIOOAK@?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DA@CMIPDJDG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@ ; `string'
-PUBLIC	??_C@_1BA@EFNHAKFD@?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA1?$AA?$AA@ ; `string'
-PUBLIC	??_C@_1CI@JOKPLNKA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAl?$AAi?$AAe?$AAn?$AAi?$AAn?$AAa?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1M@LFOAAPEJ@?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1CA@GEPPBAML@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CLevel_GamePlay::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EM@HILOMDFC@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1EG@FDLBOJPL@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAe?$AAv?$AAe?$AAl?$AA_?$AAG?$AAa?$AAm?$AAe?$AAP?$AAl@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1IO@EADHKMNI@?$AAc?$AA?3?$AA?2?$AAp?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAf?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAm?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ ; `string'
@@ -2361,28 +2361,26 @@ CONST	SEGMENT
 	DB	00H, 'a', 00H, 'm', 00H, 'e', 00H, 'P', 00H, 'l', 00H, 'a', 00H
 	DB	'y', 00H, 00H, 00H				; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EM@HILOMDFC@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EM@HILOMDFC@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\level_gameplay'
-	DB	'.cpp', 00H					; `string'
+??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\level_gameplay.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
 ?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 06cH ; `Client::CLevel_GamePlay::Create'::`1'::__LINE__Var
 _DATA	ENDS
-;	COMDAT ??_C@_1CI@JOKPLNKA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAl?$AAi?$AAe?$AAn?$AAi?$AAn?$AAa?$AA?$AA@
+;	COMDAT ??_C@_1CA@GEPPBAML@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@
 CONST	SEGMENT
-??_C@_1CI@JOKPLNKA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAl?$AAi?$AAe?$AAn?$AAi?$AAn?$AAa?$AA?$AA@ DB 'p'
+??_C@_1CA@GEPPBAML@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@ DB 'p'
 	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'o', 00H
-	DB	'b', 00H, 'j', 00H, '_', 00H, 'k', 00H, 'a', 00H, 'l', 00H, 'i'
-	DB	00H, 'e', 00H, 'n', 00H, 'i', 00H, 'n', 00H, 'a', 00H, 00H, 00H ; `string'
+	DB	'b', 00H, 'j', 00H, '_', 00H, 'k', 00H, 'a', 00H, 'm', 00H, 'u'
+	DB	00H, 'i', 00H, 00H, 00H			; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1BA@EFNHAKFD@?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA1?$AA?$AA@
+;	COMDAT ??_C@_1M@LFOAAPEJ@?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@
 CONST	SEGMENT
-??_C@_1BA@EFNHAKFD@?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA1?$AA?$AA@ DB 'p', 00H
-	DB	'l', 00H, 'a', 00H, 'y', 00H, 'e', 00H, 'r', 00H, '1', 00H, 00H
-	DB	00H						; `string'
+??_C@_1M@LFOAAPEJ@?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@ DB 'k', 00H, 'a', 00H
+	DB	'm', 00H, 'u', 00H, 'i', 00H, 00H, 00H	; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1DA@CMIPDJDG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@
 CONST	SEGMENT
@@ -2399,27 +2397,24 @@ CONST	SEGMENT
 	DB	'c', 00H, 'a', 00H, 'm', 00H, 'e', 00H, 'r', 00H, 'a', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1BG@FFCJCPCF@?$AAm?$AAK?$AAa?$AAl?$AAi?$AAe?$AAn?$AAi?$AAn?$AAa?$AA?$AA@
+;	COMDAT ??_C@_1BA@DNCJICGL@?$AAm?$AAP?$AAl?$AAa?$AAy?$AAe?$AAr?$AA?$AA@
 CONST	SEGMENT
-??_C@_1BG@FFCJCPCF@?$AAm?$AAK?$AAa?$AAl?$AAi?$AAe?$AAn?$AAi?$AAn?$AAa?$AA?$AA@ DB 'm'
-	DB	00H, 'K', 00H, 'a', 00H, 'l', 00H, 'i', 00H, 'e', 00H, 'n', 00H
-	DB	'i', 00H, 'n', 00H, 'a', 00H, 00H, 00H	; `string'
+??_C@_1BA@DNCJICGL@?$AAm?$AAP?$AAl?$AAa?$AAy?$AAe?$AAr?$AA?$AA@ DB 'm', 00H
+	DB	'P', 00H, 'l', 00H, 'a', 00H, 'y', 00H, 'e', 00H, 'r', 00H, 00H
+	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1JI@BMGMJGOL@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@
+;	COMDAT ??_C@_1GM@NOPMCMLF@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@
 CONST	SEGMENT
-??_C@_1JI@BMGMJGOL@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@ DB 'c'
-	DB	00H, ':', 00H, '\', 00H, 'u', 00H, 's', 00H, 'e', 00H, 'r', 00H
-	DB	's', 00H, '\', 00H, 'a', 00H, 'r', 00H, 'c', 00H, 'c', 00H, 'o'
-	DB	00H, '\', 00H, 'd', 00H, 'o', 00H, 'c', 00H, 'u', 00H, 'm', 00H
-	DB	'e', 00H, 'n', 00H, 't', 00H, 's', 00H, '\', 00H, 'g', 00H, 'i'
-	DB	00H, 't', 00H, 'h', 00H, 'u', 00H, 'b', 00H, '\', 00H, 'f', 00H
-	DB	'r', 00H, 'a', 00H, 'm', 00H, 'e', 00H, 'w', 00H, 'o', 00H, 'r'
-	DB	00H, 'k', 00H, '\', 00H, 'c', 00H, 'l', 00H, 'i', 00H, 'e', 00H
-	DB	'n', 00H, 't', 00H, '\', 00H, 'p', 00H, 'r', 00H, 'i', 00H, 'v'
-	DB	00H, 'a', 00H, 't', 00H, 'e', 00H, '\', 00H, 'l', 00H, 'e', 00H
-	DB	'v', 00H, 'e', 00H, 'l', 00H, '_', 00H, 'g', 00H, 'a', 00H, 'm'
-	DB	00H, 'e', 00H, 'p', 00H, 'l', 00H, 'a', 00H, 'y', 00H, '.', 00H
-	DB	'c', 00H, 'p', 00H, 'p', 00H, 00H, 00H	; `string'
+??_C@_1GM@NOPMCMLF@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@ DB 'c'
+	DB	00H, ':', 00H, '\', 00H, 'g', 00H, 'i', 00H, 't', 00H, 'h', 00H
+	DB	'u', 00H, 'b', 00H, '\', 00H, 'f', 00H, 'r', 00H, 'a', 00H, 'm'
+	DB	00H, 'e', 00H, 'w', 00H, 'o', 00H, 'r', 00H, 'k', 00H, '\', 00H
+	DB	'c', 00H, 'l', 00H, 'i', 00H, 'e', 00H, 'n', 00H, 't', 00H, '\'
+	DB	00H, 'p', 00H, 'r', 00H, 'i', 00H, 'v', 00H, 'a', 00H, 't', 00H
+	DB	'e', 00H, '\', 00H, 'l', 00H, 'e', 00H, 'v', 00H, 'e', 00H, 'l'
+	DB	00H, '_', 00H, 'g', 00H, 'a', 00H, 'm', 00H, 'e', 00H, 'p', 00H
+	DB	'l', 00H, 'a', 00H, 'y', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p'
+	DB	00H, 00H, 00H				; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z@4JA
 _DATA	SEGMENT
@@ -5305,7 +5300,7 @@ $LN4:
 ??$?0$$V@?$_Compressed_pair@U?$_Wrap_alloc@V?$allocator@_W@std@@@std@@V?$_String_val@U?$_Simple_types@_W@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1>::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCLevel_GamePlay@Client@@@Engine@@YAKAEAPEAVCLevel_GamePlay@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -5468,7 +5463,7 @@ $LN2@scalar:
 ??_GCLevel_GamePlay@Client@@EEAAPEAXI@Z ENDP		; Client::CLevel_GamePlay::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Free@CLevel_GamePlay@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -5507,7 +5502,7 @@ $LN3:
 ?Free@CLevel_GamePlay@Client@@UEAAXXZ ENDP		; Client::CLevel_GamePlay::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Create@CLevel_GamePlay@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -5553,7 +5548,7 @@ $LN8:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@HILOMDFC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 28 00 00 00	 mov	 ecx, 40			; 00000028H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -5672,7 +5667,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@HILOMDFC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -5729,7 +5724,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@HILOMDFC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -5768,7 +5763,7 @@ pContext$ = 440
 ?dtor$1@?0??Create@CLevel_GamePlay@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CLevel_GamePlay::Create'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Ready_Layer_Player@CLevel_GamePlay@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -5803,7 +5798,7 @@ $LN4:
   00035	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
 ; 101  : 
-; 102  : 	mKalienina = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kalienina"), L"player1", pLayerTag);
+; 102  : 	mPlayer = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kamui"), L"kamui", pLayerTag);
 
   00039	48 8d 85 e8 00
 	00 00		 lea	 rax, QWORD PTR $T1[rbp]
@@ -5822,9 +5817,9 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR tv83[rbp]
   00071	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
   00076	4c 8d 0d 00 00
-	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BA@EFNHAKFD@?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA1?$AA?$AA@
+	00 00		 lea	 r9, OFFSET FLAT:??_C@_1M@LFOAAPEJ@?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@
   0007d	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@JOKPLNKA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAl?$AAi?$AAe?$AAn?$AAi?$AAn?$AAa?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CA@GEPPBAML@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@
   00084	ba 03 00 00 00	 mov	 edx, 3
   00089	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
   0008d	ff 15 00 00 00
@@ -5848,7 +5843,7 @@ $LN4:
 ?Ready_Layer_Player@CLevel_GamePlay@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_GamePlay::Ready_Layer_Player
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -5992,7 +5987,7 @@ $LN6:
 ; 87   : 	//if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_dynamic_camera"), L"dynamic_camera", pLayerTag, &CameraDesc))
 ; 88   : 	//	return E_FAIL;
 ; 89   : 
-; 90   : 	assert(mKalienina);
+; 90   : 	assert(mPlayer);
 
   00136	48 8b 85 30 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6003,16 +5998,16 @@ $LN6:
   0014a	83 c0 15	 add	 eax, 21
   0014d	44 8b c0	 mov	 r8d, eax
   00150	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1JI@BMGMJGOL@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1GM@NOPMCMLF@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@
   00157	48 8d 0d 00 00
-	00 00		 lea	 rcx, OFFSET FLAT:??_C@_1BG@FFCJCPCF@?$AAm?$AAK?$AAa?$AAl?$AAi?$AAe?$AAn?$AAi?$AAn?$AAa?$AA?$AA@
+	00 00		 lea	 rcx, OFFSET FLAT:??_C@_1BA@DNCJICGL@?$AAm?$AAP?$AAl?$AAa?$AAy?$AAe?$AAr?$AA?$AA@
   0015e	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp__wassert
   00164	33 c0		 xor	 eax, eax
 $LN4@Ready_Laye:
 
 ; 91   : 
-; 92   : 	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_player_camera"), L"player_camera", pLayerTag, mKalienina))
+; 92   : 	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_player_camera"), L"player_camera", pLayerTag, mPlayer))
 
   00166	48 8d 85 a8 01
 	00 00		 lea	 rax, QWORD PTR $T7[rbp]
@@ -6075,7 +6070,7 @@ $LN1@Ready_Laye:
 ?Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_GamePlay::Ready_Layer_Camera
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Ready_Layer_BackGround@CLevel_GamePlay@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -6161,7 +6156,7 @@ $LN1@Ready_Laye:
 ?Ready_Layer_BackGround@CLevel_GamePlay@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_GamePlay::Ready_Layer_BackGround
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Ready_Light@CLevel_GamePlay@Client@@AEAAJXZ
 _TEXT	SEGMENT
 GameInstance$ = 8
@@ -6363,7 +6358,7 @@ $LN1@Ready_Ligh:
 ?Ready_Light@CLevel_GamePlay@Client@@AEAAJXZ ENDP	; Client::CLevel_GamePlay::Ready_Light
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Tick@CLevel_GamePlay@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pApplicationManager$ = 8
@@ -6427,7 +6422,7 @@ $LN4:
 ?Tick@CLevel_GamePlay@Client@@UEAAXN@Z ENDP		; Client::CLevel_GamePlay::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Initialize@CLevel_GamePlay@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6530,7 +6525,7 @@ $LN1@Initialize:
 ?Initialize@CLevel_GamePlay@Client@@UEAAJXZ ENDP	; Client::CLevel_GamePlay::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ??1CLevel_GamePlay@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6563,9 +6558,9 @@ $LN3:
 ??1CLevel_GamePlay@Client@@EEAA@XZ ENDP			; Client::CLevel_GamePlay::~CLevel_GamePlay
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
-; File c:\users\arcco\documents\github\framework\client\public\level_gameplay.h
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\public\level_gameplay.h
+; File c:\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ??0CLevel_GamePlay@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -6609,15 +6604,15 @@ $LN4:
   00056	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CLevel_GamePlay@Client@@6B@
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\level_gameplay.h
+; File c:\github\framework\client\public\level_gameplay.h
 
-; 31   : 	CGameObject* mKalienina = nullptr;
+; 31   : 	CGameObject* mPlayer = nullptr;
 
   00060	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00067	48 c7 40 20 00
 	00 00 00	 mov	 QWORD PTR [rax+32], 0
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
 
 ; 11   : }
 
@@ -12004,7 +11999,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -12033,7 +12028,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

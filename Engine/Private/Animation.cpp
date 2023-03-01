@@ -27,29 +27,21 @@ HRESULT CAnimation::Initialize(aiAnimation* pAIAnimation, CModel* pModel)
 	return S_OK;
 }
 
-void CAnimation::PlayAnimation(_double TimeDelta, CTransform* pTransform, TYPE eType, _bool bLerp, PREV_DATA PrevData)
+void CAnimation::PlayAnimation(_double TimeDelta, CTransform* pTransform, TYPE eType, _bool bLerp, PREV_DATA PrevData, const _double RatioValue, _bool bHoldY)
 {
 	if (bLerp)
 	{
-		switch (eType)
-		{
-		case ONE:
-			PlayOneLerp(TimeDelta, pTransform, PrevData);
-			break;
-		case LOOP:
-			PlayLoopLerp(TimeDelta, pTransform, PrevData);
-			break;
-		}
+		AnimationLerp(TimeDelta, pTransform, PrevData, RatioValue);
 	}
 	else
 	{
 		switch (eType)
 		{
 		case ONE:
-			PlayOne(TimeDelta, pTransform);
+			PlayOne(TimeDelta, pTransform, bHoldY);
 			break;
 		case LOOP:
-			PlayLoop(TimeDelta, pTransform);
+			PlayLoop(TimeDelta, pTransform, bHoldY);
 			break;
 		}
 	}
@@ -58,6 +50,7 @@ void CAnimation::PlayAnimation(_double TimeDelta, CTransform* pTransform, TYPE e
 void CAnimation::Reset()
 {
 	m_isFinish = false;
+	m_isPreFinish = false;
 	m_LocalTime = 0.0;
 
 	for (auto& pChannel : m_Channels)
@@ -66,30 +59,29 @@ void CAnimation::Reset()
 	}
 }
 
-void CAnimation::PlayLoopLerp(_double TimeDelta, CTransform * pTransform, PREV_DATA PrevData)
+void CAnimation::LerpFinish()
 {
-	m_LocalTime += m_TickPerSecond * TimeDelta;
-
 	for (auto& pChannel : m_Channels)
 	{
-		pChannel->InvalidateTransformLerp(m_LocalTime, m_Duration, pTransform, PrevData);
+		
 	}
 }
 
-void CAnimation::PlayOneLerp(_double TimeDelta, CTransform * pTransform, PREV_DATA PrevData)
+void CAnimation::AnimationLerp(_double TimeDelta, CTransform * pTransform, PREV_DATA PrevData, const _double RatioValue)
 {
 	m_LocalTime += m_TickPerSecond * TimeDelta;
+	_double Ratio = m_LocalTime / RatioValue;
 
 	for (auto& pChannel : m_Channels)
 	{
-		pChannel->InvalidateTransformLerp(m_LocalTime, m_Duration, pTransform, PrevData);
+		pChannel->InvalidateTransformLerp(Ratio, pTransform, PrevData);
 	}
+
 }
 
-void CAnimation::PlayLoop(_double TimeDelta, CTransform * pTransform)
+void CAnimation::PlayLoop(_double TimeDelta, CTransform * pTransform, _bool bHoldAxisY)
 {
 	m_LocalTime += m_TickPerSecond * TimeDelta;
-
 	if (m_LocalTime >= m_Duration)
 	{
 		m_isFinish = false;
@@ -98,23 +90,28 @@ void CAnimation::PlayLoop(_double TimeDelta, CTransform * pTransform)
 
 	for (auto& pChannel : m_Channels)
 	{
-		pChannel->InvalidateTransform(m_LocalTime, pTransform);
+		pChannel->InvalidateTransform(m_LocalTime, pTransform, bHoldAxisY);
 	}
+
 }
 
-void CAnimation::PlayOne(_double TimeDelta, CTransform * pTransform)
+void CAnimation::PlayOne(_double TimeDelta, CTransform * pTransform, _bool bHoldAxisY)
 {
 	m_LocalTime += m_TickPerSecond * TimeDelta;
-
+	
+	if (m_LocalTime > 0.55)
+		m_isPreFinish = true;
+	
 	if (m_LocalTime >= m_Duration)
 	{
 		m_isFinish = true;
 	}
-
+	
 	for (auto& pChannel : m_Channels)
 	{
-		pChannel->InvalidateTransform(m_LocalTime, pTransform);
+		pChannel->InvalidateTransform(m_LocalTime, pTransform, bHoldAxisY);
 	}
+
 }
 
 CAnimation* CAnimation::Create(aiAnimation* pAIAnimation, CModel* pModel)

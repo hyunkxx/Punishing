@@ -26,17 +26,19 @@ public:
 
 	HRESULT Setup_ShaderMaterialResource(class CShader* pShader, const char* pConstantName, _uint iMeshIndex, aiTextureType eType);
 	HRESULT Setup_BoneMatrices(class CShader* pShader, const char* pConstantName, _uint iMeshIndex);
-	HRESULT Setup_Animation(_uint AnimationIndex);
-	HRESULT Play_Animation(_double TimeDelta, class CTransform* pTransform, CAnimation::TYPE eType);
+	HRESULT Setup_Animation(_uint AnimationIndex, _bool bLerp);
+	HRESULT Play_Animation(_double TimeDelta, class CTransform* pTransform, CAnimation::TYPE eType, const _double RatioValue = 0.2, _bool bHoldY = false);
 
 	HRESULT Render(_uint iMeshIndex);
 
+	const char* GetMeshName(_uint iIndex);
 	_uint Get_MeshCount() { return m_iMeshCount; }
 	class CBone* GetBonePtr(const char* pBoneName);
 	_float4x4 GetLocalMatrix() const { return m_LocalMatrix; }
 
 	// Animation
 	_bool AnimationIsFinish();
+	_bool AnimationIsPreFinish();
 	void SetFinish(_bool Value);
 
 public:

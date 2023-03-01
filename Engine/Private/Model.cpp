@@ -72,13 +72,14 @@ HRESULT CModel::InitializeMesh(_fmatrix LocalMatrix)
 		return E_FAIL;
 
 	m_iMeshCount = m_pAIScene->mNumMeshes;
-
+	
 	for(_uint i = 0 ; i < m_iMeshCount ; ++i)
 	{
 		CMesh* pMesh = CMesh::Create(m_pDevice, m_pContext, m_eType, m_pAIScene->mMeshes[i], this, LocalMatrix);
 		if (nullptr == pMesh)
 			return E_FAIL;
 
+		pMesh->SetName(m_pAIScene->mMeshes[i]->mName.C_Str());
 		m_Meshs.push_back(pMesh);
 	}
 
@@ -194,7 +195,7 @@ HRESULT CModel::Setup_BoneMatrices(CShader* pShader, const char* pConstantName, 
 	return S_OK;
 }
 
-HRESULT CModel::Setup_Animation(_uint AnimationIndex)
+HRESULT CModel::Setup_Animation(_uint AnimationIndex , _bool bLerp)
 {
 	if (AnimationIndex >= m_iAnimationCount)
 		return E_FAIL;
@@ -202,26 +203,28 @@ HRESULT CModel::Setup_Animation(_uint AnimationIndex)
 	if (m_iCurrentAnimation != AnimationIndex)
 	{
 		m_bLerp = true;
-		m_iPrevAnimation = m_iCurrentAnimation;
-		m_Animations[m_iCurrentAnimation]->Reset();
 		m_PrevData = m_Animations[m_iCurrentAnimation]->GetAnimationData();
+		m_iPrevAnimation = m_iCurrentAnimation;
 		m_iCurrentAnimation = AnimationIndex;
-	}
+		m_Animations[m_iCurrentAnimation]->Reset();
+		m_Animations[m_iPrevAnimation]->Reset();
 
+		if (!bLerp)
+			m_bLerp = false;
+	}
 	else if (m_Animations[m_iCurrentAnimation]->IsLerpFinish())
 	{
 		m_bLerp = false;
-		m_PrevData = m_Animations[m_iCurrentAnimation]->GetAnimationData();
-		m_iCurrentAnimation = AnimationIndex;
 		m_Animations[m_iCurrentAnimation]->Reset();
+		m_iCurrentAnimation = AnimationIndex;
 	}
 
 	return S_OK;
 }
 
-HRESULT CModel::Play_Animation(_double TimeDelta, CTransform* pTransform, CAnimation::TYPE eType)
+HRESULT CModel::Play_Animation(_double TimeDelta, CTransform* pTransform, CAnimation::TYPE eType, const _double RatioValue, _bool bHoldY)
 {
-	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta, pTransform, eType, m_bLerp, m_PrevData);
+	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta, pTransform, eType, m_bLerp, m_PrevData, RatioValue, bHoldY);
 
 	for (auto& pBone : m_Bones)
 		pBone->InvalidateCombinedMatrix();
@@ -237,6 +240,11 @@ HRESULT CModel::Render(_uint iMeshIndex)
 	m_Meshs[iMeshIndex]->Render();
 
 	return S_OK;
+}
+
+const char * CModel::GetMeshName(_uint iIndex)
+{
+	return  m_Meshs[iIndex]->GetName();
 }
 
 CBone* CModel::GetBonePtr(const char* pBoneName)
@@ -262,6 +270,11 @@ _bool CModel::AnimationIsFinish()
 		m_Animations[m_iCurrentAnimation]->Reset();
 
 	return isFinish;
+}
+
+_bool CModel::AnimationIsPreFinish()
+{
+	return m_Animations[m_iCurrentAnimation]->IsPreFinish();
 }
 
 void CModel::SetFinish(_bool Value)

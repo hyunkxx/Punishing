@@ -24,12 +24,16 @@ public:
 	_uint GetMaterialIndex() const { return m_iMaterialIndex; }
 	void GetBoneMatrices(_float4x4* pMeshBoneMatrices, _fmatrix LocalMatrix);
 
+	void SetName(const char* pName);
+	const char* GetName() const { return m_szName; }
+
 public:
 	static CMesh* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, CModel::MESH_TYPE eType, const aiMesh* pAIMesh, class CModel* pModel, _fmatrix LocalMatrix);
 	virtual CComponent* Clone(void* pArg = nullptr) override;
 	virtual void Free() override;
 
 private:
+	char m_szName[MAX_PATH] = "";
 	_uint m_iMaterialIndex = { 0 };
 
 	// ¸Þ½¬¿¡ ¿µÇâÀ» ÁÖ´Â »ÀÀÇ °¹¼ö¿Í »À

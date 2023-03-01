@@ -210,6 +210,11 @@ void CMesh::GetBoneMatrices(_float4x4* pMeshBoneMatrices, _fmatrix LocalMatrix)
 	}
 }
 
+void CMesh::SetName(const char * pName)
+{
+	strcpy_s(m_szName, pName);
+}
+
 CMesh* CMesh::Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, CModel::MESH_TYPE eType, const aiMesh* pAIMesh, class CModel* pModel, _fmatrix LocalMatrix)
 {
 	CMesh* pInstance = new CMesh(pDevice, pContext);
