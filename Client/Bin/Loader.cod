@@ -5,11 +5,152 @@ include listing.inc
 INCLUDELIB MSVCRTD
 INCLUDELIB OLDNAMES
 
+PUBLIC	?AliceBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::AliceBlue
+PUBLIC	?AntiqueWhite@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::AntiqueWhite
+PUBLIC	?Aqua@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Aqua
+PUBLIC	?Aquamarine@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Aquamarine
+PUBLIC	?Azure@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Azure
+PUBLIC	?Beige@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Beige
+PUBLIC	?Bisque@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Bisque
+PUBLIC	?Black@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Black
+PUBLIC	?BlanchedAlmond@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::BlanchedAlmond
+PUBLIC	?Blue@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Blue
+PUBLIC	?BlueViolet@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::BlueViolet
+PUBLIC	?Brown@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Brown
+PUBLIC	?BurlyWood@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::BurlyWood
+PUBLIC	?CadetBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::CadetBlue
+PUBLIC	?Chartreuse@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Chartreuse
+PUBLIC	?Chocolate@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Chocolate
+PUBLIC	?Coral@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Coral
+PUBLIC	?CornflowerBlue@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::CornflowerBlue
+PUBLIC	?Cornsilk@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Cornsilk
+PUBLIC	?Crimson@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Crimson
+PUBLIC	?Cyan@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Cyan
+PUBLIC	?DarkBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DarkBlue
+PUBLIC	?DarkCyan@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DarkCyan
+PUBLIC	?DarkGoldenrod@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::DarkGoldenrod
+PUBLIC	?DarkGray@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DarkGray
+PUBLIC	?DarkGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DarkGreen
+PUBLIC	?DarkKhaki@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DarkKhaki
+PUBLIC	?DarkMagenta@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DarkMagenta
+PUBLIC	?DarkOliveGreen@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::DarkOliveGreen
+PUBLIC	?DarkOrange@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DarkOrange
+PUBLIC	?DarkOrchid@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DarkOrchid
+PUBLIC	?DarkRed@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DarkRed
+PUBLIC	?DarkSalmon@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DarkSalmon
+PUBLIC	?DarkSeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DarkSeaGreen
+PUBLIC	?DarkSlateBlue@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::DarkSlateBlue
+PUBLIC	?DarkSlateGray@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::DarkSlateGray
+PUBLIC	?DarkTurquoise@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::DarkTurquoise
+PUBLIC	?DarkViolet@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DarkViolet
+PUBLIC	?DeepPink@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DeepPink
+PUBLIC	?DeepSkyBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DeepSkyBlue
+PUBLIC	?DimGray@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DimGray
+PUBLIC	?DodgerBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::DodgerBlue
+PUBLIC	?Firebrick@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Firebrick
+PUBLIC	?FloralWhite@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::FloralWhite
+PUBLIC	?ForestGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::ForestGreen
+PUBLIC	?Fuchsia@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Fuchsia
+PUBLIC	?Gainsboro@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Gainsboro
+PUBLIC	?GhostWhite@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::GhostWhite
+PUBLIC	?Gold@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Gold
+PUBLIC	?Goldenrod@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Goldenrod
+PUBLIC	?Gray@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Gray
+PUBLIC	?Green@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Green
+PUBLIC	?GreenYellow@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::GreenYellow
+PUBLIC	?Honeydew@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Honeydew
+PUBLIC	?HotPink@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::HotPink
+PUBLIC	?IndianRed@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::IndianRed
+PUBLIC	?Indigo@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Indigo
+PUBLIC	?Ivory@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Ivory
+PUBLIC	?Khaki@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Khaki
+PUBLIC	?Lavender@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Lavender
+PUBLIC	?LavenderBlush@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::LavenderBlush
+PUBLIC	?LawnGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LawnGreen
+PUBLIC	?LemonChiffon@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LemonChiffon
+PUBLIC	?LightBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LightBlue
+PUBLIC	?LightCoral@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LightCoral
+PUBLIC	?LightCyan@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LightCyan
+PUBLIC	?LightGoldenrodYellow@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::LightGoldenrodYellow
+PUBLIC	?LightGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LightGreen
+PUBLIC	?LightGray@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LightGray
+PUBLIC	?LightPink@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LightPink
+PUBLIC	?LightSalmon@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LightSalmon
+PUBLIC	?LightSeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::LightSeaGreen
+PUBLIC	?LightSkyBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LightSkyBlue
+PUBLIC	?LightSlateGray@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::LightSlateGray
+PUBLIC	?LightSteelBlue@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::LightSteelBlue
+PUBLIC	?LightYellow@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LightYellow
+PUBLIC	?Lime@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Lime
+PUBLIC	?LimeGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LimeGreen
+PUBLIC	?Linen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Linen
+PUBLIC	?Magenta@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Magenta
+PUBLIC	?Maroon@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Maroon
+PUBLIC	?MediumAquamarine@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::MediumAquamarine
+PUBLIC	?MediumBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::MediumBlue
+PUBLIC	?MediumOrchid@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::MediumOrchid
+PUBLIC	?MediumPurple@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::MediumPurple
+PUBLIC	?MediumSeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::MediumSeaGreen
+PUBLIC	?MediumSlateBlue@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::MediumSlateBlue
+PUBLIC	?MediumSpringGreen@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::MediumSpringGreen
+PUBLIC	?MediumTurquoise@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::MediumTurquoise
+PUBLIC	?MediumVioletRed@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::MediumVioletRed
+PUBLIC	?MidnightBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::MidnightBlue
+PUBLIC	?MintCream@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::MintCream
+PUBLIC	?MistyRose@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::MistyRose
+PUBLIC	?Moccasin@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Moccasin
+PUBLIC	?NavajoWhite@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::NavajoWhite
+PUBLIC	?Navy@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Navy
+PUBLIC	?OldLace@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::OldLace
+PUBLIC	?Olive@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Olive
+PUBLIC	?OliveDrab@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::OliveDrab
+PUBLIC	?Orange@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Orange
+PUBLIC	?OrangeRed@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::OrangeRed
+PUBLIC	?Orchid@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Orchid
+PUBLIC	?PaleGoldenrod@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::PaleGoldenrod
+PUBLIC	?PaleGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::PaleGreen
+PUBLIC	?PaleTurquoise@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::PaleTurquoise
+PUBLIC	?PaleVioletRed@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::PaleVioletRed
+PUBLIC	?PapayaWhip@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::PapayaWhip
+PUBLIC	?PeachPuff@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::PeachPuff
+PUBLIC	?Peru@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Peru
+PUBLIC	?Pink@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Pink
+PUBLIC	?Plum@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Plum
+PUBLIC	?PowderBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::PowderBlue
+PUBLIC	?Purple@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Purple
+PUBLIC	?Red@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Red
+PUBLIC	?RosyBrown@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::RosyBrown
+PUBLIC	?RoyalBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::RoyalBlue
+PUBLIC	?SaddleBrown@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::SaddleBrown
+PUBLIC	?Salmon@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Salmon
+PUBLIC	?SandyBrown@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::SandyBrown
+PUBLIC	?SeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::SeaGreen
+PUBLIC	?SeaShell@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::SeaShell
+PUBLIC	?Sienna@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Sienna
 PUBLIC	?g_BoxOffset@DirectX@@3QBUXMVECTORF32@1@B	; DirectX::g_BoxOffset
+PUBLIC	?Silver@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Silver
 PUBLIC	?g_RayEpsilon@DirectX@@3UXMVECTORF32@1@B	; DirectX::g_RayEpsilon
+PUBLIC	?SkyBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::SkyBlue
 PUBLIC	?g_RayNegEpsilon@DirectX@@3UXMVECTORF32@1@B	; DirectX::g_RayNegEpsilon
+PUBLIC	?SlateBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::SlateBlue
 PUBLIC	?g_FltMin@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_FltMin
+PUBLIC	?SlateGray@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::SlateGray
 PUBLIC	?g_FltMax@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_FltMax
+PUBLIC	?Snow@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Snow
+PUBLIC	?SpringGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::SpringGreen
+PUBLIC	?SteelBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::SteelBlue
+PUBLIC	?Tan@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Tan
+PUBLIC	?Teal@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Teal
+PUBLIC	?Thistle@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Thistle
+PUBLIC	?Tomato@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Tomato
+PUBLIC	?Transparent@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Transparent
+PUBLIC	?Turquoise@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Turquoise
+PUBLIC	?Violet@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Violet
+PUBLIC	?Wheat@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Wheat
+PUBLIC	?White@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::White
+PUBLIC	?WhiteSmoke@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::WhiteSmoke
+PUBLIC	?Yellow@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Yellow
+PUBLIC	?YellowGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::YellowGreen
 PUBLIC	?g_UnitVectorEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitVectorEpsilon
 PUBLIC	?g_UnitQuaternionEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitQuaternionEpsilon
 PUBLIC	?g_UnitPlaneEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitPlaneEpsilon
@@ -1098,12 +1239,124 @@ CONST	SEGMENT
 	DD	038d1b717r			; 0.0001
 	DD	038d1b717r			; 0.0001
 CONST	ENDS
+;	COMDAT ?YellowGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?YellowGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f1a9a9br ; 0.603922 ; DirectX::Colors::YellowGreen
+	DD	03f4dcdcfr			; 0.803922
+	DD	03e48c8car			; 0.196078
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Yellow@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Yellow@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Yellow
+	DD	03f800000r			; 1
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?WhiteSmoke@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?WhiteSmoke@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f75f5f7r ; 0.960784 ; DirectX::Colors::WhiteSmoke
+	DD	03f75f5f7r			; 0.960784
+	DD	03f75f5f7r			; 0.960784
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?White@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?White@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::White
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Wheat@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Wheat@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f75f5f7r ; 0.960784 ; DirectX::Colors::Wheat
+	DD	03f5edee0r			; 0.870588
+	DD	03f33b3b4r			; 0.701961
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Violet@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Violet@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f6eeef0r ; 0.933333 ; DirectX::Colors::Violet
+	DD	03f028283r			; 0.509804
+	DD	03f6eeef0r			; 0.933333
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Turquoise@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Turquoise@Colors@DirectX@@3UXMVECTORF32@2@B DD 03e808081r ; 0.25098 ; DirectX::Colors::Turquoise
+	DD	03f60e0e2r			; 0.878431
+	DD	03f50d0d2r			; 0.815686
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Transparent@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Transparent@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::Transparent
+	DD	000000000r			; 0
+	DD	000000000r			; 0
+	DD	000000000r			; 0
+CONST	ENDS
+;	COMDAT ?Tomato@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Tomato@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Tomato
+	DD	03ec6c6c8r			; 0.388235
+	DD	03e8e8e8fr			; 0.278431
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Thistle@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Thistle@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f58d8dar ; 0.847059 ; DirectX::Colors::Thistle
+	DD	03f3fbfc0r			; 0.74902
+	DD	03f58d8dar			; 0.847059
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Teal@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Teal@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::Teal
+	DD	03f008081r			; 0.501961
+	DD	03f008081r			; 0.501961
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Tan@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Tan@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f52d2d4r ; 0.823529 ; DirectX::Colors::Tan
+	DD	03f34b4b5r			; 0.705882
+	DD	03f0c8c8dr			; 0.54902
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?SteelBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?SteelBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03e8c8c8dr ; 0.27451 ; DirectX::Colors::SteelBlue
+	DD	03f028283r			; 0.509804
+	DD	03f34b4b5r			; 0.705882
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?SpringGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?SpringGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::SpringGreen
+	DD	03f800000r			; 1
+	DD	03efeff00r			; 0.498039
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Snow@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Snow@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Snow
+	DD	03f7afafcr			; 0.980392
+	DD	03f7afafcr			; 0.980392
+	DD	03f800000r			; 1
+CONST	ENDS
 ;	COMDAT ?g_FltMax@DirectX@@3UXMVECTORF32@1@B
 CONST	SEGMENT
 ?g_FltMax@DirectX@@3UXMVECTORF32@1@B DD 07f7fffffr ; 3.40282e+38 ; DirectX::g_FltMax
 	DD	07f7fffffr			; 3.40282e+38
 	DD	07f7fffffr			; 3.40282e+38
 	DD	07f7fffffr			; 3.40282e+38
+CONST	ENDS
+;	COMDAT ?SlateGray@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?SlateGray@Colors@DirectX@@3UXMVECTORF32@2@B DD 03ee0e0e2r ; 0.439216 ; DirectX::Colors::SlateGray
+	DD	03f008081r			; 0.501961
+	DD	03f109091r			; 0.564706
+	DD	03f800000r			; 1
 CONST	ENDS
 ;	COMDAT ?g_FltMin@DirectX@@3UXMVECTORF32@1@B
 CONST	SEGMENT
@@ -1112,6 +1365,13 @@ CONST	SEGMENT
 	DD	0ff7fffffr			; -3.40282e+38
 	DD	0ff7fffffr			; -3.40282e+38
 CONST	ENDS
+;	COMDAT ?SlateBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?SlateBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03ed4d4d6r ; 0.415686 ; DirectX::Colors::SlateBlue
+	DD	03eb4b4b5r			; 0.352941
+	DD	03f4dcdcfr			; 0.803922
+	DD	03f800000r			; 1
+CONST	ENDS
 ;	COMDAT ?g_RayNegEpsilon@DirectX@@3UXMVECTORF32@1@B
 CONST	SEGMENT
 ?g_RayNegEpsilon@DirectX@@3UXMVECTORF32@1@B DD 09e3ce508r ; -1e-20 ; DirectX::g_RayNegEpsilon
@@ -1119,12 +1379,26 @@ CONST	SEGMENT
 	DD	09e3ce508r			; -1e-20
 	DD	09e3ce508r			; -1e-20
 CONST	ENDS
+;	COMDAT ?SkyBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?SkyBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f078788r ; 0.529412 ; DirectX::Colors::SkyBlue
+	DD	03f4eced0r			; 0.807843
+	DD	03f6bebedr			; 0.921569
+	DD	03f800000r			; 1
+CONST	ENDS
 ;	COMDAT ?g_RayEpsilon@DirectX@@3UXMVECTORF32@1@B
 CONST	SEGMENT
 ?g_RayEpsilon@DirectX@@3UXMVECTORF32@1@B DD 01e3ce508r ; 1e-20 ; DirectX::g_RayEpsilon
 	DD	01e3ce508r			; 1e-20
 	DD	01e3ce508r			; 1e-20
 	DD	01e3ce508r			; 1e-20
+CONST	ENDS
+;	COMDAT ?Silver@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Silver@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f40c0c2r ; 0.752941 ; DirectX::Colors::Silver
+	DD	03f40c0c2r			; 0.752941
+	DD	03f40c0c2r			; 0.752941
+	DD	03f800000r			; 1
 CONST	ENDS
 ;	COMDAT ?g_BoxOffset@DirectX@@3QBUXMVECTORF32@1@B
 CONST	SEGMENT
@@ -1160,6 +1434,860 @@ CONST	SEGMENT
 	DD	03f800000r			; 1
 	DD	0bf800000r			; -1
 	DD	000000000r			; 0
+CONST	ENDS
+;	COMDAT ?Sienna@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Sienna@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f20a0a1r ; 0.627451 ; DirectX::Colors::Sienna
+	DD	03ea4a4a5r			; 0.321569
+	DD	03e34b4b5r			; 0.176471
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?SeaShell@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?SeaShell@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::SeaShell
+	DD	03f75f5f7r			; 0.960784
+	DD	03f6eeef0r			; 0.933333
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?SeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?SeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03e38b8b9r ; 0.180392 ; DirectX::Colors::SeaGreen
+	DD	03f0b8b8cr			; 0.545098
+	DD	03eaeaeafr			; 0.341176
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?SandyBrown@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?SandyBrown@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f74f4f6r ; 0.956863 ; DirectX::Colors::SandyBrown
+	DD	03f24a4a5r			; 0.643137
+	DD	03ec0c0c2r			; 0.376471
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Salmon@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Salmon@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f7afafcr ; 0.980392 ; DirectX::Colors::Salmon
+	DD	03f008081r			; 0.501961
+	DD	03ee4e4e6r			; 0.447059
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?SaddleBrown@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?SaddleBrown@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f0b8b8cr ; 0.545098 ; DirectX::Colors::SaddleBrown
+	DD	03e8a8a8br			; 0.270588
+	DD	03d989899r			; 0.0745098
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?RoyalBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?RoyalBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03e828283r ; 0.254902 ; DirectX::Colors::RoyalBlue
+	DD	03ed2d2d4r			; 0.411765
+	DD	03f61e1e3r			; 0.882353
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?RosyBrown@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?RosyBrown@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f3cbcbdr ; 0.737255 ; DirectX::Colors::RosyBrown
+	DD	03f0f8f90r			; 0.560784
+	DD	03f0f8f90r			; 0.560784
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Red@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Red@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Red
+	DD	000000000r			; 0
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Purple@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Purple@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f008081r ; 0.501961 ; DirectX::Colors::Purple
+	DD	000000000r			; 0
+	DD	03f008081r			; 0.501961
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?PowderBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?PowderBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f30b0b1r ; 0.690196 ; DirectX::Colors::PowderBlue
+	DD	03f60e0e2r			; 0.878431
+	DD	03f66e6e8r			; 0.901961
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Plum@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Plum@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f5ddddfr ; 0.866667 ; DirectX::Colors::Plum
+	DD	03f20a0a1r			; 0.627451
+	DD	03f5ddddfr			; 0.866667
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Pink@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Pink@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Pink
+	DD	03f40c0c2r			; 0.752941
+	DD	03f4bcbcdr			; 0.796079
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Peru@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Peru@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f4dcdcfr ; 0.803922 ; DirectX::Colors::Peru
+	DD	03f058586r			; 0.521569
+	DD	03e7cfcfer			; 0.247059
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?PeachPuff@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?PeachPuff@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::PeachPuff
+	DD	03f5adadcr			; 0.854902
+	DD	03f39b9bar			; 0.72549
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?PapayaWhip@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?PapayaWhip@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::PapayaWhip
+	DD	03f6feff1r			; 0.937255
+	DD	03f55d5d7r			; 0.835294
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?PaleVioletRed@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?PaleVioletRed@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f5bdbddr ; 0.858824 ; DirectX::Colors::PaleVioletRed
+	DD	03ee0e0e2r			; 0.439216
+	DD	03f139394r			; 0.576471
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?PaleTurquoise@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?PaleTurquoise@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f2fafb0r ; 0.686275 ; DirectX::Colors::PaleTurquoise
+	DD	03f6eeef0r			; 0.933333
+	DD	03f6eeef0r			; 0.933333
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?PaleGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?PaleGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f189899r ; 0.596078 ; DirectX::Colors::PaleGreen
+	DD	03f7bfbfdr			; 0.984314
+	DD	03f189899r			; 0.596078
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?PaleGoldenrod@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?PaleGoldenrod@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f6eeef0r ; 0.933333 ; DirectX::Colors::PaleGoldenrod
+	DD	03f68e8ear			; 0.909804
+	DD	03f2aaaabr			; 0.666667
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Orchid@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Orchid@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f5adadcr ; 0.854902 ; DirectX::Colors::Orchid
+	DD	03ee0e0e2r			; 0.439216
+	DD	03f56d6d8r			; 0.839216
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?OrangeRed@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?OrangeRed@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::OrangeRed
+	DD	03e8a8a8br			; 0.270588
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Orange@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Orange@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Orange
+	DD	03f25a5a6r			; 0.647059
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?OliveDrab@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?OliveDrab@Colors@DirectX@@3UXMVECTORF32@2@B DD 03ed6d6d8r ; 0.419608 ; DirectX::Colors::OliveDrab
+	DD	03f0e8e8fr			; 0.556863
+	DD	03e0c8c8dr			; 0.137255
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Olive@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Olive@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f008081r ; 0.501961 ; DirectX::Colors::Olive
+	DD	03f008081r			; 0.501961
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?OldLace@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?OldLace@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f7dfdffr ; 0.992157 ; DirectX::Colors::OldLace
+	DD	03f75f5f7r			; 0.960784
+	DD	03f66e6e8r			; 0.901961
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Navy@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Navy@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::Navy
+	DD	000000000r			; 0
+	DD	03f008081r			; 0.501961
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?NavajoWhite@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?NavajoWhite@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::NavajoWhite
+	DD	03f5edee0r			; 0.870588
+	DD	03f2dadaer			; 0.678431
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Moccasin@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Moccasin@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Moccasin
+	DD	03f64e4e6r			; 0.894118
+	DD	03f35b5b6r			; 0.709804
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?MistyRose@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?MistyRose@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::MistyRose
+	DD	03f64e4e6r			; 0.894118
+	DD	03f61e1e3r			; 0.882353
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?MintCream@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?MintCream@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f75f5f7r ; 0.960784 ; DirectX::Colors::MintCream
+	DD	03f800000r			; 1
+	DD	03f7afafcr			; 0.980392
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?MidnightBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?MidnightBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03dc8c8car ; 0.0980392 ; DirectX::Colors::MidnightBlue
+	DD	03dc8c8car			; 0.0980392
+	DD	03ee0e0e2r			; 0.439216
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?MediumVioletRed@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?MediumVioletRed@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f47c7c9r ; 0.780392 ; DirectX::Colors::MediumVioletRed
+	DD	03da8a8a9r			; 0.0823529
+	DD	03f058586r			; 0.521569
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?MediumTurquoise@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?MediumTurquoise@Colors@DirectX@@3UXMVECTORF32@2@B DD 03e909091r ; 0.282353 ; DirectX::Colors::MediumTurquoise
+	DD	03f51d1d3r			; 0.819608
+	DD	03f4ccccer			; 0.8
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?MediumSpringGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?MediumSpringGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::MediumSpringGreen
+	DD	03f7afafcr			; 0.980392
+	DD	03f1a9a9br			; 0.603922
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?MediumSlateBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?MediumSlateBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03ef6f6f8r ; 0.482353 ; DirectX::Colors::MediumSlateBlue
+	DD	03ed0d0d2r			; 0.407843
+	DD	03f6eeef0r			; 0.933333
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?MediumSeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?MediumSeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03e70f0f2r ; 0.235294 ; DirectX::Colors::MediumSeaGreen
+	DD	03f33b3b4r			; 0.701961
+	DD	03ee2e2e4r			; 0.443137
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?MediumPurple@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?MediumPurple@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f139394r ; 0.576471 ; DirectX::Colors::MediumPurple
+	DD	03ee0e0e2r			; 0.439216
+	DD	03f5bdbddr			; 0.858824
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?MediumOrchid@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?MediumOrchid@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f3ababbr ; 0.729412 ; DirectX::Colors::MediumOrchid
+	DD	03eaaaaabr			; 0.333333
+	DD	03f53d3d5r			; 0.827451
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?MediumBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?MediumBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::MediumBlue
+	DD	000000000r			; 0
+	DD	03f4dcdcfr			; 0.803922
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?MediumAquamarine@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?MediumAquamarine@Colors@DirectX@@3UXMVECTORF32@2@B DD 03ecccccer ; 0.4 ; DirectX::Colors::MediumAquamarine
+	DD	03f4dcdcfr			; 0.803922
+	DD	03f2aaaabr			; 0.666667
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Maroon@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Maroon@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f008081r ; 0.501961 ; DirectX::Colors::Maroon
+	DD	000000000r			; 0
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Magenta@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Magenta@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Magenta
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Linen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Linen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f7afafcr ; 0.980392 ; DirectX::Colors::Linen
+	DD	03f70f0f2r			; 0.941177
+	DD	03f66e6e8r			; 0.901961
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LimeGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LimeGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03e48c8car ; 0.196078 ; DirectX::Colors::LimeGreen
+	DD	03f4dcdcfr			; 0.803922
+	DD	03e48c8car			; 0.196078
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Lime@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Lime@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::Lime
+	DD	03f800000r			; 1
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightYellow@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightYellow@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::LightYellow
+	DD	03f800000r			; 1
+	DD	03f60e0e2r			; 0.878431
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightSteelBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightSteelBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f30b0b1r ; 0.690196 ; DirectX::Colors::LightSteelBlue
+	DD	03f44c4c6r			; 0.768628
+	DD	03f5edee0r			; 0.870588
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightSlateGray@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightSlateGray@Colors@DirectX@@3UXMVECTORF32@2@B DD 03eeeeef0r ; 0.466667 ; DirectX::Colors::LightSlateGray
+	DD	03f088889r			; 0.533333
+	DD	03f19999ar			; 0.6
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightSkyBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightSkyBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f078788r ; 0.529412 ; DirectX::Colors::LightSkyBlue
+	DD	03f4eced0r			; 0.807843
+	DD	03f7afafcr			; 0.980392
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightSeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightSeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03e008081r ; 0.12549 ; DirectX::Colors::LightSeaGreen
+	DD	03f32b2b3r			; 0.698039
+	DD	03f2aaaabr			; 0.666667
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightSalmon@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightSalmon@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::LightSalmon
+	DD	03f20a0a1r			; 0.627451
+	DD	03ef4f4f6r			; 0.478431
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightPink@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightPink@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::LightPink
+	DD	03f36b6b7r			; 0.713726
+	DD	03f41c1c3r			; 0.756863
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightGray@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightGray@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f53d3d5r ; 0.827451 ; DirectX::Colors::LightGray
+	DD	03f53d3d5r			; 0.827451
+	DD	03f53d3d5r			; 0.827451
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f109091r ; 0.564706 ; DirectX::Colors::LightGreen
+	DD	03f6eeef0r			; 0.933333
+	DD	03f109091r			; 0.564706
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightGoldenrodYellow@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightGoldenrodYellow@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f7afafcr ; 0.980392 ; DirectX::Colors::LightGoldenrodYellow
+	DD	03f7afafcr			; 0.980392
+	DD	03f52d2d4r			; 0.823529
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightCyan@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightCyan@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f60e0e2r ; 0.878431 ; DirectX::Colors::LightCyan
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightCoral@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightCoral@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f70f0f2r ; 0.941177 ; DirectX::Colors::LightCoral
+	DD	03f008081r			; 0.501961
+	DD	03f008081r			; 0.501961
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LightBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LightBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f2dadaer ; 0.678431 ; DirectX::Colors::LightBlue
+	DD	03f58d8dar			; 0.847059
+	DD	03f66e6e8r			; 0.901961
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LemonChiffon@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LemonChiffon@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::LemonChiffon
+	DD	03f7afafcr			; 0.980392
+	DD	03f4dcdcfr			; 0.803922
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LawnGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LawnGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03ef8f8far ; 0.486275 ; DirectX::Colors::LawnGreen
+	DD	03f7cfcfer			; 0.988235
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?LavenderBlush@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?LavenderBlush@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::LavenderBlush
+	DD	03f70f0f2r			; 0.941177
+	DD	03f75f5f7r			; 0.960784
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Lavender@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Lavender@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f66e6e8r ; 0.901961 ; DirectX::Colors::Lavender
+	DD	03f66e6e8r			; 0.901961
+	DD	03f7afafcr			; 0.980392
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Khaki@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Khaki@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f70f0f2r ; 0.941177 ; DirectX::Colors::Khaki
+	DD	03f66e6e8r			; 0.901961
+	DD	03f0c8c8dr			; 0.54902
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Ivory@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Ivory@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Ivory
+	DD	03f800000r			; 1
+	DD	03f70f0f2r			; 0.941177
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Indigo@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Indigo@Colors@DirectX@@3UXMVECTORF32@2@B DD 03e969697r ; 0.294118 ; DirectX::Colors::Indigo
+	DD	000000000r			; 0
+	DD	03f028283r			; 0.509804
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?IndianRed@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?IndianRed@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f4dcdcfr ; 0.803922 ; DirectX::Colors::IndianRed
+	DD	03eb8b8b9r			; 0.360784
+	DD	03eb8b8b9r			; 0.360784
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?HotPink@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?HotPink@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::HotPink
+	DD	03ed2d2d4r			; 0.411765
+	DD	03f34b4b5r			; 0.705882
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Honeydew@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Honeydew@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f70f0f2r ; 0.941177 ; DirectX::Colors::Honeydew
+	DD	03f800000r			; 1
+	DD	03f70f0f2r			; 0.941177
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?GreenYellow@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?GreenYellow@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f2dadaer ; 0.678431 ; DirectX::Colors::GreenYellow
+	DD	03f800000r			; 1
+	DD	03e3cbcbdr			; 0.184314
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Green@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Green@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::Green
+	DD	03f008081r			; 0.501961
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Gray@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Gray@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f008081r ; 0.501961 ; DirectX::Colors::Gray
+	DD	03f008081r			; 0.501961
+	DD	03f008081r			; 0.501961
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Goldenrod@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Goldenrod@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f5adadcr ; 0.854902 ; DirectX::Colors::Goldenrod
+	DD	03f25a5a6r			; 0.647059
+	DD	03e008081r			; 0.12549
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Gold@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Gold@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Gold
+	DD	03f57d7d9r			; 0.843137
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?GhostWhite@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?GhostWhite@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f78f8far ; 0.972549 ; DirectX::Colors::GhostWhite
+	DD	03f78f8far			; 0.972549
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Gainsboro@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Gainsboro@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f5cdcder ; 0.862745 ; DirectX::Colors::Gainsboro
+	DD	03f5cdcder			; 0.862745
+	DD	03f5cdcder			; 0.862745
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Fuchsia@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Fuchsia@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Fuchsia
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?ForestGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?ForestGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03e088889r ; 0.133333 ; DirectX::Colors::ForestGreen
+	DD	03f0b8b8cr			; 0.545098
+	DD	03e088889r			; 0.133333
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?FloralWhite@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?FloralWhite@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::FloralWhite
+	DD	03f7afafcr			; 0.980392
+	DD	03f70f0f2r			; 0.941177
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Firebrick@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Firebrick@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f32b2b3r ; 0.698039 ; DirectX::Colors::Firebrick
+	DD	03e088889r			; 0.133333
+	DD	03e088889r			; 0.133333
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DodgerBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DodgerBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03df0f0f2r ; 0.117647 ; DirectX::Colors::DodgerBlue
+	DD	03f109091r			; 0.564706
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DimGray@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DimGray@Colors@DirectX@@3UXMVECTORF32@2@B DD 03ed2d2d4r ; 0.411765 ; DirectX::Colors::DimGray
+	DD	03ed2d2d4r			; 0.411765
+	DD	03ed2d2d4r			; 0.411765
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DeepSkyBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DeepSkyBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::DeepSkyBlue
+	DD	03f3fbfc0r			; 0.74902
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DeepPink@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DeepPink@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::DeepPink
+	DD	03da0a0a1r			; 0.0784314
+	DD	03f139394r			; 0.576471
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkViolet@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkViolet@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f149495r ; 0.580392 ; DirectX::Colors::DarkViolet
+	DD	000000000r			; 0
+	DD	03f53d3d5r			; 0.827451
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkTurquoise@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkTurquoise@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::DarkTurquoise
+	DD	03f4eced0r			; 0.807843
+	DD	03f51d1d3r			; 0.819608
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkSlateGray@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkSlateGray@Colors@DirectX@@3UXMVECTORF32@2@B DD 03e3cbcbdr ; 0.184314 ; DirectX::Colors::DarkSlateGray
+	DD	03e9e9e9fr			; 0.309804
+	DD	03e9e9e9fr			; 0.309804
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkSlateBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkSlateBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03e909091r ; 0.282353 ; DirectX::Colors::DarkSlateBlue
+	DD	03e74f4f6r			; 0.239216
+	DD	03f0b8b8cr			; 0.545098
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkSeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkSeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f0f8f90r ; 0.560784 ; DirectX::Colors::DarkSeaGreen
+	DD	03f3cbcbdr			; 0.737255
+	DD	03f0b8b8cr			; 0.545098
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkSalmon@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkSalmon@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f69e9ebr ; 0.913726 ; DirectX::Colors::DarkSalmon
+	DD	03f169697r			; 0.588235
+	DD	03ef4f4f6r			; 0.478431
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkRed@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkRed@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f0b8b8cr ; 0.545098 ; DirectX::Colors::DarkRed
+	DD	000000000r			; 0
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkOrchid@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkOrchid@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f19999ar ; 0.6 ; DirectX::Colors::DarkOrchid
+	DD	03e48c8car			; 0.196078
+	DD	03f4ccccer			; 0.8
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkOrange@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkOrange@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::DarkOrange
+	DD	03f0c8c8dr			; 0.54902
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkOliveGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkOliveGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03eaaaaabr ; 0.333333 ; DirectX::Colors::DarkOliveGreen
+	DD	03ed6d6d8r			; 0.419608
+	DD	03e3cbcbdr			; 0.184314
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkMagenta@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkMagenta@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f0b8b8cr ; 0.545098 ; DirectX::Colors::DarkMagenta
+	DD	000000000r			; 0
+	DD	03f0b8b8cr			; 0.545098
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkKhaki@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkKhaki@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f3dbdber ; 0.741176 ; DirectX::Colors::DarkKhaki
+	DD	03f37b7b8r			; 0.717647
+	DD	03ed6d6d8r			; 0.419608
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkGreen@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::DarkGreen
+	DD	03ec8c8car			; 0.392157
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkGray@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkGray@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f29a9aar ; 0.662745 ; DirectX::Colors::DarkGray
+	DD	03f29a9aar			; 0.662745
+	DD	03f29a9aar			; 0.662745
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkGoldenrod@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkGoldenrod@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f38b8b9r ; 0.721569 ; DirectX::Colors::DarkGoldenrod
+	DD	03f068687r			; 0.52549
+	DD	03d30b0b1r			; 0.0431373
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkCyan@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkCyan@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::DarkCyan
+	DD	03f0b8b8cr			; 0.545098
+	DD	03f0b8b8cr			; 0.545098
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?DarkBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?DarkBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::DarkBlue
+	DD	000000000r			; 0
+	DD	03f0b8b8cr			; 0.545098
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Cyan@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Cyan@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::Cyan
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Crimson@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Crimson@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f5cdcder ; 0.862745 ; DirectX::Colors::Crimson
+	DD	03da0a0a1r			; 0.0784314
+	DD	03e70f0f2r			; 0.235294
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Cornsilk@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Cornsilk@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Cornsilk
+	DD	03f78f8far			; 0.972549
+	DD	03f5cdcder			; 0.862745
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?CornflowerBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?CornflowerBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03ec8c8car ; 0.392157 ; DirectX::Colors::CornflowerBlue
+	DD	03f159596r			; 0.584314
+	DD	03f6dedefr			; 0.929412
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Coral@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Coral@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Coral
+	DD	03efeff00r			; 0.498039
+	DD	03ea0a0a1r			; 0.313726
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Chocolate@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Chocolate@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f52d2d4r ; 0.823529 ; DirectX::Colors::Chocolate
+	DD	03ed2d2d4r			; 0.411765
+	DD	03df0f0f2r			; 0.117647
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Chartreuse@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Chartreuse@Colors@DirectX@@3UXMVECTORF32@2@B DD 03efeff00r ; 0.498039 ; DirectX::Colors::Chartreuse
+	DD	03f800000r			; 1
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?CadetBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?CadetBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03ebebebfr ; 0.372549 ; DirectX::Colors::CadetBlue
+	DD	03f1e9e9fr			; 0.619608
+	DD	03f20a0a1r			; 0.627451
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?BurlyWood@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?BurlyWood@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f5edee0r ; 0.870588 ; DirectX::Colors::BurlyWood
+	DD	03f38b8b9r			; 0.721569
+	DD	03f078788r			; 0.529412
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Brown@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Brown@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f25a5a6r ; 0.647059 ; DirectX::Colors::Brown
+	DD	03e28a8a9r			; 0.164706
+	DD	03e28a8a9r			; 0.164706
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?BlueViolet@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?BlueViolet@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f0a8a8br ; 0.541176 ; DirectX::Colors::BlueViolet
+	DD	03e2cacadr			; 0.168627
+	DD	03f62e2e4r			; 0.886275
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Blue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Blue@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::Blue
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?BlanchedAlmond@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?BlanchedAlmond@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::BlanchedAlmond
+	DD	03f6bebedr			; 0.921569
+	DD	03f4dcdcfr			; 0.803922
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Black@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Black@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::Black
+	DD	000000000r			; 0
+	DD	000000000r			; 0
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Bisque@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Bisque@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f800000r ; 1 ; DirectX::Colors::Bisque
+	DD	03f64e4e6r			; 0.894118
+	DD	03f44c4c6r			; 0.768628
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Beige@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Beige@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f75f5f7r ; 0.960784 ; DirectX::Colors::Beige
+	DD	03f75f5f7r			; 0.960784
+	DD	03f5cdcder			; 0.862745
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Azure@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Azure@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f70f0f2r ; 0.941177 ; DirectX::Colors::Azure
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Aquamarine@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Aquamarine@Colors@DirectX@@3UXMVECTORF32@2@B DD 03efeff00r ; 0.498039 ; DirectX::Colors::Aquamarine
+	DD	03f800000r			; 1
+	DD	03f54d4d6r			; 0.831373
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?Aqua@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?Aqua@Colors@DirectX@@3UXMVECTORF32@2@B DD 000000000r ; 0 ; DirectX::Colors::Aqua
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?AntiqueWhite@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?AntiqueWhite@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f7afafcr ; 0.980392 ; DirectX::Colors::AntiqueWhite
+	DD	03f6bebedr			; 0.921569
+	DD	03f57d7d9r			; 0.843137
+	DD	03f800000r			; 1
+CONST	ENDS
+;	COMDAT ?AliceBlue@Colors@DirectX@@3UXMVECTORF32@2@B
+CONST	SEGMENT
+?AliceBlue@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f70f0f2r ; 0.941177 ; DirectX::Colors::AliceBlue
+	DD	03f78f8far			; 0.972549
+	DD	03f800000r			; 1
+	DD	03f800000r			; 1
 CONST	ENDS
 PUBLIC	??_H@YAXPEAX_K1P6APEAX0@Z@Z			; `vector constructor iterator'
 PUBLIC	?__empty_global_delete@@YAXPEAX@Z		; __empty_global_delete
@@ -1338,6 +2466,7 @@ PUBLIC	??_C@_1EG@JMDCJGCN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$A
 PUBLIC	??_C@_1DG@FGDELPKB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAv?$AAt?$AAx?$AAn?$AAo?$AAr?$AAt?$AAe?$AAx?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1EM@KIHCFMHH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAV?$AAT?$AAX?$AAA?$AAN?$AAI?$AAM?$AAM?$AAO?$AAD?$AAE?$AAL@ ; `string'
 PUBLIC	??_C@_1DM@OGMOEMJ@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAv?$AAt?$AAx?$AAa?$AAn?$AAi?$AAm?$AAm?$AAo?$AAd?$AAe?$AAl?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1DE@OCAJEKIC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAp?$AAh?$AAe?$AAr?$AAe?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CE@KOEHOIBI@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAt?$AAe?$AAr?$AAr?$AAa?$AAi?$AAn?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BO@MGDCPKMN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAc?$AAi?$AAt?$AAy?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CA@GEPPBAML@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@ ; `string'
@@ -1416,6 +2545,7 @@ EXTRN	__imp_??1CBase@Engine@@UEAA@XZ:PROC
 EXTRN	__imp_?Release@CBase@Engine@@QEAAKXZ:PROC
 EXTRN	??_ECLoader@Client@@EEAAPEAXI@Z:PROC		; Client::CLoader::`vector deleting destructor'
 EXTRN	__imp_?Create@CModel@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4MESH_TYPE@12@PEBDUXMMATRIX@DirectX@@I@Z:PROC
+EXTRN	__imp_?Create@CSphereCollider@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z:PROC
 EXTRN	__imp_?Create@CVIBuffer_Terrain@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_W@Z:PROC
 EXTRN	__imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z:PROC
 EXTRN	__imp_?Create@CShader@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WPEAUD3D11_INPUT_ELEMENT_DESC@@I@Z:PROC
@@ -2006,8 +3136,8 @@ $pdata$?Load_Level_Logo@CLoader@Client@@QEAAJXZ DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Load_Level_GamePlay@CLoader@Client@@QEAAJXZ DD imagerel $LN15
-	DD	imagerel $LN15+1795
+$pdata$?Load_Level_GamePlay@CLoader@Client@@QEAAJXZ DD imagerel $LN16
+	DD	imagerel $LN16+1862
 	DD	imagerel $unwind$?Load_Level_GamePlay@CLoader@Client@@QEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -2496,7 +3626,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CLoader@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CLoader@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA DD 0a2H ; `Client::CLoader::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CLoader@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA DD 0a5H ; `Client::CLoader::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1DA@CMIPDJDG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@
 CONST	SEGMENT
@@ -2534,6 +3664,14 @@ CONST	SEGMENT
 	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'o', 00H
 	DB	'b', 00H, 'j', 00H, '_', 00H, 't', 00H, 'e', 00H, 'r', 00H, 'r'
 	DB	00H, 'a', 00H, 'i', 00H, 'n', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1DE@OCAJEKIC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAp?$AAh?$AAe?$AAr?$AAe?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@
+CONST	SEGMENT
+??_C@_1DE@OCAJEKIC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAp?$AAh?$AAe?$AAr?$AAe?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 's', 00H, 'p', 00H, 'h', 00H, 'e'
+	DB	00H, 'r', 00H, 'e', 00H, '_', 00H, 'c', 00H, 'o', 00H, 'l', 00H
+	DB	'l', 00H, 'i', 00H, 'd', 00H, 'e', 00H, 'r', 00H, 00H, 00H ; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1DM@OGMOEMJ@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAv?$AAt?$AAx?$AAa?$AAn?$AAi?$AAm?$AAm?$AAo?$AAd?$AAe?$AAl?$AA?$AA@
 CONST	SEGMENT
@@ -6365,7 +7503,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CLoader@Client@@UEAAXXZ PROC			; Client::CLoader::Free, COMDAT
 
-; 176  : {
+; 179  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -6381,7 +7519,7 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 177  : 	WaitForSingleObject(m_hThread, INFINITE);
+; 180  : 	WaitForSingleObject(m_hThread, INFINITE);
 
   0002a	ba ff ff ff ff	 mov	 edx, -1			; ffffffffH
   0002f	48 8b 85 e0 00
@@ -6390,8 +7528,8 @@ $LN3:
   0003a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_WaitForSingleObject
 
-; 178  : 
-; 179  : 	Safe_Release(m_pDevice);
+; 181  : 
+; 182  : 	Safe_Release(m_pDevice);
 
   00040	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6399,7 +7537,7 @@ $LN3:
   0004b	48 8b c8	 mov	 rcx, rax
   0004e	e8 00 00 00 00	 call	 ??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z ; Engine::Safe_Release<ID3D11Device * __ptr64>
 
-; 180  : 	Safe_Release(m_pContext);
+; 183  : 	Safe_Release(m_pContext);
 
   00053	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6407,8 +7545,8 @@ $LN3:
   0005e	48 8b c8	 mov	 rcx, rax
   00061	e8 00 00 00 00	 call	 ??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z ; Engine::Safe_Release<ID3D11DeviceContext * __ptr64>
 
-; 181  : 
-; 182  : 	DeleteCriticalSection(&m_hCriticalSection);
+; 184  : 
+; 185  : 	DeleteCriticalSection(&m_hCriticalSection);
 
   00066	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6417,7 +7555,7 @@ $LN3:
   00074	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_DeleteCriticalSection
 
-; 183  : 	CloseHandle(m_hThread);
+; 186  : 	CloseHandle(m_hThread);
 
   0007a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6425,7 +7563,7 @@ $LN3:
   00085	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_CloseHandle
 
-; 184  : }
+; 187  : }
 
   0008b	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -6450,7 +7588,7 @@ pContext$ = 440
 eNextLevel$ = 448
 ?Create@CLoader@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@2@@Z PROC ; Client::CLoader::Create, COMDAT
 
-; 162  : {
+; 165  : {
 
 $LN8:
   00000	44 89 44 24 18	 mov	 DWORD PTR [rsp+24], r8d
@@ -6476,7 +7614,7 @@ $LN8:
   00049	48 89 85 80 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 163  : 	CLoader* pInstance = new CLoader(pDevice, pContext);
+; 166  : 	CLoader* pInstance = new CLoader(pDevice, pContext);
 
   00050	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CLoader@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA
@@ -6515,8 +7653,8 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T6[rbp]
   000c5	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 164  : 
-; 165  : 	if (FAILED(pInstance->Initialize(eNextLevel)))
+; 167  : 
+; 168  : 	if (FAILED(pInstance->Initialize(eNextLevel)))
 
   000c9	8b 95 c0 01 00
 	00		 mov	 edx, DWORD PTR eNextLevel$[rbp]
@@ -6525,8 +7663,8 @@ $LN5@Create:
   000d8	85 c0		 test	 eax, eax
   000da	7d 42		 jge	 SHORT $LN2@Create
 
-; 166  : 	{
-; 167  : 		wstring message = L"Failed to Create : CLoader";
+; 169  : 	{
+; 170  : 		wstring message = L"Failed to Create : CLoader";
 
   000dc	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1DG@GNJIJLKA@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAo?$AAa?$AAd?$AAe?$AAr?$AA?$AA@
@@ -6534,7 +7672,7 @@ $LN5@Create:
   000e7	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   000ec	90		 npad	 1
 
-; 168  : 		MESSAGE(message);
+; 171  : 		MESSAGE(message);
 
   000ed	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000f1	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -6546,24 +7684,24 @@ $LN5@Create:
   00105	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 169  : 		Safe_Release(pInstance);
+; 172  : 		Safe_Release(pInstance);
 
   0010b	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   0010f	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCLoader@Client@@@Engine@@YAKAEAPEAVCLoader@Client@@@Z ; Engine::Safe_Release<Client::CLoader * __ptr64>
   00114	90		 npad	 1
 
-; 170  : 	}
+; 173  : 	}
 
   00115	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   00119	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN2@Create:
 
-; 171  : 
-; 172  : 	return pInstance;
+; 174  : 
+; 175  : 	return pInstance;
 
   0011e	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 173  : }
+; 176  : }
 
   00122	48 8b f8	 mov	 rdi, rax
   00125	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -6731,7 +7869,7 @@ this$ = 2464
 
 ; 84   : {
 
-$LN15:
+$LN16:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	56		 push	 rsi
@@ -6799,7 +7937,7 @@ $LN15:
 ; 93   : 		return E_FAIL;
 
   000a6	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000ab	e9 23 06 00 00	 jmp	 $LN1@Load_Level
+  000ab	e9 66 06 00 00	 jmp	 $LN1@Load_Level
 $LN2@Load_Level:
 
 ; 94   : 
@@ -6829,7 +7967,7 @@ $LN2@Load_Level:
 ; 97   : 		return E_FAIL;
 
   000f0	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000f5	e9 d9 05 00 00	 jmp	 $LN1@Load_Level
+  000f5	e9 1c 06 00 00	 jmp	 $LN1@Load_Level
 $LN3@Load_Level:
 
 ; 98   : 
@@ -6999,7 +8137,7 @@ $LN3@Load_Level:
 ; 108  : 		return E_FAIL;
 
   002fd	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00302	e9 cc 03 00 00	 jmp	 $LN1@Load_Level
+  00302	e9 0f 04 00 00	 jmp	 $LN1@Load_Level
 $LN4@Load_Level:
 
 ; 109  : 	
@@ -7073,7 +8211,7 @@ $LN4@Load_Level:
 ; 115  : 		return E_FAIL;
 
   003d0	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  003d5	e9 f9 02 00 00	 jmp	 $LN1@Load_Level
+  003d5	e9 3c 03 00 00	 jmp	 $LN1@Load_Level
 $LN5@Load_Level:
 
 ; 116  : 
@@ -7148,7 +8286,7 @@ $LN5@Load_Level:
 ; 122  : 		return E_FAIL;
 
   004ab	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  004b0	e9 1e 02 00 00	 jmp	 $LN1@Load_Level
+  004b0	e9 61 02 00 00	 jmp	 $LN1@Load_Level
 $LN6@Load_Level:
 
 ; 123  : 
@@ -7193,7 +8331,7 @@ $LN6@Load_Level:
 ; 128  : 		return E_FAIL;
 
   0051e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00523	e9 ab 01 00 00	 jmp	 $LN1@Load_Level
+  00523	e9 ee 01 00 00	 jmp	 $LN1@Load_Level
 $LN7@Load_Level:
 
 ; 129  : 
@@ -7227,16 +8365,11 @@ $LN7@Load_Level:
 ; 132  : 		return E_FAIL;
 
   00577	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0057c	e9 52 01 00 00	 jmp	 $LN1@Load_Level
+  0057c	e9 95 01 00 00	 jmp	 $LN1@Load_Level
 $LN8@Load_Level:
 
 ; 133  : 
-; 134  : #pragma endregion
-; 135  : 
-; 136  : 	//GamePlay GameObject
-; 137  : #pragma region GAMEOBJECTS
-; 138  : 
-; 139  : 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_terrain"), CTerrain::Create(m_pDevice, m_pContext))))
+; 134  : 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"),
 
   00581	48 8b 85 a0 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7244,164 +8377,196 @@ $LN8@Load_Level:
   0058c	48 8b 85 a0 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00593	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
-  00597	e8 00 00 00 00	 call	 ?Create@CTerrain@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CTerrain::Create
-  0059c	4c 8b c0	 mov	 r8, rax
-  0059f	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1CE@KOEHOIBI@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAt?$AAe?$AAr?$AAr?$AAa?$AAi?$AAn?$AA?$AA@
-  005a6	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  005aa	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJPEB_WPEAVCGameObject@2@@Z
-  005b0	85 c0		 test	 eax, eax
-  005b2	7d 0a		 jge	 SHORT $LN9@Load_Level
+  00597	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CSphereCollider@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
+  0059d	4c 8b c8	 mov	 r9, rax
+  005a0	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DE@OCAJEKIC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAp?$AAh?$AAe?$AAr?$AAe?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@
+  005a7	ba 03 00 00 00	 mov	 edx, 3
+  005ac	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  005b0	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  005b6	85 c0		 test	 eax, eax
+  005b8	7d 0a		 jge	 SHORT $LN9@Load_Level
 
-; 140  : 		return E_FAIL;
+; 135  : 		CSphereCollider::Create(m_pDevice, m_pContext))))
+; 136  : 		return E_FAIL;
 
-  005b4	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  005b9	e9 15 01 00 00	 jmp	 $LN1@Load_Level
+  005ba	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  005bf	e9 52 01 00 00	 jmp	 $LN1@Load_Level
 $LN9@Load_Level:
 
+; 137  : #pragma endregion
+; 138  : 
+; 139  : 	//GamePlay GameObject
+; 140  : #pragma region GAMEOBJECTS
 ; 141  : 
-; 142  : 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_city"), CCity::Create(m_pDevice, m_pContext))))
+; 142  : 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_terrain"), CTerrain::Create(m_pDevice, m_pContext))))
 
-  005be	48 8b 85 a0 09
+  005c4	48 8b 85 a0 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  005c5	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
-  005c9	48 8b 85 a0 09
+  005cb	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  005cf	48 8b 85 a0 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  005d0	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
-  005d4	e8 00 00 00 00	 call	 ?Create@CCity@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CCity::Create
-  005d9	4c 8b c0	 mov	 r8, rax
-  005dc	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BO@MGDCPKMN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAc?$AAi?$AAt?$AAy?$AA?$AA@
-  005e3	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  005e7	ff 15 00 00 00
+  005d6	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  005da	e8 00 00 00 00	 call	 ?Create@CTerrain@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CTerrain::Create
+  005df	4c 8b c0	 mov	 r8, rax
+  005e2	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1CE@KOEHOIBI@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAt?$AAe?$AAr?$AAr?$AAa?$AAi?$AAn?$AA?$AA@
+  005e9	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  005ed	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJPEB_WPEAVCGameObject@2@@Z
-  005ed	85 c0		 test	 eax, eax
-  005ef	7d 0a		 jge	 SHORT $LN10@Load_Level
+  005f3	85 c0		 test	 eax, eax
+  005f5	7d 0a		 jge	 SHORT $LN10@Load_Level
 
 ; 143  : 		return E_FAIL;
 
-  005f1	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  005f6	e9 d8 00 00 00	 jmp	 $LN1@Load_Level
+  005f7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  005fc	e9 15 01 00 00	 jmp	 $LN1@Load_Level
 $LN10@Load_Level:
 
 ; 144  : 
-; 145  : 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui"), CCharacter::Create(m_pDevice, m_pContext))))
+; 145  : 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_city"), CCity::Create(m_pDevice, m_pContext))))
 
-  005fb	48 8b 85 a0 09
+  00601	48 8b 85 a0 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00602	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
-  00606	48 8b 85 a0 09
+  00608	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  0060c	48 8b 85 a0 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0060d	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
-  00611	e8 00 00 00 00	 call	 ?Create@CCharacter@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CCharacter::Create
-  00616	4c 8b c0	 mov	 r8, rax
-  00619	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1CA@GEPPBAML@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@
-  00620	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  00624	ff 15 00 00 00
+  00613	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  00617	e8 00 00 00 00	 call	 ?Create@CCity@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CCity::Create
+  0061c	4c 8b c0	 mov	 r8, rax
+  0061f	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BO@MGDCPKMN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAc?$AAi?$AAt?$AAy?$AA?$AA@
+  00626	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  0062a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJPEB_WPEAVCGameObject@2@@Z
-  0062a	85 c0		 test	 eax, eax
-  0062c	7d 0a		 jge	 SHORT $LN11@Load_Level
+  00630	85 c0		 test	 eax, eax
+  00632	7d 0a		 jge	 SHORT $LN11@Load_Level
 
 ; 146  : 		return E_FAIL;
 
-  0062e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00633	e9 9b 00 00 00	 jmp	 $LN1@Load_Level
+  00634	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00639	e9 d8 00 00 00	 jmp	 $LN1@Load_Level
 $LN11@Load_Level:
 
 ; 147  : 
-; 148  : 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui_weapon"), CWeapon::Create(m_pDevice, m_pContext))))
+; 148  : 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui"), CCharacter::Create(m_pDevice, m_pContext))))
 
-  00638	48 8b 85 a0 09
+  0063e	48 8b 85 a0 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0063f	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
-  00643	48 8b 85 a0 09
+  00645	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  00649	48 8b 85 a0 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0064a	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
-  0064e	e8 00 00 00 00	 call	 ?Create@CWeapon@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CWeapon::Create
-  00653	4c 8b c0	 mov	 r8, rax
-  00656	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1CO@CGCPHPFJ@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAm?$AAu?$AAi?$AA_?$AAw?$AAe?$AAa?$AAp?$AAo?$AAn?$AA?$AA@
-  0065d	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  00661	ff 15 00 00 00
+  00650	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  00654	e8 00 00 00 00	 call	 ?Create@CCharacter@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CCharacter::Create
+  00659	4c 8b c0	 mov	 r8, rax
+  0065c	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1CA@GEPPBAML@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@
+  00663	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  00667	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJPEB_WPEAVCGameObject@2@@Z
-  00667	85 c0		 test	 eax, eax
-  00669	7d 07		 jge	 SHORT $LN12@Load_Level
+  0066d	85 c0		 test	 eax, eax
+  0066f	7d 0a		 jge	 SHORT $LN12@Load_Level
 
 ; 149  : 		return E_FAIL;
 
-  0066b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00670	eb 61		 jmp	 SHORT $LN1@Load_Level
+  00671	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00676	e9 9b 00 00 00	 jmp	 $LN1@Load_Level
 $LN12@Load_Level:
 
 ; 150  : 
-; 151  : 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_player_camera"), CPlayerCamera::Create(m_pDevice, m_pContext))))
+; 151  : 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui_weapon"), CWeapon::Create(m_pDevice, m_pContext))))
 
-  00672	48 8b 85 a0 09
+  0067b	48 8b 85 a0 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00679	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
-  0067d	48 8b 85 a0 09
+  00682	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  00686	48 8b 85 a0 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00684	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
-  00688	e8 00 00 00 00	 call	 ?Create@CPlayerCamera@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CPlayerCamera::Create
-  0068d	4c 8b c0	 mov	 r8, rax
-  00690	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1DA@CMIPDJDG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@
-  00697	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  0069b	ff 15 00 00 00
+  0068d	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  00691	e8 00 00 00 00	 call	 ?Create@CWeapon@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CWeapon::Create
+  00696	4c 8b c0	 mov	 r8, rax
+  00699	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1CO@CGCPHPFJ@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAm?$AAu?$AAi?$AA_?$AAw?$AAe?$AAa?$AAp?$AAo?$AAn?$AA?$AA@
+  006a0	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  006a4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJPEB_WPEAVCGameObject@2@@Z
-  006a1	85 c0		 test	 eax, eax
-  006a3	7d 07		 jge	 SHORT $LN13@Load_Level
+  006aa	85 c0		 test	 eax, eax
+  006ac	7d 07		 jge	 SHORT $LN13@Load_Level
 
 ; 152  : 		return E_FAIL;
 
-  006a5	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  006aa	eb 27		 jmp	 SHORT $LN1@Load_Level
+  006ae	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  006b3	eb 61		 jmp	 SHORT $LN1@Load_Level
 $LN13@Load_Level:
 
 ; 153  : 
-; 154  : #pragma endregion
-; 155  : 
-; 156  : 	m_szLoadingStateText = L"Load Completed";
+; 154  : 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_player_camera"), CPlayerCamera::Create(m_pDevice, m_pContext))))
 
-  006ac	48 8b 85 a0 09
+  006b5	48 8b 85 a0 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  006b3	48 83 c0 58	 add	 rax, 88			; 00000058H
-  006b7	48 8d 15 00 00
+  006bc	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  006c0	48 8b 85 a0 09
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  006c7	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  006cb	e8 00 00 00 00	 call	 ?Create@CPlayerCamera@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CPlayerCamera::Create
+  006d0	4c 8b c0	 mov	 r8, rax
+  006d3	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1DA@CMIPDJDG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@
+  006da	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  006de	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJPEB_WPEAVCGameObject@2@@Z
+  006e4	85 c0		 test	 eax, eax
+  006e6	7d 07		 jge	 SHORT $LN14@Load_Level
+
+; 155  : 		return E_FAIL;
+
+  006e8	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  006ed	eb 27		 jmp	 SHORT $LN1@Load_Level
+$LN14@Load_Level:
+
+; 156  : 
+; 157  : #pragma endregion
+; 158  : 
+; 159  : 	m_szLoadingStateText = L"Load Completed";
+
+  006ef	48 8b 85 a0 09
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  006f6	48 83 c0 58	 add	 rax, 88			; 00000058H
+  006fa	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BO@GGFIFBDK@?$AAL?$AAo?$AAa?$AAd?$AA?5?$AAC?$AAo?$AAm?$AAp?$AAl?$AAe?$AAt?$AAe?$AAd?$AA?$AA@
-  006be	48 8b c8	 mov	 rcx, rax
-  006c1	e8 00 00 00 00	 call	 ??4?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV01@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::operator=
+  00701	48 8b c8	 mov	 rcx, rax
+  00704	e8 00 00 00 00	 call	 ??4?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV01@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::operator=
 
-; 157  : 	m_isFinish = true;
+; 160  : 	m_isFinish = true;
 
-  006c6	48 8b 85 a0 09
+  00709	48 8b 85 a0 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  006cd	c6 40 54 01	 mov	 BYTE PTR [rax+84], 1
+  00710	c6 40 54 01	 mov	 BYTE PTR [rax+84], 1
 
-; 158  : 	return S_OK;
+; 161  : 	return S_OK;
 
-  006d1	33 c0		 xor	 eax, eax
+  00714	33 c0		 xor	 eax, eax
 $LN1@Load_Level:
 
-; 159  : }
+; 162  : }
 
-  006d3	48 8b f8	 mov	 rdi, rax
-  006d6	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
-  006da	48 8d 15 00 00
+  00716	48 8b f8	 mov	 rdi, rax
+  00719	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
+  0071d	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?Load_Level_GamePlay@CLoader@Client@@QEAAJXZ$rtcFrameData
-  006e1	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  006e6	48 8b c7	 mov	 rax, rdi
-  006e9	48 8b 8d 78 09
+  00724	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  00729	48 8b c7	 mov	 rax, rdi
+  0072c	48 8b 8d 78 09
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  006f0	48 33 cd	 xor	 rcx, rbp
-  006f3	e8 00 00 00 00	 call	 __security_check_cookie
-  006f8	48 8d a5 80 09
+  00733	48 33 cd	 xor	 rcx, rbp
+  00736	e8 00 00 00 00	 call	 __security_check_cookie
+  0073b	48 8d a5 80 09
 	00 00		 lea	 rsp, QWORD PTR [rbp+2432]
-  006ff	5f		 pop	 rdi
-  00700	5e		 pop	 rsi
-  00701	5d		 pop	 rbp
-  00702	c3		 ret	 0
+  00742	5f		 pop	 rdi
+  00743	5e		 pop	 rsi
+  00744	5d		 pop	 rbp
+  00745	c3		 ret	 0
 ?Load_Level_GamePlay@CLoader@Client@@QEAAJXZ ENDP	; Client::CLoader::Load_Level_GamePlay
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI

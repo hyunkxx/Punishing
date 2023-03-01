@@ -83,6 +83,7 @@ HRESULT CApplication::Render()
 	m_pGameInstance->Clear_DepthStencilView();
 
 	m_pRenderer->Draw();
+	m_pGameInstance->CollisionRender();
 	m_pGUIManager->RenderDrawData();
 
 	m_pGameInstance->Present();

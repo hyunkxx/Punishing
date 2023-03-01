@@ -66,11 +66,17 @@ public: //LightManager
 	HRESULT AddLight(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, const LIGHT_DESC& LightDesc);
 	const LIGHT_DESC* GetLightDesc(_uint Index);
 
+public: //CollisionManager
+	HRESULT AddCollider(class CCollider* collider);
+	//void PhysicsUpdate();
+	void CollisionRender();
+
 public:
 	static void Engine_Release();
 	virtual void Free() override;
 
 private:
+	class CCollisionManager*		m_pCollision_Manager = { nullptr };
 	class CGraphic_Device*			m_pGraphic_Device = { nullptr };
 	class CLevel_Manager*			m_pLevel_Manager = { nullptr };
 	class CObject_Manager*			m_pObject_Manager = { nullptr };

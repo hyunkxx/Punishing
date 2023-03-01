@@ -1,9 +1,11 @@
 #include "..\Public\GameInstance.h"
 
+#include "CollisionManager.h"
 #include "Graphic_Device.h"
 #include "Level_Manager.h"
 #include "Object_Manager.h"
 #include "Component_Manager.h"
+#include "CollisionManager.h"
 #include "Timer_Manager.h"
 #include "Input_Device.h"
 #include "LightManager.h"
@@ -20,7 +22,9 @@ CGameInstance::CGameInstance()
 	, m_pTimer_Manager { CTimer_Manager::GetInstance() }
 	, m_pInput_Device { CInput_Device::GetInstance() }
 	, m_LightManager{ CLightManager::GetInstance() }
+	, m_pCollision_Manager { CCollisionManager::GetInstance() }
 {
+	Safe_AddRef(m_pCollision_Manager);
 	Safe_AddRef(m_pInput_Device);
 	Safe_AddRef(m_pTimer_Manager);
 	Safe_AddRef(m_pPipeLine);
@@ -66,6 +70,7 @@ HRESULT CGameInstance::Engine_Tick(_double TimeDelta)
 	m_pPipeLine->Tick();
 	m_pObject_Manager->Tick(TimeDelta);
 	m_pObject_Manager->LateTick(TimeDelta);
+	m_pCollision_Manager->PhysicsUpdate();
 
 	return S_OK;
 }
@@ -329,8 +334,33 @@ const LIGHT_DESC* CGameInstance::GetLightDesc(_uint Index)
 	return m_LightManager->GetLightDesc(Index);
 }
 
+HRESULT CGameInstance::AddCollider(CCollider * collider)
+{
+	if (m_pCollision_Manager == nullptr)
+		return E_FAIL;
+
+	return m_pCollision_Manager->AddCollider(collider);
+}
+
+void CGameInstance::CollisionRender()
+{
+	if (m_pCollision_Manager == nullptr)
+		return;
+
+	return m_pCollision_Manager->Render();
+}
+
+//void CGameInstance::PhysicsUpdate()
+//{
+//	if (m_pCollision_Manager == nullptr)
+//		return;
+//
+//	return m_pCollision_Manager->PhysicsUpdate();
+//}
+
 void CGameInstance::Engine_Release()
 {
+	CCollisionManager::DestroyInstance();
 	CGameInstance::DestroyInstance();
 	CInput_Device::DestroyInstance();
 	CLightManager::DestroyInstance();
@@ -344,6 +374,7 @@ void CGameInstance::Engine_Release()
 
 void CGameInstance::Free()
 {
+	Safe_Release(m_pCollision_Manager);
 	Safe_Release(m_LightManager);
 	Safe_Release(m_pInput_Device);
 	Safe_Release(m_pTimer_Manager);

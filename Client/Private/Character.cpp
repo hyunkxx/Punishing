@@ -41,12 +41,10 @@ HRESULT CCharacter::Initialize(void* pArg)
 	if (FAILED(AddWeapon()))
 		return E_FAIL;
 
-	mTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
-
 	_float4x4 camMatrix;
 	XMStoreFloat4x4(&camMatrix, XMMatrixIdentity());
 	mCameraSocketTransform->Set_WorldMatrix(camMatrix);
-	
+		
 	return S_OK;
 }
 
@@ -170,6 +168,8 @@ HRESULT CCharacter::AddComponents()
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kamui"), TEXT("com_model"), (CComponent**)&mModel)))
 		return E_FAIL;
+
+	mTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
 
 	return S_OK;
 }
@@ -635,6 +635,17 @@ CGameObject* CCharacter::Clone(void* pArg)
 		Safe_Release(pInstance);
 	}
 
+	CCollider::COLLIDER_DESC collDesc;
+	collDesc.owner = pInstance;
+	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
+	collDesc.vExtants = _float3(0.5f, 0.5f, 0.5f);
+	collDesc.vRotaion = _float3(0.f, 0.f, 0.f);
+
+	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&mCollider, &collDesc));
+
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	pGameInstance->AddCollider(mCollider);
+
 	return pInstance;
 }
 
@@ -642,6 +653,7 @@ void CCharacter::Free()
 { 
 	__super::Free();
 
+	Safe_Release(mCollider);
 	Safe_Release(mRenderer);
 	Safe_Release(mTransform);
 	Safe_Release(mCameraSocketTransform);

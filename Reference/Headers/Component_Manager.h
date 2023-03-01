@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Model.h"
+#include "Collider.h"
+#include "SphereCollider.h"
 #include "VIBuffer_Triangle.h"
 #include "VIBuffer_Terrain.h"
 #include "VIBuffer_Cube.h"

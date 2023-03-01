@@ -131,6 +131,9 @@ HRESULT CLoader::Load_Level_GamePlay()
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXANIMMODEL.hlsl"), VTXANIMMODEL_DECLARATION::Elements, VTXANIMMODEL_DECLARATION::ElementCount))))
 		return E_FAIL;
 
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"),
+		CSphereCollider::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
 #pragma endregion
 
 	//GamePlay GameObject

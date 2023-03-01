@@ -10,6 +10,7 @@ class CModel;
 class CShader;
 class CBone;
 class CTimer;
+class CCollider;
 END
 
 BEGIN(Client)
@@ -175,6 +176,7 @@ private:
 	CTransform* mTransform = nullptr;
 	CModel* mModel = nullptr;
 	CShader* mShader = nullptr;
+	CCollider* mCollider = nullptr;
 
 private: //레이어 삭제시 삭제됨
 	class CSleeve* m_pWeapon;

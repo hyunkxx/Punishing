@@ -109,6 +109,9 @@
     <Filter Include="utility\03. Components\07. Model\Animation\Channel">
       <UniqueIdentifier>{ab8e8cbd-b658-41e7-a52a-fd01ee8d5e6f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utility\03. Components\08. Collider">
+      <UniqueIdentifier>{5bef3340-4347-4dd9-ac3d-09ad0b872b66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\private\Base.cpp">
@@ -206,6 +209,18 @@
     </ClCompile>
     <ClCompile Include="..\private\LightManager.cpp">
       <Filter>utility\05. Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Collider.cpp">
+      <Filter>utility\03. Components\08. Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\SphereCollider.cpp">
+      <Filter>utility\03. Components\08. Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\DebugDraw.cpp">
+      <Filter>utility\03. Components\08. Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\CollisionManager.cpp">
+      <Filter>utility\03. Components\08. Collider</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -316,6 +331,18 @@
     </ClInclude>
     <ClInclude Include="..\public\Mesh.h">
       <Filter>utility\03. Components\07. Model\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Collider.h">
+      <Filter>utility\03. Components\08. Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\SphereCollider.h">
+      <Filter>utility\03. Components\08. Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\DebugDraw\DebugDraw.h">
+      <Filter>utility\03. Components\08. Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\CollisionManager.h">
+      <Filter>utility\03. Components\08. Collider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

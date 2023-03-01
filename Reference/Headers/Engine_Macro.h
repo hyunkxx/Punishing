@@ -57,5 +57,5 @@
 #define VECTOR_RIGHT	XMVectorSet(1.f, 0.f, 0.f, 0.f)
 #define VECTOR_UP		XMVectorSet(0.f, 1.f, 0.f, 0.f)
 #define VECTOR_LOOK		XMVectorSet(0.f, 0.f, 1.f, 0.f)
-#define VECTOR_ZERO		XMVectorSet(0.f, 0.f, 1.f, 0.f)
-#define VECTOR_ZERO_POS	XMVectorSet(0.f, 0.f, 0.f, 1.f)
+#define VECTOR_ZERO		XMVectorSet(0.f, 0.f, 0.f, 0.f)
+#define POSITION_ZERO	XMVectorSet(0.f, 0.f, 0.f, 1.f)

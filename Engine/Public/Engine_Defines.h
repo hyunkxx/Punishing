@@ -27,6 +27,16 @@
 #include "Effects11/d3dx11effect.h"
 #include "DirectXTK/DDSTextureLoader.h"
 #include "DirectXTK/WICTextureLoader.h"
+#include "DirectXTK/ScreenGrab.h"
+
+// Debug render
+#include "DirectXTK/PrimitiveBatch.h"
+#include "DirectXTK/VertexTypes.h"
+#include "DirectXTK/Effects.h"
+
+// Font Render
+#include "DirectXTK/SpriteBatch.h"
+#include "DirectXTK/SpriteFont.h"
 
 // C++ & STL
 #include "commdlg.h"
@@ -42,11 +52,10 @@
 #include <string>
 #include <cstring>
 
-// Utility
-#include <time.h>
-
 using namespace std;
 using namespace DirectX;
+// Utility
+#include <time.h>
 
 // Project
 #include "Engine_Macro.h"
