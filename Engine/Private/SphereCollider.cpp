@@ -73,6 +73,7 @@ HRESULT CSphereCollider::Initialize(void * arg)
 
 void CSphereCollider::Update(_matrix transformMatrix)
 {
+	_isColl = false;
 	_sphereOriginal->Transform(*_sphere, transformMatrix);
 }
 

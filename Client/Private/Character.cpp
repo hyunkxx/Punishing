@@ -50,6 +50,8 @@ HRESULT CCharacter::Initialize(void* pArg)
 void CCharacter::Tick(_double TimeDelta)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	pGameInstance->AddCollider(mCollider);
+	pGameInstance->AddCollider(mEnemyCheckCollider);
 
 	__super::Tick(TimeDelta);
 
@@ -65,26 +67,9 @@ void CCharacter::Tick(_double TimeDelta)
 void CCharacter::LateTick(_double TimeDelta)
 {
 	__super::LateTick(TimeDelta);
-
-
-
-	FindNearTarget(); 
-
-	//if (m_bOnTerrain)
-	//{
-	//	_vector vPosition = mTransform->Get_State(CTransform::STATE_POSITION);
-	//	_float fOverY = XMVectorGetY(vPosition) - 0.2f;
-
-	//	if (fOverY < 0.f)
-	//	{
-	//		vPosition = XMVectorSetY(vPosition, XMVectorGetY(vPosition) + abs(fOverY));
-	//		mTransform->Set_State(CTransform::STATE_POSITION, vPosition);
-	//	}
-
-	//	//_vector vPosition = mTransform->Get_State(CTransform::STATE_POSITION);
-	//	//vPosition = XMVectorSetY(vPosition, 0.f);
-	//	//mTransform->Set_State(CTransform::STATE_POSITION, vPosition);
-	//}
+	
+	NullTargetErase();
+	FindNearTarget();
 
 	_matrix transMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&mTransform->Get_WorldMatrix());
 	mCollider->Update(transMatrix);
@@ -204,8 +189,6 @@ HRESULT CCharacter::AddComponents()
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&mCollider, &collDesc)))
 		return E_FAIL;
 
-	pGameInstance->AddCollider(mCollider);
-
 	ZeroMemory(&collDesc, sizeof(collDesc));
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
@@ -215,7 +198,6 @@ HRESULT CCharacter::AddComponents()
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider_check"), (CComponent**)&mEnemyCheckCollider, &collDesc)))
 		return E_FAIL;
 
-	pGameInstance->AddCollider(mEnemyCheckCollider);
 	mEnemyCheckCollider->SetColor(_float4(1.f, 1.f, 0.f, 1.f));
 
 	return S_OK;
@@ -492,6 +474,20 @@ void CCharacter::Attack()
 	}
 }
 
+void CCharacter::NullTargetErase()
+{
+	for (auto& iter = m_Enemys.begin(); iter != m_Enemys.end(); )
+	{
+		if (static_cast<CGameObject*>(*iter)->IsDestroy() || 
+			(*iter) == nullptr)
+		{
+			iter = m_Enemys.erase(iter);
+		}
+		else
+			++iter;
+	}
+}
+
 _bool CCharacter::FindTargetFromList(CGameObject * pObject)
 {
 	_bool ret = false;
@@ -522,6 +518,8 @@ void CCharacter::DeleteTargetFromList(CGameObject * pObject)
 
 void CCharacter::FindNearTarget()
 {
+	m_pNearEnemy = nullptr;
+
 	_float fNear = FLT_MAX;
 	_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
 	for (auto& enemy : m_Enemys)
@@ -828,13 +826,15 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 				m_Enemys.push_back(pEnemy);
 		}
 	}
-
 }
 
 void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 {
 	if (src->Compare(mCollider))
 	{
+		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
+		pEnemy->Destroy();
+
 		//_vector pos = XMVectorSet(31.5f, 0.f, 19.5f, 1.f);
 		//mTransform->Set_State(CTransform::STATE_POSITION, pos);
 	}

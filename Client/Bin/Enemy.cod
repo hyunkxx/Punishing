@@ -2540,7 +2540,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Tick@CEnemy@Client@@UEAAXN@Z DD imagerel $LN3
-	DD	imagerel $LN3+79
+	DD	imagerel $LN3+113
 	DD	imagerel $unwind$?Tick@CEnemy@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2570,13 +2570,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?AddComponents@CEnemy@Client@@AEAAJXZ DD imagerel $LN7
-	DD	imagerel $LN7+721
+	DD	imagerel $LN7+687
 	DD	imagerel $unwind$?AddComponents@CEnemy@Client@@AEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?SetupShaderResources@CEnemy@Client@@AEAAJXZ DD imagerel $LN14
-	DD	imagerel $LN14+648
+$pdata$?SetupShaderResources@CEnemy@Client@@AEAAJXZ DD imagerel $LN15
+	DD	imagerel $LN15+696
 	DD	imagerel $unwind$?SetupShaderResources@CEnemy@Client@@AEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -2797,7 +2797,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CEnemy@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CEnemy@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0baH ; `Client::CEnemy::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CEnemy@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0bfH ; `Client::CEnemy::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1DE@HGPPJNOD@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAE?$AAn?$AAe?$AAm?$AAy?$AA?$AA@
 CONST	SEGMENT
@@ -2820,7 +2820,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CEnemy@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CEnemy@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0aeH ; `Client::CEnemy::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CEnemy@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0b3H ; `Client::CEnemy::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@
 CONST	SEGMENT
@@ -3196,10 +3196,10 @@ xdata	ENDS
 xdata	SEGMENT
 $unwind$?AddComponents@CEnemy@Client@@AEAAJXZ DD 035053b19H
 	DD	010e3313H
-	DD	070070049H
+	DD	070070045H
 	DD	05006H
 	DD	imagerel __GSHandlerCheck
-	DD	0238H
+	DD	0218H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -3326,7 +3326,7 @@ CONST	ENDS
 xdata	SEGMENT
 $unwind$?Tick@CEnemy@Client@@UEAAXN@Z DD 025053001H
 	DD	01142319H
-	DD	0700d001dH
+	DD	0700d0021H
 	DD	0500cH
 xdata	ENDS
 ;	COMDAT xdata
@@ -4118,7 +4118,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CEnemy@Client@@UEAAXXZ PROC			; Client::CEnemy::Free, COMDAT
 
-; 198  : {
+; 203  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4134,15 +4134,15 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 199  : 	__super::Free();
+; 204  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CGameObject@Engine@@UEAAXXZ
 
-; 200  : 
-; 201  : 	Safe_Release(renderer);
+; 205  : 
+; 206  : 	Safe_Release(renderer);
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4150,7 +4150,7 @@ $LN3:
   00042	48 8b c8	 mov	 rcx, rax
   00045	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
-; 202  : 	Safe_Release(transform);
+; 207  : 	Safe_Release(transform);
 
   0004a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4159,7 +4159,7 @@ $LN3:
   00057	48 8b c8	 mov	 rcx, rax
   0005a	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 203  : 	Safe_Release(model);
+; 208  : 	Safe_Release(model);
 
   0005f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4168,7 +4168,7 @@ $LN3:
   0006c	48 8b c8	 mov	 rcx, rax
   0006f	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ; Engine::Safe_Release<Engine::CModel * __ptr64>
 
-; 204  : 	Safe_Release(shader);
+; 209  : 	Safe_Release(shader);
 
   00074	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4177,7 +4177,7 @@ $LN3:
   00081	48 8b c8	 mov	 rcx, rax
   00084	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ; Engine::Safe_Release<Engine::CShader * __ptr64>
 
-; 205  : 	Safe_Release(collider);
+; 210  : 	Safe_Release(collider);
 
   00089	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4186,7 +4186,7 @@ $LN3:
   00096	48 8b c8	 mov	 rcx, rax
   00099	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCCollider@Engine@@@Engine@@YAKAEAPEAVCCollider@0@@Z ; Engine::Safe_Release<Engine::CCollider * __ptr64>
 
-; 206  : }
+; 211  : }
 
   0009e	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4209,7 +4209,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CEnemy@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CEnemy::Clone, COMDAT
 
-; 186  : {
+; 191  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4234,7 +4234,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 187  : 	CEnemy* pInstance = new CEnemy(*this);
+; 192  : 	CEnemy* pInstance = new CEnemy(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CEnemy@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
@@ -4271,7 +4271,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 188  : 	if (FAILED(pInstance->Initialize(pArg)))
+; 193  : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 78 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -4280,8 +4280,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Clone
 
-; 189  : 	{
-; 190  : 		MSG_BOX("Failed to Clone : CEnemy");
+; 194  : 	{
+; 195  : 		MSG_BOX("Failed to Clone : CEnemy");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -4292,19 +4292,19 @@ $LN5@Clone:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 191  : 		Safe_Release(pInstance);
+; 196  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCEnemy@Client@@@Engine@@YAKAEAPEAVCEnemy@Client@@@Z ; Engine::Safe_Release<Client::CEnemy * __ptr64>
 $LN2@Clone:
 
-; 192  : 	}
-; 193  : 
-; 194  : 	return pInstance;
+; 197  : 	}
+; 198  : 
+; 199  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 195  : }
+; 200  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -4402,7 +4402,7 @@ pDevice$ = 368
 pContext$ = 376
 ?Create@CEnemy@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CEnemy::Create, COMDAT
 
-; 174  : {
+; 179  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4427,7 +4427,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 175  : 	CEnemy*	pInstance = new CEnemy(pDevice, pContext);
+; 180  : 	CEnemy*	pInstance = new CEnemy(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CEnemy@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -4466,15 +4466,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 176  : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 181  : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CEnemy@Client@@UEAAJXZ ; Client::CEnemy::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Create
 
-; 177  : 	{
-; 178  : 		MSG_BOX("Failed to Create : CEnemy");
+; 182  : 	{
+; 183  : 		MSG_BOX("Failed to Create : CEnemy");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -4485,19 +4485,19 @@ $LN5@Create:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 179  : 		Safe_Release(pInstance);
+; 184  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCEnemy@Client@@@Engine@@YAKAEAPEAVCEnemy@Client@@@Z ; Engine::Safe_Release<Client::CEnemy * __ptr64>
 $LN2@Create:
 
-; 180  : 	}
-; 181  : 
-; 182  : 	return pInstance;
+; 185  : 	}
+; 186  : 
+; 187  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 183  : }
+; 188  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -4593,9 +4593,9 @@ $T3 = 452
 this$ = 528
 ?SetupShaderResources@CEnemy@Client@@AEAAJXZ PROC	; Client::CEnemy::SetupShaderResources, COMDAT
 
-; 136  : {
+; 138  : {
 
-$LN14:
+$LN15:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	57		 push	 rdi
@@ -4609,7 +4609,7 @@ $LN14:
   00022	48 8b 8c 24 38
 	02 00 00	 mov	 rcx, QWORD PTR [rsp+568]
 
-; 137  : 	if (nullptr == shader)
+; 139  : 	if (nullptr == shader)
 
   0002a	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4617,21 +4617,21 @@ $LN14:
 	00 00 00	 cmp	 QWORD PTR [rax+144], 0
   00039	75 0a		 jne	 SHORT $LN2@SetupShade
 
-; 138  : 		return E_FAIL;
+; 140  : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00040	e9 39 02 00 00	 jmp	 $LN1@SetupShade
+  00040	e9 69 02 00 00	 jmp	 $LN1@SetupShade
 $LN2@SetupShade:
 
-; 139  : 
-; 140  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
+; 141  : 
+; 142  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
 
   00045	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0004b	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 141  : 
-; 142  : 	if (pInstance->Input_KeyState_Custom(DIK_PGUP) == KEY_STATE::TAP)
+; 143  : 
+; 144  : 	if (pInstance->Input_KeyState_Custom(DIK_PGUP) == KEY_STATE::TAP)
 
   0004f	ba c9 00 00 00	 mov	 edx, 201		; 000000c9H
   00054	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
@@ -4640,7 +4640,7 @@ $LN2@SetupShade:
   0005e	83 f8 01	 cmp	 eax, 1
   00061	75 1c		 jne	 SHORT $LN3@SetupShade
 
-; 143  : 		animation++;
+; 145  : 		animation++;
 
   00063	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4653,243 +4653,266 @@ $LN2@SetupShade:
 	00		 mov	 DWORD PTR [rcx+168], eax
 $LN3@SetupShade:
 
-; 144  : 
-; 145  : 	if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
+; 146  : 
+; 147  : 	if (pInstance->Input_KeyState_Custom(DIK_PGDN) == KEY_STATE::TAP)
 
-  0007f	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
-  00086	48 8b 85 10 02
+  0007f	ba d1 00 00 00	 mov	 edx, 209		; 000000d1H
+  00084	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
+  00088	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z
+  0008e	83 f8 01	 cmp	 eax, 1
+  00091	75 1c		 jne	 SHORT $LN4@SetupShade
+
+; 148  : 		animation--;
+
+  00093	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0008d	48 8b 90 90 00
-	00 00		 mov	 rdx, QWORD PTR [rax+144]
-  00094	48 8b 85 10 02
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0009b	48 8b 88 80 00
-	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  000a2	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTransform@Engine@@QEAAJPEAVCShader@2@PEBD@Z
-  000a8	85 c0		 test	 eax, eax
-  000aa	7d 0a		 jge	 SHORT $LN4@SetupShade
-
-; 146  : 		return E_FAIL;
-
-  000ac	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000b1	e9 c8 01 00 00	 jmp	 $LN1@SetupShade
+  0009a	8b 80 a8 00 00
+	00		 mov	 eax, DWORD PTR [rax+168]
+  000a0	ff c8		 dec	 eax
+  000a2	48 8b 8d 10 02
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  000a9	89 81 a8 00 00
+	00		 mov	 DWORD PTR [rcx+168], eax
 $LN4@SetupShade:
 
-; 147  : 
-; 148  : 	if (FAILED(shader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
+; 149  : 
+; 150  : 	if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
 
-  000b6	45 33 c0	 xor	 r8d, r8d
-  000b9	48 8d 95 04 01
-	00 00		 lea	 rdx, QWORD PTR $T1[rbp]
-  000c0	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
-  000c4	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Get_Transform_float4x4@CGameInstance@Engine@@QEAA?AUXMFLOAT4X4@DirectX@@W4TRANSFORM_STATE@CPipeLine@2@@Z
-  000ca	4c 8b c0	 mov	 r8, rax
-  000cd	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@ELIMCBLG@g_ViewMatrix?$AA@
-  000d4	48 8b 85 10 02
+  000af	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
+  000b6	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000db	48 8b 88 90 00
-	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  000e2	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
-  000e8	85 c0		 test	 eax, eax
-  000ea	7d 0a		 jge	 SHORT $LN5@SetupShade
+  000bd	48 8b 90 90 00
+	00 00		 mov	 rdx, QWORD PTR [rax+144]
+  000c4	48 8b 85 10 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000cb	48 8b 88 80 00
+	00 00		 mov	 rcx, QWORD PTR [rax+128]
+  000d2	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTransform@Engine@@QEAAJPEAVCShader@2@PEBD@Z
+  000d8	85 c0		 test	 eax, eax
+  000da	7d 0a		 jge	 SHORT $LN5@SetupShade
 
-; 149  : 		return E_FAIL;
+; 151  : 		return E_FAIL;
 
-  000ec	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000f1	e9 88 01 00 00	 jmp	 $LN1@SetupShade
+  000dc	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  000e1	e9 c8 01 00 00	 jmp	 $LN1@SetupShade
 $LN5@SetupShade:
 
-; 150  : 
-; 151  : 	if (FAILED(shader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
+; 152  : 
+; 153  : 	if (FAILED(shader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
 
-  000f6	41 b8 01 00 00
-	00		 mov	 r8d, 1
-  000fc	48 8d 95 64 01
-	00 00		 lea	 rdx, QWORD PTR $T2[rbp]
-  00103	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
-  00107	ff 15 00 00 00
+  000e6	45 33 c0	 xor	 r8d, r8d
+  000e9	48 8d 95 04 01
+	00 00		 lea	 rdx, QWORD PTR $T1[rbp]
+  000f0	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
+  000f4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_Transform_float4x4@CGameInstance@Engine@@QEAA?AUXMFLOAT4X4@DirectX@@W4TRANSFORM_STATE@CPipeLine@2@@Z
-  0010d	4c 8b c0	 mov	 r8, rax
-  00110	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@OOHDPIO@g_ProjMatrix?$AA@
-  00117	48 8b 85 10 02
+  000fa	4c 8b c0	 mov	 r8, rax
+  000fd	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@ELIMCBLG@g_ViewMatrix?$AA@
+  00104	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0011e	48 8b 88 90 00
+  0010b	48 8b 88 90 00
 	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  00125	ff 15 00 00 00
+  00112	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
-  0012b	85 c0		 test	 eax, eax
-  0012d	7d 0a		 jge	 SHORT $LN6@SetupShade
+  00118	85 c0		 test	 eax, eax
+  0011a	7d 0a		 jge	 SHORT $LN6@SetupShade
 
-; 152  : 		return E_FAIL;
+; 154  : 		return E_FAIL;
 
-  0012f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00134	e9 45 01 00 00	 jmp	 $LN1@SetupShade
+  0011c	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00121	e9 88 01 00 00	 jmp	 $LN1@SetupShade
 $LN6@SetupShade:
 
-; 153  : 
-; 154  : 	if (FAILED(shader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
+; 155  : 
+; 156  : 	if (FAILED(shader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
 
-  00139	48 8d 95 c4 01
-	00 00		 lea	 rdx, QWORD PTR $T3[rbp]
-  00140	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
-  00144	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Get_CamPosition@CGameInstance@Engine@@QEAA?AUXMFLOAT4@DirectX@@XZ
-  0014a	41 b9 0c 00 00
-	00		 mov	 r9d, 12
-  00150	4c 8b c0	 mov	 r8, rax
-  00153	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0P@BDEIJKBM@g_vCamPosition?$AA@
-  0015a	48 8b 85 10 02
+  00126	41 b8 01 00 00
+	00		 mov	 r8d, 1
+  0012c	48 8d 95 64 01
+	00 00		 lea	 rdx, QWORD PTR $T2[rbp]
+  00133	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
+  00137	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_Transform_float4x4@CGameInstance@Engine@@QEAA?AUXMFLOAT4X4@DirectX@@W4TRANSFORM_STATE@CPipeLine@2@@Z
+  0013d	4c 8b c0	 mov	 r8, rax
+  00140	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@OOHDPIO@g_ProjMatrix?$AA@
+  00147	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00161	48 8b 88 90 00
+  0014e	48 8b 88 90 00
 	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  00168	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
-  0016e	85 c0		 test	 eax, eax
-  00170	7d 0a		 jge	 SHORT $LN7@SetupShade
+  00155	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
+  0015b	85 c0		 test	 eax, eax
+  0015d	7d 0a		 jge	 SHORT $LN7@SetupShade
 
-; 155  : 		return E_FAIL;
+; 157  : 		return E_FAIL;
 
-  00172	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00177	e9 02 01 00 00	 jmp	 $LN1@SetupShade
+  0015f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00164	e9 45 01 00 00	 jmp	 $LN1@SetupShade
 $LN7@SetupShade:
 
-; 156  : 
-; 157  : 	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
+; 158  : 
+; 159  : 	if (FAILED(shader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
 
-  0017c	33 d2		 xor	 edx, edx
-  0017e	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
-  00182	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?GetLightDesc@CGameInstance@Engine@@QEAAPEBUtagLight_Desc@2@I@Z
-  00188	48 89 45 28	 mov	 QWORD PTR LightDesc$[rbp], rax
+  00169	48 8d 95 c4 01
+	00 00		 lea	 rdx, QWORD PTR $T3[rbp]
+  00170	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
+  00174	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_CamPosition@CGameInstance@Engine@@QEAA?AUXMFLOAT4@DirectX@@XZ
+  0017a	41 b9 0c 00 00
+	00		 mov	 r9d, 12
+  00180	4c 8b c0	 mov	 r8, rax
+  00183	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0P@BDEIJKBM@g_vCamPosition?$AA@
+  0018a	48 8b 85 10 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00191	48 8b 88 90 00
+	00 00		 mov	 rcx, QWORD PTR [rax+144]
+  00198	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
+  0019e	85 c0		 test	 eax, eax
+  001a0	7d 0a		 jge	 SHORT $LN8@SetupShade
 
-; 158  : 	if (nullptr == LightDesc)
+; 160  : 		return E_FAIL;
 
-  0018c	48 83 7d 28 00	 cmp	 QWORD PTR LightDesc$[rbp], 0
-  00191	75 0a		 jne	 SHORT $LN8@SetupShade
-
-; 159  : 		return E_FAIL;
-
-  00193	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00198	e9 e1 00 00 00	 jmp	 $LN1@SetupShade
+  001a2	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  001a7	e9 02 01 00 00	 jmp	 $LN1@SetupShade
 $LN8@SetupShade:
 
-; 160  : 
-; 161  : 	if (FAILED(shader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
+; 161  : 
+; 162  : 	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
 
-  0019d	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
-  001a1	48 83 c0 04	 add	 rax, 4
-  001a5	41 b9 10 00 00
-	00		 mov	 r9d, 16
-  001ab	4c 8b c0	 mov	 r8, rax
-  001ae	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0M@NHGOLGEL@g_vLightDir?$AA@
-  001b5	48 8b 85 10 02
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001bc	48 8b 88 90 00
-	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  001c3	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
-  001c9	85 c0		 test	 eax, eax
-  001cb	7d 0a		 jge	 SHORT $LN9@SetupShade
+  001ac	33 d2		 xor	 edx, edx
+  001ae	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
+  001b2	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?GetLightDesc@CGameInstance@Engine@@QEAAPEBUtagLight_Desc@2@I@Z
+  001b8	48 89 45 28	 mov	 QWORD PTR LightDesc$[rbp], rax
 
-; 162  : 		return E_FAIL;
+; 163  : 	if (nullptr == LightDesc)
 
-  001cd	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  001d2	e9 a7 00 00 00	 jmp	 $LN1@SetupShade
-$LN9@SetupShade:
-
-; 163  : 	if (FAILED(shader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
-
-  001d7	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
-  001db	48 83 c0 28	 add	 rax, 40			; 00000028H
-  001df	41 b9 10 00 00
-	00		 mov	 r9d, 16
-  001e5	4c 8b c0	 mov	 r8, rax
-  001e8	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0BA@PCOGIHOF@g_vLightDiffuse?$AA@
-  001ef	48 8b 85 10 02
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001f6	48 8b 88 90 00
-	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  001fd	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
-  00203	85 c0		 test	 eax, eax
-  00205	7d 07		 jge	 SHORT $LN10@SetupShade
+  001bc	48 83 7d 28 00	 cmp	 QWORD PTR LightDesc$[rbp], 0
+  001c1	75 0a		 jne	 SHORT $LN9@SetupShade
 
 ; 164  : 		return E_FAIL;
 
-  00207	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0020c	eb 70		 jmp	 SHORT $LN1@SetupShade
+  001c3	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  001c8	e9 e1 00 00 00	 jmp	 $LN1@SetupShade
+$LN9@SetupShade:
+
+; 165  : 
+; 166  : 	if (FAILED(shader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
+
+  001cd	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
+  001d1	48 83 c0 04	 add	 rax, 4
+  001d5	41 b9 10 00 00
+	00		 mov	 r9d, 16
+  001db	4c 8b c0	 mov	 r8, rax
+  001de	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0M@NHGOLGEL@g_vLightDir?$AA@
+  001e5	48 8b 85 10 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001ec	48 8b 88 90 00
+	00 00		 mov	 rcx, QWORD PTR [rax+144]
+  001f3	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
+  001f9	85 c0		 test	 eax, eax
+  001fb	7d 0a		 jge	 SHORT $LN10@SetupShade
+
+; 167  : 		return E_FAIL;
+
+  001fd	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00202	e9 a7 00 00 00	 jmp	 $LN1@SetupShade
 $LN10@SetupShade:
 
-; 165  : 	if (FAILED(shader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
+; 168  : 	if (FAILED(shader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
 
-  0020e	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
-  00212	48 83 c0 48	 add	 rax, 72			; 00000048H
-  00216	41 b9 10 00 00
+  00207	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
+  0020b	48 83 c0 28	 add	 rax, 40			; 00000028H
+  0020f	41 b9 10 00 00
 	00		 mov	 r9d, 16
-  0021c	4c 8b c0	 mov	 r8, rax
-  0021f	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0BB@IJIIKIH@g_vLightSpecular?$AA@
-  00226	48 8b 85 10 02
+  00215	4c 8b c0	 mov	 r8, rax
+  00218	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0BA@PCOGIHOF@g_vLightDiffuse?$AA@
+  0021f	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0022d	48 8b 88 90 00
+  00226	48 8b 88 90 00
 	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  00234	ff 15 00 00 00
+  0022d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
-  0023a	85 c0		 test	 eax, eax
-  0023c	7d 07		 jge	 SHORT $LN11@SetupShade
+  00233	85 c0		 test	 eax, eax
+  00235	7d 07		 jge	 SHORT $LN11@SetupShade
 
-; 166  : 		return E_FAIL;
+; 169  : 		return E_FAIL;
 
-  0023e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00243	eb 39		 jmp	 SHORT $LN1@SetupShade
+  00237	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  0023c	eb 70		 jmp	 SHORT $LN1@SetupShade
 $LN11@SetupShade:
 
-; 167  : 	if (FAILED(shader->SetRawValue("g_vLightAmbient", &LightDesc->vAmbient, sizeof(_float4))))
+; 170  : 	if (FAILED(shader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
 
-  00245	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
-  00249	48 83 c0 38	 add	 rax, 56			; 00000038H
-  0024d	41 b9 10 00 00
+  0023e	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
+  00242	48 83 c0 48	 add	 rax, 72			; 00000048H
+  00246	41 b9 10 00 00
 	00		 mov	 r9d, 16
-  00253	4c 8b c0	 mov	 r8, rax
-  00256	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@
-  0025d	48 8b 85 10 02
+  0024c	4c 8b c0	 mov	 r8, rax
+  0024f	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0BB@IJIIKIH@g_vLightSpecular?$AA@
+  00256	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00264	48 8b 88 90 00
+  0025d	48 8b 88 90 00
 	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  0026b	ff 15 00 00 00
+  00264	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
-  00271	85 c0		 test	 eax, eax
-  00273	7d 07		 jge	 SHORT $LN12@SetupShade
+  0026a	85 c0		 test	 eax, eax
+  0026c	7d 07		 jge	 SHORT $LN12@SetupShade
 
-; 168  : 		return E_FAIL;
+; 171  : 		return E_FAIL;
 
-  00275	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0027a	eb 02		 jmp	 SHORT $LN1@SetupShade
+  0026e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00273	eb 39		 jmp	 SHORT $LN1@SetupShade
 $LN12@SetupShade:
 
-; 169  : 
-; 170  : 	return S_OK;
+; 172  : 	if (FAILED(shader->SetRawValue("g_vLightAmbient", &LightDesc->vAmbient, sizeof(_float4))))
 
-  0027c	33 c0		 xor	 eax, eax
+  00275	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
+  00279	48 83 c0 38	 add	 rax, 56			; 00000038H
+  0027d	41 b9 10 00 00
+	00		 mov	 r9d, 16
+  00283	4c 8b c0	 mov	 r8, rax
+  00286	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@
+  0028d	48 8b 85 10 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00294	48 8b 88 90 00
+	00 00		 mov	 rcx, QWORD PTR [rax+144]
+  0029b	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
+  002a1	85 c0		 test	 eax, eax
+  002a3	7d 07		 jge	 SHORT $LN13@SetupShade
+
+; 173  : 		return E_FAIL;
+
+  002a5	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  002aa	eb 02		 jmp	 SHORT $LN1@SetupShade
+$LN13@SetupShade:
+
+; 174  : 
+; 175  : 	return S_OK;
+
+  002ac	33 c0		 xor	 eax, eax
 $LN1@SetupShade:
 
-; 171  : }
+; 176  : }
 
-  0027e	48 8d a5 f8 01
+  002ae	48 8d a5 f8 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+504]
-  00285	5f		 pop	 rdi
-  00286	5d		 pop	 rbp
-  00287	c3		 ret	 0
+  002b5	5f		 pop	 rdi
+  002b6	5d		 pop	 rbp
+  002b7	c3		 ret	 0
 ?SetupShaderResources@CEnemy@Client@@AEAAJXZ ENDP	; Client::CEnemy::SetupShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -4898,40 +4921,39 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 TransformDesc$ = 8
 collDesc$ = 40
-pGameInstance$ = 120
-$T5 = 352
-$T6 = 388
-$T7 = 420
-$T8 = 452
-$T9 = 496
-__$ArrayPad$ = 520
-this$ = 560
+$T5 = 320
+$T6 = 356
+$T7 = 388
+$T8 = 420
+$T9 = 464
+__$ArrayPad$ = 488
+this$ = 528
 ?AddComponents@CEnemy@Client@@AEAAJXZ PROC		; Client::CEnemy::AddComponents, COMDAT
 
-; 103  : {
+; 108  : {
 
 $LN7:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	57		 push	 rdi
-  00007	48 81 ec 48 02
-	00 00		 sub	 rsp, 584		; 00000248H
+  00007	48 81 ec 28 02
+	00 00		 sub	 rsp, 552		; 00000228H
   0000e	48 8d 6c 24 30	 lea	 rbp, QWORD PTR [rsp+48]
   00013	48 8b fc	 mov	 rdi, rsp
-  00016	b9 92 00 00 00	 mov	 ecx, 146		; 00000092H
+  00016	b9 8a 00 00 00	 mov	 ecx, 138		; 0000008aH
   0001b	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00020	f3 ab		 rep stosd
-  00022	48 8b 8c 24 68
-	02 00 00	 mov	 rcx, QWORD PTR [rsp+616]
+  00022	48 8b 8c 24 48
+	02 00 00	 mov	 rcx, QWORD PTR [rsp+584]
   0002a	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR __security_cookie
   00031	48 33 c5	 xor	 rax, rbp
-  00034	48 89 85 08 02
+  00034	48 89 85 e8 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 104  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&renderer)))
+; 109  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&renderer)))
 
-  0003b	48 8b 85 30 02
+  0003b	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00042	48 83 c0 78	 add	 rax, 120		; 00000078H
   00046	48 c7 44 24 28
@@ -4942,22 +4964,22 @@ $LN7:
   0005b	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CG@COFFFCLL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@
   00062	33 d2		 xor	 edx, edx
-  00064	48 8b 8d 30 02
+  00064	48 8b 8d 10 02
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0006b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
   00071	85 c0		 test	 eax, eax
   00073	7d 0a		 jge	 SHORT $LN2@AddCompone
 
-; 105  : 		return E_FAIL;
+; 110  : 		return E_FAIL;
 
   00075	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0007a	e9 23 02 00 00	 jmp	 $LN1@AddCompone
+  0007a	e9 01 02 00 00	 jmp	 $LN1@AddCompone
 $LN2@AddCompone:
 
-; 106  : 
-; 107  : 	CTransform::TRANSFORM_DESC TransformDesc;
-; 108  : 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
+; 111  : 
+; 112  : 	CTransform::TRANSFORM_DESC TransformDesc;
+; 113  : 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
 
   0007f	41 b8 08 00 00
 	00		 mov	 r8d, 8
@@ -4965,10 +4987,10 @@ $LN2@AddCompone:
   00087	48 8d 4d 08	 lea	 rcx, QWORD PTR TransformDesc$[rbp]
   0008b	e8 00 00 00 00	 call	 memset
 
-; 109  : 
-; 110  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&transform, &TransformDesc)))
+; 114  : 
+; 115  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&transform, &TransformDesc)))
 
-  00090	48 8b 85 30 02
+  00090	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00097	48 05 80 00 00
 	00		 add	 rax, 128		; 00000080H
@@ -4980,23 +5002,23 @@ $LN2@AddCompone:
   000b2	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@MLEFGO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
   000b9	33 d2		 xor	 edx, edx
-  000bb	48 8b 8d 30 02
+  000bb	48 8b 8d 10 02
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   000c2	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
   000c8	85 c0		 test	 eax, eax
   000ca	7d 0a		 jge	 SHORT $LN3@AddCompone
 
-; 111  : 		return E_FAIL;
+; 116  : 		return E_FAIL;
 
   000cc	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000d1	e9 cc 01 00 00	 jmp	 $LN1@AddCompone
+  000d1	e9 aa 01 00 00	 jmp	 $LN1@AddCompone
 $LN3@AddCompone:
 
-; 112  : 
-; 113  : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_shader_vtxanimmodel"), TEXT("com_shader"), (CComponent**)&shader)))
+; 117  : 
+; 118  : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_shader_vtxanimmodel"), TEXT("com_shader"), (CComponent**)&shader)))
 
-  000d6	48 8b 85 30 02
+  000d6	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000dd	48 05 90 00 00
 	00		 add	 rax, 144		; 00000090H
@@ -5008,23 +5030,23 @@ $LN3@AddCompone:
   000f8	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DM@OGMOEMJ@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAv?$AAt?$AAx?$AAa?$AAn?$AAi?$AAm?$AAm?$AAo?$AAd?$AAe?$AAl?$AA?$AA@
   000ff	ba 03 00 00 00	 mov	 edx, 3
-  00104	48 8b 8d 30 02
+  00104	48 8b 8d 10 02
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0010b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
   00111	85 c0		 test	 eax, eax
   00113	7d 0a		 jge	 SHORT $LN4@AddCompone
 
-; 114  : 		return E_FAIL;
+; 119  : 		return E_FAIL;
 
   00115	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0011a	e9 83 01 00 00	 jmp	 $LN1@AddCompone
+  0011a	e9 61 01 00 00	 jmp	 $LN1@AddCompone
 $LN4@AddCompone:
 
-; 115  : 
-; 116  : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_enemy01"), TEXT("com_model"), (CComponent**)&model)))
+; 120  : 
+; 121  : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_enemy01"), TEXT("com_model"), (CComponent**)&model)))
 
-  0011f	48 8b 85 30 02
+  0011f	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00126	48 05 88 00 00
 	00		 add	 rax, 136		; 00000088H
@@ -5036,21 +5058,21 @@ $LN4@AddCompone:
   00141	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DA@JHHOCPPA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAm?$AAo?$AAd?$AAe?$AAl?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA1?$AA?$AA@
   00148	ba 03 00 00 00	 mov	 edx, 3
-  0014d	48 8b 8d 30 02
+  0014d	48 8b 8d 10 02
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00154	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
   0015a	85 c0		 test	 eax, eax
   0015c	7d 0a		 jge	 SHORT $LN5@AddCompone
 
-; 117  : 		return E_FAIL;
+; 122  : 		return E_FAIL;
 
   0015e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00163	e9 3a 01 00 00	 jmp	 $LN1@AddCompone
+  00163	e9 18 01 00 00	 jmp	 $LN1@AddCompone
 $LN5@AddCompone:
 
-; 118  : 
-; 119  : 	transform->Set_State(CTransform::STATE_POSITION, XMVectorSet(25.f, 0.f, 40.f, 1.f));
+; 123  : 
+; 124  : 	transform->Set_State(CTransform::STATE_POSITION, XMVectorSet(25.f, 0.f, 40.f, 1.f));
 
   00168	f3 0f 10 1d 00
 	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
@@ -5060,47 +5082,47 @@ $LN5@AddCompone:
   0017b	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@41c80000
   00183	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
-  00188	0f 29 85 60 01
+  00188	0f 29 85 40 01
 	00 00		 movaps	 XMMWORD PTR $T5[rbp], xmm0
-  0018f	0f 28 85 60 01
+  0018f	0f 28 85 40 01
 	00 00		 movaps	 xmm0, XMMWORD PTR $T5[rbp]
-  00196	0f 29 85 f0 01
+  00196	0f 29 85 d0 01
 	00 00		 movaps	 XMMWORD PTR $T9[rbp], xmm0
-  0019d	4c 8d 85 f0 01
+  0019d	4c 8d 85 d0 01
 	00 00		 lea	 r8, QWORD PTR $T9[rbp]
   001a4	ba 03 00 00 00	 mov	 edx, 3
-  001a9	48 8b 85 30 02
+  001a9	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   001b0	48 8b 88 80 00
 	00 00		 mov	 rcx, QWORD PTR [rax+128]
   001b7	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 120  : 
-; 121  : 	CCollider::COLLIDER_DESC collDesc;
+; 125  : 
+; 126  : 	CCollider::COLLIDER_DESC collDesc;
 
   001bd	48 8d 4d 28	 lea	 rcx, QWORD PTR collDesc$[rbp]
   001c1	e8 00 00 00 00	 call	 ??0tagColliderDesc@CCollider@Engine@@QEAA@XZ
 
-; 122  : 	collDesc.owner = this;
+; 127  : 	collDesc.owner = this;
 
-  001c6	48 8b 85 30 02
+  001c6	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   001cd	48 89 45 28	 mov	 QWORD PTR collDesc$[rbp], rax
 
-; 123  : 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
+; 128  : 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
 
   001d1	0f 57 db	 xorps	 xmm3, xmm3
   001d4	0f 57 d2	 xorps	 xmm2, xmm2
   001d7	0f 57 c9	 xorps	 xmm1, xmm1
-  001da	48 8d 8d 84 01
+  001da	48 8d 8d 64 01
 	00 00		 lea	 rcx, QWORD PTR $T6[rbp]
   001e1	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
   001e6	48 8b d0	 mov	 rdx, rax
   001e9	48 8d 4d 30	 lea	 rcx, QWORD PTR collDesc$[rbp+8]
   001ed	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
 
-; 124  : 	collDesc.vExtants = _float3(0.5f, 0.5f, 0.5f);
+; 129  : 	collDesc.vExtants = _float3(0.5f, 0.5f, 0.5f);
 
   001f2	f3 0f 10 1d 00
 	00 00 00	 movss	 xmm3, DWORD PTR __real@3f000000
@@ -5108,29 +5130,29 @@ $LN5@AddCompone:
 	00 00 00	 movss	 xmm2, DWORD PTR __real@3f000000
   00202	f3 0f 10 0d 00
 	00 00 00	 movss	 xmm1, DWORD PTR __real@3f000000
-  0020a	48 8d 8d a4 01
+  0020a	48 8d 8d 84 01
 	00 00		 lea	 rcx, QWORD PTR $T7[rbp]
   00211	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
   00216	48 8b d0	 mov	 rdx, rax
   00219	48 8d 4d 3c	 lea	 rcx, QWORD PTR collDesc$[rbp+20]
   0021d	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
 
-; 125  : 	collDesc.vRotaion = _float3(0.f, 0.f, 0.f);
+; 130  : 	collDesc.vRotaion = _float3(0.f, 0.f, 0.f);
 
   00222	0f 57 db	 xorps	 xmm3, xmm3
   00225	0f 57 d2	 xorps	 xmm2, xmm2
   00228	0f 57 c9	 xorps	 xmm1, xmm1
-  0022b	48 8d 8d c4 01
+  0022b	48 8d 8d a4 01
 	00 00		 lea	 rcx, QWORD PTR $T8[rbp]
   00232	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
   00237	48 8b d0	 mov	 rdx, rax
   0023a	48 8d 4d 48	 lea	 rcx, QWORD PTR collDesc$[rbp+32]
   0023e	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
 
-; 126  : 
-; 127  : 	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&collider, &collDesc));
+; 131  : 
+; 132  : 	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&collider, &collDesc));
 
-  00243	48 8b 85 30 02
+  00243	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0024a	48 05 98 00 00
 	00		 add	 rax, 152		; 00000098H
@@ -5142,51 +5164,34 @@ $LN5@AddCompone:
   00265	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DE@OCAJEKIC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAp?$AAh?$AAe?$AAr?$AAe?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@
   0026c	ba 03 00 00 00	 mov	 edx, 3
-  00271	48 8b 8d 30 02
+  00271	48 8b 8d 10 02
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00278	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
 
-; 128  : 
-; 129  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 133  : 
+; 134  : 	return S_OK;
 
-  0027e	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
-  00284	48 89 45 78	 mov	 QWORD PTR pGameInstance$[rbp], rax
-
-; 130  : 	pGameInstance->AddCollider(collider);
-
-  00288	48 8b 85 30 02
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0028f	48 8b 90 98 00
-	00 00		 mov	 rdx, QWORD PTR [rax+152]
-  00296	48 8b 4d 78	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  0029a	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?AddCollider@CGameInstance@Engine@@QEAAJPEAVCCollider@2@@Z
-
-; 131  : 
-; 132  : 	return S_OK;
-
-  002a0	33 c0		 xor	 eax, eax
+  0027e	33 c0		 xor	 eax, eax
 $LN1@AddCompone:
 
-; 133  : }
+; 135  : }
 
-  002a2	48 8b f8	 mov	 rdi, rax
-  002a5	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
-  002a9	48 8d 15 00 00
+  00280	48 8b f8	 mov	 rdi, rax
+  00283	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
+  00287	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?AddComponents@CEnemy@Client@@AEAAJXZ$rtcFrameData
-  002b0	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  002b5	48 8b c7	 mov	 rax, rdi
-  002b8	48 8b 8d 08 02
+  0028e	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  00293	48 8b c7	 mov	 rax, rdi
+  00296	48 8b 8d e8 01
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  002bf	48 33 cd	 xor	 rcx, rbp
-  002c2	e8 00 00 00 00	 call	 __security_check_cookie
-  002c7	48 8d a5 18 02
-	00 00		 lea	 rsp, QWORD PTR [rbp+536]
-  002ce	5f		 pop	 rdi
-  002cf	5d		 pop	 rbp
-  002d0	c3		 ret	 0
+  0029d	48 33 cd	 xor	 rcx, rbp
+  002a0	e8 00 00 00 00	 call	 __security_check_cookie
+  002a5	48 8d a5 f8 01
+	00 00		 lea	 rsp, QWORD PTR [rbp+504]
+  002ac	5f		 pop	 rdi
+  002ad	5d		 pop	 rbp
+  002ae	c3		 ret	 0
 ?AddComponents@CEnemy@Client@@AEAAJXZ ENDP		; Client::CEnemy::AddComponents
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -5200,7 +5205,7 @@ this$ = 320
 __$ReturnUdt$ = 328
 ?GetPosition@CEnemy@Client@@QEAA?AUXMFLOAT4@DirectX@@XZ PROC ; Client::CEnemy::GetPosition, COMDAT
 
-; 92   : {
+; 97   : {
 
 $LN4:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -5223,7 +5228,7 @@ $LN4:
   0003a	48 89 85 18 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 93   : 	if (transform == nullptr)
+; 98   : 	if (transform == nullptr)
 
   00041	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5231,7 +5236,7 @@ $LN4:
 	00 00 00	 cmp	 QWORD PTR [rax+128], 0
   00050	75 15		 jne	 SHORT $LN2@GetPositio
 
-; 94   : 		return _float4();
+; 99   : 		return _float4();
 
   00052	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR __$ReturnUdt$[rbp]
@@ -5241,13 +5246,13 @@ $LN4:
   00065	eb 52		 jmp	 SHORT $LN1@GetPositio
 $LN2@GetPositio:
 
-; 95   : 
-; 96   : 	_float4 vPos;
+; 100  : 
+; 101  : 	_float4 vPos;
 
   00067	48 8d 4d 08	 lea	 rcx, QWORD PTR vPos$[rbp]
   0006b	e8 00 00 00 00	 call	 ??0XMFLOAT4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4::XMFLOAT4
 
-; 97   : 	XMStoreFloat4(&vPos, transform->Get_State(CTransform::STATE_POSITION));
+; 102  : 	XMStoreFloat4(&vPos, transform->Get_State(CTransform::STATE_POSITION));
 
   00070	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -5263,8 +5268,8 @@ $LN2@GetPositio:
   00094	48 8d 4d 08	 lea	 rcx, QWORD PTR vPos$[rbp]
   00098	e8 00 00 00 00	 call	 ?XMStoreFloat4@DirectX@@YQXPEAUXMFLOAT4@1@T__m128@@@Z ; DirectX::XMStoreFloat4
 
-; 98   : 
-; 99   : 	return vPos;
+; 103  : 
+; 104  : 	return vPos;
 
   0009d	48 8d 45 08	 lea	 rax, QWORD PTR vPos$[rbp]
   000a1	48 8b bd 48 01
@@ -5276,7 +5281,7 @@ $LN2@GetPositio:
 	00 00		 mov	 rax, QWORD PTR __$ReturnUdt$[rbp]
 $LN1@GetPositio:
 
-; 100  : }
+; 105  : }
 
   000b9	48 8b f8	 mov	 rdi, rax
   000bc	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -5303,7 +5308,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?RenderGUI@CEnemy@Client@@UEAAXXZ PROC			; Client::CEnemy::RenderGUI, COMDAT
 
-; 88   : {
+; 93   : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -5319,7 +5324,7 @@ $LN3:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 89   : }
+; 94   : }
 
   00028	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -5337,7 +5342,7 @@ i$1 = 36
 this$ = 288
 ?Render@CEnemy@Client@@UEAAJXZ PROC			; Client::CEnemy::Render, COMDAT
 
-; 64   : {
+; 69   : {
 
 $LN10:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -5353,7 +5358,7 @@ $LN10:
   00022	48 8b 8c 24 58
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+344]
 
-; 65   : 	if (FAILED(__super::Render()))
+; 70   : 	if (FAILED(__super::Render()))
 
   0002a	48 8b 8d 20 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -5362,14 +5367,14 @@ $LN10:
   00037	85 c0		 test	 eax, eax
   00039	7d 0a		 jge	 SHORT $LN5@Render
 
-; 66   : 		return E_FAIL;
+; 71   : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00040	e9 3a 01 00 00	 jmp	 $LN1@Render
 $LN5@Render:
 
-; 67   : 
-; 68   : 	if (FAILED(SetupShaderResources()))
+; 72   : 
+; 73   : 	if (FAILED(SetupShaderResources()))
 
   00045	48 8b 8d 20 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -5377,14 +5382,14 @@ $LN5@Render:
   00051	85 c0		 test	 eax, eax
   00053	7d 0a		 jge	 SHORT $LN6@Render
 
-; 69   : 		return E_FAIL;
+; 74   : 		return E_FAIL;
 
   00055	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0005a	e9 20 01 00 00	 jmp	 $LN1@Render
 $LN6@Render:
 
-; 70   : 
-; 71   : 	_uint MeshCount = model->Get_MeshCount();
+; 75   : 
+; 76   : 	_uint MeshCount = model->Get_MeshCount();
 
   0005f	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5394,7 +5399,7 @@ $LN6@Render:
 	00		 call	 QWORD PTR __imp_?Get_MeshCount@CModel@Engine@@QEAAIXZ
   00073	89 45 04	 mov	 DWORD PTR MeshCount$[rbp], eax
 
-; 72   : 	for (_uint i = 0; i < MeshCount; ++i)
+; 77   : 	for (_uint i = 0; i < MeshCount; ++i)
 
   00076	c7 45 24 00 00
 	00 00		 mov	 DWORD PTR i$1[rbp], 0
@@ -5409,8 +5414,8 @@ $LN4@Render:
   0008d	0f 83 ea 00 00
 	00		 jae	 $LN3@Render
 
-; 73   : 	{
-; 74   : 		if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
+; 78   : 	{
+; 79   : 		if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
 
   00093	8b 55 24	 mov	 edx, DWORD PTR i$1[rbp]
   00096	48 8b 85 20 01
@@ -5440,13 +5445,13 @@ $LN4@Render:
   000e5	75 02		 jne	 SHORT $LN7@Render
 $LN8@Render:
 
-; 75   : 			continue;
+; 80   : 			continue;
 
   000e7	eb 96		 jmp	 SHORT $LN2@Render
 $LN7@Render:
 
-; 76   : 
-; 77   : 		model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+; 81   : 
+; 82   : 		model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
 
   000e9	c7 44 24 20 01
 	00 00 00	 mov	 DWORD PTR [rsp+32], 1
@@ -5464,8 +5469,8 @@ $LN7@Render:
   00118	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderMaterialResource@CModel@Engine@@QEAAJPEAVCShader@2@PEBDIW4aiTextureType@@@Z
 
-; 78   : 
-; 79   : 		model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
+; 83   : 
+; 84   : 		model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
 
   0011e	44 8b 4d 24	 mov	 r9d, DWORD PTR i$1[rbp]
   00122	4c 8d 05 00 00
@@ -5481,7 +5486,7 @@ $LN7@Render:
   00145	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_BoneMatrices@CModel@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
 
-; 80   : 		shader->Begin(0);
+; 85   : 		shader->Begin(0);
 
   0014b	33 d2		 xor	 edx, edx
   0014d	48 8b 85 20 01
@@ -5491,7 +5496,7 @@ $LN7@Render:
   0015b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
-; 81   : 		model->Render(i);
+; 86   : 		model->Render(i);
 
   00161	8b 55 24	 mov	 edx, DWORD PTR i$1[rbp]
   00164	48 8b 85 20 01
@@ -5501,18 +5506,18 @@ $LN7@Render:
   00172	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CModel@Engine@@QEAAJI@Z
 
-; 82   : 	}
+; 87   : 	}
 
   00178	e9 02 ff ff ff	 jmp	 $LN2@Render
 $LN3@Render:
 
-; 83   : 
-; 84   : 	return S_OK;
+; 88   : 
+; 89   : 	return S_OK;
 
   0017d	33 c0		 xor	 eax, eax
 $LN1@Render:
 
-; 85   : }
+; 90   : }
 
   0017f	48 8d a5 08 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+264]
@@ -5541,7 +5546,7 @@ this$ = 1408
 TimeDelta$ = 1416
 ?LateTick@CEnemy@Client@@UEAAXN@Z PROC			; Client::CEnemy::LateTick, COMDAT
 
-; 43   : {
+; 48   : {
 
 $LN4:
   00000	f2 0f 11 4c 24
@@ -5565,7 +5570,7 @@ $LN4:
   0003b	48 89 85 58 05
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 44   : 	__super::LateTick(TimeDelta);
+; 49   : 	__super::LateTick(TimeDelta);
 
   00042	f2 0f 10 8d 88
 	05 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -5574,9 +5579,9 @@ $LN4:
   00051	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?LateTick@CGameObject@Engine@@UEAAXN@Z
 
-; 45   : 
-; 46   : 	CAnimation::ANIMATION_DESC animDesc;
-; 47   : 	ZeroMemory(&animDesc, sizeof(CAnimation::ANIMATION_DESC));
+; 50   : 
+; 51   : 	CAnimation::ANIMATION_DESC animDesc;
+; 52   : 	ZeroMemory(&animDesc, sizeof(CAnimation::ANIMATION_DESC));
 
   00057	41 b8 08 00 00
 	00		 mov	 r8d, 8
@@ -5584,7 +5589,7 @@ $LN4:
   0005f	48 8d 4d 08	 lea	 rcx, QWORD PTR animDesc$[rbp]
   00063	e8 00 00 00 00	 call	 memset
 
-; 48   : 	animDesc.Clip = animation;
+; 53   : 	animDesc.Clip = animation;
 
   00068	48 8b 85 80 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5592,13 +5597,13 @@ $LN4:
 	00		 mov	 eax, DWORD PTR [rax+168]
   00075	89 45 08	 mov	 DWORD PTR animDesc$[rbp], eax
 
-; 49   : 	animDesc.Type = CAnimation::LOOP;
+; 54   : 	animDesc.Type = CAnimation::LOOP;
 
   00078	c7 45 0c 01 00
 	00 00		 mov	 DWORD PTR animDesc$[rbp+4], 1
 
-; 50   : 
-; 51   : 	model->Setup_Animation(animDesc.Clip, true);
+; 55   : 
+; 56   : 	model->Setup_Animation(animDesc.Clip, true);
 
   0007f	41 b0 01	 mov	 r8b, 1
   00082	8b 55 08	 mov	 edx, DWORD PTR animDesc$[rbp]
@@ -5609,7 +5614,7 @@ $LN4:
   00093	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_Animation@CModel@Engine@@QEAAJI_N@Z
 
-; 52   : 	model->Play_Animation(TimeDelta, transform, animDesc.Type);
+; 57   : 	model->Play_Animation(TimeDelta, transform, animDesc.Type);
 
   00099	c6 44 24 28 00	 mov	 BYTE PTR [rsp+40], 0
   0009e	f2 0f 10 05 00
@@ -5630,9 +5635,9 @@ $LN4:
   000d4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@W4TYPE@CAnimation@2@N_N@Z
 
-; 53   : 
-; 54   : 
-; 55   : 	_matrix tranMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix());
+; 58   : 
+; 59   : 
+; 60   : 	_matrix tranMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix());
 
   000da	48 8d 95 84 03
 	00 00		 lea	 rdx, QWORD PTR $T9[rbp]
@@ -5720,7 +5725,7 @@ $LN4:
   001fd	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
   00202	f3 a4		 rep movsb
 
-; 56   : 	collider->Update(tranMatrix);
+; 61   : 	collider->Update(tranMatrix);
 
   00204	48 8d 85 f0 03
 	00 00		 lea	 rax, QWORD PTR $T10[rbp]
@@ -5742,15 +5747,15 @@ $LN4:
 	00 00		 lea	 rdx, QWORD PTR $T10[rbp]
   00242	ff 50 30	 call	 QWORD PTR [rax+48]
 
-; 57   : 
-; 58   : 	if (nullptr != renderer)
+; 62   : 
+; 63   : 	if (nullptr != renderer)
 
   00245	48 8b 85 80 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0024c	48 83 78 78 00	 cmp	 QWORD PTR [rax+120], 0
   00251	74 1d		 je	 SHORT $LN2@LateTick
 
-; 59   : 		renderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+; 64   : 		renderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 
   00253	4c 8b 85 80 05
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
@@ -5762,8 +5767,8 @@ $LN4:
 	00		 call	 QWORD PTR __imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z
 $LN2@LateTick:
 
-; 60   : 	
-; 61   : }
+; 65   : 	
+; 66   : }
 
   00270	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
   00274	48 8d 15 00 00
@@ -5785,8 +5790,9 @@ _TEXT	ENDS
 ; File c:\github\framework\client\private\enemy.cpp
 ;	COMDAT ?Tick@CEnemy@Client@@UEAAXN@Z
 _TEXT	SEGMENT
-this$ = 224
-TimeDelta$ = 232
+pGameInstance$ = 8
+this$ = 256
+TimeDelta$ = 264
 ?Tick@CEnemy@Client@@UEAAXN@Z PROC			; Client::CEnemy::Tick, COMDAT
 
 ; 38   : {
@@ -5797,32 +5803,51 @@ $LN3:
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0000b	55		 push	 rbp
   0000c	57		 push	 rdi
-  0000d	48 81 ec e8 00
-	00 00		 sub	 rsp, 232		; 000000e8H
+  0000d	48 81 ec 08 01
+	00 00		 sub	 rsp, 264		; 00000108H
   00014	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
   00019	48 8b fc	 mov	 rdi, rsp
-  0001c	b9 3a 00 00 00	 mov	 ecx, 58			; 0000003aH
+  0001c	b9 42 00 00 00	 mov	 ecx, 66			; 00000042H
   00021	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00026	f3 ab		 rep stosd
-  00028	48 8b 8c 24 08
-	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
+  00028	48 8b 8c 24 28
+	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
 
 ; 39   : 	__super::Tick(TimeDelta);
 
-  00030	f2 0f 10 8d e8
-	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  00038	48 8b 8d e0 00
+  00030	f2 0f 10 8d 08
+	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
+  00038	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0003f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Tick@CGameObject@Engine@@UEAAXN@Z
 
-; 40   : }
+; 40   : 
+; 41   : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-  00045	48 8d a5 c8 00
-	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  0004c	5f		 pop	 rdi
-  0004d	5d		 pop	 rbp
-  0004e	c3		 ret	 0
+  00045	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
+  0004b	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
+
+; 42   : 
+; 43   : 	pGameInstance->AddCollider(collider);
+
+  0004f	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00056	48 8b 90 98 00
+	00 00		 mov	 rdx, QWORD PTR [rax+152]
+  0005d	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  00061	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?AddCollider@CGameInstance@Engine@@QEAAJPEAVCCollider@2@@Z
+
+; 44   : 
+; 45   : }
+
+  00067	48 8d a5 e8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+232]
+  0006e	5f		 pop	 rdi
+  0006f	5d		 pop	 rbp
+  00070	c3		 ret	 0
 ?Tick@CEnemy@Client@@UEAAXN@Z ENDP			; Client::CEnemy::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI

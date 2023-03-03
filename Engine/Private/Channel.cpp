@@ -186,7 +186,9 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 			//트렌스폼 위치 조정
 			vAlignPos = XMVectorSetY(vAlignPos, 0.0);
 			_vector vFinalPos = vCurrentPos + vAlignPos;
-			pTransform->Set_State(CTransform::STATE_POSITION, vFinalPos);
+
+			if(pTransform != nullptr)
+				pTransform->Set_State(CTransform::STATE_POSITION, vFinalPos);
 
 			//현재 키프레임의 본 위치 저장
 			XMStoreFloat3(&m_vPrevBonePos, vPosition);

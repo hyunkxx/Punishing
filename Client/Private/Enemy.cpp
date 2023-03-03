@@ -37,6 +37,11 @@ HRESULT CEnemy::Initialize(void * pArg)
 void CEnemy::Tick(_double TimeDelta)
 {
 	__super::Tick(TimeDelta);
+
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	pGameInstance->AddCollider(collider);
+
 }
 
 void CEnemy::LateTick(_double TimeDelta)
@@ -126,9 +131,6 @@ HRESULT CEnemy::AddComponents()
 
 	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&collider, &collDesc));
 
-	CGameInstance* pGameInstance = CGameInstance::GetInstance();
-	pGameInstance->AddCollider(collider);
-
 	return S_OK;
 }
 
@@ -141,6 +143,9 @@ HRESULT CEnemy::SetupShaderResources()
 
 	if (pInstance->Input_KeyState_Custom(DIK_PGUP) == KEY_STATE::TAP)
 		animation++;
+
+	if (pInstance->Input_KeyState_Custom(DIK_PGDN) == KEY_STATE::TAP)
+		animation--;
 
 	if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
 		return E_FAIL;

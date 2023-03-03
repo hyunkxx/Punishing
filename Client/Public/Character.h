@@ -173,6 +173,7 @@ private:
 public: // Enemy 관련 코드
 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
 	_bool IsCameraLockOn() { return m_pNearEnemy != nullptr; };
+	void NullTargetErase();
 	_bool FindTargetFromList(CGameObject* pObject);
 	void DeleteTargetFromList(CGameObject* pObject);
 	void FindNearTarget();

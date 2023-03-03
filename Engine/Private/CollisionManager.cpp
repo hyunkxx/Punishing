@@ -98,6 +98,9 @@ void CCollisionManager::Render()
 	for (auto& coll : _collisions)
 		coll->Render();
 #endif
+
+	//Gameobject가 null인지 null이면 지움
+	Clear();
 }
 
 void CCollisionManager::Clear()
