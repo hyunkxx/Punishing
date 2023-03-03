@@ -29,17 +29,20 @@ public:
 	virtual HRESULT Initialize(void* arg) = 0;
 
 public:
-	virtual void Update() = 0;
+	virtual void Update(_matrix transformMatrix) = 0;
 	virtual _bool Collision(CCollider* targetCollider) = 0;
 	virtual void Render() = 0;
 
 public:
+	_bool Compare(CCollider* collider) { return this == collider; };
 	void EraseHitCollider(CCollider* collider);
 	void AddHitCollider(CCollider* collider);
 	_bool IsHitCollider(CCollider* collider);
-	void SetOwner(class CGameObject* owner) { owner = owner; }
-	class CGameObject* GetOwner() const { return _owner; }
+	void SetColor(_float4 color) { _color = color; };
+	void SetOwner(class CGameObject* owner) { _collDesc.owner = owner; }
+	class CGameObject* GetOwner() const { return _collDesc.owner; }
 	COLL_TYPE GetType() const {	return _type; }
+	void SetCollision(_bool value) { _isColl = value; }
 	_bool IsColl() const { return _isColl; }
 	//void Reset(_float3 );
 
@@ -50,36 +53,36 @@ public:
 public:
 
 protected:
-	class CGameObject* _owner;
-	COLLIDER_DESC _collDesc;
 	_bool _isColl = false;
+	COLLIDER_DESC _collDesc;
 	COLL_TYPE _type = COLL_TYPE::COLL_END;
+	
+	_float4 _color = { 1.f, 1.f, 1.f, 1.f };
 
 	list<CCollider*> hitCollider;
 protected:
 	PrimitiveBatch<VertexPositionColor>* _batch = nullptr;
 	BasicEffect* _effect = nullptr;
 	ID3D11InputLayout* _inputLayout = nullptr;
-	
 
 };
 
-class ENGINE_DLL IOnCollisionEnter abstract
+class ENGINE_DLL IOnCollisionEnter
 {
 public:
-	virtual void OnCollisionEnter(CCollider* coll) = 0;
+	virtual void OnCollisionEnter(CCollider * src, CCollider * dest) = 0;
 };
 
-class ENGINE_DLL IOnCollisionStay abstract
+class ENGINE_DLL IOnCollisionStay
 {
 public:
-	virtual  void OnCollisionStay(CCollider* coll) = 0;
+	virtual void OnCollisionStay(CCollider * src, CCollider * dest) = 0;
 };
 
-class ENGINE_DLL IOnCollisionExit abstract
+class ENGINE_DLL IOnCollisionExit
 {
 public:
-	virtual  void OnCollisionExit(CCollider* coll) = 0;
+	virtual void OnCollisionExit(CCollider * src, CCollider * dest) = 0;
 };
 
 END

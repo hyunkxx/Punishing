@@ -40,7 +40,7 @@ public:
 	_bool IsLerpFinish() { return m_Channels[0]->IsLerpFinish(); }
 
 private:
-	void AnimationLerp(_double TimeDelta, CTransform* pTransform, PREV_DATA PrevData, const _double RatioValue);
+	void AnimationLerp(_double TimeDelta, CTransform* pTransform, PREV_DATA PrevData, const _double RatioValue, _bool bHoldAxisY = false);
 
 	void PlayLoop(_double TimeDelta, CTransform* pTransform, _bool bHoldAxisY = false);
 	void PlayOne(_double TimeDelta, CTransform* pTransform, _bool bHoldAxisY = false);

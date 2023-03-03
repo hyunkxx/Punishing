@@ -21,6 +21,9 @@ HRESULT CLevel_GamePlay::Initialize()
 	if (FAILED(Ready_Layer_Player(TEXT("layer_player"))))
 		return E_FAIL;
 
+	if (FAILED(Ready_Layer_Enemy(TEXT("layer_enemy"))))
+		return E_FAIL;
+
 	if (FAILED(Ready_Layer_Camera(TEXT("layer_camera"))))
 		return E_FAIL;
 
@@ -62,6 +65,9 @@ HRESULT CLevel_GamePlay::Ready_Layer_BackGround(const _tchar* pLayerTag)
 	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_city", L"city", pLayerTag))
 		return E_FAIL;
 
+	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_sky", L"sky", pLayerTag))
+		return E_FAIL;
+
 	return S_OK;
 }
 
@@ -100,6 +106,16 @@ HRESULT CLevel_GamePlay::Ready_Layer_Player(const _tchar* pLayerTag)
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	mPlayer = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kamui"), L"kamui", pLayerTag);
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_Enemy(const _tchar * pLayerTag)
+{
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy01", pLayerTag, mPlayer))
+		return E_FAIL;
 
 	return S_OK;
 }

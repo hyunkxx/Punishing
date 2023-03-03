@@ -10,6 +10,10 @@
 #include "../../Tool/ImGui/imgui_impl_win32.h"
 #include "../../Tool/ImGui/imgui_impl_dx11.h"
 
+
+//nan check
+#include<cmath> 
+
 // Assimp
 #include "Assimp/scene.h"
 #include "Assimp/Importer.hpp"

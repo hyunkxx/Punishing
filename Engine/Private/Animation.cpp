@@ -67,7 +67,7 @@ void CAnimation::LerpFinish()
 	}
 }
 
-void CAnimation::AnimationLerp(_double TimeDelta, CTransform * pTransform, PREV_DATA PrevData, const _double RatioValue)
+void CAnimation::AnimationLerp(_double TimeDelta, CTransform * pTransform, PREV_DATA PrevData, const _double RatioValue, _bool bHoldAxisY)
 {
 	m_LocalTime += m_TickPerSecond * TimeDelta;
 	_double Ratio = m_LocalTime / RatioValue;

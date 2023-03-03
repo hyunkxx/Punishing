@@ -16,12 +16,7 @@ HRESULT CCollisionManager::AddCollider(CCollider* collider)
 
 void CCollisionManager::PhysicsUpdate()
 {
-	for (_uint i = 0; i < _collisions.size(); ++i)
-	{
-		_collisions[i]->Update();
-	}
-
-	//중복되게 호출하지 않겠다. j == i
+	//중복되게 호출하지 않겠다.
  	for (_uint i = 0; i < _collisions.size() ; ++i)
 	{
 		for (_uint j = i; j < _collisions.size(); ++j)
@@ -39,47 +34,59 @@ void CCollisionManager::PhysicsUpdate()
 			//충돌했음
 			if (_collisions[i]->Collision(_collisions[j]))
 			{
-				//최초 충돌
+				_collisions[i]->SetCollision(true);
+				_collisions[j]->SetCollision(true);
+
+				//최초충돌 Enter
 				if (!_collisions[i]->IsHitCollider(_collisions[j]))
 				{
 					IOnCollisionEnter* src = dynamic_cast<IOnCollisionEnter*>(srcObject);
 					IOnCollisionEnter* dest = dynamic_cast<IOnCollisionEnter*>(destObject);
 
 					if (src)
-						src->OnCollisionEnter(_collisions[j]);
+						src->OnCollisionEnter(_collisions[i], _collisions[j]);
 					if (dest)
-						dest->OnCollisionEnter(_collisions[j]);
+						dest->OnCollisionEnter(_collisions[j], _collisions[i]);
 
 					//충돌중인 리스트에 추가
 					_collisions[i]->AddHitCollider(_collisions[j]);
 					_collisions[j]->AddHitCollider(_collisions[i]);
+
 				}
-				//기존에도 충돌
+				//충돌중 Stay
 				else
 				{
 					IOnCollisionStay* src = dynamic_cast<IOnCollisionStay*>(srcObject);
 					IOnCollisionStay* dest = dynamic_cast<IOnCollisionStay*>(destObject);
 
 					if (src)
-						src->OnCollisionStay(_collisions[j]);
+						src->OnCollisionStay(_collisions[i], _collisions[j]);
 					if (dest)
-						dest->OnCollisionStay(_collisions[j]);
+						dest->OnCollisionStay(_collisions[j], _collisions[i]);
 				}
 			}
-			//충돌하지 않았다면
+			//충돌하지 않음
 			else
 			{
-				IOnCollisionExit* src = dynamic_cast<IOnCollisionExit*>(srcObject);
-				IOnCollisionExit* dest = dynamic_cast<IOnCollisionExit*>(destObject);
+				//이전충돌 현재X Exit
+				if (_collisions[i]->IsHitCollider(_collisions[j]))
+				{
+					IOnCollisionExit* src = dynamic_cast<IOnCollisionExit*>(srcObject);
+					IOnCollisionExit* dest = dynamic_cast<IOnCollisionExit*>(destObject);
 
-				if (src)
-					src->OnCollisionExit(_collisions[j]);
-				if (dest)
-					dest->OnCollisionExit(_collisions[j]);
+					if (src)
+						src->OnCollisionExit(_collisions[i], _collisions[j]);
+					if (dest)
+						dest->OnCollisionExit(_collisions[j], _collisions[i]);
 
-				//충돌중인 리스트에서 삭제
-				_collisions[i]->EraseHitCollider(_collisions[j]);
-				_collisions[j]->EraseHitCollider(_collisions[i]);
+					//충돌중인 리스트에서 삭제
+					_collisions[i]->EraseHitCollider(_collisions[j]);
+					_collisions[j]->EraseHitCollider(_collisions[i]);
+
+				}
+
+				_collisions[i]->SetCollision(false);
+				_collisions[j]->SetCollision(false);
 			}
 		}
 	}
@@ -87,8 +94,10 @@ void CCollisionManager::PhysicsUpdate()
 
 void CCollisionManager::Render()
 {
+#ifdef _DEBUG
 	for (auto& coll : _collisions)
 		coll->Render();
+#endif
 }
 
 void CCollisionManager::Clear()

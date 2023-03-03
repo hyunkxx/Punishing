@@ -8,13 +8,13 @@ CCollider::CCollider(ID3D11Device * device, ID3D11DeviceContext * context)
 
 CCollider::CCollider(const CCollider & rhs)
 	: CComponent(rhs)
-	, _collDesc(rhs._collDesc)
 	, _inputLayout(rhs._inputLayout)
 	, _isColl(rhs._isColl)
 	, _batch(rhs._batch)
 	, _effect(rhs._effect)
+	, _type(rhs._type)
+	, _color(rhs._color)
 {
-	_owner = nullptr;
 
 	Safe_AddRef(_inputLayout);
 }

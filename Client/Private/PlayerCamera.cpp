@@ -4,6 +4,7 @@
 #include "Character.h"
 #include "Transform.h"
 #include "Model.h"
+#include "Enemy.h"
 #include "Bone.h"
 
 CPlayerCamera::CPlayerCamera(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
@@ -29,15 +30,19 @@ HRESULT CPlayerCamera::Initialize(void * pArg)
 	m_pTransform = CTransform::Create(m_pDevice, m_pContext);
 	if (nullptr == m_pTransform)
 		return E_FAIL;
-
+	
 	assert(pArg);
 	m_pTarget = (CGameObject*)pArg;
-	m_pTargetTransform = static_cast<CTransform*>(m_pTarget->Find_Component(L"com_camera_socket_transform"));
+
+	m_pTargetTransform = static_cast<CTransform*>(m_pTarget->Find_Component(L"com_transform"));
+	m_pSocketTransform = static_cast<CTransform*>(m_pTarget->Find_Component(L"com_camera_socket_transform"));
 
 	m_CameraDesc.fFovy = XMConvertToRadians(45.f);
 	m_CameraDesc.fAspect = g_iWinSizeX / (_float)g_iWinSizeY;
 	m_CameraDesc.fNear = 0.1f;
 	m_CameraDesc.fFar = 1000.f;
+
+	m_pTransform->Set_State(CTransform::STATE_POSITION, m_pSocketTransform->Get_State(CTransform::STATE_POSITION));
 
 	return S_OK;
 }
@@ -45,43 +50,75 @@ HRESULT CPlayerCamera::Initialize(void * pArg)
 void CPlayerCamera::Tick(_double TimeDelta)
 {
 	__super::Tick(TimeDelta);
-
-	CGameInstance* pGameInstance = CGameInstance::GetInstance();
-
-	assert(m_pTargetTransform);
-
-	_vector vTargetPos = m_pTargetTransform->Get_State(CTransform::STATE_POSITION);
-	_vector vTargetLook = XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_LOOK));
-
-	_vector vCameraPosition = vTargetPos - XMLoadFloat3(&vDistance);
-
-	vCameraPosition = vTargetPos - (vTargetLook * vDistance.z);
-	vCameraPosition = XMVectorSetY(vCameraPosition, vDistance.y);
-
-	if (pGameInstance->Input_MouseState_Custom(DIMK_RB) == KEY_STATE::HOLD)
-		m_bMouseLock = false;
-	else
-		m_bMouseLock = true;
-
-	if (!m_bMouseLock)
-	{
-		_long MouseMove = 0;
-		if (MouseMove = pGameInstance->Input_MouseMove(DIMM_X))
-		{
-			m_pTargetTransform->Rotate(VECTOR_UP, MouseMove * TimeDelta * 0.1f);
-		}
-	}
-
-	//if (MouseMove = pGameInstance->Input_MouseMove(DIMM_Y))
-	//	m_pTransform->Rotate(m_pTransform->Get_State(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 0.1f);
-
-	m_pTransform->Set_State(CTransform::STATE_POSITION, vCameraPosition);
-	m_pTransform->LookAt(vTargetPos);
 }
 
 void CPlayerCamera::LateTick(_double TimeDelta)
 {
 	__super::LateTick(TimeDelta);
+
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	_vector vTargetPos = m_pTargetTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vTargetLook = XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_LOOK));
+	vTargetPos = XMVectorSetY(vTargetPos, 1.5f);
+
+	//_vector vCameraPosition = vTargetPos - XMLoadFloat3(&vDistance);
+
+	//vCameraPosition = vTargetPos - (vTargetLook * vDistance.z);
+	//vCameraPosition = XMVectorSetY(vCameraPosition, vDistance.y);
+	//
+	//if (pGameInstance->Input_MouseState_Custom(DIMK_RB) == KEY_STATE::HOLD)
+	//	m_bMouseLock = false;
+	//else
+	//	m_bMouseLock = true;
+	//
+	//if (!m_bMouseLock)
+	//{
+	//	_long MouseMove = 0;
+	//	if (MouseMove = pGameInstance->Input_MouseMove(DIMM_X))
+	//	{
+	//		m_pTargetTransform->Rotate(VECTOR_UP, MouseMove * TimeDelta * 0.1f);
+	//	}
+	//}
+
+	//if (MouseMove = pGameInstance->Input_MouseMove(DIMM_Y))
+	//	m_pTransform->Rotate(m_pTransform->Get_State(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 0.1f);
+
+
+	//카메라가 락온 되었을때
+	if (static_cast<CCharacter*>(m_pTarget)->IsCameraLockOn())
+	{
+		CTransform* pPlayerTransform = (CTransform*)static_cast<CCharacter*>(m_pTarget)->Find_Component(L"com_transform");
+		_vector vCameraPos = pPlayerTransform->Get_State(CTransform::STATE_POSITION) - XMLoadFloat3(&static_cast<CCharacter*>(m_pTarget)->LockOnCameraPosition());
+		vCameraPos = XMVectorSetY(vCameraPos, XMVectorGetY(m_pTransform->Get_State(CTransform::STATE_POSITION)));
+		
+		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
+		_vector vPosition = XMVectorLerp(vCurPosition, vCameraPos, (_float)TimeDelta * 4.0f);
+
+		_float4 vLockOnTargetPos = ((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition();
+		vLockOnTargetPos.y += 1.f;
+
+		m_pTransform->Set_State(CTransform::STATE_POSITION, vPosition);
+
+		_vector vCurLook = XMVectorLerp(XMLoadFloat4(&vLookTarget), XMLoadFloat4(&vLockOnTargetPos), (_float)TimeDelta * 1.f);
+		XMStoreFloat4(&vLookTarget, vCurLook);
+
+
+		m_pTransform->LookAt(XMLoadFloat4(&vLookTarget));
+	}
+	else
+	{
+		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
+		_vector vPosition = XMVectorLerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 2.f);
+
+		m_pTransform->Set_State(CTransform::STATE_POSITION, vPosition);
+
+		_vector vCurLook = XMVectorLerp(XMLoadFloat4(&vLookTarget), vTargetPos, (_float)TimeDelta * 0.1);
+		XMStoreFloat4(&vLookTarget, vCurLook);
+
+		XMStoreFloat4(&vLookTarget,vTargetPos);
+		m_pTransform->LookAt(vTargetPos);
+	}
 }
 
 HRESULT CPlayerCamera::Render()

@@ -136,6 +136,9 @@ void CGameInstance::RenderGUI()
 	if (nullptr == m_pObject_Manager)
 		return;
 
+	if (nullptr == m_pCollision_Manager)
+		return;
+
 	m_pObject_Manager->RenderGUI();
 }
 

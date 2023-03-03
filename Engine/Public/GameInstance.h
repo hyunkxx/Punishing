@@ -29,7 +29,7 @@ public: //Level_Manager
 public: //Object_Manager
 	HRESULT Add_Prototype(const _tchar* pPrototypeTag, class CGameObject* pPrototype);
 	class CGameObject* Add_GameObject(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pLayerTag, wstring strObjectTag, void* pArg = nullptr);
-	void	RenderGUI();
+	void RenderGUI();
 
 	void LayerClear(_uint iLevelIndex, const _tchar* pLayerTag);
 	class CLayer* Find_Layer(_uint iLevelIndex, const _tchar* pLayerTag);

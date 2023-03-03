@@ -6,7 +6,9 @@
 #include "BackGround.h"
 #include "Terrain.h"
 #include "City.h"
+#include "Skybox.h"
 #include "Character.h"
+#include "Enemy.h"
 #include "Weapon.h"
 
 CLoader::CLoader(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
@@ -86,7 +88,7 @@ HRESULT CLoader::Load_Level_GamePlay()
 
 	//GamePlay Component
 #pragma region COMPONENTS
-	m_szLoadingStateText = L"텍스쳐를 로딩중입니다.";
+	m_szLoadingStateText = L"Texture..";
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_texture_terrain"),
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Terrain/Tile0.dds")))))
@@ -96,17 +98,29 @@ HRESULT CLoader::Load_Level_GamePlay()
 		CVIBuffer_Terrain::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Terrain/Height.bmp")))))
 		return E_FAIL;
 
-	m_szLoadingStateText = L"정점버퍼를 로딩중입니다.";
+	m_szLoadingStateText = L"Buffer..";
 
-	m_szLoadingStateText = L"모델를 로딩중입니다.";
+
+	m_szLoadingStateText = L"Collision..";
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"),
+		CSphereCollider::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+
+	m_szLoadingStateText = L"Model..";
 
 	_matrix	cityMatrix = XMMatrixIdentity();
-	cityMatrix = XMMatrixRotationY(XMConvertToRadians(90.f)) * XMMatrixTranslation(100.f, -6.f, -15.f);
+	cityMatrix = XMMatrixRotationY(XMConvertToRadians(180.f));
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_city",
-		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Level/City/City.fbx", cityMatrix))))
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Level/Load/Load.fbx", cityMatrix))))
 		return E_FAIL;
 	
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_sky",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Level/Load/Sky.fbx", cityMatrix))))
+		return E_FAIL;
+
 	// 무기는 정방향
 	_matrix	LocalMatrix = XMMatrixIdentity();
 
@@ -121,7 +135,12 @@ HRESULT CLoader::Load_Level_GamePlay()
 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Character/Kamui/Body/Kamui.fbx", LocalMatrix, CCharacter::CLIP_END))))
 		return E_FAIL;
 
-	m_szLoadingStateText = L"셰이더를 로딩중입니다.";
+	// Enemy01
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_enemy01",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Enemy/01/Enemy01.fbx", LocalMatrix, CCharacter::CLIP_END))))
+		return E_FAIL;
+
+	m_szLoadingStateText = L"Shader..";
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_shader_vtxnortex"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXNORTEX.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
@@ -131,9 +150,6 @@ HRESULT CLoader::Load_Level_GamePlay()
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXANIMMODEL.hlsl"), VTXANIMMODEL_DECLARATION::Elements, VTXANIMMODEL_DECLARATION::ElementCount))))
 		return E_FAIL;
 
-	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"),
-		CSphereCollider::Create(m_pDevice, m_pContext))))
-		return E_FAIL;
 #pragma endregion
 
 	//GamePlay GameObject
@@ -145,7 +161,13 @@ HRESULT CLoader::Load_Level_GamePlay()
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_city"), CCity::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_sky"), CSkybox::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui"), CCharacter::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_enemy01"), CEnemy::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui_weapon"), CWeapon::Create(m_pDevice, m_pContext))))

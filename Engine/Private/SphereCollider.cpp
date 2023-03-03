@@ -39,12 +39,21 @@ HRESULT CSphereCollider::Initialize(void * arg)
 {
 	//if (nullptr != arg)
 	//	memcpy(&_collDesc, arg, sizeof(COLLIDER_DESC));
+
 	if (nullptr != arg)
 	{
 		_collDesc.owner = static_cast<COLLIDER_DESC*>(arg)->owner;
 		_collDesc.vCenter = static_cast<COLLIDER_DESC*>(arg)->vCenter;
 		_collDesc.vExtants = static_cast<COLLIDER_DESC*>(arg)->vExtants;
 		_collDesc.vRotaion = static_cast<COLLIDER_DESC*>(arg)->vRotaion;
+	}
+
+	SetOwner(_collDesc.owner);
+
+	if (!_collDesc.owner)
+	{
+		MSG_BOX("CSphere.Owner == nullptr");
+		return E_FAIL;
 	}
 
 	_matrix scaleMatrix, rotationMatrix, translationMatrix;
@@ -55,37 +64,30 @@ HRESULT CSphereCollider::Initialize(void * arg)
 	_matrix transformMatrix = XMMatrixIdentity();
 
 	_sphere = new BoundingSphere(_float3(0.f, 0.f, 0.f), 0.5f);
+	transformMatrix = scaleMatrix * rotationMatrix * translationMatrix;
 	_sphere->Transform(*_sphere, transformMatrix);
 	_sphereOriginal = new BoundingSphere(*_sphere);
-
-
 
 	return S_OK;
 }
 
-void CSphereCollider::Update()
+void CSphereCollider::Update(_matrix transformMatrix)
 {
-	if (!_collDesc.owner)
-		MSG_BOX("CSphere.Owner == nullptr");
-
-	_isColl = false;
-
-	CComponent* transform = _collDesc.owner->Find_Component(L"com_transform");
-	_matrix transformMatrix = XMLoadFloat4x4(&static_cast<CTransform*>(transform)->Get_WorldMatrix());
-
 	_sphereOriginal->Transform(*_sphere, transformMatrix);
 }
 
 _bool CSphereCollider::Collision(CCollider * targetCollider)
 {
+	_bool ret = false;
+
 	if (COLL_SPHERE == targetCollider->GetType())
-		_isColl = _sphere->Intersects(*static_cast<CSphereCollider*>(targetCollider)->_sphere);
+		ret = _sphere->Intersects(*(static_cast<CSphereCollider*>(targetCollider)->_sphere));
 	else if (COLL_AABB == targetCollider->GetType())
-		_isColl = _sphere->Intersects(*static_cast<CSphereCollider*>(targetCollider)->_sphere);
+		ret = _sphere->Intersects(*(static_cast<CSphereCollider*>(targetCollider)->_sphere));
 	else if (COLL_AABB == targetCollider->GetType())
-		_isColl = _sphere->Intersects(*static_cast<CSphereCollider*>(targetCollider)->_sphere);
-	
-	return _isColl;
+		ret = _sphere->Intersects(*(static_cast<CSphereCollider*>(targetCollider)->_sphere));
+
+	return ret;
 }
 
 void CSphereCollider::Render()
@@ -100,7 +102,7 @@ void CSphereCollider::Render()
 	_effect->Apply(m_pContext);
 
 	_batch->Begin();
-	_vector color = _isColl == true ? XMVectorSet(1.0f, 0.f, 0.f, 1.f) : XMVectorSet(0.f, 1.f, 0.f, 1.f);
+	_vector color = _isColl == true ? XMVectorSet(1.0f, 0.f, 0.f, 1.f) : XMLoadFloat4(&_color);
 	
 	DX::Draw(_batch, *_sphere, color);
 

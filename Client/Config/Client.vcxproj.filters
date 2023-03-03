@@ -68,6 +68,9 @@
     <Filter Include="src\02. GameObjects\04. Character\Command">
       <UniqueIdentifier>{3b6f5ac3-292e-406d-ab20-7172fe85ab5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\02. GameObjects\Enemy">
+      <UniqueIdentifier>{a1be8fae-8749-45dc-a4f4-f079c734514b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h">
@@ -154,6 +157,12 @@
     <ClInclude Include="..\public\Character.h">
       <Filter>src\02. GameObjects\04. Character</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Enemy.h">
+      <Filter>src\02. GameObjects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Skybox.h">
+      <Filter>src\02. GameObjects\03. Stage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -224,6 +233,12 @@
     </ClCompile>
     <ClCompile Include="..\private\Weapon.cpp">
       <Filter>src\02. GameObjects\04. Character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Enemy.cpp">
+      <Filter>src\02. GameObjects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Skybox.cpp">
+      <Filter>src\02. GameObjects\03. Stage</Filter>
     </ClCompile>
     <ClCompile Include="..\private\Character.cpp">
       <Filter>src\02. GameObjects\04. Character</Filter>

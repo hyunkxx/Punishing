@@ -29,6 +29,7 @@ protected: // ÄÄÆ÷³ÍÆ® ¸â¹öº¯¼ö¿Í ¸Ê¿¡ ¸ðµÎ º¸°üÇÔ , ¸â¹ö + ¸Ê
 	HRESULT Add_Component(_uint iLevelIndex, const _tchar* pPrototypeTag, const _tchar* pComponentTag, class CComponent** ppOut, void* pArg = nullptr);
 
 public:
+	_bool Compare(CGameObject* pGameObject) { return this == pGameObject; }
 	_ulong GetID() { return ObjectID; }
 
 	void SetState(STATE eState) { m_eState = eState; }

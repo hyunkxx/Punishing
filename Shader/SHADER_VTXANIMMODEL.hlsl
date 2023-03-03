@@ -96,13 +96,13 @@ PS_OUT PS_MAIN(PS_IN In)
 
 	float fShade = saturate(dot(normalize(g_vLightDir) * -1.f, In.vNormal));
 
-	if (fShade > 0.6f)
+	if (fShade > 0.9f)
 		fShade = 1.f;
-	else if (fShade > 0.4f)
-		fShade = 0.6f;
-	else if (fShade > 0.1f)
-		fShade = 0.4f;
-	else if (fShade > 0.1f)
+	else if (fShade > 0.7f)
+		fShade = 0.7f;
+	else if (fShade > 0.2f)
+		fShade = 0.2f;
+	else if (fShade > 0.0f)
 		fShade = 0.0f;
 
 	vector vReflect = reflect(normalize(g_vLightDir), In.vNormal);

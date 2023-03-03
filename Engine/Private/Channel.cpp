@@ -252,7 +252,8 @@ void CChannel::InvalidateTransformLerp(_double Ratio, CTransform * pTransform, P
 		//첫번째 프레임의 위치에 애니메이션 루트본 고정
 		vPosition = XMVectorSetY(vPosition, PrevKeyFrame.vPosition.y);
 		XMStoreFloat3(&m_vPrevBonePos, vPosition);
-		vPosition = XMVectorSet(m_vIdleOriginPos.x, PrevKeyFrame.vPosition.y, m_vIdleOriginPos.z, 1.f);
+		//vPosition = XMVectorSet(m_vIdleOriginPos.x, PrevKeyFrame.vPosition.y, m_vIdleOriginPos.z, 1.f);
+		vPosition = XMVectorSet(m_vIdleOriginPos.x, m_KeyFrames[0].vPosition.y, m_vIdleOriginPos.z, 1.f);
 	}
 
 	// 키프레임의 상태를 보간후 SRT를 적용하여 뼈 행렬 업데이트

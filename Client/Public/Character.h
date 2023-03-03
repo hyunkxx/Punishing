@@ -2,6 +2,7 @@
 
 #include "GameObject.h"
 #include "Animation.h"
+#include "Collider.h"
 
 BEGIN(Engine)
 class CRenderer;
@@ -11,11 +12,18 @@ class CShader;
 class CBone;
 class CTimer;
 class CCollider;
+
+class IOnCollisionStay;
 END
 
 BEGIN(Client)
+class CEnemy;
 
-class CCharacter final : public CGameObject
+class CCharacter final : 
+	public CGameObject, 
+	public IOnCollisionEnter,
+	public IOnCollisionStay,
+	public IOnCollisionExit
 {
 public:
 	/*enum CLIP
@@ -149,27 +157,36 @@ private://Camera
 	void CameraSocketUpdate();
 	void ForwardRotaion(_double TimeDelta);
 	void BackwardRotaion(_double TimeDelta);
-	void RigthRotation(_double TimeDelta);
+	void RightRotation(_double TimeDelta);
 	void LeftRotation(_double TimeDelta);
 	void Movement(_double TimeDelta);
-	void InputWASD(_double TimeDelta);
 
 private:
 	void KeyInput(_double TimeDelta);
 	void Dash(_double TimeDelta);
 
 	void Idle();
-	void MoveForward(_double TimeDelta);
-	void MoveBackward(_double TimeDelta);
-	void MoveRight(_double TimeDelta);
-	void MoveLeft(_double TimeDelta);
+	void InputWASD(_double TimeDelta);
 	void MoveStop(_double TimeDelta);
 	void Attack();
+
+public: // Enemy 관련 코드
+	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
+	_bool IsCameraLockOn() { return m_pNearEnemy != nullptr; };
+	_bool FindTargetFromList(CGameObject* pObject);
+	void DeleteTargetFromList(CGameObject* pObject);
+	void FindNearTarget();
+	_float3 LockOnCameraPosition();
 
 public:
 	static CCharacter* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	virtual CGameObject* Clone(void* pArg) override;
 	virtual void Free() override;
+
+public:
+	virtual void OnCollisionEnter(CCollider* src, CCollider* dest);
+	virtual void OnCollisionStay(CCollider* src, CCollider* dest);
+	virtual void OnCollisionExit(CCollider* src, CCollider* dest);
 
 private:
 	CRenderer* mRenderer = nullptr;
@@ -178,14 +195,17 @@ private:
 	CShader* mShader = nullptr;
 	CCollider* mCollider = nullptr;
 
+	CCollider* mEnemyCheckCollider = nullptr;
+
 private: //레이어 삭제시 삭제됨
 	class CSleeve* m_pWeapon;
+	class CBone* bone = nullptr;
 
 	CAnimation::ANIMATION_DESC ANIM_DESC;
 
 private: // camera
 	CTransform* mCameraSocketTransform = nullptr;
-	CTransform* mCameraPosition = nullptr;
+	_bool m_bCameraBack = true;
 
 private: // Command
 	_bool m_bCombatMode = false;
@@ -203,15 +223,24 @@ private: // Command
 	_bool m_bOnTerrain = true;
 
 	_float m_fMoveSpeed = 5.f;
-	_float m_fRotationSpeed = 240.f;
+	_float m_fRotationSpeed = 1080.f;
 	const _double m_fStopTimeOut = 0.15f;
 	_double m_fStopTimer = 0.0;
 
-	_bool m_bDashReady = false;
-	_bool m_bDash = false;
-	_double m_fDashTimer = 0.0;
+	_bool m_bDashable = true;
+	_bool m_bFrontDashReady = false;
+	_bool m_bLeftDashReady = false;
+	_bool m_bRightDashReady = false;
+	const _double m_fDashTimeOut = 0.1;
+	_double m_fDashFrontTimer = 0.0;
+	_double m_fDashLeftTimer = 0.0;
+	_double m_fDashRightTimer = 0.0;
+
+	// 몬스터
+	list<CEnemy*> m_Enemys;
+	CEnemy* m_pNearEnemy = nullptr;
 };
 
-
-
 END
+
+//XMQuaternionSlerp

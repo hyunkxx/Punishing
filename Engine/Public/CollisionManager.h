@@ -26,6 +26,10 @@ public:
 private:
 	vector<class CCollider*> _collisions;
 
+	_bool enter = false;
+	_bool stary = false;
+	_bool exit = false;
+
 };
 
 END

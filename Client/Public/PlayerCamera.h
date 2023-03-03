@@ -1,6 +1,10 @@
 #pragma once
 #include "Camera.h"
 
+BEGIN(Engine)
+class CBone;
+END
+
 BEGIN(Client)
 
 class CPlayerCamera final : public CCamera
@@ -29,9 +33,13 @@ public:
 private:
 	CGameObject* m_pTarget = nullptr;
 	CTransform* m_pTargetTransform = nullptr;
+	CTransform* m_pSocketTransform = nullptr;
 
-	_float3 vDistance = { 0.f, 3.f, 6.f };
 	_bool m_bMouseLock = true;
+
+	CBone* m_pBone = nullptr;
+	_float4x4 m_cameraReference;
+	_float4 vLookTarget;
 };
 
 END
