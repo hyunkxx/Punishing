@@ -2,7 +2,10 @@
 #include "..\Public\Enemy.h"
 
 #include "GameInstance.h"
+#include "Character.h"
 #include "Bone.h"
+
+_uint CEnemy::s_iCount = 0;
 
 CEnemy::CEnemy(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
 	: CGameObject(pDevice, pContext)
@@ -11,13 +14,23 @@ CEnemy::CEnemy(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
 
 CEnemy::CEnemy(const CEnemy & rhs)
 	: CGameObject(rhs)
+	, m_State(rhs.m_State)
+	, m_bMovable(rhs.m_bMovable)
+	, m_bOverlapped(rhs.m_bOverlapped)
+	, m_OverlapAcc(rhs.m_OverlapAcc)
+	, m_OverlappedWait(rhs.m_OverlappedWait)
 {
+	s_iCount++;
 }
 
 HRESULT CEnemy::Initialize_Prototype()
 {
 	if (FAILED(__super::Initialize_Prototype()))
 		return E_FAIL;
+
+	ZeroMemory(&m_State, sizeof(ENEMY_STATE));
+	m_State.fMaxHp = 700.f;
+	m_State.fCurHp = 700.f;
 
 	return S_OK;
 }
@@ -29,6 +42,14 @@ HRESULT CEnemy::Initialize(void * pArg)
 
 	AddComponents();
 
+	if (nullptr != pArg)
+	{
+		m_pPlayer = (CCharacter*)pArg;
+		m_pPlayerTransform = static_cast<CTransform*>(m_pPlayer->Find_Component(L"com_transform"));
+	}
+
+ 	SetPosition(_float3(20.f, 0.f, 25.f + (s_iCount * 5)));
+
 	bone = model->GetBonePtr("Bip001");
 
 	return S_OK;
@@ -39,8 +60,9 @@ void CEnemy::Tick(_double TimeDelta)
 	__super::Tick(TimeDelta);
 
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
-
 	pGameInstance->AddCollider(collider);
+
+	AnimationState(TimeDelta);
 
 }
 
@@ -48,21 +70,13 @@ void CEnemy::LateTick(_double TimeDelta)
 {
 	__super::LateTick(TimeDelta);
 
-	CAnimation::ANIMATION_DESC animDesc;
-	ZeroMemory(&animDesc, sizeof(CAnimation::ANIMATION_DESC));
-	animDesc.Clip = animation;
-	animDesc.Type = CAnimation::LOOP;
-
-	model->Setup_Animation(animDesc.Clip, true);
-	model->Play_Animation(TimeDelta, transform, animDesc.Type);
-
+	model->Play_Animation(TimeDelta, transform);
 
 	_matrix tranMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix());
 	collider->Update(tranMatrix);
 
 	if (nullptr != renderer)
 		renderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
-	
 }
 
 HRESULT CEnemy::Render()
@@ -104,6 +118,14 @@ _float4 CEnemy::GetPosition()
 	return vPos;
 }
 
+void CEnemy::SetPosition(_float3 vPosition)
+{
+	if (transform == nullptr)
+		return;
+
+	transform->Set_State(CTransform::STATE_POSITION, XMLoadFloat3(&vPosition));
+}
+
 HRESULT CEnemy::AddComponents()
 {
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&renderer)))
@@ -111,6 +133,9 @@ HRESULT CEnemy::AddComponents()
 
 	CTransform::TRANSFORM_DESC TransformDesc;
 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
+
+	TransformDesc.fMoveSpeed = 1.5f;
+	TransformDesc.fRotationSpeed = 5.f;
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&transform, &TransformDesc)))
 		return E_FAIL;
@@ -121,7 +146,6 @@ HRESULT CEnemy::AddComponents()
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_enemy01"), TEXT("com_model"), (CComponent**)&model)))
 		return E_FAIL;
 
-	transform->Set_State(CTransform::STATE_POSITION, XMVectorSet(25.f, 0.f, 40.f, 1.f));
 
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
@@ -175,6 +199,198 @@ HRESULT CEnemy::SetupShaderResources()
 	return S_OK;
 }
 
+void CEnemy::OverlapProcess(_double TimeDelta)
+{
+	if (m_OverlapAcc >= m_OverlappedWait)
+	{
+		m_bRotationFinish = false;
+		m_bOverlapped = false;
+		m_OverlapAcc = 0.0;
+	}
+
+	//현재 위치에서 반대방향으로 이동
+	_vector vPos = transform->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vNagative) * (_float)TimeDelta;
+	_vector vEnemyLook = XMVector3Normalize(transform->Get_State(CTransform::STATE_LOOK));
+	_vector vDir = XMVector3Normalize(vPos - transform->Get_State(CTransform::STATE_POSITION));
+
+	//EnemyLook , 이동해야할 방향 
+	_float vAxisY = XMVectorGetY(XMVector3Cross(vEnemyLook, vDir));
+	_float fRadian = XMVectorGetX(XMVector3Dot(vDir, vEnemyLook));
+	if (isnan(fRadian))
+		fRadian = 0.0f;
+
+	//공격중엔 애니메이션이 끝난뒤 Overlap진행
+	if (model->AnimationCompare((_uint)CLIP::ATTACK1) ||
+		model->AnimationCompare((_uint)CLIP::ATTACK2) ||
+		model->AnimationCompare((_uint)CLIP::ATTACK3))
+	{
+		m_OverlapAcc = 0.0;
+		if (model->AnimationIsFinish())
+		{
+			if (fRadian > 0.8f)
+			{
+				transform->Set_State(CTransform::STATE_POSITION, vPos);
+				model->Setup_Animation(CLIP::RUN, CAnimation::TYPE::LOOP, true);
+			}
+			else if (fRadian < -0.8f)
+			{
+				transform->Set_State(CTransform::STATE_POSITION, vPos);
+				model->Setup_Animation(CLIP::RUNB, CAnimation::TYPE::LOOP, true);
+			}
+			else
+			{
+				if (vAxisY >= 0.0)
+				{
+					transform->Set_State(CTransform::STATE_POSITION, vPos);
+					model->Setup_Animation(CLIP::RUNR, CAnimation::TYPE::LOOP, true);
+				}
+				else
+				{
+					transform->Set_State(CTransform::STATE_POSITION, vPos);
+					model->Setup_Animation(CLIP::RUNL, CAnimation::TYPE::LOOP, true);
+				}
+			}
+		}
+	}
+	else
+	{
+		if (fRadian > 0.8f)
+		{
+				transform->Set_State(CTransform::STATE_POSITION, vPos);
+				model->Setup_Animation(CLIP::RUN, CAnimation::TYPE::LOOP, true);
+		}
+		else if (fRadian < -0.8f)
+		{
+			transform->Set_State(CTransform::STATE_POSITION, vPos);
+			model->Setup_Animation(CLIP::RUNB, CAnimation::TYPE::LOOP, true);
+		}
+		else
+		{
+			if (vAxisY >= 0.0)
+			{
+				transform->Set_State(CTransform::STATE_POSITION, vPos);
+				model->Setup_Animation(CLIP::RUNR, CAnimation::TYPE::LOOP, true);
+			}
+			else
+			{
+				transform->Set_State(CTransform::STATE_POSITION, vPos);
+				model->Setup_Animation(CLIP::RUNL, CAnimation::TYPE::LOOP, true);
+			}
+		}
+
+		m_OverlapAcc += TimeDelta;
+	}
+}
+
+void CEnemy::LookPlayer(_double TimeDelta)
+{
+	_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vPosition = transform->Get_State(CTransform::STATE_POSITION);
+	_vector vDirection = XMVector3Normalize(vPlayerPos - vPosition);
+
+	_vector vCurrentLook = XMVector3Normalize(transform->Get_State(CTransform::STATE_LOOK));
+	_vector vCurrentRight = XMVector3Normalize(transform->Get_State(CTransform::STATE_RIGHT));
+	_float fRadianAngle = acos(XMVectorGetX(XMVector3Dot(vCurrentLook, vDirection)));
+
+	if (isnan(fRadianAngle))
+	{
+		m_bRotationFinish = false;
+		m_bMovable = false;
+		fRadianAngle = 0.0f;
+	}
+
+	if (fRadianAngle < 0.1)
+	{
+		m_bRotationFinish = true;
+		m_bMovable = true;
+	}
+	else
+	{
+		m_bMovable = false;
+		m_bRotationFinish = false;
+	}
+
+	_vector vRight= XMVector3Normalize(XMVector3Cross(VECTOR_UP, vDirection));
+	_float fAxisY = XMVectorGetY(XMVector3Cross(vCurrentLook, vDirection));
+
+
+	if(fAxisY >= 0.f)
+		transform->Rotate(VECTOR_UP, TimeDelta * fRadianAngle);
+	else
+		transform->Rotate(VECTOR_UP, TimeDelta * -fRadianAngle);
+
+}
+
+void CEnemy::Trace(_double TimeDelta)
+{
+	if (!m_bMovable)
+		return;
+
+	m_bAttack = false;
+	_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+	transform->Chase(vPlayerPos, TimeDelta, m_fAttackRange);
+	model->Setup_Animation(CLIP::RUN, CAnimation::TYPE::LOOP, true);
+}
+
+void CEnemy::Attack(_double TimeDelta)
+{
+	m_bMovable = false;
+	model->Setup_Animation(CLIP::ATTACK3, CAnimation::TYPE::ONE, true);
+
+}
+
+void CEnemy::Idle(_double TimeDelta)
+{
+	m_bAttack = false;
+	m_bMovable = true;
+	m_bRotationFinish = false;
+	model->Setup_Animation(CLIP::STAND, CAnimation::TYPE::LOOP, true);
+}
+
+void CEnemy::AnimationState(_double TimeDelta)
+{
+	if (model->AnimationCompare(CLIP::STAND) && m_bRotationFinish == true)
+	{
+		m_bRotationFinish = false;
+		m_bMovable = false;
+	}
+
+ 	_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vPosition = transform->Get_State(CTransform::STATE_POSITION);
+
+	_vector vTargetDir = vPlayerPos - vPosition;
+	_float vDistance = XMVectorGetX(XMVector3Length(vTargetDir));
+
+	if (m_bOverlapped)
+	{
+		OverlapProcess(TimeDelta);
+	}
+	else
+	{
+		m_OverlapAcc = 0.0;
+
+		if (!m_bRotationFinish)
+			LookPlayer(TimeDelta);
+
+		if (vDistance < 40.f)
+		{
+			if (m_bRotationFinish)
+			{
+				if (vDistance < m_fAttackRange)
+					m_bAttack = true;
+				else
+					Trace(TimeDelta);
+			}
+		}
+
+		if (m_bAttack)
+			Attack(TimeDelta);
+
+		if (model->AnimationIsFinish())
+			Idle(TimeDelta);
+	}
+}
+
 CEnemy * CEnemy::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
 {
 	CEnemy*	pInstance = new CEnemy(pDevice, pContext);
@@ -208,4 +424,60 @@ void CEnemy::Free()
 	Safe_Release(model);
 	Safe_Release(shader);
 	Safe_Release(collider);
+}
+
+void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
+{
+	CEnemy* pEnemy = dynamic_cast<CEnemy*>(src->GetOwner());
+	CEnemy* pAotherEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
+
+	//둘다 에너미 타입이고 기본 충돌체일때
+	if (pEnemy && pAotherEnemy)
+	{
+		if (model->AnimationCompare((_uint)CLIP::ATTACK1) ||
+			model->AnimationCompare((_uint)CLIP::ATTACK2) ||
+			model->AnimationCompare((_uint)CLIP::ATTACK3))
+			return;
+
+		_float3 vSrcDir;
+
+		//현재 밀리고있을때
+		if (pEnemy->IsOverlap())
+		{
+			//이전에 밀리고있는방향
+			_vector vPrevDir = XMLoadFloat3(&m_vNagative);
+			_vector vDir = XMVector3Normalize(vPrevDir + XMLoadFloat4(&pAotherEnemy->GetPosition()) - XMLoadFloat4(&pEnemy->GetPosition()));
+			XMStoreFloat3(&vSrcDir, -vDir);
+
+			m_OverlapAcc = 0.0f;
+			pEnemy->SetOverlap(true, vSrcDir);
+		}
+		else
+		{
+			_vector vDir = XMVector3Normalize(XMLoadFloat4(&pAotherEnemy->GetPosition()) - XMLoadFloat4(&pEnemy->GetPosition()));
+			XMStoreFloat3(&vSrcDir, -vDir);
+
+			m_OverlapAcc = 0.0f;
+			pEnemy->SetOverlap(true, vSrcDir);
+		}
+
+	}
+}
+
+void CEnemy::OnCollisionStay(CCollider * src, CCollider * dest)
+{
+
+}
+
+void CEnemy::OnCollisionExit(CCollider * src, CCollider * dest)
+{
+	//CEnemy* pEnemy = dynamic_cast<CEnemy*>(src->GetOwner());
+	//CEnemy* pAotherEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
+
+	////둘다 에너미 타입이고 기본 충돌체일때
+	//if (pEnemy && pAotherEnemy)
+	//{
+	//	pEnemy->SetOverlap(false, _float3());
+	//	pAotherEnemy->SetOverlap(false, _float3());
+	//}
 }

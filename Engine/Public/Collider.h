@@ -44,6 +44,8 @@ public:
 	COLL_TYPE GetType() const {	return _type; }
 	void SetCollision(_bool value) { _isColl = value; }
 	_bool IsColl() const { return _isColl; }
+	_float3 GetCenter() { return _collDesc.vCenter; }
+	_float3 GetExtents() { return _collDesc.vExtants; }
 	//void Reset(_float3 );
 
 public:

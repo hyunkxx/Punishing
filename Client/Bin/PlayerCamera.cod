@@ -2295,15 +2295,19 @@ PUBLIC	?__empty_global_delete@@YAXPEAX_K@Z		; __empty_global_delete
 PUBLIC	?XMConvertToRadians@DirectX@@YAMM@Z		; DirectX::XMConvertToRadians
 PUBLIC	??BXMVECTORI32@DirectX@@QEBA?AT__m128@@XZ	; DirectX::XMVECTORI32::operator __m128
 PUBLIC	??GDirectX@@YQ?AT__m128@@T1@0@Z			; DirectX::operator-
+PUBLIC	??DDirectX@@YQ?AT__m128@@T1@M@Z			; DirectX::operator*
 PUBLIC	??0XMFLOAT4@DirectX@@QEAA@XZ			; DirectX::XMFLOAT4::XMFLOAT4
 PUBLIC	??0XMFLOAT4X4@DirectX@@QEAA@XZ			; DirectX::XMFLOAT4X4::XMFLOAT4X4
 PUBLIC	?XMLoadFloat3@DirectX@@YQ?AT__m128@@PEBUXMFLOAT3@1@@Z ; DirectX::XMLoadFloat3
 PUBLIC	?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
 PUBLIC	?XMStoreFloat4@DirectX@@YQXPEAUXMFLOAT4@1@T__m128@@@Z ; DirectX::XMStoreFloat4
+PUBLIC	?XMVectorGetX@DirectX@@YQMT__m128@@@Z		; DirectX::XMVectorGetX
 PUBLIC	?XMVectorGetY@DirectX@@YQMT__m128@@@Z		; DirectX::XMVectorGetY
 PUBLIC	?XMVectorSetY@DirectX@@YQ?AT__m128@@T2@M@Z	; DirectX::XMVectorSetY
 PUBLIC	?XMVectorSubtract@DirectX@@YQ?AT__m128@@T2@0@Z	; DirectX::XMVectorSubtract
+PUBLIC	?XMVectorScale@DirectX@@YQ?AT__m128@@T2@M@Z	; DirectX::XMVectorScale
 PUBLIC	?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z	; DirectX::XMVectorLerp
+PUBLIC	?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z	; DirectX::XMVector3Length
 PUBLIC	?XMVector3Normalize@DirectX@@YQ?AT__m128@@T2@@Z	; DirectX::XMVector3Normalize
 PUBLIC	??0CPlayerCamera@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CPlayerCamera::CPlayerCamera
 PUBLIC	??0CPlayerCamera@Client@@AEAA@AEBV01@@Z		; Client::CPlayerCamera::CPlayerCamera
@@ -2361,10 +2365,11 @@ PUBLIC	??_R2CBase@Engine@@8				; Engine::CBase::`RTTI Base Class Array'
 PUBLIC	__real@3c8efa35
 PUBLIC	__real@3dcccccd
 PUBLIC	__real@3f800000
-PUBLIC	__real@3fb999999999999a
 PUBLIC	__real@3fc00000
 PUBLIC	__real@40000000
-PUBLIC	__real@40800000
+PUBLIC	__real@40400000
+PUBLIC	__real@40e00000
+PUBLIC	__real@40f00000
 PUBLIC	__real@42340000
 PUBLIC	__real@44340000
 PUBLIC	__real@447a0000
@@ -2440,6 +2445,12 @@ $pdata$??GDirectX@@YQ?AT__m128@@T1@0@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$??DDirectX@@YQ?AT__m128@@T1@M@Z DD imagerel $LN3
+	DD	imagerel $LN3+92
+	DD	imagerel $unwind$??DDirectX@@YQ?AT__m128@@T1@M@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$??0XMFLOAT4@DirectX@@QEAA@XZ DD imagerel $LN3
 	DD	imagerel $LN3+57
 	DD	imagerel $unwind$??0XMFLOAT4@DirectX@@QEAA@XZ
@@ -2470,6 +2481,12 @@ $pdata$?XMStoreFloat4@DirectX@@YQXPEAUXMFLOAT4@1@T__m128@@@Z DD imagerel $LN4
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$?XMVectorGetX@DirectX@@YQMT__m128@@@Z DD imagerel $LN3
+	DD	imagerel $LN3+76
+	DD	imagerel $unwind$?XMVectorGetX@DirectX@@YQMT__m128@@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$?XMVectorGetY@DirectX@@YQMT__m128@@@Z DD imagerel $LN3
 	DD	imagerel $LN3+103
 	DD	imagerel $unwind$?XMVectorGetY@DirectX@@YQMT__m128@@@Z
@@ -2488,9 +2505,21 @@ $pdata$?XMVectorSubtract@DirectX@@YQ?AT__m128@@T2@0@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$?XMVectorScale@DirectX@@YQ?AT__m128@@T2@M@Z DD imagerel $LN3
+	DD	imagerel $LN3+113
+	DD	imagerel $unwind$?XMVectorScale@DirectX@@YQ?AT__m128@@T2@M@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z DD imagerel $LN3
 	DD	imagerel $LN3+193
 	DD	imagerel $unwind$?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z DD imagerel $LN3
+	DD	imagerel $LN3+243
+	DD	imagerel $unwind$?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -2537,7 +2566,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Initialize@CPlayerCamera@Client@@UEAAJPEAX@Z DD imagerel $LN5
-	DD	imagerel $LN5+446
+	DD	imagerel $LN5+498
 	DD	imagerel $unwind$?Initialize@CPlayerCamera@Client@@UEAAJPEAX@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2548,8 +2577,8 @@ $pdata$?Tick@CPlayerCamera@Client@@UEAAXN@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?LateTick@CPlayerCamera@Client@@UEAAXN@Z DD imagerel $LN5
-	DD	imagerel $LN5+1254
+$pdata$?LateTick@CPlayerCamera@Client@@UEAAXN@Z DD imagerel $LN6
+	DD	imagerel $LN6+1491
 	DD	imagerel $unwind$?LateTick@CPlayerCamera@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2646,9 +2675,17 @@ CONST	ENDS
 CONST	SEGMENT
 __real@42340000 DD 042340000r			; 45
 CONST	ENDS
-;	COMDAT __real@40800000
+;	COMDAT __real@40f00000
 CONST	SEGMENT
-__real@40800000 DD 040800000r			; 4
+__real@40f00000 DD 040f00000r			; 7.5
+CONST	ENDS
+;	COMDAT __real@40e00000
+CONST	SEGMENT
+__real@40e00000 DD 040e00000r			; 7
+CONST	ENDS
+;	COMDAT __real@40400000
+CONST	SEGMENT
+__real@40400000 DD 040400000r			; 3
 CONST	ENDS
 ;	COMDAT __real@40000000
 CONST	SEGMENT
@@ -2657,10 +2694,6 @@ CONST	ENDS
 ;	COMDAT __real@3fc00000
 CONST	SEGMENT
 __real@3fc00000 DD 03fc00000r			; 1.5
-CONST	ENDS
-;	COMDAT __real@3fb999999999999a
-CONST	SEGMENT
-__real@3fb999999999999a DQ 03fb999999999999ar	; 0.1
 CONST	ENDS
 ;	COMDAT __real@3f800000
 CONST	SEGMENT
@@ -2820,7 +2853,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 098H ; `Client::CPlayerCamera::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0a2H ; `Client::CPlayerCamera::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1EE@CMOMLOPH@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AAd?$AA?5?$AA?3?$AA?5?$AAC?$AAP?$AAl?$AAa?$AAy?$AAe?$AAr?$AAC?$AAa?$AAm?$AAe?$AAr@
 CONST	SEGMENT
@@ -2845,7 +2878,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CPlayerCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CPlayerCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 08cH ; `Client::CPlayerCamera::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CPlayerCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 096H ; `Client::CPlayerCamera::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1DI@OLGFHDLM@?$AAc?$AAo?$AAm?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA_?$AAs?$AAo?$AAc?$AAk?$AAe?$AAt?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
 CONST	SEGMENT
@@ -3126,10 +3159,10 @@ xdata	ENDS
 xdata	SEGMENT
 $unwind$?LateTick@CPlayerCamera@Client@@UEAAXN@Z DD 025054119H
 	DD	01142319H
-	DD	0700d012bH
+	DD	0700d0183H
 	DD	0500cH
 	DD	imagerel __GSHandlerCheck
-	DD	0948H
+	DD	0c08H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -3191,13 +3224,13 @@ CONST	SEGMENT
 	DB	06eH
 	DB	00H
 	ORG $+11
-?LateTick@CPlayerCamera@Client@@UEAAXN@Z$rtcVarDesc DD 01c0H ; Client::CPlayerCamera::LateTick
+?LateTick@CPlayerCamera@Client@@UEAAXN@Z$rtcVarDesc DD 0240H ; Client::CPlayerCamera::LateTick
 	DD	010H
 	DQ	FLAT:?LateTick@CPlayerCamera@Client@@UEAAXN@Z$rtcName$3
-	DD	0158H
+	DD	01d8H
 	DD	010H
 	DQ	FLAT:?LateTick@CPlayerCamera@Client@@UEAAXN@Z$rtcName$2
-	DD	0100H
+	DD	0180H
 	DD	010H
 	DQ	FLAT:?LateTick@CPlayerCamera@Client@@UEAAXN@Z$rtcName$1
 	DD	050H
@@ -3219,7 +3252,7 @@ xdata	ENDS
 xdata	SEGMENT
 $unwind$?Initialize@CPlayerCamera@Client@@UEAAJPEAX@Z DD 025052f01H
 	DD	01132318H
-	DD	0700c0029H
+	DD	0700c002fH
 	DD	0500bH
 xdata	ENDS
 ;	COMDAT xdata
@@ -3329,9 +3362,23 @@ $unwind$?XMVector3Normalize@DirectX@@YQ?AT__m128@@T2@@Z DD 035052a01H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
+$unwind$?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z DD 015052a01H
+	DD	010a130fH
+	DD	070030057H
+	DD	05002H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
 $unwind$?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z DD 015053b01H
 	DD	010f1314H
 	DD	070080051H
+	DD	05007H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?XMVectorScale@DirectX@@YQ?AT__m128@@T2@M@Z DD 015052f01H
+	DD	010f1314H
+	DD	070080033H
 	DD	05007H
 xdata	ENDS
 ;	COMDAT xdata
@@ -3353,6 +3400,13 @@ xdata	SEGMENT
 $unwind$?XMVectorGetY@DirectX@@YQMT__m128@@@Z DD 015052a01H
 	DD	010a130fH
 	DD	07003002dH
+	DD	05002H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?XMVectorGetX@DirectX@@YQMT__m128@@@Z DD 015052a01H
+	DD	010a130fH
+	DD	070030021H
 	DD	05002H
 xdata	ENDS
 ;	COMDAT xdata
@@ -3389,6 +3443,13 @@ $unwind$??0XMFLOAT4@DirectX@@QEAA@XZ DD 05052801H
 	DD	010e0311H
 	DD	070070019H
 	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??DDirectX@@YQ?AT__m128@@T1@M@Z DD 035052f01H
+	DD	010f3314H
+	DD	07008002bH
+	DD	05007H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -3598,7 +3659,7 @@ tv66 = 192
 this$ = 240
 ?IsCameraLockOn@CCharacter@Client@@QEAA_NXZ PROC	; Client::CCharacter::IsCameraLockOn, COMDAT
 
-; 175  : 	_bool IsCameraLockOn() { return m_pNearEnemy != nullptr; };
+; 176  : 	_bool IsCameraLockOn() { return m_pNearEnemy != nullptr; };
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3615,8 +3676,8 @@ $LN5:
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+248]
   00028	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0002f	48 83 b8 50 01
-	00 00 00	 cmp	 QWORD PTR [rax+336], 0
+  0002f	48 83 b8 58 01
+	00 00 00	 cmp	 QWORD PTR [rax+344], 0
   00037	74 0c		 je	 SHORT $LN3@IsCameraLo
   00039	c7 85 c0 00 00
 	00 01 00 00 00	 mov	 DWORD PTR tv66[rbp], 1
@@ -3642,7 +3703,7 @@ tv67 = 192
 this$ = 240
 ?GetLockOnTarget@CCharacter@Client@@QEAAPEAVCGameObject@Engine@@XZ PROC ; Client::CCharacter::GetLockOnTarget, COMDAT
 
-; 174  : 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
+; 175  : 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3659,13 +3720,13 @@ $LN5:
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+248]
   00028	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0002f	48 83 b8 50 01
-	00 00 00	 cmp	 QWORD PTR [rax+336], 0
+  0002f	48 83 b8 58 01
+	00 00 00	 cmp	 QWORD PTR [rax+344], 0
   00037	74 17		 je	 SHORT $LN3@GetLockOnT
   00039	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00040	48 8b 80 50 01
-	00 00		 mov	 rax, QWORD PTR [rax+336]
+  00040	48 8b 80 58 01
+	00 00		 mov	 rax, QWORD PTR [rax+344]
   00047	48 89 85 c0 00
 	00 00		 mov	 QWORD PTR tv67[rbp], rax
   0004e	eb 0b		 jmp	 SHORT $LN4@GetLockOnT
@@ -3732,7 +3793,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CPlayerCamera@Client@@UEAAXXZ PROC		; Client::CPlayerCamera::Free, COMDAT
 
-; 164  : {
+; 174  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3748,15 +3809,15 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 165  : 	__super::Free();
+; 175  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CCamera@Engine@@UEAAXXZ
 
-; 166  : 
-; 167  : 	Safe_Release(m_pTransform);
+; 176  : 
+; 177  : 	Safe_Release(m_pTransform);
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3764,7 +3825,7 @@ $LN3:
   00042	48 8b c8	 mov	 rcx, rax
   00045	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 168  : }
+; 178  : }
 
   0004a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -3787,7 +3848,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CPlayerCamera::Clone, COMDAT
 
-; 152  : {
+; 162  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -3812,7 +3873,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 153  : 	CPlayerCamera*	pInstance = new CPlayerCamera(*this);
+; 163  : 	CPlayerCamera*	pInstance = new CPlayerCamera(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
@@ -3849,7 +3910,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 154  : 	if (FAILED(pInstance->Initialize(pArg)))
+; 164  : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 78 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -3858,8 +3919,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Clone
 
-; 155  : 	{
-; 156  : 		MSG_BOX("Failed to Cloned : CPlayerCamera");
+; 165  : 	{
+; 166  : 		MSG_BOX("Failed to Cloned : CPlayerCamera");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -3870,19 +3931,19 @@ $LN5@Clone:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 157  : 		Safe_Release(pInstance);
+; 167  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCPlayerCamera@Client@@@Engine@@YAKAEAPEAVCPlayerCamera@Client@@@Z ; Engine::Safe_Release<Client::CPlayerCamera * __ptr64>
 $LN2@Clone:
 
-; 158  : 	}
-; 159  : 
-; 160  : 	return pInstance;
+; 168  : 	}
+; 169  : 
+; 170  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 161  : }
+; 171  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -3980,7 +4041,7 @@ pDevice$ = 368
 pContext$ = 376
 ?Create@CPlayerCamera@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CPlayerCamera::Create, COMDAT
 
-; 140  : {
+; 150  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4005,7 +4066,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 141  : 	CPlayerCamera*	pInstance = new CPlayerCamera(pDevice, pContext);
+; 151  : 	CPlayerCamera*	pInstance = new CPlayerCamera(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CPlayerCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -4044,15 +4105,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 142  : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 152  : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CPlayerCamera@Client@@UEAAJXZ ; Client::CPlayerCamera::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Create
 
-; 143  : 	{
-; 144  : 		MSG_BOX("Failed to Created : CPlayerCamera");
+; 153  : 	{
+; 154  : 		MSG_BOX("Failed to Created : CPlayerCamera");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -4063,19 +4124,19 @@ $LN5@Create:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 145  : 		Safe_Release(pInstance);
+; 155  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCPlayerCamera@Client@@@Engine@@YAKAEAPEAVCPlayerCamera@Client@@@Z ; Engine::Safe_Release<Client::CPlayerCamera * __ptr64>
 $LN2@Create:
 
-; 146  : 	}
-; 147  : 
-; 148  : 	return pInstance;
+; 156  : 	}
+; 157  : 
+; 158  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 149  : }
+; 159  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -4166,6 +4227,78 @@ _TEXT	SEGMENT
 this$ = 224
 ?Setup_ShaderResources@CPlayerCamera@Client@@QEAAJXZ PROC ; Client::CPlayerCamera::Setup_ShaderResources, COMDAT
 
+; 145  : {
+
+$LN3:
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	55		 push	 rbp
+  00006	57		 push	 rdi
+  00007	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  0000e	48 8b ec	 mov	 rbp, rsp
+  00011	48 8b fc	 mov	 rdi, rsp
+  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  0001e	f3 ab		 rep stosd
+  00020	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+
+; 146  : 	return S_OK;
+
+  00028	33 c0		 xor	 eax, eax
+
+; 147  : }
+
+  0002a	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  00031	5f		 pop	 rdi
+  00032	5d		 pop	 rbp
+  00033	c3		 ret	 0
+?Setup_ShaderResources@CPlayerCamera@Client@@QEAAJXZ ENDP ; Client::CPlayerCamera::Setup_ShaderResources
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\github\framework\client\private\playercamera.cpp
+;	COMDAT ?Add_Components@CPlayerCamera@Client@@QEAAJXZ
+_TEXT	SEGMENT
+this$ = 224
+?Add_Components@CPlayerCamera@Client@@QEAAJXZ PROC	; Client::CPlayerCamera::Add_Components, COMDAT
+
+; 140  : {
+
+$LN3:
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	55		 push	 rbp
+  00006	57		 push	 rdi
+  00007	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  0000e	48 8b ec	 mov	 rbp, rsp
+  00011	48 8b fc	 mov	 rdi, rsp
+  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  0001e	f3 ab		 rep stosd
+  00020	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+
+; 141  : 	return S_OK;
+
+  00028	33 c0		 xor	 eax, eax
+
+; 142  : }
+
+  0002a	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  00031	5f		 pop	 rdi
+  00032	5d		 pop	 rbp
+  00033	c3		 ret	 0
+?Add_Components@CPlayerCamera@Client@@QEAAJXZ ENDP	; Client::CPlayerCamera::Add_Components
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\github\framework\client\private\playercamera.cpp
+;	COMDAT ?Render@CPlayerCamera@Client@@UEAAJXZ
+_TEXT	SEGMENT
+this$ = 224
+?Render@CPlayerCamera@Client@@UEAAJXZ PROC		; Client::CPlayerCamera::Render, COMDAT
+
 ; 135  : {
 
 $LN3:
@@ -4193,78 +4326,6 @@ $LN3:
   00031	5f		 pop	 rdi
   00032	5d		 pop	 rbp
   00033	c3		 ret	 0
-?Setup_ShaderResources@CPlayerCamera@Client@@QEAAJXZ ENDP ; Client::CPlayerCamera::Setup_ShaderResources
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
-;	COMDAT ?Add_Components@CPlayerCamera@Client@@QEAAJXZ
-_TEXT	SEGMENT
-this$ = 224
-?Add_Components@CPlayerCamera@Client@@QEAAJXZ PROC	; Client::CPlayerCamera::Add_Components, COMDAT
-
-; 130  : {
-
-$LN3:
-  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
-  00005	55		 push	 rbp
-  00006	57		 push	 rdi
-  00007	48 81 ec c8 00
-	00 00		 sub	 rsp, 200		; 000000c8H
-  0000e	48 8b ec	 mov	 rbp, rsp
-  00011	48 8b fc	 mov	 rdi, rsp
-  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
-  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
-  0001e	f3 ab		 rep stosd
-  00020	48 8b 8c 24 e8
-	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
-
-; 131  : 	return S_OK;
-
-  00028	33 c0		 xor	 eax, eax
-
-; 132  : }
-
-  0002a	48 8d a5 c8 00
-	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  00031	5f		 pop	 rdi
-  00032	5d		 pop	 rbp
-  00033	c3		 ret	 0
-?Add_Components@CPlayerCamera@Client@@QEAAJXZ ENDP	; Client::CPlayerCamera::Add_Components
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
-;	COMDAT ?Render@CPlayerCamera@Client@@UEAAJXZ
-_TEXT	SEGMENT
-this$ = 224
-?Render@CPlayerCamera@Client@@UEAAJXZ PROC		; Client::CPlayerCamera::Render, COMDAT
-
-; 125  : {
-
-$LN3:
-  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
-  00005	55		 push	 rbp
-  00006	57		 push	 rdi
-  00007	48 81 ec c8 00
-	00 00		 sub	 rsp, 200		; 000000c8H
-  0000e	48 8b ec	 mov	 rbp, rsp
-  00011	48 8b fc	 mov	 rdi, rsp
-  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
-  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
-  0001e	f3 ab		 rep stosd
-  00020	48 8b 8c 24 e8
-	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
-
-; 126  : 	return S_OK;
-
-  00028	33 c0		 xor	 eax, eax
-
-; 127  : }
-
-  0002a	48 8d a5 c8 00
-	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  00031	5f		 pop	 rdi
-  00032	5d		 pop	 rbp
-  00033	c3		 ret	 0
 ?Render@CPlayerCamera@Client@@UEAAJXZ ENDP		; Client::CPlayerCamera::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -4276,69 +4337,80 @@ vTargetPos$ = 48
 vTargetLook$ = 96
 pPlayerTransform$7 = 136
 vCameraPos$8 = 176
-vCurPosition$9 = 224
-vPosition$10 = 272
-vLockOnTargetPos$11 = 312
-vCurLook$12 = 368
-vCurPosition$13 = 416
-vPosition$14 = 464
-vCurLook$15 = 512
-$T16 = 1328
-$T17 = 1376
-$T18 = 1424
-$T19 = 1472
-$T20 = 1520
-$T21 = 1556
-$T22 = 1600
-$T23 = 1648
-$T24 = 1696
-$T25 = 1744
-$T26 = 1792
-$T27 = 1840
-$T28 = 1888
-$T29 = 1936
-$T30 = 1984
-$T31 = 2032
-$T32 = 2080
-$T33 = 2128
-$T34 = 2176
-$T35 = 2224
-$T36 = 2272
-$T37 = 2320
-tv243 = 2340
-__$ArrayPad$ = 2344
-this$ = 2384
-TimeDelta$ = 2392
+vDistance$9 = 224
+fLength$10 = 260
+vDir$11 = 304
+vCurPosition$12 = 352
+vPosition$13 = 400
+vLockOnTargetPos$14 = 440
+vCurLook$15 = 496
+vCurPosition$16 = 544
+vPosition$17 = 592
+vCurLook$18 = 640
+$T19 = 1648
+$T20 = 1696
+$T21 = 1744
+$T22 = 1792
+$T23 = 1840
+$T24 = 1876
+$T25 = 1920
+$T26 = 1968
+$T27 = 2016
+$T28 = 2052
+$T29 = 2112
+$T30 = 2160
+$T31 = 2208
+$T32 = 2256
+$T33 = 2304
+$T34 = 2352
+$T35 = 2400
+$T36 = 2448
+$T37 = 2496
+$T38 = 2544
+$T39 = 2592
+$T40 = 2640
+$T41 = 2688
+$T42 = 2736
+$T43 = 2784
+$T44 = 2832
+$T45 = 2880
+$T46 = 2928
+$T47 = 2976
+$T48 = 3024
+tv311 = 3044
+__$ArrayPad$ = 3048
+this$ = 3088
+TimeDelta$ = 3096
 ?LateTick@CPlayerCamera@Client@@UEAAXN@Z PROC		; Client::CPlayerCamera::LateTick, COMDAT
 
 ; 56   : {
 
-$LN5:
+$LN6:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0000b	55		 push	 rbp
   0000c	57		 push	 rdi
-  0000d	48 81 ec 58 09
-	00 00		 sub	 rsp, 2392		; 00000958H
+  0000d	48 81 ec 18 0c
+	00 00		 sub	 rsp, 3096		; 00000c18H
   00014	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
   00019	48 8b fc	 mov	 rdi, rsp
-  0001c	b9 56 02 00 00	 mov	 ecx, 598		; 00000256H
+  0001c	b9 06 03 00 00	 mov	 ecx, 774		; 00000306H
   00021	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00026	f3 ab		 rep stosd
-  00028	48 8b 8c 24 78
-	09 00 00	 mov	 rcx, QWORD PTR [rsp+2424]
+  00028	48 8b 8c 24 38
+	0c 00 00	 mov	 rcx, QWORD PTR [rsp+3128]
   00030	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR __security_cookie
   00037	48 33 c5	 xor	 rax, rbp
-  0003a	48 89 85 28 09
+  0003a	48 89 85 e8 0b
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
 ; 57   : 	__super::LateTick(TimeDelta);
 
-  00041	f2 0f 10 8d 58
-	09 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  00049	48 8b 8d 50 09
+  00041	f2 0f 10 8d 18
+	0c 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
+  00049	48 8b 8d 10 0c
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00050	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?LateTick@CCamera@Engine@@UEAAXN@Z
@@ -4356,7 +4428,7 @@ $LN5:
   00060	41 b8 03 00 00
 	00		 mov	 r8d, 3
   00066	48 8d 55 30	 lea	 rdx, QWORD PTR vTargetPos$[rbp]
-  0006a	48 8b 85 50 09
+  0006a	48 8b 85 10 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00071	48 8b 88 d0 00
 	00 00		 mov	 rcx, QWORD PTR [rax+208]
@@ -4367,9 +4439,9 @@ $LN5:
 
   0007e	41 b8 02 00 00
 	00		 mov	 r8d, 2
-  00084	48 8d 95 60 05
-	00 00		 lea	 rdx, QWORD PTR $T17[rbp]
-  0008b	48 8b 85 50 09
+  00084	48 8d 95 a0 06
+	00 00		 lea	 rdx, QWORD PTR $T20[rbp]
+  0008b	48 8b 85 10 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00092	48 8b 88 d0 00
 	00 00		 mov	 rcx, QWORD PTR [rax+208]
@@ -4377,10 +4449,10 @@ $LN5:
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
   0009f	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
   000a2	e8 00 00 00 00	 call	 ?XMVector3Normalize@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Normalize
-  000a7	0f 29 85 30 05
-	00 00		 movaps	 XMMWORD PTR $T16[rbp], xmm0
-  000ae	0f 28 85 30 05
-	00 00		 movaps	 xmm0, XMMWORD PTR $T16[rbp]
+  000a7	0f 29 85 70 06
+	00 00		 movaps	 XMMWORD PTR $T19[rbp], xmm0
+  000ae	0f 28 85 70 06
+	00 00		 movaps	 xmm0, XMMWORD PTR $T19[rbp]
   000b5	0f 29 45 60	 movaps	 XMMWORD PTR vTargetLook$[rbp], xmm0
 
 ; 63   : 	vTargetPos = XMVectorSetY(vTargetPos, 1.5f);
@@ -4389,10 +4461,10 @@ $LN5:
 	00 00 00	 movss	 xmm1, DWORD PTR __real@3fc00000
   000c1	0f 28 45 30	 movaps	 xmm0, XMMWORD PTR vTargetPos$[rbp]
   000c5	e8 00 00 00 00	 call	 ?XMVectorSetY@DirectX@@YQ?AT__m128@@T2@M@Z ; DirectX::XMVectorSetY
-  000ca	0f 29 85 90 05
-	00 00		 movaps	 XMMWORD PTR $T18[rbp], xmm0
-  000d1	0f 28 85 90 05
-	00 00		 movaps	 xmm0, XMMWORD PTR $T18[rbp]
+  000ca	0f 29 85 d0 06
+	00 00		 movaps	 XMMWORD PTR $T21[rbp], xmm0
+  000d1	0f 28 85 d0 06
+	00 00		 movaps	 xmm0, XMMWORD PTR $T21[rbp]
   000d8	0f 29 45 30	 movaps	 XMMWORD PTR vTargetPos$[rbp], xmm0
 
 ; 64   : 
@@ -4422,14 +4494,14 @@ $LN5:
 ; 88   : 	//카메라가 락온 되었을때
 ; 89   : 	if (static_cast<CCharacter*>(m_pTarget)->IsCameraLockOn())
 
-  000dc	48 8b 85 50 09
+  000dc	48 8b 85 10 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000e3	48 8b 88 c8 00
 	00 00		 mov	 rcx, QWORD PTR [rax+200]
   000ea	e8 00 00 00 00	 call	 ?IsCameraLockOn@CCharacter@Client@@QEAA_NXZ ; Client::CCharacter::IsCameraLockOn
   000ef	0f b6 c0	 movzx	 eax, al
   000f2	85 c0		 test	 eax, eax
-  000f4	0f 84 5e 02 00
+  000f4	0f 84 69 03 00
 	00		 je	 $LN2@LateTick
 
 ; 90   : 	{
@@ -4437,7 +4509,7 @@ $LN5:
 
   000fa	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
-  00101	48 8b 85 50 09
+  00101	48 8b 85 10 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00108	48 8b 88 c8 00
 	00 00		 mov	 rcx, QWORD PTR [rax+200]
@@ -4448,346 +4520,430 @@ $LN5:
 
 ; 92   : 		_vector vCameraPos = pPlayerTransform->Get_State(CTransform::STATE_POSITION) - XMLoadFloat3(&static_cast<CCharacter*>(m_pTarget)->LockOnCameraPosition());
 
-  0011c	48 8d 95 14 06
-	00 00		 lea	 rdx, QWORD PTR $T21[rbp]
-  00123	48 8b 85 50 09
+  0011c	48 8d 95 54 07
+	00 00		 lea	 rdx, QWORD PTR $T24[rbp]
+  00123	48 8b 85 10 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0012a	48 8b 88 c8 00
 	00 00		 mov	 rcx, QWORD PTR [rax+200]
   00131	e8 00 00 00 00	 call	 ?LockOnCameraPosition@CCharacter@Client@@QEAA?AUXMFLOAT3@DirectX@@XZ ; Client::CCharacter::LockOnCameraPosition
   00136	48 8b c8	 mov	 rcx, rax
   00139	e8 00 00 00 00	 call	 ?XMLoadFloat3@DirectX@@YQ?AT__m128@@PEBUXMFLOAT3@1@@Z ; DirectX::XMLoadFloat3
-  0013e	0f 29 85 f0 05
-	00 00		 movaps	 XMMWORD PTR $T20[rbp], xmm0
+  0013e	0f 29 85 30 07
+	00 00		 movaps	 XMMWORD PTR $T23[rbp], xmm0
   00145	41 b8 03 00 00
 	00		 mov	 r8d, 3
-  0014b	48 8d 95 40 06
-	00 00		 lea	 rdx, QWORD PTR $T22[rbp]
+  0014b	48 8d 95 80 07
+	00 00		 lea	 rdx, QWORD PTR $T25[rbp]
   00152	48 8b 8d 88 00
 	00 00		 mov	 rcx, QWORD PTR pPlayerTransform$7[rbp]
   00159	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
-  0015f	0f 28 8d f0 05
-	00 00		 movaps	 xmm1, XMMWORD PTR $T20[rbp]
+  0015f	0f 28 8d 30 07
+	00 00		 movaps	 xmm1, XMMWORD PTR $T23[rbp]
   00166	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
   00169	e8 00 00 00 00	 call	 ??GDirectX@@YQ?AT__m128@@T1@0@Z ; DirectX::operator-
-  0016e	0f 29 85 c0 05
-	00 00		 movaps	 XMMWORD PTR $T19[rbp], xmm0
-  00175	0f 28 85 c0 05
-	00 00		 movaps	 xmm0, XMMWORD PTR $T19[rbp]
+  0016e	0f 29 85 00 07
+	00 00		 movaps	 XMMWORD PTR $T22[rbp], xmm0
+  00175	0f 28 85 00 07
+	00 00		 movaps	 xmm0, XMMWORD PTR $T22[rbp]
   0017c	0f 29 85 b0 00
 	00 00		 movaps	 XMMWORD PTR vCameraPos$8[rbp], xmm0
 
-; 93   : 		vCameraPos = XMVectorSetY(vCameraPos, XMVectorGetY(m_pTransform->Get_State(CTransform::STATE_POSITION)));
+; 93   : 		
+; 94   : 		_vector vDistance = XMLoadFloat4(&((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition()) - vCameraPos;
 
-  00183	41 b8 03 00 00
-	00		 mov	 r8d, 3
-  00189	48 8d 95 a0 06
-	00 00		 lea	 rdx, QWORD PTR $T24[rbp]
-  00190	48 8b 85 50 09
+  00183	48 8b 85 10 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00197	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
-  0019b	ff 15 00 00 00
+  0018a	48 8b 88 c8 00
+	00 00		 mov	 rcx, QWORD PTR [rax+200]
+  00191	e8 00 00 00 00	 call	 ?GetLockOnTarget@CCharacter@Client@@QEAAPEAVCGameObject@Engine@@XZ ; Client::CCharacter::GetLockOnTarget
+  00196	48 8d 95 04 08
+	00 00		 lea	 rdx, QWORD PTR $T28[rbp]
+  0019d	48 8b c8	 mov	 rcx, rax
+  001a0	e8 00 00 00 00	 call	 ?GetPosition@CEnemy@Client@@QEAA?AUXMFLOAT4@DirectX@@XZ ; Client::CEnemy::GetPosition
+  001a5	48 8b c8	 mov	 rcx, rax
+  001a8	e8 00 00 00 00	 call	 ?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
+  001ad	0f 29 85 e0 07
+	00 00		 movaps	 XMMWORD PTR $T27[rbp], xmm0
+  001b4	0f 28 8d b0 00
+	00 00		 movaps	 xmm1, XMMWORD PTR vCameraPos$8[rbp]
+  001bb	0f 28 85 e0 07
+	00 00		 movaps	 xmm0, XMMWORD PTR $T27[rbp]
+  001c2	e8 00 00 00 00	 call	 ??GDirectX@@YQ?AT__m128@@T1@0@Z ; DirectX::operator-
+  001c7	0f 29 85 b0 07
+	00 00		 movaps	 XMMWORD PTR $T26[rbp], xmm0
+  001ce	0f 28 85 b0 07
+	00 00		 movaps	 xmm0, XMMWORD PTR $T26[rbp]
+  001d5	0f 29 85 e0 00
+	00 00		 movaps	 XMMWORD PTR vDistance$9[rbp], xmm0
+
+; 95   : 		_float fLength = XMVectorGetX(XMVector3Length(vDistance));
+
+  001dc	0f 28 85 e0 00
+	00 00		 movaps	 xmm0, XMMWORD PTR vDistance$9[rbp]
+  001e3	e8 00 00 00 00	 call	 ?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Length
+  001e8	0f 29 85 40 08
+	00 00		 movaps	 XMMWORD PTR $T29[rbp], xmm0
+  001ef	0f 28 85 40 08
+	00 00		 movaps	 xmm0, XMMWORD PTR $T29[rbp]
+  001f6	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
+  001fb	f3 0f 11 85 04
+	01 00 00	 movss	 DWORD PTR fLength$10[rbp], xmm0
+
+; 96   : 
+; 97   : 		//카메라가까울경우 최소거리
+; 98   : 		if (fLength <= 7.0f)
+
+  00203	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@40e00000
+  0020b	0f 2f 85 04 01
+	00 00		 comiss	 xmm0, DWORD PTR fLength$10[rbp]
+  00212	72 7a		 jb	 SHORT $LN4@LateTick
+
+; 99   : 		{
+; 100  : 			_vector vDir = XMVector3Normalize(vDistance);
+
+  00214	0f 28 85 e0 00
+	00 00		 movaps	 xmm0, XMMWORD PTR vDistance$9[rbp]
+  0021b	e8 00 00 00 00	 call	 ?XMVector3Normalize@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Normalize
+  00220	0f 29 85 70 08
+	00 00		 movaps	 XMMWORD PTR $T30[rbp], xmm0
+  00227	0f 28 85 70 08
+	00 00		 movaps	 xmm0, XMMWORD PTR $T30[rbp]
+  0022e	0f 29 85 30 01
+	00 00		 movaps	 XMMWORD PTR vDir$11[rbp], xmm0
+
+; 101  : 			vCameraPos = pPlayerTransform->Get_State(CTransform::STATE_POSITION) - (vDir * 7.5f);
+
+  00235	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40f00000
+  0023d	0f 28 85 30 01
+	00 00		 movaps	 xmm0, XMMWORD PTR vDir$11[rbp]
+  00244	e8 00 00 00 00	 call	 ??DDirectX@@YQ?AT__m128@@T1@M@Z ; DirectX::operator*
+  00249	0f 29 85 d0 08
+	00 00		 movaps	 XMMWORD PTR $T32[rbp], xmm0
+  00250	41 b8 03 00 00
+	00		 mov	 r8d, 3
+  00256	48 8d 95 00 09
+	00 00		 lea	 rdx, QWORD PTR $T33[rbp]
+  0025d	48 8b 8d 88 00
+	00 00		 mov	 rcx, QWORD PTR pPlayerTransform$7[rbp]
+  00264	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
-  001a1	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
-  001a4	e8 00 00 00 00	 call	 ?XMVectorGetY@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetY
-  001a9	0f 28 c8	 movaps	 xmm1, xmm0
-  001ac	0f 28 85 b0 00
+  0026a	0f 28 8d d0 08
+	00 00		 movaps	 xmm1, XMMWORD PTR $T32[rbp]
+  00271	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  00274	e8 00 00 00 00	 call	 ??GDirectX@@YQ?AT__m128@@T1@0@Z ; DirectX::operator-
+  00279	0f 29 85 a0 08
+	00 00		 movaps	 XMMWORD PTR $T31[rbp], xmm0
+  00280	0f 28 85 a0 08
+	00 00		 movaps	 xmm0, XMMWORD PTR $T31[rbp]
+  00287	0f 29 85 b0 00
+	00 00		 movaps	 XMMWORD PTR vCameraPos$8[rbp], xmm0
+$LN4@LateTick:
+
+; 102  : 		}
+; 103  : 
+; 104  : 		vCameraPos = XMVectorSetY(vCameraPos, XMVectorGetY(m_pTransform->Get_State(CTransform::STATE_POSITION)));
+
+  0028e	41 b8 03 00 00
+	00		 mov	 r8d, 3
+  00294	48 8d 95 60 09
+	00 00		 lea	 rdx, QWORD PTR $T35[rbp]
+  0029b	48 8b 85 10 0c
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  002a2	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
+  002a6	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+  002ac	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  002af	e8 00 00 00 00	 call	 ?XMVectorGetY@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetY
+  002b4	0f 28 c8	 movaps	 xmm1, xmm0
+  002b7	0f 28 85 b0 00
 	00 00		 movaps	 xmm0, XMMWORD PTR vCameraPos$8[rbp]
-  001b3	e8 00 00 00 00	 call	 ?XMVectorSetY@DirectX@@YQ?AT__m128@@T2@M@Z ; DirectX::XMVectorSetY
-  001b8	0f 29 85 70 06
-	00 00		 movaps	 XMMWORD PTR $T23[rbp], xmm0
-  001bf	0f 28 85 70 06
-	00 00		 movaps	 xmm0, XMMWORD PTR $T23[rbp]
-  001c6	0f 29 85 b0 00
+  002be	e8 00 00 00 00	 call	 ?XMVectorSetY@DirectX@@YQ?AT__m128@@T2@M@Z ; DirectX::XMVectorSetY
+  002c3	0f 29 85 30 09
+	00 00		 movaps	 XMMWORD PTR $T34[rbp], xmm0
+  002ca	0f 28 85 30 09
+	00 00		 movaps	 xmm0, XMMWORD PTR $T34[rbp]
+  002d1	0f 29 85 b0 00
 	00 00		 movaps	 XMMWORD PTR vCameraPos$8[rbp], xmm0
 
-; 94   : 		
-; 95   : 		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
+; 105  : 	
+; 106  : 		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
 
-  001cd	41 b8 03 00 00
+  002d8	41 b8 03 00 00
 	00		 mov	 r8d, 3
-  001d3	48 8d 95 e0 00
-	00 00		 lea	 rdx, QWORD PTR vCurPosition$9[rbp]
-  001da	48 8b 85 50 09
+  002de	48 8d 95 60 01
+	00 00		 lea	 rdx, QWORD PTR vCurPosition$12[rbp]
+  002e5	48 8b 85 10 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001e1	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
-  001e5	ff 15 00 00 00
+  002ec	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
+  002f0	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 96   : 		_vector vPosition = XMVectorLerp(vCurPosition, vCameraPos, (_float)TimeDelta * 4.0f);
+; 107  : 		_vector vPosition = XMVectorLerp(vCurPosition, vCameraPos, (_float)TimeDelta * 3.0f);
 
-  001eb	f2 0f 5a 85 58
-	09 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
-  001f3	f3 0f 59 05 00
-	00 00 00	 mulss	 xmm0, DWORD PTR __real@40800000
-  001fb	0f 28 d0	 movaps	 xmm2, xmm0
-  001fe	0f 28 8d b0 00
+  002f6	f2 0f 5a 85 18
+	0c 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
+  002fe	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40400000
+  00306	0f 28 d0	 movaps	 xmm2, xmm0
+  00309	0f 28 8d b0 00
 	00 00		 movaps	 xmm1, XMMWORD PTR vCameraPos$8[rbp]
-  00205	0f 28 85 e0 00
-	00 00		 movaps	 xmm0, XMMWORD PTR vCurPosition$9[rbp]
-  0020c	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
-  00211	0f 29 85 d0 06
-	00 00		 movaps	 XMMWORD PTR $T25[rbp], xmm0
-  00218	0f 28 85 d0 06
-	00 00		 movaps	 xmm0, XMMWORD PTR $T25[rbp]
-  0021f	0f 29 85 10 01
-	00 00		 movaps	 XMMWORD PTR vPosition$10[rbp], xmm0
-
-; 97   : 
-; 98   : 		_float4 vLockOnTargetPos = ((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition();
-
-  00226	48 8b 85 50 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0022d	48 8b 88 c8 00
-	00 00		 mov	 rcx, QWORD PTR [rax+200]
-  00234	e8 00 00 00 00	 call	 ?GetLockOnTarget@CCharacter@Client@@QEAAPEAVCGameObject@Engine@@XZ ; Client::CCharacter::GetLockOnTarget
-  00239	48 8d 95 38 01
-	00 00		 lea	 rdx, QWORD PTR vLockOnTargetPos$11[rbp]
-  00240	48 8b c8	 mov	 rcx, rax
-  00243	e8 00 00 00 00	 call	 ?GetPosition@CEnemy@Client@@QEAA?AUXMFLOAT4@DirectX@@XZ ; Client::CEnemy::GetPosition
-
-; 99   : 		vLockOnTargetPos.y += 1.f;
-
-  00248	f3 0f 10 85 3c
-	01 00 00	 movss	 xmm0, DWORD PTR vLockOnTargetPos$11[rbp+4]
-  00250	f3 0f 58 05 00
-	00 00 00	 addss	 xmm0, DWORD PTR __real@3f800000
-  00258	f3 0f 11 85 3c
-	01 00 00	 movss	 DWORD PTR vLockOnTargetPos$11[rbp+4], xmm0
-
-; 100  : 
-; 101  : 		m_pTransform->Set_State(CTransform::STATE_POSITION, vPosition);
-
-  00260	0f 28 85 10 01
-	00 00		 movaps	 xmm0, XMMWORD PTR vPosition$10[rbp]
-  00267	0f 29 85 80 08
-	00 00		 movaps	 XMMWORD PTR $T34[rbp], xmm0
-  0026e	4c 8d 85 80 08
-	00 00		 lea	 r8, QWORD PTR $T34[rbp]
-  00275	ba 03 00 00 00	 mov	 edx, 3
-  0027a	48 8b 85 50 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00281	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
-  00285	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
-
-; 102  : 
-; 103  : 		_vector vCurLook = XMVectorLerp(XMLoadFloat4(&vLookTarget), XMLoadFloat4(&vLockOnTargetPos), (_float)TimeDelta * 1.f);
-
-  0028b	48 8d 8d 38 01
-	00 00		 lea	 rcx, QWORD PTR vLockOnTargetPos$11[rbp]
-  00292	e8 00 00 00 00	 call	 ?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
-  00297	0f 29 85 30 07
-	00 00		 movaps	 XMMWORD PTR $T27[rbp], xmm0
-  0029e	48 8b 85 50 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002a5	48 05 30 01 00
-	00		 add	 rax, 304		; 00000130H
-  002ab	48 8b c8	 mov	 rcx, rax
-  002ae	e8 00 00 00 00	 call	 ?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
-  002b3	0f 29 85 60 07
-	00 00		 movaps	 XMMWORD PTR $T28[rbp], xmm0
-  002ba	f2 0f 5a 85 58
-	09 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
-  002c2	f3 0f 59 05 00
-	00 00 00	 mulss	 xmm0, DWORD PTR __real@3f800000
-  002ca	0f 28 d0	 movaps	 xmm2, xmm0
-  002cd	0f 28 8d 30 07
-	00 00		 movaps	 xmm1, XMMWORD PTR $T27[rbp]
-  002d4	0f 28 85 60 07
-	00 00		 movaps	 xmm0, XMMWORD PTR $T28[rbp]
-  002db	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
-  002e0	0f 29 85 00 07
-	00 00		 movaps	 XMMWORD PTR $T26[rbp], xmm0
-  002e7	0f 28 85 00 07
-	00 00		 movaps	 xmm0, XMMWORD PTR $T26[rbp]
-  002ee	0f 29 85 70 01
-	00 00		 movaps	 XMMWORD PTR vCurLook$12[rbp], xmm0
-
-; 104  : 		XMStoreFloat4(&vLookTarget, vCurLook);
-
-  002f5	48 8b 85 50 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002fc	48 05 30 01 00
-	00		 add	 rax, 304		; 00000130H
-  00302	0f 28 8d 70 01
-	00 00		 movaps	 xmm1, XMMWORD PTR vCurLook$12[rbp]
-  00309	48 8b c8	 mov	 rcx, rax
-  0030c	e8 00 00 00 00	 call	 ?XMStoreFloat4@DirectX@@YQXPEAUXMFLOAT4@1@T__m128@@@Z ; DirectX::XMStoreFloat4
-
-; 105  : 
-; 106  : 
-; 107  : 		m_pTransform->LookAt(XMLoadFloat4(&vLookTarget));
-
-  00311	48 8b 85 50 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00318	48 05 30 01 00
-	00		 add	 rax, 304		; 00000130H
-  0031e	48 8b c8	 mov	 rcx, rax
-  00321	e8 00 00 00 00	 call	 ?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
-  00326	0f 29 85 90 07
-	00 00		 movaps	 XMMWORD PTR $T29[rbp], xmm0
-  0032d	0f 28 85 90 07
-	00 00		 movaps	 xmm0, XMMWORD PTR $T29[rbp]
-  00334	0f 29 85 b0 08
-	00 00		 movaps	 XMMWORD PTR $T35[rbp], xmm0
-  0033b	48 8d 95 b0 08
-	00 00		 lea	 rdx, QWORD PTR $T35[rbp]
-  00342	48 8b 85 50 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00349	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
-  0034d	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?LookAt@CTransform@Engine@@QEAAXT__m128@@@Z
-
-; 108  : 	}
-; 109  : 	else
-
-  00353	e9 65 01 00 00	 jmp	 $LN3@LateTick
-$LN2@LateTick:
-
-; 110  : 	{
-; 111  : 		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
-
-  00358	41 b8 03 00 00
-	00		 mov	 r8d, 3
-  0035e	48 8d 95 a0 01
-	00 00		 lea	 rdx, QWORD PTR vCurPosition$13[rbp]
-  00365	48 8b 85 50 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0036c	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
-  00370	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
-
-; 112  : 		_vector vPosition = XMVectorLerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 2.f);
-
-  00376	f2 0f 5a 85 58
-	09 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
-  0037e	f3 0f 59 05 00
-	00 00 00	 mulss	 xmm0, DWORD PTR __real@40000000
-  00386	f3 0f 11 85 24
-	09 00 00	 movss	 DWORD PTR tv243[rbp], xmm0
-  0038e	41 b8 03 00 00
-	00		 mov	 r8d, 3
-  00394	48 8d 95 f0 07
-	00 00		 lea	 rdx, QWORD PTR $T31[rbp]
-  0039b	48 8b 85 50 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003a2	48 8b 88 d8 00
-	00 00		 mov	 rcx, QWORD PTR [rax+216]
-  003a9	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
-  003af	f3 0f 10 85 24
-	09 00 00	 movss	 xmm0, DWORD PTR tv243[rbp]
-  003b7	0f 28 d0	 movaps	 xmm2, xmm0
-  003ba	0f 10 08	 movups	 xmm1, XMMWORD PTR [rax]
-  003bd	0f 28 85 a0 01
-	00 00		 movaps	 xmm0, XMMWORD PTR vCurPosition$13[rbp]
-  003c4	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
-  003c9	0f 29 85 c0 07
-	00 00		 movaps	 XMMWORD PTR $T30[rbp], xmm0
-  003d0	0f 28 85 c0 07
-	00 00		 movaps	 xmm0, XMMWORD PTR $T30[rbp]
-  003d7	0f 29 85 d0 01
-	00 00		 movaps	 XMMWORD PTR vPosition$14[rbp], xmm0
-
-; 113  : 
-; 114  : 		m_pTransform->Set_State(CTransform::STATE_POSITION, vPosition);
-
-  003de	0f 28 85 d0 01
-	00 00		 movaps	 xmm0, XMMWORD PTR vPosition$14[rbp]
-  003e5	0f 29 85 e0 08
+  00310	0f 28 85 60 01
+	00 00		 movaps	 xmm0, XMMWORD PTR vCurPosition$12[rbp]
+  00317	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
+  0031c	0f 29 85 90 09
 	00 00		 movaps	 XMMWORD PTR $T36[rbp], xmm0
-  003ec	4c 8d 85 e0 08
-	00 00		 lea	 r8, QWORD PTR $T36[rbp]
-  003f3	ba 03 00 00 00	 mov	 edx, 3
-  003f8	48 8b 85 50 09
+  00323	0f 28 85 90 09
+	00 00		 movaps	 xmm0, XMMWORD PTR $T36[rbp]
+  0032a	0f 29 85 90 01
+	00 00		 movaps	 XMMWORD PTR vPosition$13[rbp], xmm0
+
+; 108  : 		//_vector vPosition = XMQuaternionSlerp(q1, q2, (_float)TimeDelta * 3.0f);
+; 109  : 
+; 110  : 		_float4 vLockOnTargetPos = ((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition();
+
+  00331	48 8b 85 10 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003ff	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
-  00403	ff 15 00 00 00
+  00338	48 8b 88 c8 00
+	00 00		 mov	 rcx, QWORD PTR [rax+200]
+  0033f	e8 00 00 00 00	 call	 ?GetLockOnTarget@CCharacter@Client@@QEAAPEAVCGameObject@Engine@@XZ ; Client::CCharacter::GetLockOnTarget
+  00344	48 8d 95 b8 01
+	00 00		 lea	 rdx, QWORD PTR vLockOnTargetPos$14[rbp]
+  0034b	48 8b c8	 mov	 rcx, rax
+  0034e	e8 00 00 00 00	 call	 ?GetPosition@CEnemy@Client@@QEAA?AUXMFLOAT4@DirectX@@XZ ; Client::CEnemy::GetPosition
+
+; 111  : 		vLockOnTargetPos.y += 1.f;
+
+  00353	f3 0f 10 85 bc
+	01 00 00	 movss	 xmm0, DWORD PTR vLockOnTargetPos$14[rbp+4]
+  0035b	f3 0f 58 05 00
+	00 00 00	 addss	 xmm0, DWORD PTR __real@3f800000
+  00363	f3 0f 11 85 bc
+	01 00 00	 movss	 DWORD PTR vLockOnTargetPos$14[rbp+4], xmm0
+
+; 112  : 
+; 113  : 		m_pTransform->Set_State(CTransform::STATE_POSITION, vPosition);
+
+  0036b	0f 28 85 90 01
+	00 00		 movaps	 xmm0, XMMWORD PTR vPosition$13[rbp]
+  00372	0f 29 85 40 0b
+	00 00		 movaps	 XMMWORD PTR $T45[rbp], xmm0
+  00379	4c 8d 85 40 0b
+	00 00		 lea	 r8, QWORD PTR $T45[rbp]
+  00380	ba 03 00 00 00	 mov	 edx, 3
+  00385	48 8b 85 10 0c
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0038c	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
+  00390	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 115  : 
-; 116  : 		_vector vCurLook = XMVectorLerp(XMLoadFloat4(&vLookTarget), vTargetPos, (_float)TimeDelta * 0.1);
+; 114  : 
+; 115  : 		_vector vCurLook = XMVectorLerp(XMLoadFloat4(&vLookTarget), XMLoadFloat4(&vLockOnTargetPos), (_float)TimeDelta * 2.f);
 
-  00409	48 8b 85 50 09
+  00396	48 8d 8d b8 01
+	00 00		 lea	 rcx, QWORD PTR vLockOnTargetPos$14[rbp]
+  0039d	e8 00 00 00 00	 call	 ?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
+  003a2	0f 29 85 f0 09
+	00 00		 movaps	 XMMWORD PTR $T38[rbp], xmm0
+  003a9	48 8b 85 10 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00410	48 05 30 01 00
+  003b0	48 05 30 01 00
 	00		 add	 rax, 304		; 00000130H
-  00416	48 8b c8	 mov	 rcx, rax
-  00419	e8 00 00 00 00	 call	 ?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
-  0041e	0f 29 85 50 08
-	00 00		 movaps	 XMMWORD PTR $T33[rbp], xmm0
-  00425	f2 0f 5a 85 58
-	09 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
-  0042d	f3 0f 5a c0	 cvtss2sd xmm0, xmm0
-  00431	f2 0f 59 05 00
-	00 00 00	 mulsd	 xmm0, QWORD PTR __real@3fb999999999999a
-  00439	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
-  0043d	0f 28 d0	 movaps	 xmm2, xmm0
-  00440	0f 28 4d 30	 movaps	 xmm1, XMMWORD PTR vTargetPos$[rbp]
-  00444	0f 28 85 50 08
-	00 00		 movaps	 xmm0, XMMWORD PTR $T33[rbp]
-  0044b	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
-  00450	0f 29 85 20 08
-	00 00		 movaps	 XMMWORD PTR $T32[rbp], xmm0
-  00457	0f 28 85 20 08
-	00 00		 movaps	 xmm0, XMMWORD PTR $T32[rbp]
-  0045e	0f 29 85 00 02
+  003b6	48 8b c8	 mov	 rcx, rax
+  003b9	e8 00 00 00 00	 call	 ?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
+  003be	0f 29 85 20 0a
+	00 00		 movaps	 XMMWORD PTR $T39[rbp], xmm0
+  003c5	f2 0f 5a 85 18
+	0c 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
+  003cd	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40000000
+  003d5	0f 28 d0	 movaps	 xmm2, xmm0
+  003d8	0f 28 8d f0 09
+	00 00		 movaps	 xmm1, XMMWORD PTR $T38[rbp]
+  003df	0f 28 85 20 0a
+	00 00		 movaps	 xmm0, XMMWORD PTR $T39[rbp]
+  003e6	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
+  003eb	0f 29 85 c0 09
+	00 00		 movaps	 XMMWORD PTR $T37[rbp], xmm0
+  003f2	0f 28 85 c0 09
+	00 00		 movaps	 xmm0, XMMWORD PTR $T37[rbp]
+  003f9	0f 29 85 f0 01
 	00 00		 movaps	 XMMWORD PTR vCurLook$15[rbp], xmm0
 
-; 117  : 		XMStoreFloat4(&vLookTarget, vCurLook);
+; 116  : 		XMStoreFloat4(&vLookTarget, vCurLook);
 
-  00465	48 8b 85 50 09
+  00400	48 8b 85 10 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0046c	48 05 30 01 00
+  00407	48 05 30 01 00
 	00		 add	 rax, 304		; 00000130H
-  00472	0f 28 8d 00 02
+  0040d	0f 28 8d f0 01
 	00 00		 movaps	 xmm1, XMMWORD PTR vCurLook$15[rbp]
-  00479	48 8b c8	 mov	 rcx, rax
-  0047c	e8 00 00 00 00	 call	 ?XMStoreFloat4@DirectX@@YQXPEAUXMFLOAT4@1@T__m128@@@Z ; DirectX::XMStoreFloat4
+  00414	48 8b c8	 mov	 rcx, rax
+  00417	e8 00 00 00 00	 call	 ?XMStoreFloat4@DirectX@@YQXPEAUXMFLOAT4@1@T__m128@@@Z ; DirectX::XMStoreFloat4
 
-; 118  : 
-; 119  : 		XMStoreFloat4(&vLookTarget,vTargetPos);
+; 117  : 
+; 118  : 		m_pTransform->LookAt(XMLoadFloat4(&vLookTarget));
 
-  00481	48 8b 85 50 09
+  0041c	48 8b 85 10 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00488	48 05 30 01 00
+  00423	48 05 30 01 00
 	00		 add	 rax, 304		; 00000130H
-  0048e	0f 28 4d 30	 movaps	 xmm1, XMMWORD PTR vTargetPos$[rbp]
-  00492	48 8b c8	 mov	 rcx, rax
-  00495	e8 00 00 00 00	 call	 ?XMStoreFloat4@DirectX@@YQXPEAUXMFLOAT4@1@T__m128@@@Z ; DirectX::XMStoreFloat4
-
-; 120  : 		m_pTransform->LookAt(vTargetPos);
-
-  0049a	0f 28 45 30	 movaps	 xmm0, XMMWORD PTR vTargetPos$[rbp]
-  0049e	0f 29 85 10 09
-	00 00		 movaps	 XMMWORD PTR $T37[rbp], xmm0
-  004a5	48 8d 95 10 09
-	00 00		 lea	 rdx, QWORD PTR $T37[rbp]
-  004ac	48 8b 85 50 09
+  00429	48 8b c8	 mov	 rcx, rax
+  0042c	e8 00 00 00 00	 call	 ?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
+  00431	0f 29 85 50 0a
+	00 00		 movaps	 XMMWORD PTR $T40[rbp], xmm0
+  00438	0f 28 85 50 0a
+	00 00		 movaps	 xmm0, XMMWORD PTR $T40[rbp]
+  0043f	0f 29 85 70 0b
+	00 00		 movaps	 XMMWORD PTR $T46[rbp], xmm0
+  00446	48 8d 95 70 0b
+	00 00		 lea	 rdx, QWORD PTR $T46[rbp]
+  0044d	48 8b 85 10 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004b3	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
-  004b7	ff 15 00 00 00
+  00454	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
+  00458	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?LookAt@CTransform@Engine@@QEAAXT__m128@@@Z
+
+; 119  : 	}
+; 120  : 	else
+
+  0045e	e9 47 01 00 00	 jmp	 $LN3@LateTick
+$LN2@LateTick:
+
+; 121  : 	{
+; 122  : 		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
+
+  00463	41 b8 03 00 00
+	00		 mov	 r8d, 3
+  00469	48 8d 95 20 02
+	00 00		 lea	 rdx, QWORD PTR vCurPosition$16[rbp]
+  00470	48 8b 85 10 0c
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00477	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
+  0047b	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+
+; 123  : 		_vector vPosition = XMVectorLerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 3.0f);
+
+  00481	f2 0f 5a 85 18
+	0c 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
+  00489	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40400000
+  00491	f3 0f 11 85 e4
+	0b 00 00	 movss	 DWORD PTR tv311[rbp], xmm0
+  00499	41 b8 03 00 00
+	00		 mov	 r8d, 3
+  0049f	48 8d 95 b0 0a
+	00 00		 lea	 rdx, QWORD PTR $T42[rbp]
+  004a6	48 8b 85 10 0c
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  004ad	48 8b 88 d8 00
+	00 00		 mov	 rcx, QWORD PTR [rax+216]
+  004b4	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+  004ba	f3 0f 10 85 e4
+	0b 00 00	 movss	 xmm0, DWORD PTR tv311[rbp]
+  004c2	0f 28 d0	 movaps	 xmm2, xmm0
+  004c5	0f 10 08	 movups	 xmm1, XMMWORD PTR [rax]
+  004c8	0f 28 85 20 02
+	00 00		 movaps	 xmm0, XMMWORD PTR vCurPosition$16[rbp]
+  004cf	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
+  004d4	0f 29 85 80 0a
+	00 00		 movaps	 XMMWORD PTR $T41[rbp], xmm0
+  004db	0f 28 85 80 0a
+	00 00		 movaps	 xmm0, XMMWORD PTR $T41[rbp]
+  004e2	0f 29 85 50 02
+	00 00		 movaps	 XMMWORD PTR vPosition$17[rbp], xmm0
+
+; 124  : 		//_vector vPosition = XMQuaternionSlerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 3.0f);
+; 125  : 
+; 126  : 		m_pTransform->Set_State(CTransform::STATE_POSITION, vPosition);
+
+  004e9	0f 28 85 50 02
+	00 00		 movaps	 xmm0, XMMWORD PTR vPosition$17[rbp]
+  004f0	0f 29 85 a0 0b
+	00 00		 movaps	 XMMWORD PTR $T47[rbp], xmm0
+  004f7	4c 8d 85 a0 0b
+	00 00		 lea	 r8, QWORD PTR $T47[rbp]
+  004fe	ba 03 00 00 00	 mov	 edx, 3
+  00503	48 8b 85 10 0c
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0050a	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
+  0050e	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
+
+; 127  : 
+; 128  : 		_vector vCurLook = XMVectorLerp(XMLoadFloat4(&vLookTarget), vTargetPos, (_float)TimeDelta * 2.f);
+
+  00514	48 8b 85 10 0c
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0051b	48 05 30 01 00
+	00		 add	 rax, 304		; 00000130H
+  00521	48 8b c8	 mov	 rcx, rax
+  00524	e8 00 00 00 00	 call	 ?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
+  00529	0f 29 85 10 0b
+	00 00		 movaps	 XMMWORD PTR $T44[rbp], xmm0
+  00530	f2 0f 5a 85 18
+	0c 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
+  00538	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40000000
+  00540	0f 28 d0	 movaps	 xmm2, xmm0
+  00543	0f 28 4d 30	 movaps	 xmm1, XMMWORD PTR vTargetPos$[rbp]
+  00547	0f 28 85 10 0b
+	00 00		 movaps	 xmm0, XMMWORD PTR $T44[rbp]
+  0054e	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
+  00553	0f 29 85 e0 0a
+	00 00		 movaps	 XMMWORD PTR $T43[rbp], xmm0
+  0055a	0f 28 85 e0 0a
+	00 00		 movaps	 xmm0, XMMWORD PTR $T43[rbp]
+  00561	0f 29 85 80 02
+	00 00		 movaps	 XMMWORD PTR vCurLook$18[rbp], xmm0
+
+; 129  : 		XMStoreFloat4(&vLookTarget, vCurLook);
+
+  00568	48 8b 85 10 0c
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0056f	48 05 30 01 00
+	00		 add	 rax, 304		; 00000130H
+  00575	0f 28 8d 80 02
+	00 00		 movaps	 xmm1, XMMWORD PTR vCurLook$18[rbp]
+  0057c	48 8b c8	 mov	 rcx, rax
+  0057f	e8 00 00 00 00	 call	 ?XMStoreFloat4@DirectX@@YQXPEAUXMFLOAT4@1@T__m128@@@Z ; DirectX::XMStoreFloat4
+
+; 130  : 		m_pTransform->LookAt(vCurLook);
+
+  00584	0f 28 85 80 02
+	00 00		 movaps	 xmm0, XMMWORD PTR vCurLook$18[rbp]
+  0058b	0f 29 85 d0 0b
+	00 00		 movaps	 XMMWORD PTR $T48[rbp], xmm0
+  00592	48 8d 95 d0 0b
+	00 00		 lea	 rdx, QWORD PTR $T48[rbp]
+  00599	48 8b 85 10 0c
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  005a0	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
+  005a4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?LookAt@CTransform@Engine@@QEAAXT__m128@@@Z
 $LN3@LateTick:
 
-; 121  : 	}
-; 122  : }
+; 131  : 	}
+; 132  : }
 
-  004bd	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  004c1	48 8d 15 00 00
+  005aa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  005ae	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?LateTick@CPlayerCamera@Client@@UEAAXN@Z$rtcFrameData
-  004c8	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  004cd	48 8b 8d 28 09
+  005b5	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  005ba	48 8b 8d e8 0b
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  004d4	48 33 cd	 xor	 rcx, rbp
-  004d7	e8 00 00 00 00	 call	 __security_check_cookie
-  004dc	48 8d a5 38 09
-	00 00		 lea	 rsp, QWORD PTR [rbp+2360]
-  004e3	5f		 pop	 rdi
-  004e4	5d		 pop	 rbp
-  004e5	c3		 ret	 0
+  005c1	48 33 cd	 xor	 rcx, rbp
+  005c4	e8 00 00 00 00	 call	 __security_check_cookie
+  005c9	48 8d a5 f8 0b
+	00 00		 lea	 rsp, QWORD PTR [rbp+3064]
+  005d0	5f		 pop	 rdi
+  005d1	5d		 pop	 rbp
+  005d2	c3		 ret	 0
 ?LateTick@CPlayerCamera@Client@@UEAAXN@Z ENDP		; Client::CPlayerCamera::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -4840,8 +4996,9 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 $T1 = 208
 $T2 = 256
-this$ = 320
-pArg$ = 328
+$T3 = 304
+this$ = 368
+pArg$ = 376
 ?Initialize@CPlayerCamera@Client@@UEAAJPEAX@Z PROC	; Client::CPlayerCamera::Initialize, COMDAT
 
 ; 29   : {
@@ -4851,33 +5008,33 @@ $LN5:
   00005	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0000a	55		 push	 rbp
   0000b	57		 push	 rdi
-  0000c	48 81 ec 48 01
-	00 00		 sub	 rsp, 328		; 00000148H
+  0000c	48 81 ec 78 01
+	00 00		 sub	 rsp, 376		; 00000178H
   00013	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
   00018	48 8b fc	 mov	 rdi, rsp
-  0001b	b9 52 00 00 00	 mov	 ecx, 82			; 00000052H
+  0001b	b9 5e 00 00 00	 mov	 ecx, 94			; 0000005eH
   00020	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00025	f3 ab		 rep stosd
-  00027	48 8b 8c 24 68
-	01 00 00	 mov	 rcx, QWORD PTR [rsp+360]
+  00027	48 8b 8c 24 98
+	01 00 00	 mov	 rcx, QWORD PTR [rsp+408]
 
 ; 30   : 	m_pTransform = CTransform::Create(m_pDevice, m_pContext);
 
-  0002f	48 8b 85 40 01
+  0002f	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00036	48 8b 50 68	 mov	 rdx, QWORD PTR [rax+104]
-  0003a	48 8b 85 40 01
+  0003a	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00041	48 8b 48 60	 mov	 rcx, QWORD PTR [rax+96]
   00045	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Create@CTransform@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
-  0004b	48 8b 8d 40 01
+  0004b	48 8b 8d 70 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00052	48 89 41 78	 mov	 QWORD PTR [rcx+120], rax
 
 ; 31   : 	if (nullptr == m_pTransform)
 
-  00056	48 8b 85 40 01
+  00056	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0005d	48 83 78 78 00	 cmp	 QWORD PTR [rax+120], 0
   00062	75 0a		 jne	 SHORT $LN2@Initialize
@@ -4885,13 +5042,13 @@ $LN5:
 ; 32   : 		return E_FAIL;
 
   00064	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00069	e9 46 01 00 00	 jmp	 $LN1@Initialize
+  00069	e9 7a 01 00 00	 jmp	 $LN1@Initialize
 $LN2@Initialize:
 
 ; 33   : 	
 ; 34   : 	assert(pArg);
 
-  0006e	48 83 bd 48 01
+  0006e	48 83 bd 78 01
 	00 00 00	 cmp	 QWORD PTR pArg$[rbp], 0
   00076	75 22		 jne	 SHORT $LN4@Initialize
   00078	8b 05 00 00 00
@@ -4909,9 +5066,9 @@ $LN4@Initialize:
 
 ; 35   : 	m_pTarget = (CGameObject*)pArg;
 
-  0009a	48 8b 85 40 01
+  0009a	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000a1	48 8b 8d 48 01
+  000a1	48 8b 8d 78 01
 	00 00		 mov	 rcx, QWORD PTR pArg$[rbp]
   000a8	48 89 88 c8 00
 	00 00		 mov	 QWORD PTR [rax+200], rcx
@@ -4921,13 +5078,13 @@ $LN4@Initialize:
 
   000af	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
-  000b6	48 8b 85 40 01
+  000b6	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000bd	48 8b 88 c8 00
 	00 00		 mov	 rcx, QWORD PTR [rax+200]
   000c4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Find_Component@CGameObject@Engine@@QEAAPEAVCComponent@2@PEB_W@Z
-  000ca	48 8b 8d 40 01
+  000ca	48 8b 8d 70 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   000d1	48 89 81 d0 00
 	00 00		 mov	 QWORD PTR [rcx+208], rax
@@ -4936,13 +5093,13 @@ $LN4@Initialize:
 
   000d8	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1DI@OLGFHDLM@?$AAc?$AAo?$AAm?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA_?$AAs?$AAo?$AAc?$AAk?$AAe?$AAt?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
-  000df	48 8b 85 40 01
+  000df	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000e6	48 8b 88 c8 00
 	00 00		 mov	 rcx, QWORD PTR [rax+200]
   000ed	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Find_Component@CGameObject@Engine@@QEAAPEAVCComponent@2@PEB_W@Z
-  000f3	48 8b 8d 40 01
+  000f3	48 8b 8d 70 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   000fa	48 89 81 d8 00
 	00 00		 mov	 QWORD PTR [rcx+216], rax
@@ -4953,7 +5110,7 @@ $LN4@Initialize:
   00101	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42340000
   00109	e8 00 00 00 00	 call	 ?XMConvertToRadians@DirectX@@YAMM@Z ; DirectX::XMConvertToRadians
-  0010e	48 8b 85 40 01
+  0010e	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00115	f3 0f 11 80 b4
 	00 00 00	 movss	 DWORD PTR [rax+180], xmm0
@@ -4964,14 +5121,14 @@ $LN4@Initialize:
 	00 00 00	 movss	 xmm0, DWORD PTR __real@44a00000
   00125	f3 0f 5e 05 00
 	00 00 00	 divss	 xmm0, DWORD PTR __real@44340000
-  0012d	48 8b 85 40 01
+  0012d	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00134	f3 0f 11 80 b8
 	00 00 00	 movss	 DWORD PTR [rax+184], xmm0
 
 ; 42   : 	m_CameraDesc.fNear = 0.1f;
 
-  0013c	48 8b 85 40 01
+  0013c	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00143	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3dcccccd
@@ -4980,7 +5137,7 @@ $LN4@Initialize:
 
 ; 43   : 	m_CameraDesc.fFar = 1000.f;
 
-  00153	48 8b 85 40 01
+  00153	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0015a	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@447a0000
@@ -4988,43 +5145,60 @@ $LN4@Initialize:
 	00 00 00	 movss	 DWORD PTR [rax+192], xmm0
 
 ; 44   : 
-; 45   : 	m_pTransform->Set_State(CTransform::STATE_POSITION, m_pSocketTransform->Get_State(CTransform::STATE_POSITION));
+; 45   : 	m_pTransform->Set_State(CTransform::STATE_POSITION, m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
 
   0016a	41 b8 03 00 00
 	00		 mov	 r8d, 3
   00170	48 8d 95 d0 00
 	00 00		 lea	 rdx, QWORD PTR $T1[rbp]
-  00177	48 8b 85 40 01
+  00177	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0017e	48 8b 88 d8 00
-	00 00		 mov	 rcx, QWORD PTR [rax+216]
+  0017e	48 8b 88 d0 00
+	00 00		 mov	 rcx, QWORD PTR [rax+208]
   00185	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
   0018b	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
-  0018e	0f 11 85 00 01
-	00 00		 movups	 XMMWORD PTR $T2[rbp], xmm0
-  00195	4c 8d 85 00 01
-	00 00		 lea	 r8, QWORD PTR $T2[rbp]
+  0018e	0f 11 85 30 01
+	00 00		 movups	 XMMWORD PTR $T3[rbp], xmm0
+  00195	4c 8d 85 30 01
+	00 00		 lea	 r8, QWORD PTR $T3[rbp]
   0019c	ba 03 00 00 00	 mov	 edx, 3
-  001a1	48 8b 85 40 01
+  001a1	48 8b 85 70 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   001a8	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
   001ac	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 46   : 
+; 46   : 	XMStoreFloat4(&vLookTarget, m_pTransform->Get_State(CTransform::STATE_POSITION));
+
+  001b2	41 b8 03 00 00
+	00		 mov	 r8d, 3
+  001b8	48 8d 95 00 01
+	00 00		 lea	 rdx, QWORD PTR $T2[rbp]
+  001bf	48 8b 85 70 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001c6	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
+  001ca	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+  001d0	48 8b 8d 70 01
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  001d7	48 81 c1 30 01
+	00 00		 add	 rcx, 304		; 00000130H
+  001de	0f 10 08	 movups	 xmm1, XMMWORD PTR [rax]
+  001e1	e8 00 00 00 00	 call	 ?XMStoreFloat4@DirectX@@YQXPEAUXMFLOAT4@1@T__m128@@@Z ; DirectX::XMStoreFloat4
+
 ; 47   : 	return S_OK;
 
-  001b2	33 c0		 xor	 eax, eax
+  001e6	33 c0		 xor	 eax, eax
 $LN1@Initialize:
 
 ; 48   : }
 
-  001b4	48 8d a5 28 01
-	00 00		 lea	 rsp, QWORD PTR [rbp+296]
-  001bb	5f		 pop	 rdi
-  001bc	5d		 pop	 rbp
-  001bd	c3		 ret	 0
+  001e8	48 8d a5 58 01
+	00 00		 lea	 rsp, QWORD PTR [rbp+344]
+  001ef	5f		 pop	 rdi
+  001f0	5d		 pop	 rbp
+  001f1	c3		 ret	 0
 ?Initialize@CPlayerCamera@Client@@UEAAJPEAX@Z ENDP	; Client::CPlayerCamera::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -5735,6 +5909,160 @@ $LN3:
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\windows kits\8.1\include\um\directxmathvector.inl
+;	COMDAT ?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z
+_TEXT	SEGMENT
+V$ = 16
+vLengthSq$ = 64
+vTemp$ = 112
+$T1 = 352
+$T2 = 400
+$T3 = 448
+$T4 = 496
+$T5 = 544
+$T6 = 592
+$T7 = 640
+?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z PROC	; DirectX::XMVector3Length, COMDAT
+
+; 9133 : {
+
+$LN3:
+  00000	40 55		 push	 rbp
+  00002	57		 push	 rdi
+  00003	48 81 ec b8 02
+	00 00		 sub	 rsp, 696		; 000002b8H
+  0000a	48 8d 6c 24 10	 lea	 rbp, QWORD PTR [rsp+16]
+  0000f	48 8b fc	 mov	 rdi, rsp
+  00012	b9 ae 00 00 00	 mov	 ecx, 174		; 000000aeH
+  00017	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  0001c	f3 ab		 rep stosd
+  0001e	48 8d 45 10	 lea	 rax, QWORD PTR V$[rbp]
+  00022	48 89 84 24 d0
+	02 00 00	 mov	 QWORD PTR [rsp+720], rax
+  0002a	0f 29 45 10	 movaps	 XMMWORD PTR V$[rbp], xmm0
+
+; 9134 : #if defined(_XM_NO_INTRINSICS_)
+; 9135 : 
+; 9136 :     XMVECTOR Result;
+; 9137 : 
+; 9138 :     Result = XMVector3LengthSq(V);
+; 9139 :     Result = XMVectorSqrt(Result);
+; 9140 : 
+; 9141 :     return Result;
+; 9142 : 
+; 9143 : #elif defined(_XM_ARM_NEON_INTRINSICS_)
+; 9144 :     // Dot3
+; 9145 :     float32x4_t vTemp = vmulq_f32( V, V );
+; 9146 :     float32x2_t v1 = vget_low_f32( vTemp );
+; 9147 :     float32x2_t v2 = vget_high_f32( vTemp );
+; 9148 :     v1 = vpadd_f32( v1, v1 );
+; 9149 :     v2 = vdup_lane_f32( v2, 0 );
+; 9150 :     v1 = vadd_f32( v1, v2 );
+; 9151 :     const float32x2_t zero = vdup_n_f32(0);
+; 9152 :     uint32x2_t VEqualsZero = vceq_f32( v1, zero );
+; 9153 :     // Sqrt
+; 9154 :     float32x2_t S0 = vrsqrte_f32( v1 );
+; 9155 :     float32x2_t P0 = vmul_f32( v1, S0 );
+; 9156 :     float32x2_t R0 = vrsqrts_f32( P0, S0 );
+; 9157 :     float32x2_t S1 = vmul_f32( S0, R0 );
+; 9158 :     float32x2_t P1 = vmul_f32( v1, S1 );
+; 9159 :     float32x2_t R1 = vrsqrts_f32( P1, S1 );
+; 9160 :     float32x2_t Result = vmul_f32( S1, R1 );
+; 9161 :     Result = vmul_f32( v1, Result );
+; 9162 :     Result = vbsl_f32( VEqualsZero, zero, Result );
+; 9163 :     return vcombine_f32( Result, Result );
+; 9164 : #elif defined(_XM_SSE_INTRINSICS_)
+; 9165 :     // Perform the dot product on x,y and z
+; 9166 :     XMVECTOR vLengthSq = _mm_mul_ps(V,V);
+
+  0002e	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR V$[rbp]
+  00032	0f 59 45 10	 mulps	 xmm0, XMMWORD PTR V$[rbp]
+  00036	0f 29 85 60 01
+	00 00		 movaps	 XMMWORD PTR $T1[rbp], xmm0
+  0003d	0f 28 85 60 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T1[rbp]
+  00044	0f 29 45 40	 movaps	 XMMWORD PTR vLengthSq$[rbp], xmm0
+
+; 9167 :     // vTemp has z and y
+; 9168 :     XMVECTOR vTemp = XM_PERMUTE_PS(vLengthSq,_MM_SHUFFLE(1,2,1,2));
+
+  00048	0f 28 45 40	 movaps	 xmm0, XMMWORD PTR vLengthSq$[rbp]
+  0004c	0f c6 45 40 66	 shufps	 xmm0, XMMWORD PTR vLengthSq$[rbp], 102 ; 00000066H
+  00051	0f 29 85 90 01
+	00 00		 movaps	 XMMWORD PTR $T2[rbp], xmm0
+  00058	0f 28 85 90 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T2[rbp]
+  0005f	0f 29 45 70	 movaps	 XMMWORD PTR vTemp$[rbp], xmm0
+
+; 9169 :     // x+z, y
+; 9170 :     vLengthSq = _mm_add_ss(vLengthSq,vTemp);
+
+  00063	0f 28 45 40	 movaps	 xmm0, XMMWORD PTR vLengthSq$[rbp]
+  00067	f3 0f 58 45 70	 addss	 xmm0, DWORD PTR vTemp$[rbp]
+  0006c	0f 29 85 c0 01
+	00 00		 movaps	 XMMWORD PTR $T3[rbp], xmm0
+  00073	0f 28 85 c0 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T3[rbp]
+  0007a	0f 29 45 40	 movaps	 XMMWORD PTR vLengthSq$[rbp], xmm0
+
+; 9171 :     // y,y,y,y
+; 9172 :     vTemp = XM_PERMUTE_PS(vTemp,_MM_SHUFFLE(1,1,1,1));
+
+  0007e	0f 28 45 70	 movaps	 xmm0, XMMWORD PTR vTemp$[rbp]
+  00082	0f c6 45 70 55	 shufps	 xmm0, XMMWORD PTR vTemp$[rbp], 85 ; 00000055H
+  00087	0f 29 85 f0 01
+	00 00		 movaps	 XMMWORD PTR $T4[rbp], xmm0
+  0008e	0f 28 85 f0 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T4[rbp]
+  00095	0f 29 45 70	 movaps	 XMMWORD PTR vTemp$[rbp], xmm0
+
+; 9173 :     // x+z+y,??,??,??
+; 9174 :     vLengthSq = _mm_add_ss(vLengthSq,vTemp);
+
+  00099	0f 28 45 40	 movaps	 xmm0, XMMWORD PTR vLengthSq$[rbp]
+  0009d	f3 0f 58 45 70	 addss	 xmm0, DWORD PTR vTemp$[rbp]
+  000a2	0f 29 85 20 02
+	00 00		 movaps	 XMMWORD PTR $T5[rbp], xmm0
+  000a9	0f 28 85 20 02
+	00 00		 movaps	 xmm0, XMMWORD PTR $T5[rbp]
+  000b0	0f 29 45 40	 movaps	 XMMWORD PTR vLengthSq$[rbp], xmm0
+
+; 9175 :     // Splat the length squared
+; 9176 :     vLengthSq = XM_PERMUTE_PS(vLengthSq,_MM_SHUFFLE(0,0,0,0));
+
+  000b4	0f 28 45 40	 movaps	 xmm0, XMMWORD PTR vLengthSq$[rbp]
+  000b8	0f c6 45 40 00	 shufps	 xmm0, XMMWORD PTR vLengthSq$[rbp], 0
+  000bd	0f 29 85 50 02
+	00 00		 movaps	 XMMWORD PTR $T6[rbp], xmm0
+  000c4	0f 28 85 50 02
+	00 00		 movaps	 xmm0, XMMWORD PTR $T6[rbp]
+  000cb	0f 29 45 40	 movaps	 XMMWORD PTR vLengthSq$[rbp], xmm0
+
+; 9177 :     // Get the length
+; 9178 :     vLengthSq = _mm_sqrt_ps(vLengthSq);
+
+  000cf	0f 51 45 40	 sqrtps	 xmm0, XMMWORD PTR vLengthSq$[rbp]
+  000d3	0f 29 85 80 02
+	00 00		 movaps	 XMMWORD PTR $T7[rbp], xmm0
+  000da	0f 28 85 80 02
+	00 00		 movaps	 xmm0, XMMWORD PTR $T7[rbp]
+  000e1	0f 29 45 40	 movaps	 XMMWORD PTR vLengthSq$[rbp], xmm0
+
+; 9179 :     return vLengthSq;
+
+  000e5	0f 28 45 40	 movaps	 xmm0, XMMWORD PTR vLengthSq$[rbp]
+
+; 9180 : #endif
+; 9181 : }
+
+  000e9	48 8d a5 a8 02
+	00 00		 lea	 rsp, QWORD PTR [rbp+680]
+  000f0	5f		 pop	 rdi
+  000f1	5d		 pop	 rbp
+  000f2	c3		 ret	 0
+?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z ENDP	; DirectX::XMVector3Length
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\program files (x86)\windows kits\8.1\include\um\directxmathvector.inl
 ;	COMDAT ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z
 _TEXT	SEGMENT
 V0$ = 16
@@ -5837,6 +6165,76 @@ $LN3:
   000bf	5d		 pop	 rbp
   000c0	c3		 ret	 0
 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ENDP	; DirectX::XMVectorLerp
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\program files (x86)\windows kits\8.1\include\um\directxmathvector.inl
+;	COMDAT ?XMVectorScale@DirectX@@YQ?AT__m128@@T2@M@Z
+_TEXT	SEGMENT
+V$ = 16
+vResult$ = 64
+$T1 = 304
+$T2 = 352
+ScaleFactor$ = 424
+?XMVectorScale@DirectX@@YQ?AT__m128@@T2@M@Z PROC	; DirectX::XMVectorScale, COMDAT
+
+; 2965 : {
+
+$LN3:
+  00000	f3 0f 11 4c 24
+	10		 movss	 DWORD PTR [rsp+16], xmm1
+  00006	55		 push	 rbp
+  00007	57		 push	 rdi
+  00008	48 81 ec 98 01
+	00 00		 sub	 rsp, 408		; 00000198H
+  0000f	48 8d 6c 24 10	 lea	 rbp, QWORD PTR [rsp+16]
+  00014	48 8b fc	 mov	 rdi, rsp
+  00017	b9 66 00 00 00	 mov	 ecx, 102		; 00000066H
+  0001c	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00021	f3 ab		 rep stosd
+  00023	48 8d 45 10	 lea	 rax, QWORD PTR V$[rbp]
+  00027	48 89 84 24 b0
+	01 00 00	 mov	 QWORD PTR [rsp+432], rax
+  0002f	0f 29 45 10	 movaps	 XMMWORD PTR V$[rbp], xmm0
+
+; 2966 : #if defined(_XM_NO_INTRINSICS_)
+; 2967 :     XMVECTOR Result;
+; 2968 :     Result.vector4_f32[0] = V.vector4_f32[0] * ScaleFactor;
+; 2969 :     Result.vector4_f32[1] = V.vector4_f32[1] * ScaleFactor;
+; 2970 :     Result.vector4_f32[2] = V.vector4_f32[2] * ScaleFactor;
+; 2971 :     Result.vector4_f32[3] = V.vector4_f32[3] * ScaleFactor;
+; 2972 :     return Result;
+; 2973 : #elif defined(_XM_ARM_NEON_INTRINSICS_)
+; 2974 :     return XM_VMULQ_N_F32( V, ScaleFactor );
+; 2975 : #elif defined(_XM_SSE_INTRINSICS_)
+; 2976 :    XMVECTOR vResult = _mm_set_ps1(ScaleFactor);
+
+  00033	f3 0f 10 85 a8
+	01 00 00	 movss	 xmm0, DWORD PTR ScaleFactor$[rbp]
+  0003b	0f c6 c0 00	 shufps	 xmm0, xmm0, 0
+  0003f	0f 29 85 30 01
+	00 00		 movaps	 XMMWORD PTR $T1[rbp], xmm0
+  00046	0f 28 85 30 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T1[rbp]
+  0004d	0f 29 45 40	 movaps	 XMMWORD PTR vResult$[rbp], xmm0
+
+; 2977 :    return _mm_mul_ps(vResult,V);
+
+  00051	0f 28 45 40	 movaps	 xmm0, XMMWORD PTR vResult$[rbp]
+  00055	0f 59 45 10	 mulps	 xmm0, XMMWORD PTR V$[rbp]
+  00059	0f 29 85 60 01
+	00 00		 movaps	 XMMWORD PTR $T2[rbp], xmm0
+  00060	0f 28 85 60 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T2[rbp]
+
+; 2978 : #endif
+; 2979 : }
+
+  00067	48 8d a5 88 01
+	00 00		 lea	 rsp, QWORD PTR [rbp+392]
+  0006e	5f		 pop	 rdi
+  0006f	5d		 pop	 rbp
+  00070	c3		 ret	 0
+?XMVectorScale@DirectX@@YQ?AT__m128@@T2@M@Z ENDP	; DirectX::XMVectorScale
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\windows kits\8.1\include\um\directxmathvector.inl
@@ -6063,6 +6461,54 @@ $LN3:
   00065	5d		 pop	 rbp
   00066	c3		 ret	 0
 ?XMVectorGetY@DirectX@@YQMT__m128@@@Z ENDP		; DirectX::XMVectorGetY
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\program files (x86)\windows kits\8.1\include\um\directxmathvector.inl
+;	COMDAT ?XMVectorGetX@DirectX@@YQMT__m128@@@Z
+_TEXT	SEGMENT
+V$ = 16
+tv66 = 228
+?XMVectorGetX@DirectX@@YQMT__m128@@@Z PROC		; DirectX::XMVectorGetX, COMDAT
+
+; 419  : {
+
+$LN3:
+  00000	40 55		 push	 rbp
+  00002	57		 push	 rdi
+  00003	48 81 ec 08 01
+	00 00		 sub	 rsp, 264		; 00000108H
+  0000a	48 8d 6c 24 10	 lea	 rbp, QWORD PTR [rsp+16]
+  0000f	48 8b fc	 mov	 rdi, rsp
+  00012	b9 42 00 00 00	 mov	 ecx, 66			; 00000042H
+  00017	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  0001c	f3 ab		 rep stosd
+  0001e	48 8d 45 10	 lea	 rax, QWORD PTR V$[rbp]
+  00022	48 89 84 24 20
+	01 00 00	 mov	 QWORD PTR [rsp+288], rax
+  0002a	0f 29 45 10	 movaps	 XMMWORD PTR V$[rbp], xmm0
+
+; 420  : #if defined(_XM_NO_INTRINSICS_)
+; 421  :     return V.vector4_f32[0];
+; 422  : #elif defined(_XM_ARM_NEON_INTRINSICS_)
+; 423  :     return vgetq_lane_f32(V, 0);
+; 424  : #elif defined(_XM_SSE_INTRINSICS_)
+; 425  :     return _mm_cvtss_f32(V);
+
+  0002e	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR V$[rbp]
+  00032	f3 0f 11 85 e4
+	00 00 00	 movss	 DWORD PTR tv66[rbp], xmm0
+  0003a	f3 0f 10 85 e4
+	00 00 00	 movss	 xmm0, DWORD PTR tv66[rbp]
+
+; 426  : #endif
+; 427  : }
+
+  00042	48 8d a5 f8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+248]
+  00049	5f		 pop	 rdi
+  0004a	5d		 pop	 rbp
+  0004b	c3		 ret	 0
+?XMVectorGetX@DirectX@@YQMT__m128@@@Z ENDP		; DirectX::XMVectorGetX
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\windows kits\8.1\include\um\directxmathconvert.inl
@@ -6407,6 +6853,54 @@ $LN3:
   00037	5d		 pop	 rbp
   00038	c3		 ret	 0
 ??0XMFLOAT4@DirectX@@QEAA@XZ ENDP			; DirectX::XMFLOAT4::XMFLOAT4
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\program files (x86)\windows kits\8.1\include\um\directxmathvector.inl
+;	COMDAT ??DDirectX@@YQ?AT__m128@@T1@M@Z
+_TEXT	SEGMENT
+V$ = 16
+$T1 = 256
+S$ = 328
+??DDirectX@@YQ?AT__m128@@T1@M@Z PROC			; DirectX::operator*, COMDAT
+
+; 13994: {
+
+$LN3:
+  00000	f3 0f 11 4c 24
+	10		 movss	 DWORD PTR [rsp+16], xmm1
+  00006	55		 push	 rbp
+  00007	57		 push	 rdi
+  00008	48 81 ec 58 01
+	00 00		 sub	 rsp, 344		; 00000158H
+  0000f	48 8d 6c 24 30	 lea	 rbp, QWORD PTR [rsp+48]
+  00014	48 8b fc	 mov	 rdi, rsp
+  00017	b9 56 00 00 00	 mov	 ecx, 86			; 00000056H
+  0001c	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00021	f3 ab		 rep stosd
+  00023	48 8d 45 10	 lea	 rax, QWORD PTR V$[rbp]
+  00027	48 89 84 24 70
+	01 00 00	 mov	 QWORD PTR [rsp+368], rax
+  0002f	0f 29 45 10	 movaps	 XMMWORD PTR V$[rbp], xmm0
+
+; 13995:     return XMVectorScale(V, S);
+
+  00033	f3 0f 10 8d 48
+	01 00 00	 movss	 xmm1, DWORD PTR S$[rbp]
+  0003b	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR V$[rbp]
+  0003f	e8 00 00 00 00	 call	 ?XMVectorScale@DirectX@@YQ?AT__m128@@T2@M@Z ; DirectX::XMVectorScale
+  00044	0f 29 85 00 01
+	00 00		 movaps	 XMMWORD PTR $T1[rbp], xmm0
+  0004b	0f 28 85 00 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T1[rbp]
+
+; 13996: }
+
+  00052	48 8d a5 28 01
+	00 00		 lea	 rsp, QWORD PTR [rbp+296]
+  00059	5f		 pop	 rdi
+  0005a	5d		 pop	 rbp
+  0005b	c3		 ret	 0
+??DDirectX@@YQ?AT__m128@@T1@M@Z ENDP			; DirectX::operator*
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\windows kits\8.1\include\um\directxmathvector.inl

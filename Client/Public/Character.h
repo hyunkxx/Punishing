@@ -154,6 +154,7 @@ private:
 	void AnimationControl(_double TimeDelta);
 
 private://Camera
+
 	void CameraSocketUpdate();
 	void ForwardRotaion(_double TimeDelta);
 	void BackwardRotaion(_double TimeDelta);
@@ -166,17 +167,19 @@ private:
 	void Dash(_double TimeDelta);
 
 	void Idle();
-	void InputWASD(_double TimeDelta);
+	void InputMove(_double TimeDelta);
 	void MoveStop(_double TimeDelta);
 	void Attack();
 
 public: // Enemy 관련 코드
 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
 	_bool IsCameraLockOn() { return m_pNearEnemy != nullptr; };
-	void NullTargetErase();
+	void TargetListDeastroyCehck();
 	_bool FindTargetFromList(CGameObject* pObject);
 	void DeleteTargetFromList(CGameObject* pObject);
 	void FindNearTarget();
+	void NearTargetChange();
+
 	_float3 LockOnCameraPosition();
 
 public:
@@ -199,7 +202,7 @@ private:
 	CCollider* mEnemyCheckCollider = nullptr;
 
 private: //레이어 삭제시 삭제됨
-	class CSleeve* m_pWeapon;
+	class CWeapon* m_pWeapon;
 	class CBone* bone = nullptr;
 
 	CAnimation::ANIMATION_DESC ANIM_DESC;
@@ -224,7 +227,7 @@ private: // Command
 	_bool m_bOnTerrain = true;
 
 	_float m_fMoveSpeed = 5.f;
-	_float m_fRotationSpeed = 1080.f;
+	_float m_fRotationSpeed = 360.f;
 	const _double m_fStopTimeOut = 0.15f;
 	_double m_fStopTimer = 0.0;
 
@@ -238,6 +241,7 @@ private: // Command
 	_double m_fDashRightTimer = 0.0;
 
 	// 몬스터
+	_uint m_iEnemyIndex = 0;
 	list<CEnemy*> m_Enemys;
 	CEnemy* m_pNearEnemy = nullptr;
 };

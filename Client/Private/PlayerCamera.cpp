@@ -42,8 +42,8 @@ HRESULT CPlayerCamera::Initialize(void * pArg)
 	m_CameraDesc.fNear = 0.1f;
 	m_CameraDesc.fFar = 1000.f;
 
-	m_pTransform->Set_State(CTransform::STATE_POSITION, m_pSocketTransform->Get_State(CTransform::STATE_POSITION));
-
+	m_pTransform->Set_State(CTransform::STATE_POSITION, m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
+	XMStoreFloat4(&vLookTarget, m_pTransform->Get_State(CTransform::STATE_POSITION));
 	return S_OK;
 }
 
@@ -90,34 +90,44 @@ void CPlayerCamera::LateTick(_double TimeDelta)
 	{
 		CTransform* pPlayerTransform = (CTransform*)static_cast<CCharacter*>(m_pTarget)->Find_Component(L"com_transform");
 		_vector vCameraPos = pPlayerTransform->Get_State(CTransform::STATE_POSITION) - XMLoadFloat3(&static_cast<CCharacter*>(m_pTarget)->LockOnCameraPosition());
-		vCameraPos = XMVectorSetY(vCameraPos, XMVectorGetY(m_pTransform->Get_State(CTransform::STATE_POSITION)));
 		
+		_vector vDistance = XMLoadFloat4(&((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition()) - vCameraPos;
+		_float fLength = XMVectorGetX(XMVector3Length(vDistance));
+
+		//카메라가까울경우 최소거리
+		if (fLength <= 7.0f)
+		{
+			_vector vDir = XMVector3Normalize(vDistance);
+			vCameraPos = pPlayerTransform->Get_State(CTransform::STATE_POSITION) - (vDir * 7.5f);
+		}
+
+		vCameraPos = XMVectorSetY(vCameraPos, XMVectorGetY(m_pTransform->Get_State(CTransform::STATE_POSITION)));
+	
 		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
-		_vector vPosition = XMVectorLerp(vCurPosition, vCameraPos, (_float)TimeDelta * 4.0f);
+		_vector vPosition = XMVectorLerp(vCurPosition, vCameraPos, (_float)TimeDelta * 3.0f);
+		//_vector vPosition = XMQuaternionSlerp(q1, q2, (_float)TimeDelta * 3.0f);
 
 		_float4 vLockOnTargetPos = ((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition();
 		vLockOnTargetPos.y += 1.f;
 
 		m_pTransform->Set_State(CTransform::STATE_POSITION, vPosition);
 
-		_vector vCurLook = XMVectorLerp(XMLoadFloat4(&vLookTarget), XMLoadFloat4(&vLockOnTargetPos), (_float)TimeDelta * 1.f);
+		_vector vCurLook = XMVectorLerp(XMLoadFloat4(&vLookTarget), XMLoadFloat4(&vLockOnTargetPos), (_float)TimeDelta * 2.f);
 		XMStoreFloat4(&vLookTarget, vCurLook);
-
 
 		m_pTransform->LookAt(XMLoadFloat4(&vLookTarget));
 	}
 	else
 	{
 		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
-		_vector vPosition = XMVectorLerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 2.f);
+		_vector vPosition = XMVectorLerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 3.0f);
+		//_vector vPosition = XMQuaternionSlerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 3.0f);
 
 		m_pTransform->Set_State(CTransform::STATE_POSITION, vPosition);
 
-		_vector vCurLook = XMVectorLerp(XMLoadFloat4(&vLookTarget), vTargetPos, (_float)TimeDelta * 0.1);
+		_vector vCurLook = XMVectorLerp(XMLoadFloat4(&vLookTarget), vTargetPos, (_float)TimeDelta * 2.f);
 		XMStoreFloat4(&vLookTarget, vCurLook);
-
-		XMStoreFloat4(&vLookTarget,vTargetPos);
-		m_pTransform->LookAt(vTargetPos);
+		m_pTransform->LookAt(vCurLook);
 	}
 }
 

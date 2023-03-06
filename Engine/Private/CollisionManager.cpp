@@ -84,9 +84,6 @@ void CCollisionManager::PhysicsUpdate()
 					_collisions[j]->EraseHitCollider(_collisions[i]);
 
 				}
-
-				_collisions[i]->SetCollision(false);
-				_collisions[j]->SetCollision(false);
 			}
 		}
 	}

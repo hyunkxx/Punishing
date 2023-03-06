@@ -195,10 +195,12 @@ HRESULT CModel::Setup_BoneMatrices(CShader* pShader, const char* pConstantName, 
 	return S_OK;
 }
 
-HRESULT CModel::Setup_Animation(_uint AnimationIndex , _bool bLerp)
+HRESULT CModel::Setup_Animation(_uint AnimationIndex , CAnimation::TYPE eType, _bool bLerp)
 {
 	if (AnimationIndex >= m_iAnimationCount)
 		return E_FAIL;
+
+	m_eAnimationType = eType;
 
 	if (m_iCurrentAnimation != AnimationIndex)
 	{
@@ -222,9 +224,9 @@ HRESULT CModel::Setup_Animation(_uint AnimationIndex , _bool bLerp)
 	return S_OK;
 }
 
-HRESULT CModel::Play_Animation(_double TimeDelta, CTransform* pTransform, CAnimation::TYPE eType, const _double RatioValue, _bool bHoldY)
+HRESULT CModel::Play_Animation(_double TimeDelta, CTransform * pTransform, const _double RatioValue, _bool bHoldY)
 {
-	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta, pTransform, eType, m_bLerp, m_PrevData, RatioValue, bHoldY);
+	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta, pTransform, m_eAnimationType, m_bLerp, m_PrevData, RatioValue, bHoldY);
 
 	for (auto& pBone : m_Bones)
 		pBone->InvalidateCombinedMatrix();

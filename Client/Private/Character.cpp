@@ -49,11 +49,11 @@ HRESULT CCharacter::Initialize(void* pArg)
 
 void CCharacter::Tick(_double TimeDelta)
 {
+	__super::Tick(TimeDelta);
+
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	pGameInstance->AddCollider(mCollider);
 	pGameInstance->AddCollider(mEnemyCheckCollider);
-
-	__super::Tick(TimeDelta);
 
 	KeyInput(TimeDelta);
 	Dash(TimeDelta);
@@ -62,19 +62,19 @@ void CCharacter::Tick(_double TimeDelta)
 	AnimationControl(TimeDelta);
 
 	CameraSocketUpdate();
+	TargetListDeastroyCehck();
 }
 
 void CCharacter::LateTick(_double TimeDelta)
 {
 	__super::LateTick(TimeDelta);
 	
-	NullTargetErase();
 	FindNearTarget();
 
 	_matrix transMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&mTransform->Get_WorldMatrix());
 	mCollider->Update(transMatrix);
 	mEnemyCheckCollider->Update(XMLoadFloat4x4(&mTransform->Get_WorldMatrix()));
-
+	
 	if (nullptr != mRenderer)
 		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 }
@@ -123,6 +123,10 @@ void CCharacter::RenderGUI()
 		_float4 vTargetPos = { 0.f, 0.f, 0.f, 0.f };
 		ImGui::InputFloat4("Target Position", (float*)&vTargetPos);
 	}
+
+	_int size = (_uint)m_Enemys.size();
+	ImGui::InputInt("NearEnemy List ", (int*)&size);
+	ImGui::InputInt("Look Enemy index", (int*)&m_iEnemyIndex);
 
 	ImGui::End();
 }
@@ -242,7 +246,12 @@ void CCharacter::KeyInput(_double TimeDelta)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	InputWASD(TimeDelta);
+	InputMove(TimeDelta);
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_TAB) == KEY_STATE::TAP)
+	{
+		NearTargetChange();
+	}
 
 	if (mModel->AnimationIsFinish())
 		Idle();
@@ -284,7 +293,7 @@ void CCharacter::Dash(_double TimeDelta)
 	{
 		if (!m_bFrontDashReady)
 		{
-			if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::AWAY)
+			if (pGameInstance->Input_KeyState_Custom(DIK_UPARROW) == KEY_STATE::AWAY)
 			{
 				m_bFrontDashReady = true;
 				m_bLeftDashReady = false;
@@ -293,7 +302,7 @@ void CCharacter::Dash(_double TimeDelta)
 		}
 		else
 		{
-			if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::TAP)
+			if (pGameInstance->Input_KeyState_Custom(DIK_UPARROW) == KEY_STATE::TAP)
 			{
 				SetAnimation(CLIP::MOVE1, CAnimation::ONE);
 				m_bAttackable = false;
@@ -308,7 +317,7 @@ void CCharacter::Dash(_double TimeDelta)
 	{
 		if (!m_bLeftDashReady)
 		{
-			if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::AWAY)
+			if (pGameInstance->Input_KeyState_Custom(DIK_LEFTARROW) == KEY_STATE::AWAY)
 			{
 				m_bFrontDashReady = false;
 				m_bLeftDashReady = true;
@@ -317,7 +326,7 @@ void CCharacter::Dash(_double TimeDelta)
 		}
 		else
 		{
-			if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::TAP)
+			if (pGameInstance->Input_KeyState_Custom(DIK_LEFTARROW) == KEY_STATE::TAP)
 			{
 				SetAnimation(CLIP::MOVE1, CAnimation::ONE);
 				m_bAttackable = false;
@@ -332,7 +341,7 @@ void CCharacter::Dash(_double TimeDelta)
 	{
 		if (!m_bRightDashReady)
 		{
-			if (pGameInstance->Input_KeyState_Custom(DIK_D) == KEY_STATE::AWAY)
+			if (pGameInstance->Input_KeyState_Custom(DIK_RIGHTARROW) == KEY_STATE::AWAY)
 			{
 				m_bFrontDashReady = false;
 				m_bLeftDashReady = false;
@@ -341,7 +350,7 @@ void CCharacter::Dash(_double TimeDelta)
 		}
 		else
 		{
-			if (pGameInstance->Input_KeyState_Custom(DIK_D) == KEY_STATE::TAP)
+			if (pGameInstance->Input_KeyState_Custom(DIK_RIGHTARROW) == KEY_STATE::TAP)
 			{
 				SetAnimation(CLIP::MOVE1, CAnimation::ONE);
 				m_bAttackable = false;
@@ -428,7 +437,7 @@ void CCharacter::Attack()
 	if (!m_bAttackable)
 		return;
 
-	if (pGameInstance->Input_MouseState_Custom(DIMK_LB) == KEY_STATE::TAP)
+	if (pGameInstance->Input_KeyState_Custom(DIK_LCONTROL) == KEY_STATE::TAP)
 	{
 		if (m_bAttacking)
 		{
@@ -474,13 +483,15 @@ void CCharacter::Attack()
 	}
 }
 
-void CCharacter::NullTargetErase()
+void CCharacter::TargetListDeastroyCehck()
 {
-	for (auto& iter = m_Enemys.begin(); iter != m_Enemys.end(); )
+	for (auto iter = m_Enemys.begin(); iter != m_Enemys.end(); )
 	{
-		if (static_cast<CGameObject*>(*iter)->IsDestroy() || 
-			(*iter) == nullptr)
+		if ((*iter)->IsDestroy())
 		{
+			if ((*iter) == m_pNearEnemy)
+				m_pNearEnemy = nullptr;
+
 			iter = m_Enemys.erase(iter);
 		}
 		else
@@ -518,13 +529,17 @@ void CCharacter::DeleteTargetFromList(CGameObject * pObject)
 
 void CCharacter::FindNearTarget()
 {
+	if (m_pNearEnemy != nullptr)
+		return;
+
 	m_pNearEnemy = nullptr;
 
 	_float fNear = FLT_MAX;
 	_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
 	for (auto& enemy : m_Enemys)
-	{
+	{	
 		CTransform* pTransform = (CTransform*)enemy->Find_Component(L"com_transform");
+
 		_vector vTargetPos = pTransform->Get_State(CTransform::STATE_POSITION);
 
 		float fDist = XMVectorGetX(XMVector3Length(vTargetPos - vPos));
@@ -533,6 +548,30 @@ void CCharacter::FindNearTarget()
 			fNear = fDist;
 			m_pNearEnemy = enemy;
 		}
+	}
+}
+
+void CCharacter::NearTargetChange()
+{
+	if(m_iEnemyIndex < m_Enemys.size())
+		m_iEnemyIndex++;
+
+	int i = 0;
+	for (auto iter = m_Enemys.begin(); iter != m_Enemys.end(); ++iter)
+	{
+		if (m_iEnemyIndex >= m_Enemys.size())
+		{
+			m_iEnemyIndex = 0;
+			m_pNearEnemy = *(m_Enemys.begin());
+		}
+
+		if (m_iEnemyIndex == i)
+		{
+			m_pNearEnemy = *iter;
+			return;
+		}
+
+		i++;
 	}
 }
 
@@ -561,27 +600,43 @@ void CCharacter::AnimationControl(_double TimeDelta)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	mModel->Setup_Animation(ANIM_DESC.Clip, true);
+	mModel->Setup_Animation(ANIM_DESC.Clip, ANIM_DESC.Type, true);
 
 	if (AnimationCompare(CLIP::RUN))
 	{
-		mModel->Play_Animation(TimeDelta, mTransform, ANIM_DESC.Type, 0.01f);
+		mModel->Play_Animation(TimeDelta, mTransform, 0.01f);
 	}
 	else
-		mModel->Play_Animation(TimeDelta, mTransform, ANIM_DESC.Type);
+		mModel->Play_Animation(TimeDelta, mTransform);
 
 }
 
 void CCharacter::CameraSocketUpdate()
 {
-	_vector vLook = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_LOOK));
-	_vector cameraPos = mTransform->Get_State(CTransform::STATE_POSITION);
-	cameraPos = XMVectorSetY(cameraPos, XMVectorGetY(cameraPos) + 2.f);
-	
-	//플레이어 뒤로 좀 미는거 수정
-	cameraPos = cameraPos - (vLook * 4.f);
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	mCameraSocketTransform->Set_State(CTransform::STATE_POSITION, cameraPos);
+	if (pGameInstance->Input_KeyState_Custom(DIK_DOWNARROW) == KEY_STATE(HOLD))
+	{
+		_vector vLook = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_LOOK));
+		_vector cameraPos = mTransform->Get_State(CTransform::STATE_POSITION);
+		cameraPos = XMVectorSetY(cameraPos, XMVectorGetY(cameraPos) + 2.f);
+
+		//플레이어 뒤로 좀 미는거 수정
+		cameraPos = cameraPos + (vLook * 7.f);
+
+		mCameraSocketTransform->Set_State(CTransform::STATE_POSITION, cameraPos);
+	}
+	else
+	{
+		_vector vLook = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_LOOK));
+		_vector cameraPos = mTransform->Get_State(CTransform::STATE_POSITION);
+		cameraPos = XMVectorSetY(cameraPos, XMVectorGetY(cameraPos) + 2.f);
+
+		//플레이어 뒤로 좀 미는거 수정
+		cameraPos = cameraPos - (vLook * 5.f);
+
+		mCameraSocketTransform->Set_State(CTransform::STATE_POSITION, cameraPos);
+	}
 }
 
 void CCharacter::ForwardRotaion(_double TimeDelta)
@@ -690,42 +745,42 @@ void CCharacter::Movement(_double TimeDelta)
 	}
 }
 
-void CCharacter::InputWASD(_double TimeDelta)
+void CCharacter::InputMove(_double TimeDelta)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::TAP)
+	if (pGameInstance->Input_KeyState_Custom(DIK_UPARROW) == KEY_STATE::TAP)
 		m_iWASDCount++;
-	else if(pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::AWAY)
+	else if(pGameInstance->Input_KeyState_Custom(DIK_UPARROW) == KEY_STATE::AWAY)
 		m_iWASDCount--;
 
-	if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::TAP)
+	if (pGameInstance->Input_KeyState_Custom(DIK_LEFTARROW) == KEY_STATE::TAP)
 		m_iWASDCount++;
-	else if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::AWAY)
+	else if (pGameInstance->Input_KeyState_Custom(DIK_LEFTARROW) == KEY_STATE::AWAY)
 		m_iWASDCount--;
 
-	if (pGameInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::TAP)
+	if (pGameInstance->Input_KeyState_Custom(DIK_DOWNARROW) == KEY_STATE::TAP)
 		m_iWASDCount++;
-	else if (pGameInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::AWAY)
+	else if (pGameInstance->Input_KeyState_Custom(DIK_DOWNARROW) == KEY_STATE::AWAY)
 		m_iWASDCount--;
 
-	if (pGameInstance->Input_KeyState_Custom(DIK_D) == KEY_STATE::TAP)
+	if (pGameInstance->Input_KeyState_Custom(DIK_RIGHTARROW) == KEY_STATE::TAP)
 		m_iWASDCount++;
-	else if (pGameInstance->Input_KeyState_Custom(DIK_D) == KEY_STATE::AWAY)
+	else if (pGameInstance->Input_KeyState_Custom(DIK_RIGHTARROW) == KEY_STATE::AWAY)
 		m_iWASDCount--;
 
 	if (m_bMove &&
-		pGameInstance->Input_KeyState_Custom(DIK_W) != KEY_STATE::HOLD &&
-		pGameInstance->Input_KeyState_Custom(DIK_A) != KEY_STATE::HOLD &&
-		pGameInstance->Input_KeyState_Custom(DIK_S) != KEY_STATE::HOLD &&
-		pGameInstance->Input_KeyState_Custom(DIK_D) != KEY_STATE::HOLD)
+		pGameInstance->Input_KeyState_Custom(DIK_UPARROW) != KEY_STATE::HOLD &&
+		pGameInstance->Input_KeyState_Custom(DIK_LEFTARROW) != KEY_STATE::HOLD &&
+		pGameInstance->Input_KeyState_Custom(DIK_DOWNARROW) != KEY_STATE::HOLD &&
+		pGameInstance->Input_KeyState_Custom(DIK_RIGHTARROW) != KEY_STATE::HOLD)
 	{
 		MoveStop(TimeDelta);
 	}
 
 	TimeDelta = TimeDelta / m_iWASDCount;
 
-	if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::HOLD)
+	if (pGameInstance->Input_KeyState_Custom(DIK_UPARROW) == KEY_STATE::HOLD)
 	{
 		if (!m_bMoveable)
 			return;
@@ -734,7 +789,7 @@ void CCharacter::InputWASD(_double TimeDelta)
 		Movement(TimeDelta);
 	}
 
-	if (pGameInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::HOLD)
+	if (pGameInstance->Input_KeyState_Custom(DIK_DOWNARROW) == KEY_STATE::HOLD)
 	{
 		if (!m_bMoveable)
 			return;
@@ -743,7 +798,7 @@ void CCharacter::InputWASD(_double TimeDelta)
 		Movement(TimeDelta);
 	}
 
-	if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::HOLD)
+	if (pGameInstance->Input_KeyState_Custom(DIK_LEFTARROW) == KEY_STATE::HOLD)
 	{
 		if (!m_bMoveable)
 			return;
@@ -752,7 +807,7 @@ void CCharacter::InputWASD(_double TimeDelta)
 		Movement(TimeDelta);
 	}
 
-	if (pGameInstance->Input_KeyState_Custom(DIK_D) == KEY_STATE::HOLD)
+	if (pGameInstance->Input_KeyState_Custom(DIK_RIGHTARROW) == KEY_STATE::HOLD)
 	{
 		if (!m_bMoveable)
 			return;
@@ -817,6 +872,12 @@ void CCharacter::Free()
 
 void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 {
+	if (src->Compare(mCollider))
+	{
+		//CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
+		//pEnemy->Destroy();
+	}
+
 	if (src->Compare(mEnemyCheckCollider))
 	{
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
@@ -830,14 +891,6 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 
 void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 {
-	if (src->Compare(mCollider))
-	{
-		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
-		pEnemy->Destroy();
-
-		//_vector pos = XMVectorSet(31.5f, 0.f, 19.5f, 1.f);
-		//mTransform->Set_State(CTransform::STATE_POSITION, pos);
-	}
 }
 
 void CCharacter::OnCollisionExit(CCollider * src, CCollider * dest)

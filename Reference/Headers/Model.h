@@ -26,8 +26,8 @@ public:
 
 	HRESULT Setup_ShaderMaterialResource(class CShader* pShader, const char* pConstantName, _uint iMeshIndex, aiTextureType eType);
 	HRESULT Setup_BoneMatrices(class CShader* pShader, const char* pConstantName, _uint iMeshIndex);
-	HRESULT Setup_Animation(_uint AnimationIndex, _bool bLerp);
-	HRESULT Play_Animation(_double TimeDelta, class CTransform* pTransform, CAnimation::TYPE eType, const _double RatioValue = 0.2, _bool bHoldY = false);
+	HRESULT Setup_Animation(_uint AnimationIndex, CAnimation::TYPE eType, _bool bLerp);
+	HRESULT Play_Animation(_double TimeDelta, class CTransform* pTransform, const _double RatioValue = 0.2, _bool bHoldY = false);
 
 	HRESULT Render(_uint iMeshIndex);
 
@@ -37,6 +37,7 @@ public:
 	_float4x4 GetLocalMatrix() const { return m_LocalMatrix; }
 
 	// Animation
+	_bool AnimationCompare(_uint AnimationIndex) const { return m_iCurrentAnimation == AnimationIndex; };
 	_bool AnimationIsFinish();
 	_bool AnimationIsPreFinish();
 	void SetFinish(_bool Value);
@@ -47,6 +48,8 @@ public:
 	virtual void Free() override;
 
 private:
+	CAnimation::TYPE m_eAnimationType = CAnimation::TYPE::ONE;
+
 	_float4x4 m_LocalMatrix;
 	MESH_TYPE m_eType = { TYPE_END };
 

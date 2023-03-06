@@ -26,12 +26,14 @@ HRESULT CLayer::Add_GameObject(wstring strObjectTag, CGameObject* pGameObject)
 
 void CLayer::Tick(_double TimeDelta)
 {
-	for (auto& pGameObject : m_GameObjects)
+	for (auto iter = m_GameObjects.begin(); iter != m_GameObjects.end();)
 	{
-		if (nullptr != pGameObject.second)
+		if (nullptr != iter->second)
 		{
-			if(pGameObject.second->IsActive())
-				pGameObject.second->Tick(TimeDelta);
+			if (iter->second->IsActive())
+				iter->second->Tick(TimeDelta);
+
+			iter++;
 		}
 	}
 }
