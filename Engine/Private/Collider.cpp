@@ -14,6 +14,7 @@ CCollider::CCollider(const CCollider & rhs)
 	, _effect(rhs._effect)
 	, _type(rhs._type)
 	, _color(rhs._color)
+	, m_isActive(rhs.m_isActive)
 {
 
 	Safe_AddRef(_inputLayout);
@@ -28,6 +29,14 @@ void CCollider::Free()
 	}
 
 	Safe_Release(_inputLayout);
+}
+
+void CCollider::SetActive(_bool value)
+{
+	m_isActive = value;
+
+	if (!m_isActive)
+		hitCollider.clear();
 }
 
 void CCollider::EraseHitCollider(CCollider * collider)

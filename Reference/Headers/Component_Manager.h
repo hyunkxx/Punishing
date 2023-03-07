@@ -2,6 +2,7 @@
 
 #include "Model.h"
 #include "Collider.h"
+#include "OBBCollider.h"
 #include "SphereCollider.h"
 #include "VIBuffer_Triangle.h"
 #include "VIBuffer_Terrain.h"

@@ -157,10 +157,10 @@ HRESULT CModel::InitializeAnimtaion(_uint iAnimationCount)
 	if (iAnimationCount > m_pAIScene->mNumAnimations)
 		iAnimationCount = m_pAIScene->mNumAnimations;
 
-	m_iAnimationCount = iAnimationCount;
+ 	m_iAnimationCount = iAnimationCount;
 	for (_uint i = 0; i < m_iAnimationCount; ++i)
 	{
-		CAnimation* pAnimation = CAnimation::Create(m_pAIScene->mAnimations[i], this);
+ 		CAnimation* pAnimation = CAnimation::Create(m_pAIScene->mAnimations[i], this);
 		if (nullptr == pAnimation)
 			return E_FAIL;
 
@@ -224,9 +224,9 @@ HRESULT CModel::Setup_Animation(_uint AnimationIndex , CAnimation::TYPE eType, _
 	return S_OK;
 }
 
-HRESULT CModel::Play_Animation(_double TimeDelta, CTransform * pTransform, const _double RatioValue, _bool bHoldY)
+HRESULT CModel::Play_Animation(_double TimeDelta, CTransform * pTransform, const _double RatioValue, _bool bRootMotion)
 {
-	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta, pTransform, m_eAnimationType, m_bLerp, m_PrevData, RatioValue, bHoldY);
+	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta, pTransform, m_eAnimationType, m_bLerp, m_PrevData, RatioValue, bRootMotion);
 
 	for (auto& pBone : m_Bones)
 		pBone->InvalidateCombinedMatrix();

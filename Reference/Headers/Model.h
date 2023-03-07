@@ -27,7 +27,7 @@ public:
 	HRESULT Setup_ShaderMaterialResource(class CShader* pShader, const char* pConstantName, _uint iMeshIndex, aiTextureType eType);
 	HRESULT Setup_BoneMatrices(class CShader* pShader, const char* pConstantName, _uint iMeshIndex);
 	HRESULT Setup_Animation(_uint AnimationIndex, CAnimation::TYPE eType, _bool bLerp);
-	HRESULT Play_Animation(_double TimeDelta, class CTransform* pTransform, const _double RatioValue = 0.2, _bool bHoldY = false);
+	HRESULT Play_Animation(_double TimeDelta, class CTransform* pTransform, const _double RatioValue = 0.2, _bool bRootMotion = true);
 
 	HRESULT Render(_uint iMeshIndex);
 

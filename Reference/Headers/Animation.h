@@ -42,8 +42,8 @@ public:
 private:
 	void AnimationLerp(_double TimeDelta, CTransform* pTransform, PREV_DATA PrevData, const _double RatioValue, _bool bHoldAxisY = false);
 
-	void PlayLoop(_double TimeDelta, CTransform* pTransform, _bool bHoldAxisY = false);
-	void PlayOne(_double TimeDelta, CTransform* pTransform, _bool bHoldAxisY = false);
+	void PlayLoop(_double TimeDelta, CTransform* pTransform, _bool bRootMotion = true);
+	void PlayOne(_double TimeDelta, CTransform* pTransform, _bool bRootMotion = true);
 
 public:
 	static CAnimation* Create(aiAnimation* pAIAnimation, class CModel* pModel);

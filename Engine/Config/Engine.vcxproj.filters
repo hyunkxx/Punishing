@@ -222,6 +222,9 @@
     <ClCompile Include="..\private\CollisionManager.cpp">
       <Filter>utility\03. Components\08. Collider</Filter>
     </ClCompile>
+    <ClCompile Include="..\Private\OBBCollider.cpp">
+      <Filter>utility\03. Components\08. Collider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\public\Base.h">
@@ -342,6 +345,9 @@
       <Filter>utility\03. Components\08. Collider</Filter>
     </ClInclude>
     <ClInclude Include="..\public\CollisionManager.h">
+      <Filter>utility\03. Components\08. Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\OBBCollider.h">
       <Filter>utility\03. Components\08. Collider</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8585,10 +8585,10 @@ $LN6@Initialize:
   00151	c7 45 68 03 00
 	00 00		 mov	 DWORD PTR RSDesc$[rbp], 3
 
-; 50   : 	RSDesc.CullMode = D3D11_CULL_NONE;
+; 50   : 	RSDesc.CullMode = D3D11_CULL_BACK;
 
-  00158	c7 45 6c 01 00
-	00 00		 mov	 DWORD PTR RSDesc$[rbp+4], 1
+  00158	c7 45 6c 03 00
+	00 00		 mov	 DWORD PTR RSDesc$[rbp+4], 3
 
 ; 51   : 	RSDesc.FrontCounterClockwise = false;
 

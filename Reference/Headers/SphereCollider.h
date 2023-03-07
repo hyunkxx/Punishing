@@ -23,8 +23,11 @@ public:
 	static CSphereCollider* Create(ID3D11Device* device, ID3D11DeviceContext* context);
 	virtual CComponent* Clone(void* arg) override;
 	virtual void Free() override;
+	
+public:
+	BoundingSphere* GetSphere() const { return _sphere; }
 
-protected:
+public:
 	BoundingSphere* _sphere = nullptr;
 	BoundingSphere* _sphereOriginal = nullptr;
 

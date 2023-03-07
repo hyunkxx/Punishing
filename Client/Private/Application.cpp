@@ -47,7 +47,7 @@ HRESULT CApplication::Initialize()
 	ID3D11RasterizerState* RasterizerState;
 	D3D11_RASTERIZER_DESC RSDesc;
 	RSDesc.FillMode = D3D11_FILL_SOLID;
-	RSDesc.CullMode = D3D11_CULL_NONE;
+	RSDesc.CullMode = D3D11_CULL_BACK;
 	RSDesc.FrontCounterClockwise = false;
 	RSDesc.DepthBias = 0;
 	RSDesc.DepthBiasClamp = 0;

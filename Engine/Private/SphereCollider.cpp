@@ -1,6 +1,7 @@
 #include "..\Public\SphereCollider.h"
 #include "DebugDraw.h"
 #include "GameObject.h"
+#include "OBBCollider.h"
 #include "Transform.h"
 #include "PipeLine.h"
 
@@ -73,26 +74,35 @@ HRESULT CSphereCollider::Initialize(void * arg)
 
 void CSphereCollider::Update(_matrix transformMatrix)
 {
+	if (!m_isActive)
+		return;
+
 	_isColl = false;
 	_sphereOriginal->Transform(*_sphere, transformMatrix);
 }
 
 _bool CSphereCollider::Collision(CCollider * targetCollider)
 {
+	if (!m_isActive)
+		return false;
+
 	_bool ret = false;
 
 	if (COLL_SPHERE == targetCollider->GetType())
 		ret = _sphere->Intersects(*(static_cast<CSphereCollider*>(targetCollider)->_sphere));
 	else if (COLL_AABB == targetCollider->GetType())
 		ret = _sphere->Intersects(*(static_cast<CSphereCollider*>(targetCollider)->_sphere));
-	else if (COLL_AABB == targetCollider->GetType())
-		ret = _sphere->Intersects(*(static_cast<CSphereCollider*>(targetCollider)->_sphere));
+	else if (COLL_OBB == targetCollider->GetType())
+		ret = _sphere->Intersects(*(static_cast<COBBCollider*>(targetCollider)->_obb));
 
 	return ret;
 }
 
 void CSphereCollider::Render()
 {
+	if (!m_isActive)
+		return;
+
 	m_pContext->IASetInputLayout(_inputLayout);
 	CPipeLine* pipeline = CPipeLine::GetInstance();
 

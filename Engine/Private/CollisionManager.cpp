@@ -4,19 +4,24 @@
 
 IMPLEMENT_SINGLETON(CCollisionManager)
 
+CCollisionManager::CCollisionManager()
+{
+	_collisions.reserve(100);
+}
+
 HRESULT CCollisionManager::AddCollider(CCollider* collider)
 {
 	if (nullptr == collider)
 		return E_FAIL;
 
-	_collisions.push_back(collider);
+	_collisions.emplace_back(collider);
 
 	return S_OK;
 }
 
 void CCollisionManager::PhysicsUpdate()
 {
-	//중복되게 호출하지 않겠다.
+	//중복되게 호출하지 않겠다 선언.
  	for (_uint i = 0; i < _collisions.size() ; ++i)
 	{
 		for (_uint j = i; j < _collisions.size(); ++j)
@@ -27,7 +32,7 @@ void CCollisionManager::PhysicsUpdate()
 			CGameObject* srcObject = _collisions[i]->GetOwner();
 			CGameObject* destObject = _collisions[j]->GetOwner();
 
-			//소유주가 같으면 Continue
+			//gameObject 자신의 콜라이더끼리 충돌 쓰루
 			if (srcObject == destObject)
 				continue;
 

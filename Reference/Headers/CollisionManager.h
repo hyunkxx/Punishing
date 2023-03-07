@@ -9,7 +9,7 @@ class ENGINE_DLL CCollisionManager final : public CBase
 	DECLARE_SINGLETON(CCollisionManager)
 
 public:
-	explicit CCollisionManager() = default;
+	explicit CCollisionManager();
 	virtual ~CCollisionManager() = default;
 
 public:
@@ -25,10 +25,6 @@ public:
 
 private:
 	vector<class CCollider*> _collisions;
-
-	_bool enter = false;
-	_bool stary = false;
-	_bool exit = false;
 
 };
 

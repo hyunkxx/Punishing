@@ -34,6 +34,7 @@ public:
 	virtual void Render() = 0;
 
 public:
+	void SetActive(_bool value);
 	_bool Compare(CCollider* collider) { return this == collider; };
 	void EraseHitCollider(CCollider* collider);
 	void AddHitCollider(CCollider* collider);
@@ -55,6 +56,7 @@ public:
 public:
 
 protected:
+	_bool m_isActive = true;
 	_bool _isColl = false;
 	COLLIDER_DESC _collDesc;
 	COLL_TYPE _type = COLL_TYPE::COLL_END;

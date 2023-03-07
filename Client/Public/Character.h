@@ -169,7 +169,8 @@ private:
 	void Idle();
 	void InputMove(_double TimeDelta);
 	void MoveStop(_double TimeDelta);
-	void Attack();
+	void Attack(_double TimeDelta);
+	void PositionHold(_double TimeDelta);
 
 public: // Enemy 관련 코드
 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
@@ -181,6 +182,9 @@ public: // Enemy 관련 코드
 	void NearTargetChange();
 
 	_float3 LockOnCameraPosition();
+
+public: //충돌관련
+	CCollider* GetWeaponCollider() const { return mWeaponCollider; }
 
 public:
 	static CCharacter* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
@@ -200,10 +204,12 @@ private:
 	CCollider* mCollider = nullptr;
 
 	CCollider* mEnemyCheckCollider = nullptr;
+	CCollider* mWeaponCollider = nullptr;
 
 private: //레이어 삭제시 삭제됨
 	class CWeapon* m_pWeapon;
 	class CBone* bone = nullptr;
+	class CBone* m_pWeaponBone = nullptr;
 
 	CAnimation::ANIMATION_DESC ANIM_DESC;
 
@@ -244,6 +250,17 @@ private: // Command
 	_uint m_iEnemyIndex = 0;
 	list<CEnemy*> m_Enemys;
 	CEnemy* m_pNearEnemy = nullptr;
+
+	// 무기 충돌처리
+	_int m_iSecoundAttackCount = 0;
+	_bool m_bWeaponTimerOn = false;
+	_float m_fWeaponCollisionAcc = 0.0f; 
+	const _float m_fWeaponCollDelay = 0.5f;
+
+	// 충돌체 충돌시 제자리 홀드
+	_bool m_bHolding = false;
+	vector<_float3> m_OverlappedPos;
+
 };
 
 END

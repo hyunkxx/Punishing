@@ -2456,6 +2456,8 @@ PUBLIC	??_C@_1CE@BAKEMOLJ@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AA
 PUBLIC	??_C@_1BA@GOLFBHHG@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA2?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BA@NGAJHABD@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA3?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BA@ELNOEIKK@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA4?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1BA@PDGCCPMP@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA5?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1CE@CBBGBFH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA2?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CLevel_GamePlay::Create'::`1'::__LINE__Var
 PUBLIC	??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1EG@FDLBOJPL@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAe?$AAv?$AAe?$AAl?$AA_?$AAG?$AAa?$AAm?$AAe?$AAP?$AAl@ ; `string'
@@ -3078,8 +3080,8 @@ $pdata$?Ready_Layer_Player@CLevel_GamePlay@Client@@AEAAJPEB_W@Z DD imagerel $LN4
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Ready_Layer_Enemy@CLevel_GamePlay@Client@@AEAAJPEB_W@Z DD imagerel $LN11
-	DD	imagerel $LN11+523
+$pdata$?Ready_Layer_Enemy@CLevel_GamePlay@Client@@AEAAJPEB_W@Z DD imagerel $LN13
+	DD	imagerel $LN13+636
 	DD	imagerel $unwind$?Ready_Layer_Enemy@CLevel_GamePlay@Client@@AEAAJPEB_W@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -3511,8 +3513,21 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 087H ; `Client::CLevel_GamePlay::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 08aH ; `Client::CLevel_GamePlay::Create'::`1'::__LINE__Var
 _DATA	ENDS
+;	COMDAT ??_C@_1CE@CBBGBFH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA2?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CE@CBBGBFH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA2?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'o', 00H
+	DB	'b', 00H, 'j', 00H, '_', 00H, 'e', 00H, 'n', 00H, 'e', 00H, 'm'
+	DB	00H, 'y', 00H, '0', 00H, '2', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1BA@PDGCCPMP@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA5?$AA?$AA@
+CONST	SEGMENT
+??_C@_1BA@PDGCCPMP@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA5?$AA?$AA@ DB 'e', 00H
+	DB	'n', 00H, 'e', 00H, 'm', 00H, 'y', 00H, '0', 00H, '5', 00H, 00H
+	DB	00H						; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_1BA@ELNOEIKK@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA4?$AA?$AA@
 CONST	SEGMENT
 ??_C@_1BA@ELNOEIKK@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA4?$AA?$AA@ DB 'e', 00H
@@ -4166,7 +4181,7 @@ CONST	ENDS
 xdata	SEGMENT
 $unwind$?Ready_Layer_Enemy@CLevel_GamePlay@Client@@AEAAJPEB_W@Z DD 035052f01H
 	DD	01133318H
-	DD	0700c0057H
+	DD	0700c007bH
 	DD	0500bH
 xdata	ENDS
 ;	COMDAT xdata
@@ -6668,7 +6683,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CLevel_GamePlay@Client@@UEAAXXZ PROC		; Client::CLevel_GamePlay::Free, COMDAT
 
-; 149  : {
+; 152  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -6684,14 +6699,14 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 150  : 	__super::Free();
+; 153  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CLevel@Engine@@UEAAXXZ
 
-; 151  : }
+; 154  : }
 
   00037	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -6715,7 +6730,7 @@ pDevice$ = 432
 pContext$ = 440
 ?Create@CLevel_GamePlay@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CLevel_GamePlay::Create, COMDAT
 
-; 135  : {
+; 138  : {
 
 $LN8:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -6740,7 +6755,7 @@ $LN8:
   00044	48 89 85 80 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 136  : 	CLevel_GamePlay* pInstance = new CLevel_GamePlay(pDevice, pContext);
+; 139  : 	CLevel_GamePlay* pInstance = new CLevel_GamePlay(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -6779,16 +6794,16 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T6[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 137  : 
-; 138  : 	if (FAILED(pInstance->Initialize()))
+; 140  : 
+; 141  : 	if (FAILED(pInstance->Initialize()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize@CLevel_GamePlay@Client@@UEAAJXZ ; Client::CLevel_GamePlay::Initialize
   000cd	85 c0		 test	 eax, eax
   000cf	7d 42		 jge	 SHORT $LN2@Create
 
-; 139  : 	{
-; 140  : 		wstring message = L"Failed to Create : CLevel_GamePlay";
+; 142  : 	{
+; 143  : 		wstring message = L"Failed to Create : CLevel_GamePlay";
 
   000d1	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1EG@FDLBOJPL@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAe?$AAv?$AAe?$AAl?$AA_?$AAG?$AAa?$AAm?$AAe?$AAP?$AAl@
@@ -6796,7 +6811,7 @@ $LN5@Create:
   000dc	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   000e1	90		 npad	 1
 
-; 141  : 		MESSAGE(message);
+; 144  : 		MESSAGE(message);
 
   000e2	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000e6	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -6808,24 +6823,24 @@ $LN5@Create:
   000fa	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 142  : 		Safe_Release(pInstance);
+; 145  : 		Safe_Release(pInstance);
 
   00100	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   00104	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCLevel_GamePlay@Client@@@Engine@@YAKAEAPEAVCLevel_GamePlay@Client@@@Z ; Engine::Safe_Release<Client::CLevel_GamePlay * __ptr64>
   00109	90		 npad	 1
 
-; 143  : 	}
+; 146  : 	}
 
   0010a	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   0010e	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN2@Create:
 
-; 144  : 
-; 145  : 	return pInstance;
+; 147  : 
+; 148  : 	return pInstance;
 
   00113	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 146  : }
+; 149  : }
 
   00117	48 8b f8	 mov	 rdi, rax
   0011a	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -6967,38 +6982,41 @@ text$x	ENDS
 _TEXT	SEGMENT
 pGameInstance$ = 8
 pGameObject$ = 40
-$T1 = 264
-$T2 = 328
-$T3 = 360
-$T4 = 424
-$T5 = 456
-$T6 = 520
-$T7 = 552
-$T8 = 616
-tv176 = 632
-tv174 = 632
-tv172 = 632
-tv170 = 632
-this$ = 672
-pLayerTag$ = 680
+$T1 = 456
+$T2 = 520
+$T3 = 552
+$T4 = 616
+$T5 = 648
+$T6 = 712
+$T7 = 744
+$T8 = 808
+$T9 = 840
+$T10 = 904
+tv196 = 920
+tv194 = 920
+tv192 = 920
+tv190 = 920
+tv188 = 920
+this$ = 960
+pLayerTag$ = 968
 ?Ready_Layer_Enemy@CLevel_GamePlay@Client@@AEAAJPEB_W@Z PROC ; Client::CLevel_GamePlay::Ready_Layer_Enemy, COMDAT
 
 ; 115  : {
 
-$LN11:
+$LN13:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   00005	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0000a	55		 push	 rbp
   0000b	57		 push	 rdi
-  0000c	48 81 ec b8 02
-	00 00		 sub	 rsp, 696		; 000002b8H
+  0000c	48 81 ec d8 03
+	00 00		 sub	 rsp, 984		; 000003d8H
   00013	48 8d 6c 24 30	 lea	 rbp, QWORD PTR [rsp+48]
   00018	48 8b fc	 mov	 rdi, rsp
-  0001b	b9 ae 00 00 00	 mov	 ecx, 174		; 000000aeH
+  0001b	b9 f6 00 00 00	 mov	 ecx, 246		; 000000f6H
   00020	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00025	f3 ab		 rep stosd
-  00027	48 8b 8c 24 d8
-	02 00 00	 mov	 rcx, QWORD PTR [rsp+728]
+  00027	48 8b 8c 24 f8
+	03 00 00	 mov	 rcx, QWORD PTR [rsp+1016]
 
 ; 116  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
@@ -7014,23 +7032,23 @@ $LN11:
 ; 118  : 
 ; 119  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy01", pLayerTag, mPlayer))
 
-  00041	48 8d 85 08 01
+  00041	48 8d 85 c8 01
 	00 00		 lea	 rax, QWORD PTR $T1[rbp]
-  00048	48 89 85 48 01
+  00048	48 89 85 08 02
 	00 00		 mov	 QWORD PTR $T2[rbp], rax
-  0004f	48 8b 95 a8 02
+  0004f	48 8b 95 c8 03
 	00 00		 mov	 rdx, QWORD PTR pLayerTag$[rbp]
-  00056	48 8b 8d 48 01
+  00056	48 8b 8d 08 02
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
   0005d	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
-  00062	48 89 85 78 02
-	00 00		 mov	 QWORD PTR tv170[rbp], rax
-  00069	48 8b 85 a0 02
+  00062	48 89 85 98 03
+	00 00		 mov	 QWORD PTR tv188[rbp], rax
+  00069	48 8b 85 c0 03
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00070	48 8b 40 20	 mov	 rax, QWORD PTR [rax+32]
   00074	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
-  00079	48 8b 85 78 02
-	00 00		 mov	 rax, QWORD PTR tv170[rbp]
+  00079	48 8b 85 98 03
+	00 00		 mov	 rax, QWORD PTR tv188[rbp]
   00080	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
   00085	4c 8d 0d 00 00
 	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BA@HMAALIJI@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA1?$AA?$AA@
@@ -7046,29 +7064,29 @@ $LN11:
 ; 120  : 		return E_FAIL;
 
   000a8	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000ad	e9 4f 01 00 00	 jmp	 $LN1@Ready_Laye
+  000ad	e9 c0 01 00 00	 jmp	 $LN1@Ready_Laye
 $LN2@Ready_Laye:
 
 ; 121  : 
 ; 122  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy02", pLayerTag, mPlayer))
 
-  000b2	48 8d 85 68 01
+  000b2	48 8d 85 28 02
 	00 00		 lea	 rax, QWORD PTR $T3[rbp]
-  000b9	48 89 85 a8 01
+  000b9	48 89 85 68 02
 	00 00		 mov	 QWORD PTR $T4[rbp], rax
-  000c0	48 8b 95 a8 02
+  000c0	48 8b 95 c8 03
 	00 00		 mov	 rdx, QWORD PTR pLayerTag$[rbp]
-  000c7	48 8b 8d a8 01
+  000c7	48 8b 8d 68 02
 	00 00		 mov	 rcx, QWORD PTR $T4[rbp]
   000ce	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
-  000d3	48 89 85 78 02
-	00 00		 mov	 QWORD PTR tv172[rbp], rax
-  000da	48 8b 85 a0 02
+  000d3	48 89 85 98 03
+	00 00		 mov	 QWORD PTR tv190[rbp], rax
+  000da	48 8b 85 c0 03
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000e1	48 8b 40 20	 mov	 rax, QWORD PTR [rax+32]
   000e5	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
-  000ea	48 8b 85 78 02
-	00 00		 mov	 rax, QWORD PTR tv172[rbp]
+  000ea	48 8b 85 98 03
+	00 00		 mov	 rax, QWORD PTR tv190[rbp]
   000f1	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
   000f6	4c 8d 0d 00 00
 	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BA@GOLFBHHG@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA2?$AA?$AA@
@@ -7084,29 +7102,29 @@ $LN2@Ready_Laye:
 ; 123  : 		return E_FAIL;
 
   00119	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0011e	e9 de 00 00 00	 jmp	 $LN1@Ready_Laye
+  0011e	e9 4f 01 00 00	 jmp	 $LN1@Ready_Laye
 $LN3@Ready_Laye:
 
 ; 124  : 
 ; 125  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy03", pLayerTag, mPlayer))
 
-  00123	48 8d 85 c8 01
+  00123	48 8d 85 88 02
 	00 00		 lea	 rax, QWORD PTR $T5[rbp]
-  0012a	48 89 85 08 02
+  0012a	48 89 85 c8 02
 	00 00		 mov	 QWORD PTR $T6[rbp], rax
-  00131	48 8b 95 a8 02
+  00131	48 8b 95 c8 03
 	00 00		 mov	 rdx, QWORD PTR pLayerTag$[rbp]
-  00138	48 8b 8d 08 02
+  00138	48 8b 8d c8 02
 	00 00		 mov	 rcx, QWORD PTR $T6[rbp]
   0013f	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
-  00144	48 89 85 78 02
-	00 00		 mov	 QWORD PTR tv174[rbp], rax
-  0014b	48 8b 85 a0 02
+  00144	48 89 85 98 03
+	00 00		 mov	 QWORD PTR tv192[rbp], rax
+  0014b	48 8b 85 c0 03
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00152	48 8b 40 20	 mov	 rax, QWORD PTR [rax+32]
   00156	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
-  0015b	48 8b 85 78 02
-	00 00		 mov	 rax, QWORD PTR tv174[rbp]
+  0015b	48 8b 85 98 03
+	00 00		 mov	 rax, QWORD PTR tv192[rbp]
   00162	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
   00167	4c 8d 0d 00 00
 	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BA@NGAJHABD@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA3?$AA?$AA@
@@ -7117,65 +7135,103 @@ $LN3@Ready_Laye:
   0017e	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAX@Z
   00184	48 39 45 28	 cmp	 QWORD PTR pGameObject$[rbp], rax
-  00188	75 07		 jne	 SHORT $LN4@Ready_Laye
+  00188	75 0a		 jne	 SHORT $LN4@Ready_Laye
 
 ; 126  : 		return E_FAIL;
 
   0018a	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0018f	eb 70		 jmp	 SHORT $LN1@Ready_Laye
+  0018f	e9 de 00 00 00	 jmp	 $LN1@Ready_Laye
 $LN4@Ready_Laye:
 
 ; 127  : 
 ; 128  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy04", pLayerTag, mPlayer))
 
-  00191	48 8d 85 28 02
+  00194	48 8d 85 e8 02
 	00 00		 lea	 rax, QWORD PTR $T7[rbp]
-  00198	48 89 85 68 02
+  0019b	48 89 85 28 03
 	00 00		 mov	 QWORD PTR $T8[rbp], rax
-  0019f	48 8b 95 a8 02
+  001a2	48 8b 95 c8 03
 	00 00		 mov	 rdx, QWORD PTR pLayerTag$[rbp]
-  001a6	48 8b 8d 68 02
+  001a9	48 8b 8d 28 03
 	00 00		 mov	 rcx, QWORD PTR $T8[rbp]
-  001ad	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
-  001b2	48 89 85 78 02
-	00 00		 mov	 QWORD PTR tv176[rbp], rax
-  001b9	48 8b 85 a0 02
+  001b0	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  001b5	48 89 85 98 03
+	00 00		 mov	 QWORD PTR tv194[rbp], rax
+  001bc	48 8b 85 c0 03
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001c0	48 8b 40 20	 mov	 rax, QWORD PTR [rax+32]
-  001c4	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
-  001c9	48 8b 85 78 02
-	00 00		 mov	 rax, QWORD PTR tv176[rbp]
-  001d0	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  001d5	4c 8d 0d 00 00
+  001c3	48 8b 40 20	 mov	 rax, QWORD PTR [rax+32]
+  001c7	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
+  001cc	48 8b 85 98 03
+	00 00		 mov	 rax, QWORD PTR tv194[rbp]
+  001d3	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  001d8	4c 8d 0d 00 00
 	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BA@ELNOEIKK@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA4?$AA?$AA@
-  001dc	4c 8d 05 00 00
+  001df	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CE@BAKEMOLJ@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA1?$AA?$AA@
-  001e3	ba 03 00 00 00	 mov	 edx, 3
-  001e8	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  001ec	ff 15 00 00 00
+  001e6	ba 03 00 00 00	 mov	 edx, 3
+  001eb	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  001ef	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAX@Z
-  001f2	48 39 45 28	 cmp	 QWORD PTR pGameObject$[rbp], rax
-  001f6	75 07		 jne	 SHORT $LN5@Ready_Laye
+  001f5	48 39 45 28	 cmp	 QWORD PTR pGameObject$[rbp], rax
+  001f9	75 07		 jne	 SHORT $LN5@Ready_Laye
 
 ; 129  : 		return E_FAIL;
 
-  001f8	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  001fd	eb 02		 jmp	 SHORT $LN1@Ready_Laye
+  001fb	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00200	eb 70		 jmp	 SHORT $LN1@Ready_Laye
 $LN5@Ready_Laye:
 
 ; 130  : 
-; 131  : 	return S_OK;
+; 131  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy02"), L"enemy05", pLayerTag, mPlayer))
 
-  001ff	33 c0		 xor	 eax, eax
+  00202	48 8d 85 48 03
+	00 00		 lea	 rax, QWORD PTR $T9[rbp]
+  00209	48 89 85 88 03
+	00 00		 mov	 QWORD PTR $T10[rbp], rax
+  00210	48 8b 95 c8 03
+	00 00		 mov	 rdx, QWORD PTR pLayerTag$[rbp]
+  00217	48 8b 8d 88 03
+	00 00		 mov	 rcx, QWORD PTR $T10[rbp]
+  0021e	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  00223	48 89 85 98 03
+	00 00		 mov	 QWORD PTR tv196[rbp], rax
+  0022a	48 8b 85 c0 03
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00231	48 8b 40 20	 mov	 rax, QWORD PTR [rax+32]
+  00235	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
+  0023a	48 8b 85 98 03
+	00 00		 mov	 rax, QWORD PTR tv196[rbp]
+  00241	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  00246	4c 8d 0d 00 00
+	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BA@PDGCCPMP@?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA5?$AA?$AA@
+  0024d	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CE@CBBGBFH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AA0?$AA2?$AA?$AA@
+  00254	ba 03 00 00 00	 mov	 edx, 3
+  00259	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  0025d	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAX@Z
+  00263	48 39 45 28	 cmp	 QWORD PTR pGameObject$[rbp], rax
+  00267	75 07		 jne	 SHORT $LN6@Ready_Laye
+
+; 132  : 		return E_FAIL;
+
+  00269	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  0026e	eb 02		 jmp	 SHORT $LN1@Ready_Laye
+$LN6@Ready_Laye:
+
+; 133  : 
+; 134  : 	return S_OK;
+
+  00270	33 c0		 xor	 eax, eax
 $LN1@Ready_Laye:
 
-; 132  : }
+; 135  : }
 
-  00201	48 8d a5 88 02
-	00 00		 lea	 rsp, QWORD PTR [rbp+648]
-  00208	5f		 pop	 rdi
-  00209	5d		 pop	 rbp
-  0020a	c3		 ret	 0
+  00272	48 8d a5 a8 03
+	00 00		 lea	 rsp, QWORD PTR [rbp+936]
+  00279	5f		 pop	 rdi
+  0027a	5d		 pop	 rbp
+  0027b	c3		 ret	 0
 ?Ready_Layer_Enemy@CLevel_GamePlay@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_GamePlay::Ready_Layer_Enemy
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI

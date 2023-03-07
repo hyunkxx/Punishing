@@ -108,7 +108,7 @@ _bool CChannel::AlignPositionY(_double TimeDelta, CTransform* pTransform)
 	return ret;
 }
 
-void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform, _bool bHoldAxisY)
+void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform, _bool bRootMotion)
 {
 	if (0.0 == TrackPosition)
 		m_iCurrentIndex = 0;
@@ -194,7 +194,11 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 			XMStoreFloat3(&m_vPrevBonePos, vPosition);
 
 			//첫번째 프레임의 위치에 애니메이션 루트본 고정
-			vPosition = XMVectorSet(m_vIdleOriginPos.x, XMVectorGetY(vPosition), m_vIdleOriginPos.z, 1.0f);
+
+			if(bRootMotion)
+				vPosition = XMVectorSet(m_vIdleOriginPos.x, XMVectorGetY(vPosition), m_vIdleOriginPos.z, 1.0f);
+			else
+				vPosition = XMVectorSet(0.f, 0.f, 0.f, 1.0f);
 		}
 	}
 

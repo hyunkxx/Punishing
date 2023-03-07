@@ -107,6 +107,9 @@ HRESULT CLoader::Load_Level_GamePlay()
 		CSphereCollider::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"),
+		COBBCollider::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
 
 	m_szLoadingStateText = L"Model..";
 
@@ -140,6 +143,11 @@ HRESULT CLoader::Load_Level_GamePlay()
 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Enemy/01/Enemy01.fbx", LocalMatrix, CCharacter::CLIP_END))))
 		return E_FAIL;
 
+	// Enemy02
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_enemy02",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Enemy/02/Enemy02.fbx", LocalMatrix, CCharacter::CLIP_END))))
+		return E_FAIL;
+
 	m_szLoadingStateText = L"Shader..";
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, TEXT("proto_com_shader_vtxnortex"),
@@ -167,7 +175,10 @@ HRESULT CLoader::Load_Level_GamePlay()
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui"), CCharacter::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_enemy01"), CEnemy::Create(m_pDevice, m_pContext))))
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_enemy01"), CEnemy::Create(m_pDevice, m_pContext, CEnemy::TYPE::HUMANOID))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_enemy02"), CEnemy::Create(m_pDevice, m_pContext, CEnemy::TYPE::ANIMAL))))
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui_weapon"), CWeapon::Create(m_pDevice, m_pContext))))

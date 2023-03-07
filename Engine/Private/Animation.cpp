@@ -27,7 +27,7 @@ HRESULT CAnimation::Initialize(aiAnimation* pAIAnimation, CModel* pModel)
 	return S_OK;
 }
 
-void CAnimation::PlayAnimation(_double TimeDelta, CTransform* pTransform, TYPE eType, _bool bLerp, PREV_DATA PrevData, const _double RatioValue, _bool bHoldY)
+void CAnimation::PlayAnimation(_double TimeDelta, CTransform* pTransform, TYPE eType, _bool bLerp, PREV_DATA PrevData, const _double RatioValue, _bool bRootMotion)
 {
 	if (bLerp)
 	{
@@ -38,10 +38,10 @@ void CAnimation::PlayAnimation(_double TimeDelta, CTransform* pTransform, TYPE e
 		switch (eType)
 		{
 		case ONE:
-			PlayOne(TimeDelta, pTransform, bHoldY);
+			PlayOne(TimeDelta, pTransform, bRootMotion);
 			break;
 		case LOOP:
-			PlayLoop(TimeDelta, pTransform, bHoldY);
+			PlayLoop(TimeDelta, pTransform, bRootMotion);
 			break;
 		}
 	}

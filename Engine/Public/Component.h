@@ -16,6 +16,9 @@ public:
 	virtual HRESULT Initialize(void* pArg = nullptr);
 
 public:
+	void SetActive(_bool value) { m_isActive = value; }
+
+public:
 	virtual CComponent* Clone(void* pArg = nullptr) = 0;
 	virtual void Free() override;
 
@@ -23,6 +26,7 @@ protected:
 	ID3D11Device*				m_pDevice = { nullptr };
 	ID3D11DeviceContext*		m_pContext = { nullptr };
 
+	_bool m_isActive = true;
 	_bool m_isClone = { false };
 };
 

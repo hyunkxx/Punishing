@@ -98,14 +98,19 @@ void CPlayerCamera::LateTick(_double TimeDelta)
 		if (fLength <= 7.0f)
 		{
 			_vector vDir = XMVector3Normalize(vDistance);
-			vCameraPos = pPlayerTransform->Get_State(CTransform::STATE_POSITION) - (vDir * 7.5f);
+			vCameraPos = pPlayerTransform->Get_State(CTransform::STATE_POSITION) - (vDir * 7.0f);
 		}
 
 		vCameraPos = XMVectorSetY(vCameraPos, XMVectorGetY(m_pTransform->Get_State(CTransform::STATE_POSITION)));
 	
 		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
-		_vector vPosition = XMVectorLerp(vCurPosition, vCameraPos, (_float)TimeDelta * 3.0f);
+		_vector vPosition = XMVectorLerp(vCurPosition, vCameraPos, (_float)TimeDelta * 4.0f);
+
+		//쿼터니온 테스트
+		//_vector q1 = XMQuaternionRotationMatrix(XMLoadFloat4x4(&m_pSocketTransform->Get_WorldMatrix()));
+		//_vector q2 = XMQuaternionRotationMatrix(XMLoadFloat4x4(&pPlayerTransform->Get_WorldMatrix()));
 		//_vector vPosition = XMQuaternionSlerp(q1, q2, (_float)TimeDelta * 3.0f);
+		//테스트
 
 		_float4 vLockOnTargetPos = ((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition();
 		vLockOnTargetPos.y += 1.f;
@@ -120,7 +125,7 @@ void CPlayerCamera::LateTick(_double TimeDelta)
 	else
 	{
 		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
-		_vector vPosition = XMVectorLerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 3.0f);
+		_vector vPosition = XMVectorLerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 4.0f);
 		//_vector vPosition = XMQuaternionSlerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 3.0f);
 
 		m_pTransform->Set_State(CTransform::STATE_POSITION, vPosition);

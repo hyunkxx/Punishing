@@ -128,6 +128,9 @@ HRESULT CLevel_GamePlay::Ready_Layer_Enemy(const _tchar * pLayerTag)
 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy04", pLayerTag, mPlayer))
 		return E_FAIL;
 
+	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy02"), L"enemy05", pLayerTag, mPlayer))
+		return E_FAIL;
+
 	return S_OK;
 }
 

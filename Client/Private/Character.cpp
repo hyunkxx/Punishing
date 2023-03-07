@@ -43,6 +43,7 @@ HRESULT CCharacter::Initialize(void* pArg)
 		return E_FAIL;
 
 	bone = mModel->GetBonePtr("Bip001");
+	m_pWeaponBone = mModel->GetBonePtr("WeaponCase1");
 
 	return S_OK;
 }
@@ -54,12 +55,14 @@ void CCharacter::Tick(_double TimeDelta)
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	pGameInstance->AddCollider(mCollider);
 	pGameInstance->AddCollider(mEnemyCheckCollider);
+	pGameInstance->AddCollider(mWeaponCollider);
 
 	KeyInput(TimeDelta);
 	Dash(TimeDelta);
-	Attack();
+	Attack(TimeDelta);
 
 	AnimationControl(TimeDelta);
+	PositionHold(TimeDelta);
 
 	CameraSocketUpdate();
 	TargetListDeastroyCehck();
@@ -68,12 +71,15 @@ void CCharacter::Tick(_double TimeDelta)
 void CCharacter::LateTick(_double TimeDelta)
 {
 	__super::LateTick(TimeDelta);
-	
+
+	m_OverlappedPos.clear();
 	FindNearTarget();
 
 	_matrix transMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&mTransform->Get_WorldMatrix());
 	mCollider->Update(transMatrix);
 	mEnemyCheckCollider->Update(XMLoadFloat4x4(&mTransform->Get_WorldMatrix()));
+	//mWeaponCollider->Update(XMLoadFloat4x4(&mTransform->Get_WorldMatrix()));
+	mWeaponCollider->Update(XMLoadFloat4x4(&m_pWeaponBone->GetOffSetMatrix()) * XMLoadFloat4x4(&m_pWeaponBone->GetCombinedMatrix()) * XMLoadFloat4x4(&mModel->GetLocalMatrix()) *  XMLoadFloat4x4(&mTransform->Get_WorldMatrix()));
 	
 	if (nullptr != mRenderer)
 		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
@@ -204,6 +210,22 @@ HRESULT CCharacter::AddComponents()
 
 	mEnemyCheckCollider->SetColor(_float4(1.f, 1.f, 0.f, 1.f));
 
+	ZeroMemory(&collDesc, sizeof(collDesc));
+	collDesc.owner = this;
+	//collDesc.vCenter = _float3(0.f, 1.f, 1.f);
+	//collDesc.vExtants = _float3(2.5f, 1.f, 1.f);
+	//collDesc.vRotaion = _float3(0.f, 0.f, 0.f);
+
+	collDesc.vCenter = _float3(0.8f, 0.f, 0.f);
+	collDesc.vExtants = _float3(2.5f, 0.3f, 0.3f);
+	collDesc.vRotaion = _float3(0.f, 0.f, 0.f);
+
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"), TEXT("com_collider_weapon"), (CComponent**)&mWeaponCollider, &collDesc)))
+		return E_FAIL;
+
+	mWeaponCollider->SetActive(false);
+	mWeaponCollider->SetColor(_float4(0.f, 1.f, 0.f, 1.f));
+
 	return S_OK;
 }
 
@@ -261,6 +283,8 @@ void CCharacter::Dash(_double TimeDelta)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
+	mWeaponCollider->SetActive(false);
+
 	if (m_bAttacking)
 	{
 		m_bDashable = false;
@@ -272,8 +296,11 @@ void CCharacter::Dash(_double TimeDelta)
 
 	if (AnimationCompare(CLIP::MOVE1) || AnimationCompare(CLIP::MOVE2))
 	{
+		mCollider->SetActive(false);
+
 		if (mModel->AnimationIsPreFinish())
 		{
+			mCollider->SetActive(true);
 			m_bDashable = true;
 
 			m_bFrontDashReady = false;
@@ -430,15 +457,21 @@ void CCharacter::MoveStop(_double TimeDelta)
 
 }
 
-void CCharacter::Attack()
+void CCharacter::Attack(_double TimeDelta)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	if (!m_bAttackable)
 		return;
 
+	if (m_bAttacking)
+		mWeaponCollider->SetActive(true);
+
 	if (pGameInstance->Input_KeyState_Custom(DIK_LCONTROL) == KEY_STATE::TAP)
 	{
+		if(m_pNearEnemy)
+			mTransform->LookAt(XMLoadFloat4(&m_pNearEnemy->GetPosition()));
+
 		if (m_bAttacking)
 		{
 			m_bMoveable = false;
@@ -448,7 +481,10 @@ void CCharacter::Attack()
 			if (m_iCurAttackCount == CLIP::ATTACK5)
 			{
 				if (mModel->AnimationIsFinish())
+				{
+					m_bWeaponTimerOn = true;
 					SetAnimation((CCharacter::CLIP)m_iCurAttackCount, CAnimation::TYPE::ONE);
+				}
 			}
 			else
 			{
@@ -456,8 +492,11 @@ void CCharacter::Attack()
 				{
 					m_iCurAttackCount++;
 					if (m_iCurAttackCount >= m_iAttackCount)
+					{
 						m_iCurAttackCount = 0;
+					}
 
+					m_bWeaponTimerOn = true;
 					SetAnimation((CCharacter::CLIP)m_iCurAttackCount, CAnimation::TYPE::ONE);
 				}
 			}
@@ -467,9 +506,62 @@ void CCharacter::Attack()
 			m_iCurAttackCount = 0;
 			m_bMoveable = false;
 			m_bAttacking = true;
+			m_bWeaponTimerOn = true;
 			SetAnimation((CCharacter::CLIP)m_iCurAttackCount, CAnimation::TYPE::ONE);
 		}
 	}
+
+	//if (m_bWeaponTimerOn)
+	//{
+	//	//이쪽 이상함 깜빡이질 않음
+	//	if (2 == m_iCurAttackCount)
+	//	{
+	//		if (m_iSecoundAttackCount == 0)
+	//		{
+	//			mWeaponCollider->SetActive(true);
+	//			m_fWeaponCollisionAcc += (_float)TimeDelta;
+
+	//			if (m_fWeaponCollisionAcc >= 0.5f)
+	//			{
+	//				m_iSecoundAttackCount++;
+	//				mWeaponCollider->SetActive(false);
+	//				m_fWeaponCollisionAcc = 0.0f;
+	//			}
+	//		}
+	//		else if(m_iSecoundAttackCount == 1)
+	//		{
+	//			//0.2초뒤 다시 키고
+	//			m_fWeaponCollisionAcc += (_float)TimeDelta;
+	//			if (m_fWeaponCollisionAcc >= 0.2f)
+	//			{
+	//				mWeaponCollider->SetActive(true);
+	//				m_fWeaponCollisionAcc = 0.0f;
+	//			}
+
+	//			if (m_fWeaponCollisionAcc >= 0.5f)
+	//			{
+	//				mWeaponCollider->SetActive(false);
+	//				m_fWeaponCollisionAcc = 0.0f;
+	//				m_bWeaponTimerOn = false;
+	//				m_iSecoundAttackCount = 0;
+	//			}
+	//		}
+
+	//	}
+	//	else
+	//	{
+	//		mWeaponCollider->SetActive(true);
+	//		m_fWeaponCollisionAcc += (_float)TimeDelta;
+
+	//		if (m_fWeaponCollisionAcc >= m_fWeaponCollDelay)
+	//		{
+	//			mWeaponCollider->SetActive(false);
+	//			m_bWeaponTimerOn = false;
+	//			m_fWeaponCollisionAcc = 0.0f;
+	//		}
+	//	}
+
+	//}
 
 	if (!AnimationCompare(CLIP::ATTACK1) &&
 		!AnimationCompare(CLIP::ATTACK2) &&
@@ -477,10 +569,33 @@ void CCharacter::Attack()
 		!AnimationCompare(CLIP::ATTACK4) &&
 		!AnimationCompare(CLIP::ATTACK5))
 	{
+		mWeaponCollider->SetActive(false);
 		m_iCurAttackCount = 0;
 		m_bAttacking = false;
 		m_bMoveable = true;
 	}
+}
+
+void CCharacter::PositionHold(_double TimeDelta)
+{
+	//if (m_OverlappedPos.size() <= 0)
+	//	return;
+
+	//_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+
+	//_float3 dif;
+	//for (auto pos : m_OverlappedPos)
+	//{
+	//	dif.x = dif.x - pos.x;
+	//	dif.y = dif.y - pos.y;
+	//	dif.z = dif.z - pos.z;
+	//}
+
+	//vPos = XMVectorSetX(vPos, XMVectorGetX(vPos) + dif.x);
+	//vPos = XMVectorSetY(vPos, XMVectorGetY(vPos) + dif.y);
+	//vPos = XMVectorSetZ(vPos, XMVectorGetZ(vPos) + dif.z);
+
+	//mTransform->Set_State(CTransform::STATE_POSITION, XMLoadFloat3(&dif));
 }
 
 void CCharacter::TargetListDeastroyCehck()
@@ -861,6 +976,7 @@ void CCharacter::Free()
 { 
 	__super::Free();
 
+	Safe_Release(mWeaponCollider);
 	Safe_Release(mEnemyCheckCollider);
 	Safe_Release(mCollider);
 	Safe_Release(mRenderer);
@@ -872,12 +988,6 @@ void CCharacter::Free()
 
 void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 {
-	if (src->Compare(mCollider))
-	{
-		//CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
-		//pEnemy->Destroy();
-	}
-
 	if (src->Compare(mEnemyCheckCollider))
 	{
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
@@ -891,10 +1001,49 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 
 void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 {
+	//몬스터와 밀리기
+	CGameInstance* pInstance = CGameInstance::GetInstance();
+	_float DeltaTime = pInstance->GetTimer(TEXT("144FPS"));
+
+	if (src->Compare(mCollider))
+	{
+		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
+		if (pEnemy)
+		{
+
+			m_bHolding = true;
+
+			//구의 길이
+			_float sourExtents = src->GetExtents().x;
+			_float destExtents = dest->GetExtents().x;
+			_float fLength = sourExtents + destExtents;
+
+			//현재 길이
+			_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+			_vector vEnemyPos = XMLoadFloat4(&pEnemy->GetPosition());
+			_vector vDir = XMVector3Normalize(vEnemyPos - vPos);
+			_float fDistance = XMVectorGetX(XMVector3Length(vEnemyPos - vPos));
+
+			vPos = vEnemyPos - vDir * (fLength - fDistance);
+			_float3 vPosition;
+			XMStoreFloat3(&vPosition, vPos);
+			//m_OverlappedPos.push_back(vPosition);
+			mTransform->Set_State(CTransform::STATE_POSITION, vPos);
+		}
+	}
 }
 
 void CCharacter::OnCollisionExit(CCollider * src, CCollider * dest)
 {
+	if (src->Compare(mCollider))
+	{
+		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
+		if (pEnemy)
+		{
+			//m_bHolding = false;
+		}
+	}
+
 	if (src->Compare(mEnemyCheckCollider))
 	{
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
