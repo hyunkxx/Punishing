@@ -14,6 +14,7 @@ public:
 	HRESULT Initialize(LEVEL_ID eNextLevel);
 	HRESULT Load_Level_Logo();
 	HRESULT Load_Level_GamePlay();
+	HRESULT Load_Level_BossRoom();
 
 public:
 	static CLoader* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, LEVEL_ID eNextLevel);

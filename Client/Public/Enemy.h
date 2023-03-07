@@ -109,6 +109,7 @@ public:
 	void SetOverlap(_bool value, _float3 vNagative) { m_bOverlapped = value; m_vNagative = vNagative; }
 	_float4 GetPosition();
 	void SetPosition(_float3 vPosition);
+	_vector GetRootBonePosition();
 
 private:
 	HRESULT AddComponents();
@@ -149,6 +150,7 @@ private:
 private:
 	TYPE m_eType = TYPE::HUMANOID;
 
+	_float4x4 m_RootBoneMatrix;
 	class CBone* bone = nullptr;
 	_uint animation = 0;
 

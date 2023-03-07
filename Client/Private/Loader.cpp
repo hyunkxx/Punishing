@@ -10,6 +10,7 @@
 #include "Character.h"
 #include "Enemy.h"
 #include "Weapon.h"
+#include "Boss.h"
 
 CLoader::CLoader(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: m_pDevice(pDevice)
@@ -182,6 +183,89 @@ HRESULT CLoader::Load_Level_GamePlay()
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui_weapon"), CWeapon::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_player_camera"), CPlayerCamera::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+#pragma endregion
+
+	m_szLoadingStateText = L"Load Completed";
+	m_isFinish = true;
+	return S_OK;
+}
+
+HRESULT CLoader::Load_Level_BossRoom()
+{
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	//GamePlay Component
+#pragma region COMPONENTS
+	m_szLoadingStateText = L"Texture..";
+
+	m_szLoadingStateText = L"Buffer..";
+
+	m_szLoadingStateText = L"Collision..";
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, TEXT("proto_com_sphere_collider"),
+		CSphereCollider::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, TEXT("proto_com_obb_collider"),
+		COBBCollider::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+
+	m_szLoadingStateText = L"Model..";
+
+	_matrix	cityMatrix = XMMatrixIdentity();
+	cityMatrix = XMMatrixRotationY(XMConvertToRadians(180.f));
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, L"proto_com_model_sky",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Level/Load/Sky.fbx", cityMatrix))))
+		return E_FAIL;
+
+	// 무기는 정방향
+	_matrix	LocalMatrix = XMMatrixIdentity();
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, L"proto_com_model_kamui_weapon",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Character/Kamui/Weapon/Weapon.fbx", LocalMatrix))))
+		return E_FAIL;
+
+	// 플레이어 모델부터 로컬 메트릭스 설정 (Y축 회전 180도)
+	LocalMatrix = XMMatrixRotationY(XMConvertToRadians(180.0f));
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, L"proto_com_model_kamui",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Character/Kamui/Body/Kamui.fbx", LocalMatrix, CCharacter::CLIP_END))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, L"proto_com_model_boss",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Enemy/Boss/Boss.fbx", LocalMatrix, CCharacter::CLIP_END))))
+		return E_FAIL;
+
+	m_szLoadingStateText = L"Shader..";
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, TEXT("proto_com_shader_vtxnortex"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXNORTEX.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, TEXT("proto_com_shader_vtxanimmodel"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXANIMMODEL.hlsl"), VTXANIMMODEL_DECLARATION::Elements, VTXANIMMODEL_DECLARATION::ElementCount))))
+		return E_FAIL;
+#pragma endregion
+
+	//GamePlay GameObject
+#pragma region GAMEOBJECTS
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_sky"), CSkybox::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui"), CCharacter::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui_weapon"), CWeapon::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_boss"), CBoss::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_player_camera"), CPlayerCamera::Create(m_pDevice, m_pContext))))

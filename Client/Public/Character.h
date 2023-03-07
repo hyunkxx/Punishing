@@ -127,6 +127,12 @@ public:
 
 	};
 
+	typedef struct tagOverlapInfo
+	{
+		_float3 vDir;
+		_float fDepth;
+	}OVERLAP_INFO;
+
 private:
 	CCharacter(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	CCharacter(const CCharacter& rhs);
@@ -259,7 +265,7 @@ private: // Command
 
 	// 충돌체 충돌시 제자리 홀드
 	_bool m_bHolding = false;
-	vector<_float3> m_OverlappedPos;
+	vector<OVERLAP_INFO> m_OverlappedInfo;
 
 };
 

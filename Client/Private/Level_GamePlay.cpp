@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "..\Public\Level_GamePlay.h"
 
+#include "Level_Loading.h"
 #include "ApplicationManager.h"
 #include "GameInstance.h"
 #include "DynamicCamera.h"
@@ -37,6 +38,13 @@ void CLevel_GamePlay::Tick(_double TimeDelta)
 	CApplicationManager* pApplicationManager = CApplicationManager::GetInstance(); 
 	pApplicationManager->SetTitle(L"LEVEL_GAMEPLAY");
 #endif
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_ESCAPE) == KEY_STATE::TAP)
+	{
+		if (FAILED(pGameInstance->Open_Level(LEVEL_LOADING, CLevel_Loading::Create(m_pDevice, m_pContext, LEVEL_BOSS))))
+			return;
+	}
 }
 
 HRESULT CLevel_GamePlay::Ready_Light()

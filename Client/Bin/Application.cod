@@ -8485,8 +8485,8 @@ $LN8:
   00089	48 83 c1 10	 add	 rcx, 16
   0008d	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
   00092	4c 8b c9	 mov	 r9, rcx
-  00095	41 b8 04 00 00
-	00		 mov	 r8d, 4
+  00095	41 b8 05 00 00
+	00		 mov	 r8d, 5
   0009b	48 8d 55 08	 lea	 rdx, QWORD PTR GraphicDesc$[rbp]
   0009f	48 8b 85 80 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]

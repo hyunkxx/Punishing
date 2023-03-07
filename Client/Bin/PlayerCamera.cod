@@ -3654,7 +3654,7 @@ tv66 = 192
 this$ = 240
 ?IsCameraLockOn@CCharacter@Client@@QEAA_NXZ PROC	; Client::CCharacter::IsCameraLockOn, COMDAT
 
-; 177  : 	_bool IsCameraLockOn() { return m_pNearEnemy != nullptr; };
+; 183  : 	_bool IsCameraLockOn() { return m_pNearEnemy != nullptr; };
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3698,7 +3698,7 @@ tv67 = 192
 this$ = 240
 ?GetLockOnTarget@CCharacter@Client@@QEAAPEAVCGameObject@Engine@@XZ PROC ; Client::CCharacter::GetLockOnTarget, COMDAT
 
-; 176  : 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
+; 182  : 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx

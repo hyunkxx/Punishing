@@ -54,6 +54,7 @@ HRESULT CEnemy::Initialize(void * pArg)
  	SetPosition(_float3(20.f + (s_iCount * 5), 0.f, 40.f));
 
 	bone = model->GetBonePtr("Bip001");
+	XMStoreFloat4x4(&m_RootBoneMatrix, XMLoadFloat4x4(&bone->GetOffSetMatrix()) * XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&model->GetLocalMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix()));
 
 	return S_OK;
 }
@@ -75,8 +76,8 @@ void CEnemy::LateTick(_double TimeDelta)
 
 	model->Play_Animation(TimeDelta, transform, 0.3);
 
-	_matrix tranMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix());
-	collider->Update(tranMatrix);
+	//_matrix tranMatrix = XMLoadFloat4x4(&bone->GetOffSetMatrix()) * XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&model->GetLocalMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix());
+	collider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));
 
 	if (nullptr != renderer)
 		renderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
@@ -159,7 +160,7 @@ HRESULT CEnemy::AddComponents()
 
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
-	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
+	collDesc.vCenter = _float3(0.f, 1.f, 0.f);
 	collDesc.vExtants = _float3(1.f, 1.f, 1.f);
 	collDesc.vRotaion = _float3(0.f, 0.f, 0.f);
 
@@ -440,11 +441,17 @@ void CEnemy::NuckBack(_double TimeDelta)
 		vDir = XMVector3Normalize(vDir);
 
 		_vector vPos;
-		vPos = vCurrentPos + (vDir) * 23.f;
-		vCurrentPos = XMVectorLerp(vCurrentPos, vPos, TimeDelta * 0.6f);
+		vPos = vCurrentPos + (vDir) * 4.f;
+		vCurrentPos = XMVectorLerp(vCurrentPos, vPos, TimeDelta * 0.8f);
 		transform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
 	}
 
+}
+
+_vector CEnemy::GetRootBonePosition()
+{
+	_matrix BoneMatrix = XMLoadFloat4x4(&m_RootBoneMatrix);
+	return BoneMatrix.r[3];
 }
 
 void CEnemy::AnimationState(_double TimeDelta)
@@ -452,7 +459,7 @@ void CEnemy::AnimationState(_double TimeDelta)
 	if (m_bHit)
 	{
 		Hit(TimeDelta);
-		//NuckBack(TimeDelta);
+		NuckBack(TimeDelta);
 	}
 	else
 	{

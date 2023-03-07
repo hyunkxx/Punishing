@@ -6946,7 +6946,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?IsFinished@CLoader@Client@@QEBA_NXZ PROC		; Client::CLoader::IsFinished, COMDAT
 
-; 26   : 	_bool IsFinished() const { return m_isFinish; }
+; 27   : 	_bool IsFinished() const { return m_isFinish; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -6980,7 +6980,7 @@ this$ = 256
 __$ReturnUdt$ = 264
 ?GetLoadingStateText@CLoader@Client@@QEBA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@XZ PROC ; Client::CLoader::GetLoadingStateText, COMDAT
 
-; 25   : 	wstring GetLoadingStateText() const { return m_szLoadingStateText; }
+; 26   : 	wstring GetLoadingStateText() const { return m_szLoadingStateText; }
 
 $LN5:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -7975,8 +7975,8 @@ $LN4:
 
   00060	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00067	c7 40 20 04 00
-	00 00		 mov	 DWORD PTR [rax+32], 4
+  00067	c7 40 20 05 00
+	00 00		 mov	 DWORD PTR [rax+32], 5
 
 ; 26   : 	class CLoader*	m_pLoader = { nullptr };
 

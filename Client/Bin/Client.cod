@@ -3440,6 +3440,8 @@ __formal$ = 224
 __formal$ = 232
 ?__empty_global_delete@@YAXPEAX_K@Z PROC		; __empty_global_delete, COMDAT
 
+; 158  : }
+
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   00005	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3467,6 +3469,8 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 __formal$ = 224
 ?__empty_global_delete@@YAXPEAX@Z PROC			; __empty_global_delete, COMDAT
+
+; 158  : }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx

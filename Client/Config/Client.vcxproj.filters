@@ -71,6 +71,9 @@
     <Filter Include="src\02. GameObjects\Enemy">
       <UniqueIdentifier>{a1be8fae-8749-45dc-a4f4-f079c734514b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\01. Levels\03. BossRoom">
+      <UniqueIdentifier>{c37d9aba-aac9-4542-99d3-88f7eae71058}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h">
@@ -163,6 +166,10 @@
     <ClInclude Include="..\public\Skybox.h">
       <Filter>src\02. GameObjects\03. Stage</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Boss.h" />
+    <ClInclude Include="..\Public\Level_BossRoom.h">
+      <Filter>src\01. Levels\03. BossRoom</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -242,6 +249,10 @@
     </ClCompile>
     <ClCompile Include="..\private\Character.cpp">
       <Filter>src\02. GameObjects\04. Character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Boss.cpp" />
+    <ClCompile Include="..\Private\Level_BossRoom.cpp">
+      <Filter>src\01. Levels\03. BossRoom</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

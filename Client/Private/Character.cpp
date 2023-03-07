@@ -62,7 +62,7 @@ void CCharacter::Tick(_double TimeDelta)
 	Attack(TimeDelta);
 
 	AnimationControl(TimeDelta);
-	PositionHold(TimeDelta);
+	//PositionHold(TimeDelta);
 
 	CameraSocketUpdate();
 	TargetListDeastroyCehck();
@@ -72,7 +72,6 @@ void CCharacter::LateTick(_double TimeDelta)
 {
 	__super::LateTick(TimeDelta);
 
-	m_OverlappedPos.clear();
 	FindNearTarget();
 
 	_matrix transMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&mTransform->Get_WorldMatrix());
@@ -193,7 +192,7 @@ HRESULT CCharacter::AddComponents()
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
-	collDesc.vExtants = _float3(2.f, 2.f, 2.f);
+	collDesc.vExtants = _float3(1.f, 1.f, 1.f);
 	collDesc.vRotaion = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&mCollider, &collDesc)))
@@ -578,24 +577,28 @@ void CCharacter::Attack(_double TimeDelta)
 
 void CCharacter::PositionHold(_double TimeDelta)
 {
-	//if (m_OverlappedPos.size() <= 0)
+	//if (m_OverlappedInfo.empty())
 	//	return;
 
-	//_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+	//_vector vNormal = XMVectorSet(0.f, 0.f, 0.f, 0.f);
+	//_vector vPosition = XMVectorSet(0.f, 0.f, 0.f, 0.f);
 
-	//_float3 dif;
-	//for (auto pos : m_OverlappedPos)
+	//for (auto& overlapInfo : m_OverlappedInfo)
 	//{
-	//	dif.x = dif.x - pos.x;
-	//	dif.y = dif.y - pos.y;
-	//	dif.z = dif.z - pos.z;
+	//	vNormal += XMLoadFloat3(&overlapInfo.vDir);
+	//	vPosition += XMLoadFloat3(&overlapInfo.vPos);
 	//}
+	//vNormal = XMVector3Normalize(vNormal);
+	//vNormal = XMVectorSetY(vNormal, 0.f);
 
-	//vPos = XMVectorSetX(vPos, XMVectorGetX(vPos) + dif.x);
-	//vPos = XMVectorSetY(vPos, XMVectorGetY(vPos) + dif.y);
-	//vPos = XMVectorSetZ(vPos, XMVectorGetZ(vPos) + dif.z);
+	//vPosition = vPosition / m_OverlappedInfo.size();
 
-	//mTransform->Set_State(CTransform::STATE_POSITION, XMLoadFloat3(&dif));
+	//_vector vCurrentPos = mTransform->Get_State(CTransform::STATE_POSITION);
+	////_vector vDistance = vPosition - vCurrentPos;
+	//vCurrentPos = vCurrentPos + vNormal;
+	//mTransform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
+
+	//m_OverlappedInfo.clear();
 }
 
 void CCharacter::TargetListDeastroyCehck()
@@ -1010,25 +1013,29 @@ void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
 		if (pEnemy)
 		{
-
-			m_bHolding = true;
-
-			//구의 길이
-			_float sourExtents = src->GetExtents().x;
-			_float destExtents = dest->GetExtents().x;
-			_float fLength = sourExtents + destExtents;
-
-			//현재 길이
+			//CCollider* pEnemyBodyColl = pEnemy->GetBodyCollider();
 			_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
 			_vector vEnemyPos = XMLoadFloat4(&pEnemy->GetPosition());
-			_vector vDir = XMVector3Normalize(vEnemyPos - vPos);
-			_float fDistance = XMVectorGetX(XMVector3Length(vEnemyPos - vPos));
+			vEnemyPos = XMVectorSetY(vEnemyPos, 0.0f);
 
-			vPos = vEnemyPos - vDir * (fLength - fDistance);
-			_float3 vPosition;
-			XMStoreFloat3(&vPosition, vPos);
-			//m_OverlappedPos.push_back(vPosition);
-			mTransform->Set_State(CTransform::STATE_POSITION, vPos);
+			_vector vDistance = vPos - vEnemyPos;
+			_vector vDir = XMVector3Normalize(vDistance);
+
+			//구의 반지름의 합
+			_float fTotalRadius = src->GetExtents().x + dest->GetExtents().x;
+			_float fLength = XMVectorGetX(XMVector3Length(vPos - vEnemyPos));
+
+			//겹쳐진 부분의 양
+			_float fDepth = (fTotalRadius - fLength) - src->GetExtents().x;
+			_vector vCurrentPos = vPos + vDir * (fDepth * 1.1f);
+
+			//OVERLAP_INFO OverlapInfo;
+			//ZeroMemory(&OverlapInfo, sizeof OVERLAP_INFO);
+			//XMStoreFloat3(&OverlapInfo.vDir, vDir);
+			//XMStoreFloat3(&OverlapInfo.vDir, vDir);
+
+			mTransform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
+			//m_OverlappedInfo.push_back(OverlapInfo);
 		}
 	}
 }
