@@ -233,9 +233,6 @@
     <ClInclude Include="..\public\Graphic_Device.h">
       <Filter>system\00. Graphic_Device</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\GameInstance.h">
-      <Filter>utility\00. GameInstance</Filter>
-    </ClInclude>
     <ClInclude Include="..\Public\Engine_Defines.h">
       <Filter>header</Filter>
     </ClInclude>
@@ -349,6 +346,9 @@
     </ClInclude>
     <ClInclude Include="..\Public\OBBCollider.h">
       <Filter>utility\03. Components\08. Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\GameInstance.h">
+      <Filter>utility\00. GameInstance</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -45,8 +45,8 @@ HRESULT CSphereCollider::Initialize(void * arg)
 	{
 		_collDesc.owner = static_cast<COLLIDER_DESC*>(arg)->owner;
 		_collDesc.vCenter = static_cast<COLLIDER_DESC*>(arg)->vCenter;
-		_collDesc.vExtants = static_cast<COLLIDER_DESC*>(arg)->vExtants;
-		_collDesc.vRotaion = static_cast<COLLIDER_DESC*>(arg)->vRotaion;
+		_collDesc.vExtents = static_cast<COLLIDER_DESC*>(arg)->vExtents;
+		_collDesc.vRotation = static_cast<COLLIDER_DESC*>(arg)->vRotation;
 	}
 
 	SetOwner(_collDesc.owner);
@@ -58,8 +58,8 @@ HRESULT CSphereCollider::Initialize(void * arg)
 	}
 
 	_matrix scaleMatrix, rotationMatrix, translationMatrix;
-	scaleMatrix = XMMatrixScaling(_collDesc.vExtants.x, _collDesc.vExtants.y, _collDesc.vExtants.z);
-	rotationMatrix = XMMatrixRotationX(_collDesc.vRotaion.x) * XMMatrixRotationY(_collDesc.vRotaion.y) * XMMatrixRotationZ(_collDesc.vRotaion.z);
+	scaleMatrix = XMMatrixScaling(_collDesc.vExtents.x, _collDesc.vExtents.y, _collDesc.vExtents.z);
+	rotationMatrix = XMMatrixRotationX(_collDesc.vRotation.x) * XMMatrixRotationY(_collDesc.vRotation.y) * XMMatrixRotationZ(_collDesc.vRotation.z);
 	translationMatrix = XMMatrixTranslation(_collDesc.vCenter.x, _collDesc.vCenter.y, _collDesc.vCenter.z);
 
 	_matrix transformMatrix = XMMatrixIdentity();
@@ -118,6 +118,38 @@ void CSphereCollider::Render()
 	DX::Draw(_batch, *_sphere, color);
 
 	_batch->End();
+}
+
+void CSphereCollider::SetExtents(_float3 vExtents)
+{
+	_collDesc.vExtents = vExtents;
+
+	_matrix scaleMatrix, rotationMatrix, translationMatrix;
+	scaleMatrix = XMMatrixScaling(_collDesc.vExtents.x, _collDesc.vExtents.y, _collDesc.vExtents.z);
+	rotationMatrix = XMMatrixRotationX(_collDesc.vRotation.x) * XMMatrixRotationY(_collDesc.vRotation.y) * XMMatrixRotationZ(_collDesc.vRotation.z);
+	translationMatrix = XMMatrixTranslation(_collDesc.vCenter.x, _collDesc.vCenter.y, _collDesc.vCenter.z);
+
+	_matrix transformMatrix = XMMatrixIdentity();
+
+	transformMatrix = scaleMatrix * rotationMatrix * translationMatrix;
+	_sphere->Transform(*_sphere, transformMatrix);
+	_sphereOriginal = _sphere;
+}
+
+void CSphereCollider::SetRotation(_float3 vRotation)
+{
+	_collDesc.vRotation = vRotation;
+
+	_matrix scaleMatrix, rotationMatrix, translationMatrix;
+	scaleMatrix = XMMatrixScaling(_collDesc.vExtents.x, _collDesc.vExtents.y, _collDesc.vExtents.z);
+	rotationMatrix = XMMatrixRotationX(_collDesc.vRotation.x) * XMMatrixRotationY(_collDesc.vRotation.y) * XMMatrixRotationZ(_collDesc.vRotation.z);
+	translationMatrix = XMMatrixTranslation(_collDesc.vCenter.x, _collDesc.vCenter.y, _collDesc.vCenter.z);
+
+	_matrix transformMatrix = XMMatrixIdentity();
+
+	transformMatrix = scaleMatrix * rotationMatrix * translationMatrix;
+	_sphere->Transform(*_sphere, transformMatrix);
+	_sphereOriginal = _sphere;
 }
 
 CSphereCollider * CSphereCollider::Create(ID3D11Device * device, ID3D11DeviceContext * context)

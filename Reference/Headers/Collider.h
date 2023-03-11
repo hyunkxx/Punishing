@@ -7,14 +7,15 @@ BEGIN(Engine)
 class ENGINE_DLL CCollider abstract : public CComponent
 {
 public:
+	enum COLL_LAYER { COLL_BASE, COLL_WALL, COLL_COMBAT };
 	enum COLL_TYPE { COLL_SPHERE, COLL_AABB, COLL_OBB, COLL_END };
 
 	typedef struct tagColliderDesc
 	{
 		class CGameObject* owner;
 		_float3 vCenter;
-		_float3 vExtants;
-		_float3 vRotaion;
+		_float3 vExtents;
+		_float3 vRotation;
 	}COLLIDER_DESC;
 
 protected:
@@ -34,7 +35,12 @@ public:
 	virtual void Render() = 0;
 
 public:
+	_bool GetSameObjectDetection() { return m_bSameObjectDetection; }
+	void SetSameObjectDetection(_bool value) { m_bSameObjectDetection = value; }
 	void SetActive(_bool value);
+	_bool IsActive() { return m_isActive; }
+	_bool IsVisible() { return m_isVisible; }
+	void SetVisible(_bool value) { m_isVisible = value; }
 	_bool Compare(CCollider* collider) { return this == collider; };
 	void EraseHitCollider(CCollider* collider);
 	void AddHitCollider(CCollider* collider);
@@ -45,9 +51,11 @@ public:
 	COLL_TYPE GetType() const {	return _type; }
 	void SetCollision(_bool value) { _isColl = value; }
 	_bool IsColl() const { return _isColl; }
-	_float3 GetCenter() { return _collDesc.vCenter; }
-	_float3 GetExtents() { return _collDesc.vExtants; }
-	//void Reset(_float3 );
+	virtual _float3 GetCenter() const { return _collDesc.vCenter; }
+	virtual _float3 GetRotation() const { return _collDesc.vRotation; }
+	virtual _float3 GetExtents() const { return _collDesc.vExtents; }
+	virtual void SetExtents(_float3 vExtents) { _collDesc.vExtents = vExtents; }
+	virtual void SetRotation(_float3 vRotation) { _collDesc.vRotation = vRotation; }
 
 public:
 	virtual CComponent* Clone(void* arg = nullptr) = 0;
@@ -56,7 +64,11 @@ public:
 public:
 
 protected:
+	_bool m_eCollLayer = COLL_BASE;
+
+	_bool m_bSameObjectDetection = true;
 	_bool m_isActive = true;
+	_bool m_isVisible = true;
 	_bool _isColl = false;
 	COLLIDER_DESC _collDesc;
 	COLL_TYPE _type = COLL_TYPE::COLL_END;
@@ -87,6 +99,12 @@ class ENGINE_DLL IOnCollisionExit
 {
 public:
 	virtual void OnCollisionExit(CCollider * src, CCollider * dest) = 0;
+};
+
+class ENGINE_DLL ISameObjectNoDetection
+{
+public:
+	virtual void SameObjectNoDetection() = 0;
 };
 
 END

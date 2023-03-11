@@ -47,11 +47,15 @@ void CDynamicCamera::Tick(_double TimeDelta)
 
 	_long MouseMove = 0;
 	
-	if (MouseMove = pGameInstance->Input_MouseMove(DIMM_X))
-		m_pTransform->Rotate(XMVectorSet(0.f,1.f,0.f,0.f), MouseMove * TimeDelta * 0.1f);
+	if (pGameInstance->Input_MouseState_Custom(DIMK_RB) == KEY_STATE::HOLD)
+	{
+		if (MouseMove = pGameInstance->Input_MouseMove(DIMM_X))
+			m_pTransform->Rotate(XMVectorSet(0.f, 1.f, 0.f, 0.f), MouseMove * TimeDelta * 0.1f);
 
-	if (MouseMove = pGameInstance->Input_MouseMove(DIMM_Y))
-		m_pTransform->Rotate(m_pTransform->Get_State(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 0.1f);
+		if (MouseMove = pGameInstance->Input_MouseMove(DIMM_Y))
+			m_pTransform->Rotate(m_pTransform->Get_State(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 0.1f);
+
+	}
 
 	__super::Tick(TimeDelta);
 }

@@ -47,7 +47,7 @@ protected:
 	ID3D11DeviceContext*		m_pContext;
 
 protected:
-	static _uint ObjectID;
+	_uint ObjectID = -1;
 	STATE m_eState = { ACTIVE };
 
 };

@@ -45,8 +45,8 @@ HRESULT COBBCollider::Initialize(void * arg)
 	{
 		_collDesc.owner = static_cast<COLLIDER_DESC*>(arg)->owner;
 		_collDesc.vCenter = static_cast<COLLIDER_DESC*>(arg)->vCenter;
-		_collDesc.vExtants = static_cast<COLLIDER_DESC*>(arg)->vExtants;
-		_collDesc.vRotaion = static_cast<COLLIDER_DESC*>(arg)->vRotaion;
+		_collDesc.vExtents = static_cast<COLLIDER_DESC*>(arg)->vExtents;
+		_collDesc.vRotation = static_cast<COLLIDER_DESC*>(arg)->vRotation;
 	}
 
 	SetOwner(_collDesc.owner);
@@ -58,16 +58,16 @@ HRESULT COBBCollider::Initialize(void * arg)
 	}
 
 	_matrix scaleMatrix, rotationMatrix, translationMatrix;
-	scaleMatrix = XMMatrixScaling(_collDesc.vExtants.x, _collDesc.vExtants.y, _collDesc.vExtants.z);
-	rotationMatrix = XMMatrixRotationX(_collDesc.vRotaion.x) * XMMatrixRotationY(_collDesc.vRotaion.y) * XMMatrixRotationZ(_collDesc.vRotaion.z);
+	scaleMatrix = XMMatrixScaling(_collDesc.vExtents.x, _collDesc.vExtents.y, _collDesc.vExtents.z);
+	rotationMatrix = XMMatrixRotationX(_collDesc.vRotation.x) * XMMatrixRotationY(_collDesc.vRotation.y) * XMMatrixRotationZ(_collDesc.vRotation.z);
 	translationMatrix = XMMatrixTranslation(_collDesc.vCenter.x, _collDesc.vCenter.y, _collDesc.vCenter.z);
 
 	_matrix transformMatrix = XMMatrixIdentity();
-
+	
 	_obbOriginal = _obb = new BoundingOrientedBox(_float3(0.f, 0.f, 0.f), _float3(0.5f, 0.5f, 0.5f), _float4(0.f, 0.f, 0.f, 1.f));
 	transformMatrix = rotationMatrix * translationMatrix;
 	_obb->Transform(*_obb, transformMatrix);
-	XMStoreFloat3(&_obb->Extents, XMLoadFloat3(&_obb->Extents) * XMLoadFloat3(&_collDesc.vExtants));
+	XMStoreFloat3(&_obb->Extents, XMLoadFloat3(&_obb->Extents) * XMLoadFloat3(&_collDesc.vExtents));
 	_obbOriginal = new BoundingOrientedBox(*_obb);
 
 	return S_OK;
@@ -119,6 +119,50 @@ void COBBCollider::Render()
 	DX::Draw(_batch, *_obb, color);
 
 	_batch->End();
+}
+
+void COBBCollider::SetExtents(_float3 vExtents)
+{
+	_collDesc.vExtents = vExtents;
+
+	_matrix scaleMatrix, rotationMatrix, translationMatrix;
+	scaleMatrix = XMMatrixScaling(_collDesc.vExtents.x, _collDesc.vExtents.y, _collDesc.vExtents.z);
+	rotationMatrix = XMMatrixRotationX(_collDesc.vRotation.x) * XMMatrixRotationY(_collDesc.vRotation.y) * XMMatrixRotationZ(_collDesc.vRotation.z);
+	translationMatrix = XMMatrixTranslation(_collDesc.vCenter.x, _collDesc.vCenter.y, _collDesc.vCenter.z);
+
+	_matrix transformMatrix = XMMatrixIdentity();
+
+	_obb->Transform(*_obb, transformMatrix);
+	transformMatrix = rotationMatrix * translationMatrix;
+	_obb->Transform(*_obb, transformMatrix);
+	XMStoreFloat3(&_obb->Extents, XMLoadFloat3(&_obb->Extents) * XMLoadFloat3(&_collDesc.vExtents));
+	_obbOriginal = _obb;
+}
+
+void COBBCollider::SetRotation(_float3 vRotation)
+{
+	_collDesc.vRotation = vRotation;
+	
+	_matrix scaleMatrix, rotationMatrix, translationMatrix;
+	scaleMatrix = XMMatrixScaling(_collDesc.vExtents.x, _collDesc.vExtents.y, _collDesc.vExtents.z);
+	rotationMatrix = XMMatrixRotationX(_collDesc.vRotation.x) * XMMatrixRotationY(_collDesc.vRotation.y) * XMMatrixRotationZ(_collDesc.vRotation.z);
+	translationMatrix = XMMatrixTranslation(_collDesc.vCenter.x, _collDesc.vCenter.y, _collDesc.vCenter.z);
+
+	_matrix transformMatrix = XMMatrixIdentity();
+	_obb->Transform(*_obb, transformMatrix);
+
+	transformMatrix = rotationMatrix * translationMatrix;
+	_obb->Transform(*_obb, transformMatrix);
+	XMStoreFloat3(&_obb->Extents, XMLoadFloat3(&_obb->Extents) * XMLoadFloat3(&_collDesc.vExtents));
+	_obbOriginal = _obb;
+
+}
+
+_float3 COBBCollider::GetCorners()
+{
+	_float3 fConers;
+	_obb->GetCorners(&fConers);
+	return fConers;
 }
 
 COBBCollider * COBBCollider::Create(ID3D11Device * device, ID3D11DeviceContext * context)

@@ -38,8 +38,12 @@ public:
 
 	// Animation
 	_bool AnimationCompare(_uint AnimationIndex) const { return m_iCurrentAnimation == AnimationIndex; };
-	_bool AnimationIsFinish();
-	_bool AnimationIsPreFinish();
+	_bool AnimationIsFinish();//리셋 O
+	_bool AnimationIsFinishEx();//리셋 X
+	_bool AnimationIsPreFinish(); //공격 타이밍 0.5
+	_bool AnimationIsPreFinishEx(); //공격전 타이밍 0.3
+	_bool AnimationIsPreFinishCustom(_double value); //종료 타이밍 지정
+	void AnimationReset();
 	void SetFinish(_bool Value);
 
 public:

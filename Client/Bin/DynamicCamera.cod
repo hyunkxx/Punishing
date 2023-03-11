@@ -2356,6 +2356,7 @@ EXTRN	__imp_?Free@CCamera@Engine@@UEAAXXZ:PROC
 EXTRN	??_ECDynamicCamera@Client@@EEAAPEAXI@Z:PROC	; Client::CDynamicCamera::`vector deleting destructor'
 EXTRN	__imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ:PROC
 EXTRN	__imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z:PROC
+EXTRN	__imp_?Input_MouseState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@W4MOUSE_KEYSTATE@2@@Z:PROC
 EXTRN	__imp_?Input_MouseMove@CGameInstance@Engine@@QEAAJW4MOUSE_MOVESTATE@2@@Z:PROC
 EXTRN	?RenderGUI@CGameObject@Engine@@UEAAXXZ:PROC	; Engine::CGameObject::RenderGUI
 EXTRN	_RTC_CheckStackVars:PROC
@@ -2422,8 +2423,8 @@ $pdata$?Initialize@CDynamicCamera@Client@@UEAAJPEAX@Z DD imagerel $LN4
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Tick@CDynamicCamera@Client@@UEAAXN@Z DD imagerel $LN9
-	DD	imagerel $LN9+509
+$pdata$?Tick@CDynamicCamera@Client@@UEAAXN@Z DD imagerel $LN10
+	DD	imagerel $LN10+532
 	DD	imagerel $unwind$?Tick@CDynamicCamera@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2647,7 +2648,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CDynamicCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CDynamicCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 05cH ; `Client::CDynamicCamera::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CDynamicCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 060H ; `Client::CDynamicCamera::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1EG@ONDHAHNI@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AAd?$AA?5?$AA?3?$AA?5?$AAC?$AAD?$AAy?$AAn?$AAa?$AAm?$AAi?$AAc?$AAC?$AAa?$AAm?$AAe@
 CONST	SEGMENT
@@ -2672,7 +2673,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CDynamicCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CDynamicCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 050H ; `Client::CDynamicCamera::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CDynamicCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 054H ; `Client::CDynamicCamera::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_7CDynamicCamera@Client@@6B@
 CONST	SEGMENT
@@ -3056,7 +3057,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CDynamicCamera@Client@@UEAAXXZ PROC		; Client::CDynamicCamera::Free, COMDAT
 
-; 104  : {
+; 108  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3072,14 +3073,14 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 105  : 	__super::Free();
+; 109  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CCamera@Engine@@UEAAXXZ
 
-; 106  : }
+; 110  : }
 
   00037	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -3102,7 +3103,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CDynamicCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CDynamicCamera::Clone, COMDAT
 
-; 92   : {
+; 96   : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -3127,7 +3128,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 93   : 	CDynamicCamera*	pInstance = new CDynamicCamera(*this);
+; 97   : 	CDynamicCamera*	pInstance = new CDynamicCamera(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CDynamicCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
@@ -3164,7 +3165,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 94   : 	if (FAILED(pInstance->Initialize(pArg)))
+; 98   : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 78 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -3173,8 +3174,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Clone
 
-; 95   : 	{
-; 96   : 		MSG_BOX("Failed to Cloned : CDynamicCamera");
+; 99   : 	{
+; 100  : 		MSG_BOX("Failed to Cloned : CDynamicCamera");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -3185,19 +3186,19 @@ $LN5@Clone:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 97   : 		Safe_Release(pInstance);
+; 101  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCDynamicCamera@Client@@@Engine@@YAKAEAPEAVCDynamicCamera@Client@@@Z ; Engine::Safe_Release<Client::CDynamicCamera * __ptr64>
 $LN2@Clone:
 
-; 98   : 	}
-; 99   : 
-; 100  : 	return pInstance;
+; 102  : 	}
+; 103  : 
+; 104  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 101  : }
+; 105  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -3295,7 +3296,7 @@ pDevice$ = 368
 pContext$ = 376
 ?Create@CDynamicCamera@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CDynamicCamera::Create, COMDAT
 
-; 80   : {
+; 84   : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -3320,7 +3321,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 81   : 	CDynamicCamera*	pInstance = new CDynamicCamera(pDevice, pContext);
+; 85   : 	CDynamicCamera*	pInstance = new CDynamicCamera(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CDynamicCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -3359,15 +3360,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 82   : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 86   : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CDynamicCamera@Client@@UEAAJXZ ; Client::CDynamicCamera::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Create
 
-; 83   : 	{
-; 84   : 		MSG_BOX("Failed to Created : CDynamicCamera");
+; 87   : 	{
+; 88   : 		MSG_BOX("Failed to Created : CDynamicCamera");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -3378,19 +3379,19 @@ $LN5@Create:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 85   : 		Safe_Release(pInstance);
+; 89   : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCDynamicCamera@Client@@@Engine@@YAKAEAPEAVCDynamicCamera@Client@@@Z ; Engine::Safe_Release<Client::CDynamicCamera * __ptr64>
 $LN2@Create:
 
-; 86   : 	}
-; 87   : 
-; 88   : 	return pInstance;
+; 90   : 	}
+; 91   : 
+; 92   : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 89   : }
+; 93   : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -3481,7 +3482,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Setup_ShaderResources@CDynamicCamera@Client@@QEAAJXZ PROC ; Client::CDynamicCamera::Setup_ShaderResources, COMDAT
 
-; 75   : {
+; 79   : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3497,11 +3498,11 @@ $LN3:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 76   : 	return S_OK;
+; 80   : 	return S_OK;
 
   00028	33 c0		 xor	 eax, eax
 
-; 77   : }
+; 81   : }
 
   0002a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -3517,7 +3518,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Add_Components@CDynamicCamera@Client@@QEAAJXZ PROC	; Client::CDynamicCamera::Add_Components, COMDAT
 
-; 70   : {
+; 74   : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3533,11 +3534,11 @@ $LN3:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 71   : 	return S_OK;
+; 75   : 	return S_OK;
 
   00028	33 c0		 xor	 eax, eax
 
-; 72   : }
+; 76   : }
 
   0002a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -3553,7 +3554,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Render@CDynamicCamera@Client@@UEAAJXZ PROC		; Client::CDynamicCamera::Render, COMDAT
 
-; 65   : {
+; 69   : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3569,11 +3570,11 @@ $LN3:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 66   : 	return S_OK;
+; 70   : 	return S_OK;
 
   00028	33 c0		 xor	 eax, eax
 
-; 67   : }
+; 71   : }
 
   0002a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -3590,7 +3591,7 @@ this$ = 224
 TimeDelta$ = 232
 ?LateTick@CDynamicCamera@Client@@UEAAXN@Z PROC		; Client::CDynamicCamera::LateTick, COMDAT
 
-; 60   : {
+; 64   : {
 
 $LN3:
   00000	f2 0f 11 4c 24
@@ -3608,7 +3609,7 @@ $LN3:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 61   : 	__super::LateTick(TimeDelta);
+; 65   : 	__super::LateTick(TimeDelta);
 
   00030	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -3617,7 +3618,7 @@ $LN3:
   0003f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?LateTick@CCamera@Engine@@UEAAXN@Z
 
-; 62   : }
+; 66   : }
 
   00045	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -3636,14 +3637,14 @@ $T1 = 272
 $T2 = 320
 $T3 = 368
 $T4 = 416
-tv177 = 440
+tv181 = 440
 this$ = 480
 TimeDelta$ = 488
 ?Tick@CDynamicCamera@Client@@UEAAXN@Z PROC		; Client::CDynamicCamera::Tick, COMDAT
 
 ; 33   : {
 
-$LN9:
+$LN10:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3756,105 +3757,119 @@ $LN5@Tick:
 	00 00		 mov	 DWORD PTR MouseMove$[rbp], 0
 
 ; 49   : 	
-; 50   : 	if (MouseMove = pGameInstance->Input_MouseMove(DIMM_X))
+; 50   : 	if (pGameInstance->Input_MouseState_Custom(DIMK_RB) == KEY_STATE::HOLD)
 
-  000f1	33 d2		 xor	 edx, edx
-  000f3	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  000f7	ff 15 00 00 00
+  000f1	ba 01 00 00 00	 mov	 edx, 1
+  000f6	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  000fa	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Input_MouseState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@W4MOUSE_KEYSTATE@2@@Z
+  00100	85 c0		 test	 eax, eax
+  00102	0f 85 ed 00 00
+	00		 jne	 $LN6@Tick
+
+; 51   : 	{
+; 52   : 		if (MouseMove = pGameInstance->Input_MouseMove(DIMM_X))
+
+  00108	33 d2		 xor	 edx, edx
+  0010a	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  0010e	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Input_MouseMove@CGameInstance@Engine@@QEAAJW4MOUSE_MOVESTATE@2@@Z
-  000fd	89 45 24	 mov	 DWORD PTR MouseMove$[rbp], eax
-  00100	83 7d 24 00	 cmp	 DWORD PTR MouseMove$[rbp], 0
-  00104	74 5b		 je	 SHORT $LN6@Tick
+  00114	89 45 24	 mov	 DWORD PTR MouseMove$[rbp], eax
+  00117	83 7d 24 00	 cmp	 DWORD PTR MouseMove$[rbp], 0
+  0011b	74 5b		 je	 SHORT $LN7@Tick
 
-; 51   : 		m_pTransform->Rotate(XMVectorSet(0.f,1.f,0.f,0.f), MouseMove * TimeDelta * 0.1f);
+; 53   : 			m_pTransform->Rotate(XMVectorSet(0.f, 1.f, 0.f, 0.f), MouseMove * TimeDelta * 0.1f);
 
-  00106	0f 57 db	 xorps	 xmm3, xmm3
-  00109	0f 57 d2	 xorps	 xmm2, xmm2
-  0010c	f3 0f 10 0d 00
+  0011d	0f 57 db	 xorps	 xmm3, xmm3
+  00120	0f 57 d2	 xorps	 xmm2, xmm2
+  00123	f3 0f 10 0d 00
 	00 00 00	 movss	 xmm1, DWORD PTR __real@3f800000
-  00114	0f 57 c0	 xorps	 xmm0, xmm0
-  00117	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
-  0011c	0f 29 85 10 01
+  0012b	0f 57 c0	 xorps	 xmm0, xmm0
+  0012e	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
+  00133	0f 29 85 10 01
 	00 00		 movaps	 XMMWORD PTR $T1[rbp], xmm0
-  00123	f2 0f 2a 45 24	 cvtsi2sd xmm0, DWORD PTR MouseMove$[rbp]
-  00128	f2 0f 59 85 e8
+  0013a	f2 0f 2a 45 24	 cvtsi2sd xmm0, DWORD PTR MouseMove$[rbp]
+  0013f	f2 0f 59 85 e8
 	01 00 00	 mulsd	 xmm0, QWORD PTR TimeDelta$[rbp]
-  00130	f2 0f 59 05 00
+  00147	f2 0f 59 05 00
 	00 00 00	 mulsd	 xmm0, QWORD PTR __real@3fb99999a0000000
-  00138	0f 28 8d 10 01
+  0014f	0f 28 8d 10 01
 	00 00		 movaps	 xmm1, XMMWORD PTR $T1[rbp]
-  0013f	0f 29 8d 70 01
+  00156	0f 29 8d 70 01
 	00 00		 movaps	 XMMWORD PTR $T3[rbp], xmm1
-  00146	0f 28 d0	 movaps	 xmm2, xmm0
-  00149	48 8d 95 70 01
+  0015d	0f 28 d0	 movaps	 xmm2, xmm0
+  00160	48 8d 95 70 01
 	00 00		 lea	 rdx, QWORD PTR $T3[rbp]
-  00150	48 8b 85 e0 01
+  00167	48 8b 85 e0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00157	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
-  0015b	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
-$LN6@Tick:
-
-; 52   : 
-; 53   : 	if (MouseMove = pGameInstance->Input_MouseMove(DIMM_Y))
-
-  00161	ba 01 00 00 00	 mov	 edx, 1
-  00166	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  0016a	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Input_MouseMove@CGameInstance@Engine@@QEAAJW4MOUSE_MOVESTATE@2@@Z
-  00170	89 45 24	 mov	 DWORD PTR MouseMove$[rbp], eax
-  00173	83 7d 24 00	 cmp	 DWORD PTR MouseMove$[rbp], 0
-  00177	74 65		 je	 SHORT $LN7@Tick
-
-; 54   : 		m_pTransform->Rotate(m_pTransform->Get_State(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 0.1f);
-
-  00179	f2 0f 2a 45 24	 cvtsi2sd xmm0, DWORD PTR MouseMove$[rbp]
-  0017e	f2 0f 59 85 e8
-	01 00 00	 mulsd	 xmm0, QWORD PTR TimeDelta$[rbp]
-  00186	f2 0f 59 05 00
-	00 00 00	 mulsd	 xmm0, QWORD PTR __real@3fb99999a0000000
-  0018e	f2 0f 11 85 b8
-	01 00 00	 movsd	 QWORD PTR tv177[rbp], xmm0
-  00196	45 33 c0	 xor	 r8d, r8d
-  00199	48 8d 95 40 01
-	00 00		 lea	 rdx, QWORD PTR $T2[rbp]
-  001a0	48 8b 85 e0 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001a7	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
-  001ab	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
-  001b1	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
-  001b4	0f 11 85 a0 01
-	00 00		 movups	 XMMWORD PTR $T4[rbp], xmm0
-  001bb	f2 0f 10 85 b8
-	01 00 00	 movsd	 xmm0, QWORD PTR tv177[rbp]
-  001c3	0f 28 d0	 movaps	 xmm2, xmm0
-  001c6	48 8d 95 a0 01
-	00 00		 lea	 rdx, QWORD PTR $T4[rbp]
-  001cd	48 8b 85 e0 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001d4	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
-  001d8	ff 15 00 00 00
+  0016e	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
+  00172	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
 $LN7@Tick:
 
-; 55   : 
-; 56   : 	__super::Tick(TimeDelta);
+; 54   : 
+; 55   : 		if (MouseMove = pGameInstance->Input_MouseMove(DIMM_Y))
 
-  001de	f2 0f 10 8d e8
+  00178	ba 01 00 00 00	 mov	 edx, 1
+  0017d	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  00181	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Input_MouseMove@CGameInstance@Engine@@QEAAJW4MOUSE_MOVESTATE@2@@Z
+  00187	89 45 24	 mov	 DWORD PTR MouseMove$[rbp], eax
+  0018a	83 7d 24 00	 cmp	 DWORD PTR MouseMove$[rbp], 0
+  0018e	74 65		 je	 SHORT $LN8@Tick
+
+; 56   : 			m_pTransform->Rotate(m_pTransform->Get_State(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 0.1f);
+
+  00190	f2 0f 2a 45 24	 cvtsi2sd xmm0, DWORD PTR MouseMove$[rbp]
+  00195	f2 0f 59 85 e8
+	01 00 00	 mulsd	 xmm0, QWORD PTR TimeDelta$[rbp]
+  0019d	f2 0f 59 05 00
+	00 00 00	 mulsd	 xmm0, QWORD PTR __real@3fb99999a0000000
+  001a5	f2 0f 11 85 b8
+	01 00 00	 movsd	 QWORD PTR tv181[rbp], xmm0
+  001ad	45 33 c0	 xor	 r8d, r8d
+  001b0	48 8d 95 40 01
+	00 00		 lea	 rdx, QWORD PTR $T2[rbp]
+  001b7	48 8b 85 e0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001be	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
+  001c2	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+  001c8	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  001cb	0f 11 85 a0 01
+	00 00		 movups	 XMMWORD PTR $T4[rbp], xmm0
+  001d2	f2 0f 10 85 b8
+	01 00 00	 movsd	 xmm0, QWORD PTR tv181[rbp]
+  001da	0f 28 d0	 movaps	 xmm2, xmm0
+  001dd	48 8d 95 a0 01
+	00 00		 lea	 rdx, QWORD PTR $T4[rbp]
+  001e4	48 8b 85 e0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001eb	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
+  001ef	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
+$LN8@Tick:
+$LN6@Tick:
+
+; 57   : 
+; 58   : 	}
+; 59   : 
+; 60   : 	__super::Tick(TimeDelta);
+
+  001f5	f2 0f 10 8d e8
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  001e6	48 8b 8d e0 01
+  001fd	48 8b 8d e0 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  001ed	ff 15 00 00 00
+  00204	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Tick@CCamera@Engine@@UEAAXN@Z
 
-; 57   : }
+; 61   : }
 
-  001f3	48 8d a5 c8 01
+  0020a	48 8d a5 c8 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+456]
-  001fa	5f		 pop	 rdi
-  001fb	5d		 pop	 rbp
-  001fc	c3		 ret	 0
+  00211	5f		 pop	 rdi
+  00212	5d		 pop	 rbp
+  00213	c3		 ret	 0
 ?Tick@CDynamicCamera@Client@@UEAAXN@Z ENDP		; Client::CDynamicCamera::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI

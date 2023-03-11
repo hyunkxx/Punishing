@@ -47,11 +47,20 @@ void CAnimation::PlayAnimation(_double TimeDelta, CTransform* pTransform, TYPE e
 	}
 }
 
+_bool CAnimation::IsPreFinishCustom(_double value)
+{
+	m_CustomFinishTime = value;
+	return m_isCustomPreFinish;
+}
+
 void CAnimation::Reset()
 {
 	m_isFinish = false;
 	m_isPreFinish = false;
+	m_isPreFinishEx = false;
+	m_isCustomPreFinish = false;
 	m_LocalTime = 0.0;
+	m_CustomFinishTime = 1.0;
 
 	for (auto& pChannel : m_Channels)
 	{
@@ -97,9 +106,15 @@ void CAnimation::PlayLoop(_double TimeDelta, CTransform * pTransform, _bool bHol
 
 void CAnimation::PlayOne(_double TimeDelta, CTransform * pTransform, _bool bHoldAxisY)
 {
-	m_LocalTime += m_TickPerSecond * TimeDelta;
+	m_LocalTime += m_TickPerSecond * TimeDelta;//³·Ãç¾ß ´À·ÁÁü
 	
-	if (m_LocalTime > 0.55)
+	if (m_LocalTime >= m_Duration * m_CustomFinishTime)
+		m_isCustomPreFinish = true;
+
+	if (m_LocalTime >= m_Duration * 0.3)
+		m_isPreFinishEx = true;
+
+	if (m_LocalTime >= m_Duration * 0.5)
 		m_isPreFinish = true;
 	
 	if (m_LocalTime >= m_Duration)

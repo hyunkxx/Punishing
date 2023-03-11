@@ -20,6 +20,9 @@ c:\github\framework\engine\bin\vibuffer_cube.obj
 c:\github\framework\engine\bin\vibuffer_rect.obj
 c:\github\framework\engine\bin\vibuffer_terrain.obj
 c:\github\framework\engine\bin\vibuffer_triangle.obj
+c:\github\framework\engine\bin\debugdraw.obj
+c:\github\framework\engine\bin\engine_struct.obj
+c:\github\framework\engine\bin\obbcollider.obj
 c:\github\framework\engine\bin\animation.obj
 c:\github\framework\engine\bin\base.obj
 c:\github\framework\engine\bin\bone.obj
@@ -29,14 +32,11 @@ c:\github\framework\engine\bin\collider.obj
 c:\github\framework\engine\bin\collisionmanager.obj
 c:\github\framework\engine\bin\component.obj
 c:\github\framework\engine\bin\component_manager.obj
-c:\github\framework\engine\bin\debugdraw.obj
-c:\github\framework\engine\bin\engine_struct.obj
 c:\github\framework\engine\bin\gameinstance.obj
 c:\github\framework\engine\bin\gameobject.obj
 c:\github\framework\engine\bin\graphic_device.obj
 c:\github\framework\engine\bin\input_device.obj
 c:\github\framework\engine\bin\layer.obj
-c:\github\framework\engine\bin\obbcollider.obj
 c:\github\framework\engine\bin\engine.lib
 c:\github\framework\engine\bin\engine.exp
 c:\github\framework\engine\bin\engine.ilk

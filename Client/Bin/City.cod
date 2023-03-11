@@ -4363,7 +4363,7 @@ $LN4@Render:
   000be	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderMaterialResource@CModel@Engine@@QEAAJPEAVCShader@2@PEBDIW4aiTextureType@@@Z
 
-; 56   : 
+; 56   : 		
 ; 57   : 		m_pShader->Begin(0);
 
   000c4	33 d2		 xor	 edx, edx

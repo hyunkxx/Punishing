@@ -18,6 +18,7 @@ END
 
 BEGIN(Client)
 class CEnemy;
+class CWall;
 
 class CCharacter final : 
 	public CGameObject, 
@@ -189,7 +190,16 @@ public: // Enemy 관련 코드
 
 	_float3 LockOnCameraPosition();
 
+	void Hit();
+	void RecvDamage(_float fDamage);
+	_double Freeze(_double TimeDelta);
+
+	//초산공간
+public:
+	void SavePrevPos();
+
 public: //충돌관련
+	class CCollider* GetBodyCollider() const { return mCollider; };
 	CCollider* GetWeaponCollider() const { return mWeaponCollider; }
 
 public:
@@ -209,8 +219,13 @@ private:
 	CShader* mShader = nullptr;
 	CCollider* mCollider = nullptr;
 
+	CCollider* mDashCheckCollider = nullptr;
+	CCollider* mWallCheckCollider = nullptr;
 	CCollider* mEnemyCheckCollider = nullptr;
 	CCollider* mWeaponCollider = nullptr;
+
+private:
+	class CApplicationManager* m_pAppManager = nullptr;
 
 private: //레이어 삭제시 삭제됨
 	class CWeapon* m_pWeapon;
@@ -267,8 +282,35 @@ private: // Command
 	_bool m_bHolding = false;
 	vector<OVERLAP_INFO> m_OverlappedInfo;
 
+	//이전 프레임에서 위치
+	CWall* m_pNearWall = nullptr;
+	_float m_fNearPlaneLength = 0.f;
+	_bool m_WallHit = false;
+	_float3 vPrevPosition;
+
+	//강화상태
+	_bool m_bEvolution = false;
+
+	//회피 (대쉬 콜리전)
+	_bool m_bDashPrevPosSet = false;
+	_float4x4 m_matrixPrevPos;
+	_float m_fActiveDuration = 0.0f;
+	const _float m_fActiveTimeOut = 0.5f;
+
+	//몬스터 공격
+	_bool m_bDie = false;
+	_bool m_bHit = false;
+	_float m_fCurHp = 2000.f;
+	_float m_fMaxHp = 2000.f;
+
+	_bool m_bTimeStop = false;
+	_double m_fCurTimeScale = 1.;
+	_double m_fTimeScale = 1.0;
+	_double m_fTimeStopLocal = 0.0;
+	const _float m_fTimeStopTimeOut = 12.f;
+	
 };
 
 END
 
-//XMQuaternionSlerp
+//XMQuaternionSlerpd

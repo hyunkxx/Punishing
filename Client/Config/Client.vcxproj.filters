@@ -68,11 +68,14 @@
     <Filter Include="src\02. GameObjects\04. Character\Command">
       <UniqueIdentifier>{3b6f5ac3-292e-406d-ab20-7172fe85ab5d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\02. GameObjects\Enemy">
-      <UniqueIdentifier>{a1be8fae-8749-45dc-a4f4-f079c734514b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\01. Levels\03. BossRoom">
       <UniqueIdentifier>{c37d9aba-aac9-4542-99d3-88f7eae71058}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\02. GameObjects\04. Character\Enemy">
+      <UniqueIdentifier>{a1be8fae-8749-45dc-a4f4-f079c734514b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\02. GameObjects\05.FreezeArea">
+      <UniqueIdentifier>{98f152f9-f233-4bd3-9ccb-2cf69cff37c8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -157,18 +160,29 @@
     <ClInclude Include="..\public\Weapon.h">
       <Filter>src\02. GameObjects\04. Character</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\Character.h">
-      <Filter>src\02. GameObjects\04. Character</Filter>
-    </ClInclude>
     <ClInclude Include="..\public\Enemy.h">
-      <Filter>src\02. GameObjects\Enemy</Filter>
+      <Filter>src\02. GameObjects\04. Character\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="..\public\Skybox.h">
       <Filter>src\02. GameObjects\03. Stage</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\Boss.h" />
     <ClInclude Include="..\Public\Level_BossRoom.h">
       <Filter>src\01. Levels\03. BossRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Boss.h">
+      <Filter>src\02. GameObjects\04. Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Wall.h">
+      <Filter>src\02. GameObjects\03. Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\StageCollisionManager.h">
+      <Filter>src\02. GameObjects\03. Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Character.h">
+      <Filter>src\02. GameObjects\04. Character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\FreezeArea.h">
+      <Filter>src\02. GameObjects\05.FreezeArea</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -242,17 +256,28 @@
       <Filter>src\02. GameObjects\04. Character</Filter>
     </ClCompile>
     <ClCompile Include="..\private\Enemy.cpp">
-      <Filter>src\02. GameObjects\Enemy</Filter>
+      <Filter>src\02. GameObjects\04. Character\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="..\private\Skybox.cpp">
+      <Filter>src\02. GameObjects\03. Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Level_BossRoom.cpp">
+      <Filter>src\01. Levels\03. BossRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Boss.cpp">
+      <Filter>src\02. GameObjects\04. Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Wall.cpp">
+      <Filter>src\02. GameObjects\03. Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\StageCollisionManager.cpp">
       <Filter>src\02. GameObjects\03. Stage</Filter>
     </ClCompile>
     <ClCompile Include="..\private\Character.cpp">
       <Filter>src\02. GameObjects\04. Character</Filter>
     </ClCompile>
-    <ClCompile Include="..\private\Boss.cpp" />
-    <ClCompile Include="..\Private\Level_BossRoom.cpp">
-      <Filter>src\01. Levels\03. BossRoom</Filter>
+    <ClCompile Include="..\private\FreezeArea.cpp">
+      <Filter>src\02. GameObjects\05.FreezeArea</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

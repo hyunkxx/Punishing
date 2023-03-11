@@ -53,7 +53,7 @@ HRESULT CCity::Render()
 	for(_uint i = 0 ; i < iMeshCount ; ++i)
 	{
 		m_pModel->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType_DIFFUSE);
-
+		
 		m_pShader->Begin(0);
 		m_pModel->Render(i);
 	}

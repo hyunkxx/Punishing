@@ -2469,8 +2469,8 @@ EXTRN	__imp_??0CLevel@Engine@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 EXTRN	__imp_??1CLevel@Engine@@MEAA@XZ:PROC
 EXTRN	__imp_?Free@CLevel@Engine@@UEAAXXZ:PROC
 EXTRN	??_ECLevel_Logo@Client@@EEAAPEAXI@Z:PROC	; Client::CLevel_Logo::`vector deleting destructor'
-EXTRN	?GetInstance@CApplicationManager@@SAPEAV1@XZ:PROC ; CApplicationManager::GetInstance
-EXTRN	?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z:PROC ; CApplicationManager::SetTitle
+EXTRN	?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ:PROC ; Client::CApplicationManager::GetInstance
+EXTRN	?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z:PROC ; Client::CApplicationManager::SetTitle
 EXTRN	__imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ:PROC
 EXTRN	__imp_?Open_Level@CGameInstance@Engine@@QEAAJIPEAVCLevel@2@@Z:PROC
 EXTRN	__imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAX@Z:PROC
@@ -6622,7 +6622,7 @@ $LN6:
 ; 25   : #ifdef _DEBUG
 ; 26   : 	CApplicationManager* pApplicationManager = CApplicationManager::GetInstance();
 
-  00030	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@@SAPEAV1@XZ ; CApplicationManager::GetInstance
+  00030	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
   00035	48 89 45 08	 mov	 QWORD PTR pApplicationManager$[rbp], rax
 
 ; 27   : 	pApplicationManager->SetTitle(L"LEVEL_LOGO");
@@ -6641,7 +6641,7 @@ $LN6:
   00061	48 8b 95 58 01
 	00 00		 mov	 rdx, QWORD PTR tv137[rbp]
   00068	48 8b 4d 08	 mov	 rcx, QWORD PTR pApplicationManager$[rbp]
-  0006c	e8 00 00 00 00	 call	 ?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ; CApplicationManager::SetTitle
+  0006c	e8 00 00 00 00	 call	 ?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ; Client::CApplicationManager::SetTitle
 
 ; 28   : #endif
 ; 29   : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();

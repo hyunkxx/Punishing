@@ -29,14 +29,16 @@ CModel::CModel(const CModel& rhs)
 			Safe_AddRef(Material.pMaterialTexture[i]);
 		}
 	}
+
 }
 
 HRESULT CModel::Initialize_Prototype(MESH_TYPE eType, const char* pPath, _fmatrix LocalMatrix, _uint iAnimationCount)
 {
 	m_eType = eType;
-	m_iAnimationCount = iAnimationCount;
 	XMStoreFloat4x4(&m_LocalMatrix, LocalMatrix);
 	
+	m_iAnimationCount = iAnimationCount;
+
 	_uint iFlags = aiProcessPreset_TargetRealtime_Fast | aiProcess_ConvertToLeftHanded;
 	if (eType == MESH_TYPE::STATIC_MESH)
 		iFlags |= aiProcess_PreTransformVertices;
@@ -81,6 +83,7 @@ HRESULT CModel::InitializeMesh(_fmatrix LocalMatrix)
 
 		pMesh->SetName(m_pAIScene->mMeshes[i]->mName.C_Str());
 		m_Meshs.push_back(pMesh);
+
 	}
 
 	return S_OK;
@@ -220,7 +223,6 @@ HRESULT CModel::Setup_Animation(_uint AnimationIndex , CAnimation::TYPE eType, _
 		m_Animations[m_iCurrentAnimation]->Reset();
 		m_iCurrentAnimation = AnimationIndex;
 	}
-
 	return S_OK;
 }
 
@@ -268,15 +270,37 @@ CBone* CModel::GetBonePtr(const char* pBoneName)
 _bool CModel::AnimationIsFinish()
 {
 	_bool isFinish = false;
-	if(isFinish = m_Animations[m_iCurrentAnimation]->IsFinish())
+	if (isFinish = m_Animations[m_iCurrentAnimation]->IsFinish())
 		m_Animations[m_iCurrentAnimation]->Reset();
-
 	return isFinish;
 }
 
+//로컬타임은 리셋안함
+_bool CModel::AnimationIsFinishEx()
+{
+	return m_Animations[m_iCurrentAnimation]->IsFinish();
+}
+
+//로컬타임은 리셋안함 & 한번떄리는데 0.5 듀레이션에서 종료
 _bool CModel::AnimationIsPreFinish()
 {
 	return m_Animations[m_iCurrentAnimation]->IsPreFinish();
+}
+
+//로컬타임은 리셋안함 & 한번떄리는데 0.3 듀레이션에서 종료
+_bool CModel::AnimationIsPreFinishEx()
+{
+	return m_Animations[m_iCurrentAnimation]->IsPreFinishEx();
+}
+
+_bool CModel::AnimationIsPreFinishCustom(_double value)
+{
+	return m_Animations[m_iCurrentAnimation]->IsPreFinishCustom(value);
+}
+
+void CModel::AnimationReset()
+{
+	m_Animations[m_iCurrentAnimation]->Reset();
 }
 
 void CModel::SetFinish(_bool Value)

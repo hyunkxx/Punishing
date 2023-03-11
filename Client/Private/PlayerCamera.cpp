@@ -50,11 +50,6 @@ HRESULT CPlayerCamera::Initialize(void * pArg)
 void CPlayerCamera::Tick(_double TimeDelta)
 {
 	__super::Tick(TimeDelta);
-}
-
-void CPlayerCamera::LateTick(_double TimeDelta)
-{
-	__super::LateTick(TimeDelta);
 
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
@@ -90,7 +85,7 @@ void CPlayerCamera::LateTick(_double TimeDelta)
 	{
 		CTransform* pPlayerTransform = (CTransform*)static_cast<CCharacter*>(m_pTarget)->Find_Component(L"com_transform");
 		_vector vCameraPos = pPlayerTransform->Get_State(CTransform::STATE_POSITION) - XMLoadFloat3(&static_cast<CCharacter*>(m_pTarget)->LockOnCameraPosition());
-		
+
 		_vector vDistance = XMLoadFloat4(&((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition()) - vCameraPos;
 		_float fLength = XMVectorGetX(XMVector3Length(vDistance));
 
@@ -102,7 +97,7 @@ void CPlayerCamera::LateTick(_double TimeDelta)
 		}
 
 		vCameraPos = XMVectorSetY(vCameraPos, XMVectorGetY(m_pTransform->Get_State(CTransform::STATE_POSITION)));
-	
+
 		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
 		_vector vPosition = XMVectorLerp(vCurPosition, vCameraPos, (_float)TimeDelta * 4.0f);
 
@@ -134,6 +129,13 @@ void CPlayerCamera::LateTick(_double TimeDelta)
 		XMStoreFloat4(&vLookTarget, vCurLook);
 		m_pTransform->LookAt(vCurLook);
 	}
+}
+
+void CPlayerCamera::LateTick(_double TimeDelta)
+{
+	__super::LateTick(TimeDelta);
+
+
 }
 
 HRESULT CPlayerCamera::Render()

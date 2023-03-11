@@ -30,6 +30,10 @@ public:
 	void SetFinish(bool valus) { m_isFinish = valus; }
 	_bool IsFinish() const { return m_isFinish; }
 	_bool IsPreFinish() const { return m_isPreFinish; }
+
+	void SetCustomFinishTime(_double value) { m_CustomFinishTime = value; }
+	_bool IsPreFinishCustom(_double value);
+	_bool IsPreFinishEx() const { return m_isPreFinishEx; }
 	void LocalReset() { m_LocalTime = 0.0; }
 	void Reset();
 	void LerpFinish();
@@ -64,7 +68,11 @@ private:
 
 	_bool m_isFinish = false;
 	_bool m_isPreFinish = false;
+	_bool m_isPreFinishEx = false;
 	_bool m_bLerpFinish = false;
+
+	_bool m_isCustomPreFinish = false;
+	_double m_CustomFinishTime = 1.0;
 };
 
 END

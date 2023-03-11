@@ -19,6 +19,14 @@ public:
 	virtual _bool Collision(CCollider* targetCollider) override;
 	virtual void Render() override;
 
+	virtual _float3 GetCenter() const { return _collDesc.vCenter; }
+	virtual _float3 GetRotation() const { return _collDesc.vRotation; }
+	virtual _float3 GetExtents() const { return _collDesc.vExtents; }
+	virtual void SetExtents(_float3 vExtents);
+	virtual void SetRotation(_float3 vRotation);
+
+	_float3 GetCorners();
+
 public:
 	static COBBCollider* Create(ID3D11Device* device, ID3D11DeviceContext* context);
 	virtual CComponent* Clone(void* arg) override;

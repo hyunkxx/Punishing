@@ -2,6 +2,7 @@
 #include "..\Public\Application.h"
 
 #include "ApplicationManager.h"
+#include "StageCollisionManager.h"
 #include "GameInstance.h"
 #include "ImGUIManager.h"
 
@@ -9,10 +10,12 @@
 
 #include "BackGround.h"
 #include "DynamicCamera.h"
+#include "Wall.h"
 
 CApplication::CApplication()
 	: m_pGameInstance { CGameInstance::GetInstance() }
 	, m_pGUIManager { CImGUIManager::GetInstance() }
+	, m_pStageManager{ CStageCollisionManager::GetInstance() }
 {
 	Safe_AddRef(m_pGameInstance);
 }
@@ -67,6 +70,7 @@ void CApplication::Tick(_double TimeDelta)
 		return;
 
 	m_pGameInstance->Engine_Tick(TimeDelta);
+	//m_pStageManager->Tick(TimeDelta);
 }
 
 HRESULT CApplication::Render()
@@ -77,6 +81,7 @@ HRESULT CApplication::Render()
 	m_pGUIManager->NewFrame();
 	m_pGameInstance->RenderLevelUI();
 	m_pGameInstance->RenderGUI();
+	//m_pStageManager->RenderGUI();
 	m_pGUIManager->Render();
 
 	m_pGameInstance->Clear_RenderTargetView(_float4(0.f, 0.f, 1.f, 1.f));
@@ -165,12 +170,16 @@ HRESULT CApplication::Ready_Prototype_Static_GameObject()
 		CBackGround::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_wall"), CWall::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
 	return S_OK;
 }
 
 HRESULT CApplication::InitializeManager()
 {
 	CApplicationManager::GetInstance();
+	CStageCollisionManager::GetInstance();
 
 	return S_OK;
 }
@@ -179,6 +188,7 @@ void CApplication::DestroyManager()
 {
 	m_pGUIManager->Shutdown();
 	CApplicationManager::DestroyInstance();
+	CStageCollisionManager::DestroyInstance();
 }
 
 CApplication* CApplication::Create()

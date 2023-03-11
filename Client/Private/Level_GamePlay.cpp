@@ -3,6 +3,7 @@
 
 #include "Level_Loading.h"
 #include "ApplicationManager.h"
+#include "StageCollisionManager.h"
 #include "GameInstance.h"
 #include "DynamicCamera.h"
 #include "Enemy.h"
@@ -20,6 +21,9 @@ HRESULT CLevel_GamePlay::Initialize()
 	if(FAILED(Ready_Layer_BackGround(TEXT("layer_background"))))
 		return E_FAIL;
 
+	if (FAILED(Ready_Layer_Wall(TEXT("layer_wall"))))
+		return E_FAIL;
+
 	if (FAILED(Ready_Layer_Player(TEXT("layer_player"))))
 		return E_FAIL;
 
@@ -27,6 +31,9 @@ HRESULT CLevel_GamePlay::Initialize()
 		return E_FAIL;
 
 	if (FAILED(Ready_Layer_Camera(TEXT("layer_camera"))))
+		return E_FAIL;
+
+	if (FAILED(Ready_Layer_Effect(TEXT("layer_effect"))))
 		return E_FAIL;
 
 	return S_OK;
@@ -45,6 +52,14 @@ void CLevel_GamePlay::Tick(_double TimeDelta)
 		if (FAILED(pGameInstance->Open_Level(LEVEL_LOADING, CLevel_Loading::Create(m_pDevice, m_pContext, LEVEL_BOSS))))
 			return;
 	}
+
+	//콜리전 생성
+	//if (pGameInstance->Input_KeyState_Custom(DIK_INSERT) == KEY_STATE::TAP)
+	//{
+	//	CStageCollisionManager* pStageManager = CStageCollisionManager::GetInstance();
+	//	pStageManager->AddWall(m_pDevice, m_pContext);
+	//}
+
 }
 
 HRESULT CLevel_GamePlay::Ready_Light()
@@ -76,6 +91,26 @@ HRESULT CLevel_GamePlay::Ready_Layer_BackGround(const _tchar* pLayerTag)
 
 	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_sky", L"sky", pLayerTag))
 		return E_FAIL;
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_Wall(const _tchar * pLayerTag)
+{
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+ 	vector<CWall::CUBE_DESC> CubeDescs;
+	CubeDescs.reserve(20);
+	_uint iCount = 0;
+	CStageCollisionManager* pStageManager = CStageCollisionManager::GetInstance();
+	pStageManager->LoadCollisionData(L"../../CollisionData/GamePlayCollisionData.bin", &CubeDescs, &iCount);
+
+	 for (_uint i = 0; i < iCount; ++i)
+	{
+		wstring strName = L"wall_" + to_wstring(i);
+		if (nullptr == pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_wall", pLayerTag, strName.c_str(), &CubeDescs[i]))
+			return E_FAIL;
+	}
 
 	return S_OK;
 }
@@ -124,19 +159,34 @@ HRESULT CLevel_GamePlay::Ready_Layer_Enemy(const _tchar * pLayerTag)
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	CGameObject* pGameObject = nullptr;
 
+	if (pGameInstance->Input_KeyState_Custom(DIK_INSERT) == KEY_STATE::TAP)
+	{
+	}
+
 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy01", pLayerTag, mPlayer))
 		return E_FAIL;
 
 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy02", pLayerTag, mPlayer))
 		return E_FAIL;
 
-	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy03", pLayerTag, mPlayer))
+	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy02"), L"enemy03", pLayerTag, mPlayer))
 		return E_FAIL;
 
 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy04", pLayerTag, mPlayer))
 		return E_FAIL;
 
-	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy02"), L"enemy05", pLayerTag, mPlayer))
+	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy05", pLayerTag, mPlayer))
+		return E_FAIL;
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_Effect(const _tchar * pLayerTag)
+{
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	CGameObject* pGameObject = nullptr;
+
+   	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_freeze_area", L"freeze", pLayerTag, mPlayer))
 		return E_FAIL;
 
 	return S_OK;

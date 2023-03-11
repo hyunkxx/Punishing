@@ -2486,8 +2486,8 @@ EXTRN	__imp_??0CLevel@Engine@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 EXTRN	__imp_??1CLevel@Engine@@MEAA@XZ:PROC
 EXTRN	__imp_?Free@CLevel@Engine@@UEAAXXZ:PROC
 EXTRN	??_ECLevel_Loading@Client@@EEAAPEAXI@Z:PROC	; Client::CLevel_Loading::`vector deleting destructor'
-EXTRN	?GetInstance@CApplicationManager@@SAPEAV1@XZ:PROC ; CApplicationManager::GetInstance
-EXTRN	?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z:PROC ; CApplicationManager::SetTitle
+EXTRN	?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ:PROC ; Client::CApplicationManager::GetInstance
+EXTRN	?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z:PROC ; Client::CApplicationManager::SetTitle
 EXTRN	__imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ:PROC
 EXTRN	__imp_?Open_Level@CGameInstance@Engine@@QEAAJIPEAVCLevel@2@@Z:PROC
 EXTRN	__imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAX@Z:PROC
@@ -7558,7 +7558,7 @@ $LN5@Tick:
 ; 62   : #ifdef _DEBUG
 ; 63   : 	CApplicationManager* pApplicationManager = CApplicationManager::GetInstance();
 
-  0013c	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@@SAPEAV1@XZ ; CApplicationManager::GetInstance
+  0013c	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
   00141	48 89 45 48	 mov	 QWORD PTR pApplicationManager$[rbp], rax
 
 ; 64   : 	wstring strTitleText = L"LOADING ";
@@ -7600,7 +7600,7 @@ $LN5@Tick:
   001b6	48 8b 95 28 02
 	00 00		 mov	 rdx, QWORD PTR tv183[rbp]
   001bd	48 8b 4d 48	 mov	 rcx, QWORD PTR pApplicationManager$[rbp]
-  001c1	e8 00 00 00 00	 call	 ?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ; CApplicationManager::SetTitle
+  001c1	e8 00 00 00 00	 call	 ?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ; Client::CApplicationManager::SetTitle
   001c6	90		 npad	 1
   001c7	48 8d 8d c8 01
 	00 00		 lea	 rcx, QWORD PTR $T8[rbp]

@@ -7,6 +7,8 @@ INCLUDELIB OLDNAMES
 
 PUBLIC	?g_hInst@@3PEAUHINSTANCE__@@EA			; g_hInst
 PUBLIC	?g_hWnd@@3PEAUHWND__@@EA			; g_hWnd
+PUBLIC	?szTitle@@3PA_WA				; szTitle
+PUBLIC	?szWindowClass@@3PA_WA				; szWindowClass
 PUBLIC	?AliceBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::AliceBlue
 PUBLIC	?AntiqueWhite@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::AntiqueWhite
 PUBLIC	?Aqua@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Aqua
@@ -289,8 +291,6 @@ PUBLIC	?g_XMLogEst6@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLogEst6
 PUBLIC	?g_XMLogEst7@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLogEst7
 PUBLIC	?g_XMLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLgE
 PUBLIC	?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMInvLgE
-PUBLIC	?szTitle@@3PA_WA				; szTitle
-PUBLIC	?szWindowClass@@3PA_WA				; szWindowClass
 _BSS	SEGMENT
 ?g_hInst@@3PEAUHINSTANCE__@@EA DQ 01H DUP (?)		; g_hInst
 ?g_hWnd@@3PEAUHWND__@@EA DQ 01H DUP (?)			; g_hWnd

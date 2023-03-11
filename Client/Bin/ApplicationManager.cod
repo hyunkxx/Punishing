@@ -182,7 +182,7 @@ PUBLIC	?g_XMNegativeZero@DirectX@@3UXMVECTORU32@1@B	; DirectX::g_XMNegativeZero
 PUBLIC	?g_XMNegate3@DirectX@@3UXMVECTORU32@1@B		; DirectX::g_XMNegate3
 PUBLIC	?g_XMMask3@DirectX@@3UXMVECTORU32@1@B		; DirectX::g_XMMask3
 PUBLIC	?g_XMMaskX@DirectX@@3UXMVECTORU32@1@B		; DirectX::g_XMMaskX
-PUBLIC	?m_pInstance@CApplicationManager@@0PEAV1@EA	; CApplicationManager::m_pInstance
+PUBLIC	?m_pInstance@CApplicationManager@Client@@0PEAV12@EA ; Client::CApplicationManager::m_pInstance
 PUBLIC	?g_XMMaskY@DirectX@@3UXMVECTORU32@1@B		; DirectX::g_XMMaskY
 PUBLIC	?g_XMMaskZ@DirectX@@3UXMVECTORU32@1@B		; DirectX::g_XMMaskZ
 PUBLIC	?g_XMMaskW@DirectX@@3UXMVECTORU32@1@B		; DirectX::g_XMMaskW
@@ -289,7 +289,7 @@ PUBLIC	?g_XMLogEst7@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLogEst7
 PUBLIC	?g_XMLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLgE
 PUBLIC	?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMInvLgE
 _BSS	SEGMENT
-?m_pInstance@CApplicationManager@@0PEAV1@EA DQ 01H DUP (?) ; CApplicationManager::m_pInstance
+?m_pInstance@CApplicationManager@Client@@0PEAV12@EA DQ 01H DUP (?) ; Client::CApplicationManager::m_pInstance
 _BSS	ENDS
 ;	COMDAT ?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B
 CONST	SEGMENT
@@ -2366,13 +2366,14 @@ PUBLIC	?_Tidy@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QE
 PUBLIC	?_Xlen@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAXXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::_Xlen
 PUBLIC	?_Check_offset@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAX_K@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::_Check_offset
 PUBLIC	?_Xran@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAXXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::_Xran
-PUBLIC	?GetInstance@CApplicationManager@@SAPEAV1@XZ	; CApplicationManager::GetInstance
-PUBLIC	?DestroyInstance@CApplicationManager@@SAKXZ	; CApplicationManager::DestroyInstance
-PUBLIC	??0CApplicationManager@@AEAA@XZ			; CApplicationManager::CApplicationManager
-PUBLIC	??1CApplicationManager@@EEAA@XZ			; CApplicationManager::~CApplicationManager
-PUBLIC	?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ; CApplicationManager::SetTitle
-PUBLIC	?Free@CApplicationManager@@UEAAXXZ		; CApplicationManager::Free
-PUBLIC	??_GCApplicationManager@@EEAAPEAXI@Z		; CApplicationManager::`scalar deleting destructor'
+PUBLIC	??0XMFLOAT3@DirectX@@QEAA@MMM@Z			; DirectX::XMFLOAT3::XMFLOAT3
+PUBLIC	?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
+PUBLIC	?DestroyInstance@CApplicationManager@Client@@SAKXZ ; Client::CApplicationManager::DestroyInstance
+PUBLIC	??0CApplicationManager@Client@@AEAA@XZ		; Client::CApplicationManager::CApplicationManager
+PUBLIC	??1CApplicationManager@Client@@EEAA@XZ		; Client::CApplicationManager::~CApplicationManager
+PUBLIC	?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ; Client::CApplicationManager::SetTitle
+PUBLIC	?Free@CApplicationManager@Client@@UEAAXXZ	; Client::CApplicationManager::Free
+PUBLIC	??_GCApplicationManager@Client@@EEAAPEAXI@Z	; Client::CApplicationManager::`scalar deleting destructor'
 PUBLIC	??$?9_WU?$char_traits@_W@std@@V?$allocator@_W@1@@std@@YA_NAEBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@0@0@Z ; std::operator!=<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 PUBLIC	??$?9V?$allocator@_W@std@@V01@@std@@YA_NAEBU?$_Wrap_alloc@V?$allocator@_W@std@@@0@0@Z ; std::operator!=<std::allocator<wchar_t>,std::allocator<wchar_t> >
 PUBLIC	??$_Pocca@U?$_Wrap_alloc@V?$allocator@_W@std@@@std@@@std@@YAXAEAU?$_Wrap_alloc@V?$allocator@_W@std@@@0@AEBU10@@Z ; std::_Pocca<std::_Wrap_alloc<std::allocator<wchar_t> > >
@@ -2432,15 +2433,15 @@ PUBLIC	??_C@_1HA@NAPGMHAO@?$AA?$CC?$AA2?$AA?5?$AA?$CK?$AA?5?$AAs?$AAi?$AAz?$AAe?
 PUBLIC	??_C@_0CN@BLHJCAL@_Ptr_user?5?9?5_Ptr_container?5?$DM?$DN?5_N@ ; `string'
 PUBLIC	??_C@_1GI@DHJGPFNI@?$AA?$CC?$AA_?$AAP?$AAt?$AAr?$AA_?$AAu?$AAs?$AAe?$AAr?$AA?5?$AA?9?$AA?5?$AA_?$AAP?$AAt?$AAr?$AA_?$AAc?$AAo?$AAn?$AAt?$AAa?$AAi?$AAn?$AAe?$AAr?$AA?5?$AA?$DM?$AA?$DN?$AA?5?$AA_@ ; `string'
 PUBLIC	?npos@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@2_KB ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::npos
-PUBLIC	??_7CApplicationManager@@6B@			; CApplicationManager::`vftable'
+PUBLIC	??_7CApplicationManager@Client@@6B@		; Client::CApplicationManager::`vftable'
 PUBLIC	??_C@_0DK@COACHENJ@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@	; `string'
 PUBLIC	??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ ; `string'
-PUBLIC	??_R4CApplicationManager@@6B@			; CApplicationManager::`RTTI Complete Object Locator'
-PUBLIC	??_R0?AVCApplicationManager@@@8			; CApplicationManager `RTTI Type Descriptor'
-PUBLIC	??_R3CApplicationManager@@8			; CApplicationManager::`RTTI Class Hierarchy Descriptor'
-PUBLIC	??_R2CApplicationManager@@8			; CApplicationManager::`RTTI Base Class Array'
-PUBLIC	??_R1A@?0A@EA@CApplicationManager@@8		; CApplicationManager::`RTTI Base Class Descriptor at (0,-1,0,64)'
+PUBLIC	??_R4CApplicationManager@Client@@6B@		; Client::CApplicationManager::`RTTI Complete Object Locator'
+PUBLIC	??_R0?AVCApplicationManager@Client@@@8		; Client::CApplicationManager `RTTI Type Descriptor'
+PUBLIC	??_R3CApplicationManager@Client@@8		; Client::CApplicationManager::`RTTI Class Hierarchy Descriptor'
+PUBLIC	??_R2CApplicationManager@Client@@8		; Client::CApplicationManager::`RTTI Base Class Array'
+PUBLIC	??_R1A@?0A@EA@CApplicationManager@Client@@8	; Client::CApplicationManager::`RTTI Base Class Descriptor at (0,-1,0,64)'
 PUBLIC	??_R1A@?0A@EA@CBase@Engine@@8			; Engine::CBase::`RTTI Base Class Descriptor at (0,-1,0,64)'
 PUBLIC	??_R0?AVCBase@Engine@@@8			; Engine::CBase `RTTI Type Descriptor'
 PUBLIC	??_R3CBase@Engine@@8				; Engine::CBase::`RTTI Class Hierarchy Descriptor'
@@ -2463,7 +2464,7 @@ EXTRN	__imp_?_Xout_of_range@std@@YAXPEBD@Z:PROC
 EXTRN	__imp_??0CBase@Engine@@QEAA@XZ:PROC
 EXTRN	__imp_??1CBase@Engine@@UEAA@XZ:PROC
 EXTRN	__imp_?Release@CBase@Engine@@QEAAKXZ:PROC
-EXTRN	??_ECApplicationManager@@EEAAPEAXI@Z:PROC	; CApplicationManager::`vector deleting destructor'
+EXTRN	??_ECApplicationManager@Client@@EEAAPEAXI@Z:PROC ; Client::CApplicationManager::`vector deleting destructor'
 EXTRN	_CxxThrowException:PROC
 EXTRN	_RTC_CheckStackVars:PROC
 EXTRN	_RTC_InitBase:PROC
@@ -2475,6 +2476,7 @@ EXTRN	__security_check_cookie:PROC
 EXTRN	?g_hWnd@@3PEAUHWND__@@EA:QWORD			; g_hWnd
 EXTRN	??_7type_info@@6B@:BYTE				; type_info::`vftable'
 EXTRN	__security_cookie:QWORD
+EXTRN	_fltused:DWORD
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??_H@YAXPEAX_K1P6APEAX0@Z@Z DD imagerel $LN7
@@ -2939,57 +2941,75 @@ $pdata$?_Xran@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QE
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?GetInstance@CApplicationManager@@SAPEAV1@XZ DD imagerel $LN7
+$pdata$??0XMFLOAT3@DirectX@@QEAA@MMM@Z DD imagerel $LN3
+	DD	imagerel $LN3+134
+	DD	imagerel $unwind$??0XMFLOAT3@DirectX@@QEAA@MMM@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ DD imagerel $LN7
 	DD	imagerel $LN7+173
-	DD	imagerel $unwind$?GetInstance@CApplicationManager@@SAPEAV1@XZ
+	DD	imagerel $unwind$?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?dtor$0@?0??GetInstance@CApplicationManager@@SAPEAV1@XZ@4HA DD imagerel ?dtor$0@?0??GetInstance@CApplicationManager@@SAPEAV1@XZ@4HA
-	DD	imagerel ?dtor$0@?0??GetInstance@CApplicationManager@@SAPEAV1@XZ@4HA+57
-	DD	imagerel $unwind$?dtor$0@?0??GetInstance@CApplicationManager@@SAPEAV1@XZ@4HA
+$pdata$?dtor$0@?0??GetInstance@CApplicationManager@Client@@SAPEAV12@XZ@4HA DD imagerel ?dtor$0@?0??GetInstance@CApplicationManager@Client@@SAPEAV12@XZ@4HA
+	DD	imagerel ?dtor$0@?0??GetInstance@CApplicationManager@Client@@SAPEAV12@XZ@4HA+57
+	DD	imagerel $unwind$?dtor$0@?0??GetInstance@CApplicationManager@Client@@SAPEAV12@XZ@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?DestroyInstance@CApplicationManager@@SAKXZ DD imagerel $LN5
+$pdata$?DestroyInstance@CApplicationManager@Client@@SAKXZ DD imagerel $LN5
 	DD	imagerel $LN5+93
-	DD	imagerel $unwind$?DestroyInstance@CApplicationManager@@SAKXZ
+	DD	imagerel $unwind$?DestroyInstance@CApplicationManager@Client@@SAKXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??0CApplicationManager@@AEAA@XZ DD imagerel $LN5
-	DD	imagerel $LN5+108
-	DD	imagerel $unwind$??0CApplicationManager@@AEAA@XZ
+$pdata$??0CApplicationManager@Client@@AEAA@XZ DD imagerel $LN5
+	DD	imagerel $LN5+161
+	DD	imagerel $unwind$??0CApplicationManager@Client@@AEAA@XZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??1CApplicationManager@@EEAA@XZ DD imagerel $LN3
+$pdata$?dtor$0@?0???0CApplicationManager@Client@@AEAA@XZ@4HA DD imagerel ?dtor$0@?0???0CApplicationManager@Client@@AEAA@XZ@4HA
+	DD	imagerel ?dtor$0@?0???0CApplicationManager@Client@@AEAA@XZ@4HA+40
+	DD	imagerel $unwind$?dtor$0@?0???0CApplicationManager@Client@@AEAA@XZ@4HA
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?dtor$1@?0???0CApplicationManager@Client@@AEAA@XZ@4HA DD imagerel ?dtor$1@?0???0CApplicationManager@Client@@AEAA@XZ@4HA
+	DD	imagerel ?dtor$1@?0???0CApplicationManager@Client@@AEAA@XZ@4HA+43
+	DD	imagerel $unwind$?dtor$1@?0???0CApplicationManager@Client@@AEAA@XZ@4HA
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??1CApplicationManager@Client@@EEAA@XZ DD imagerel $LN3
 	DD	imagerel $LN3+84
-	DD	imagerel $unwind$??1CApplicationManager@@EEAA@XZ
+	DD	imagerel $unwind$??1CApplicationManager@Client@@EEAA@XZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD imagerel $LN5
+$pdata$?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD imagerel $LN5
 	DD	imagerel $LN5+175
-	DD	imagerel $unwind$?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
+	DD	imagerel $unwind$?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?dtor$0@?0??SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA DD imagerel ?dtor$0@?0??SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA
-	DD	imagerel ?dtor$0@?0??SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA+39
-	DD	imagerel $unwind$?dtor$0@?0??SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA
+$pdata$?dtor$0@?0??SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA DD imagerel ?dtor$0@?0??SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA
+	DD	imagerel ?dtor$0@?0??SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA+39
+	DD	imagerel $unwind$?dtor$0@?0??SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Free@CApplicationManager@@UEAAXXZ DD imagerel $LN3
+$pdata$?Free@CApplicationManager@Client@@UEAAXXZ DD imagerel $LN3
 	DD	imagerel $LN3+50
-	DD	imagerel $unwind$?Free@CApplicationManager@@UEAAXXZ
+	DD	imagerel $unwind$?Free@CApplicationManager@Client@@UEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??_GCApplicationManager@@EEAAPEAXI@Z DD imagerel $LN4
+$pdata$??_GCApplicationManager@Client@@EEAAPEAXI@Z DD imagerel $LN4
 	DD	imagerel $LN4+105
-	DD	imagerel $unwind$??_GCApplicationManager@@EEAAPEAXI@Z
+	DD	imagerel $unwind$??_GCApplicationManager@Client@@EEAAPEAXI@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -3237,43 +3257,43 @@ rdata$r	SEGMENT
 	DD	040H
 	DD	imagerel ??_R3CBase@Engine@@8
 rdata$r	ENDS
-;	COMDAT ??_R1A@?0A@EA@CApplicationManager@@8
+;	COMDAT ??_R1A@?0A@EA@CApplicationManager@Client@@8
 rdata$r	SEGMENT
-??_R1A@?0A@EA@CApplicationManager@@8 DD imagerel ??_R0?AVCApplicationManager@@@8 ; CApplicationManager::`RTTI Base Class Descriptor at (0,-1,0,64)'
+??_R1A@?0A@EA@CApplicationManager@Client@@8 DD imagerel ??_R0?AVCApplicationManager@Client@@@8 ; Client::CApplicationManager::`RTTI Base Class Descriptor at (0,-1,0,64)'
 	DD	01H
 	DD	00H
 	DD	0ffffffffH
 	DD	00H
 	DD	040H
-	DD	imagerel ??_R3CApplicationManager@@8
+	DD	imagerel ??_R3CApplicationManager@Client@@8
 rdata$r	ENDS
-;	COMDAT ??_R2CApplicationManager@@8
+;	COMDAT ??_R2CApplicationManager@Client@@8
 rdata$r	SEGMENT
-??_R2CApplicationManager@@8 DD imagerel ??_R1A@?0A@EA@CApplicationManager@@8 ; CApplicationManager::`RTTI Base Class Array'
+??_R2CApplicationManager@Client@@8 DD imagerel ??_R1A@?0A@EA@CApplicationManager@Client@@8 ; Client::CApplicationManager::`RTTI Base Class Array'
 	DD	imagerel ??_R1A@?0A@EA@CBase@Engine@@8
 	ORG $+3
 rdata$r	ENDS
-;	COMDAT ??_R3CApplicationManager@@8
+;	COMDAT ??_R3CApplicationManager@Client@@8
 rdata$r	SEGMENT
-??_R3CApplicationManager@@8 DD 00H			; CApplicationManager::`RTTI Class Hierarchy Descriptor'
+??_R3CApplicationManager@Client@@8 DD 00H		; Client::CApplicationManager::`RTTI Class Hierarchy Descriptor'
 	DD	00H
 	DD	02H
-	DD	imagerel ??_R2CApplicationManager@@8
+	DD	imagerel ??_R2CApplicationManager@Client@@8
 rdata$r	ENDS
-;	COMDAT ??_R0?AVCApplicationManager@@@8
+;	COMDAT ??_R0?AVCApplicationManager@Client@@@8
 data$r	SEGMENT
-??_R0?AVCApplicationManager@@@8 DQ FLAT:??_7type_info@@6B@ ; CApplicationManager `RTTI Type Descriptor'
+??_R0?AVCApplicationManager@Client@@@8 DQ FLAT:??_7type_info@@6B@ ; Client::CApplicationManager `RTTI Type Descriptor'
 	DQ	0000000000000000H
-	DB	'.?AVCApplicationManager@@', 00H
+	DB	'.?AVCApplicationManager@Client@@', 00H
 data$r	ENDS
-;	COMDAT ??_R4CApplicationManager@@6B@
+;	COMDAT ??_R4CApplicationManager@Client@@6B@
 rdata$r	SEGMENT
-??_R4CApplicationManager@@6B@ DD 01H			; CApplicationManager::`RTTI Complete Object Locator'
+??_R4CApplicationManager@Client@@6B@ DD 01H		; Client::CApplicationManager::`RTTI Complete Object Locator'
 	DD	00H
 	DD	00H
-	DD	imagerel ??_R0?AVCApplicationManager@@@8
-	DD	imagerel ??_R3CApplicationManager@@8
-	DD	imagerel ??_R4CApplicationManager@@6B@
+	DD	imagerel ??_R0?AVCApplicationManager@Client@@@8
+	DD	imagerel ??_R3CApplicationManager@Client@@8
+	DD	imagerel ??_R4CApplicationManager@Client@@6B@
 rdata$r	ENDS
 ;	COMDAT ??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@
 CONST	SEGMENT
@@ -3289,11 +3309,11 @@ CONST	SEGMENT
 ??_C@_0DK@COACHENJ@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
 	DB	'ramework\client\private\applicationmanager.cpp', 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_7CApplicationManager@@6B@
+;	COMDAT ??_7CApplicationManager@Client@@6B@
 CONST	SEGMENT
-??_7CApplicationManager@@6B@ DQ FLAT:??_R4CApplicationManager@@6B@ ; CApplicationManager::`vftable'
-	DQ	FLAT:??_ECApplicationManager@@EEAAPEAXI@Z
-	DQ	FLAT:?Free@CApplicationManager@@UEAAXXZ
+??_7CApplicationManager@Client@@6B@ DQ FLAT:??_R4CApplicationManager@Client@@6B@ ; Client::CApplicationManager::`vftable'
+	DQ	FLAT:??_ECApplicationManager@Client@@EEAAPEAXI@Z
+	DQ	FLAT:?Free@CApplicationManager@Client@@UEAAXXZ
 CONST	ENDS
 ;	COMDAT ?npos@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@2_KB
 CONST	SEGMENT
@@ -3742,122 +3762,174 @@ $unwind$??$?9_WU?$char_traits@_W@std@@V?$allocator@_W@1@@std@@YA_NAEBV?$basic_st
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??_GCApplicationManager@@EEAAPEAXI@Z DD 025052e01H
+$unwind$??_GCApplicationManager@Client@@EEAAPEAXI@Z DD 025052e01H
 	DD	01122317H
 	DD	0700b001dH
 	DD	0500aH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?Free@CApplicationManager@@UEAAXXZ DD 05052801H
+$unwind$?Free@CApplicationManager@Client@@UEAAXXZ DD 05052801H
 	DD	010e0311H
 	DD	070070019H
 	DD	05006H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$0@?0??SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA DD 031001H
+$unwind$?dtor$0@?0??SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA DD 031001H
 	DD	0700c4210H
 	DD	0500bH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$ip2state$?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD imagerel ?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
+$ip2state$?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD imagerel ?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
 	DD	0ffffffffH
-	DD	imagerel ?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+58
+	DD	imagerel ?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+58
 	DD	00H
-	DD	imagerel ?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+153
+	DD	imagerel ?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+153
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$stateUnwindMap$?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD 0ffffffffH
-	DD	imagerel ?dtor$0@?0??SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA
+$stateUnwindMap$?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD 0ffffffffH
+	DD	imagerel ?dtor$0@?0??SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
-$cppxdata$?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD 019930522H
+$cppxdata$?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD 019930522H
 	DD	01H
-	DD	imagerel $stateUnwindMap$?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
+	DD	imagerel $stateUnwindMap$?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
 	DD	00H
 	DD	00H
 	DD	03H
-	DD	imagerel $ip2state$?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
+	DD	imagerel $ip2state$?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
 	DD	0e8H
 	DD	00H
 	DD	01H
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD 025053a11H
+$unwind$?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD 025053a11H
 	DD	01132318H
 	DD	0700c0021H
 	DD	0500bH
 	DD	imagerel __CxxFrameHandler3
-	DD	imagerel $cppxdata$?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
+	DD	imagerel $cppxdata$?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??1CApplicationManager@@EEAA@XZ DD 025052a01H
+$unwind$??1CApplicationManager@Client@@EEAA@XZ DD 025052a01H
 	DD	010e2313H
 	DD	07007001dH
 	DD	05006H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??0CApplicationManager@@AEAA@XZ DD 025052a01H
-	DD	010e2313H
-	DD	07007001dH
-	DD	05006H
+$unwind$?dtor$1@?0???0CApplicationManager@Client@@AEAA@XZ@4HA DD 031001H
+	DD	0700c4210H
+	DD	0500bH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?DestroyInstance@CApplicationManager@@SAKXZ DD 025051e01H
+$unwind$?dtor$0@?0???0CApplicationManager@Client@@AEAA@XZ@4HA DD 031001H
+	DD	0700c4210H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$ip2state$??0CApplicationManager@Client@@AEAA@XZ DD imagerel ??0CApplicationManager@Client@@AEAA@XZ
+	DD	0ffffffffH
+	DD	imagerel ??0CApplicationManager@Client@@AEAA@XZ+67
+	DD	00H
+	DD	imagerel ??0CApplicationManager@Client@@AEAA@XZ+104
+	DD	01H
+	DD	imagerel ??0CApplicationManager@Client@@AEAA@XZ+144
+	DD	0ffffffffH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$stateUnwindMap$??0CApplicationManager@Client@@AEAA@XZ DD 0ffffffffH
+	DD	imagerel ?dtor$0@?0???0CApplicationManager@Client@@AEAA@XZ@4HA
+	DD	00H
+	DD	imagerel ?dtor$1@?0???0CApplicationManager@Client@@AEAA@XZ@4HA
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+$cppxdata$??0CApplicationManager@Client@@AEAA@XZ DD 019930522H
+	DD	02H
+	DD	imagerel $stateUnwindMap$??0CApplicationManager@Client@@AEAA@XZ
+	DD	00H
+	DD	00H
+	DD	04H
+	DD	imagerel $ip2state$??0CApplicationManager@Client@@AEAA@XZ
+	DD	0e8H
+	DD	00H
+	DD	01H
+CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??0CApplicationManager@Client@@AEAA@XZ DD 025053511H
+	DD	010e2313H
+	DD	070070021H
+	DD	05006H
+	DD	imagerel __CxxFrameHandler3
+	DD	imagerel $cppxdata$??0CApplicationManager@Client@@AEAA@XZ
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?DestroyInstance@CApplicationManager@Client@@SAKXZ DD 025051e01H
 	DD	010a230fH
 	DD	070030021H
 	DD	05002H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$0@?0??GetInstance@CApplicationManager@@SAPEAV1@XZ@4HA DD 031001H
+$unwind$?dtor$0@?0??GetInstance@CApplicationManager@Client@@SAPEAV12@XZ@4HA DD 031001H
 	DD	0700c4210H
 	DD	0500bH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$ip2state$?GetInstance@CApplicationManager@@SAPEAV1@XZ DD imagerel ?GetInstance@CApplicationManager@@SAPEAV1@XZ
+$ip2state$?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ DD imagerel ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ
 	DD	0ffffffffH
-	DD	imagerel ?GetInstance@CApplicationManager@@SAPEAV1@XZ+86
+	DD	imagerel ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ+86
 	DD	00H
-	DD	imagerel ?GetInstance@CApplicationManager@@SAPEAV1@XZ+142
+	DD	imagerel ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ+142
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$stateUnwindMap$?GetInstance@CApplicationManager@@SAPEAV1@XZ DD 0ffffffffH
-	DD	imagerel ?dtor$0@?0??GetInstance@CApplicationManager@@SAPEAV1@XZ@4HA
+$stateUnwindMap$?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ DD 0ffffffffH
+	DD	imagerel ?dtor$0@?0??GetInstance@CApplicationManager@Client@@SAPEAV12@XZ@4HA
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
-$cppxdata$?GetInstance@CApplicationManager@@SAPEAV1@XZ DD 019930522H
+$cppxdata$?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ DD 019930522H
 	DD	01H
-	DD	imagerel $stateUnwindMap$?GetInstance@CApplicationManager@@SAPEAV1@XZ
+	DD	imagerel $stateUnwindMap$?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ
 	DD	00H
 	DD	00H
 	DD	03H
-	DD	imagerel $ip2state$?GetInstance@CApplicationManager@@SAPEAV1@XZ
+	DD	imagerel $ip2state$?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ
 	DD	0128H
 	DD	00H
 	DD	01H
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?GetInstance@CApplicationManager@@SAPEAV1@XZ DD 025052911H
+$unwind$?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ DD 025052911H
 	DD	010a230fH
 	DD	070030029H
 	DD	05002H
 	DD	imagerel __CxxFrameHandler3
-	DD	imagerel $cppxdata$?GetInstance@CApplicationManager@@SAPEAV1@XZ
+	DD	imagerel $cppxdata$?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??0XMFLOAT3@DirectX@@QEAA@MMM@Z DD 05053a01H
+	DD	01200323H
+	DD	070190019H
+	DD	05018H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -6272,11 +6344,11 @@ $LN4@operator:
 ??$?9_WU?$char_traits@_W@std@@V?$allocator@_W@1@@std@@YA_NAEBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@0@0@Z ENDP ; std::operator!=<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ??_GCApplicationManager@@EEAAPEAXI@Z
+;	COMDAT ??_GCApplicationManager@Client@@EEAAPEAXI@Z
 _TEXT	SEGMENT
 this$ = 224
 __flags$ = 232
-??_GCApplicationManager@@EEAAPEAXI@Z PROC		; CApplicationManager::`scalar deleting destructor', COMDAT
+??_GCApplicationManager@Client@@EEAAPEAXI@Z PROC	; Client::CApplicationManager::`scalar deleting destructor', COMDAT
 $LN4:
   00000	89 54 24 10	 mov	 DWORD PTR [rsp+16], edx
   00004	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -6293,13 +6365,13 @@ $LN4:
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
   0002e	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00035	e8 00 00 00 00	 call	 ??1CApplicationManager@@EEAA@XZ ; CApplicationManager::~CApplicationManager
+  00035	e8 00 00 00 00	 call	 ??1CApplicationManager@Client@@EEAA@XZ ; Client::CApplicationManager::~CApplicationManager
   0003a	8b 85 e8 00 00
 	00		 mov	 eax, DWORD PTR __flags$[rbp]
   00040	83 e0 01	 and	 eax, 1
   00043	85 c0		 test	 eax, eax
   00045	74 11		 je	 SHORT $LN2@scalar
-  00047	ba 38 00 00 00	 mov	 edx, 56			; 00000038H
+  00047	ba 48 00 00 00	 mov	 edx, 72			; 00000048H
   0004c	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ??3@YAXPEAX_K@Z		; operator delete
@@ -6311,14 +6383,14 @@ $LN2@scalar:
   00066	5f		 pop	 rdi
   00067	5d		 pop	 rbp
   00068	c3		 ret	 0
-??_GCApplicationManager@@EEAAPEAXI@Z ENDP		; CApplicationManager::`scalar deleting destructor'
+??_GCApplicationManager@Client@@EEAAPEAXI@Z ENDP	; Client::CApplicationManager::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\github\framework\client\private\applicationmanager.cpp
-;	COMDAT ?Free@CApplicationManager@@UEAAXXZ
+;	COMDAT ?Free@CApplicationManager@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
-?Free@CApplicationManager@@UEAAXXZ PROC			; CApplicationManager::Free, COMDAT
+?Free@CApplicationManager@Client@@UEAAXXZ PROC		; Client::CApplicationManager::Free, COMDAT
 
 ; 20   : {
 
@@ -6343,16 +6415,16 @@ $LN3:
   0002f	5f		 pop	 rdi
   00030	5d		 pop	 rbp
   00031	c3		 ret	 0
-?Free@CApplicationManager@@UEAAXXZ ENDP			; CApplicationManager::Free
+?Free@CApplicationManager@Client@@UEAAXXZ ENDP		; Client::CApplicationManager::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\github\framework\client\private\applicationmanager.cpp
-;	COMDAT ?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
+;	COMDAT ?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
 _TEXT	SEGMENT
 $T1 = 200
 this$ = 256
 strTitle$ = 264
-?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z PROC ; CApplicationManager::SetTitle, COMDAT
+?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z PROC ; Client::CApplicationManager::SetTitle, COMDAT
 
 ; 11   : {
 
@@ -6424,14 +6496,14 @@ $LN2@SetTitle:
   000ac	5f		 pop	 rdi
   000ad	5d		 pop	 rbp
   000ae	c3		 ret	 0
-?SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ENDP ; CApplicationManager::SetTitle
+?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ENDP ; Client::CApplicationManager::SetTitle
 _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
 $T1 = 200
 this$ = 256
 strTitle$ = 264
-?dtor$0@?0??SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA PROC ; `CApplicationManager::SetTitle'::`1'::dtor$0
+?dtor$0@?0??SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA PROC ; `Client::CApplicationManager::SetTitle'::`1'::dtor$0
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   0000a	55		 push	 rbp
@@ -6445,7 +6517,7 @@ strTitle$ = 264
   00024	5f		 pop	 rdi
   00025	5d		 pop	 rbp
   00026	c3		 ret	 0
-?dtor$0@?0??SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA ENDP ; `CApplicationManager::SetTitle'::`1'::dtor$0
+?dtor$0@?0??SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA ENDP ; `Client::CApplicationManager::SetTitle'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT text$x
@@ -6453,7 +6525,7 @@ text$x	SEGMENT
 $T1 = 200
 this$ = 256
 strTitle$ = 264
-?dtor$0@?0??SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA PROC ; `CApplicationManager::SetTitle'::`1'::dtor$0
+?dtor$0@?0??SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA PROC ; `Client::CApplicationManager::SetTitle'::`1'::dtor$0
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   0000a	55		 push	 rbp
@@ -6467,14 +6539,14 @@ strTitle$ = 264
   00024	5f		 pop	 rdi
   00025	5d		 pop	 rbp
   00026	c3		 ret	 0
-?dtor$0@?0??SetTitle@CApplicationManager@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA ENDP ; `CApplicationManager::SetTitle'::`1'::dtor$0
+?dtor$0@?0??SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA ENDP ; `Client::CApplicationManager::SetTitle'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\github\framework\client\private\applicationmanager.cpp
-;	COMDAT ??1CApplicationManager@@EEAA@XZ
+;	COMDAT ??1CApplicationManager@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
-??1CApplicationManager@@EEAA@XZ PROC			; CApplicationManager::~CApplicationManager, COMDAT
+??1CApplicationManager@Client@@EEAA@XZ PROC		; Client::CApplicationManager::~CApplicationManager, COMDAT
 
 ; 8    : }
 
@@ -6505,14 +6577,17 @@ $LN3:
   00051	5f		 pop	 rdi
   00052	5d		 pop	 rbp
   00053	c3		 ret	 0
-??1CApplicationManager@@EEAA@XZ ENDP			; CApplicationManager::~CApplicationManager
+??1CApplicationManager@Client@@EEAA@XZ ENDP		; Client::CApplicationManager::~CApplicationManager
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\github\framework\client\private\applicationmanager.cpp
-;	COMDAT ??0CApplicationManager@@AEAA@XZ
+; File c:\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\private\applicationmanager.cpp
+;	COMDAT ??0CApplicationManager@Client@@AEAA@XZ
 _TEXT	SEGMENT
-this$ = 224
-??0CApplicationManager@@AEAA@XZ PROC			; CApplicationManager::CApplicationManager, COMDAT
+$T1 = 200
+this$ = 256
+??0CApplicationManager@Client@@AEAA@XZ PROC		; Client::CApplicationManager::CApplicationManager, COMDAT
 
 ; 7    : {
 
@@ -6520,47 +6595,155 @@ $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	57		 push	 rdi
-  00007	48 81 ec e8 00
-	00 00		 sub	 rsp, 232		; 000000e8H
+  00007	48 81 ec 08 01
+	00 00		 sub	 rsp, 264		; 00000108H
   0000e	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
   00013	48 8b fc	 mov	 rdi, rsp
-  00016	b9 3a 00 00 00	 mov	 ecx, 58			; 0000003aH
+  00016	b9 42 00 00 00	 mov	 ecx, 66			; 00000042H
   0001b	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00020	f3 ab		 rep stosd
-  00022	48 8b 8c 24 08
-	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
-  0002a	48 8b 8d e0 00
+  00022	48 8b 8c 24 28
+	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
+  0002a	48 c7 85 c8 00
+	00 00 fe ff ff
+	ff		 mov	 QWORD PTR $T1[rbp], -2
+  00035	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00031	ff 15 00 00 00
+  0003c	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_??0CBase@Engine@@QEAA@XZ
-  00037	48 8b 85 e0 00
+  00042	90		 npad	 1
+  00043	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0003e	48 8d 0d 00 00
-	00 00		 lea	 rcx, OFFSET FLAT:??_7CApplicationManager@@6B@
-  00045	48 89 08	 mov	 QWORD PTR [rax], rcx
-  00048	48 8b 85 e0 00
+  0004a	48 8d 0d 00 00
+	00 00		 lea	 rcx, OFFSET FLAT:??_7CApplicationManager@Client@@6B@
+  00051	48 89 08	 mov	 QWORD PTR [rax], rcx
+  00054	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0004f	48 83 c0 10	 add	 rax, 16
-  00053	48 8b c8	 mov	 rcx, rax
-  00056	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  0005b	48 83 c0 10	 add	 rax, 16
+  0005f	48 8b c8	 mov	 rcx, rax
+  00062	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  00067	90		 npad	 1
+; File c:\github\framework\client\public\applicationmanager.h
+
+; 30   : 	_bool m_bFreeze = false;
+
+  00068	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0006f	c6 40 38 00	 mov	 BYTE PTR [rax+56], 0
+
+; 31   : 	_float3 m_vPrevPosition = { 0.f, 0.f, 0.f };
+
+  00073	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0007a	48 83 c0 3c	 add	 rax, 60			; 0000003cH
+  0007e	0f 57 db	 xorps	 xmm3, xmm3
+  00081	0f 57 d2	 xorps	 xmm2, xmm2
+  00084	0f 57 c9	 xorps	 xmm1, xmm1
+  00087	48 8b c8	 mov	 rcx, rax
+  0008a	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
+  0008f	90		 npad	 1
+; File c:\github\framework\client\private\applicationmanager.cpp
 
 ; 8    : }
 
-  0005b	48 8b 85 e0 00
+  00090	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00062	48 8d a5 c8 00
-	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  00069	5f		 pop	 rdi
-  0006a	5d		 pop	 rbp
-  0006b	c3		 ret	 0
-??0CApplicationManager@@AEAA@XZ ENDP			; CApplicationManager::CApplicationManager
+  00097	48 8d a5 e8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+232]
+  0009e	5f		 pop	 rdi
+  0009f	5d		 pop	 rbp
+  000a0	c3		 ret	 0
+??0CApplicationManager@Client@@AEAA@XZ ENDP		; Client::CApplicationManager::CApplicationManager
 _TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 200
+this$ = 256
+?dtor$0@?0???0CApplicationManager@Client@@AEAA@XZ@4HA PROC ; `Client::CApplicationManager::CApplicationManager'::`1'::dtor$0
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
+  0000a	55		 push	 rbp
+  0000b	57		 push	 rdi
+  0000c	48 83 ec 28	 sub	 rsp, 40			; 00000028H
+  00010	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
+  00014	48 8b 8d 00 01
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  0001b	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_??1CBase@Engine@@UEAA@XZ
+  00021	48 83 c4 28	 add	 rsp, 40			; 00000028H
+  00025	5f		 pop	 rdi
+  00026	5d		 pop	 rbp
+  00027	c3		 ret	 0
+?dtor$0@?0???0CApplicationManager@Client@@AEAA@XZ@4HA ENDP ; `Client::CApplicationManager::CApplicationManager'::`1'::dtor$0
+$T1 = 200
+this$ = 256
+?dtor$1@?0???0CApplicationManager@Client@@AEAA@XZ@4HA PROC ; `Client::CApplicationManager::CApplicationManager'::`1'::dtor$1
+  00028	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  0002d	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
+  00032	55		 push	 rbp
+  00033	57		 push	 rdi
+  00034	48 83 ec 28	 sub	 rsp, 40			; 00000028H
+  00038	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
+  0003c	48 8b 8d 00 01
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  00043	48 83 c1 10	 add	 rcx, 16
+  00047	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  0004c	48 83 c4 28	 add	 rsp, 40			; 00000028H
+  00050	5f		 pop	 rdi
+  00051	5d		 pop	 rbp
+  00052	c3		 ret	 0
+?dtor$1@?0???0CApplicationManager@Client@@AEAA@XZ@4HA ENDP ; `Client::CApplicationManager::CApplicationManager'::`1'::dtor$1
+text$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 200
+this$ = 256
+?dtor$0@?0???0CApplicationManager@Client@@AEAA@XZ@4HA PROC ; `Client::CApplicationManager::CApplicationManager'::`1'::dtor$0
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
+  0000a	55		 push	 rbp
+  0000b	57		 push	 rdi
+  0000c	48 83 ec 28	 sub	 rsp, 40			; 00000028H
+  00010	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
+  00014	48 8b 8d 00 01
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  0001b	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_??1CBase@Engine@@UEAA@XZ
+  00021	48 83 c4 28	 add	 rsp, 40			; 00000028H
+  00025	5f		 pop	 rdi
+  00026	5d		 pop	 rbp
+  00027	c3		 ret	 0
+?dtor$0@?0???0CApplicationManager@Client@@AEAA@XZ@4HA ENDP ; `Client::CApplicationManager::CApplicationManager'::`1'::dtor$0
+text$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 200
+this$ = 256
+?dtor$1@?0???0CApplicationManager@Client@@AEAA@XZ@4HA PROC ; `Client::CApplicationManager::CApplicationManager'::`1'::dtor$1
+  00028	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  0002d	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
+  00032	55		 push	 rbp
+  00033	57		 push	 rdi
+  00034	48 83 ec 28	 sub	 rsp, 40			; 00000028H
+  00038	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
+  0003c	48 8b 8d 00 01
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  00043	48 83 c1 10	 add	 rcx, 16
+  00047	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  0004c	48 83 c4 28	 add	 rsp, 40			; 00000028H
+  00050	5f		 pop	 rdi
+  00051	5d		 pop	 rbp
+  00052	c3		 ret	 0
+?dtor$1@?0???0CApplicationManager@Client@@AEAA@XZ@4HA ENDP ; `Client::CApplicationManager::CApplicationManager'::`1'::dtor$1
+text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\github\framework\client\private\applicationmanager.cpp
-;	COMDAT ?DestroyInstance@CApplicationManager@@SAKXZ
+;	COMDAT ?DestroyInstance@CApplicationManager@Client@@SAKXZ
 _TEXT	SEGMENT
 dwRefCnt$ = 4
-?DestroyInstance@CApplicationManager@@SAKXZ PROC	; CApplicationManager::DestroyInstance, COMDAT
+?DestroyInstance@CApplicationManager@Client@@SAKXZ PROC	; Client::CApplicationManager::DestroyInstance, COMDAT
 
 ; 4    : IMPLEMENT_SINGLETON(CApplicationManager)
 
@@ -6577,10 +6760,10 @@ $LN5:
   0001e	c7 45 04 00 00
 	00 00		 mov	 DWORD PTR dwRefCnt$[rbp], 0
   00025	48 83 3d 00 00
-	00 00 00	 cmp	 QWORD PTR ?m_pInstance@CApplicationManager@@0PEAV1@EA, 0 ; CApplicationManager::m_pInstance
+	00 00 00	 cmp	 QWORD PTR ?m_pInstance@CApplicationManager@Client@@0PEAV12@EA, 0 ; Client::CApplicationManager::m_pInstance
   0002d	74 21		 je	 SHORT $LN2@DestroyIns
   0002f	48 8b 0d 00 00
-	00 00		 mov	 rcx, QWORD PTR ?m_pInstance@CApplicationManager@@0PEAV1@EA ; CApplicationManager::m_pInstance
+	00 00		 mov	 rcx, QWORD PTR ?m_pInstance@CApplicationManager@Client@@0PEAV12@EA ; Client::CApplicationManager::m_pInstance
   00036	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Release@CBase@Engine@@QEAAKXZ
   0003c	89 45 04	 mov	 DWORD PTR dwRefCnt$[rbp], eax
@@ -6588,7 +6771,7 @@ $LN5:
   00043	75 0b		 jne	 SHORT $LN3@DestroyIns
   00045	48 c7 05 00 00
 	00 00 00 00 00
-	00		 mov	 QWORD PTR ?m_pInstance@CApplicationManager@@0PEAV1@EA, 0 ; CApplicationManager::m_pInstance
+	00		 mov	 QWORD PTR ?m_pInstance@CApplicationManager@Client@@0PEAV12@EA, 0 ; Client::CApplicationManager::m_pInstance
 $LN3@DestroyIns:
 $LN2@DestroyIns:
   00050	8b 45 04	 mov	 eax, DWORD PTR dwRefCnt$[rbp]
@@ -6597,17 +6780,17 @@ $LN2@DestroyIns:
   0005a	5f		 pop	 rdi
   0005b	5d		 pop	 rbp
   0005c	c3		 ret	 0
-?DestroyInstance@CApplicationManager@@SAKXZ ENDP	; CApplicationManager::DestroyInstance
+?DestroyInstance@CApplicationManager@Client@@SAKXZ ENDP	; Client::CApplicationManager::DestroyInstance
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\github\framework\client\private\applicationmanager.cpp
-;	COMDAT ?GetInstance@CApplicationManager@@SAPEAV1@XZ
+;	COMDAT ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ
 _TEXT	SEGMENT
 $T1 = 200
 $T2 = 232
 $T3 = 264
 tv81 = 280
-?GetInstance@CApplicationManager@@SAPEAV1@XZ PROC	; CApplicationManager::GetInstance, COMDAT
+?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ PROC ; Client::CApplicationManager::GetInstance, COMDAT
 
 ; 4    : IMPLEMENT_SINGLETON(CApplicationManager)
 
@@ -6625,14 +6808,14 @@ $LN7:
 	00 00 fe ff ff
 	ff		 mov	 QWORD PTR $T3[rbp], -2
   00029	48 83 3d 00 00
-	00 00 00	 cmp	 QWORD PTR ?m_pInstance@CApplicationManager@@0PEAV1@EA, 0 ; CApplicationManager::m_pInstance
+	00 00 00	 cmp	 QWORD PTR ?m_pInstance@CApplicationManager@Client@@0PEAV12@EA, 0 ; Client::CApplicationManager::m_pInstance
   00031	75 69		 jne	 SHORT $LN2@GetInstanc
   00033	41 b9 04 00 00
 	00		 mov	 r9d, 4
   00039	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DK@COACHENJ@c?3?2github?2framework?2client?2priva@
   00040	ba 01 00 00 00	 mov	 edx, 1
-  00045	b9 38 00 00 00	 mov	 ecx, 56			; 00000038H
+  00045	b9 48 00 00 00	 mov	 ecx, 72			; 00000048H
   0004a	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0004f	48 89 85 e8 00
 	00 00		 mov	 QWORD PTR $T2[rbp], rax
@@ -6641,7 +6824,7 @@ $LN7:
   0005e	74 15		 je	 SHORT $LN4@GetInstanc
   00060	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
-  00067	e8 00 00 00 00	 call	 ??0CApplicationManager@@AEAA@XZ ; CApplicationManager::CApplicationManager
+  00067	e8 00 00 00 00	 call	 ??0CApplicationManager@Client@@AEAA@XZ ; Client::CApplicationManager::CApplicationManager
   0006c	48 89 85 18 01
 	00 00		 mov	 QWORD PTR tv81[rbp], rax
   00073	eb 0b		 jmp	 SHORT $LN5@GetInstanc
@@ -6657,16 +6840,16 @@ $LN5@GetInstanc:
   0008e	48 8b 85 c8 00
 	00 00		 mov	 rax, QWORD PTR $T1[rbp]
   00095	48 89 05 00 00
-	00 00		 mov	 QWORD PTR ?m_pInstance@CApplicationManager@@0PEAV1@EA, rax ; CApplicationManager::m_pInstance
+	00 00		 mov	 QWORD PTR ?m_pInstance@CApplicationManager@Client@@0PEAV12@EA, rax ; Client::CApplicationManager::m_pInstance
 $LN2@GetInstanc:
   0009c	48 8b 05 00 00
-	00 00		 mov	 rax, QWORD PTR ?m_pInstance@CApplicationManager@@0PEAV1@EA ; CApplicationManager::m_pInstance
+	00 00		 mov	 rax, QWORD PTR ?m_pInstance@CApplicationManager@Client@@0PEAV12@EA ; Client::CApplicationManager::m_pInstance
   000a3	48 8d a5 28 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+296]
   000aa	5f		 pop	 rdi
   000ab	5d		 pop	 rbp
   000ac	c3		 ret	 0
-?GetInstance@CApplicationManager@@SAPEAV1@XZ ENDP	; CApplicationManager::GetInstance
+?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ENDP ; Client::CApplicationManager::GetInstance
 _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
@@ -6674,7 +6857,7 @@ $T1 = 200
 $T2 = 232
 $T3 = 264
 tv81 = 280
-?dtor$0@?0??GetInstance@CApplicationManager@@SAPEAV1@XZ@4HA PROC ; `CApplicationManager::GetInstance'::`1'::dtor$0
+?dtor$0@?0??GetInstance@CApplicationManager@Client@@SAPEAV12@XZ@4HA PROC ; `Client::CApplicationManager::GetInstance'::`1'::dtor$0
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   0000a	55		 push	 rbp
@@ -6693,7 +6876,7 @@ tv81 = 280
   00036	5f		 pop	 rdi
   00037	5d		 pop	 rbp
   00038	c3		 ret	 0
-?dtor$0@?0??GetInstance@CApplicationManager@@SAPEAV1@XZ@4HA ENDP ; `CApplicationManager::GetInstance'::`1'::dtor$0
+?dtor$0@?0??GetInstance@CApplicationManager@Client@@SAPEAV12@XZ@4HA ENDP ; `Client::CApplicationManager::GetInstance'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT text$x
@@ -6702,7 +6885,7 @@ $T1 = 200
 $T2 = 232
 $T3 = 264
 tv81 = 280
-?dtor$0@?0??GetInstance@CApplicationManager@@SAPEAV1@XZ@4HA PROC ; `CApplicationManager::GetInstance'::`1'::dtor$0
+?dtor$0@?0??GetInstance@CApplicationManager@Client@@SAPEAV12@XZ@4HA PROC ; `Client::CApplicationManager::GetInstance'::`1'::dtor$0
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   0000a	55		 push	 rbp
@@ -6721,8 +6904,63 @@ tv81 = 280
   00036	5f		 pop	 rdi
   00037	5d		 pop	 rbp
   00038	c3		 ret	 0
-?dtor$0@?0??GetInstance@CApplicationManager@@SAPEAV1@XZ@4HA ENDP ; `CApplicationManager::GetInstance'::`1'::dtor$0
+?dtor$0@?0??GetInstance@CApplicationManager@Client@@SAPEAV12@XZ@4HA ENDP ; `Client::CApplicationManager::GetInstance'::`1'::dtor$0
 text$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\program files (x86)\windows kits\8.1\include\um\directxmath.h
+;	COMDAT ??0XMFLOAT3@DirectX@@QEAA@MMM@Z
+_TEXT	SEGMENT
+this$ = 224
+_x$ = 232
+_y$ = 240
+_z$ = 248
+??0XMFLOAT3@DirectX@@QEAA@MMM@Z PROC			; DirectX::XMFLOAT3::XMFLOAT3, COMDAT
+
+; 506  :     XMFLOAT3(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {}
+
+$LN3:
+  00000	f3 0f 11 5c 24
+	20		 movss	 DWORD PTR [rsp+32], xmm3
+  00006	f3 0f 11 54 24
+	18		 movss	 DWORD PTR [rsp+24], xmm2
+  0000c	f3 0f 11 4c 24
+	10		 movss	 DWORD PTR [rsp+16], xmm1
+  00012	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00017	55		 push	 rbp
+  00018	57		 push	 rdi
+  00019	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  00020	48 8b ec	 mov	 rbp, rsp
+  00023	48 8b fc	 mov	 rdi, rsp
+  00026	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  0002b	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00030	f3 ab		 rep stosd
+  00032	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+  0003a	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00041	f3 0f 10 85 e8
+	00 00 00	 movss	 xmm0, DWORD PTR _x$[rbp]
+  00049	f3 0f 11 00	 movss	 DWORD PTR [rax], xmm0
+  0004d	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00054	f3 0f 10 85 f0
+	00 00 00	 movss	 xmm0, DWORD PTR _y$[rbp]
+  0005c	f3 0f 11 40 04	 movss	 DWORD PTR [rax+4], xmm0
+  00061	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00068	f3 0f 10 85 f8
+	00 00 00	 movss	 xmm0, DWORD PTR _z$[rbp]
+  00070	f3 0f 11 40 08	 movss	 DWORD PTR [rax+8], xmm0
+  00075	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0007c	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  00083	5f		 pop	 rdi
+  00084	5d		 pop	 rbp
+  00085	c3		 ret	 0
+??0XMFLOAT3@DirectX@@QEAA@MMM@Z ENDP			; DirectX::XMFLOAT3::XMFLOAT3
+_TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring
 ;	COMDAT ?_Xran@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAXXZ

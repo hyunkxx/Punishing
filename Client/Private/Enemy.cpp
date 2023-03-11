@@ -2,6 +2,7 @@
 #include "..\Public\Enemy.h"
 
 #include "GameInstance.h"
+#include "ApplicationManager.h"
 #include "Character.h"
 #include "Bone.h"
 
@@ -30,8 +31,8 @@ HRESULT CEnemy::Initialize_Prototype(TYPE eType)
 		return E_FAIL;
 
 	ZeroMemory(&m_State, sizeof(ENEMY_STATE));
-	m_State.fMaxHp = 700.f;
-	m_State.fCurHp = 700.f;
+	m_State.fMaxHp = 4000.f;
+	m_State.fCurHp = 4000.f;
 
 	m_eType = eType;
 
@@ -40,10 +41,16 @@ HRESULT CEnemy::Initialize_Prototype(TYPE eType)
 
 HRESULT CEnemy::Initialize(void * pArg)
 {
+	m_pAppManager = CApplicationManager::GetInstance();
+
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
 	AddComponents();
+
+	ZeroMemory(&m_State, sizeof(ENEMY_STATE));
+	m_State.fMaxHp = 4000.f;
+	m_State.fCurHp = 4000.f;
 
 	if (nullptr != pArg)
 	{
@@ -51,33 +58,65 @@ HRESULT CEnemy::Initialize(void * pArg)
 		m_pPlayerTransform = static_cast<CTransform*>(m_pPlayer->Find_Component(L"com_transform"));
 	}
 
- 	SetPosition(_float3(20.f + (s_iCount * 5), 0.f, 40.f));
+ 	SetPosition(_float3(25.f + (s_iCount * 2), 0.f, 45.f));
 
-	bone = model->GetBonePtr("Bip001");
+	bone = model->GetBonePtr("Bip001Pelvis");
 	XMStoreFloat4x4(&m_RootBoneMatrix, XMLoadFloat4x4(&bone->GetOffSetMatrix()) * XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&model->GetLocalMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix()));
+
+	switch (m_eType)
+	{
+	case TYPE::HUMANOID:
+		m_pWeaponBone = model->GetBonePtr("BulletCase");
+		break;
+	case TYPE::ANIMAL:
+		m_pWeaponBone = model->GetBonePtr("Bip001");
+		break;
+	}
 
 	return S_OK;
 }
 
 void CEnemy::Tick(_double TimeDelta)
 {
+	TimeDelta = Freeze(TimeDelta);
+
 	__super::Tick(TimeDelta);
+	
+	if (m_bAttackCollision)
+	{
+		m_fAttackCollisionLocal += (_float)TimeDelta;
+		if (m_fAttackCollisionLocal >= m_fAttackCollisionTimeOut)
+		{
+			m_bAttackCollision = false;
+			m_pWeaponCollider->SetActive(false);
+			m_fAttackCollisionLocal = 0.0f;
+		}
+	}
 
-	CGameInstance* pGameInstance = CGameInstance::GetInstance();
-	pGameInstance->AddCollider(collider);
-
-	AnimationState(TimeDelta);
-
+	if(m_bDeadWait)
+		Die(TimeDelta);
+	else
+	{
+		AnimationState(TimeDelta);
+		CGameInstance* pGameInstance = CGameInstance::GetInstance();
+		pGameInstance->AddCollider(collider);
+		pGameInstance->AddCollider(m_pWeaponCollider);
+	}
 }
 
 void CEnemy::LateTick(_double TimeDelta)
 {
+	TimeDelta = Freeze(TimeDelta);
+
 	__super::LateTick(TimeDelta);
+	
+	model->Play_Animation(TimeDelta, transform, 0.4);
 
-	model->Play_Animation(TimeDelta, transform, 0.3);
-
-	//_matrix tranMatrix = XMLoadFloat4x4(&bone->GetOffSetMatrix()) * XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&model->GetLocalMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix());
+	_matrix tranMatrix = XMLoadFloat4x4(&bone->GetOffSetMatrix()) * XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&model->GetLocalMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix());
+	
+	//collider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));
 	collider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));
+	m_pWeaponCollider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));	
 
 	if (nullptr != renderer)
 		renderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
@@ -114,6 +153,9 @@ void CEnemy::RenderGUI()
 _float4 CEnemy::GetPosition()
 {
  	if (transform == nullptr)
+		return _float4();
+
+	if(IsDestroy())
 		return _float4();
 
 	_float4 vPos;
@@ -161,10 +203,19 @@ HRESULT CEnemy::AddComponents()
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 1.f, 0.f);
-	collDesc.vExtants = _float3(1.f, 1.f, 1.f);
-	collDesc.vRotaion = _float3(0.f, 0.f, 0.f);
+	collDesc.vExtents = _float3(1.f, 1.f, 1.f);
+	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&collider, &collDesc));
+
+	ZeroMemory(&collDesc, sizeof collDesc);
+	collDesc.owner = this;
+	collDesc.vExtents = _float3(1.5f, 1.5f, 1.5f);
+	collDesc.vCenter = _float3(0.f, 1.f, 2.f);
+	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
+
+	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collder_weapon"), (CComponent**)&m_pWeaponCollider, &collDesc));
+	m_pWeaponCollider->SetActive(false);
 
 	return S_OK;
 }
@@ -219,7 +270,13 @@ void CEnemy::OverlapProcess(_double TimeDelta)
 		m_OverlapAcc = 0.0;
 	}
 
-	//현재 위치에서 반대방향으로 이동
+	m_bAttackCollision = false;
+
+
+	//플레이어를 향하는 방향벡터  ( Enemy -> Player)
+	//_vector vPlayerDir = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION);
+
+	//현재 위치에서 반대방향으로 이동 + 플레이어 방향벡터(반대)
 	_vector vPos = transform->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vNagative) * (_float)TimeDelta;
 	_vector vEnemyLook = XMVector3Normalize(transform->Get_State(CTransform::STATE_LOOK));
 	_vector vDir = XMVector3Normalize(vPos - transform->Get_State(CTransform::STATE_POSITION));
@@ -327,6 +384,9 @@ void CEnemy::OverlapProcess(_double TimeDelta)
 
 void CEnemy::LookPlayer(_double TimeDelta)
 {
+	if (m_pAppManager->IsFreeze())
+		return;
+
 	_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
 	_vector vPosition = transform->Get_State(CTransform::STATE_POSITION);
 	_vector vDirection = XMVector3Normalize(vPlayerPos - vPosition);
@@ -370,6 +430,7 @@ void CEnemy::Trace(_double TimeDelta)
 		return;
 
 	m_bAttack = false;
+	m_bAttackCollision = false;
 	_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
 	transform->Chase(vPlayerPos, TimeDelta, m_fAttackRange);
 
@@ -387,6 +448,7 @@ void CEnemy::Attack(_double TimeDelta)
 		model->Setup_Animation((_uint)CLIP::ATTACK4, CAnimation::TYPE::ONE, true);
 	else
 		model->Setup_Animation((_uint)CLIP_TWO::ATTACK1, CAnimation::TYPE::ONE, true);
+
 }
 
 void CEnemy::Idle(_double TimeDelta)
@@ -394,6 +456,7 @@ void CEnemy::Idle(_double TimeDelta)
 	m_bAttack = false;
 	m_bMovable = true;
 	m_bRotationFinish = false;
+	m_bAttackCollision = false;
 	if (m_eType == TYPE::HUMANOID)
 		model->Setup_Animation((_uint)CLIP::STAND, CAnimation::TYPE::LOOP, true);
 	else
@@ -404,14 +467,25 @@ _bool CEnemy::Hit(_double TimeDelta)
 {
 	srand((unsigned int)time(nullptr));
 	int iRandom = rand() % 2;
+	
+	m_bAttackCollision = false;
+
+	if (m_State.fCurHp <= 0.f)
+		m_bDeadWait = true;
+	else
+		m_bDeadWait = false;
+
+	if (m_pAppManager->IsFreeze())
+		return false;
 
 	if(m_eType == TYPE::HUMANOID)
-		model->Setup_Animation((_uint)CLIP::HIT1, CAnimation::TYPE::ONE, true);
+		model->Setup_Animation((_uint)CLIP::HIT2, CAnimation::TYPE::ONE, true);
 	else
 		model->Setup_Animation((_uint)CLIP_TWO::HIT1, CAnimation::TYPE::ONE, true);
 
-	if (model->AnimationIsFinish())
+	if (model->AnimationIsFinishEx())
 	{
+		m_bHitStart = false;
 		m_bHit = false;
 		m_bNuckBackFinish = false;
 		m_fNuckBackTimer = 0.0f;
@@ -421,31 +495,94 @@ _bool CEnemy::Hit(_double TimeDelta)
 		return false;
 }
 
+void CEnemy::RecvDamage(_float fDamage)
+{
+	m_State.fCurHp -= fDamage;
+
+	DieCheck();
+}
+
+void CEnemy::SetNuckback(_float fPower)
+{
+	m_bNuckback = true;
+	m_bNuckBackFinish = false;
+	m_fNuckbackPower = fPower;
+}
+
 void CEnemy::NuckBack(_double TimeDelta)
 {
-	m_fNuckBackTimer += TimeDelta;
+	m_fNuckBackTimer += (_float)TimeDelta;
 	if (m_fNuckBackTimer >= m_fNuckBackTimeOut)
 	{
+		m_fNuckbackPower = 0.4f;
+		m_bNuckback = false;
 		m_bNuckBackFinish = true;
 		m_fNuckBackTimer = 0.0f;
 	}
 
-	if (!m_bNuckBackFinish)
-	{
-		_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
-		_vector vCurrentPos = transform->Get_State(CTransform::STATE_POSITION);
-		_vector vDir = m_pPlayerTransform->Get_State(CTransform::STATE_LOOK);
+	_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vCurrentPos = transform->Get_State(CTransform::STATE_POSITION);
+	//_vector vDir = m_pPlayerTransform->Get_State(CTransform::STATE_LOOK);
+
+	if (!m_pAppManager->IsFreeze())
 		transform->LookAt(vPlayerPos);
 
-		//_vector vDir = vCurrentPos - vPlayerPos;
-		vDir = XMVector3Normalize(vDir);
+	_vector vDir = vCurrentPos - vPlayerPos;
+	vDir = XMVector3Normalize(vDir);
 
-		_vector vPos;
-		vPos = vCurrentPos + (vDir) * 4.f;
-		vCurrentPos = XMVectorLerp(vCurrentPos, vPos, TimeDelta * 0.8f);
-		transform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
+	_vector vPos;
+	vPos = vCurrentPos + (vDir) * m_fNuckbackPower;
+	vCurrentPos = XMVectorLerp(vCurrentPos, vPos, TimeDelta * 0.8);
+	transform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
+
+}
+
+_bool CEnemy::DieCheck()
+{
+	if (m_State.fCurHp <= 0.f)
+	{
+		m_bDeadWait = true;
+		return true;
 	}
 
+	return false;
+}
+
+void CEnemy::Die(_double TimeDelta)
+{
+	if (!m_bDead)
+	{
+		static_cast<CCharacter*>(m_pPlayer)->DeleteTargetFromList(this);
+
+		if (m_eType == TYPE::HUMANOID)
+			model->Setup_Animation((_uint)CLIP::DEATH, CAnimation::TYPE::ONE, true);
+		else
+			model->Setup_Animation((_uint)CLIP_TWO::DEATH, CAnimation::TYPE::ONE, true);
+	}
+
+	if (m_bDeadWait && model->AnimationIsFinishEx())
+		m_bDead = true;
+
+	m_fDeadWaitTimer += (_float)TimeDelta;
+	if (m_fDeadWaitTimer >= m_fDeadWaitTimeOut)
+	{
+		Destroy();
+	}
+}
+
+_double CEnemy::Freeze(_double TimeDelta)
+{
+	if (m_pAppManager->IsFreeze())
+	{
+		m_bAttackCollision = false;
+		m_pWeaponCollider->SetActive(false);
+		_vector CurTimeDelta = XMVectorSet(m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale);
+		m_fCurTimeScale = XMVectorGetX(XMVectorLerp(CurTimeDelta, XMVectorSet(0.0, 0.0, 0.0, 0.0), TimeDelta * 0.8));
+	}
+	else
+		m_fCurTimeScale = 1.0;
+
+	return TimeDelta = TimeDelta * m_fCurTimeScale;
 }
 
 _vector CEnemy::GetRootBonePosition()
@@ -459,7 +596,6 @@ void CEnemy::AnimationState(_double TimeDelta)
 	if (m_bHit)
 	{
 		Hit(TimeDelta);
-		NuckBack(TimeDelta);
 	}
 	else
 	{
@@ -477,28 +613,81 @@ void CEnemy::AnimationState(_double TimeDelta)
 		{
 			m_OverlapAcc = 0.0;
 
-			if (!m_bRotationFinish)
-				LookPlayer(TimeDelta);
+			if (!m_pAppManager->IsFreeze())
+			{
+				if (!m_bRotationFinish)
+					LookPlayer(TimeDelta);
+			}
 
 			if (vDistance < 40.f)
 			{
 				if (m_bRotationFinish)
 				{
 					if (vDistance < m_fAttackRange)
-						m_bAttack = true;
+					{
+						if (!m_bAttack)
+						{
+							if (m_eType == TYPE::HUMANOID)
+								model->Setup_Animation((_uint)CLIP::STAND, CAnimation::TYPE::LOOP, true);
+							else
+								model->Setup_Animation((_uint)CLIP_TWO::STAND2, CAnimation::TYPE::LOOP, true);
+						}
+
+						m_fAttackCoolTimer += TimeDelta;
+						if (m_fAttackCoolTimer >= m_fAttackCoolTimeOut)
+						{
+							m_bAttack = true;
+							m_fAttackCoolTimer = 0.f;
+						}
+					}
 					else
+					{
 						Trace(TimeDelta);
+						m_fAttackCoolTimer = 2.f;
+					}
 				}
 			}
 
 			if (m_bAttack)
+			{
 				Attack(TimeDelta);
 
-			if (model->AnimationIsFinish())
+				if (!m_bAttackCollision || !m_bAttackOneCall)
+				{
+					m_bAttackOneCall = true;
+					if (model->AnimationIsPreFinishEx())
+					{
+						m_bAttackCollision = true;
+						m_pWeaponCollider->SetActive(true);
+					}
+				}
+
+				if (model->AnimationIsPreFinish())
+				{
+					m_bAttackCollision = false;
+					m_pWeaponCollider->SetActive(false);
+				}
+
+				if (model->AnimationIsFinishEx())
+				{
+					m_bAttackOneCall = false;
+					m_bAttackCollision = false;
+					m_pWeaponCollider->SetActive(false);
+				}
+			}
+
+			if (model->AnimationIsFinishEx())
 				Idle(TimeDelta);
 		}
 	}
  
+	if(!m_bAttackCollision)
+		m_pWeaponCollider->SetActive(false);
+
+	if (m_bNuckback)
+	{
+		NuckBack(TimeDelta);
+	}
 }
 
 CEnemy * CEnemy::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pContext, TYPE eType)
@@ -542,48 +731,70 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 	CEnemy* pEnemy = dynamic_cast<CEnemy*>(src->GetOwner());
 	CEnemy* pAotherEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
 	//둘다 에너미 타입이고 기본 충돌체일때
+
 	if (pEnemy && pAotherEnemy)
 	{
-		if (model->AnimationCompare((_uint)CLIP::ATTACK1) ||
-			model->AnimationCompare((_uint)CLIP::ATTACK2) ||
-			model->AnimationCompare((_uint)CLIP::ATTACK3))
-			return;
-
-		_float3 vSrcDir;
-
-		//현재 밀리고있을때
-		if (pEnemy->IsOverlap())
+		if (src->Compare(collider) && dest->Compare(pAotherEnemy->GetBodyCollider()))
 		{
-			//이전에 밀리고있는방향
-			_vector vPrevDir = XMLoadFloat3(&m_vNagative);
-			_vector vDir = XMVector3Normalize(vPrevDir + XMLoadFloat4(&pAotherEnemy->GetPosition()) - XMLoadFloat4(&pEnemy->GetPosition()));
-			XMStoreFloat3(&vSrcDir, -vDir);
+			if (model->AnimationCompare((_uint)CLIP::ATTACK1) ||
+				model->AnimationCompare((_uint)CLIP::ATTACK2) ||
+				model->AnimationCompare((_uint)CLIP::ATTACK3))
+				return;
 
-			m_OverlapAcc = 0.0f;
-			pEnemy->SetOverlap(true, vSrcDir);
+			_float3 vSrcDir;
+
+			//현재 밀리고있을때
+			if (pEnemy->IsOverlap())
+			{
+				//이전에 밀리고있는방향
+				_vector vPrevDir = XMLoadFloat3(&m_vNagative);
+				_vector vDir = XMVector3Normalize(vPrevDir + XMLoadFloat4(&pAotherEnemy->GetPosition()) - XMLoadFloat4(&pEnemy->GetPosition()));
+				XMStoreFloat3(&vSrcDir, -vDir);
+
+				m_OverlapAcc = 0.0f;
+				pEnemy->SetOverlap(true, vSrcDir);
+			}
+			else
+			{
+				_vector vDir = XMVector3Normalize(XMLoadFloat4(&pAotherEnemy->GetPosition()) - XMLoadFloat4(&pEnemy->GetPosition()));
+				XMStoreFloat3(&vSrcDir, -vDir);
+
+				m_OverlapAcc = 0.0f;
+				pEnemy->SetOverlap(true, vSrcDir);
+			}
 		}
-		else
-		{
-			_vector vDir = XMVector3Normalize(XMLoadFloat4(&pAotherEnemy->GetPosition()) - XMLoadFloat4(&pEnemy->GetPosition()));
-			XMStoreFloat3(&vSrcDir, -vDir);
-
-			m_OverlapAcc = 0.0f;
-			pEnemy->SetOverlap(true, vSrcDir);
-		}
-
 	}
-
 
 	//플레이어 웨폰과 충돌처리
 	CCharacter* pPlayer = dynamic_cast<CCharacter*>(dest->GetOwner());
 	if (pPlayer)
 	{
+		m_bOverlapped = false;
+
 		CCollider* pWeaponCollider = pPlayer->GetWeaponCollider();
 		if (dest->Compare(pWeaponCollider))
 		{
+			//if (m_bHit)
+			//{
+			//	model->AnimationReset();
+			//}
 			m_bHit = true;
+			RecvDamage(10.f);
+		}
+
+		CCollider* pBodyCollider = pPlayer->GetBodyCollider();
+		if (src->Compare(m_pWeaponCollider))
+		{
+			if (dest->Compare(pBodyCollider))
+			{
+				pPlayer->Hit();
+				pPlayer->RecvDamage(100.f);
+
+				SetNuckback(4.0f);
+			}
 		}
 	}
+
 
 }
 

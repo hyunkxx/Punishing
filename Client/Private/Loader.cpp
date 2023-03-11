@@ -11,6 +11,9 @@
 #include "Enemy.h"
 #include "Weapon.h"
 #include "Boss.h"
+#include "Wall.h"
+
+#include "FreezeArea.h"
 
 CLoader::CLoader(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: m_pDevice(pDevice)
@@ -139,6 +142,10 @@ HRESULT CLoader::Load_Level_GamePlay()
 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Character/Kamui/Body/Kamui.fbx", LocalMatrix, CCharacter::CLIP_END))))
 		return E_FAIL;
 
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_freeze_area",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/FreezeArea/FreezeArea.fbx", LocalMatrix, 1))))
+		return E_FAIL;
+
 	// Enemy01
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_GAMEPLAY, L"proto_com_model_enemy01",
 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Enemy/01/Enemy01.fbx", LocalMatrix, CCharacter::CLIP_END))))
@@ -186,6 +193,9 @@ HRESULT CLoader::Load_Level_GamePlay()
 		return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_player_camera"), CPlayerCamera::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_freeze_area"), CFreezeArea::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
 #pragma endregion

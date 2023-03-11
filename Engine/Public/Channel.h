@@ -25,6 +25,7 @@ public:
 	//Lerp
 	KEY_FRAME GetCurrentKeyFrame() const { return m_CurrentKeyFrame; }
 	KEY_FRAME GetFirstKeyFrame() const { return m_KeyFrames[0]; }
+	KEY_FRAME GetLastKeyFrame() const { return m_KeyFrames.back(); }
 	_bool IsLerpFinish() const { return m_bLerpEnd; }
 
 public:

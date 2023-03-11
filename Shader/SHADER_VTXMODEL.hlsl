@@ -118,7 +118,7 @@ PS_OUT PS_BACKGROUND(PS_IN In)
 	float fSpecular = pow(max(dot(normalize(vReflect) * -1.f, normalize(In.vLook)), 0.f), g_fPower);
 	vector vMatDiffuse = g_DiffuseTexture.Sample(LinearSampler, In.vTexUV);
 
-	Out.vColor = (g_vLightDiffuse * vMatDiffuse) * saturate(fShade + (g_vLightAmbient * g_vMatAmbient));
+	Out.vColor = (g_vLightDiffuse * vMatDiffuse);// *saturate(fShade + (g_vLightAmbient * g_vMatAmbient));
 
 	if (Out.vColor.a <= 0.1f)
 		discard;

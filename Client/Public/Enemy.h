@@ -110,6 +110,8 @@ public:
 	_float4 GetPosition();
 	void SetPosition(_float3 vPosition);
 	_vector GetRootBonePosition();
+	class CCollider* GetBodyCollider() { return collider; }
+	void SetNuckback(_float fPower);
 
 private:
 	HRESULT AddComponents();
@@ -120,10 +122,15 @@ private:
 	void LookPlayer(_double TimeDelta);
 	void Trace(_double TimeDelta);
 	void Attack(_double TimeDelta);
+	void DisableAttackCollision(_double TimeDelta);
 	void Idle(_double TimeDelta);
 	_bool Hit(_double TimeDelta);
+	void RecvDamage(_float fDamage);
 	void NuckBack(_double TimeDelta);
+	_bool DieCheck();
+	void Die(_double TimeDelta);
 
+	_double Freeze(_double TimeDelta);
 private:
 	void AnimationState(_double TimeDelta);
 
@@ -144,6 +151,10 @@ private:
 	CShader* shader = nullptr;
 	CCollider* collider = nullptr;
 
+	CCollider* m_pWeaponCollider = nullptr;
+	CBone* m_pWeaponBone = nullptr;
+
+	class CApplicationManager* m_pAppManager = nullptr;
 private:
 	static _uint s_iCount;
 
@@ -161,10 +172,12 @@ private:
 
 	_bool m_bRotationFinish = false;
 
-	const _float m_fAttackRange = 3.0f;
+	const _float m_fAttackRange = 3.5f;
 
 	//Attack
 	_bool m_bAttack = false;
+	_float m_fAttackCollisionLocal = 0.0f;
+	const _float m_fAttackCollisionTimeOut = 0.1f;
 
 	//Overlap
 	_float3 m_vNagative = { 0.f, 0.f, 0.f };
@@ -174,11 +187,28 @@ private:
 
 	_bool m_bMovable = false;
 
+	//Die
+	_bool m_bDead = false;
+	_bool m_bDeadWait = false;
+	_float m_fDeadWaitTimer = 0.0f;
+	const _float m_fDeadWaitTimeOut = 2.f;
+
 	//Hit
+	_bool m_bAttackOneCall = false;
+	_bool m_bAttackCollision = false;
+	_bool m_bHitStart = false;
 	_bool m_bHit = false; //플레이어한테 맞았을때 true
+
+	_bool m_bNuckback = false;
 	_bool m_bNuckBackFinish = false;
+	_float m_fNuckbackPower = 4.0f;
 	_float m_fNuckBackTimer = 0.0f;
-	const _float m_fNuckBackTimeOut = 0.2f;
+	const _float m_fNuckBackTimeOut = 0.15f;
+
+	_float m_fCurTimeScale = 1.0;
+
+	_float m_fAttackCoolTimer = 4.f;
+	const _float m_fAttackCoolTimeOut = 4.f;
 };
 
 END

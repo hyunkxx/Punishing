@@ -2,9 +2,12 @@
 #include "..\Public\Character.h"
 
 #include "GameInstance.h"
+#include "CollisionManager.h"
+#include "ApplicationManager.h"
 #include "Weapon.h"
 #include "Bone.h"
 #include "Enemy.h"
+#include "Wall.h"
 
 //Bip001?(리얼 루트본) Bip001Pelvis (척추) R3KalieninaMd010031 (000)
 CCharacter::CCharacter(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
@@ -33,6 +36,9 @@ HRESULT CCharacter::Initialize_Prototype()
 
 HRESULT CCharacter::Initialize(void* pArg)
 {
+	m_pAppManager = CApplicationManager::GetInstance();
+	ZeroMemory(&m_matrixPrevPos, sizeof(_float4x4));
+
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
@@ -42,24 +48,46 @@ HRESULT CCharacter::Initialize(void* pArg)
 	if (FAILED(AddWeapon()))
 		return E_FAIL;
 
+	ZeroMemory(&ANIM_DESC, sizeof(CAnimation::ANIMATION_DESC));
+	SetAnimation(CLIP::STAND2, CAnimation::TYPE::LOOP);
+
 	bone = mModel->GetBonePtr("Bip001");
 	m_pWeaponBone = mModel->GetBonePtr("WeaponCase1");
+
 
 	return S_OK;
 }
 
 void CCharacter::Tick(_double TimeDelta)
 {
+	TimeDelta = Freeze(TimeDelta);
+
 	__super::Tick(TimeDelta);
 
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	pGameInstance->AddCollider(mCollider);
+	pGameInstance->AddCollider(mWallCheckCollider, 1);
 	pGameInstance->AddCollider(mEnemyCheckCollider);
+	pGameInstance->AddCollider(mDashCheckCollider);
 	pGameInstance->AddCollider(mWeaponCollider);
+
+	if (m_bHit)
+	{
+		if (mModel->AnimationIsPreFinishCustom(0.15))
+		{
+			m_bHit = false;
+			m_bMoveable = true;
+			m_bDashable = true;
+			m_bAttackable = true;
+		}
+	}
 
 	KeyInput(TimeDelta);
 	Dash(TimeDelta);
 	Attack(TimeDelta);
+
+	if(!m_WallHit)
+		XMStoreFloat3(&vPrevPosition, mTransform->Get_State(CTransform::STATE_POSITION));
 
 	AnimationControl(TimeDelta);
 	//PositionHold(TimeDelta);
@@ -70,16 +98,19 @@ void CCharacter::Tick(_double TimeDelta)
 
 void CCharacter::LateTick(_double TimeDelta)
 {
+	TimeDelta = Freeze(TimeDelta);
 	__super::LateTick(TimeDelta);
 
 	FindNearTarget();
 
 	_matrix transMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&mTransform->Get_WorldMatrix());
 	mCollider->Update(transMatrix);
+	mWallCheckCollider->Update(transMatrix);
 	mEnemyCheckCollider->Update(XMLoadFloat4x4(&mTransform->Get_WorldMatrix()));
 	//mWeaponCollider->Update(XMLoadFloat4x4(&mTransform->Get_WorldMatrix()));
 	mWeaponCollider->Update(XMLoadFloat4x4(&m_pWeaponBone->GetOffSetMatrix()) * XMLoadFloat4x4(&m_pWeaponBone->GetCombinedMatrix()) * XMLoadFloat4x4(&mModel->GetLocalMatrix()) *  XMLoadFloat4x4(&mTransform->Get_WorldMatrix()));
-	
+	mDashCheckCollider->Update(XMLoadFloat4x4(&m_matrixPrevPos));
+
 	if (nullptr != mRenderer)
 		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 }
@@ -112,26 +143,33 @@ HRESULT CCharacter::Render()
 void CCharacter::RenderGUI()
 {
 	ImGui::Begin("Transform");
-	_float3 vPos;
-	XMStoreFloat3(&vPos, mTransform->Get_State(CTransform::STATE_POSITION));
+	//_float3 vPos;
+	//XMStoreFloat3(&vPos, mTransform->Get_State(CTransform::STATE_POSITION));
 
-	ImGui::InputFloat3("Position", (_float*)&vPos);
-	ImGui::InputInt("Attack ", (int*)&m_iCurAttackCount);
+	//ImGui::InputFloat3("Position", (_float*)&vPos);
+	//ImGui::InputInt("Attack ", (int*)&m_iCurAttackCount);
 
-	if (nullptr != m_pNearEnemy)
-	{
-		_float4 vTargetPos = m_pNearEnemy->GetPosition();
-		ImGui::InputFloat4("Target Position", (float*)&vTargetPos);
-	}
-	else
-	{
-		_float4 vTargetPos = { 0.f, 0.f, 0.f, 0.f };
-		ImGui::InputFloat4("Target Position", (float*)&vTargetPos);
-	}
+	//if (nullptr != m_pNearEnemy && !m_pNearEnemy->IsDestroy())
+	//{
+	//	CTransform* pTransform = static_cast<CTransform*>(static_cast<CGameObject*>(m_pNearEnemy)->Find_Component(L"com_transform"));
+	//	if (pTransform)
+	//	{
+	//		_float4 vTargetPos = m_pNearEnemy->GetPosition();
+	//		ImGui::InputFloat4("Target Position", (float*)&vTargetPos);
+	//	}
+	//}
+	//else
+	//{
+ //		_float4 vTargetPos = { 0.f, 0.f, 0.f, 0.f };
+	//	ImGui::InputFloat4("Target Position", (float*)&vTargetPos);
+	//}
 
-	_int size = (_uint)m_Enemys.size();
-	ImGui::InputInt("NearEnemy List ", (int*)&size);
-	ImGui::InputInt("Look Enemy index", (int*)&m_iEnemyIndex);
+	//_int size = (_uint)m_Enemys.size();
+	//ImGui::InputInt("NearEnemy List ", (int*)&size);
+	//ImGui::InputInt("Look Enemy index", (int*)&m_iEnemyIndex);
+	CCollisionManager* pCollManager = CCollisionManager::GetInstance();
+	int Count = pCollManager->GetHasCollisionCount();
+	ImGui::InputInt("Look Enemy index", &Count);
 
 	ImGui::End();
 }
@@ -192,8 +230,8 @@ HRESULT CCharacter::AddComponents()
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
-	collDesc.vExtants = _float3(1.f, 1.f, 1.f);
-	collDesc.vRotaion = _float3(0.f, 0.f, 0.f);
+	collDesc.vExtents = _float3(1.2f, 1.2f, 1.2f);
+	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&mCollider, &collDesc)))
 		return E_FAIL;
@@ -201,8 +239,31 @@ HRESULT CCharacter::AddComponents()
 	ZeroMemory(&collDesc, sizeof(collDesc));
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
-	collDesc.vExtants = _float3(20.f, 20.f, 20.f);
-	collDesc.vRotaion = _float3(0.f, 0.f, 0.f);
+	collDesc.vExtents = _float3(2.f, 2.f, 2.f);
+	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
+
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider_dash_check"), (CComponent**)&mDashCheckCollider, &collDesc)))
+		return E_FAIL;
+
+	mDashCheckCollider->SetCollision(false);
+	mDashCheckCollider->SetColor(_float4(1.f, 1.f, 0.f, 1.f));
+
+	ZeroMemory(&collDesc, sizeof(collDesc));
+	collDesc.owner = this;
+	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
+	collDesc.vExtents = _float3(1.f, 1.f, 1.f);
+	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
+
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider_wallcheck"), (CComponent**)&mWallCheckCollider, &collDesc)))
+		return E_FAIL;
+
+	mWallCheckCollider->SetColor(_float4(1.f, 0.f, 1.f, 1.f));
+
+	ZeroMemory(&collDesc, sizeof(collDesc));
+	collDesc.owner = this;
+	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
+	collDesc.vExtents = _float3(20.f, 20.f, 20.f);
+	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider_check"), (CComponent**)&mEnemyCheckCollider, &collDesc)))
 		return E_FAIL;
@@ -212,12 +273,12 @@ HRESULT CCharacter::AddComponents()
 	ZeroMemory(&collDesc, sizeof(collDesc));
 	collDesc.owner = this;
 	//collDesc.vCenter = _float3(0.f, 1.f, 1.f);
-	//collDesc.vExtants = _float3(2.5f, 1.f, 1.f);
-	//collDesc.vRotaion = _float3(0.f, 0.f, 0.f);
+	//collDesc.vExtents = _float3(2.5f, 1.f, 1.f);
+	//collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	collDesc.vCenter = _float3(0.8f, 0.f, 0.f);
-	collDesc.vExtants = _float3(2.5f, 0.3f, 0.3f);
-	collDesc.vRotaion = _float3(0.f, 0.f, 0.f);
+	collDesc.vExtents = _float3(2.5f, 0.3f, 0.3f);
+	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"), TEXT("com_collider_weapon"), (CComponent**)&mWeaponCollider, &collDesc)))
 		return E_FAIL;
@@ -274,6 +335,45 @@ void CCharacter::KeyInput(_double TimeDelta)
 		NearTargetChange();
 	}
 
+	//테스트 코드
+	if (pGameInstance->Input_KeyState_Custom(DIK_P) == KEY_STATE::TAP)
+	{
+		m_bEvolution = !m_bEvolution;
+		SetAnimation(CLIP::ATTACK51, CAnimation::TYPE::ONE);
+		m_bAttackable = false;
+		m_bMoveable = false;
+		m_bDashable = false;
+	}
+
+	//넉백
+	if (mModel->AnimationCompare(CLIP::ATTACK51))
+	{
+		if (mModel->AnimationIsPreFinishCustom(0.55))
+		{
+			for (auto& pEnemy : m_Enemys)
+			{
+				_vector vEnemyPos = XMLoadFloat4(&pEnemy->GetPosition());
+				_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+
+				_float fLength = XMVectorGetX(XMVector3Length(vEnemyPos - vPos));
+				if (fLength < 5.f)
+				{
+					pEnemy->SetNuckback(40.f);
+				}
+			}
+		}
+	}
+	
+	if (mModel->AnimationCompare(CLIP::ATTACK51))
+	{
+		if (mModel->AnimationIsFinishEx())
+		{
+			m_bAttackable = true;
+			m_bMoveable = true;
+			m_bDashable = true;
+		}
+	}
+
 	if (mModel->AnimationIsFinish())
 		Idle();
 }
@@ -292,6 +392,17 @@ void CCharacter::Dash(_double TimeDelta)
 	}
 	else
 		m_bDashable = true;
+
+	if (m_bDashPrevPosSet)
+	{
+		m_fActiveDuration += TimeDelta;
+		if (m_fActiveDuration >= m_fActiveTimeOut)
+		{
+			m_fActiveDuration = 0.0f;
+			m_bDashPrevPosSet = false;
+			mDashCheckCollider->SetActive(false);
+		}
+	}
 
 	if (AnimationCompare(CLIP::MOVE1) || AnimationCompare(CLIP::MOVE2))
 	{
@@ -334,6 +445,8 @@ void CCharacter::Dash(_double TimeDelta)
 				m_bAttackable = false;
 				m_bMoveable = false;
 				m_bDashable = false;
+
+				SavePrevPos();
 			}
 		}
 	}
@@ -358,6 +471,8 @@ void CCharacter::Dash(_double TimeDelta)
 				m_bAttackable = false;
 				m_bMoveable = false;
 				m_bDashable = false;
+
+				SavePrevPos();
 			}
 		}
 	}
@@ -382,6 +497,8 @@ void CCharacter::Dash(_double TimeDelta)
 				m_bAttackable = false;
 				m_bMoveable = false;
 				m_bDashable = false;
+
+				SavePrevPos();
 			}
 		}
 	}
@@ -395,6 +512,8 @@ void CCharacter::Dash(_double TimeDelta)
 			m_bAttackable = false;
 			m_bMoveable = false;
 			m_bDashable = false;
+
+			SavePrevPos();
 		}
 	}
 
@@ -464,109 +583,129 @@ void CCharacter::Attack(_double TimeDelta)
 		return;
 
 	if (m_bAttacking)
+	{
 		mWeaponCollider->SetActive(true);
+	}
+
+	if (m_bAttacking && mModel->AnimationIsPreFinish())
+	{
+		mWeaponCollider->SetActive(false);
+	}
 
 	if (pGameInstance->Input_KeyState_Custom(DIK_LCONTROL) == KEY_STATE::TAP)
 	{
-		if(m_pNearEnemy)
+		if (m_pNearEnemy)
 			mTransform->LookAt(XMLoadFloat4(&m_pNearEnemy->GetPosition()));
 
-		if (m_bAttacking)
+		if (!m_bEvolution)
 		{
-			m_bMoveable = false;
-			m_bDashable = false;
-			m_bAttacking = true;
 
-			if (m_iCurAttackCount == CLIP::ATTACK5)
+			if (m_bAttacking)
 			{
-				if (mModel->AnimationIsFinish())
+				m_bMoveable = false;
+				m_bDashable = false;
+				m_bAttacking = true;
+
+				if (m_iCurAttackCount == CLIP::ATTACK5)
 				{
-					m_bWeaponTimerOn = true;
-					SetAnimation((CCharacter::CLIP)m_iCurAttackCount, CAnimation::TYPE::ONE);
+					if (mModel->AnimationIsFinish())
+					{
+						m_bWeaponTimerOn = true;
+						SetAnimation((CCharacter::CLIP)m_iCurAttackCount, CAnimation::TYPE::ONE);
+					}
+				}
+				else
+				{
+					if (mModel->AnimationIsPreFinish())
+					{
+						m_iCurAttackCount++;
+						if (m_iCurAttackCount >= m_iAttackCount)
+						{
+							m_iCurAttackCount = 0;
+						}
+
+						m_bWeaponTimerOn = true;
+						SetAnimation((CCharacter::CLIP)m_iCurAttackCount, CAnimation::TYPE::ONE);
+					}
 				}
 			}
 			else
 			{
-				if (mModel->AnimationIsPreFinish())
-				{
-					m_iCurAttackCount++;
-					if (m_iCurAttackCount >= m_iAttackCount)
-					{
-						m_iCurAttackCount = 0;
-					}
-
-					m_bWeaponTimerOn = true;
-					SetAnimation((CCharacter::CLIP)m_iCurAttackCount, CAnimation::TYPE::ONE);
-				}
+				m_iCurAttackCount = 0;
+				m_bMoveable = false;
+				m_bAttacking = true;
+				m_bWeaponTimerOn = true;
+				SetAnimation((CCharacter::CLIP)m_iCurAttackCount, CAnimation::TYPE::ONE);
 			}
 		}
 		else
 		{
-			m_iCurAttackCount = 0;
-			m_bMoveable = false;
-			m_bAttacking = true;
-			m_bWeaponTimerOn = true;
-			SetAnimation((CCharacter::CLIP)m_iCurAttackCount, CAnimation::TYPE::ONE);
+			if (m_bAttacking)
+			{
+				m_bMoveable = false;
+				m_bDashable = false;
+				m_bAttacking = true;
+
+				if (m_iCurAttackCount == CLIP::ATTACK45)
+				{
+					if (mModel->AnimationIsPreFinish())
+					{
+						m_bWeaponTimerOn = true;
+						SetAnimation(CCharacter::CLIP::ATTACK45, CAnimation::TYPE::ONE);
+					}
+				}
+				else
+				{
+					if (mModel->AnimationIsPreFinish())
+					{
+						m_iCurAttackCount++;
+						if (m_iCurAttackCount >= m_iAttackCount)
+						{
+							m_iCurAttackCount = 0;
+						}
+
+						m_bWeaponTimerOn = true;
+
+						switch (m_iCurAttackCount)
+						{
+						case 1:
+							SetAnimation(CCharacter::CLIP::ATTACK42, CAnimation::TYPE::ONE);
+							break;
+						case 2:
+							SetAnimation(CCharacter::CLIP::ATTACK43, CAnimation::TYPE::ONE);
+							break;
+						case 3:
+							SetAnimation(CCharacter::CLIP::ATTACK44, CAnimation::TYPE::ONE);
+							break;
+						case 4:
+							SetAnimation(CCharacter::CLIP::ATTACK45, CAnimation::TYPE::ONE);
+							break;
+						}
+						
+					}
+				}
+			}
+			else
+			{
+				m_iCurAttackCount = 0;
+				m_bMoveable = false;
+				m_bAttacking = true;
+				m_bWeaponTimerOn = true;
+				SetAnimation(CCharacter::CLIP::ATTACK41, CAnimation::TYPE::ONE);
+			}
 		}
 	}
-
-	//if (m_bWeaponTimerOn)
-	//{
-	//	//이쪽 이상함 깜빡이질 않음
-	//	if (2 == m_iCurAttackCount)
-	//	{
-	//		if (m_iSecoundAttackCount == 0)
-	//		{
-	//			mWeaponCollider->SetActive(true);
-	//			m_fWeaponCollisionAcc += (_float)TimeDelta;
-
-	//			if (m_fWeaponCollisionAcc >= 0.5f)
-	//			{
-	//				m_iSecoundAttackCount++;
-	//				mWeaponCollider->SetActive(false);
-	//				m_fWeaponCollisionAcc = 0.0f;
-	//			}
-	//		}
-	//		else if(m_iSecoundAttackCount == 1)
-	//		{
-	//			//0.2초뒤 다시 키고
-	//			m_fWeaponCollisionAcc += (_float)TimeDelta;
-	//			if (m_fWeaponCollisionAcc >= 0.2f)
-	//			{
-	//				mWeaponCollider->SetActive(true);
-	//				m_fWeaponCollisionAcc = 0.0f;
-	//			}
-
-	//			if (m_fWeaponCollisionAcc >= 0.5f)
-	//			{
-	//				mWeaponCollider->SetActive(false);
-	//				m_fWeaponCollisionAcc = 0.0f;
-	//				m_bWeaponTimerOn = false;
-	//				m_iSecoundAttackCount = 0;
-	//			}
-	//		}
-
-	//	}
-	//	else
-	//	{
-	//		mWeaponCollider->SetActive(true);
-	//		m_fWeaponCollisionAcc += (_float)TimeDelta;
-
-	//		if (m_fWeaponCollisionAcc >= m_fWeaponCollDelay)
-	//		{
-	//			mWeaponCollider->SetActive(false);
-	//			m_bWeaponTimerOn = false;
-	//			m_fWeaponCollisionAcc = 0.0f;
-	//		}
-	//	}
-
-	//}
 
 	if (!AnimationCompare(CLIP::ATTACK1) &&
 		!AnimationCompare(CLIP::ATTACK2) &&
 		!AnimationCompare(CLIP::ATTACK3) &&
 		!AnimationCompare(CLIP::ATTACK4) &&
-		!AnimationCompare(CLIP::ATTACK5))
+		!AnimationCompare(CLIP::ATTACK5) &&
+		!AnimationCompare(CLIP::ATTACK41) &&
+		!AnimationCompare(CLIP::ATTACK42) &&
+		!AnimationCompare(CLIP::ATTACK43) &&
+		!AnimationCompare(CLIP::ATTACK44) &&
+		!AnimationCompare(CLIP::ATTACK45))
 	{
 		mWeaponCollider->SetActive(false);
 		m_iCurAttackCount = 0;
@@ -698,7 +837,11 @@ _float3 CCharacter::LockOnCameraPosition()
 	if(nullptr == m_pNearEnemy)
 		return _float3();
 
+	if(m_pNearEnemy->IsDestroy())
+		return _float3();
+
 	_float3 vLockPosition;
+
 	_vector vDir = (XMLoadFloat4(&m_pNearEnemy->GetPosition()) - mTransform->Get_State(CTransform::STATE_POSITION)) * 0.7f;
 	_float fHeight = XMVectorGetY(mCameraSocketTransform->Get_State(CTransform::STATE_POSITION));
 	vDir = XMVectorSetY(vDir, fHeight);
@@ -706,6 +849,86 @@ _float3 CCharacter::LockOnCameraPosition()
 	XMStoreFloat3(&vLockPosition, vDir);
 
 	return vLockPosition;
+}
+
+void CCharacter::Hit()
+{
+	//대쉬중에 힛 스루
+	if (mModel->AnimationCompare(CLIP::MOVE1) ||
+		mModel->AnimationCompare(CLIP::MOVE2) ||
+		mModel->AnimationCompare(CLIP::ATTACK51))
+	{
+		return;
+	}
+
+	if (m_bEvolution)
+		return;
+
+	m_bHit = true;
+	m_bMoveable = false;
+	m_bDashable = false;
+	m_bAttackable = false;
+
+	if (!mModel->AnimationCompare(CLIP::HIT1))
+	{
+		SetAnimation(CLIP::HIT1, CAnimation::TYPE::ONE);
+	}
+}
+
+void CCharacter::RecvDamage(_float fDamage)
+{
+	m_fCurHp -= fDamage;
+	if (m_fCurHp <= 0.f)
+		m_bDie = true;
+}
+
+_double CCharacter::Freeze(_double TimeDelta)
+{
+	if (m_pAppManager->IsFreeze())
+	{
+		_vector CurTimeDelta = XMVectorSet(m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale);
+		m_fCurTimeScale = XMVectorGetX(XMVectorLerp(CurTimeDelta, XMVectorSet(0.0, 0.0, 0.0, 0.0), TimeDelta * 0.8));
+
+		_float3 vPrevPos;
+		vPrevPos.x = m_matrixPrevPos._41;
+		vPrevPos.y = 0.f;
+		vPrevPos.z = m_matrixPrevPos._43;
+
+		m_pAppManager->SetPlayerPrevPosition(vPrevPos);
+	}
+
+	if (m_fCurTimeScale <= 0.1)
+	{
+		m_bTimeStop = true;
+		m_fCurTimeScale = 1.0;
+	}
+
+	if (m_bTimeStop)
+	{
+		m_fTimeStopLocal += TimeDelta;
+		if (m_fTimeStopLocal >= m_fTimeStopTimeOut)
+		{
+			m_pAppManager->SetFreeze(false);
+			m_fTimeStopLocal = 0.0;
+			m_fCurTimeScale = 1.0;
+			m_bTimeStop = false;
+		}
+
+		return TimeDelta;
+	}
+	else
+		return TimeDelta = TimeDelta * m_fCurTimeScale;
+}
+
+void CCharacter::SavePrevPos()
+{
+	if (!m_bDashPrevPosSet && !m_bTimeStop)
+	{
+		m_bDashPrevPosSet = true;
+		m_matrixPrevPos = mTransform->Get_WorldMatrix();
+		m_matrixPrevPos._42 = 0.8f;
+		mDashCheckCollider->SetActive(true);
+	}
 }
 
 void CCharacter::SetAnimation(CLIP eClip, CAnimation::TYPE eAnimationType)
@@ -720,7 +943,17 @@ void CCharacter::AnimationControl(_double TimeDelta)
 
 	mModel->Setup_Animation(ANIM_DESC.Clip, ANIM_DESC.Type, true);
 
-	if (AnimationCompare(CLIP::RUN))
+	if (AnimationCompare(CLIP::RUN) ||
+		AnimationCompare(CLIP::ATTACK1) ||
+		AnimationCompare(CLIP::ATTACK2) ||
+		AnimationCompare(CLIP::ATTACK3) ||
+		AnimationCompare(CLIP::ATTACK4) ||
+		AnimationCompare(CLIP::ATTACK5) ||
+		AnimationCompare(CLIP::ATTACK41) ||
+		AnimationCompare(CLIP::ATTACK42) ||
+		AnimationCompare(CLIP::ATTACK43) ||
+		AnimationCompare(CLIP::ATTACK44) ||
+		AnimationCompare(CLIP::ATTACK45))
 	{
 		mModel->Play_Animation(TimeDelta, mTransform, 0.01f);
 	}
@@ -979,6 +1212,8 @@ void CCharacter::Free()
 { 
 	__super::Free();
 
+	Safe_Release(mDashCheckCollider);
+	Safe_Release(mWallCheckCollider);
 	Safe_Release(mWeaponCollider);
 	Safe_Release(mEnemyCheckCollider);
 	Safe_Release(mCollider);
@@ -1000,20 +1235,88 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 				m_Enemys.push_back(pEnemy);
 		}
 	}
+
+	if (src->Compare(mDashCheckCollider))
+	{
+		//초산공간 오픈
+		CApplicationManager* pAppManager = CApplicationManager::GetInstance();
+		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
+		if (pEnemy)
+		{
+			pAppManager->SetFreeze(true);
+		}
+	}
 }
 
 void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 {
-	//몬스터와 밀리기
+	//
 	CGameInstance* pInstance = CGameInstance::GetInstance();
 	_float DeltaTime = pInstance->GetTimer(TEXT("144FPS"));
+
+	if (src->Compare(mWallCheckCollider))
+	{
+		CWall* pWall = dynamic_cast<CWall*>(dest->GetOwner());
+		if (pWall)
+		{
+			m_WallHit = true;
+
+			_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+			_vector vLook = mTransform->Get_State(CTransform::STATE_LOOK);
+
+			_vector vNormal;
+			if (m_pNearWall == nullptr)
+			{
+				m_pNearWall = pWall;
+				vNormal = pWall->GetNormal(vPos, &m_fNearPlaneLength);
+			}
+			else
+			{
+				_float fLength = 0.f;
+				vNormal = pWall->GetNormal(vPos, &fLength);
+				if (fLength < m_fNearPlaneLength)
+				{
+					m_pNearWall = pWall;
+					m_fNearPlaneLength = fLength;
+				}
+				else
+				{
+					vNormal = m_pNearWall->GetNormal(vPos, &m_fNearPlaneLength);
+				}
+			}
+
+			_vector vPrevPos = XMLoadFloat3(&vPrevPosition);
+			_float fDepth = XMVectorGetX(XMVector3Length(vPos - vPrevPos)) * 0.005f;
+
+			_float vExtents = m_pNearWall->GetDepth();
+						
+			_vector vInput = vLook * fDepth;
+			_vector vSlide = XMVector3Normalize(vInput - vNormal * XMVectorGetX(XMVector3Dot(vNormal, vInput)));
+
+			//_vector vCurrentPos = vPrevPos + vSlide * fDepth;
+
+			_vector vCurrentPos = vPrevPos + vNormal * fDepth;
+			mTransform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
+			XMStoreFloat3(&vPrevPosition, vCurrentPos);
+		}
+	}
 
 	if (src->Compare(mCollider))
 	{
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
-		if (pEnemy)
+		if (pEnemy && dest->Compare(pEnemy->GetBodyCollider()))
 		{
+			if (mModel->AnimationCompare(CLIP::STAND2) ||
+				mModel->AnimationCompare(CLIP::ATTACK51)||
+				mModel->AnimationCompare(CLIP::HIT1) ||
+				mModel->AnimationCompare(CLIP::HIT2) || 
+				mModel->AnimationCompare(CLIP::HIT3) ||
+				mModel->AnimationCompare(CLIP::HIT4))
+				return;
+
 			//CCollider* pEnemyBodyColl = pEnemy->GetBodyCollider();
+
+			//_vector vLook = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_LOOK));
 			_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
 			_vector vEnemyPos = XMLoadFloat4(&pEnemy->GetPosition());
 			vEnemyPos = XMVectorSetY(vEnemyPos, 0.0f);
@@ -1028,14 +1331,7 @@ void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 			//겹쳐진 부분의 양
 			_float fDepth = (fTotalRadius - fLength) - src->GetExtents().x;
 			_vector vCurrentPos = vPos + vDir * (fDepth * 1.1f);
-
-			//OVERLAP_INFO OverlapInfo;
-			//ZeroMemory(&OverlapInfo, sizeof OVERLAP_INFO);
-			//XMStoreFloat3(&OverlapInfo.vDir, vDir);
-			//XMStoreFloat3(&OverlapInfo.vDir, vDir);
-
 			mTransform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
-			//m_OverlappedInfo.push_back(OverlapInfo);
 		}
 	}
 }
@@ -1051,10 +1347,20 @@ void CCharacter::OnCollisionExit(CCollider * src, CCollider * dest)
 		}
 	}
 
+	if (src->Compare(mWallCheckCollider))
+	{
+		CWall* pWall = dynamic_cast<CWall*>(dest->GetOwner());
+		if (pWall)
+		{
+			m_WallHit = false;
+		}
+	}
+
 	if (src->Compare(mEnemyCheckCollider))
 	{
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
 		if (pEnemy)
 			DeleteTargetFromList(dest->GetOwner());
 	}
+
 }
