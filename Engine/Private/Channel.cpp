@@ -187,18 +187,28 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 			vAlignPos = XMVectorSetY(vAlignPos, 0.0);
 			_vector vFinalPos = vCurrentPos + vAlignPos;
 
-			if(pTransform != nullptr)
-				pTransform->Set_State(CTransform::STATE_POSITION, vFinalPos);
+			if (pTransform != nullptr)
+			{
+				if (bRootMotion)
+				{
+					pTransform->Set_State(CTransform::STATE_POSITION, vFinalPos);
+				}
+				else
+				{
+					vFinalPos = XMVectorSetX(vFinalPos, XMVectorGetX(vCurrentPos));
+					vFinalPos = XMVectorSetZ(vFinalPos, XMVectorGetZ(vCurrentPos));
+					pTransform->Set_State(CTransform::STATE_POSITION, vFinalPos);
+				}
+			}
 
 			//현재 키프레임의 본 위치 저장
 			XMStoreFloat3(&m_vPrevBonePos, vPosition);
 
 			//첫번째 프레임의 위치에 애니메이션 루트본 고정
-
 			if(bRootMotion)
 				vPosition = XMVectorSet(m_vIdleOriginPos.x, XMVectorGetY(vPosition), m_vIdleOriginPos.z, 1.0f);
 			else
-				vPosition = XMVectorSet(0.f, 0.f, 0.f, 1.0f);
+				vPosition = XMVectorSet(0.f, XMVectorGetY(vPosition), 0.f, 1.0f);
 		}
 	}
 

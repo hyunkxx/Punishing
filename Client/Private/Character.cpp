@@ -90,6 +90,7 @@ void CCharacter::Tick(_double TimeDelta)
 		XMStoreFloat3(&vPrevPosition, mTransform->Get_State(CTransform::STATE_POSITION));
 
 	AnimationControl(TimeDelta);
+	SkillColliderControl(TimeDelta);
 	//PositionHold(TimeDelta);
 
 	CameraSocketUpdate();
@@ -348,22 +349,44 @@ void CCharacter::KeyInput(_double TimeDelta)
 	//넉백
 	if (mModel->AnimationCompare(CLIP::ATTACK51))
 	{
-		if (mModel->AnimationIsPreFinishCustom(0.55))
+		if (!m_pAppManager->IsFreeze())
 		{
-			for (auto& pEnemy : m_Enemys)
+			if (mModel->AnimationIsPreFinishCustom(0.55))
 			{
-				_vector vEnemyPos = XMLoadFloat4(&pEnemy->GetPosition());
-				_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
-
-				_float fLength = XMVectorGetX(XMVector3Length(vEnemyPos - vPos));
-				if (fLength < 5.f)
+				for (auto& pEnemy : m_Enemys)
 				{
-					pEnemy->SetNuckback(40.f);
+					_vector vEnemyPos = XMLoadFloat4(&pEnemy->GetPosition());
+					_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+
+					_float fLength = XMVectorGetX(XMVector3Length(vEnemyPos - vPos));
+					if (fLength < 5.f)
+					{
+						pEnemy->SetNuckback(40.f);
+					}
 				}
 			}
 		}
+
 	}
 	
+	if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::TAP)
+	{
+		if(!m_bUseSkill)
+			SkillA(TimeDelta);
+	}
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_B) == KEY_STATE::TAP)
+	{
+		if (!m_bUseSkill)
+			SkillB(TimeDelta);
+	}
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_C) == KEY_STATE::TAP)
+	{
+		if (!m_bUseSkill)
+			SkillC(TimeDelta);
+	}
+
 	if (mModel->AnimationCompare(CLIP::ATTACK51))
 	{
 		if (mModel->AnimationIsFinishEx())
@@ -413,6 +436,7 @@ void CCharacter::Dash(_double TimeDelta)
 			mCollider->SetActive(true);
 			m_bDashable = true;
 
+			m_bRootMotion = true;
 			m_bFrontDashReady = false;
 			m_bRightDashReady = false;
 			m_bLeftDashReady = false;
@@ -587,7 +611,7 @@ void CCharacter::Attack(_double TimeDelta)
 		mWeaponCollider->SetActive(true);
 	}
 
-	if (m_bAttacking && mModel->AnimationIsPreFinish())
+	if ((m_bAttacking) && mModel->AnimationIsPreFinish())
 	{
 		mWeaponCollider->SetActive(false);
 	}
@@ -701,6 +725,7 @@ void CCharacter::Attack(_double TimeDelta)
 		!AnimationCompare(CLIP::ATTACK3) &&
 		!AnimationCompare(CLIP::ATTACK4) &&
 		!AnimationCompare(CLIP::ATTACK5) &&
+		!AnimationCompare(CLIP::ATTACK11) &&
 		!AnimationCompare(CLIP::ATTACK41) &&
 		!AnimationCompare(CLIP::ATTACK42) &&
 		!AnimationCompare(CLIP::ATTACK43) &&
@@ -738,6 +763,39 @@ void CCharacter::PositionHold(_double TimeDelta)
 	//mTransform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
 
 	//m_OverlappedInfo.clear();
+}
+
+void CCharacter::SkillA(_double TimeDelta)
+{
+	m_bUseSkill = true;
+	m_bAttacking = true;
+	SetAnimation(CLIP::ATTACK11, CAnimation::TYPE::ONE);
+}
+
+void CCharacter::SkillB(_double TimeDelta)
+{
+	m_bUseSkill = true;
+	SetAnimation(CLIP::ATTACK21, CAnimation::TYPE::ONE);
+
+}
+
+void CCharacter::SkillC(_double TimeDelta)
+{
+	m_bUseSkill = true;
+	SetAnimation(CLIP::ATTACK31, CAnimation::TYPE::ONE);
+
+}
+
+void CCharacter::SkillColliderControl(_double TimeDelta)
+{
+	if (m_bUseSkill)
+	{
+		if (mModel->AnimationIsFinishEx())
+		{
+			m_bUseSkill = false;
+		}
+	}
+
 }
 
 void CCharacter::TargetListDeastroyCehck()
@@ -856,6 +914,11 @@ void CCharacter::Hit()
 	//대쉬중에 힛 스루
 	if (mModel->AnimationCompare(CLIP::MOVE1) ||
 		mModel->AnimationCompare(CLIP::MOVE2) ||
+		mModel->AnimationCompare(CLIP::ATTACK11) ||
+		mModel->AnimationCompare(CLIP::ATTACK21) ||
+		mModel->AnimationCompare(CLIP::ATTACK31) ||
+		mModel->AnimationCompare(CLIP::ATTACK12) ||
+		mModel->AnimationCompare(CLIP::ATTACK32) ||
 		mModel->AnimationCompare(CLIP::ATTACK51))
 	{
 		return;
@@ -949,17 +1012,22 @@ void CCharacter::AnimationControl(_double TimeDelta)
 		AnimationCompare(CLIP::ATTACK3) ||
 		AnimationCompare(CLIP::ATTACK4) ||
 		AnimationCompare(CLIP::ATTACK5) ||
+		AnimationCompare(CLIP::ATTACK11) ||
+		AnimationCompare(CLIP::ATTACK21) ||
+		AnimationCompare(CLIP::ATTACK31) ||
+		AnimationCompare(CLIP::ATTACK12) ||
+		AnimationCompare(CLIP::ATTACK22) ||
+		AnimationCompare(CLIP::ATTACK32) ||
 		AnimationCompare(CLIP::ATTACK41) ||
 		AnimationCompare(CLIP::ATTACK42) ||
 		AnimationCompare(CLIP::ATTACK43) ||
 		AnimationCompare(CLIP::ATTACK44) ||
 		AnimationCompare(CLIP::ATTACK45))
 	{
-		mModel->Play_Animation(TimeDelta, mTransform, 0.01f);
+		mModel->Play_Animation(TimeDelta, mTransform, 0.01f, m_bRootMotion);
 	}
 	else
 		mModel->Play_Animation(TimeDelta, mTransform);
-
 }
 
 void CCharacter::CameraSocketUpdate()
@@ -1216,6 +1284,7 @@ void CCharacter::Free()
 	Safe_Release(mWallCheckCollider);
 	Safe_Release(mWeaponCollider);
 	Safe_Release(mEnemyCheckCollider);
+	Safe_Release(mSkillBCollider);
 	Safe_Release(mCollider);
 	Safe_Release(mRenderer);
 	Safe_Release(mTransform);
@@ -1306,32 +1375,37 @@ void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
 		if (pEnemy && dest->Compare(pEnemy->GetBodyCollider()))
 		{
-			if (mModel->AnimationCompare(CLIP::STAND2) ||
-				mModel->AnimationCompare(CLIP::ATTACK51)||
-				mModel->AnimationCompare(CLIP::HIT1) ||
-				mModel->AnimationCompare(CLIP::HIT2) || 
-				mModel->AnimationCompare(CLIP::HIT3) ||
-				mModel->AnimationCompare(CLIP::HIT4))
-				return;
-
-			//CCollider* pEnemyBodyColl = pEnemy->GetBodyCollider();
-
+			//if (mModel->AnimationCompare(CLIP::STAND2) ||
+			//	mModel->AnimationCompare(CLIP::ATTACK51)||
+			//	mModel->AnimationCompare(CLIP::HIT1) ||
+			//	mModel->AnimationCompare(CLIP::HIT2) || 
+			//	mModel->AnimationCompare(CLIP::HIT3) ||
+			//	mModel->AnimationCompare(CLIP::HIT4))
+			//	return;
+			//
+			////수정
 			//_vector vLook = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_LOOK));
-			_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
-			_vector vEnemyPos = XMLoadFloat4(&pEnemy->GetPosition());
-			vEnemyPos = XMVectorSetY(vEnemyPos, 0.0f);
 
-			_vector vDistance = vPos - vEnemyPos;
-			_vector vDir = XMVector3Normalize(vDistance);
+			//_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+			//_vector vEnemyPos = XMLoadFloat4(&pEnemy->GetPosition());
+			//vEnemyPos = XMVectorSetY(vEnemyPos, 0.0f);
 
-			//구의 반지름의 합
-			_float fTotalRadius = src->GetExtents().x + dest->GetExtents().x;
-			_float fLength = XMVectorGetX(XMVector3Length(vPos - vEnemyPos));
+			//_vector vDistance = vPos - vEnemyPos;
+			//_vector vDir = XMVector3Normalize(vDistance);
 
-			//겹쳐진 부분의 양
-			_float fDepth = (fTotalRadius - fLength) - src->GetExtents().x;
-			_vector vCurrentPos = vPos + vDir * (fDepth * 1.1f);
-			mTransform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
+			////구의 반지름의 합
+			//_float fTotalRadius = src->GetExtents().x + dest->GetExtents().x;
+			//_float fLength = XMVectorGetX(XMVector3Length(vPos - vEnemyPos));
+
+			////겹쳐진 부분의 양
+			//_float fDepth = (fTotalRadius - fLength) - src->GetExtents().x;
+			//_vector vCurrentPos = vPos + vDir * (fDepth * 1.1f);
+			//mTransform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
+
+			if (m_pNearEnemy == pEnemy)
+				m_bRootMotion = false;
+			else
+				m_bRootMotion = true;
 		}
 	}
 }
@@ -1341,9 +1415,10 @@ void CCharacter::OnCollisionExit(CCollider * src, CCollider * dest)
 	if (src->Compare(mCollider))
 	{
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
-		if (pEnemy)
+		if (pEnemy && dest->Compare(pEnemy->GetBodyCollider()))
 		{
-			//m_bHolding = false;
+			if (m_pNearEnemy == pEnemy)
+				m_bRootMotion = true;
 		}
 	}
 
@@ -1352,7 +1427,7 @@ void CCharacter::OnCollisionExit(CCollider * src, CCollider * dest)
 		CWall* pWall = dynamic_cast<CWall*>(dest->GetOwner());
 		if (pWall)
 		{
-			m_WallHit = false;
+			m_WallHit = true;
 		}
 	}
 

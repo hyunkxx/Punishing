@@ -100,6 +100,7 @@ void CEnemy::Tick(_double TimeDelta)
 		AnimationState(TimeDelta);
 		CGameInstance* pGameInstance = CGameInstance::GetInstance();
 		pGameInstance->AddCollider(collider);
+		pGameInstance->AddCollider(m_pOverlapCollider);
 		pGameInstance->AddCollider(m_pWeaponCollider);
 	}
 }
@@ -116,6 +117,7 @@ void CEnemy::LateTick(_double TimeDelta)
 	
 	//collider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));
 	collider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));
+	m_pOverlapCollider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));
 	m_pWeaponCollider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));	
 
 	if (nullptr != renderer)
@@ -203,15 +205,23 @@ HRESULT CEnemy::AddComponents()
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 1.f, 0.f);
-	collDesc.vExtents = _float3(1.f, 1.f, 1.f);
+	collDesc.vExtents = _float3(1.f, 2.f, 1.f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
-	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&collider, &collDesc));
+	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"), TEXT("com_collider"), (CComponent**)&collider, &collDesc));
+
+	ZeroMemory(&collDesc, sizeof collDesc);
+	collDesc.owner = this;
+	collDesc.vCenter = _float3(0.f, 1.f, 0.f);
+	collDesc.vExtents = _float3(1.5f, 1.5f, 1.5f);
+	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
+
+	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collder_enemy"), (CComponent**)&m_pOverlapCollider, &collDesc));
 
 	ZeroMemory(&collDesc, sizeof collDesc);
 	collDesc.owner = this;
 	collDesc.vExtents = _float3(1.5f, 1.5f, 1.5f);
-	collDesc.vCenter = _float3(0.f, 1.f, 2.f);
+	collDesc.vCenter = _float3(0.f, 1.f, 1.f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collder_weapon"), (CComponent**)&m_pWeaponCollider, &collDesc));
@@ -271,7 +281,6 @@ void CEnemy::OverlapProcess(_double TimeDelta)
 	}
 
 	m_bAttackCollision = false;
-
 
 	//플레이어를 향하는 방향벡터  ( Enemy -> Player)
 	//_vector vPlayerDir = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION);
@@ -607,7 +616,8 @@ void CEnemy::AnimationState(_double TimeDelta)
 
 		if (m_bOverlapped)
 		{
-			OverlapProcess(TimeDelta);
+			if (!m_pAppManager->IsFreeze())
+				OverlapProcess(TimeDelta);
 		}
 		else
 		{
@@ -619,31 +629,39 @@ void CEnemy::AnimationState(_double TimeDelta)
 					LookPlayer(TimeDelta);
 			}
 
-			if (vDistance < 40.f)
+			if (m_bRotationFinish)
 			{
-				if (m_bRotationFinish)
+				if (vDistance > m_fAttackRange)
 				{
-					if (vDistance < m_fAttackRange)
+					if (m_bAttack)
 					{
-						if (!m_bAttack)
+						if (model->AnimationIsFinishEx())
 						{
-							if (m_eType == TYPE::HUMANOID)
-								model->Setup_Animation((_uint)CLIP::STAND, CAnimation::TYPE::LOOP, true);
-							else
-								model->Setup_Animation((_uint)CLIP_TWO::STAND2, CAnimation::TYPE::LOOP, true);
-						}
-
-						m_fAttackCoolTimer += TimeDelta;
-						if (m_fAttackCoolTimer >= m_fAttackCoolTimeOut)
-						{
-							m_bAttack = true;
-							m_fAttackCoolTimer = 0.f;
+							Trace(TimeDelta);
+							m_fAttackCoolTimer = 2.f;
 						}
 					}
 					else
 					{
 						Trace(TimeDelta);
 						m_fAttackCoolTimer = 2.f;
+					}
+				}
+				else
+				{
+					if (!m_bAttack)
+					{
+						if (m_eType == TYPE::HUMANOID)
+							model->Setup_Animation((_uint)CLIP::STAND, CAnimation::TYPE::LOOP, true);
+						else
+							model->Setup_Animation((_uint)CLIP_TWO::STAND2, CAnimation::TYPE::LOOP, true);
+					}
+
+					m_fAttackCoolTimer += TimeDelta;
+					if (m_fAttackCoolTimer >= m_fAttackCoolTimeOut)
+					{
+						m_bAttack = true;
+						m_fAttackCoolTimer = 0.f;
 					}
 				}
 			}
@@ -723,6 +741,7 @@ void CEnemy::Free()
 	Safe_Release(model);
 	Safe_Release(shader);
 	Safe_Release(collider);
+	Safe_Release(m_pOverlapCollider);
 }
 
 void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
@@ -734,7 +753,7 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 
 	if (pEnemy && pAotherEnemy)
 	{
-		if (src->Compare(collider) && dest->Compare(pAotherEnemy->GetBodyCollider()))
+		if (src->Compare(m_pOverlapCollider) && dest->Compare(pAotherEnemy->GetOverlapCollider()))
 		{
 			if (model->AnimationCompare((_uint)CLIP::ATTACK1) ||
 				model->AnimationCompare((_uint)CLIP::ATTACK2) ||
@@ -772,12 +791,8 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 		m_bOverlapped = false;
 
 		CCollider* pWeaponCollider = pPlayer->GetWeaponCollider();
-		if (dest->Compare(pWeaponCollider))
+		if (src->Compare(collider) && dest->Compare(pWeaponCollider))
 		{
-			//if (m_bHit)
-			//{
-			//	model->AnimationReset();
-			//}
 			m_bHit = true;
 			RecvDamage(10.f);
 		}
@@ -789,8 +804,6 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 			{
 				pPlayer->Hit();
 				pPlayer->RecvDamage(100.f);
-
-				SetNuckback(4.0f);
 			}
 		}
 	}

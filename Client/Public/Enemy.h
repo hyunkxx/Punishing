@@ -111,6 +111,7 @@ public:
 	void SetPosition(_float3 vPosition);
 	_vector GetRootBonePosition();
 	class CCollider* GetBodyCollider() { return collider; }
+	class CCollider* GetOverlapCollider() { return m_pOverlapCollider; }
 	void SetNuckback(_float fPower);
 
 private:
@@ -150,6 +151,9 @@ private:
 	CModel* model = nullptr;
 	CShader* shader = nullptr;
 	CCollider* collider = nullptr;
+
+	//몬스터 끼리 밀어내기용
+	CCollider* m_pOverlapCollider = nullptr;
 
 	CCollider* m_pWeaponCollider = nullptr;
 	CBone* m_pWeaponBone = nullptr;

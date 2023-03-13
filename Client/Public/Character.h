@@ -179,6 +179,11 @@ private:
 	void Attack(_double TimeDelta);
 	void PositionHold(_double TimeDelta);
 
+	void SkillA(_double TimeDelta);
+	void SkillB(_double TimeDelta);
+	void SkillC(_double TimeDelta);
+	void SkillColliderControl(_double TimeDelta);
+
 public: // Enemy 관련 코드
 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
 	_bool IsCameraLockOn() { return m_pNearEnemy != nullptr; };
@@ -223,6 +228,8 @@ private:
 	CCollider* mWallCheckCollider = nullptr;
 	CCollider* mEnemyCheckCollider = nullptr;
 	CCollider* mWeaponCollider = nullptr;
+
+	CCollider* mSkillBCollider = nullptr;
 
 private:
 	class CApplicationManager* m_pAppManager = nullptr;
@@ -309,6 +316,9 @@ private: // Command
 	_double m_fTimeStopLocal = 0.0;
 	const _float m_fTimeStopTimeOut = 12.f;
 	
+	_bool m_bUseSkill = false;
+
+	_bool m_bRootMotion = true;
 };
 
 END

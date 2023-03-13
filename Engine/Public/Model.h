@@ -81,8 +81,7 @@ private:
 	//Lerp
 	_bool m_bLerp = false;
 	PREV_DATA m_PrevData;
-
-
+	
 };
 
 END

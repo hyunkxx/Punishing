@@ -88,7 +88,7 @@ void CAnimation::AnimationLerp(_double TimeDelta, CTransform * pTransform, PREV_
 
 }
 
-void CAnimation::PlayLoop(_double TimeDelta, CTransform * pTransform, _bool bHoldAxisY)
+void CAnimation::PlayLoop(_double TimeDelta, CTransform * pTransform, _bool bRootMotion)
 {
 	m_LocalTime += m_TickPerSecond * TimeDelta;
 	if (m_LocalTime >= m_Duration)
@@ -99,12 +99,12 @@ void CAnimation::PlayLoop(_double TimeDelta, CTransform * pTransform, _bool bHol
 
 	for (auto& pChannel : m_Channels)
 	{
-		pChannel->InvalidateTransform(m_LocalTime, pTransform, bHoldAxisY);
+		pChannel->InvalidateTransform(m_LocalTime, pTransform, bRootMotion);
 	}
 
 }
 
-void CAnimation::PlayOne(_double TimeDelta, CTransform * pTransform, _bool bHoldAxisY)
+void CAnimation::PlayOne(_double TimeDelta, CTransform * pTransform, _bool bRootMotion)
 {
 	m_LocalTime += m_TickPerSecond * TimeDelta;//³·Ãç¾ß ´À·ÁÁü
 	
@@ -124,7 +124,7 @@ void CAnimation::PlayOne(_double TimeDelta, CTransform * pTransform, _bool bHold
 	
 	for (auto& pChannel : m_Channels)
 	{
-		pChannel->InvalidateTransform(m_LocalTime, pTransform, bHoldAxisY);
+		pChannel->InvalidateTransform(m_LocalTime, pTransform, bRootMotion);
 	}
 
 }
