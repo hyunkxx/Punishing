@@ -150,6 +150,12 @@ HRESULT CEnemy::Render()
 
 void CEnemy::RenderGUI()
 {
+	ImGui::Begin("HP");
+
+	string hp = to_string(m_State.fCurHp);
+	ImGui::Text(hp.c_str());
+
+	ImGui::End();
 }
 
 _float4 CEnemy::GetPosition()
@@ -213,15 +219,15 @@ HRESULT CEnemy::AddComponents()
 	ZeroMemory(&collDesc, sizeof collDesc);
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 1.f, 0.f);
-	collDesc.vExtents = _float3(1.5f, 1.5f, 1.5f);
+	collDesc.vExtents = _float3(1.0f, 1.0f, 1.0f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collder_enemy"), (CComponent**)&m_pOverlapCollider, &collDesc));
 
 	ZeroMemory(&collDesc, sizeof collDesc);
 	collDesc.owner = this;
-	collDesc.vExtents = _float3(1.5f, 1.5f, 1.5f);
-	collDesc.vCenter = _float3(0.f, 1.f, 1.f);
+	collDesc.vExtents = _float3(1.7f, 1.7f, 1.7f);
+	collDesc.vCenter = _float3(0.f, 1.f, 1.7f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collder_weapon"), (CComponent**)&m_pWeaponCollider, &collDesc));
@@ -277,11 +283,13 @@ void CEnemy::OverlapProcess(_double TimeDelta)
 	{
 		m_bRotationFinish = false;
 		m_bOverlapped = false;
+
+		m_bTraceFinish = false;
+		m_bAttackCollision = false;
+
 		m_OverlapAcc = 0.0;
 	}
-
-	m_bAttackCollision = false;
-
+	
 	//플레이어를 향하는 방향벡터  ( Enemy -> Player)
 	//_vector vPlayerDir = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION);
 
@@ -440,6 +448,8 @@ void CEnemy::Trace(_double TimeDelta)
 
 	m_bAttack = false;
 	m_bAttackCollision = false;
+	m_fAttackCoolTimer = 0.0f;
+	
 	_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
 	transform->Chase(vPlayerPos, TimeDelta, m_fAttackRange);
 
@@ -466,6 +476,7 @@ void CEnemy::Idle(_double TimeDelta)
 	m_bMovable = true;
 	m_bRotationFinish = false;
 	m_bAttackCollision = false;
+
 	if (m_eType == TYPE::HUMANOID)
 		model->Setup_Animation((_uint)CLIP::STAND, CAnimation::TYPE::LOOP, true);
 	else
@@ -483,6 +494,15 @@ _bool CEnemy::Hit(_double TimeDelta)
 		m_bDeadWait = true;
 	else
 		m_bDeadWait = false;
+
+	if (m_bAirHit)
+	{
+		m_bHitStart = false;
+		m_bHit = false;
+		m_bNuckBackFinish = false;
+		m_fNuckBackTimer = 0.0f;
+		return false;
+	}
 
 	if (m_pAppManager->IsFreeze())
 		return false;
@@ -546,6 +566,72 @@ void CEnemy::NuckBack(_double TimeDelta)
 
 }
 
+void CEnemy::Airborne(_double TimeDelta)
+{
+	if (m_pAppManager->IsFreeze())
+		return;
+
+	if (m_bAir)
+	{
+		if(m_eType == TYPE::HUMANOID)
+			model->Setup_Animation((_uint)CLIP::HITDOWN, CAnimation::TYPE::ONE, false);
+		else
+			model->Setup_Animation((_uint)CLIP_TWO::HITDOWN, CAnimation::TYPE::ONE, false);
+	}
+	else
+	{
+		if (m_eType == TYPE::HUMANOID)
+			model->Setup_Animation((_uint)CLIP::STANDUP, CAnimation::TYPE::ONE, false);
+		else
+			model->Setup_Animation((_uint)CLIP_TWO::STANDUP, CAnimation::TYPE::ONE, false);
+	}
+
+	if (m_eType == TYPE::HUMANOID)
+	{
+		if (model->AnimationCompare((_uint)CLIP::HITDOWN))
+		{
+			if (model->AnimationIsFinishEx())
+				m_bStandupStart = true;
+		}
+		else if (model->AnimationCompare((_uint)CLIP::STANDUP))
+		{
+			if (model->AnimationIsFinishEx())
+			{
+				m_bAir = false;
+				m_bAirHit = false;
+			}
+		}
+	}
+	else
+	{
+		if (model->AnimationCompare((_uint)CLIP_TWO::HITDOWN))
+		{
+			if (model->AnimationIsFinishEx())
+				m_bStandupStart = true;
+		}
+		else if (model->AnimationCompare((_uint)CLIP_TWO::STANDUP))
+		{
+			if (model->AnimationIsFinishEx())
+			{
+				m_bAir = false;
+				m_bAirHit = false;
+			}
+		}
+	}
+
+	if (m_bStandupStart)
+	{
+		m_fStandupTimer += (_float)TimeDelta;
+		if (m_fStandupTimer >= m_fStandupTimeOut)
+		{
+			m_bAir = false;
+			m_bStandupStart = false;
+			m_fStandupTimer = 0.0f;
+		}
+	}
+
+}
+
 _bool CEnemy::DieCheck()
 {
 	if (m_State.fCurHp <= 0.f)
@@ -606,6 +692,10 @@ void CEnemy::AnimationState(_double TimeDelta)
 	{
 		Hit(TimeDelta);
 	}
+	else if (m_bAirHit)
+	{
+		Airborne(TimeDelta);
+	}
 	else
 	{
 		_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
@@ -635,20 +725,52 @@ void CEnemy::AnimationState(_double TimeDelta)
 				{
 					if (m_bAttack)
 					{
-						if (model->AnimationIsFinishEx())
+						if (m_eType == TYPE::HUMANOID)
 						{
-							Trace(TimeDelta);
-							m_fAttackCoolTimer = 2.f;
+							if (model->AnimationCompare(((_uint)CLIP::ATTACK4)))
+							{
+								if (model->AnimationIsFinishEx())
+								{
+									Trace(TimeDelta);
+									m_fAttackCoolTimer = 0.f;
+								}
+							}
+						}
+						else
+						{
+							if (model->AnimationCompare(((_uint)CLIP::ATTACK1)))
+							{
+								if (model->AnimationIsFinishEx())
+								{
+									Trace(TimeDelta);
+									m_fAttackCoolTimer = 0.f;
+								}
+							}
 						}
 					}
 					else
 					{
-						Trace(TimeDelta);
-						m_fAttackCoolTimer = 2.f;
+						if (m_bTraceFinish)
+						{
+							m_fTraceLocal += TimeDelta;
+							if (m_fTraceLocal >= m_fTraceTimeOut)
+							{
+								m_fTraceLocal = 0.0;
+								m_bRotationFinish = false;
+								m_bTraceFinish = false;
+							}
+						}
+						else
+						{
+							Trace(TimeDelta);
+							m_fAttackCoolTimer = 0.f;
+						}
 					}
 				}
 				else
 				{
+					m_bTraceFinish = true;
+
 					if (!m_bAttack)
 					{
 						if (m_eType == TYPE::HUMANOID)
@@ -789,12 +911,18 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 	if (pPlayer)
 	{
 		m_bOverlapped = false;
-
 		CCollider* pWeaponCollider = pPlayer->GetWeaponCollider();
 		if (src->Compare(collider) && dest->Compare(pWeaponCollider))
 		{
 			m_bHit = true;
 			RecvDamage(10.f);
+		}
+
+		CCollider* pSkillCollider = pPlayer->GetSkillCollider();
+		if (src->Compare(collider) && dest->Compare(pSkillCollider))
+		{
+			m_bAir = true;
+			m_bAirHit = true;
 		}
 
 		CCollider* pBodyCollider = pPlayer->GetBodyCollider();

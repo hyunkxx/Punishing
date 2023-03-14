@@ -206,6 +206,7 @@ public:
 public: //충돌관련
 	class CCollider* GetBodyCollider() const { return mCollider; };
 	CCollider* GetWeaponCollider() const { return mWeaponCollider; }
+	CCollider* GetSkillCollider() const { return mSkillCollider; }
 
 public:
 	static CCharacter* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
@@ -229,7 +230,7 @@ private:
 	CCollider* mEnemyCheckCollider = nullptr;
 	CCollider* mWeaponCollider = nullptr;
 
-	CCollider* mSkillBCollider = nullptr;
+	CCollider* mSkillCollider = nullptr;
 
 private:
 	class CApplicationManager* m_pAppManager = nullptr;
@@ -316,6 +317,7 @@ private: // Command
 	_double m_fTimeStopLocal = 0.0;
 	const _float m_fTimeStopTimeOut = 12.f;
 	
+	_bool m_bSkillReady = true;
 	_bool m_bUseSkill = false;
 
 	_bool m_bRootMotion = true;

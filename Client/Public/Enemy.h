@@ -111,6 +111,7 @@ public:
 	void SetPosition(_float3 vPosition);
 	_vector GetRootBonePosition();
 	class CCollider* GetBodyCollider() { return collider; }
+	class CCollider* GetWeaponCollider() { return m_pWeaponCollider; }
 	class CCollider* GetOverlapCollider() { return m_pOverlapCollider; }
 	void SetNuckback(_float fPower);
 
@@ -128,6 +129,9 @@ private:
 	_bool Hit(_double TimeDelta);
 	void RecvDamage(_float fDamage);
 	void NuckBack(_double TimeDelta);
+
+	void Airborne(_double TimeDelta);
+
 	_bool DieCheck();
 	void Die(_double TimeDelta);
 
@@ -174,6 +178,7 @@ private:
 	CCharacter* m_pPlayer = nullptr;
 	CTransform* m_pPlayerTransform = nullptr;
 
+	_bool m_bTraceFinish = false;
 	_bool m_bRotationFinish = false;
 
 	const _float m_fAttackRange = 3.5f;
@@ -213,6 +218,18 @@ private:
 
 	_float m_fAttackCoolTimer = 4.f;
 	const _float m_fAttackCoolTimeOut = 4.f;
+
+	_float m_fTraceLocal = 0.0f;
+	const _float m_fTraceTimeOut = 0.5f;
+
+
+	// ¿¡¾îº»
+	_bool m_bAirHit = false;
+	_bool m_bAir = false;
+
+	_bool m_bStandupStart = false;
+	_float m_fStandupTimer = 0.0f;
+	const _float m_fStandupTimeOut = 2.0f;
 };
 
 END
