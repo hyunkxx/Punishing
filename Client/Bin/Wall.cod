@@ -2353,7 +2353,7 @@ PUBLIC	??_C@_1CI@MLEFGO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?
 PUBLIC	??_C@_1BK@BKCENIHA@?$AAc?$AAo?$AAm?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CO@HJBGOIAH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAo?$AAb?$AAb?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Create@CWall@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CWall::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EC@KBNCMGAK@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0CM@EJHFMJKP@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DC@JOCBEIJM@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAW?$AAa?$AAl?$AAl?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CWall@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CWall::Clone'::`1'::__LINE__Var
@@ -2902,10 +2902,10 @@ CONST	SEGMENT
 	DB	'e', 00H, 's', 00H, 's', 00H, 'a', 00H, 'g', 00H, 'e', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EC@KBNCMGAK@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0CM@EJHFMJKP@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EC@KBNCMGAK@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\wall.cpp', 00H ; `string'
+??_C@_0CM@EJHFMJKP@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\wall.cpp', 00H	; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CWall@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -3601,7 +3601,7 @@ $unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z DD 025053901H
 	DD	05015H
 xdata	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3680,7 +3680,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ENDP ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCOBBCollider@Engine@@@Engine@@YAKAEAPEAVCOBBCollider@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3759,7 +3759,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCOBBCollider@Engine@@@Engine@@YAKAEAPEAVCOBBCollider@0@@Z ENDP ; Engine::Safe_Release<Engine::COBBCollider * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCGameObject@Engine@@@Engine@@YAKAEAPEAVCGameObject@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3838,7 +3838,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCGameObject@Engine@@@Engine@@YAKAEAPEAVCGameObject@0@@Z ENDP ; Engine::Safe_Release<Engine::CGameObject * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCWall@Client@@@Engine@@YAKAEAPEAVCWall@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -4077,7 +4077,7 @@ $LN4:
 ??0CWall@Client@@QEAA@AEBV01@@Z ENDP			; Client::CWall::CWall
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?Free@CWall@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4134,7 +4134,7 @@ $LN3:
 ?Free@CWall@Client@@UEAAXXZ ENDP			; Client::CWall::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?Clone@CWall@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -4179,7 +4179,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@KBNCMGAK@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CM@EJHFMJKP@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 e0 00 00 00	 mov	 ecx, 224		; 000000e0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -4284,7 +4284,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CWall@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@KBNCMGAK@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CM@EJHFMJKP@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4317,7 +4317,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CWall@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@KBNCMGAK@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CM@EJHFMJKP@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4329,7 +4329,7 @@ pArg$ = 376
 ?dtor$0@?0??Clone@CWall@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CWall::Clone'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?Create@CWall@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -4374,7 +4374,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@KBNCMGAK@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CM@EJHFMJKP@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 e0 00 00 00	 mov	 ecx, 224		; 000000e0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -4477,7 +4477,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CWall@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@KBNCMGAK@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CM@EJHFMJKP@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4510,7 +4510,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CWall@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@KBNCMGAK@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CM@EJHFMJKP@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4522,7 +4522,7 @@ pContext$ = 376
 ?dtor$0@?0??Create@CWall@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CWall::Create'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?AddComponents@CWall@Client@@AEAAJXZ
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -4745,7 +4745,7 @@ $LN1@AddCompone:
 ?AddComponents@CWall@Client@@AEAAJXZ ENDP		; Client::CWall::AddComponents
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?SetPosition@CWall@Client@@QEAAXUXMFLOAT3@DirectX@@@Z
 _TEXT	SEGMENT
 $T1 = 208
@@ -4816,7 +4816,7 @@ $LN3:
 ?SetPosition@CWall@Client@@QEAAXUXMFLOAT3@DirectX@@@Z ENDP ; Client::CWall::SetPosition
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?SetRotation@CWall@Client@@QEAAXUXMFLOAT3@DirectX@@@Z
 _TEXT	SEGMENT
 $T1 = 208
@@ -4884,7 +4884,7 @@ $LN3:
 ?SetRotation@CWall@Client@@QEAAXUXMFLOAT3@DirectX@@@Z ENDP ; Client::CWall::SetRotation
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?SetScale@CWall@Client@@QEAAXUXMFLOAT3@DirectX@@@Z
 _TEXT	SEGMENT
 $T1 = 208
@@ -4952,7 +4952,7 @@ $LN3:
 ?SetScale@CWall@Client@@QEAAXUXMFLOAT3@DirectX@@@Z ENDP	; Client::CWall::SetScale
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?GetNormal@CWall@Client@@QEAA?AT__m128@@T3@PEAM@Z
 _TEXT	SEGMENT
 vNormal$ = 16
@@ -5265,7 +5265,7 @@ $LN14@GetNormal:
 ?GetNormal@CWall@Client@@QEAA?AT__m128@@T3@PEAM@Z ENDP	; Client::CWall::GetNormal
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?GetPosition@CWall@Client@@QEAA?AT__m128@@XZ
 _TEXT	SEGMENT
 $T1 = 208
@@ -5349,7 +5349,7 @@ $LN1@GetPositio:
 ?GetPosition@CWall@Client@@QEAA?AT__m128@@XZ ENDP	; Client::CWall::GetPosition
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?GetDepth@CWall@Client@@QEAAMXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -5410,7 +5410,7 @@ $LN1@GetDepth:
 ?GetDepth@CWall@Client@@QEAAMXZ ENDP			; Client::CWall::GetDepth
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?RenderGUI@CWall@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -5442,7 +5442,7 @@ $LN3:
 ?RenderGUI@CWall@Client@@UEAAXXZ ENDP			; Client::CWall::RenderGUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?Render@CWall@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -5478,7 +5478,7 @@ $LN3:
 ?Render@CWall@Client@@UEAAJXZ ENDP			; Client::CWall::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?LateTick@CWall@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -5513,7 +5513,7 @@ $LN3:
 ?LateTick@CWall@Client@@UEAAXN@Z ENDP			; Client::CWall::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?Tick@CWall@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -5618,7 +5618,7 @@ $LN3:
 ?Tick@CWall@Client@@UEAAXN@Z ENDP			; Client::CWall::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?Initialize@CWall@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 $T1 = 592
@@ -6134,7 +6134,7 @@ $LN1@Initialize:
 ?Initialize@CWall@Client@@UEAAJPEAX@Z ENDP		; Client::CWall::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?Initialize_Prototype@CWall@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6170,7 +6170,7 @@ $LN3:
 ?Initialize_Prototype@CWall@Client@@UEAAJXZ ENDP	; Client::CWall::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ??1CWall@Client@@MEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6203,9 +6203,9 @@ $LN3:
 ??1CWall@Client@@MEAA@XZ ENDP				; Client::CWall::~CWall
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
-; File c:\users\arcco\documents\github\framework\client\public\wall.h
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\public\wall.h
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ??0CWall@Client@@IEAA@AEBVCGameObject@Engine@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -6250,7 +6250,7 @@ $LN4:
   00056	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CWall@Client@@6B@
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\wall.h
+; File c:\github\framework\client\public\wall.h
 
 ; 55   : 	COBBCollider* m_pCollider = nullptr;
 
@@ -6266,7 +6266,7 @@ $LN4:
   00076	48 c7 80 80 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+128], 0
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 
 ; 14   : {
 
@@ -6358,9 +6358,9 @@ rhs$ = 264
 ?dtor$0@?0???0CWall@Client@@IEAA@AEBVCGameObject@Engine@@@Z@4HA ENDP ; `Client::CWall::CWall'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
-; File c:\users\arcco\documents\github\framework\client\public\wall.h
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\public\wall.h
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ??0CWall@Client@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -6409,7 +6409,7 @@ $LN4:
   00062	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CWall@Client@@6B@
   00069	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\wall.h
+; File c:\github\framework\client\public\wall.h
 
 ; 55   : 	COBBCollider* m_pCollider = nullptr;
 
@@ -6425,7 +6425,7 @@ $LN4:
   00082	48 c7 80 80 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+128], 0
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 
 ; 8    : {
 
@@ -8336,7 +8336,7 @@ $LN3:
 ?XMConvertToRadians@DirectX@@YAMM@Z ENDP		; DirectX::XMConvertToRadians
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -8365,7 +8365,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\wall.cpp
+; File c:\github\framework\client\private\wall.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

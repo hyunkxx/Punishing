@@ -24,14 +24,16 @@ private:
 	HRESULT Ready_Layer_Wall(const _tchar* pLayerTag);
 	HRESULT Ready_Layer_Camera(const _tchar* pLayerTag);
 	HRESULT Ready_Layer_Player(const _tchar* pLayerTag);
-	HRESULT Ready_Layer_Enemy(const _tchar* pLayerTag);
+	HRESULT Ready_Layer_Enemy(const _tchar* pLayerTag, CGameObject* pPlayer);
 	HRESULT Ready_Layer_Effect(const _tchar* pLayerTag);
+	HRESULT Ready_Layer_UI(const _tchar* pLayerTag);
 
 public:
 	static CLevel_GamePlay* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	virtual void Free() override;
 
 	CGameObject* mPlayer = nullptr;
+	CGameObject* m_pHealthBar = nullptr;
 
 };
 

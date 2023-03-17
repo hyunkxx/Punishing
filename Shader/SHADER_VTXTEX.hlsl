@@ -1,3 +1,5 @@
+#include "SHADER_DEFINES.hpp"
+
 /* 상수테이블 : 바뀔 수 없는 값. */
 /* 클라이언트에서부터 값을 전달받아오기위한 변수 */
 matrix g_WorldMatrix, g_ViewMatrix, g_ProjMatrix;
@@ -5,18 +7,6 @@ matrix g_WorldMatrix, g_ViewMatrix, g_ProjMatrix;
 /* 클라에서 값을 전달달하지 않았을 경우, 0.f로 사용됨, 전달된 값이 있다면 초기값은 무시된다. */
 texture2D g_Texture;
 
-/* 어떤 방식으로 픽셀의 색을 얻어오겠다. */
-sampler LinearSampler = sampler_state {
-	filter = min_mag_mip_linear;
-	AddressU = wrap;
-	AddressV = wrap;
-};
-
-sampler PointSampler = sampler_state {
-	filter = min_mag_mip_Point;
-	AddressU = wrap;
-	AddressV = wrap;
-};
 struct VS_IN
 {
 	float3			vPosition : POSITION;
@@ -97,6 +87,10 @@ technique11 DefaultTechnique
 	/* 렌더스테이츠를 다르게 쓰고자 할 때 */
 	pass BackGround
 	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
 		/* 렌더스테이츠를 정의한다. */
 		VertexShader = compile vs_5_0 VS_MAIN();
 		GeometryShader = NULL;
@@ -107,6 +101,10 @@ technique11 DefaultTechnique
 
 	pass Alpha
 	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
 		/* 렌더스테이츠를 정의한다. */
 		VertexShader = compile vs_5_0 VS_MAIN();
 		GeometryShader = NULL;
@@ -117,6 +115,10 @@ technique11 DefaultTechnique
 
 	pass UI
 	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
 		/* 렌더스테이츠를 정의한다. */
 		VertexShader = compile vs_5_0 VS_MAIN();
 		GeometryShader = NULL;
@@ -127,6 +129,10 @@ technique11 DefaultTechnique
 
 	pass Effect
 	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
 		VertexShader = compile vs_5_0 VS_MAIN();
 		GeometryShader = NULL;
 		HullShader = NULL;

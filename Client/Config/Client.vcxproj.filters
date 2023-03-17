@@ -65,9 +65,6 @@
     <Filter Include="src\02. GameObjects\03. Stage">
       <UniqueIdentifier>{c8dc90eb-54d9-4540-8928-aca43f14b5cf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\02. GameObjects\04. Character\Command">
-      <UniqueIdentifier>{3b6f5ac3-292e-406d-ab20-7172fe85ab5d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\01. Levels\03. BossRoom">
       <UniqueIdentifier>{c37d9aba-aac9-4542-99d3-88f7eae71058}</UniqueIdentifier>
     </Filter>
@@ -76,6 +73,12 @@
     </Filter>
     <Filter Include="src\02. GameObjects\05.FreezeArea">
       <UniqueIdentifier>{98f152f9-f233-4bd3-9ccb-2cf69cff37c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\02. GameObjects\06. UI">
+      <UniqueIdentifier>{aa8bf005-d78d-4db3-9b1d-7c46e664c313}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\02. GameObjects\04. Character\Skill">
+      <UniqueIdentifier>{3b6f5ac3-292e-406d-ab20-7172fe85ab5d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -148,9 +151,6 @@
     <ClInclude Include="..\public\PlayerCamera.h">
       <Filter>src\02. GameObjects\01. Camera</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\CommandSystem.h">
-      <Filter>src\02. GameObjects\04. Character\Command</Filter>
-    </ClInclude>
     <ClInclude Include="..\public\BackGround.h">
       <Filter>src\02. GameObjects\02. BackGround</Filter>
     </ClInclude>
@@ -183,6 +183,18 @@
     </ClInclude>
     <ClInclude Include="..\public\FreezeArea.h">
       <Filter>src\02. GameObjects\05.FreezeArea</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EnemyHealthBar.h">
+      <Filter>src\02. GameObjects\06. UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shader\SHADER_DEFINES.hpp">
+      <Filter>src\99. Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\SkillBallSystem.h">
+      <Filter>src\02. GameObjects\04. Character\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\SkillBase.h">
+      <Filter>src\02. GameObjects\04. Character\Skill</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -249,9 +261,6 @@
     <ClCompile Include="..\private\PlayerCamera.cpp">
       <Filter>src\02. GameObjects\01. Camera</Filter>
     </ClCompile>
-    <ClCompile Include="..\private\CommandSystem.cpp">
-      <Filter>src\02. GameObjects\04. Character\Command</Filter>
-    </ClCompile>
     <ClCompile Include="..\private\Weapon.cpp">
       <Filter>src\02. GameObjects\04. Character</Filter>
     </ClCompile>
@@ -278,6 +287,15 @@
     </ClCompile>
     <ClCompile Include="..\private\FreezeArea.cpp">
       <Filter>src\02. GameObjects\05.FreezeArea</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EnemyHealthBar.cpp">
+      <Filter>src\02. GameObjects\06. UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\SkillBallSystem.cpp">
+      <Filter>src\02. GameObjects\04. Character\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\SkillBase.cpp">
+      <Filter>src\02. GameObjects\04. Character\Skill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -324,6 +342,9 @@
       <Filter>src\99. Shader</Filter>
     </FxCompile>
     <FxCompile Include="..\..\Shader\SHADER_VTXANIMMODEL.hlsl">
+      <Filter>src\99. Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_UI.hlsl">
       <Filter>src\99. Shader</Filter>
     </FxCompile>
   </ItemGroup>

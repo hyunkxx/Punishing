@@ -154,6 +154,7 @@ PUBLIC	?YellowGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::YellowG
 PUBLIC	?g_UnitVectorEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitVectorEpsilon
 PUBLIC	?g_UnitQuaternionEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitQuaternionEpsilon
 PUBLIC	?g_UnitPlaneEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitPlaneEpsilon
+PUBLIC	?s_TickCount@CApplication@Client@@0IA		; Client::CApplication::s_TickCount
 PUBLIC	?g_XMSinCoefficients0@DirectX@@3UXMVECTORF32@1@B ; DirectX::g_XMSinCoefficients0
 PUBLIC	?g_XMSinCoefficients1@DirectX@@3UXMVECTORF32@1@B ; DirectX::g_XMSinCoefficients1
 PUBLIC	?g_XMCosCoefficients0@DirectX@@3UXMVECTORF32@1@B ; DirectX::g_XMCosCoefficients0
@@ -287,6 +288,9 @@ PUBLIC	?g_XMLogEst6@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLogEst6
 PUBLIC	?g_XMLogEst7@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLogEst7
 PUBLIC	?g_XMLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLgE
 PUBLIC	?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMInvLgE
+_BSS	SEGMENT
+?s_TickCount@CApplication@Client@@0IA DD 01H DUP (?)	; Client::CApplication::s_TickCount
+_BSS	ENDS
 ;	COMDAT ?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B
 CONST	SEGMENT
 ?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B DD 03f317218r ; 0.693147 ; DirectX::g_XMInvLgE
@@ -2449,13 +2453,47 @@ PUBLIC	??_C@_1DO@JDLCNAEI@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$A
 PUBLIC	??_C@_1CO@NGODBEOM@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAp?$AAh?$AAo?$AAn?$AAg?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1EE@OODBJPJH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAV?$AAT?$AAX?$AAM?$AAO?$AAD?$AAE?$AAL?$AA?4?$AAh?$AAl?$AAs@ ; `string'
 PUBLIC	??_C@_1DE@OMAPGAIH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAv?$AAt?$AAx?$AAm?$AAo?$AAd?$AAe?$AAl?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1DO@BAAPMPLC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAA?$AAL?$AAP?$AAH?$AAA?$AA?4?$AAh?$AAl?$AAs?$AAl?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1CO@BOBMIKED@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAa?$AAl?$AAp?$AAh?$AAa?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1DI@MMJOPCKC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAU?$AAI?$AA?4?$AAh?$AAl?$AAs?$AAl?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1CI@NFFEDNON@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAu?$AAi?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1FI@GIHKFDKM@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAb?$AAa?$AAc@ ; `string'
 PUBLIC	??_C@_1DK@HBIABGPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1HE@CHMDFPLH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@ ; `string'
+PUBLIC	??_C@_1EC@OBDDCONO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAa?$AAc?$AAk@ ; `string'
+PUBLIC	??_C@_1HG@IIDDJEOA@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@ ; `string'
+PUBLIC	??_C@_1EE@EOOJLINA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAl?$AAo?$AAo@ ; `string'
+PUBLIC	??_C@_1HG@GAEHDNKC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@ ; `string'
+PUBLIC	??_C@_1EE@OPMNLGMO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAf?$AAr?$AAo?$AAn@ ; `string'
+PUBLIC	??_C@_1FG@BBFMJJDK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@ ; `string'
+PUBLIC	??_C@_1CM@FICJANHB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AAe?$AAd?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1FI@KKPMHDHH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@ ; `string'
+PUBLIC	??_C@_1CO@LEAGCAOP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAl?$AAu?$AAe?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1FM@CABLKNLP@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@ ; `string'
+PUBLIC	??_C@_1DC@FDJKGOCO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAy?$AAe?$AAl?$AAl?$AAo?$AAw?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@POHANNBB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAA?$AA?4?$AAp?$AAn@ ; `string'
+PUBLIC	??_C@_1CI@OBMDPEEP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAa?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@BOFDKOHC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAS?$AA?4?$AAp?$AAn@ ; `string'
+PUBLIC	??_C@_1CI@BLNDGLFL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAs?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@GGNDKKAB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAD?$AA?4?$AAp?$AAn@ ; `string'
+PUBLIC	??_C@_1CI@NGBNAEHN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@IKOIDEJO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAF?$AA?4?$AAp?$AAn@ ; `string'
+PUBLIC	??_C@_1CI@HMBEMMPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAf?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@PCGIDAON@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAQ?$AA?4?$AAp?$AAn@ ; `string'
+PUBLIC	??_C@_1CI@LBNKKDNA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAq?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@BNFFJFAN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAW?$AA?4?$AAp?$AAn@ ; `string'
+PUBLIC	??_C@_1CI@JELBPMAM@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAw?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@PNHGOGGO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAE?$AA?4?$AAp?$AAn@ ; `string'
+PUBLIC	??_C@_1CI@GOKBGDBI@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAe?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@IFPGOCBN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAR?$AA?4?$AAp?$AAn@ ; `string'
+PUBLIC	??_C@_1CI@KDGPAMDO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DC@LOADEEJN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAd?$AAy?$AAn?$AAa?$AAm?$AAi?$AAc?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CK@EFMCMFNH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BO@LDNAOHLB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAw?$AAa?$AAl?$AAl?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1CI@OEBPAOLP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AAb?$AAa?$AAl?$AAl?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1CE@NDNBHLHL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA ; `Client::CApplication::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EJ@BMDIJKBP@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DD@CJDBPOFC@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1EA@NHBKHCID@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAA?$AAp?$AAp?$AAl?$AAi?$AAc?$AAa?$AAt?$AAi?$AAo?$AAn?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1IO@EADHKMNI@?$AAc?$AA?3?$AA?2?$AAp?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAf?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAm?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ ; `string'
 PUBLIC	??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@	; `string'
@@ -2470,6 +2508,7 @@ PUBLIC	??_R1A@?0A@EA@CBase@Engine@@8			; Engine::CBase::`RTTI Base Class Descrip
 PUBLIC	??_R0?AVCBase@Engine@@@8			; Engine::CBase `RTTI Type Descriptor'
 PUBLIC	??_R3CBase@Engine@@8				; Engine::CBase::`RTTI Class Hierarchy Descriptor'
 PUBLIC	??_R2CBase@Engine@@8				; Engine::CBase::`RTTI Base Class Array'
+PUBLIC	__real@3c23d70a
 PUBLIC	__real@3f800000
 EXTRN	??2@YAPEAX_K@Z:PROC				; operator new
 EXTRN	??3@YAXPEAX@Z:PROC				; operator delete
@@ -2480,6 +2519,7 @@ EXTRN	__imp_memmove:PROC
 EXTRN	memset:PROC
 EXTRN	__imp_wcslen:PROC
 EXTRN	__imp_MessageBoxW:PROC
+EXTRN	__imp_srand:PROC
 EXTRN	__imp_??0_Lockit@std@@QEAA@H@Z:PROC
 EXTRN	__imp_??1_Lockit@std@@QEAA@XZ:PROC
 EXTRN	??2@YAPEAX_KHPEBDH@Z:PROC			; operator new
@@ -2489,6 +2529,7 @@ EXTRN	__imp_?_Debug_message@std@@YAXPEB_W0I@Z:PROC
 EXTRN	__imp_?_Xbad_alloc@std@@YAXXZ:PROC
 EXTRN	__imp_?_Xlength_error@std@@YAXPEBD@Z:PROC
 EXTRN	__imp_?_Xout_of_range@std@@YAXPEBD@Z:PROC
+EXTRN	__imp__time64:PROC
 EXTRN	__imp_??0CBase@Engine@@QEAA@XZ:PROC
 EXTRN	__imp_??1CBase@Engine@@UEAA@XZ:PROC
 EXTRN	__imp_?AddRef@CBase@Engine@@QEAAKXZ:PROC
@@ -2499,6 +2540,9 @@ EXTRN	?DestroyInstance@CApplicationManager@Client@@SAKXZ:PROC ; Client::CApplica
 EXTRN	?Create@CWall@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z:PROC ; Client::CWall::Create
 EXTRN	?GetInstance@CStageCollisionManager@Client@@SAPEAV12@XZ:PROC ; Client::CStageCollisionManager::GetInstance
 EXTRN	?DestroyInstance@CStageCollisionManager@Client@@SAKXZ:PROC ; Client::CStageCollisionManager::DestroyInstance
+EXTRN	?Create@CSkillBase@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z:PROC ; Client::CSkillBase::Create
+EXTRN	?GetInstance@CSkillBallSystem@Client@@SAPEAV12@XZ:PROC ; Client::CSkillBallSystem::GetInstance
+EXTRN	?DestroyInstance@CSkillBallSystem@Client@@SAKXZ:PROC ; Client::CSkillBallSystem::DestroyInstance
 EXTRN	__imp_?Create@CVIBuffer_Rect@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z:PROC
 EXTRN	__imp_?Create@CTransform@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z:PROC
 EXTRN	__imp_?Draw@CRenderer@Engine@@QEAAXXZ:PROC
@@ -2527,6 +2571,7 @@ EXTRN	?Shutdown@CImGUIManager@Client@@QEAAXXZ:PROC	; Client::CImGUIManager::Shut
 EXTRN	?Create@CLevel_Loading@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@2@@Z:PROC ; Client::CLevel_Loading::Create
 EXTRN	?Create@CBackGround@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z:PROC ; Client::CBackGround::Create
 EXTRN	?Create@CDynamicCamera@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z:PROC ; Client::CDynamicCamera::Create
+EXTRN	?Create@CEnemyHealthBar@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z:PROC ; Client::CEnemyHealthBar::Create
 EXTRN	_CxxThrowException:PROC
 EXTRN	_RTC_CheckStackVars:PROC
 EXTRN	_RTC_InitBase:PROC
@@ -3013,8 +3058,14 @@ $pdata$??0XMFLOAT4@DirectX@@QEAA@MMMM@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$time DD	imagerel time
+	DD	imagerel time+65
+	DD	imagerel $unwind$time
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$??0CApplication@Client@@AEAA@XZ DD imagerel $LN4
-	DD	imagerel $LN4+215
+	DD	imagerel $LN4+277
 	DD	imagerel $unwind$??0CApplication@Client@@AEAA@XZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -3037,8 +3088,8 @@ $pdata$?Initialize@CApplication@Client@@QEAAJXZ DD imagerel $LN8
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Tick@CApplication@Client@@QEAAXN@Z DD imagerel $LN4
-	DD	imagerel $LN4+99
+$pdata$?Tick@CApplication@Client@@QEAAXN@Z DD imagerel $LN5
+	DD	imagerel $LN5+154
 	DD	imagerel $unwind$?Tick@CApplication@Client@@QEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -3061,14 +3112,14 @@ $pdata$?dtor$0@?0??Open_Level@CApplication@Client@@AEAAJW4LEVEL_ID@2@@Z@4HA DD i
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ DD imagerel $LN11
-	DD	imagerel $LN11+768
+$pdata$?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ DD imagerel $LN27
+	DD	imagerel $LN27+2130
 	DD	imagerel $unwind$?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Ready_Prototype_Static_GameObject@CApplication@Client@@AEAAJXZ DD imagerel $LN6
-	DD	imagerel $LN6+252
+$pdata$?Ready_Prototype_Static_GameObject@CApplication@Client@@AEAAJXZ DD imagerel $LN8
+	DD	imagerel $LN8+388
 	DD	imagerel $unwind$?Ready_Prototype_Static_GameObject@CApplication@Client@@AEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -3080,7 +3131,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?DestroyManager@CApplication@Client@@AEAAXXZ DD imagerel $LN3
-	DD	imagerel $LN3+78
+	DD	imagerel $LN3+83
 	DD	imagerel $unwind$?DestroyManager@CApplication@Client@@AEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -3339,6 +3390,10 @@ pdata	ENDS
 CONST	SEGMENT
 __real@3f800000 DD 03f800000r			; 1
 CONST	ENDS
+;	COMDAT __real@3c23d70a
+CONST	SEGMENT
+__real@3c23d70a DD 03c23d70ar			; 0.01
+CONST	ENDS
 ;	COMDAT rtc$TMZ
 rtc$TMZ	SEGMENT
 _RTC_Shutdown.rtc$TMZ DQ FLAT:_RTC_Shutdown
@@ -3454,16 +3509,29 @@ CONST	SEGMENT
 	DB	'A', 00H, 'p', 00H, 'p', 00H, 'l', 00H, 'i', 00H, 'c', 00H, 'a'
 	DB	00H, 't', 00H, 'i', 00H, 'o', 00H, 'n', 00H, 00H, 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EJ@BMDIJKBP@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DD@CJDBPOFC@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EJ@BMDIJKBP@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\application.cp'
-	DB	'p', 00H					; `string'
+??_C@_0DD@CJDBPOFC@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\application.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA DD 0c3H ; `Client::CApplication::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA DD 0127H ; `Client::CApplication::Create'::`1'::__LINE__Var
 _DATA	ENDS
+;	COMDAT ??_C@_1CE@NDNBHLHL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CE@NDNBHLHL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'o', 00H
+	DB	'b', 00H, 'j', 00H, '_', 00H, 'e', 00H, 'n', 00H, 'e', 00H, 'm'
+	DB	00H, 'y', 00H, 'h', 00H, 'p', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@OEBPAOLP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AAb?$AAa?$AAl?$AAl?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@OEBPAOLP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AAb?$AAa?$AAl?$AAl?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'o', 00H
+	DB	'b', 00H, 'j', 00H, '_', 00H, 's', 00H, 'k', 00H, 'i', 00H, 'l'
+	DB	00H, 'l', 00H, 'b', 00H, 'a', 00H, 'l', 00H, 'l', 00H, 00H, 00H ; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_1BO@LDNAOHLB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAw?$AAa?$AAl?$AAl?$AA?$AA@
 CONST	SEGMENT
 ??_C@_1BO@LDNAOHLB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAw?$AAa?$AAl?$AAl?$AA?$AA@ DB 'p'
@@ -3487,6 +3555,267 @@ CONST	SEGMENT
 	DB	00H, 'm', 00H, 'i', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'a', 00H
 	DB	'm', 00H, 'e', 00H, 'r', 00H, 'a', 00H, 00H, 00H ; `string'
 CONST	ENDS
+;	COMDAT ??_C@_1CI@KDGPAMDO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@KDGPAMDO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'r', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@IFPGOCBN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAR?$AA?4?$AAp?$AAn@
+CONST	SEGMENT
+??_C@_1EE@IFPGOCBN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAR?$AA?4?$AAp?$AAn@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, 'R', 00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@GOKBGDBI@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAe?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@GOKBGDBI@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAe?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'e', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@PNHGOGGO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAE?$AA?4?$AAp?$AAn@
+CONST	SEGMENT
+??_C@_1EE@PNHGOGGO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAE?$AA?4?$AAp?$AAn@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, 'E', 00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@JELBPMAM@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAw?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@JELBPMAM@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAw?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'w', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@BNFFJFAN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAW?$AA?4?$AAp?$AAn@
+CONST	SEGMENT
+??_C@_1EE@BNFFJFAN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAW?$AA?4?$AAp?$AAn@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, 'W', 00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@LBNKKDNA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAq?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@LBNKKDNA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAq?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'q', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@PCGIDAON@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAQ?$AA?4?$AAp?$AAn@
+CONST	SEGMENT
+??_C@_1EE@PCGIDAON@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAQ?$AA?4?$AAp?$AAn@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, 'Q', 00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@HMBEMMPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAf?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@HMBEMMPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAf?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'f', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@IKOIDEJO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAF?$AA?4?$AAp?$AAn@
+CONST	SEGMENT
+??_C@_1EE@IKOIDEJO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAF?$AA?4?$AAp?$AAn@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, 'F', 00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@NGBNAEHN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@NGBNAEHN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'd', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@GGNDKKAB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAD?$AA?4?$AAp?$AAn@
+CONST	SEGMENT
+??_C@_1EE@GGNDKKAB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAD?$AA?4?$AAp?$AAn@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, 'D', 00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@BLNDGLFL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAs?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@BLNDGLFL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAs?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 's', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@BOFDKOHC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAS?$AA?4?$AAp?$AAn@
+CONST	SEGMENT
+??_C@_1EE@BOFDKOHC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAS?$AA?4?$AAp?$AAn@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, 'S', 00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@OBMDPEEP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAa?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@OBMDPEEP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAa?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'a', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@POHANNBB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAA?$AA?4?$AAp?$AAn@
+CONST	SEGMENT
+??_C@_1EE@POHANNBB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAA?$AA?4?$AAp?$AAn@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, 'A', 00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1DC@FDJKGOCO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAy?$AAe?$AAl?$AAl?$AAo?$AAw?$AA?$AA@
+CONST	SEGMENT
+??_C@_1DC@FDJKGOCO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAy?$AAe?$AAl?$AAl?$AAo?$AAw?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'y', 00H, 'e', 00H
+	DB	'l', 00H, 'l', 00H, 'o', 00H, 'w', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1FM@CABLKNLP@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+CONST	SEGMENT
+??_C@_1FM@CABLKNLP@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'I', 00H, 'm', 00H, 'a', 00H, 'g'
+	DB	00H, 'e', 00H, '/', 00H, 'S', 00H, 'k', 00H, 'i', 00H, 'l', 00H
+	DB	'l', 00H, '/', 00H, 'Y', 00H, 'e', 00H, 'l', 00H, 'l', 00H, 'o'
+	DB	00H, 'w', 00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CO@LEAGCAOP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAl?$AAu?$AAe?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CO@LEAGCAOP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAl?$AAu?$AAe?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'b', 00H, 'l', 00H
+	DB	'u', 00H, 'e', 00H, 00H, 00H			; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1FI@KKPMHDHH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+CONST	SEGMENT
+??_C@_1FI@KKPMHDHH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'I', 00H, 'm', 00H, 'a', 00H, 'g'
+	DB	00H, 'e', 00H, '/', 00H, 'S', 00H, 'k', 00H, 'i', 00H, 'l', 00H
+	DB	'l', 00H, '/', 00H, 'B', 00H, 'l', 00H, 'u', 00H, 'e', 00H, '.'
+	DB	00H, 'p', 00H, 'n', 00H, 'g', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CM@FICJANHB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AAe?$AAd?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CM@FICJANHB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AAe?$AAd?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'r', 00H, 'e', 00H
+	DB	'd', 00H, 00H, 00H				; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1FG@BBFMJJDK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+CONST	SEGMENT
+??_C@_1FG@BBFMJJDK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'I', 00H, 'm', 00H, 'a', 00H, 'g'
+	DB	00H, 'e', 00H, '/', 00H, 'S', 00H, 'k', 00H, 'i', 00H, 'l', 00H
+	DB	'l', 00H, '/', 00H, 'R', 00H, 'e', 00H, 'd', 00H, '.', 00H, 'p'
+	DB	00H, 'n', 00H, 'g', 00H, 00H, 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@OPMNLGMO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAf?$AAr?$AAo?$AAn@
+CONST	SEGMENT
+??_C@_1EE@OPMNLGMO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAf?$AAr?$AAo?$AAn@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'h', 00H, 'e', 00H
+	DB	'a', 00H, 'l', 00H, 't', 00H, 'h', 00H, 'b', 00H, 'a', 00H, 'r'
+	DB	00H, '_', 00H, 'f', 00H, 'r', 00H, 'o', 00H, 'n', 00H, 't', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1HG@GAEHDNKC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
+CONST	SEGMENT
+??_C@_1HG@GAEHDNKC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'I', 00H, 'm', 00H, 'a', 00H, 'g'
+	DB	00H, 'e', 00H, '/', 00H, 'H', 00H, 'e', 00H, 'a', 00H, 'l', 00H
+	DB	't', 00H, 'h', 00H, 'B', 00H, 'a', 00H, 'r', 00H, '/', 00H, 'H'
+	DB	00H, 'e', 00H, 'a', 00H, 'l', 00H, 't', 00H, 'h', 00H, 'B', 00H
+	DB	'a', 00H, 'r', 00H, '_', 00H, 'f', 00H, 'r', 00H, 'o', 00H, 'n'
+	DB	00H, 't', 00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@EOOJLINA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAl?$AAo?$AAo@
+CONST	SEGMENT
+??_C@_1EE@EOOJLINA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAl?$AAo?$AAo@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'h', 00H, 'e', 00H
+	DB	'a', 00H, 'l', 00H, 't', 00H, 'h', 00H, 'b', 00H, 'a', 00H, 'r'
+	DB	00H, '_', 00H, 'b', 00H, 'l', 00H, 'o', 00H, 'o', 00H, 'd', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1HG@IIDDJEOA@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
+CONST	SEGMENT
+??_C@_1HG@IIDDJEOA@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'I', 00H, 'm', 00H, 'a', 00H, 'g'
+	DB	00H, 'e', 00H, '/', 00H, 'H', 00H, 'e', 00H, 'a', 00H, 'l', 00H
+	DB	't', 00H, 'h', 00H, 'B', 00H, 'a', 00H, 'r', 00H, '/', 00H, 'H'
+	DB	00H, 'e', 00H, 'a', 00H, 'l', 00H, 't', 00H, 'h', 00H, 'B', 00H
+	DB	'a', 00H, 'r', 00H, '_', 00H, 'b', 00H, 'l', 00H, 'o', 00H, 'o'
+	DB	00H, 'd', 00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EC@OBDDCONO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAa?$AAc?$AAk@
+CONST	SEGMENT
+??_C@_1EC@OBDDCONO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAa?$AAc?$AAk@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'h', 00H, 'e', 00H
+	DB	'a', 00H, 'l', 00H, 't', 00H, 'h', 00H, 'b', 00H, 'a', 00H, 'r'
+	DB	00H, '_', 00H, 'b', 00H, 'a', 00H, 'c', 00H, 'k', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1HE@CHMDFPLH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
+CONST	SEGMENT
+??_C@_1HE@CHMDFPLH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'I', 00H, 'm', 00H, 'a', 00H, 'g'
+	DB	00H, 'e', 00H, '/', 00H, 'H', 00H, 'e', 00H, 'a', 00H, 'l', 00H
+	DB	't', 00H, 'h', 00H, 'B', 00H, 'a', 00H, 'r', 00H, '/', 00H, 'H'
+	DB	00H, 'e', 00H, 'a', 00H, 'l', 00H, 't', 00H, 'h', 00H, 'B', 00H
+	DB	'a', 00H, 'r', 00H, '_', 00H, 'b', 00H, 'a', 00H, 'c', 00H, 'k'
+	DB	00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H, 00H, 00H ; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_1DK@HBIABGPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
 CONST	SEGMENT
 ??_C@_1DK@HBIABGPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ DB 'p'
@@ -3506,6 +3835,39 @@ CONST	SEGMENT
 	DB	00H, 'e', 00H, '/', 00H, 'b', 00H, 'a', 00H, 'c', 00H, 'k', 00H
 	DB	'g', 00H, 'r', 00H, 'o', 00H, 'u', 00H, 'n', 00H, 'd', 00H, '.'
 	DB	00H, 'j', 00H, 'p', 00H, 'g', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@NFFEDNON@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAu?$AAi?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@NFFEDNON@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAu?$AAi?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 's', 00H, 'h', 00H, 'a', 00H, 'd'
+	DB	00H, 'e', 00H, 'r', 00H, '_', 00H, 'u', 00H, 'i', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1DI@MMJOPCKC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAU?$AAI?$AA?4?$AAh?$AAl?$AAs?$AAl?$AA?$AA@
+CONST	SEGMENT
+??_C@_1DI@MMJOPCKC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAU?$AAI?$AA?4?$AAh?$AAl?$AAs?$AAl?$AA?$AA@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'S', 00H
+	DB	'h', 00H, 'a', 00H, 'd', 00H, 'e', 00H, 'r', 00H, '/', 00H, 'S'
+	DB	00H, 'H', 00H, 'A', 00H, 'D', 00H, 'E', 00H, 'R', 00H, '_', 00H
+	DB	'U', 00H, 'I', 00H, '.', 00H, 'h', 00H, 'l', 00H, 's', 00H, 'l'
+	DB	00H, 00H, 00H				; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CO@BOBMIKED@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAa?$AAl?$AAp?$AAh?$AAa?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CO@BOBMIKED@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAa?$AAl?$AAp?$AAh?$AAa?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 's', 00H, 'h', 00H, 'a', 00H, 'd'
+	DB	00H, 'e', 00H, 'r', 00H, '_', 00H, 'a', 00H, 'l', 00H, 'p', 00H
+	DB	'h', 00H, 'a', 00H, 00H, 00H			; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1DO@BAAPMPLC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAA?$AAL?$AAP?$AAH?$AAA?$AA?4?$AAh?$AAl?$AAs?$AAl?$AA?$AA@
+CONST	SEGMENT
+??_C@_1DO@BAAPMPLC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAA?$AAL?$AAP?$AAH?$AAA?$AA?4?$AAh?$AAl?$AAs?$AAl?$AA?$AA@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'S', 00H
+	DB	'h', 00H, 'a', 00H, 'd', 00H, 'e', 00H, 'r', 00H, '/', 00H, 'S'
+	DB	00H, 'H', 00H, 'A', 00H, 'D', 00H, 'E', 00H, 'R', 00H, '_', 00H
+	DB	'A', 00H, 'L', 00H, 'P', 00H, 'H', 00H, 'A', 00H, '.', 00H, 'h'
+	DB	00H, 'l', 00H, 's', 00H, 'l', 00H, 00H, 00H	; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1DE@OMAPGAIH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAv?$AAt?$AAx?$AAm?$AAo?$AAd?$AAe?$AAl?$AA?$AA@
 CONST	SEGMENT
@@ -4343,7 +4705,7 @@ $ip2state$??0CApplication@Client@@AEAA@XZ DD imagerel ??0CApplication@Client@@AE
 	DD	0ffffffffH
 	DD	imagerel ??0CApplication@Client@@AEAA@XZ+67
 	DD	00H
-	DD	imagerel ??0CApplication@Client@@AEAA@XZ+198
+	DD	imagerel ??0CApplication@Client@@AEAA@XZ+260
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -4372,6 +4734,13 @@ $unwind$??0CApplication@Client@@AEAA@XZ DD 025053511H
 	DD	05006H
 	DD	imagerel __CxxFrameHandler3
 	DD	imagerel $cppxdata$??0CApplication@Client@@AEAA@XZ
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$time DD	025052a01H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -6585,7 +6954,7 @@ $LN4:
 ??$?0$$V@?$_Compressed_pair@U?$_Wrap_alloc@V?$allocator@_W@std@@@std@@V?$_String_val@U?$_Simple_types@_W@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1>::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCGameInstance@Engine@@@Engine@@YAKAEAPEAVCGameInstance@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6664,7 +7033,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCGameInstance@Engine@@@Engine@@YAKAEAPEAVCGameInstance@0@@Z ENDP ; Engine::Safe_Release<Engine::CGameInstance * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6746,7 +7115,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z ENDP ; Engine::Safe_Release<ID3D11DeviceContext * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6828,7 +7197,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z ENDP ; Engine::Safe_Release<ID3D11Device * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6907,7 +7276,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCApplication@Client@@@Engine@@YAKAEAPEAVCApplication@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6986,7 +7355,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCApplication@Client@@@Engine@@YAKAEAPEAVCApplication@Client@@@Z ENDP ; Engine::Safe_Release<Client::CApplication * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_AddRef@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7046,7 +7415,7 @@ $LN2@Safe_AddRe:
 ??$Safe_AddRef@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_AddRef<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_AddRef@PEAVCGameInstance@Engine@@@Engine@@YAKAEAPEAVCGameInstance@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7133,7 +7502,7 @@ $LN4:
   00040	83 e0 01	 and	 eax, 1
   00043	85 c0		 test	 eax, eax
   00045	74 11		 je	 SHORT $LN2@scalar
-  00047	ba 40 00 00 00	 mov	 edx, 64			; 00000040H
+  00047	ba 58 00 00 00	 mov	 edx, 88			; 00000058H
   0004c	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ??3@YAXPEAX_K@Z		; operator delete
@@ -7148,13 +7517,13 @@ $LN2@scalar:
 ??_GCApplication@Client@@EEAAPEAXI@Z ENDP		; Client::CApplication::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ?Free@CApplication@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
 ?Free@CApplication@Client@@UEAAXXZ PROC			; Client::CApplication::Free, COMDAT
 
-; 209  : {
+; 309  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7170,53 +7539,53 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 210  : 	DestroyManager();
+; 310  : 	DestroyManager();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	e8 00 00 00 00	 call	 ?DestroyManager@CApplication@Client@@AEAAXXZ ; Client::CApplication::DestroyManager
 
-; 211  : 
-; 212  : 	Safe_Release(m_pRenderer);
+; 311  : 
+; 312  : 	Safe_Release(m_pRenderer);
 
   00036	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0003d	48 83 c0 28	 add	 rax, 40			; 00000028H
+  0003d	48 83 c0 38	 add	 rax, 56			; 00000038H
   00041	48 8b c8	 mov	 rcx, rax
   00044	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
-; 213  : 
-; 214  : 	Safe_Release(m_pDevice);
+; 313  : 
+; 314  : 	Safe_Release(m_pDevice);
 
   00049	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00050	48 83 c0 10	 add	 rax, 16
+  00050	48 83 c0 20	 add	 rax, 32			; 00000020H
   00054	48 8b c8	 mov	 rcx, rax
   00057	e8 00 00 00 00	 call	 ??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z ; Engine::Safe_Release<ID3D11Device * __ptr64>
 
-; 215  : 	Safe_Release(m_pContext);
+; 315  : 	Safe_Release(m_pContext);
 
   0005c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00063	48 83 c0 18	 add	 rax, 24
+  00063	48 83 c0 28	 add	 rax, 40			; 00000028H
   00067	48 8b c8	 mov	 rcx, rax
   0006a	e8 00 00 00 00	 call	 ??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z ; Engine::Safe_Release<ID3D11DeviceContext * __ptr64>
 
-; 216  : 
-; 217  : 	Safe_Release(m_pGameInstance);
+; 316  : 
+; 317  : 	Safe_Release(m_pGameInstance);
 
   0006f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00076	48 83 c0 20	 add	 rax, 32			; 00000020H
+  00076	48 83 c0 30	 add	 rax, 48			; 00000030H
   0007a	48 8b c8	 mov	 rcx, rax
   0007d	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCGameInstance@Engine@@@Engine@@YAKAEAPEAVCGameInstance@0@@Z ; Engine::Safe_Release<Engine::CGameInstance * __ptr64>
 
-; 218  : 	CGameInstance::Engine_Release();
+; 318  : 	CGameInstance::Engine_Release();
 
   00082	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Engine_Release@CGameInstance@Engine@@SAXXZ
 
-; 219  : }
+; 319  : }
 
   00088	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -7226,7 +7595,7 @@ $LN3:
 ?Free@CApplication@Client@@UEAAXXZ ENDP			; Client::CApplication::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ?Create@CApplication@Client@@SAPEAV12@XZ
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -7238,7 +7607,7 @@ tv82 = 376
 __$ArrayPad$ = 384
 ?Create@CApplication@Client@@SAPEAV12@XZ PROC		; Client::CApplication::Create, COMDAT
 
-; 195  : {
+; 295  : {
 
 $LN8:
   00000	40 55		 push	 rbp
@@ -7259,16 +7628,16 @@ $LN8:
   00033	48 89 85 80 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 196  : 	CApplication* pInstance = new CApplication();
+; 296  : 	CApplication* pInstance = new CApplication();
 
   0003a	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA
   00040	ff c0		 inc	 eax
   00042	44 8b c8	 mov	 r9d, eax
   00045	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EJ@BMDIJKBP@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DD@CJDBPOFC@c?3?2github?2framework?2client?2priva@
   0004c	ba 01 00 00 00	 mov	 edx, 1
-  00051	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  00051	b9 58 00 00 00	 mov	 ecx, 88			; 00000058H
   00056	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0005b	48 89 85 48 01
 	00 00		 mov	 QWORD PTR $T7[rbp], rax
@@ -7294,16 +7663,16 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T6[rbp]
   000a1	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 197  : 
-; 198  : 	if (FAILED(pInstance->Initialize()))
+; 297  : 
+; 298  : 	if (FAILED(pInstance->Initialize()))
 
   000a5	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000a9	e8 00 00 00 00	 call	 ?Initialize@CApplication@Client@@QEAAJXZ ; Client::CApplication::Initialize
   000ae	85 c0		 test	 eax, eax
   000b0	7d 42		 jge	 SHORT $LN2@Create
 
-; 199  : 	{
-; 200  : 		wstring message = L"Failed to Create : CApplication";
+; 299  : 	{
+; 300  : 		wstring message = L"Failed to Create : CApplication";
 
   000b2	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1EA@NHBKHCID@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAA?$AAp?$AAp?$AAl?$AAi?$AAc?$AAa?$AAt?$AAi?$AAo?$AAn?$AA?$AA@
@@ -7311,7 +7680,7 @@ $LN5@Create:
   000bd	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   000c2	90		 npad	 1
 
-; 201  : 		MESSAGE(message);
+; 301  : 		MESSAGE(message);
 
   000c3	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000c7	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -7323,24 +7692,24 @@ $LN5@Create:
   000db	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 202  : 		Safe_Release(pInstance);
+; 302  : 		Safe_Release(pInstance);
 
   000e1	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000e5	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCApplication@Client@@@Engine@@YAKAEAPEAVCApplication@Client@@@Z ; Engine::Safe_Release<Client::CApplication * __ptr64>
   000ea	90		 npad	 1
 
-; 203  : 	}
+; 303  : 	}
 
   000eb	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000ef	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN2@Create:
 
-; 204  : 
-; 205  : 	return pInstance;
+; 304  : 
+; 305  : 	return pInstance;
 
   000f4	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 206  : }
+; 306  : }
 
   000f8	48 8b f8	 mov	 rdi, rax
   000fb	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -7379,7 +7748,7 @@ __$ArrayPad$ = 384
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EJ@BMDIJKBP@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DD@CJDBPOFC@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7432,7 +7801,7 @@ __$ArrayPad$ = 384
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EJ@BMDIJKBP@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DD@CJDBPOFC@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7469,13 +7838,13 @@ __$ArrayPad$ = 384
 ?dtor$1@?0??Create@CApplication@Client@@SAPEAV12@XZ@4HA ENDP ; `Client::CApplication::Create'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ?DestroyManager@CApplication@Client@@AEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
 ?DestroyManager@CApplication@Client@@AEAAXXZ PROC	; Client::CApplication::DestroyManager, COMDAT
 
-; 188  : {
+; 287  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7491,38 +7860,42 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 189  : 	m_pGUIManager->Shutdown();
+; 288  : 	m_pGUIManager->Shutdown();
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00031	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00031	48 8b 48 40	 mov	 rcx, QWORD PTR [rax+64]
   00035	e8 00 00 00 00	 call	 ?Shutdown@CImGUIManager@Client@@QEAAXXZ ; Client::CImGUIManager::Shutdown
 
-; 190  : 	CApplicationManager::DestroyInstance();
+; 289  : 	CApplicationManager::DestroyInstance();
 
   0003a	e8 00 00 00 00	 call	 ?DestroyInstance@CApplicationManager@Client@@SAKXZ ; Client::CApplicationManager::DestroyInstance
 
-; 191  : 	CStageCollisionManager::DestroyInstance();
+; 290  : 	CStageCollisionManager::DestroyInstance();
 
   0003f	e8 00 00 00 00	 call	 ?DestroyInstance@CStageCollisionManager@Client@@SAKXZ ; Client::CStageCollisionManager::DestroyInstance
 
-; 192  : }
+; 291  : 	CSkillBallSystem::DestroyInstance();
 
-  00044	48 8d a5 c8 00
+  00044	e8 00 00 00 00	 call	 ?DestroyInstance@CSkillBallSystem@Client@@SAKXZ ; Client::CSkillBallSystem::DestroyInstance
+
+; 292  : }
+
+  00049	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  0004b	5f		 pop	 rdi
-  0004c	5d		 pop	 rbp
-  0004d	c3		 ret	 0
+  00050	5f		 pop	 rdi
+  00051	5d		 pop	 rbp
+  00052	c3		 ret	 0
 ?DestroyManager@CApplication@Client@@AEAAXXZ ENDP	; Client::CApplication::DestroyManager
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ?InitializeManager@CApplication@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
 ?InitializeManager@CApplication@Client@@AEAAJXZ PROC	; Client::CApplication::InitializeManager, COMDAT
 
-; 180  : {
+; 279  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7538,20 +7911,20 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 181  : 	CApplicationManager::GetInstance();
+; 280  : 	CApplicationManager::GetInstance();
 
   0002a	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
 
-; 182  : 	CStageCollisionManager::GetInstance();
+; 281  : 	CStageCollisionManager::GetInstance();
 
   0002f	e8 00 00 00 00	 call	 ?GetInstance@CStageCollisionManager@Client@@SAPEAV12@XZ ; Client::CStageCollisionManager::GetInstance
 
-; 183  : 
-; 184  : 	return S_OK;
+; 282  : 
+; 283  : 	return S_OK;
 
   00034	33 c0		 xor	 eax, eax
 
-; 185  : }
+; 284  : }
 
   00036	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -7561,15 +7934,15 @@ $LN3:
 ?InitializeManager@CApplication@Client@@AEAAJXZ ENDP	; Client::CApplication::InitializeManager
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ?Ready_Prototype_Static_GameObject@CApplication@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
 ?Ready_Prototype_Static_GameObject@CApplication@Client@@AEAAJXZ PROC ; Client::CApplication::Ready_Prototype_Static_GameObject, COMDAT
 
-; 164  : {
+; 257  : {
 
-$LN6:
+$LN8:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	57		 push	 rdi
@@ -7583,114 +7956,168 @@ $LN6:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 165  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_dynamic_camera"),
+; 258  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_dynamic_camera"),
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00031	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  00031	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
   00035	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0003c	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  0003c	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
   00040	e8 00 00 00 00	 call	 ?Create@CDynamicCamera@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CDynamicCamera::Create
   00045	4c 8b c0	 mov	 r8, rax
   00048	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1DC@LOADEEJN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAd?$AAy?$AAn?$AAa?$AAm?$AAi?$AAc?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@
   0004f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00056	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00056	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   0005a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJPEB_WPEAVCGameObject@2@@Z
   00060	85 c0		 test	 eax, eax
   00062	7d 0a		 jge	 SHORT $LN2@Ready_Prot
 
-; 166  : 		CDynamicCamera::Create(m_pDevice, m_pContext))))
-; 167  : 		return E_FAIL;
+; 259  : 		CDynamicCamera::Create(m_pDevice, m_pContext))))
+; 260  : 		return E_FAIL;
 
   00064	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00069	e9 84 00 00 00	 jmp	 $LN1@Ready_Prot
+  00069	e9 0c 01 00 00	 jmp	 $LN1@Ready_Prot
 $LN2@Ready_Prot:
 
-; 168  : 
-; 169  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_background"),
+; 261  : 
+; 262  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_background"),
 
   0006e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00075	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  00075	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
   00079	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00080	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  00080	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
   00084	e8 00 00 00 00	 call	 ?Create@CBackGround@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CBackGround::Create
   00089	4c 8b c0	 mov	 r8, rax
   0008c	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1CK@EFMCMFNH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
   00093	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0009a	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  0009a	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   0009e	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJPEB_WPEAVCGameObject@2@@Z
   000a4	85 c0		 test	 eax, eax
-  000a6	7d 07		 jge	 SHORT $LN3@Ready_Prot
+  000a6	7d 0a		 jge	 SHORT $LN3@Ready_Prot
 
-; 170  : 		CBackGround::Create(m_pDevice, m_pContext))))
-; 171  : 		return E_FAIL;
+; 263  : 		CBackGround::Create(m_pDevice, m_pContext))))
+; 264  : 		return E_FAIL;
 
   000a8	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000ad	eb 43		 jmp	 SHORT $LN1@Ready_Prot
+  000ad	e9 c8 00 00 00	 jmp	 $LN1@Ready_Prot
 $LN3@Ready_Prot:
 
-; 172  : 
-; 173  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_wall"), CWall::Create(m_pDevice, m_pContext))))
+; 265  : 
+; 266  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_wall"), CWall::Create(m_pDevice, m_pContext))))
 
-  000af	48 8b 85 e0 00
+  000b2	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000b6	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
-  000ba	48 8b 85 e0 00
+  000b9	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  000bd	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000c1	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
-  000c5	e8 00 00 00 00	 call	 ?Create@CWall@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CWall::Create
-  000ca	4c 8b c0	 mov	 r8, rax
-  000cd	48 8d 15 00 00
+  000c4	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  000c8	e8 00 00 00 00	 call	 ?Create@CWall@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CWall::Create
+  000cd	4c 8b c0	 mov	 r8, rax
+  000d0	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BO@LDNAOHLB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAw?$AAa?$AAl?$AAl?$AA?$AA@
-  000d4	48 8b 85 e0 00
+  000d7	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000db	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
-  000df	ff 15 00 00 00
+  000de	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  000e2	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJPEB_WPEAVCGameObject@2@@Z
-  000e5	85 c0		 test	 eax, eax
-  000e7	7d 07		 jge	 SHORT $LN4@Ready_Prot
+  000e8	85 c0		 test	 eax, eax
+  000ea	7d 0a		 jge	 SHORT $LN4@Ready_Prot
 
-; 174  : 		return E_FAIL;
+; 267  : 		return E_FAIL;
 
-  000e9	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000ee	eb 02		 jmp	 SHORT $LN1@Ready_Prot
+  000ec	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  000f1	e9 84 00 00 00	 jmp	 $LN1@Ready_Prot
 $LN4@Ready_Prot:
 
-; 175  : 
-; 176  : 	return S_OK;
+; 268  : 
+; 269  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_skillball"), CSkillBase::Create(m_pDevice, m_pContext))))
 
-  000f0	33 c0		 xor	 eax, eax
+  000f6	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000fd	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00101	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00108	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  0010c	e8 00 00 00 00	 call	 ?Create@CSkillBase@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CSkillBase::Create
+  00111	4c 8b c0	 mov	 r8, rax
+  00114	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1CI@OEBPAOLP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AAb?$AAa?$AAl?$AAl?$AA?$AA@
+  0011b	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00122	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00126	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJPEB_WPEAVCGameObject@2@@Z
+  0012c	85 c0		 test	 eax, eax
+  0012e	7d 07		 jge	 SHORT $LN5@Ready_Prot
+
+; 270  : 		return E_FAIL;
+
+  00130	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00135	eb 43		 jmp	 SHORT $LN1@Ready_Prot
+$LN5@Ready_Prot:
+
+; 271  : 
+; 272  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_enemyhp"), CEnemyHealthBar::Create(m_pDevice, m_pContext))))
+
+  00137	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0013e	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00142	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00149	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  0014d	e8 00 00 00 00	 call	 ?Create@CEnemyHealthBar@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CEnemyHealthBar::Create
+  00152	4c 8b c0	 mov	 r8, rax
+  00155	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1CE@NDNBHLHL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@
+  0015c	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00163	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00167	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJPEB_WPEAVCGameObject@2@@Z
+  0016d	85 c0		 test	 eax, eax
+  0016f	7d 07		 jge	 SHORT $LN6@Ready_Prot
+
+; 273  : 		return E_FAIL;
+
+  00171	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00176	eb 02		 jmp	 SHORT $LN1@Ready_Prot
+$LN6@Ready_Prot:
+
+; 274  : 
+; 275  : 	return S_OK;
+
+  00178	33 c0		 xor	 eax, eax
 $LN1@Ready_Prot:
 
-; 177  : }
+; 276  : }
 
-  000f2	48 8d a5 c8 00
+  0017a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  000f9	5f		 pop	 rdi
-  000fa	5d		 pop	 rbp
-  000fb	c3		 ret	 0
+  00181	5f		 pop	 rdi
+  00182	5d		 pop	 rbp
+  00183	c3		 ret	 0
 ?Ready_Prototype_Static_GameObject@CApplication@Client@@AEAAJXZ ENDP ; Client::CApplication::Ready_Prototype_Static_GameObject
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ
 _TEXT	SEGMENT
 tv71 = 192
 this$ = 240
 ?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ PROC ; Client::CApplication::Ready_Prototype_Static_Component, COMDAT
 
-; 125  : {
+; 152  : {
 
-$LN11:
+$LN27:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	57		 push	 rdi
@@ -7704,14 +8131,14 @@ $LN11:
   00022	48 8b 8c 24 28
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
 
-; 126  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_renderer"),
+; 153  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_renderer"),
 
   0002a	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00031	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  00031	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
   00035	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0003c	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  0003c	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
   00040	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Create@CRenderer@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
   00046	48 89 85 c0 00
@@ -7720,7 +8147,7 @@ $LN11:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00054	48 8b 8d c0 00
 	00 00		 mov	 rcx, QWORD PTR tv71[rbp]
-  0005b	48 89 48 28	 mov	 QWORD PTR [rax+40], rcx
+  0005b	48 89 48 38	 mov	 QWORD PTR [rax+56], rcx
   0005f	4c 8b 8d c0 00
 	00 00		 mov	 r9, QWORD PTR tv71[rbp]
   00066	4c 8d 05 00 00
@@ -7728,28 +8155,28 @@ $LN11:
   0006d	33 d2		 xor	 edx, edx
   0006f	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00076	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00076	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   0007a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
   00080	85 c0		 test	 eax, eax
   00082	7d 0a		 jge	 SHORT $LN2@Ready_Prot
 
-; 127  : 		m_pRenderer = CRenderer::Create(m_pDevice, m_pContext))))
-; 128  : 		return E_FAIL;
+; 154  : 		m_pRenderer = CRenderer::Create(m_pDevice, m_pContext))))
+; 155  : 		return E_FAIL;
 
   00084	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00089	e9 68 02 00 00	 jmp	 $LN1@Ready_Prot
+  00089	e9 ba 07 00 00	 jmp	 $LN1@Ready_Prot
 $LN2@Ready_Prot:
 
-; 129  : 
-; 130  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_transform"),
+; 156  : 
+; 157  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_transform"),
 
   0008e	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00095	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  00095	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
   00099	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000a0	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  000a0	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
   000a4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Create@CTransform@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
   000aa	4c 8b c8	 mov	 r9, rax
@@ -7758,28 +8185,28 @@ $LN2@Ready_Prot:
   000b4	33 d2		 xor	 edx, edx
   000b6	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000bd	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  000bd	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   000c1	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
   000c7	85 c0		 test	 eax, eax
   000c9	7d 0a		 jge	 SHORT $LN3@Ready_Prot
 
-; 131  : 		CTransform::Create(m_pDevice, m_pContext))))
-; 132  : 		return E_FAIL;
+; 158  : 		CTransform::Create(m_pDevice, m_pContext))))
+; 159  : 		return E_FAIL;
 
   000cb	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000d0	e9 21 02 00 00	 jmp	 $LN1@Ready_Prot
+  000d0	e9 73 07 00 00	 jmp	 $LN1@Ready_Prot
 $LN3@Ready_Prot:
 
-; 133  : 
-; 134  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+; 160  : 
+; 161  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
 
   000d5	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000dc	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  000dc	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
   000e0	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000e7	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  000e7	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
   000eb	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Create@CVIBuffer_Rect@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
   000f1	4c 8b c8	 mov	 r9, rax
@@ -7788,21 +8215,21 @@ $LN3@Ready_Prot:
   000fb	33 d2		 xor	 edx, edx
   000fd	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00104	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00104	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   00108	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
   0010e	85 c0		 test	 eax, eax
   00110	7d 0a		 jge	 SHORT $LN4@Ready_Prot
 
-; 135  : 		CVIBuffer_Rect::Create(m_pDevice, m_pContext))))
-; 136  : 		return E_FAIL;
+; 162  : 		CVIBuffer_Rect::Create(m_pDevice, m_pContext))))
+; 163  : 		return E_FAIL;
 
   00112	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00117	e9 da 01 00 00	 jmp	 $LN1@Ready_Prot
+  00117	e9 2c 07 00 00	 jmp	 $LN1@Ready_Prot
 $LN4@Ready_Prot:
 
-; 137  : 
-; 138  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_vtxtex"),
+; 164  : 
+; 165  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_vtxtex"),
 
   0011c	c7 44 24 20 02
 	00 00 00	 mov	 DWORD PTR [rsp+32], 2
@@ -7812,10 +8239,10 @@ $LN4@Ready_Prot:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EA@BKKMAJND@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAV?$AAT?$AAX?$AAT?$AAE?$AAX?$AA?4?$AAh?$AAl?$AAs?$AAl?$AA?$AA@
   00132	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00139	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  00139	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
   0013d	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00144	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  00144	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
   00148	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Create@CShader@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WPEAUD3D11_INPUT_ELEMENT_DESC@@I@Z
   0014e	4c 8b c8	 mov	 r9, rax
@@ -7824,21 +8251,21 @@ $LN4@Ready_Prot:
   00158	33 d2		 xor	 edx, edx
   0015a	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00161	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00161	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   00165	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
   0016b	85 c0		 test	 eax, eax
   0016d	7d 0a		 jge	 SHORT $LN5@Ready_Prot
 
-; 139  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXTEX.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
-; 140  : 		return E_FAIL;
+; 166  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXTEX.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
+; 167  : 		return E_FAIL;
 
   0016f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00174	e9 7d 01 00 00	 jmp	 $LN1@Ready_Prot
+  00174	e9 cf 06 00 00	 jmp	 $LN1@Ready_Prot
 $LN5@Ready_Prot:
 
-; 141  : 
-; 142  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_groud"),
+; 168  : 
+; 169  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_groud"),
 
   00179	c7 44 24 20 03
 	00 00 00	 mov	 DWORD PTR [rsp+32], 3
@@ -7848,10 +8275,10 @@ $LN5@Ready_Prot:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DO@CINCJPKK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAG?$AAR?$AAO?$AAU?$AAD?$AA?4?$AAh?$AAl?$AAs?$AAl?$AA?$AA@
   0018f	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00196	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  00196	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
   0019a	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001a1	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  001a1	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
   001a5	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Create@CShader@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WPEAUD3D11_INPUT_ELEMENT_DESC@@I@Z
   001ab	4c 8b c8	 mov	 r9, rax
@@ -7860,21 +8287,21 @@ $LN5@Ready_Prot:
   001b5	33 d2		 xor	 edx, edx
   001b7	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001be	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  001be	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   001c2	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
   001c8	85 c0		 test	 eax, eax
   001ca	7d 0a		 jge	 SHORT $LN6@Ready_Prot
 
-; 143  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_GROUD.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
-; 144  : 		return E_FAIL;
+; 170  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_GROUD.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
+; 171  : 		return E_FAIL;
 
   001cc	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  001d1	e9 20 01 00 00	 jmp	 $LN1@Ready_Prot
+  001d1	e9 72 06 00 00	 jmp	 $LN1@Ready_Prot
 $LN6@Ready_Prot:
 
-; 145  : 
-; 146  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_phong"),
+; 172  : 
+; 173  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_phong"),
 
   001d6	c7 44 24 20 03
 	00 00 00	 mov	 DWORD PTR [rsp+32], 3
@@ -7884,10 +8311,10 @@ $LN6@Ready_Prot:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DO@JDLCNAEI@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAP?$AAH?$AAO?$AAN?$AAG?$AA?4?$AAh?$AAl?$AAs?$AAl?$AA?$AA@
   001ec	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001f3	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  001f3	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
   001f7	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001fe	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  001fe	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
   00202	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Create@CShader@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WPEAUD3D11_INPUT_ELEMENT_DESC@@I@Z
   00208	4c 8b c8	 mov	 r9, rax
@@ -7896,21 +8323,21 @@ $LN6@Ready_Prot:
   00212	33 d2		 xor	 edx, edx
   00214	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0021b	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  0021b	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   0021f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
   00225	85 c0		 test	 eax, eax
   00227	7d 0a		 jge	 SHORT $LN7@Ready_Prot
 
-; 147  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_PHONG.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
-; 148  : 		return E_FAIL;
+; 174  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_PHONG.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
+; 175  : 		return E_FAIL;
 
   00229	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0022e	e9 c3 00 00 00	 jmp	 $LN1@Ready_Prot
+  0022e	e9 15 06 00 00	 jmp	 $LN1@Ready_Prot
 $LN7@Ready_Prot:
 
-; 149  : 
-; 150  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"),
+; 176  : 
+; 177  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"),
 
   00233	c7 44 24 20 04
 	00 00 00	 mov	 DWORD PTR [rsp+32], 4
@@ -7920,10 +8347,10 @@ $LN7@Ready_Prot:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@OODBJPJH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAV?$AAT?$AAX?$AAM?$AAO?$AAD?$AAE?$AAL?$AA?4?$AAh?$AAl?$AAs@
   00249	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00250	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  00250	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
   00254	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0025b	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  0025b	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
   0025f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Create@CShader@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WPEAUD3D11_INPUT_ELEMENT_DESC@@I@Z
   00265	4c 8b c8	 mov	 r9, rax
@@ -7932,79 +8359,629 @@ $LN7@Ready_Prot:
   0026f	33 d2		 xor	 edx, edx
   00271	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00278	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00278	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   0027c	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
   00282	85 c0		 test	 eax, eax
-  00284	7d 07		 jge	 SHORT $LN8@Ready_Prot
+  00284	7d 0a		 jge	 SHORT $LN8@Ready_Prot
 
-; 151  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXMODEL.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
-; 152  : 		return E_FAIL;
+; 178  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXMODEL.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
+; 179  : 		return E_FAIL;
 
   00286	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0028b	eb 69		 jmp	 SHORT $LN1@Ready_Prot
+  0028b	e9 b8 05 00 00	 jmp	 $LN1@Ready_Prot
 $LN8@Ready_Prot:
 
-; 153  : 
-; 154  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_LOADING, TEXT("proto_com_texture_background"),
+; 180  : 
+; 181  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_alpha"),
 
-  0028d	41 b9 01 00 00
-	00		 mov	 r9d, 1
-  00293	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FI@GIHKFDKM@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAb?$AAa?$AAc@
-  0029a	48 8b 85 f0 00
+  00290	c7 44 24 20 02
+	00 00 00	 mov	 DWORD PTR [rsp+32], 2
+  00298	4c 8b 0d 00 00
+	00 00		 mov	 r9, QWORD PTR __imp_?Elements@tagVertex_Position_TexCoord_Declaration@Engine@@2PAUD3D11_INPUT_ELEMENT_DESC@@A
+  0029f	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DO@BAAPMPLC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAA?$AAL?$AAP?$AAH?$AAA?$AA?4?$AAh?$AAl?$AAs?$AAl?$AA?$AA@
+  002a6	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002a1	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
-  002a5	48 8b 85 f0 00
+  002ad	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  002b1	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002ac	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
-  002b0	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
-  002b6	4c 8b c8	 mov	 r9, rax
-  002b9	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DK@HBIABGPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
-  002c0	ba 01 00 00 00	 mov	 edx, 1
-  002c5	48 8b 85 f0 00
+  002b8	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  002bc	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CShader@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WPEAUD3D11_INPUT_ELEMENT_DESC@@I@Z
+  002c2	4c 8b c8	 mov	 r9, rax
+  002c5	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CO@BOBMIKED@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAa?$AAl?$AAp?$AAh?$AAa?$AA?$AA@
+  002cc	33 d2		 xor	 edx, edx
+  002ce	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002cc	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
-  002d0	ff 15 00 00 00
+  002d5	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  002d9	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
-  002d6	85 c0		 test	 eax, eax
-  002d8	7d 07		 jge	 SHORT $LN9@Ready_Prot
+  002df	85 c0		 test	 eax, eax
+  002e1	7d 0a		 jge	 SHORT $LN9@Ready_Prot
 
-; 155  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/background.jpg")))))
-; 156  : 		return E_FAIL;
+; 182  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_ALPHA.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
+; 183  : 		return E_FAIL;
 
-  002da	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  002df	eb 15		 jmp	 SHORT $LN1@Ready_Prot
+  002e3	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  002e8	e9 5b 05 00 00	 jmp	 $LN1@Ready_Prot
 $LN9@Ready_Prot:
 
-; 157  : 
-; 158  : 	Safe_AddRef(m_pRenderer);
+; 184  : 
+; 185  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_ui"),
 
-  002e1	48 8b 85 f0 00
+  002ed	c7 44 24 20 02
+	00 00 00	 mov	 DWORD PTR [rsp+32], 2
+  002f5	4c 8b 0d 00 00
+	00 00		 mov	 r9, QWORD PTR __imp_?Elements@tagVertex_Position_TexCoord_Declaration@Engine@@2PAUD3D11_INPUT_ELEMENT_DESC@@A
+  002fc	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DI@MMJOPCKC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?1?$AAS?$AAH?$AAA?$AAD?$AAE?$AAR?$AA_?$AAU?$AAI?$AA?4?$AAh?$AAl?$AAs?$AAl?$AA?$AA@
+  00303	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002e8	48 83 c0 28	 add	 rax, 40			; 00000028H
-  002ec	48 8b c8	 mov	 rcx, rax
-  002ef	e8 00 00 00 00	 call	 ??$Safe_AddRef@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_AddRef<Engine::CRenderer * __ptr64>
+  0030a	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  0030e	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00315	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00319	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CShader@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WPEAUD3D11_INPUT_ELEMENT_DESC@@I@Z
+  0031f	4c 8b c8	 mov	 r9, rax
+  00322	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@NFFEDNON@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAu?$AAi?$AA?$AA@
+  00329	33 d2		 xor	 edx, edx
+  0032b	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00332	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00336	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  0033c	85 c0		 test	 eax, eax
+  0033e	7d 0a		 jge	 SHORT $LN10@Ready_Prot
 
-; 159  : 
-; 160  : 	return S_OK;
+; 186  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_UI.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
+; 187  : 		return E_FAIL;
 
-  002f4	33 c0		 xor	 eax, eax
+  00340	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00345	e9 fe 04 00 00	 jmp	 $LN1@Ready_Prot
+$LN10@Ready_Prot:
+
+; 188  : 
+; 189  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_LOADING, TEXT("proto_com_texture_background"),
+
+  0034a	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00350	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FI@GIHKFDKM@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAb?$AAa?$AAc@
+  00357	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0035e	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00362	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00369	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  0036d	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00373	4c 8b c8	 mov	 r9, rax
+  00376	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DK@HBIABGPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
+  0037d	ba 01 00 00 00	 mov	 edx, 1
+  00382	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00389	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  0038d	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00393	85 c0		 test	 eax, eax
+  00395	7d 0a		 jge	 SHORT $LN11@Ready_Prot
+
+; 190  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/background.jpg")))))
+; 191  : 		return E_FAIL;
+
+  00397	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  0039c	e9 a7 04 00 00	 jmp	 $LN1@Ready_Prot
+$LN11@Ready_Prot:
+
+; 192  : 
+; 193  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_back"),
+
+  003a1	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  003a7	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1HE@CHMDFPLH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
+  003ae	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  003b5	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  003b9	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  003c0	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  003c4	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  003ca	4c 8b c8	 mov	 r9, rax
+  003cd	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EC@OBDDCONO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAa?$AAc?$AAk@
+  003d4	33 d2		 xor	 edx, edx
+  003d6	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  003dd	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  003e1	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  003e7	85 c0		 test	 eax, eax
+  003e9	7d 0a		 jge	 SHORT $LN12@Ready_Prot
+
+; 194  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_back.png")))))
+; 195  : 		return E_FAIL;
+
+  003eb	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  003f0	e9 53 04 00 00	 jmp	 $LN1@Ready_Prot
+$LN12@Ready_Prot:
+
+; 196  : 
+; 197  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_blood"),
+
+  003f5	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  003fb	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1HG@IIDDJEOA@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
+  00402	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00409	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  0040d	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00414	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00418	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  0041e	4c 8b c8	 mov	 r9, rax
+  00421	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@EOOJLINA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAl?$AAo?$AAo@
+  00428	33 d2		 xor	 edx, edx
+  0042a	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00431	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00435	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  0043b	85 c0		 test	 eax, eax
+  0043d	7d 0a		 jge	 SHORT $LN13@Ready_Prot
+
+; 198  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_blood.png")))))
+; 199  : 		return E_FAIL;
+
+  0043f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00444	e9 ff 03 00 00	 jmp	 $LN1@Ready_Prot
+$LN13@Ready_Prot:
+
+; 200  : 
+; 201  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_front"),
+
+  00449	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  0044f	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1HG@GAEHDNKC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
+  00456	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0045d	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00461	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00468	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  0046c	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00472	4c 8b c8	 mov	 r9, rax
+  00475	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@OPMNLGMO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAf?$AAr?$AAo?$AAn@
+  0047c	33 d2		 xor	 edx, edx
+  0047e	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00485	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00489	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  0048f	85 c0		 test	 eax, eax
+  00491	7d 0a		 jge	 SHORT $LN14@Ready_Prot
+
+; 202  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_front.png")))))
+; 203  : 		return E_FAIL;
+
+  00493	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00498	e9 ab 03 00 00	 jmp	 $LN1@Ready_Prot
+$LN14@Ready_Prot:
+
+; 204  : 
+; 205  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_red"),
+
+  0049d	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  004a3	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FG@BBFMJJDK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+  004aa	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  004b1	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  004b5	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  004bc	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  004c0	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  004c6	4c 8b c8	 mov	 r9, rax
+  004c9	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CM@FICJANHB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AAe?$AAd?$AA?$AA@
+  004d0	33 d2		 xor	 edx, edx
+  004d2	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  004d9	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  004dd	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  004e3	85 c0		 test	 eax, eax
+  004e5	7d 0a		 jge	 SHORT $LN15@Ready_Prot
+
+; 206  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Red.png")))))
+; 207  : 		return E_FAIL;
+
+  004e7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  004ec	e9 57 03 00 00	 jmp	 $LN1@Ready_Prot
+$LN15@Ready_Prot:
+
+; 208  : 
+; 209  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_blue"),
+
+  004f1	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  004f7	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FI@KKPMHDHH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+  004fe	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00505	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00509	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00510	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00514	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  0051a	4c 8b c8	 mov	 r9, rax
+  0051d	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CO@LEAGCAOP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAl?$AAu?$AAe?$AA?$AA@
+  00524	33 d2		 xor	 edx, edx
+  00526	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0052d	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00531	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00537	85 c0		 test	 eax, eax
+  00539	7d 0a		 jge	 SHORT $LN16@Ready_Prot
+
+; 210  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Blue.png")))))
+; 211  : 		return E_FAIL;
+
+  0053b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00540	e9 03 03 00 00	 jmp	 $LN1@Ready_Prot
+$LN16@Ready_Prot:
+
+; 212  : 
+; 213  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_yellow"),
+
+  00545	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  0054b	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FM@CABLKNLP@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+  00552	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00559	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  0055d	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00564	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00568	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  0056e	4c 8b c8	 mov	 r9, rax
+  00571	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DC@FDJKGOCO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAy?$AAe?$AAl?$AAl?$AAo?$AAw?$AA?$AA@
+  00578	33 d2		 xor	 edx, edx
+  0057a	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00581	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00585	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  0058b	85 c0		 test	 eax, eax
+  0058d	7d 0a		 jge	 SHORT $LN17@Ready_Prot
+
+; 214  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Yellow.png")))))
+; 215  : 		return E_FAIL;
+
+  0058f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00594	e9 af 02 00 00	 jmp	 $LN1@Ready_Prot
+$LN17@Ready_Prot:
+
+; 216  : 
+; 217  : 	//Key q w e r a s d f
+; 218  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_a"),
+
+  00599	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  0059f	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@POHANNBB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAA?$AA?4?$AAp?$AAn@
+  005a6	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  005ad	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  005b1	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  005b8	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  005bc	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  005c2	4c 8b c8	 mov	 r9, rax
+  005c5	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@OBMDPEEP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAa?$AA?$AA@
+  005cc	33 d2		 xor	 edx, edx
+  005ce	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  005d5	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  005d9	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  005df	85 c0		 test	 eax, eax
+  005e1	7d 0a		 jge	 SHORT $LN18@Ready_Prot
+
+; 219  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/A.png")))))
+; 220  : 		return E_FAIL;
+
+  005e3	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  005e8	e9 5b 02 00 00	 jmp	 $LN1@Ready_Prot
+$LN18@Ready_Prot:
+
+; 221  : 
+; 222  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_s"),
+
+  005ed	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  005f3	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@BOFDKOHC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAS?$AA?4?$AAp?$AAn@
+  005fa	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00601	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00605	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0060c	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00610	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00616	4c 8b c8	 mov	 r9, rax
+  00619	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@BLNDGLFL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAs?$AA?$AA@
+  00620	33 d2		 xor	 edx, edx
+  00622	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00629	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  0062d	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00633	85 c0		 test	 eax, eax
+  00635	7d 0a		 jge	 SHORT $LN19@Ready_Prot
+
+; 223  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/S.png")))))
+; 224  : 		return E_FAIL;
+
+  00637	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  0063c	e9 07 02 00 00	 jmp	 $LN1@Ready_Prot
+$LN19@Ready_Prot:
+
+; 225  : 
+; 226  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_d"),
+
+  00641	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00647	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@GGNDKKAB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAD?$AA?4?$AAp?$AAn@
+  0064e	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00655	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00659	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00660	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00664	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  0066a	4c 8b c8	 mov	 r9, rax
+  0066d	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@NGBNAEHN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AA?$AA@
+  00674	33 d2		 xor	 edx, edx
+  00676	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0067d	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00681	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00687	85 c0		 test	 eax, eax
+  00689	7d 0a		 jge	 SHORT $LN20@Ready_Prot
+
+; 227  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/D.png")))))
+; 228  : 		return E_FAIL;
+
+  0068b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00690	e9 b3 01 00 00	 jmp	 $LN1@Ready_Prot
+$LN20@Ready_Prot:
+
+; 229  : 
+; 230  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_f"),
+
+  00695	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  0069b	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@IKOIDEJO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAF?$AA?4?$AAp?$AAn@
+  006a2	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  006a9	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  006ad	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  006b4	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  006b8	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  006be	4c 8b c8	 mov	 r9, rax
+  006c1	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@HMBEMMPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAf?$AA?$AA@
+  006c8	33 d2		 xor	 edx, edx
+  006ca	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  006d1	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  006d5	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  006db	85 c0		 test	 eax, eax
+  006dd	7d 0a		 jge	 SHORT $LN21@Ready_Prot
+
+; 231  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/F.png")))))
+; 232  : 		return E_FAIL;
+
+  006df	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  006e4	e9 5f 01 00 00	 jmp	 $LN1@Ready_Prot
+$LN21@Ready_Prot:
+
+; 233  : 
+; 234  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_q"),
+
+  006e9	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  006ef	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@PCGIDAON@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAQ?$AA?4?$AAp?$AAn@
+  006f6	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  006fd	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00701	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00708	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  0070c	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00712	4c 8b c8	 mov	 r9, rax
+  00715	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@LBNKKDNA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAq?$AA?$AA@
+  0071c	33 d2		 xor	 edx, edx
+  0071e	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00725	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00729	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  0072f	85 c0		 test	 eax, eax
+  00731	7d 0a		 jge	 SHORT $LN22@Ready_Prot
+
+; 235  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/Q.png")))))
+; 236  : 		return E_FAIL;
+
+  00733	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00738	e9 0b 01 00 00	 jmp	 $LN1@Ready_Prot
+$LN22@Ready_Prot:
+
+; 237  : 
+; 238  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_w"),
+
+  0073d	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00743	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@BNFFJFAN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAW?$AA?4?$AAp?$AAn@
+  0074a	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00751	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00755	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0075c	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00760	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00766	4c 8b c8	 mov	 r9, rax
+  00769	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@JELBPMAM@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAw?$AA?$AA@
+  00770	33 d2		 xor	 edx, edx
+  00772	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00779	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  0077d	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00783	85 c0		 test	 eax, eax
+  00785	7d 0a		 jge	 SHORT $LN23@Ready_Prot
+
+; 239  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/W.png")))))
+; 240  : 		return E_FAIL;
+
+  00787	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  0078c	e9 b7 00 00 00	 jmp	 $LN1@Ready_Prot
+$LN23@Ready_Prot:
+
+; 241  : 
+; 242  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_e"),
+
+  00791	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00797	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@PNHGOGGO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAE?$AA?4?$AAp?$AAn@
+  0079e	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  007a5	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  007a9	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  007b0	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  007b4	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  007ba	4c 8b c8	 mov	 r9, rax
+  007bd	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@GOKBGDBI@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAe?$AA?$AA@
+  007c4	33 d2		 xor	 edx, edx
+  007c6	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  007cd	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  007d1	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  007d7	85 c0		 test	 eax, eax
+  007d9	7d 07		 jge	 SHORT $LN24@Ready_Prot
+
+; 243  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/E.png")))))
+; 244  : 		return E_FAIL;
+
+  007db	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  007e0	eb 66		 jmp	 SHORT $LN1@Ready_Prot
+$LN24@Ready_Prot:
+
+; 245  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_r"),
+
+  007e2	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  007e8	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@IFPGOCBN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAR?$AA?4?$AAp?$AAn@
+  007ef	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  007f6	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  007fa	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00801	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00805	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  0080b	4c 8b c8	 mov	 r9, rax
+  0080e	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@KDGPAMDO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AA?$AA@
+  00815	33 d2		 xor	 edx, edx
+  00817	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0081e	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00822	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00828	85 c0		 test	 eax, eax
+  0082a	7d 07		 jge	 SHORT $LN25@Ready_Prot
+
+; 246  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/R.png")))))
+; 247  : 		return E_FAIL;
+
+  0082c	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00831	eb 15		 jmp	 SHORT $LN1@Ready_Prot
+$LN25@Ready_Prot:
+
+; 248  : 
+; 249  : 
+; 250  : 
+; 251  : 	Safe_AddRef(m_pRenderer);
+
+  00833	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0083a	48 83 c0 38	 add	 rax, 56			; 00000038H
+  0083e	48 8b c8	 mov	 rcx, rax
+  00841	e8 00 00 00 00	 call	 ??$Safe_AddRef@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_AddRef<Engine::CRenderer * __ptr64>
+
+; 252  : 
+; 253  : 	return S_OK;
+
+  00846	33 c0		 xor	 eax, eax
 $LN1@Ready_Prot:
 
-; 161  : }
+; 254  : }
 
-  002f6	48 8d a5 d8 00
+  00848	48 8d a5 d8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+216]
-  002fd	5f		 pop	 rdi
-  002fe	5d		 pop	 rbp
-  002ff	c3		 ret	 0
+  0084f	5f		 pop	 rdi
+  00850	5d		 pop	 rbp
+  00851	c3		 ret	 0
 ?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ ENDP ; Client::CApplication::Ready_Prototype_Static_Component
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ?Open_Level@CApplication@Client@@AEAAJW4LEVEL_ID@2@@Z
 _TEXT	SEGMENT
 hr$ = 4
@@ -8018,7 +8995,7 @@ this$ = 416
 eLevelID$ = 424
 ?Open_Level@CApplication@Client@@AEAAJW4LEVEL_ID@2@@Z PROC ; Client::CApplication::Open_Level, COMDAT
 
-; 100  : {
+; 127  : {
 
 $LN10:
   00000	89 54 24 10	 mov	 DWORD PTR [rsp+16], edx
@@ -8043,32 +9020,32 @@ $LN10:
   00043	48 89 85 78 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 101  : 	if (nullptr == m_pGameInstance)
+; 128  : 	if (nullptr == m_pGameInstance)
 
   0004a	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00051	48 83 78 20 00	 cmp	 QWORD PTR [rax+32], 0
+  00051	48 83 78 30 00	 cmp	 QWORD PTR [rax+48], 0
   00056	75 0a		 jne	 SHORT $LN4@Open_Level
 
-; 102  : 		return E_FAIL;
+; 129  : 		return E_FAIL;
 
   00058	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0005d	e9 d9 00 00 00	 jmp	 $LN1@Open_Level
 $LN4@Open_Level:
 
-; 103  : 
-; 104  : 	HRESULT hr = 0;
+; 130  : 
+; 131  : 	HRESULT hr = 0;
 
   00062	c7 45 04 00 00
 	00 00		 mov	 DWORD PTR hr$[rbp], 0
 
-; 105  : 	wstring message;
+; 132  : 	wstring message;
 
   00069	48 8d 4d 28	 lea	 rcx, QWORD PTR message$[rbp]
   0006d	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   00072	90		 npad	 1
 
-; 106  : 	switch (eLevelID)
+; 133  : 	switch (eLevelID)
 
   00073	8b 85 a8 01 00
 	00		 mov	 eax, DWORD PTR eLevelID$[rbp]
@@ -8083,17 +9060,17 @@ $LN4@Open_Level:
   00091	eb 30		 jmp	 SHORT $LN6@Open_Level
 $LN5@Open_Level:
 
-; 107  : 	{
-; 108  : 	case LEVEL_STATIC:
-; 109  : 	case LEVEL_LOADING:
-; 110  : 		message = L"CApplication::Open_Level : index check";
+; 134  : 	{
+; 135  : 	case LEVEL_STATIC:
+; 136  : 	case LEVEL_LOADING:
+; 137  : 		message = L"CApplication::Open_Level : index check";
 
   00093	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1EO@EGCHHAPA@?$AAC?$AAA?$AAp?$AAp?$AAl?$AAi?$AAc?$AAa?$AAt?$AAi?$AAo?$AAn?$AA?3?$AA?3?$AAO?$AAp?$AAe?$AAn?$AA_?$AAL?$AAe?$AAv?$AAe?$AAl?$AA?5?$AA?3?$AA?5?$AAi?$AAn?$AAd?$AAe?$AAx@
   0009a	48 8d 4d 28	 lea	 rcx, QWORD PTR message$[rbp]
   0009e	e8 00 00 00 00	 call	 ??4?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV01@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::operator=
 
-; 111  : 		MESSAGE(message);
+; 138  : 		MESSAGE(message);
 
   000a3	48 8d 4d 28	 lea	 rcx, QWORD PTR message$[rbp]
   000a7	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -8105,42 +9082,42 @@ $LN5@Open_Level:
   000bb	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 112  : 		break;
+; 139  : 		break;
 
   000c1	eb 3e		 jmp	 SHORT $LN2@Open_Level
 $LN6@Open_Level:
 
-; 113  : 	default:
-; 114  : 		hr = m_pGameInstance->Open_Level(LEVEL_LOADING, CLevel_Loading::Create(m_pDevice, m_pContext, eLevelID));
+; 140  : 	default:
+; 141  : 		hr = m_pGameInstance->Open_Level(LEVEL_LOADING, CLevel_Loading::Create(m_pDevice, m_pContext, eLevelID));
 
   000c3	44 8b 85 a8 01
 	00 00		 mov	 r8d, DWORD PTR eLevelID$[rbp]
   000ca	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000d1	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  000d1	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
   000d5	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000dc	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  000dc	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
   000e0	e8 00 00 00 00	 call	 ?Create@CLevel_Loading@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@2@@Z ; Client::CLevel_Loading::Create
   000e5	4c 8b c0	 mov	 r8, rax
   000e8	ba 01 00 00 00	 mov	 edx, 1
   000ed	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000f4	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  000f4	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   000f8	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Open_Level@CGameInstance@Engine@@QEAAJIPEAVCLevel@2@@Z
   000fe	89 45 04	 mov	 DWORD PTR hr$[rbp], eax
 $LN2@Open_Level:
 
-; 115  : 		break;
-; 116  : 	}
-; 117  : 
-; 118  : 	if (FAILED(hr))
+; 142  : 		break;
+; 143  : 	}
+; 144  : 
+; 145  : 	if (FAILED(hr))
 
   00101	83 7d 04 00	 cmp	 DWORD PTR hr$[rbp], 0
   00105	7d 1b		 jge	 SHORT $LN7@Open_Level
 
-; 119  : 		return E_FAIL;
+; 146  : 		return E_FAIL;
 
   00107	c7 85 24 01 00
 	00 05 40 00 80	 mov	 DWORD PTR $T4[rbp], -2147467259 ; ffffffff80004005H
@@ -8151,8 +9128,8 @@ $LN2@Open_Level:
   00120	eb 19		 jmp	 SHORT $LN1@Open_Level
 $LN7@Open_Level:
 
-; 120  : 
-; 121  : 	return S_OK;
+; 147  : 
+; 148  : 	return S_OK;
 
   00122	c7 85 44 01 00
 	00 00 00 00 00	 mov	 DWORD PTR $T5[rbp], 0
@@ -8162,7 +9139,7 @@ $LN7@Open_Level:
 	00		 mov	 eax, DWORD PTR $T5[rbp]
 $LN1@Open_Level:
 
-; 122  : }
+; 149  : }
 
   0013b	48 8b f8	 mov	 rdi, rax
   0013e	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -8235,7 +9212,7 @@ eLevelID$ = 424
 ?dtor$0@?0??Open_Level@CApplication@Client@@AEAAJW4LEVEL_ID@2@@Z@4HA ENDP ; `Client::CApplication::Open_Level'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ?Render@CApplication@Client@@QEAAJXZ
 _TEXT	SEGMENT
 $T1 = 196
@@ -8243,7 +9220,7 @@ $T2 = 256
 this$ = 320
 ?Render@CApplication@Client@@QEAAJXZ PROC		; Client::CApplication::Render, COMDAT
 
-; 77   : {
+; 104  : {
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8260,58 +9237,58 @@ $LN5:
   00023	48 8b 8c 24 78
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+376]
 
-; 78   : 	if (!m_pGameInstance || !m_pRenderer)
+; 105  : 	if (!m_pGameInstance || !m_pRenderer)
 
   0002b	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00032	48 83 78 20 00	 cmp	 QWORD PTR [rax+32], 0
+  00032	48 83 78 30 00	 cmp	 QWORD PTR [rax+48], 0
   00037	74 0e		 je	 SHORT $LN3@Render
   00039	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00040	48 83 78 28 00	 cmp	 QWORD PTR [rax+40], 0
+  00040	48 83 78 38 00	 cmp	 QWORD PTR [rax+56], 0
   00045	75 0a		 jne	 SHORT $LN2@Render
 $LN3@Render:
 
-; 79   : 		return E_FAIL;
+; 106  : 		return E_FAIL;
 
   00047	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0004c	e9 ec 00 00 00	 jmp	 $LN1@Render
 $LN2@Render:
 
-; 80   : 
-; 81   : 	m_pGUIManager->NewFrame();
+; 107  : 
+; 108  : 	m_pGUIManager->NewFrame();
 
   00051	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00058	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00058	48 8b 48 40	 mov	 rcx, QWORD PTR [rax+64]
   0005c	e8 00 00 00 00	 call	 ?NewFrame@CImGUIManager@Client@@QEAAXXZ ; Client::CImGUIManager::NewFrame
 
-; 82   : 	m_pGameInstance->RenderLevelUI();
+; 109  : 	m_pGameInstance->RenderLevelUI();
 
   00061	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00068	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00068	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   0006c	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?RenderLevelUI@CGameInstance@Engine@@QEAAXXZ
 
-; 83   : 	m_pGameInstance->RenderGUI();
+; 110  : 	m_pGameInstance->RenderGUI();
 
   00072	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00079	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00079	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   0007d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?RenderGUI@CGameInstance@Engine@@QEAAXXZ
 
-; 84   : 	//m_pStageManager->RenderGUI();
-; 85   : 	m_pGUIManager->Render();
+; 111  : 	//m_pStageManager->RenderGUI();
+; 112  : 	m_pGUIManager->Render();
 
   00083	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0008a	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  0008a	48 8b 48 40	 mov	 rcx, QWORD PTR [rax+64]
   0008e	e8 00 00 00 00	 call	 ?Render@CImGUIManager@Client@@QEAAXXZ ; Client::CImGUIManager::Render
 
-; 86   : 
-; 87   : 	m_pGameInstance->Clear_RenderTargetView(_float4(0.f, 0.f, 1.f, 1.f));
+; 113  : 
+; 114  : 	m_pGameInstance->Clear_RenderTargetView(_float4(0.f, 0.f, 1.f, 1.f));
 
   00093	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
@@ -8334,58 +9311,58 @@ $LN2@Render:
 	00 00		 lea	 rdx, QWORD PTR $T2[rbp]
   000d6	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000dd	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  000dd	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   000e1	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Clear_RenderTargetView@CGameInstance@Engine@@QEAAJUXMFLOAT4@DirectX@@@Z
 
-; 88   : 	m_pGameInstance->Clear_DepthStencilView();
+; 115  : 	m_pGameInstance->Clear_DepthStencilView();
 
   000e7	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000ee	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  000ee	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   000f2	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Clear_DepthStencilView@CGameInstance@Engine@@QEAAJXZ
 
-; 89   : 
-; 90   : 	m_pRenderer->Draw();
+; 116  : 
+; 117  : 	m_pRenderer->Draw();
 
   000f8	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000ff	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
+  000ff	48 8b 48 38	 mov	 rcx, QWORD PTR [rax+56]
   00103	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Draw@CRenderer@Engine@@QEAAXXZ
 
-; 91   : 	m_pGameInstance->CollisionRender();
+; 118  : 	m_pGameInstance->CollisionRender();
 
   00109	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00110	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00110	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   00114	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?CollisionRender@CGameInstance@Engine@@QEAAXXZ
 
-; 92   : 	m_pGUIManager->RenderDrawData();
+; 119  : 	m_pGUIManager->RenderDrawData();
 
   0011a	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00121	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00121	48 8b 48 40	 mov	 rcx, QWORD PTR [rax+64]
   00125	e8 00 00 00 00	 call	 ?RenderDrawData@CImGUIManager@Client@@QEAAXXZ ; Client::CImGUIManager::RenderDrawData
 
-; 93   : 
-; 94   : 	m_pGameInstance->Present();
+; 120  : 
+; 121  : 	m_pGameInstance->Present();
 
   0012a	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00131	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00131	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   00135	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Present@CGameInstance@Engine@@QEAAJXZ
 
-; 95   : 
-; 96   : 	return S_OK;
+; 122  : 
+; 123  : 	return S_OK;
 
   0013b	33 c0		 xor	 eax, eax
 $LN1@Render:
 
-; 97   : }
+; 124  : }
 
   0013d	48 8d a5 20 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+288]
@@ -8396,16 +9373,16 @@ $LN1@Render:
 ?Render@CApplication@Client@@QEAAJXZ ENDP		; Client::CApplication::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ?Tick@CApplication@Client@@QEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
 TimeDelta$ = 232
 ?Tick@CApplication@Client@@QEAAXN@Z PROC		; Client::CApplication::Tick, COMDAT
 
-; 68   : {
+; 76   : {
 
-$LN4:
+$LN5:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8421,42 +9398,87 @@ $LN4:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 69   : 	if (nullptr == m_pGameInstance)
+; 77   : 	s_TickCount++;
 
-  00030	48 8b 85 e0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00037	48 83 78 20 00	 cmp	 QWORD PTR [rax+32], 0
-  0003c	75 02		 jne	 SHORT $LN2@Tick
+  00030	8b 05 00 00 00
+	00		 mov	 eax, DWORD PTR ?s_TickCount@CApplication@Client@@0IA ; Client::CApplication::s_TickCount
+  00036	ff c0		 inc	 eax
+  00038	89 05 00 00 00
+	00		 mov	 DWORD PTR ?s_TickCount@CApplication@Client@@0IA, eax ; Client::CApplication::s_TickCount
 
-; 70   : 		return;
+; 78   : 	if (s_TickCount > 30)
 
-  0003e	eb 19		 jmp	 SHORT $LN1@Tick
+  0003e	83 3d 00 00 00
+	00 1e		 cmp	 DWORD PTR ?s_TickCount@CApplication@Client@@0IA, 30 ; Client::CApplication::s_TickCount
+  00045	76 0a		 jbe	 SHORT $LN2@Tick
+
+; 79   : 		s_TickCount = 0;
+
+  00047	c7 05 00 00 00
+	00 00 00 00 00	 mov	 DWORD PTR ?s_TickCount@CApplication@Client@@0IA, 0 ; Client::CApplication::s_TickCount
 $LN2@Tick:
 
-; 71   : 
-; 72   : 	m_pGameInstance->Engine_Tick(TimeDelta);
+; 80   : 
+; 81   : 	srand((unsigned int)time(nullptr) * s_TickCount);
 
-  00040	f2 0f 10 8d e8
-	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  00048	48 8b 85 e0 00
+  00051	33 c9		 xor	 ecx, ecx
+  00053	e8 00 00 00 00	 call	 time
+  00058	0f af 05 00 00
+	00 00		 imul	 eax, DWORD PTR ?s_TickCount@CApplication@Client@@0IA ; Client::CApplication::s_TickCount
+  0005f	8b c8		 mov	 ecx, eax
+  00061	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_srand
+
+; 82   : 
+; 83   : 	if (nullptr == m_pGameInstance)
+
+  00067	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0004f	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
-  00053	ff 15 00 00 00
+  0006e	48 83 78 30 00	 cmp	 QWORD PTR [rax+48], 0
+  00073	75 02		 jne	 SHORT $LN3@Tick
+
+; 84   : 		return;
+
+  00075	eb 19		 jmp	 SHORT $LN1@Tick
+$LN3@Tick:
+
+; 85   : 
+; 86   : 
+; 87   : 	//if (CApplicationManager::GetInstance()->IsHitFreeze())
+; 88   : 	//{
+; 89   : 	//	m_bHitFreezeLocal += TimeDelta;
+; 90   : 	//	if (m_bHitFreezeLocal >= m_bHitFreezeTimeOut)
+; 91   : 	//	{
+; 92   : 	//		m_bHitFreezeLocal = 0.f;
+; 93   : 	//		CApplicationManager::GetInstance()->SetHitFreeze(false);
+; 94   : 	//	}
+; 95   : 
+; 96   : 	//	TimeDelta = TimeDelta * 0.5f;
+; 97   : 	//}
+; 98   : 
+; 99   : 	m_pGameInstance->Engine_Tick(TimeDelta);
+
+  00077	f2 0f 10 8d e8
+	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
+  0007f	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00086	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  0008a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Engine_Tick@CGameInstance@Engine@@QEAAJN@Z
 $LN1@Tick:
 
-; 73   : 	//m_pStageManager->Tick(TimeDelta);
-; 74   : }
+; 100  : 	//m_pStageManager->Tick(TimeDelta);
+; 101  : }
 
-  00059	48 8d a5 c8 00
+  00090	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  00060	5f		 pop	 rdi
-  00061	5d		 pop	 rbp
-  00062	c3		 ret	 0
+  00097	5f		 pop	 rdi
+  00098	5d		 pop	 rbp
+  00099	c3		 ret	 0
 ?Tick@CApplication@Client@@QEAAXN@Z ENDP		; Client::CApplication::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ?Initialize@CApplication@Client@@QEAAJXZ
 _TEXT	SEGMENT
 GraphicDesc$ = 8
@@ -8466,7 +9488,7 @@ __$ArrayPad$ = 344
 this$ = 384
 ?Initialize@CApplication@Client@@QEAAJXZ PROC		; Client::CApplication::Initialize, COMDAT
 
-; 24   : {
+; 32   : {
 
 $LN8:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8487,8 +9509,8 @@ $LN8:
   00034	48 89 85 58 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 25   : 	GRAPHIC_DESC GraphicDesc;
-; 26   : 	ZeroMemory(&GraphicDesc, sizeof GRAPHIC_DESC);
+; 33   : 	GRAPHIC_DESC GraphicDesc;
+; 34   : 	ZeroMemory(&GraphicDesc, sizeof GRAPHIC_DESC);
 
   0003b	41 b8 20 00 00
 	00		 mov	 r8d, 32			; 00000020H
@@ -8496,42 +9518,42 @@ $LN8:
   00043	48 8d 4d 08	 lea	 rcx, QWORD PTR GraphicDesc$[rbp]
   00047	e8 00 00 00 00	 call	 memset
 
-; 27   : 	GraphicDesc.eMode = GRAPHIC_DESC::MODE_WINDOW;
+; 35   : 	GraphicDesc.eMode = GRAPHIC_DESC::MODE_WINDOW;
 
   0004c	c7 45 08 01 00
 	00 00		 mov	 DWORD PTR GraphicDesc$[rbp], 1
 
-; 28   : 	GraphicDesc.iWinSizeX = g_iWinSizeX;
+; 36   : 	GraphicDesc.iWinSizeX = g_iWinSizeX;
 
   00053	c7 45 0c 00 05
 	00 00		 mov	 DWORD PTR GraphicDesc$[rbp+4], 1280 ; 00000500H
 
-; 29   : 	GraphicDesc.iWinSizeY = g_iWinSizeY;
+; 37   : 	GraphicDesc.iWinSizeY = g_iWinSizeY;
 
   0005a	c7 45 10 d0 02
 	00 00		 mov	 DWORD PTR GraphicDesc$[rbp+8], 720 ; 000002d0H
 
-; 30   : 	GraphicDesc.hWnd = g_hWnd;
+; 38   : 	GraphicDesc.hWnd = g_hWnd;
 
   00061	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR ?g_hWnd@@3PEAUHWND__@@EA ; g_hWnd
   00068	48 89 45 20	 mov	 QWORD PTR GraphicDesc$[rbp+24], rax
 
-; 31   : 	GraphicDesc.hInstance = g_hInst;
+; 39   : 	GraphicDesc.hInstance = g_hInst;
 
   0006c	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR ?g_hInst@@3PEAUHINSTANCE__@@EA ; g_hInst
   00073	48 89 45 18	 mov	 QWORD PTR GraphicDesc$[rbp+16], rax
 
-; 32   : 	
-; 33   : 	if (FAILED(m_pGameInstance->Engine_Initialize(GraphicDesc, LEVEL_END, &m_pDevice, &m_pContext)))
+; 40   : 	
+; 41   : 	if (FAILED(m_pGameInstance->Engine_Initialize(GraphicDesc, LEVEL_END, &m_pDevice, &m_pContext)))
 
   00077	48 8b 85 80 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0007e	48 83 c0 18	 add	 rax, 24
+  0007e	48 83 c0 28	 add	 rax, 40			; 00000028H
   00082	48 8b 8d 80 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00089	48 83 c1 10	 add	 rcx, 16
+  00089	48 83 c1 20	 add	 rcx, 32			; 00000020H
   0008d	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
   00092	4c 8b c9	 mov	 r9, rcx
   00095	41 b8 05 00 00
@@ -8539,34 +9561,34 @@ $LN8:
   0009b	48 8d 55 08	 lea	 rdx, QWORD PTR GraphicDesc$[rbp]
   0009f	48 8b 85 80 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000a6	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  000a6	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
   000aa	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Engine_Initialize@CGameInstance@Engine@@QEAAJAEBUtagGraphic_Desc@2@IPEAPEAUID3D11Device@@PEAPEAUID3D11DeviceContext@@@Z
   000b0	85 c0		 test	 eax, eax
   000b2	7d 0a		 jge	 SHORT $LN2@Initialize
 
-; 34   : 		return E_FAIL;
+; 42   : 		return E_FAIL;
 
   000b4	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000b9	e9 29 01 00 00	 jmp	 $LN1@Initialize
 $LN2@Initialize:
 
-; 35   : 
-; 36   : 	m_pGUIManager->Initialize(m_pDevice, m_pContext);
+; 43   : 
+; 44   : 	m_pGUIManager->Initialize(m_pDevice, m_pContext);
 
   000be	48 8b 85 80 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000c5	4c 8b 40 18	 mov	 r8, QWORD PTR [rax+24]
+  000c5	4c 8b 40 28	 mov	 r8, QWORD PTR [rax+40]
   000c9	48 8b 85 80 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000d0	48 8b 50 10	 mov	 rdx, QWORD PTR [rax+16]
+  000d0	48 8b 50 20	 mov	 rdx, QWORD PTR [rax+32]
   000d4	48 8b 85 80 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000db	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  000db	48 8b 48 40	 mov	 rcx, QWORD PTR [rax+64]
   000df	e8 00 00 00 00	 call	 ?Initialize@CImGUIManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CImGUIManager::Initialize
 
-; 37   : 
-; 38   : 	if (FAILED(InitializeManager()))
+; 45   : 
+; 46   : 	if (FAILED(InitializeManager()))
 
   000e4	48 8b 8d 80 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -8574,14 +9596,14 @@ $LN2@Initialize:
   000f0	85 c0		 test	 eax, eax
   000f2	7d 0a		 jge	 SHORT $LN3@Initialize
 
-; 39   : 		return E_FAIL;
+; 47   : 		return E_FAIL;
 
   000f4	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000f9	e9 e9 00 00 00	 jmp	 $LN1@Initialize
 $LN3@Initialize:
 
-; 40   : 
-; 41   : 	if (FAILED(Ready_Prototype_Static_Component()))
+; 48   : 
+; 49   : 	if (FAILED(Ready_Prototype_Static_Component()))
 
   000fe	48 8b 8d 80 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -8589,14 +9611,14 @@ $LN3@Initialize:
   0010a	85 c0		 test	 eax, eax
   0010c	7d 0a		 jge	 SHORT $LN4@Initialize
 
-; 42   : 		return E_FAIL;
+; 50   : 		return E_FAIL;
 
   0010e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00113	e9 cf 00 00 00	 jmp	 $LN1@Initialize
 $LN4@Initialize:
 
-; 43   : 
-; 44   : 	if (FAILED(Ready_Prototype_Static_GameObject()))
+; 51   : 
+; 52   : 	if (FAILED(Ready_Prototype_Static_GameObject()))
 
   00118	48 8b 8d 80 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -8604,14 +9626,14 @@ $LN4@Initialize:
   00124	85 c0		 test	 eax, eax
   00126	7d 0a		 jge	 SHORT $LN5@Initialize
 
-; 45   : 		return E_FAIL;
+; 53   : 		return E_FAIL;
 
   00128	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0012d	e9 b5 00 00 00	 jmp	 $LN1@Initialize
 $LN5@Initialize:
 
-; 46   : 
-; 47   : 	if (FAILED(Open_Level(LEVEL_LOGO)))
+; 54   : 
+; 55   : 	if (FAILED(Open_Level(LEVEL_LOGO)))
 
   00132	ba 02 00 00 00	 mov	 edx, 2
   00137	48 8b 8d 80 01
@@ -8620,94 +9642,94 @@ $LN5@Initialize:
   00143	85 c0		 test	 eax, eax
   00145	7d 0a		 jge	 SHORT $LN6@Initialize
 
-; 48   : 		return E_FAIL;
+; 56   : 		return E_FAIL;
 
   00147	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0014c	e9 96 00 00 00	 jmp	 $LN1@Initialize
 $LN6@Initialize:
 
-; 49   : 
-; 50   : 	ID3D11RasterizerState* RasterizerState;
-; 51   : 	D3D11_RASTERIZER_DESC RSDesc;
-; 52   : 	RSDesc.FillMode = D3D11_FILL_SOLID;
+; 57   : 
+; 58   : 	ID3D11RasterizerState* RasterizerState;
+; 59   : 	D3D11_RASTERIZER_DESC RSDesc;
+; 60   : 	RSDesc.FillMode = D3D11_FILL_SOLID;
 
   00151	c7 45 68 03 00
 	00 00		 mov	 DWORD PTR RSDesc$[rbp], 3
 
-; 53   : 	RSDesc.CullMode = D3D11_CULL_BACK;
+; 61   : 	RSDesc.CullMode = D3D11_CULL_BACK;
 
   00158	c7 45 6c 03 00
 	00 00		 mov	 DWORD PTR RSDesc$[rbp+4], 3
 
-; 54   : 	RSDesc.FrontCounterClockwise = false;
+; 62   : 	RSDesc.FrontCounterClockwise = false;
 
   0015f	c7 45 70 00 00
 	00 00		 mov	 DWORD PTR RSDesc$[rbp+8], 0
 
-; 55   : 	RSDesc.DepthBias = 0;
+; 63   : 	RSDesc.DepthBias = 0;
 
   00166	c7 45 74 00 00
 	00 00		 mov	 DWORD PTR RSDesc$[rbp+12], 0
 
-; 56   : 	RSDesc.DepthBiasClamp = 0;
+; 64   : 	RSDesc.DepthBiasClamp = 0;
 
   0016d	0f 57 c0	 xorps	 xmm0, xmm0
   00170	f3 0f 11 45 78	 movss	 DWORD PTR RSDesc$[rbp+16], xmm0
 
-; 57   : 	RSDesc.SlopeScaledDepthBias = 0;
+; 65   : 	RSDesc.SlopeScaledDepthBias = 0;
 
   00175	0f 57 c0	 xorps	 xmm0, xmm0
   00178	f3 0f 11 45 7c	 movss	 DWORD PTR RSDesc$[rbp+20], xmm0
 
-; 58   : 	RSDesc.ScissorEnable = false;
+; 66   : 	RSDesc.ScissorEnable = false;
 
   0017d	c7 85 84 00 00
 	00 00 00 00 00	 mov	 DWORD PTR RSDesc$[rbp+28], 0
 
-; 59   : 	RSDesc.MultisampleEnable = false;
+; 67   : 	RSDesc.MultisampleEnable = false;
 
   00187	c7 85 88 00 00
 	00 00 00 00 00	 mov	 DWORD PTR RSDesc$[rbp+32], 0
 
-; 60   : 	RSDesc.AntialiasedLineEnable = false;
+; 68   : 	RSDesc.AntialiasedLineEnable = false;
 
   00191	c7 85 8c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR RSDesc$[rbp+36], 0
 
-; 61   : 	m_pDevice->CreateRasterizerState(&RSDesc, &RasterizerState);
+; 69   : 	m_pDevice->CreateRasterizerState(&RSDesc, &RasterizerState);
 
   0019b	48 8b 85 80 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001a2	48 8b 40 10	 mov	 rax, QWORD PTR [rax+16]
+  001a2	48 8b 40 20	 mov	 rax, QWORD PTR [rax+32]
   001a6	48 8b 8d 80 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  001ad	48 8b 49 10	 mov	 rcx, QWORD PTR [rcx+16]
+  001ad	48 8b 49 20	 mov	 rcx, QWORD PTR [rcx+32]
   001b1	48 8b 00	 mov	 rax, QWORD PTR [rax]
   001b4	4c 8d 45 48	 lea	 r8, QWORD PTR RasterizerState$[rbp]
   001b8	48 8d 55 68	 lea	 rdx, QWORD PTR RSDesc$[rbp]
   001bc	ff 90 b0 00 00
 	00		 call	 QWORD PTR [rax+176]
 
-; 62   : 	m_pContext->RSSetState(RasterizerState);
+; 70   : 	m_pContext->RSSetState(RasterizerState);
 
   001c2	48 8b 85 80 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001c9	48 8b 40 18	 mov	 rax, QWORD PTR [rax+24]
+  001c9	48 8b 40 28	 mov	 rax, QWORD PTR [rax+40]
   001cd	48 8b 8d 80 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  001d4	48 8b 49 18	 mov	 rcx, QWORD PTR [rcx+24]
+  001d4	48 8b 49 28	 mov	 rcx, QWORD PTR [rcx+40]
   001d8	48 8b 00	 mov	 rax, QWORD PTR [rax]
   001db	48 8b 55 48	 mov	 rdx, QWORD PTR RasterizerState$[rbp]
   001df	ff 90 58 01 00
 	00		 call	 QWORD PTR [rax+344]
 
-; 63   : 	
-; 64   : 	return S_OK;
+; 71   : 	
+; 72   : 	return S_OK;
 
   001e5	33 c0		 xor	 eax, eax
 $LN1@Initialize:
 
-; 65   : }
+; 73   : }
 
   001e7	48 8b f8	 mov	 rdi, rax
   001ea	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
@@ -8727,13 +9749,13 @@ $LN1@Initialize:
 ?Initialize@CApplication@Client@@QEAAJXZ ENDP		; Client::CApplication::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ??1CApplication@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
 ??1CApplication@Client@@EEAA@XZ PROC			; Client::CApplication::~CApplication, COMDAT
 
-; 21   : }
+; 29   : }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8760,18 +9782,18 @@ $LN3:
 ??1CApplication@Client@@EEAA@XZ ENDP			; Client::CApplication::~CApplication
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
-; File c:\users\arcco\documents\github\framework\client\public\application.h
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
-; File c:\users\arcco\documents\github\framework\client\public\application.h
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
+; File c:\github\framework\client\public\application.h
+; File c:\github\framework\client\private\application.cpp
+; File c:\github\framework\client\public\application.h
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ??0CApplication@Client@@AEAA@XZ
 _TEXT	SEGMENT
 $T1 = 200
 this$ = 256
 ??0CApplication@Client@@AEAA@XZ PROC			; Client::CApplication::CApplication, COMDAT
 
-; 19   : {
+; 27   : {
 
 $LN4:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8799,72 +9821,102 @@ $LN4:
   0004a	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CApplication@Client@@6B@
   00051	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\application.h
+; File c:\github\framework\client\public\application.h
 
-; 37   : 	ID3D11Device*		 m_pDevice = { nullptr };
+; 37   : 	_bool m_bIsHitFreeze = false;
 
   00054	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0005b	48 c7 40 10 00
-	00 00 00	 mov	 QWORD PTR [rax+16], 0
+  0005b	c6 40 10 00	 mov	 BYTE PTR [rax+16], 0
 
-; 38   : 	ID3D11DeviceContext* m_pContext = { nullptr };
+; 38   : 	_float m_bHitFreezeLocal = 0.0f;
 
-  00063	48 8b 85 00 01
+  0005f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0006a	48 c7 40 18 00
-	00 00 00	 mov	 QWORD PTR [rax+24], 0
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+  00066	0f 57 c0	 xorps	 xmm0, xmm0
+  00069	f3 0f 11 40 14	 movss	 DWORD PTR [rax+20], xmm0
 
-; 16   : 	: m_pGameInstance { CGameInstance::GetInstance() }
+; 39   : 	const _float m_bHitFreezeTimeOut = 0.01f;
 
-  00072	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
-  00078	48 8b 8d 00 01
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0007f	48 89 41 20	 mov	 QWORD PTR [rcx+32], rax
-; File c:\users\arcco\documents\github\framework\client\public\application.h
-
-; 41   : 	CRenderer*		m_pRenderer = { nullptr };
-
-  00083	48 8b 85 00 01
+  0006e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0008a	48 c7 40 28 00
+  00075	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3c23d70a
+  0007d	f3 0f 11 40 18	 movss	 DWORD PTR [rax+24], xmm0
+
+; 40   : 
+; 41   : 	static _uint s_TickCount;
+; 42   : 	ID3D11Device*		 m_pDevice = { nullptr };
+
+  00082	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00089	48 c7 40 20 00
+	00 00 00	 mov	 QWORD PTR [rax+32], 0
+
+; 43   : 	ID3D11DeviceContext* m_pContext = { nullptr };
+
+  00091	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00098	48 c7 40 28 00
 	00 00 00	 mov	 QWORD PTR [rax+40], 0
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 
-; 17   : 	, m_pGUIManager { CImGUIManager::GetInstance() }
+; 23   : 	: m_pGameInstance { CGameInstance::GetInstance() }
 
-  00092	e8 00 00 00 00	 call	 ?GetInstance@CImGUIManager@Client@@SAPEAV12@XZ ; Client::CImGUIManager::GetInstance
-  00097	48 8b 8d 00 01
+  000a0	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
+  000a6	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0009e	48 89 41 30	 mov	 QWORD PTR [rcx+48], rax
+  000ad	48 89 41 30	 mov	 QWORD PTR [rcx+48], rax
+; File c:\github\framework\client\public\application.h
 
-; 18   : 	, m_pStageManager{ CStageCollisionManager::GetInstance() }
+; 46   : 	CRenderer*		m_pRenderer = { nullptr };
 
-  000a2	e8 00 00 00 00	 call	 ?GetInstance@CStageCollisionManager@Client@@SAPEAV12@XZ ; Client::CStageCollisionManager::GetInstance
-  000a7	48 8b 8d 00 01
+  000b1	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000b8	48 c7 40 38 00
+	00 00 00	 mov	 QWORD PTR [rax+56], 0
+; File c:\github\framework\client\private\application.cpp
+
+; 24   : 	, m_pGUIManager { CImGUIManager::GetInstance() }
+
+  000c0	e8 00 00 00 00	 call	 ?GetInstance@CImGUIManager@Client@@SAPEAV12@XZ ; Client::CImGUIManager::GetInstance
+  000c5	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  000ae	48 89 41 38	 mov	 QWORD PTR [rcx+56], rax
+  000cc	48 89 41 40	 mov	 QWORD PTR [rcx+64], rax
 
-; 20   : 	Safe_AddRef(m_pGameInstance);
+; 25   : 	, m_pStageManager { CStageCollisionManager::GetInstance() }
 
-  000b2	48 8b 85 00 01
+  000d0	e8 00 00 00 00	 call	 ?GetInstance@CStageCollisionManager@Client@@SAPEAV12@XZ ; Client::CStageCollisionManager::GetInstance
+  000d5	48 8b 8d 00 01
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  000dc	48 89 41 48	 mov	 QWORD PTR [rcx+72], rax
+
+; 26   : 	, m_pSkillSystem { CSkillBallSystem::GetInstance() }
+
+  000e0	e8 00 00 00 00	 call	 ?GetInstance@CSkillBallSystem@Client@@SAPEAV12@XZ ; Client::CSkillBallSystem::GetInstance
+  000e5	48 8b 8d 00 01
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  000ec	48 89 41 50	 mov	 QWORD PTR [rcx+80], rax
+
+; 28   : 	Safe_AddRef(m_pGameInstance);
+
+  000f0	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000b9	48 83 c0 20	 add	 rax, 32			; 00000020H
-  000bd	48 8b c8	 mov	 rcx, rax
-  000c0	e8 00 00 00 00	 call	 ??$Safe_AddRef@PEAVCGameInstance@Engine@@@Engine@@YAKAEAPEAVCGameInstance@0@@Z ; Engine::Safe_AddRef<Engine::CGameInstance * __ptr64>
-  000c5	90		 npad	 1
+  000f7	48 83 c0 30	 add	 rax, 48			; 00000030H
+  000fb	48 8b c8	 mov	 rcx, rax
+  000fe	e8 00 00 00 00	 call	 ??$Safe_AddRef@PEAVCGameInstance@Engine@@@Engine@@YAKAEAPEAVCGameInstance@0@@Z ; Engine::Safe_AddRef<Engine::CGameInstance * __ptr64>
+  00103	90		 npad	 1
 
-; 21   : }
+; 29   : }
 
-  000c6	48 8b 85 00 01
+  00104	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000cd	48 8d a5 e8 00
+  0010b	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
-  000d4	5f		 pop	 rdi
-  000d5	5d		 pop	 rbp
-  000d6	c3		 ret	 0
+  00112	5f		 pop	 rdi
+  00113	5d		 pop	 rbp
+  00114	c3		 ret	 0
 ??0CApplication@Client@@AEAA@XZ ENDP			; Client::CApplication::CApplication
 _TEXT	ENDS
 ;	COMDAT text$x
@@ -8910,6 +9962,44 @@ this$ = 256
   00027	c3		 ret	 0
 ?dtor$0@?0???0CApplication@Client@@AEAA@XZ@4HA ENDP	; `Client::CApplication::CApplication'::`1'::dtor$0
 text$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\time.h
+;	COMDAT time
+_TEXT	SEGMENT
+_Time$ = 224
+time	PROC						; COMDAT
+
+; 534  :         {
+
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	55		 push	 rbp
+  00006	57		 push	 rdi
+  00007	48 81 ec e8 00
+	00 00		 sub	 rsp, 232		; 000000e8H
+  0000e	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
+  00013	48 8b fc	 mov	 rdi, rsp
+  00016	b9 3a 00 00 00	 mov	 ecx, 58			; 0000003aH
+  0001b	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00020	f3 ab		 rep stosd
+  00022	48 8b 8c 24 08
+	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
+
+; 535  :             return _time64(_Time);
+
+  0002a	48 8b 8d e0 00
+	00 00		 mov	 rcx, QWORD PTR _Time$[rbp]
+  00031	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp__time64
+
+; 536  :         }
+
+  00037	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  0003e	5f		 pop	 rdi
+  0003f	5d		 pop	 rbp
+  00040	c3		 ret	 0
+time	ENDP
+_TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\windows kits\8.1\include\um\directxmath.h
 ;	COMDAT ??0XMFLOAT4@DirectX@@QEAA@MMMM@Z
@@ -14067,7 +15157,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -14096,7 +15186,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\github\framework\client\private\application.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

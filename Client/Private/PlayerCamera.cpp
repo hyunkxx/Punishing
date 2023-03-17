@@ -135,7 +135,12 @@ void CPlayerCamera::LateTick(_double TimeDelta)
 {
 	__super::LateTick(TimeDelta);
 
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
+	if (pGameInstance->Input_KeyState_Custom(DIK_8) == KEY_STATE::TAP)
+	{
+		StartShake(4.f, 10.f);
+	}
 }
 
 HRESULT CPlayerCamera::Render()

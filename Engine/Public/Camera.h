@@ -36,6 +36,10 @@ public:
 	virtual HRESULT Render();
 
 public:
+	void StartShake(_float Time, _float fPower);
+	void Shake(_double TimeDelta);
+
+public:
 	virtual CGameObject* Clone(void* pArg = nullptr) = 0;
 	virtual void Free() override;
 
@@ -43,6 +47,13 @@ protected:
 	class CTransform*	m_pTransform = { nullptr };
 	class CPipeLine*	m_pPipeLine = { nullptr };
 	CAMERA_DESC			m_CameraDesc;
+
+	//카메라 쉐이킹
+	_bool m_bShake = false;
+	_float m_fPower = 3.f;
+	_float m_fShakeTimer = 0.f;
+	_float m_fShakeTimeOut = 1.f;
+	_float4x4 m_PrevCamPos;
 
 };
 

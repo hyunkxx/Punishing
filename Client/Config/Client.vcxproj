@@ -173,6 +173,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Shader\SHADER_DEFINES.hpp" />
     <ClInclude Include="..\..\Tool\ImGui\imconfig.h" />
     <ClInclude Include="..\..\Tool\ImGui\imgui.h" />
     <ClInclude Include="..\..\Tool\ImGui\imgui_impl_dx11.h" />
@@ -186,9 +187,10 @@
     <ClInclude Include="..\public\BackGround.h" />
     <ClInclude Include="..\public\Boss.h" />
     <ClInclude Include="..\Public\Client_Defines.h" />
-    <ClInclude Include="..\public\CommandSystem.h" />
+    <ClInclude Include="..\public\SkillBallSystem.h" />
     <ClInclude Include="..\public\DynamicCamera.h" />
     <ClInclude Include="..\public\Enemy.h" />
+    <ClInclude Include="..\Public\EnemyHealthBar.h" />
     <ClInclude Include="..\public\FreezeArea.h" />
     <ClInclude Include="..\public\ImGUIManager.h" />
     <ClInclude Include="..\public\Character.h" />
@@ -199,6 +201,7 @@
     <ClInclude Include="..\public\Loader.h" />
     <ClInclude Include="..\public\City.h" />
     <ClInclude Include="..\public\PlayerCamera.h" />
+    <ClInclude Include="..\public\SkillBase.h" />
     <ClInclude Include="..\public\Skybox.h" />
     <ClInclude Include="..\public\StageCollisionManager.h" />
     <ClInclude Include="..\public\Wall.h" />
@@ -242,9 +245,10 @@
     <ClCompile Include="..\private\ApplicationManager.cpp" />
     <ClCompile Include="..\private\BackGround.cpp" />
     <ClCompile Include="..\private\Boss.cpp" />
-    <ClCompile Include="..\private\CommandSystem.cpp" />
+    <ClCompile Include="..\private\SkillBallSystem.cpp" />
     <ClCompile Include="..\private\DynamicCamera.cpp" />
     <ClCompile Include="..\private\Enemy.cpp" />
+    <ClCompile Include="..\Private\EnemyHealthBar.cpp" />
     <ClCompile Include="..\private\FreezeArea.cpp" />
     <ClCompile Include="..\private\ImGUIManager.cpp" />
     <ClCompile Include="..\private\Character.cpp" />
@@ -255,6 +259,7 @@
     <ClCompile Include="..\private\Loader.cpp" />
     <ClCompile Include="..\private\City.cpp" />
     <ClCompile Include="..\private\PlayerCamera.cpp" />
+    <ClCompile Include="..\private\SkillBase.cpp" />
     <ClCompile Include="..\private\Skybox.cpp" />
     <ClCompile Include="..\private\StageCollisionManager.cpp" />
     <ClCompile Include="..\private\Wall.cpp" />
@@ -280,6 +285,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_UI.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXANIMMODEL.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXCUBE.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXMODEL.hlsl" />

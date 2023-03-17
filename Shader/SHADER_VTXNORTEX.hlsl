@@ -1,17 +1,7 @@
+#include "Shader_Defines.hpp"
+
 matrix				g_WorldMatrix, g_ViewMatrix, g_ProjMatrix;
 texture2D			g_Texture;
-
-sampler LinearSampler = sampler_state {
-	filter = min_mag_mip_linear;
-	AddressU = wrap;
-	AddressV = wrap;
-};
-
-sampler PointSampler = sampler_state {
-	filter = min_mag_mip_Point;
-	AddressU = wrap;
-	AddressV = wrap;
-};
 
 struct VS_IN
 {
@@ -65,6 +55,10 @@ technique11 DefaultTechnique
 {
 	pass Terrain
 	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
 		VertexShader = compile vs_5_0 VS_MAIN();
 		GeometryShader = NULL;
 		HullShader = NULL;

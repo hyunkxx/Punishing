@@ -1,3 +1,4 @@
+#include "SHADER_DEFINES.hpp"
 
 matrix g_WorldMatrix, g_ViewMatrix, g_ProjMatrix;
 vector g_vCamPosition;
@@ -15,18 +16,6 @@ texture2D g_DiffuseTexture;
 vector g_vMatAmbient = vector(0.3f, 0.3f, 0.3f, 1.f);
 vector g_vMatSpecular = vector(1.f, 1.f, 1.f, 1.f);
 float g_fPower = 50.f;
-
-sampler LinearSampler = sampler_state {
-	filter = min_mag_mip_linear;
-	AddressU = wrap;
-	AddressV = wrap;
-};
-
-sampler PointSampler = sampler_state {
-	filter = min_mag_mip_point;
-	AddressU = wrap;
-	AddressV = wrap;
-};
 
 struct VS_IN
 {
@@ -96,6 +85,10 @@ technique11 Default
 {
 	pass Groud
 	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
 		VertexShader = compile vs_5_0 VS_MAIN();
 		GeometryShader = NULL;
 		HullShader = NULL;

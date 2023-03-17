@@ -34,6 +34,11 @@ public:
 	virtual void Free() override;
 
 private:
+	_bool m_bIsHitFreeze = false;
+	_float m_bHitFreezeLocal = 0.0f;
+	const _float m_bHitFreezeTimeOut = 0.01f;
+
+	static _uint s_TickCount;
 	ID3D11Device*		 m_pDevice = { nullptr };
 	ID3D11DeviceContext* m_pContext = { nullptr };
 
@@ -42,6 +47,7 @@ private:
 
 	class CImGUIManager*			m_pGUIManager = { nullptr };
 	class CStageCollisionManager*	m_pStageManager = { nullptr };
+	class CSkillBallSystem*			m_pSkillSystem = { nullptr };
 };
 
 END

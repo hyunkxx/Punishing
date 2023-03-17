@@ -1,12 +1,18 @@
 #include "pch.h"
 #include "..\Public\Level_GamePlay.h"
 
+#include "Layer.h"
+
 #include "Level_Loading.h"
 #include "ApplicationManager.h"
 #include "StageCollisionManager.h"
+#include "SkillBallSystem.h"
 #include "GameInstance.h"
 #include "DynamicCamera.h"
 #include "Enemy.h"
+#include "Character.h"
+
+#include "EnemyHealthBar.h"
 
 CLevel_GamePlay::CLevel_GamePlay(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CLevel(pDevice, pContext)
@@ -27,7 +33,7 @@ HRESULT CLevel_GamePlay::Initialize()
 	if (FAILED(Ready_Layer_Player(TEXT("layer_player"))))
 		return E_FAIL;
 
-	if (FAILED(Ready_Layer_Enemy(TEXT("layer_enemy"))))
+	if (FAILED(Ready_Layer_Enemy(TEXT("layer_enemy"), mPlayer)))
 		return E_FAIL;
 
 	if (FAILED(Ready_Layer_Camera(TEXT("layer_camera"))))
@@ -35,6 +41,11 @@ HRESULT CLevel_GamePlay::Initialize()
 
 	if (FAILED(Ready_Layer_Effect(TEXT("layer_effect"))))
 		return E_FAIL;
+
+	if (FAILED(Ready_Layer_UI(TEXT("layer_ui"))))
+		return E_FAIL;
+
+	static_cast<CCharacter*>(mPlayer)->SetHealthUI(static_cast<CEnemyHealthBar*>(m_pHealthBar));
 
 	return S_OK;
 }
@@ -59,6 +70,32 @@ void CLevel_GamePlay::Tick(_double TimeDelta)
 	//	CStageCollisionManager* pStageManager = CStageCollisionManager::GetInstance();
 	//	pStageManager->AddWall(m_pDevice, m_pContext);
 	//}
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_0) == KEY_STATE::TAP)
+	{
+		CLayer* pLayer = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("layer_enemy"));
+
+		for (auto iter = pLayer->m_GameObjects.begin(); iter != pLayer->m_GameObjects.end(); ++iter)
+		{
+			static_cast<CEnemy*>(iter->second)->Reset();
+		}
+		
+	}
+
+	CSkillBallSystem* pSkillSystem = CSkillBallSystem::GetInstance();
+	pSkillSystem->PushReadyTimer(TimeDelta);
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_1) == KEY_STATE::TAP)
+		pSkillSystem->PushSkill(m_pDevice, m_pContext, CSkillBase::TYPE::RED);
+
+	else if (pGameInstance->Input_KeyState_Custom(DIK_2) == KEY_STATE::TAP)
+		pSkillSystem->PushSkill(m_pDevice, m_pContext, CSkillBase::TYPE::BLUE);
+
+	else if (pGameInstance->Input_KeyState_Custom(DIK_3) == KEY_STATE::TAP)
+		pSkillSystem->PushSkill(m_pDevice, m_pContext, CSkillBase::TYPE::YELLOW);
+
+	else if (pGameInstance->Input_KeyState_Custom(DIK_4) == KEY_STATE::TAP)
+		pSkillSystem->Clear();
 
 }
 
@@ -154,8 +191,11 @@ HRESULT CLevel_GamePlay::Ready_Layer_Player(const _tchar* pLayerTag)
 	return S_OK;
 }
 
-HRESULT CLevel_GamePlay::Ready_Layer_Enemy(const _tchar * pLayerTag)
+HRESULT CLevel_GamePlay::Ready_Layer_Enemy(const _tchar * pLayerTag, CGameObject* pPlayer)
 {
+	if (nullptr == pPlayer)
+		return E_FAIL;
+
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	CGameObject* pGameObject = nullptr;
 
@@ -163,19 +203,19 @@ HRESULT CLevel_GamePlay::Ready_Layer_Enemy(const _tchar * pLayerTag)
 	{
 	}
 
-	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy01", pLayerTag, mPlayer))
+	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy01", pPlayer))
 		return E_FAIL;
 
-	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy02", pLayerTag, mPlayer))
+	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy02", pPlayer))
 		return E_FAIL;
 
-	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy02"), L"enemy03", pLayerTag, mPlayer))
+	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy02"), pLayerTag, L"enemy03", pPlayer))
 		return E_FAIL;
 
-	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy04", pLayerTag, mPlayer))
+	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy04", pPlayer))
 		return E_FAIL;
 
-	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), L"enemy05", pLayerTag, mPlayer))
+	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy05", pPlayer))
 		return E_FAIL;
 
 	return S_OK;
@@ -187,6 +227,18 @@ HRESULT CLevel_GamePlay::Ready_Layer_Effect(const _tchar * pLayerTag)
 	CGameObject* pGameObject = nullptr;
 
    	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_freeze_area", L"freeze", pLayerTag, mPlayer))
+		return E_FAIL;
+
+	return S_OK;
+}
+
+HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
+{
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	CGameObject* pGameObject = nullptr;
+
+	m_pHealthBar = pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_enemyhp", L"enemyhp", pLayerTag);
+	if(m_pHealthBar == nullptr)
 		return E_FAIL;
 
 	return S_OK;
@@ -209,4 +261,8 @@ CLevel_GamePlay* CLevel_GamePlay::Create(ID3D11Device * pDevice, ID3D11DeviceCon
 void CLevel_GamePlay::Free()
 {
 	__super::Free();
+
+	CSkillBallSystem* pSkillSystem = CSkillBallSystem::GetInstance();
+	pSkillSystem->Clear();
+
 }

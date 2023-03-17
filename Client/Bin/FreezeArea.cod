@@ -2345,7 +2345,7 @@ PUBLIC	??_C@_0BA@PCOGIHOF@g_vLightDiffuse?$AA@		; `string'
 PUBLIC	??_C@_0BB@IJIIKIH@g_vLightSpecular?$AA@		; `string'
 PUBLIC	??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@		; `string'
 PUBLIC	?__LINE__Var@?0??Create@CFreezeArea@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CFreezeArea::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DO@LPFJJOBC@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAF?$AAr?$AAe?$AAe?$AAz?$AAe?$AAA?$AAr?$AAe?$AAa?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CFreezeArea::Clone'::`1'::__LINE__Var
@@ -2365,8 +2365,8 @@ PUBLIC	??_R3CBase@Engine@@8				; Engine::CBase::`RTTI Class Hierarchy Descriptor
 PUBLIC	??_R2CBase@Engine@@8				; Engine::CBase::`RTTI Base Class Array'
 PUBLIC	__real@3d4ccccd
 PUBLIC	__real@3f800000
-PUBLIC	__real@4008000000000000
-PUBLIC	__real@401c000000000000
+PUBLIC	__real@40400000
+PUBLIC	__real@40e00000
 EXTRN	??3@YAXPEAX_K@Z:PROC				; operator delete
 EXTRN	__imp_MessageBoxW:PROC
 EXTRN	__imp__wassert:PROC
@@ -2498,7 +2498,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Tick@CFreezeArea@Client@@UEAAXN@Z DD imagerel $LN6
-	DD	imagerel $LN6+986
+	DD	imagerel $LN6+974
 	DD	imagerel $unwind$?Tick@CFreezeArea@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2621,13 +2621,13 @@ $pdata$??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z DD im
 	DD	imagerel $LN5+114
 	DD	imagerel $unwind$??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 pdata	ENDS
-;	COMDAT __real@401c000000000000
+;	COMDAT __real@40e00000
 CONST	SEGMENT
-__real@401c000000000000 DQ 0401c000000000000r	; 7
+__real@40e00000 DD 040e00000r			; 7
 CONST	ENDS
-;	COMDAT __real@4008000000000000
+;	COMDAT __real@40400000
 CONST	SEGMENT
-__real@4008000000000000 DQ 04008000000000000r	; 3
+__real@40400000 DD 040400000r			; 3
 CONST	ENDS
 ;	COMDAT __real@3f800000
 CONST	SEGMENT
@@ -2769,11 +2769,10 @@ CONST	SEGMENT
 	DB	'e', 00H, 's', 00H, 's', 00H, 'a', 00H, 'g', 00H, 'e', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\freezearea.cpp'
-	DB	00H						; `string'
+??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\freezearea.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CFreezeArea@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -3310,7 +3309,7 @@ $unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z DD 025053901H
 	DD	05015H
 xdata	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3389,7 +3388,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ENDP ; Engine::Safe_Release<Engine::CShader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3468,7 +3467,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ENDP ; Engine::Safe_Release<Engine::CModel * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3547,7 +3546,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ENDP ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3626,7 +3625,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCFreezeArea@Client@@@Engine@@YAKAEAPEAVCFreezeArea@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3705,7 +3704,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCFreezeArea@Client@@@Engine@@YAKAEAPEAVCFreezeArea@Client@@@Z ENDP ; Engine::Safe_Release<Client::CFreezeArea * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?GetPlayerPrevPosition@CApplicationManager@Client@@QEAA?AT__m128@@XZ
 _TEXT	SEGMENT
 $T1 = 208
@@ -3751,7 +3750,7 @@ $LN3:
 ?GetPlayerPrevPosition@CApplicationManager@Client@@QEAA?AT__m128@@XZ ENDP ; Client::CApplicationManager::GetPlayerPrevPosition
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?IsFreeze@CApplicationManager@Client@@QEBA_NXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -3941,7 +3940,7 @@ $LN4:
 ??0CFreezeArea@Client@@QEAA@AEBV01@@Z ENDP		; Client::CFreezeArea::CFreezeArea
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Free@CFreezeArea@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4017,7 +4016,7 @@ $LN3:
 ?Free@CFreezeArea@Client@@UEAAXXZ ENDP			; Client::CFreezeArea::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -4062,7 +4061,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 c0 00 00 00	 mov	 ecx, 192		; 000000c0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -4165,7 +4164,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4198,7 +4197,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4210,7 +4209,7 @@ pArg$ = 376
 ?dtor$0@?0??Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CFreezeArea::Clone'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Create@CFreezeArea@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -4255,7 +4254,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 c0 00 00 00	 mov	 ecx, 192		; 000000c0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -4358,7 +4357,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CFreezeArea@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4391,7 +4390,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CFreezeArea@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4403,7 +4402,7 @@ pContext$ = 376
 ?dtor$0@?0??Create@CFreezeArea@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CFreezeArea::Create'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?SetupShaderResources@CFreezeArea@Client@@AEAAJXZ
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -4692,7 +4691,7 @@ $LN1@SetupShade:
 ?SetupShaderResources@CFreezeArea@Client@@AEAAJXZ ENDP	; Client::CFreezeArea::SetupShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?AddComponents@CFreezeArea@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4840,7 +4839,7 @@ $LN1@AddCompone:
 ?AddComponents@CFreezeArea@Client@@AEAAJXZ ENDP		; Client::CFreezeArea::AddComponents
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?SetPosition@CFreezeArea@Client@@QEAAXT__m128@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4886,7 +4885,7 @@ $LN3:
 ?SetPosition@CFreezeArea@Client@@QEAAXT__m128@@@Z ENDP	; Client::CFreezeArea::SetPosition
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?RenderGUI@CFreezeArea@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4918,7 +4917,7 @@ $LN3:
 ?RenderGUI@CFreezeArea@Client@@UEAAXXZ ENDP		; Client::CFreezeArea::RenderGUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Render@CFreezeArea@Client@@UEAAJXZ
 _TEXT	SEGMENT
 MeshCount$ = 4
@@ -5061,7 +5060,7 @@ $LN1@Render:
 ?Render@CFreezeArea@Client@@UEAAJXZ ENDP		; Client::CFreezeArea::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?LateTick@CFreezeArea@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -5137,7 +5136,7 @@ $LN2@LateTick:
 ?LateTick@CFreezeArea@Client@@UEAAXN@Z ENDP		; Client::CFreezeArea::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Tick@CFreezeArea@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pAppManager$ = 8
@@ -5212,7 +5211,7 @@ $LN6:
   00064	e8 00 00 00 00	 call	 ?IsFreeze@CApplicationManager@Client@@QEBA_NXZ ; Client::CApplicationManager::IsFreeze
   00069	0f b6 c0	 movzx	 eax, al
   0006c	85 c0		 test	 eax, eax
-  0006e	0f 84 2c 01 00
+  0006e	0f 84 28 01 00
 	00		 je	 $LN2@Tick
 
 ; 49   : 	{
@@ -5256,261 +5255,258 @@ $LN6:
   000dc	0f 29 45 60	 movaps	 XMMWORD PTR vDestScale$5[rbp], xmm0
 
 ; 54   : 
-; 55   : 		XMStoreFloat3(&m_vScale, XMVectorLerp(vCurrentScale, vDestScale, TimeDelta * 3.f));
+; 55   : 		XMStoreFloat3(&m_vScale, XMVectorLerp(vCurrentScale, vDestScale, (_float)TimeDelta * 3.f));
 
-  000e0	f2 0f 10 85 a8
-	05 00 00	 movsd	 xmm0, QWORD PTR TimeDelta$[rbp]
-  000e8	f2 0f 59 05 00
-	00 00 00	 mulsd	 xmm0, QWORD PTR __real@4008000000000000
-  000f0	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
-  000f4	0f 28 d0	 movaps	 xmm2, xmm0
-  000f7	0f 28 4d 60	 movaps	 xmm1, XMMWORD PTR vDestScale$5[rbp]
-  000fb	0f 28 45 30	 movaps	 xmm0, XMMWORD PTR vCurrentScale$4[rbp]
-  000ff	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
-  00104	0f 29 85 30 03
+  000e0	f2 0f 5a 85 a8
+	05 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
+  000e8	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40400000
+  000f0	0f 28 d0	 movaps	 xmm2, xmm0
+  000f3	0f 28 4d 60	 movaps	 xmm1, XMMWORD PTR vDestScale$5[rbp]
+  000f7	0f 28 45 30	 movaps	 xmm0, XMMWORD PTR vCurrentScale$4[rbp]
+  000fb	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
+  00100	0f 29 85 30 03
 	00 00		 movaps	 XMMWORD PTR $T12[rbp], xmm0
-  0010b	48 8b 85 a0 05
+  00107	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00112	48 05 b0 00 00
+  0010e	48 05 b0 00 00
 	00		 add	 rax, 176		; 000000b0H
-  00118	0f 28 8d 30 03
+  00114	0f 28 8d 30 03
 	00 00		 movaps	 xmm1, XMMWORD PTR $T12[rbp]
-  0011f	48 8b c8	 mov	 rcx, rax
-  00122	e8 00 00 00 00	 call	 ?XMStoreFloat3@DirectX@@YQXPEAUXMFLOAT3@1@T__m128@@@Z ; DirectX::XMStoreFloat3
+  0011b	48 8b c8	 mov	 rcx, rax
+  0011e	e8 00 00 00 00	 call	 ?XMStoreFloat3@DirectX@@YQXPEAUXMFLOAT3@1@T__m128@@@Z ; DirectX::XMStoreFloat3
 
 ; 56   : 
 ; 57   : 		m_pTransform->Set_Scale(m_vScale);
 
-  00127	48 8d 85 d0 04
+  00123	48 8d 85 d0 04
 	00 00		 lea	 rax, QWORD PTR $T21[rbp]
-  0012e	48 8b 8d a0 05
+  0012a	48 8b 8d a0 05
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00135	48 8b f8	 mov	 rdi, rax
-  00138	48 8d b1 b0 00
+  00131	48 8b f8	 mov	 rdi, rax
+  00134	48 8d b1 b0 00
 	00 00		 lea	 rsi, QWORD PTR [rcx+176]
-  0013f	b9 0c 00 00 00	 mov	 ecx, 12
-  00144	f3 a4		 rep movsb
-  00146	48 8d 95 d0 04
+  0013b	b9 0c 00 00 00	 mov	 ecx, 12
+  00140	f3 a4		 rep movsb
+  00142	48 8d 95 d0 04
 	00 00		 lea	 rdx, QWORD PTR $T21[rbp]
-  0014d	48 8b 85 a0 05
+  00149	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00154	48 8b 88 80 00
+  00150	48 8b 88 80 00
 	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  0015b	ff 15 00 00 00
+  00157	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_Scale@CTransform@Engine@@QEAAXUXMFLOAT3@DirectX@@@Z
 
 ; 58   : 		m_pTransform->Set_State(CTransform::STATE_POSITION, pAppManager->GetPlayerPrevPosition());
 
-  00161	48 8d 95 60 03
+  0015d	48 8d 95 60 03
 	00 00		 lea	 rdx, QWORD PTR $T13[rbp]
-  00168	48 8b 4d 08	 mov	 rcx, QWORD PTR pAppManager$[rbp]
-  0016c	e8 00 00 00 00	 call	 ?GetPlayerPrevPosition@CApplicationManager@Client@@QEAA?AT__m128@@XZ ; Client::CApplicationManager::GetPlayerPrevPosition
-  00171	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
-  00174	0f 11 85 00 05
+  00164	48 8b 4d 08	 mov	 rcx, QWORD PTR pAppManager$[rbp]
+  00168	e8 00 00 00 00	 call	 ?GetPlayerPrevPosition@CApplicationManager@Client@@QEAA?AT__m128@@XZ ; Client::CApplicationManager::GetPlayerPrevPosition
+  0016d	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  00170	0f 11 85 00 05
 	00 00		 movups	 XMMWORD PTR $T22[rbp], xmm0
-  0017b	4c 8d 85 00 05
+  00177	4c 8d 85 00 05
 	00 00		 lea	 r8, QWORD PTR $T22[rbp]
-  00182	ba 03 00 00 00	 mov	 edx, 3
-  00187	48 8b 85 a0 05
+  0017e	ba 03 00 00 00	 mov	 edx, 3
+  00183	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0018e	48 8b 88 80 00
+  0018a	48 8b 88 80 00
 	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  00195	ff 15 00 00 00
+  00191	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
 ; 59   : 	}
 ; 60   : 	else
 
-  0019b	e9 10 02 00 00	 jmp	 $LN3@Tick
+  00197	e9 08 02 00 00	 jmp	 $LN3@Tick
 $LN2@Tick:
 
 ; 61   : 	{
 ; 62   : 		_vector vCurrentScale = XMLoadFloat3(&m_vScale);
 
-  001a0	48 8b 85 a0 05
+  0019c	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001a7	48 05 b0 00 00
+  001a3	48 05 b0 00 00
 	00		 add	 rax, 176		; 000000b0H
-  001ad	48 8b c8	 mov	 rcx, rax
-  001b0	e8 00 00 00 00	 call	 ?XMLoadFloat3@DirectX@@YQ?AT__m128@@PEBUXMFLOAT3@1@@Z ; DirectX::XMLoadFloat3
-  001b5	0f 29 85 90 03
+  001a9	48 8b c8	 mov	 rcx, rax
+  001ac	e8 00 00 00 00	 call	 ?XMLoadFloat3@DirectX@@YQ?AT__m128@@PEBUXMFLOAT3@1@@Z ; DirectX::XMLoadFloat3
+  001b1	0f 29 85 90 03
 	00 00		 movaps	 XMMWORD PTR $T14[rbp], xmm0
-  001bc	0f 28 85 90 03
+  001b8	0f 28 85 90 03
 	00 00		 movaps	 xmm0, XMMWORD PTR $T14[rbp]
-  001c3	0f 29 85 90 00
+  001bf	0f 29 85 90 00
 	00 00		 movaps	 XMMWORD PTR vCurrentScale$6[rbp], xmm0
 
 ; 63   : 		_vector vDestScale = XMVectorSet(0.0f, 0.0f, 0.0f, 0.0f);
 
-  001ca	0f 57 db	 xorps	 xmm3, xmm3
-  001cd	0f 57 d2	 xorps	 xmm2, xmm2
-  001d0	0f 57 c9	 xorps	 xmm1, xmm1
-  001d3	0f 57 c0	 xorps	 xmm0, xmm0
-  001d6	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
-  001db	0f 29 85 c0 03
+  001c6	0f 57 db	 xorps	 xmm3, xmm3
+  001c9	0f 57 d2	 xorps	 xmm2, xmm2
+  001cc	0f 57 c9	 xorps	 xmm1, xmm1
+  001cf	0f 57 c0	 xorps	 xmm0, xmm0
+  001d2	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
+  001d7	0f 29 85 c0 03
 	00 00		 movaps	 XMMWORD PTR $T15[rbp], xmm0
-  001e2	0f 28 85 c0 03
+  001de	0f 28 85 c0 03
 	00 00		 movaps	 xmm0, XMMWORD PTR $T15[rbp]
-  001e9	0f 29 85 c0 00
+  001e5	0f 29 85 c0 00
 	00 00		 movaps	 XMMWORD PTR vDestScale$7[rbp], xmm0
 
 ; 64   : 
 ; 65   : 		_vector vCurrentPos = XMLoadFloat3(&m_vPosition);
 
-  001f0	48 8b 85 a0 05
+  001ec	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001f7	48 05 a4 00 00
+  001f3	48 05 a4 00 00
 	00		 add	 rax, 164		; 000000a4H
-  001fd	48 8b c8	 mov	 rcx, rax
-  00200	e8 00 00 00 00	 call	 ?XMLoadFloat3@DirectX@@YQ?AT__m128@@PEBUXMFLOAT3@1@@Z ; DirectX::XMLoadFloat3
-  00205	0f 29 85 f0 03
+  001f9	48 8b c8	 mov	 rcx, rax
+  001fc	e8 00 00 00 00	 call	 ?XMLoadFloat3@DirectX@@YQ?AT__m128@@PEBUXMFLOAT3@1@@Z ; DirectX::XMLoadFloat3
+  00201	0f 29 85 f0 03
 	00 00		 movaps	 XMMWORD PTR $T16[rbp], xmm0
-  0020c	0f 28 85 f0 03
+  00208	0f 28 85 f0 03
 	00 00		 movaps	 xmm0, XMMWORD PTR $T16[rbp]
-  00213	0f 29 85 f0 00
+  0020f	0f 29 85 f0 00
 	00 00		 movaps	 XMMWORD PTR vCurrentPos$8[rbp], xmm0
 
 ; 66   : 		_vector vDestPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
 
-  0021a	41 b8 03 00 00
+  00216	41 b8 03 00 00
 	00		 mov	 r8d, 3
-  00220	48 8d 95 20 01
+  0021c	48 8d 95 20 01
 	00 00		 lea	 rdx, QWORD PTR vDestPos$9[rbp]
-  00227	48 8b 85 a0 05
+  00223	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0022e	48 8b 88 98 00
+  0022a	48 8b 88 98 00
 	00 00		 mov	 rcx, QWORD PTR [rax+152]
-  00235	ff 15 00 00 00
+  00231	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
 ; 67   : 
-; 68   : 		XMStoreFloat3(&m_vScale, XMVectorLerp(vCurrentScale, vDestScale, TimeDelta * 7.f));
+; 68   : 		XMStoreFloat3(&m_vScale, XMVectorLerp(vCurrentScale, vDestScale, (_float)TimeDelta * 7.f));
 
-  0023b	f2 0f 10 85 a8
-	05 00 00	 movsd	 xmm0, QWORD PTR TimeDelta$[rbp]
-  00243	f2 0f 59 05 00
-	00 00 00	 mulsd	 xmm0, QWORD PTR __real@401c000000000000
-  0024b	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
-  0024f	0f 28 d0	 movaps	 xmm2, xmm0
-  00252	0f 28 8d c0 00
+  00237	f2 0f 5a 85 a8
+	05 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
+  0023f	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40e00000
+  00247	0f 28 d0	 movaps	 xmm2, xmm0
+  0024a	0f 28 8d c0 00
 	00 00		 movaps	 xmm1, XMMWORD PTR vDestScale$7[rbp]
-  00259	0f 28 85 90 00
+  00251	0f 28 85 90 00
 	00 00		 movaps	 xmm0, XMMWORD PTR vCurrentScale$6[rbp]
-  00260	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
-  00265	0f 29 85 20 04
+  00258	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
+  0025d	0f 29 85 20 04
 	00 00		 movaps	 XMMWORD PTR $T17[rbp], xmm0
-  0026c	48 8b 85 a0 05
+  00264	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00273	48 05 b0 00 00
+  0026b	48 05 b0 00 00
 	00		 add	 rax, 176		; 000000b0H
-  00279	0f 28 8d 20 04
+  00271	0f 28 8d 20 04
 	00 00		 movaps	 xmm1, XMMWORD PTR $T17[rbp]
-  00280	48 8b c8	 mov	 rcx, rax
-  00283	e8 00 00 00 00	 call	 ?XMStoreFloat3@DirectX@@YQXPEAUXMFLOAT3@1@T__m128@@@Z ; DirectX::XMStoreFloat3
+  00278	48 8b c8	 mov	 rcx, rax
+  0027b	e8 00 00 00 00	 call	 ?XMStoreFloat3@DirectX@@YQXPEAUXMFLOAT3@1@T__m128@@@Z ; DirectX::XMStoreFloat3
 
-; 69   : 		XMStoreFloat3(&m_vPosition, XMVectorLerp(vCurrentPos, vDestPos, TimeDelta * 7.f));
+; 69   : 		XMStoreFloat3(&m_vPosition, XMVectorLerp(vCurrentPos, vDestPos, (_float)TimeDelta * 7.f));
 
-  00288	f2 0f 10 85 a8
-	05 00 00	 movsd	 xmm0, QWORD PTR TimeDelta$[rbp]
-  00290	f2 0f 59 05 00
-	00 00 00	 mulsd	 xmm0, QWORD PTR __real@401c000000000000
-  00298	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
-  0029c	0f 28 d0	 movaps	 xmm2, xmm0
-  0029f	0f 28 8d 20 01
+  00280	f2 0f 5a 85 a8
+	05 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
+  00288	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40e00000
+  00290	0f 28 d0	 movaps	 xmm2, xmm0
+  00293	0f 28 8d 20 01
 	00 00		 movaps	 xmm1, XMMWORD PTR vDestPos$9[rbp]
-  002a6	0f 28 85 f0 00
+  0029a	0f 28 85 f0 00
 	00 00		 movaps	 xmm0, XMMWORD PTR vCurrentPos$8[rbp]
-  002ad	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
-  002b2	0f 29 85 50 04
+  002a1	e8 00 00 00 00	 call	 ?XMVectorLerp@DirectX@@YQ?AT__m128@@T2@0M@Z ; DirectX::XMVectorLerp
+  002a6	0f 29 85 50 04
 	00 00		 movaps	 XMMWORD PTR $T18[rbp], xmm0
-  002b9	48 8b 85 a0 05
+  002ad	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002c0	48 05 a4 00 00
+  002b4	48 05 a4 00 00
 	00		 add	 rax, 164		; 000000a4H
-  002c6	0f 28 8d 50 04
+  002ba	0f 28 8d 50 04
 	00 00		 movaps	 xmm1, XMMWORD PTR $T18[rbp]
-  002cd	48 8b c8	 mov	 rcx, rax
-  002d0	e8 00 00 00 00	 call	 ?XMStoreFloat3@DirectX@@YQXPEAUXMFLOAT3@1@T__m128@@@Z ; DirectX::XMStoreFloat3
+  002c1	48 8b c8	 mov	 rcx, rax
+  002c4	e8 00 00 00 00	 call	 ?XMStoreFloat3@DirectX@@YQXPEAUXMFLOAT3@1@T__m128@@@Z ; DirectX::XMStoreFloat3
 
 ; 70   : 
 ; 71   : 		m_pTransform->Set_Scale(m_vScale);
 
-  002d5	48 8d 85 30 05
+  002c9	48 8d 85 30 05
 	00 00		 lea	 rax, QWORD PTR $T23[rbp]
-  002dc	48 8b 8d a0 05
+  002d0	48 8b 8d a0 05
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  002e3	48 8b f8	 mov	 rdi, rax
-  002e6	48 8d b1 b0 00
+  002d7	48 8b f8	 mov	 rdi, rax
+  002da	48 8d b1 b0 00
 	00 00		 lea	 rsi, QWORD PTR [rcx+176]
-  002ed	b9 0c 00 00 00	 mov	 ecx, 12
-  002f2	f3 a4		 rep movsb
-  002f4	48 8d 95 30 05
+  002e1	b9 0c 00 00 00	 mov	 ecx, 12
+  002e6	f3 a4		 rep movsb
+  002e8	48 8d 95 30 05
 	00 00		 lea	 rdx, QWORD PTR $T23[rbp]
-  002fb	48 8b 85 a0 05
+  002ef	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00302	48 8b 88 80 00
+  002f6	48 8b 88 80 00
 	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  00309	ff 15 00 00 00
+  002fd	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_Scale@CTransform@Engine@@QEAAXUXMFLOAT3@DirectX@@@Z
 
 ; 72   : 		m_pTransform->Set_State(CTransform::STATE_POSITION, XMLoadFloat3(&m_vPosition));
 
-  0030f	48 8b 85 a0 05
+  00303	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00316	48 05 a4 00 00
+  0030a	48 05 a4 00 00
 	00		 add	 rax, 164		; 000000a4H
-  0031c	48 8b c8	 mov	 rcx, rax
-  0031f	e8 00 00 00 00	 call	 ?XMLoadFloat3@DirectX@@YQ?AT__m128@@PEBUXMFLOAT3@1@@Z ; DirectX::XMLoadFloat3
-  00324	0f 29 85 80 04
+  00310	48 8b c8	 mov	 rcx, rax
+  00313	e8 00 00 00 00	 call	 ?XMLoadFloat3@DirectX@@YQ?AT__m128@@PEBUXMFLOAT3@1@@Z ; DirectX::XMLoadFloat3
+  00318	0f 29 85 80 04
 	00 00		 movaps	 XMMWORD PTR $T19[rbp], xmm0
-  0032b	0f 28 85 80 04
+  0031f	0f 28 85 80 04
 	00 00		 movaps	 xmm0, XMMWORD PTR $T19[rbp]
-  00332	0f 29 85 60 05
+  00326	0f 29 85 60 05
 	00 00		 movaps	 XMMWORD PTR $T24[rbp], xmm0
-  00339	4c 8d 85 60 05
+  0032d	4c 8d 85 60 05
 	00 00		 lea	 r8, QWORD PTR $T24[rbp]
-  00340	ba 03 00 00 00	 mov	 edx, 3
-  00345	48 8b 85 a0 05
+  00334	ba 03 00 00 00	 mov	 edx, 3
+  00339	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0034c	48 8b 88 80 00
+  00340	48 8b 88 80 00
 	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  00353	ff 15 00 00 00
+  00347	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
 ; 73   : 
 ; 74   : 		if (m_vScale.x < 0.05f)
 
-  00359	48 8b 85 a0 05
+  0034d	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00360	f3 0f 10 05 00
+  00354	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3d4ccccd
-  00368	0f 2f 80 b0 00
+  0035c	0f 2f 80 b0 00
 	00 00		 comiss	 xmm0, DWORD PTR [rax+176]
-  0036f	76 3f		 jbe	 SHORT $LN4@Tick
+  00363	76 3f		 jbe	 SHORT $LN4@Tick
 
 ; 75   : 		{
 ; 76   : 			m_vScale = { 0.f, 0.f, 0.f };
 
-  00371	0f 57 db	 xorps	 xmm3, xmm3
-  00374	0f 57 d2	 xorps	 xmm2, xmm2
-  00377	0f 57 c9	 xorps	 xmm1, xmm1
-  0037a	48 8d 8d a4 04
+  00365	0f 57 db	 xorps	 xmm3, xmm3
+  00368	0f 57 d2	 xorps	 xmm2, xmm2
+  0036b	0f 57 c9	 xorps	 xmm1, xmm1
+  0036e	48 8d 8d a4 04
 	00 00		 lea	 rcx, QWORD PTR $T20[rbp]
-  00381	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
-  00386	48 8b 85 a0 05
+  00375	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
+  0037a	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0038d	48 05 b0 00 00
+  00381	48 05 b0 00 00
 	00		 add	 rax, 176		; 000000b0H
-  00393	48 8d 95 a4 04
+  00387	48 8d 95 a4 04
 	00 00		 lea	 rdx, QWORD PTR $T20[rbp]
-  0039a	48 8b c8	 mov	 rcx, rax
-  0039d	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
+  0038e	48 8b c8	 mov	 rcx, rax
+  00391	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
 
 ; 77   : 			m_bActive = false;
 
-  003a2	48 8b 85 a0 05
+  00396	48 8b 85 a0 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003a9	c6 80 a0 00 00
+  0039d	c6 80 a0 00 00
 	00 00		 mov	 BYTE PTR [rax+160], 0
 $LN4@Tick:
 $LN3@Tick:
@@ -5521,24 +5517,24 @@ $LN3@Tick:
 ; 81   : 
 ; 82   : }
 
-  003b0	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  003b4	48 8d 15 00 00
+  003a4	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  003a8	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?Tick@CFreezeArea@Client@@UEAAXN@Z$rtcFrameData
-  003bb	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  003c0	48 8b 8d 78 05
+  003af	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  003b4	48 8b 8d 78 05
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  003c7	48 33 cd	 xor	 rcx, rbp
-  003ca	e8 00 00 00 00	 call	 __security_check_cookie
-  003cf	48 8d a5 80 05
+  003bb	48 33 cd	 xor	 rcx, rbp
+  003be	e8 00 00 00 00	 call	 __security_check_cookie
+  003c3	48 8d a5 80 05
 	00 00		 lea	 rsp, QWORD PTR [rbp+1408]
-  003d6	5f		 pop	 rdi
-  003d7	5e		 pop	 rsi
-  003d8	5d		 pop	 rbp
-  003d9	c3		 ret	 0
+  003ca	5f		 pop	 rdi
+  003cb	5e		 pop	 rsi
+  003cc	5d		 pop	 rbp
+  003cd	c3		 ret	 0
 ?Tick@CFreezeArea@Client@@UEAAXN@Z ENDP			; Client::CFreezeArea::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Initialize@CFreezeArea@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -5657,7 +5653,7 @@ $LN1@Initialize:
 ?Initialize@CFreezeArea@Client@@UEAAJPEAX@Z ENDP	; Client::CFreezeArea::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Initialize_Prototype@CFreezeArea@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -5710,7 +5706,7 @@ $LN1@Initialize:
 ?Initialize_Prototype@CFreezeArea@Client@@UEAAJXZ ENDP	; Client::CFreezeArea::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ??1CFreezeArea@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -5743,9 +5739,9 @@ $LN3:
 ??1CFreezeArea@Client@@EEAA@XZ ENDP			; Client::CFreezeArea::~CFreezeArea
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
-; File c:\users\arcco\documents\github\framework\client\public\freezearea.h
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\public\freezearea.h
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ??0CFreezeArea@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -5794,7 +5790,7 @@ $LN4:
   00062	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CFreezeArea@Client@@6B@
   00069	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\freezearea.h
+; File c:\github\framework\client\public\freezearea.h
 
 ; 43   : 	CRenderer* m_pRenderer = nullptr;
 
@@ -5876,7 +5872,7 @@ $LN4:
   00113	48 8b c8	 mov	 rcx, rax
   00116	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
   0011b	90		 npad	 1
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 
 ; 13   : }
 
@@ -6468,7 +6464,7 @@ $LN3:
 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ENDP			; DirectX::XMFLOAT3::XMFLOAT3
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -6497,7 +6493,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

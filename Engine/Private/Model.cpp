@@ -48,6 +48,7 @@ HRESULT CModel::Initialize_Prototype(MESH_TYPE eType, const char* pPath, _fmatri
 		return E_FAIL;
 	
 	if (FAILED(InitializeMaterials(pPath)))
+
 		return E_FAIL;
 
 	return S_OK;

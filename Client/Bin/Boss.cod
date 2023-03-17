@@ -2724,7 +2724,7 @@ $LN2@scalar:
 ??_GCBoss@Client@@UEAAPEAXI@Z ENDP			; Client::CBoss::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?Free@CBoss@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2763,7 +2763,7 @@ $LN3:
 ?Free@CBoss@Client@@UEAAXXZ ENDP			; Client::CBoss::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?Clone@CBoss@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -2801,7 +2801,7 @@ $LN3:
 ?Clone@CBoss@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z ENDP ; Client::CBoss::Clone
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?Create@CBoss@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pDevice$ = 224
@@ -2839,7 +2839,7 @@ $LN3:
 ?Create@CBoss@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ENDP ; Client::CBoss::Create
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?SetupShaderResources@CBoss@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2875,7 +2875,7 @@ $LN3:
 ?SetupShaderResources@CBoss@Client@@AEAAJXZ ENDP	; Client::CBoss::SetupShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?AddComponents@CBoss@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2911,7 +2911,7 @@ $LN3:
 ?AddComponents@CBoss@Client@@AEAAJXZ ENDP		; Client::CBoss::AddComponents
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?RenderGUI@CBoss@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2943,7 +2943,7 @@ $LN3:
 ?RenderGUI@CBoss@Client@@UEAAXXZ ENDP			; Client::CBoss::RenderGUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?Render@CBoss@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -2979,7 +2979,7 @@ $LN3:
 ?Render@CBoss@Client@@UEAAJXZ ENDP			; Client::CBoss::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?LateTick@CBoss@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -3014,7 +3014,7 @@ $LN3:
 ?LateTick@CBoss@Client@@UEAAXN@Z ENDP			; Client::CBoss::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?Tick@CBoss@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -3049,7 +3049,7 @@ $LN3:
 ?Tick@CBoss@Client@@UEAAXN@Z ENDP			; Client::CBoss::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?Initialize@CBoss@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -3087,7 +3087,7 @@ $LN3:
 ?Initialize@CBoss@Client@@UEAAJPEAX@Z ENDP		; Client::CBoss::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?Initialize_Prototype@CBoss@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -3123,7 +3123,7 @@ $LN3:
 ?Initialize_Prototype@CBoss@Client@@UEAAJXZ ENDP	; Client::CBoss::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ??1CBoss@Client@@UEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -3156,9 +3156,9 @@ $LN3:
 ??1CBoss@Client@@UEAA@XZ ENDP				; Client::CBoss::~CBoss
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
-; File c:\users\arcco\documents\github\framework\client\public\boss.h
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\public\boss.h
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ??0CBoss@Client@@QEAA@AEBV01@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -3198,7 +3198,7 @@ $LN4:
   0004a	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CBoss@Client@@6B@
   00051	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\boss.h
+; File c:\github\framework\client\public\boss.h
 
 ; 46   : 	CRenderer* renderer = nullptr;
 
@@ -3238,7 +3238,7 @@ $LN4:
   000a0	48 c7 80 98 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+152], 0
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 
 ; 12   : }
 
@@ -3252,9 +3252,9 @@ $LN4:
 ??0CBoss@Client@@QEAA@AEBV01@@Z ENDP			; Client::CBoss::CBoss
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
-; File c:\users\arcco\documents\github\framework\client\public\boss.h
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\public\boss.h
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ??0CBoss@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -3298,7 +3298,7 @@ $LN4:
   00056	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CBoss@Client@@6B@
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\boss.h
+; File c:\github\framework\client\public\boss.h
 
 ; 46   : 	CRenderer* renderer = nullptr;
 
@@ -3338,7 +3338,7 @@ $LN4:
   000ac	48 c7 80 98 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+152], 0
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 
 ; 7    : }
 
@@ -3352,7 +3352,7 @@ $LN4:
 ??0CBoss@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ENDP ; Client::CBoss::CBoss
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -3381,7 +3381,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
+; File c:\github\framework\client\private\boss.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

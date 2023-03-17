@@ -3,6 +3,7 @@
 
 #include "ApplicationManager.h"
 #include "StageCollisionManager.h"
+#include "SkillBallSystem.h"
 #include "GameInstance.h"
 #include "ImGUIManager.h"
 
@@ -12,10 +13,17 @@
 #include "DynamicCamera.h"
 #include "Wall.h"
 
+//UI
+#include "SkillBase.h"
+#include "EnemyHealthBar.h"
+
+_uint CApplication::s_TickCount = 0;
+
 CApplication::CApplication()
 	: m_pGameInstance { CGameInstance::GetInstance() }
 	, m_pGUIManager { CImGUIManager::GetInstance() }
-	, m_pStageManager{ CStageCollisionManager::GetInstance() }
+	, m_pStageManager { CStageCollisionManager::GetInstance() }
+	, m_pSkillSystem { CSkillBallSystem::GetInstance() }
 {
 	Safe_AddRef(m_pGameInstance);
 }
@@ -66,8 +74,27 @@ HRESULT CApplication::Initialize()
 
 void CApplication::Tick(_double TimeDelta)
 {
+	s_TickCount++;
+	if (s_TickCount > 30)
+		s_TickCount = 0;
+
+	srand((unsigned int)time(nullptr) * s_TickCount);
+
 	if (nullptr == m_pGameInstance)
 		return;
+
+
+	//if (CApplicationManager::GetInstance()->IsHitFreeze())
+	//{
+	//	m_bHitFreezeLocal += TimeDelta;
+	//	if (m_bHitFreezeLocal >= m_bHitFreezeTimeOut)
+	//	{
+	//		m_bHitFreezeLocal = 0.f;
+	//		CApplicationManager::GetInstance()->SetHitFreeze(false);
+	//	}
+
+	//	TimeDelta = TimeDelta * 0.5f;
+	//}
 
 	m_pGameInstance->Engine_Tick(TimeDelta);
 	//m_pStageManager->Tick(TimeDelta);
@@ -151,9 +178,75 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXMODEL.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_alpha"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_ALPHA.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_ui"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_UI.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
+		return E_FAIL;
+
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_LOADING, TEXT("proto_com_texture_background"),
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/background.jpg")))))
 		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_back"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_back.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_blood"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_blood.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_front"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_front.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_red"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Red.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_blue"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Blue.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_yellow"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Yellow.png")))))
+		return E_FAIL;
+
+	//Key q w e r a s d f
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_a"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/A.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_s"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/S.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_d"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/D.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_f"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/F.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_q"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/Q.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_w"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/W.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_e"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/E.png")))))
+		return E_FAIL;
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_r"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/R.png")))))
+		return E_FAIL;
+
+
 
 	Safe_AddRef(m_pRenderer);
 
@@ -173,6 +266,12 @@ HRESULT CApplication::Ready_Prototype_Static_GameObject()
 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_wall"), CWall::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_skillball"), CSkillBase::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_enemyhp"), CEnemyHealthBar::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
 	return S_OK;
 }
 
@@ -189,6 +288,7 @@ void CApplication::DestroyManager()
 	m_pGUIManager->Shutdown();
 	CApplicationManager::DestroyInstance();
 	CStageCollisionManager::DestroyInstance();
+	CSkillBallSystem::DestroyInstance();
 }
 
 CApplication* CApplication::Create()

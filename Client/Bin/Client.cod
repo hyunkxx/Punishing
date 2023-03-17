@@ -7,8 +7,6 @@ INCLUDELIB OLDNAMES
 
 PUBLIC	?g_hInst@@3PEAUHINSTANCE__@@EA			; g_hInst
 PUBLIC	?g_hWnd@@3PEAUHWND__@@EA			; g_hWnd
-PUBLIC	?szTitle@@3PA_WA				; szTitle
-PUBLIC	?szWindowClass@@3PA_WA				; szWindowClass
 PUBLIC	?AliceBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::AliceBlue
 PUBLIC	?AntiqueWhite@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::AntiqueWhite
 PUBLIC	?Aqua@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Aqua
@@ -291,6 +289,8 @@ PUBLIC	?g_XMLogEst6@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLogEst6
 PUBLIC	?g_XMLogEst7@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLogEst7
 PUBLIC	?g_XMLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLgE
 PUBLIC	?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMInvLgE
+PUBLIC	?szTitle@@3PA_WA				; szTitle
+PUBLIC	?szWindowClass@@3PA_WA				; szWindowClass
 _BSS	SEGMENT
 ?g_hInst@@3PEAUHINSTANCE__@@EA DQ 01H DUP (?)		; g_hInst
 ?g_hWnd@@3PEAUHWND__@@EA DQ 01H DUP (?)			; g_hWnd
@@ -2561,7 +2561,7 @@ $unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z DD 025053901H
 	DD	05015H
 xdata	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCApplication@Client@@@Engine@@YAKAEAPEAVCApplication@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -2640,7 +2640,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCApplication@Client@@@Engine@@YAKAEAPEAVCApplication@Client@@@Z ENDP ; Engine::Safe_Release<Client::CApplication * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\config\client.cpp
+; File c:\github\framework\client\config\client.cpp
 ;	COMDAT ?WndProc@@YA_JPEAUHWND__@@I_K_J@Z
 _TEXT	SEGMENT
 ps$4 = 16
@@ -2795,7 +2795,7 @@ $LN1@WndProc:
 ?WndProc@@YA_JPEAUHWND__@@I_K_J@Z ENDP			; WndProc
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\config\client.cpp
+; File c:\github\framework\client\config\client.cpp
 ;	COMDAT ?InitInstance@@YAHPEAUHINSTANCE__@@H@Z
 _TEXT	SEGMENT
 rcWindow$ = 8
@@ -2956,7 +2956,7 @@ $LN1@InitInstan:
 ?InitInstance@@YAHPEAUHINSTANCE__@@H@Z ENDP		; InitInstance
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\config\client.cpp
+; File c:\github\framework\client\config\client.cpp
 ;	COMDAT ?MyRegisterClass@@YAGPEAUHINSTANCE__@@@Z
 _TEXT	SEGMENT
 wcex$ = 16
@@ -3088,7 +3088,7 @@ $LN3:
 ?MyRegisterClass@@YAGPEAUHINSTANCE__@@@Z ENDP		; MyRegisterClass
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\config\client.cpp
+; File c:\github\framework\client\config\client.cpp
 ;	COMDAT wWinMain
 _TEXT	SEGMENT
 pApplication$ = 8
@@ -3433,7 +3433,7 @@ $LN1@wWinMain:
 wWinMain ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\config\client.cpp
+; File c:\github\framework\client\config\client.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -3464,7 +3464,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\config\client.cpp
+; File c:\github\framework\client\config\client.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

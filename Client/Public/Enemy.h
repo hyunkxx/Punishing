@@ -105,6 +105,7 @@ public:
 	virtual void RenderGUI() override;
 
 public:
+	void Reset();
 	_bool IsOverlap() const { return m_bOverlapped; }
 	void SetOverlap(_bool value, _float3 vNagative) { m_bOverlapped = value; m_vNagative = vNagative; }
 	_float4 GetPosition();
@@ -114,7 +115,14 @@ public:
 	class CCollider* GetWeaponCollider() { return m_pWeaponCollider; }
 	class CCollider* GetOverlapCollider() { return m_pOverlapCollider; }
 	void SetNuckback(_float fPower);
+	void SetHold(_bool value) { m_bHolding = value; }
+	void SetAirborne(_float fDamage);
+	ENEMY_STATE GetHpState() const { return m_State; }
 
+	void RecvDamage(_float fDamage);
+
+	//죽는중
+	_bool IsDeadWait() const { return m_bDeadWait; }
 private:
 	HRESULT AddComponents();
 	HRESULT SetupShaderResources();
@@ -127,10 +135,10 @@ private:
 	void DisableAttackCollision(_double TimeDelta);
 	void Idle(_double TimeDelta);
 	_bool Hit(_double TimeDelta);
-	void RecvDamage(_float fDamage);
-	void NuckBack(_double TimeDelta);
 
+	void NuckBack(_double TimeDelta);
 	void Airborne(_double TimeDelta);
+	void Holding(_double TimeDleta);
 
 	_bool DieCheck();
 	void Die(_double TimeDelta);
@@ -216,8 +224,8 @@ private:
 
 	_float m_fCurTimeScale = 1.0;
 
-	_float m_fAttackCoolTimer = 4.f;
-	const _float m_fAttackCoolTimeOut = 4.f;
+	_float m_fAttackCoolTimer = 2.5f;
+	const _float m_fAttackCoolTimeOut = 2.5f;
 
 	_float m_fTraceLocal = 0.0f;
 	const _float m_fTraceTimeOut = 0.5f;
@@ -230,6 +238,11 @@ private:
 	_bool m_bStandupStart = false;
 	_float m_fStandupTimer = 0.0f;
 	const _float m_fStandupTimeOut = 2.0f;
+
+	//플레이어한테 잡힘
+	_bool m_bHolding = false;
+
+	_int m_iRandomHitAnim = 0;
 };
 
 END

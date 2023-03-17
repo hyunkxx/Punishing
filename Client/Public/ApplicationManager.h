@@ -21,14 +21,17 @@ public:
 	void SetPlayerPrevPosition(_float3 value) { m_vPrevPosition = value; }
 	_vector GetPlayerPrevPosition() { return XMLoadFloat3(&m_vPrevPosition); }
 
+	void SetHitFreeze(_bool value) { m_bHitFreeze = value; }
+	_bool IsHitFreeze() const { return m_bHitFreeze; }
 public:
 	virtual void Free() override;
 
 private:
 	std::wstring m_strTitleText;
-
 	_bool m_bFreeze = false;
 	_float3 m_vPrevPosition = { 0.f, 0.f, 0.f };
+
+	_bool m_bHitFreeze = false;
 };
 
 END

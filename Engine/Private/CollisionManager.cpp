@@ -36,14 +36,13 @@ HRESULT CCollisionManager::AddCollider(CCollider* collider, _uint iLayerIndex)
 
 void CCollisionManager::PhysicsUpdate()
 {
-	//기본 중복되게 호출하지 않겠다 선언.
+	// 이쪽 로직 문제 있는거같은데 나중에 수정하자 j = i 가아니라 걍 처음부터 다시돌리고 레이어입력받아서 루프돌게 src dest 함수도 두개호출 말고
  	for (_uint i = 0; i < m_BaseCollisions.size() ; ++i)
 	{
 		for (_uint j = i; j < m_BaseCollisions.size(); ++j)
 		{
 			if (nullptr == m_BaseCollisions[i] || nullptr == m_BaseCollisions[j])
 				continue;
-
 
 			CGameObject* srcObject = m_BaseCollisions[i]->GetOwner();
 			CGameObject* destObject = m_BaseCollisions[j]->GetOwner();
@@ -112,8 +111,9 @@ void CCollisionManager::PhysicsUpdate()
 					//충돌중인 리스트에서 삭제
 					m_BaseCollisions[i]->EraseHitCollider(m_BaseCollisions[j]);
 					m_BaseCollisions[j]->EraseHitCollider(m_BaseCollisions[i]);
-
 				}
+
+				//제자리에서 Active로 조절하는 콜라이더 충돌중에 간헐적으로 이상하게 동작하는애 있어서 테스트해보려고 내림
 			}
 		}
 	}

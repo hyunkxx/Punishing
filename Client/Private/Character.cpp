@@ -9,6 +9,9 @@
 #include "Enemy.h"
 #include "Wall.h"
 
+#include "SkillBallSystem.h"
+#include "EnemyHealthBar.h"
+
 //Bip001?(리얼 루트본) Bip001Pelvis (척추) R3KalieninaMd010031 (000)
 CCharacter::CCharacter(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CGameObject(pDevice, pContext)
@@ -54,6 +57,9 @@ HRESULT CCharacter::Initialize(void* pArg)
 	bone = mModel->GetBonePtr("Bip001");
 	m_pWeaponBone = mModel->GetBonePtr("WeaponCase1");
 
+	CSkillBase::SKILL_INFO SkillInfo;
+	ZeroMemory(&SkillInfo, sizeof CSkillBase::SKILL_INFO);
+	SkillInfo.eType = CSkillBase::TYPE::INVALID;
 
 	return S_OK;
 }
@@ -91,6 +97,9 @@ void CCharacter::Tick(_double TimeDelta)
 	if(!m_WallHit)
 		XMStoreFloat3(&vPrevPosition, mTransform->Get_State(CTransform::STATE_POSITION));
 
+	if (m_bEnemyHolding)
+		HoldEnemy();
+
 	AnimationControl(TimeDelta);
 	SkillColliderControl(TimeDelta);
 	//PositionHold(TimeDelta);
@@ -105,7 +114,9 @@ void CCharacter::LateTick(_double TimeDelta)
 	__super::LateTick(TimeDelta);
 
 	FindNearTarget();
+	RenderEnemyHealth(TimeDelta);
 
+	//콜리전 세팅
 	_matrix transMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&mTransform->Get_WorldMatrix());
 	mCollider->Update(transMatrix);
 	mWallCheckCollider->Update(transMatrix);
@@ -146,36 +157,6 @@ HRESULT CCharacter::Render()
 
 void CCharacter::RenderGUI()
 {
-	ImGui::Begin("Transform");
-	//_float3 vPos;
-	//XMStoreFloat3(&vPos, mTransform->Get_State(CTransform::STATE_POSITION));
-
-	//ImGui::InputFloat3("Position", (_float*)&vPos);
-	//ImGui::InputInt("Attack ", (int*)&m_iCurAttackCount);
-
-	//if (nullptr != m_pNearEnemy && !m_pNearEnemy->IsDestroy())
-	//{
-	//	CTransform* pTransform = static_cast<CTransform*>(static_cast<CGameObject*>(m_pNearEnemy)->Find_Component(L"com_transform"));
-	//	if (pTransform)
-	//	{
-	//		_float4 vTargetPos = m_pNearEnemy->GetPosition();
-	//		ImGui::InputFloat4("Target Position", (float*)&vTargetPos);
-	//	}
-	//}
-	//else
-	//{
- //		_float4 vTargetPos = { 0.f, 0.f, 0.f, 0.f };
-	//	ImGui::InputFloat4("Target Position", (float*)&vTargetPos);
-	//}
-
-	//_int size = (_uint)m_Enemys.size();
-	//ImGui::InputInt("NearEnemy List ", (int*)&size);
-	//ImGui::InputInt("Look Enemy index", (int*)&m_iEnemyIndex);
-	CCollisionManager* pCollManager = CCollisionManager::GetInstance();
-	int Count = pCollManager->GetHasCollisionCount();
-	ImGui::InputInt("Look Enemy index", &Count);
-
-	ImGui::End();
 }
 
 const CBone * CCharacter::GetBone(const char * szBoneName) const
@@ -242,8 +223,8 @@ HRESULT CCharacter::AddComponents()
 	
 	ZeroMemory(&collDesc, sizeof(collDesc));
 	collDesc.owner = this;
-	collDesc.vCenter = _float3(0.f, 1.f, 1.5f);
-	collDesc.vExtents = _float3(2.f, 1.f, 2.f);
+	collDesc.vCenter = _float3(0.f, 1.f, 1.f);
+	collDesc.vExtents = _float3(2.f, 1.f, 3.5f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"), TEXT("com_collider_skill"), (CComponent**)&mSkillCollider, &collDesc)))
@@ -342,6 +323,7 @@ HRESULT CCharacter::SetupShaderResources()
 void CCharacter::KeyInput(_double TimeDelta)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	CSkillBallSystem* pSkillSystem = CSkillBallSystem::GetInstance();
 
 	InputMove(TimeDelta);
 
@@ -360,48 +342,224 @@ void CCharacter::KeyInput(_double TimeDelta)
 			m_bAttackable = false;
 			m_bMoveable = false;
 			m_bDashable = false;
+			m_bEvolutionAttack = false;
 		}
 	}
 
 	//넉백
 	if (mModel->AnimationCompare(CLIP::ATTACK51))
 	{
-		if (!m_pAppManager->IsFreeze())
+		if (mModel->AnimationIsPreFinishCustom(0.55) && !m_bEvolutionAttack)
 		{
-			if (mModel->AnimationIsPreFinishCustom(0.55))
+			m_bEvolutionAttack = true;
+			for (auto& pEnemy : m_Enemys)
 			{
-				for (auto& pEnemy : m_Enemys)
-				{
-					_vector vEnemyPos = XMLoadFloat4(&pEnemy->GetPosition());
-					_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+				_vector vEnemyPos = XMLoadFloat4(&pEnemy->GetPosition());
+				_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
 
-					_float fLength = XMVectorGetX(XMVector3Length(vEnemyPos - vPos));
-					if (fLength < 5.f)
-					{
+				_float fLength = XMVectorGetX(XMVector3Length(vEnemyPos - vPos));
+				if (fLength < 5.f)
+				{
+					if (!m_pAppManager->IsFreeze())
 						pEnemy->SetNuckback(40.f);
-					}
+
+					pEnemy->SetAirborne(GetDamage());
 				}
 			}
 		}
 
 	}
-	
+
 	if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::TAP)
 	{
-		if(!m_bUseSkill)
-			SkillA(TimeDelta);
+		if (!m_bUseSkill && m_bSkillReady)
+		{
+			m_SkillInfo = pSkillSystem->UseSkill(0);
+			switch (m_SkillInfo.eType)
+			{
+			case Client::CSkillBase::TYPE::RED:
+				SkillA(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::BLUE:
+				SkillB(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::YELLOW:
+				SkillC(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::INVALID:
+				break;
+			default:
+				break;
+			}
+		}
 	}
 
-	if (pGameInstance->Input_KeyState_Custom(DIK_B) == KEY_STATE::TAP)
+	if (pGameInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::TAP)
 	{
-		if (!m_bUseSkill)
-			SkillB(TimeDelta);
+		if (!m_bUseSkill && m_bSkillReady)
+		{
+			m_SkillInfo = pSkillSystem->UseSkill(1);
+			switch (m_SkillInfo.eType)
+			{
+			case Client::CSkillBase::TYPE::RED:
+				SkillA(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::BLUE:
+				SkillB(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::YELLOW:
+				SkillC(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::INVALID:
+				break;
+			default:
+				break;
+			}
+		}
 	}
 
-	if (pGameInstance->Input_KeyState_Custom(DIK_C) == KEY_STATE::TAP)
+	if (pGameInstance->Input_KeyState_Custom(DIK_D) == KEY_STATE::TAP)
 	{
-		if (!m_bUseSkill)
-			SkillC(TimeDelta);
+		if (!m_bUseSkill && m_bSkillReady)
+		{
+			m_SkillInfo = pSkillSystem->UseSkill(2);
+			switch (m_SkillInfo.eType)
+			{
+			case Client::CSkillBase::TYPE::RED:
+				SkillA(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::BLUE:
+				SkillB(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::YELLOW:
+				SkillC(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::INVALID:
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_F) == KEY_STATE::TAP)
+	{
+		if (!m_bUseSkill && m_bSkillReady)
+		{
+			m_SkillInfo = pSkillSystem->UseSkill(3);
+			switch (m_SkillInfo.eType)
+			{
+			case Client::CSkillBase::TYPE::RED:
+				SkillA(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::BLUE:
+				SkillB(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::YELLOW:
+				SkillC(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::INVALID:
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_Q) == KEY_STATE::TAP)
+	{
+		if (!m_bUseSkill && m_bSkillReady)
+		{
+			m_SkillInfo = pSkillSystem->UseSkill(4);
+			switch (m_SkillInfo.eType)
+			{
+			case Client::CSkillBase::TYPE::RED:
+				SkillA(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::BLUE:
+				SkillB(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::YELLOW:
+				SkillC(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::INVALID:
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_W) == KEY_STATE::TAP)
+	{
+		if (!m_bUseSkill && m_bSkillReady)
+		{
+			m_SkillInfo = pSkillSystem->UseSkill(5);
+			switch (m_SkillInfo.eType)
+			{
+			case Client::CSkillBase::TYPE::RED:
+				SkillA(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::BLUE:
+				SkillB(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::YELLOW:
+				SkillC(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::INVALID:
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_E) == KEY_STATE::TAP)
+	{
+		if (!m_bUseSkill && m_bSkillReady)
+		{
+			m_SkillInfo = pSkillSystem->UseSkill(6);
+			switch (m_SkillInfo.eType)
+			{
+			case Client::CSkillBase::TYPE::RED:
+				SkillA(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::BLUE:
+				SkillB(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::YELLOW:
+				SkillC(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::INVALID:
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+	if (pGameInstance->Input_KeyState_Custom(DIK_R) == KEY_STATE::TAP)
+	{
+		if (!m_bUseSkill && m_bSkillReady)
+		{
+			m_SkillInfo = pSkillSystem->UseSkill(7);
+			switch (m_SkillInfo.eType)
+			{
+			case Client::CSkillBase::TYPE::RED:
+				SkillA(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::BLUE:
+				SkillB(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::YELLOW:
+				SkillC(TimeDelta);
+				break;
+			case Client::CSkillBase::TYPE::INVALID:
+				break;
+			default:
+				break;
+			}
+		}
 	}
 
 	if (mModel->AnimationCompare(CLIP::ATTACK51))
@@ -433,7 +591,7 @@ void CCharacter::Dash(_double TimeDelta)
 
 	if (m_bDashPrevPosSet)
 	{
-		m_fActiveDuration += TimeDelta;
+		m_fActiveDuration += (_float)TimeDelta;
 		if (m_fActiveDuration >= m_fActiveTimeOut)
 		{
 			m_fActiveDuration = 0.0f;
@@ -446,6 +604,8 @@ void CCharacter::Dash(_double TimeDelta)
 	{
 		mCollider->SetActive(false);
 		mWeaponCollider->SetActive(false);
+
+		m_bSkillReady = false;
 
 		if (mModel->AnimationIsPreFinish())
 		{
@@ -628,6 +788,10 @@ void CCharacter::Attack(_double TimeDelta)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
+	//변신중 공격X
+	if (mModel->AnimationCompare(CLIP::ATTACK51))
+		return;
+
 	if (!m_bAttackable)
 		return;
 
@@ -801,9 +965,9 @@ void CCharacter::SkillA(_double TimeDelta)
 	m_bMoveable = false;
 	m_bAttackable = false;
 	m_bDashable = false;
+	m_bSkillReady = false;
 
-	m_bAttacking = true;
-
+	mWeaponCollider->SetActive(true);
 	SetAnimation(CLIP::ATTACK11, CAnimation::TYPE::ONE);
 }
 
@@ -816,6 +980,7 @@ void CCharacter::SkillB(_double TimeDelta)
 	m_bMoveable = false;
 	m_bAttackable = false;
 	m_bDashable = false;
+	m_bSkillReady = false;
 
 	SetAnimation(CLIP::ATTACK21, CAnimation::TYPE::ONE);
 
@@ -826,10 +991,14 @@ void CCharacter::SkillC(_double TimeDelta)
 	if (!m_bSkillReady)
 		return;
 
+	if (m_pNearEnemy != nullptr)
+		mTransform->LookAt(XMLoadFloat4(&m_pNearEnemy->GetPosition()));
+
 	m_bUseSkill = true;
 	m_bMoveable = false;
 	m_bAttackable = false;
 	m_bDashable = false;
+	m_bSkillReady = false;
 
 	SetAnimation(CLIP::ATTACK31, CAnimation::TYPE::ONE);
 }
@@ -838,6 +1007,11 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 {
 	if (mModel->AnimationCompare(CLIP::ATTACK11))
 	{
+		if (mModel->AnimationIsPreFinishCustom(0.5))
+		{
+			mWeaponCollider->SetActive(false);
+		}
+
 		if (mModel->AnimationIsFinishEx())
 		{
 			m_bUseSkill = false;
@@ -871,14 +1045,48 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 	}
 	else if (mModel->AnimationCompare(CLIP::ATTACK31))
 	{
+		if (!m_bSkillYellowAttack && m_pNearEnemy)
+		{
+			if (mModel->AnimationIsPreFinishCustom(0.7))
+			{
+				m_bSkillYellowAttack = true;
+				m_pNearEnemy->RecvDamage(GetDamage());
+			}
+		}
+
+		if (m_pNearEnemy && m_pNearEnemy->IsDeadWait())
+			m_bEnemyHolding = false;
+
 		if (mModel->AnimationIsFinishEx())
 		{
+			if (m_pNearEnemy)
+			{
+				m_pNearEnemy->SetHold(false);
+			}
+
+			m_bSkillYellowAttack = false;
 			m_bUseSkill = false;
 			m_bSkillReady = true;
 			m_bAttackable = true;
 			m_bMoveable = true;
 			m_bDashable = true;
+
+			//몬스터 잡기 끝
+			m_bEnemyHolding = false;
 		}
+	}
+
+	if (!mModel->AnimationCompare(CLIP::ATTACK11) &&
+		!mModel->AnimationCompare(CLIP::ATTACK21) &&
+		!mModel->AnimationCompare(CLIP::ATTACK31) &&
+		!mModel->AnimationCompare(CLIP::MOVE1) &&
+		!mModel->AnimationCompare(CLIP::MOVE2))
+	{
+		m_bUseSkill = false;
+		m_bSkillReady = true;
+		//m_bAttackable = true;
+		//m_bMoveable = true;
+		//m_bDashable = true;
 	}
 }
 
@@ -886,15 +1094,24 @@ void CCharacter::TargetListDeastroyCehck()
 {
 	for (auto iter = m_Enemys.begin(); iter != m_Enemys.end(); )
 	{
-		if ((*iter)->IsDestroy())
+		if ((*iter)->IsDisable())
 		{
 			if ((*iter) == m_pNearEnemy)
 				m_pNearEnemy = nullptr;
 
 			iter = m_Enemys.erase(iter);
+
+			m_bEnemyHealthDraw = false;
+			m_pEnemyHealthBar->SetRender(false);
 		}
 		else
 			++iter;
+	}
+
+	if (m_Enemys.empty())
+	{
+		mEnemyCheckCollider->HitColliderReset();
+		m_iEnemyIndex = 0;
 	}
 }
 
@@ -920,6 +1137,7 @@ void CCharacter::DeleteTargetFromList(CGameObject * pObject)
 				m_pNearEnemy = nullptr;
 
 			iter = m_Enemys.erase(iter);
+			m_bRootMotion = true;
 		}
 		else
 			++iter;
@@ -946,12 +1164,18 @@ void CCharacter::FindNearTarget()
 		{
 			fNear = fDist;
 			m_pNearEnemy = enemy;
+
+			m_bEnemyHealthDraw = false;
+			m_pEnemyHealthBar->SetRender(false);
 		}
 	}
 }
 
 void CCharacter::NearTargetChange()
 {
+	if (m_bEnemyHolding)
+		return;
+
 	if(m_iEnemyIndex < m_Enemys.size())
 		m_iEnemyIndex++;
 
@@ -962,16 +1186,25 @@ void CCharacter::NearTargetChange()
 		{
 			m_iEnemyIndex = 0;
 			m_pNearEnemy = *(m_Enemys.begin());
+			m_pEnemyHealthBar->SetFillAmount(m_pNearEnemy->GetHpState().fCurHp, m_pNearEnemy->GetHpState().fMaxHp);
+			m_bRootMotion = true;
+			m_bEnemyHealthDraw = false;
+			m_pEnemyHealthBar->SetRender(false);
 		}
 
 		if (m_iEnemyIndex == i)
 		{
 			m_pNearEnemy = *iter;
+			m_bRootMotion = true;
+			m_pEnemyHealthBar->SetFillAmount(m_pNearEnemy->GetHpState().fCurHp, m_pNearEnemy->GetHpState().fMaxHp);
+			m_bEnemyHealthDraw = false;
+			m_pEnemyHealthBar->SetRender(false);
 			return;
 		}
 
 		i++;
 	}
+
 }
 
 _float3 CCharacter::LockOnCameraPosition()
@@ -979,7 +1212,7 @@ _float3 CCharacter::LockOnCameraPosition()
 	if(nullptr == m_pNearEnemy)
 		return _float3();
 
-	if(m_pNearEnemy->IsDestroy())
+	if(m_pNearEnemy->IsDisable())
 		return _float3();
 
 	_float3 vLockPosition;
@@ -993,22 +1226,45 @@ _float3 CCharacter::LockOnCameraPosition()
 	return vLockPosition;
 }
 
+void CCharacter::HoldEnemy()
+{
+	if (m_pNearEnemy == nullptr)
+		return;
+
+	CTransform* pTargetTransform = static_cast<CTransform*>(static_cast<CGameObject*>(m_pNearEnemy)->Find_Component(L"com_transform"));
+	CCollider* pTargetCollider = static_cast<CCollider*>(static_cast<CGameObject*>(m_pNearEnemy)->Find_Component(L"com_collider"));
+	
+	_float fTotalRadius = mCollider->GetExtents().x;// +pTargetCollider->GetExtents().x;
+	_vector pTargetPos = pTargetTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vPlayerPos = mTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vLook = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_LOOK));
+
+	_vector vPosition = vPlayerPos + vLook * fTotalRadius;
+
+	pTargetTransform->Set_State(CTransform::STATE_POSITION, vPosition);
+	
+}
+
 void CCharacter::Hit()
 {
-	//대쉬중에 힛 스루
+	//대쉬 강화상태 변신중 힛 모션 쓰루
 	if (mModel->AnimationCompare(CLIP::MOVE1) ||
 		mModel->AnimationCompare(CLIP::MOVE2) ||
 		mModel->AnimationCompare(CLIP::ATTACK11) ||
 		mModel->AnimationCompare(CLIP::ATTACK21) ||
 		mModel->AnimationCompare(CLIP::ATTACK31) ||
-		mModel->AnimationCompare(CLIP::ATTACK21) ||
-		mModel->AnimationCompare(CLIP::ATTACK31) ||
-		mModel->AnimationCompare(CLIP::ATTACK12) ||
-		mModel->AnimationCompare(CLIP::ATTACK32) ||
+		mModel->AnimationCompare(CLIP::ATTACK41) ||
+		mModel->AnimationCompare(CLIP::ATTACK42) ||
+		mModel->AnimationCompare(CLIP::ATTACK43) ||
+		mModel->AnimationCompare(CLIP::ATTACK44) ||
+		mModel->AnimationCompare(CLIP::ATTACK45) ||
 		mModel->AnimationCompare(CLIP::ATTACK51))
 	{
 		return;
 	}
+
+	if (m_bUseSkill)
+		return;
 
 	if (m_bEvolution)
 		return;
@@ -1035,8 +1291,8 @@ _double CCharacter::Freeze(_double TimeDelta)
 {
 	if (m_pAppManager->IsFreeze())
 	{
-		_vector CurTimeDelta = XMVectorSet(m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale);
-		m_fCurTimeScale = XMVectorGetX(XMVectorLerp(CurTimeDelta, XMVectorSet(0.0, 0.0, 0.0, 0.0), TimeDelta * 0.8));
+		_vector CurTimeDelta = XMVectorSet((_float)m_fCurTimeScale, (_float)m_fCurTimeScale, (_float)m_fCurTimeScale, (_float)m_fCurTimeScale);
+		m_fCurTimeScale = XMVectorGetX(XMVectorLerp(CurTimeDelta, XMVectorSet(0.0, 0.0, 0.0, 0.0), (_float)TimeDelta * 0.8f));
 
 		_float3 vPrevPos;
 		vPrevPos.x = m_matrixPrevPos._41;
@@ -1058,8 +1314,8 @@ _double CCharacter::Freeze(_double TimeDelta)
 		if (m_fTimeStopLocal >= m_fTimeStopTimeOut)
 		{
 			m_pAppManager->SetFreeze(false);
-			m_fTimeStopLocal = 0.0;
-			m_fCurTimeScale = 1.0;
+			m_fTimeStopLocal = 0.0f;
+			m_fCurTimeScale = 1.0f;
 			m_bTimeStop = false;
 		}
 
@@ -1067,6 +1323,67 @@ _double CCharacter::Freeze(_double TimeDelta)
 	}
 	else
 		return TimeDelta = TimeDelta * m_fCurTimeScale;
+}
+
+void CCharacter::RenderEnemyHealth(_double TimeDelta)
+{
+	//적 Health UI
+	if (m_pNearEnemy != nullptr)
+	{
+		CEnemy::ENEMY_STATE Health = m_pNearEnemy->GetHpState();
+		m_pEnemyHealthBar->SetHealth(Health.fCurHp, Health.fMaxHp);
+		m_pEnemyHealthBar->SetRender(m_bEnemyHealthDraw);
+	}
+	else
+	{
+		m_bEnemyHealthDraw = false;
+		//m_pEnemyHealthBar->SetHealth(1.f, 1.f);
+		m_pEnemyHealthBar->SetRender(false);
+	}
+
+	if (m_bEnemyHealthDraw)
+	{
+		m_fDrawEnemyHealthTimer += (_float)TimeDelta;
+		if (m_fDrawEnemyHealthTimer >= m_fDrawEnemyHealthTimeOut)
+		{
+			m_bEnemyHealthDraw = false;
+			m_fDrawEnemyHealthTimer = 0.0f;
+		}
+	}
+}
+
+_float CCharacter::GetDamage()
+{
+	_float fDamage;
+
+	if (!m_bUseSkill)
+	{
+		//일반적인 데미지 80 ~ 125
+		fDamage = rand() % 40 + 85;
+	}
+	else
+	{
+		//스킬 사용중에는 체인 수에 해당하는 공격력을 부여 200% / 400% / 600%
+		fDamage = rand() % 40 + 85;
+		
+		switch (m_SkillInfo.iChainCount)
+		{
+		case 0:
+			fDamage = (rand() % 40 + 85) * 2.f;
+			break;
+		case 1:
+			fDamage = (rand() % 40 + 85) * 4.f;
+			break;
+		case 2:
+			fDamage = (rand() % 40 + 85) * 6.f;
+			break;
+		default:
+			fDamage = rand() % 40 + 85;
+			break;
+		}
+	}
+
+	return fDamage;
 }
 
 void CCharacter::SavePrevPos()
@@ -1110,7 +1427,7 @@ void CCharacter::AnimationControl(_double TimeDelta)
 		AnimationCompare(CLIP::ATTACK44) ||
 		AnimationCompare(CLIP::ATTACK45))
 	{
-		mModel->Play_Animation(TimeDelta, mTransform, 0.01f, m_bRootMotion);
+		mModel->Play_Animation(TimeDelta, mTransform, 0.03f, m_bRootMotion);
 	}
 	else
 		mModel->Play_Animation(TimeDelta, mTransform);
@@ -1413,6 +1730,40 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 			pAppManager->SetFreeze(true);
 		}
 	}
+
+	if (src->Compare(mCollider))
+	{
+		if (mModel->AnimationCompare(CLIP::ATTACK31))
+		{
+			CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
+			if (pEnemy && dest->Compare(pEnemy->GetBodyCollider()))
+			{
+				m_bEnemyHealthDraw = true;
+				m_fDrawEnemyHealthTimer = 0.0f;
+			}
+		}
+	}
+
+	if (src->Compare(mWeaponCollider))
+	{
+		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
+		if (pEnemy && dest->Compare(pEnemy->GetBodyCollider()))
+		{
+			m_bEnemyHealthDraw = true;
+			m_fDrawEnemyHealthTimer = 0.0f;
+		}
+	}
+
+	if (src->Compare(mSkillCollider))
+	{
+		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
+		if (pEnemy && dest->Compare(pEnemy->GetBodyCollider()))
+		{
+			pEnemy->SetAirborne(GetDamage());
+			m_bEnemyHealthDraw = true;
+			m_fDrawEnemyHealthTimer = 0.0f;
+		}
+	}
 }
 
 void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
@@ -1471,14 +1822,6 @@ void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
 		if (pEnemy && dest->Compare(pEnemy->GetBodyCollider()))
 		{
-			//if (mModel->AnimationCompare(CLIP::STAND2) ||
-			//	mModel->AnimationCompare(CLIP::ATTACK51)||
-			//	mModel->AnimationCompare(CLIP::HIT1) ||
-			//	mModel->AnimationCompare(CLIP::HIT2) || 
-			//	mModel->AnimationCompare(CLIP::HIT3) ||
-			//	mModel->AnimationCompare(CLIP::HIT4))
-			//	return;
-			//
 			////수정
 			//_vector vLook = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_LOOK));
 
@@ -1499,9 +1842,31 @@ void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 			//mTransform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
 
 			if (m_pNearEnemy == pEnemy)
+			{
 				m_bRootMotion = false;
+			}
 			else
+			{
+				if(m_bRootMotion)
+					m_bRootMotion = true;
+			}
+
+			//if (mModel->AnimationCompare(CLIP::ATTACK11) ||
+			//	mModel->AnimationCompare(CLIP::ATTACK21) || 
+			//	mModel->AnimationCompare(CLIP::ATTACK12) ||
+			//	mModel->AnimationCompare(CLIP::ATTACK22))
+			//	m_bRootMotion = false;
+
+
+			if (mModel->AnimationCompare(CLIP::ATTACK31) && m_pNearEnemy == pEnemy ||
+				mModel->AnimationCompare(CLIP::ATTACK32) && m_pNearEnemy == pEnemy)
+			{
+				pEnemy->SetHold(true);
+				m_bEnemyHolding = true;
 				m_bRootMotion = true;
+
+			}
+			
 		}
 	}
 }

@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "Animation.h"
 #include "Collider.h"
+#include "SkillBase.h"
 
 BEGIN(Engine)
 class CRenderer;
@@ -149,6 +150,7 @@ public:
 
 public:
 	const CBone* GetBone(const char* szBoneName) const;
+	void SetHealthUI(class CEnemyHealthBar* value) { m_pEnemyHealthBar = value; }
 
 private:
 	HRESULT AddWeapon();
@@ -194,10 +196,14 @@ public: // Enemy 관련 코드
 	void NearTargetChange();
 
 	_float3 LockOnCameraPosition();
+	void HoldEnemy();
 
 	void Hit();
 	void RecvDamage(_float fDamage);
 	_double Freeze(_double TimeDelta);
+
+	void RenderEnemyHealth(_double TimeDelta);
+	_float GetDamage();
 
 	//초산공간
 public:
@@ -262,6 +268,7 @@ private: // Command
 	_bool m_bOnTerrain = true;
 
 	_float m_fMoveSpeed = 5.f;
+	_float m_fMoveLowSpeed = 1.f;
 	_float m_fRotationSpeed = 360.f;
 	const _double m_fStopTimeOut = 0.15f;
 	_double m_fStopTimer = 0.0;
@@ -298,6 +305,7 @@ private: // Command
 
 	//강화상태
 	_bool m_bEvolution = false;
+	_bool m_bEvolutionAttack = false;
 
 	//회피 (대쉬 콜리전)
 	_bool m_bDashPrevPosSet = false;
@@ -321,6 +329,18 @@ private: // Command
 	_bool m_bUseSkill = false;
 
 	_bool m_bRootMotion = true;
+	
+	//몬스터 잡기
+	_bool m_bSkillYellowAttack = false;
+	_bool m_bEnemyHolding = false;
+
+	//UI
+	class CEnemyHealthBar* m_pEnemyHealthBar = nullptr;
+	_bool m_bEnemyHealthDraw = false;
+	_float m_fDrawEnemyHealthTimer = 0.f;
+	const _float m_fDrawEnemyHealthTimeOut = 15.f;
+
+	CSkillBase::SKILL_INFO m_SkillInfo;
 };
 
 END

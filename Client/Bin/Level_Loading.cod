@@ -2438,12 +2438,12 @@ PUBLIC	??_C@_0CN@BLHJCAL@_Ptr_user?5?9?5_Ptr_container?5?$DM?$DN?5_N@ ; `string'
 PUBLIC	??_C@_1GI@DHJGPFNI@?$AA?$CC?$AA_?$AAP?$AAt?$AAr?$AA_?$AAu?$AAs?$AAe?$AAr?$AA?5?$AA?9?$AA?5?$AA_?$AAP?$AAt?$AAr?$AA_?$AAc?$AAo?$AAn?$AAt?$AAa?$AAi?$AAn?$AAe?$AAr?$AA?5?$AA?$DM?$AA?$DN?$AA?5?$AA_@ ; `string'
 PUBLIC	?npos@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@2_KB ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::npos
 PUBLIC	??_7CLevel_Loading@Client@@6B@			; Client::CLevel_Loading::`vftable'
-PUBLIC	??_C@_1CC@MHOINAEG@?$AAL?$AAa?$AAy?$AAe?$AAr?$AA_?$AAB?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BG@HMGELKDN@?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1CC@MHOINAEG@?$AAL?$AAa?$AAy?$AAe?$AAr?$AA_?$AAB?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CK@EFMCMFNH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BC@JNAAFLEP@?$AAL?$AAO?$AAA?$AAD?$AAI?$AAN?$AAG?$AA?5?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Create@CLevel_Loading@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA ; `Client::CLevel_Loading::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EL@BILDKMJH@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DF@BHLLANJH@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1EE@GAAMNEHP@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAe?$AAv?$AAe?$AAl?$AA_?$AAL?$AAo?$AAa?$AAd?$AAi?$AAn@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1IO@EADHKMNI@?$AAc?$AA?3?$AA?2?$AAp?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAf?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAm?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ ; `string'
@@ -3019,7 +3019,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Initialize@CLevel_Loading@Client@@UEAAJW4LEVEL_ID@2@@Z DD imagerel $LN6
-	DD	imagerel $LN6+279
+	DD	imagerel $LN6+256
 	DD	imagerel $unwind$?Initialize@CLevel_Loading@Client@@UEAAJW4LEVEL_ID@2@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -3468,15 +3468,14 @@ CONST	SEGMENT
 	DB	00H, 'o', 00H, 'a', 00H, 'd', 00H, 'i', 00H, 'n', 00H, 'g', 00H
 	DB	00H, 00H					; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EL@BILDKMJH@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DF@BHLLANJH@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EL@BILDKMJH@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\level_loading.'
-	DB	'cpp', 00H					; `string'
+??_C@_0DF@BHLLANJH@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\level_loading.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CLevel_Loading@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CLevel_Loading@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA DD 046H ; `Client::CLevel_Loading::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CLevel_Loading@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA DD 045H ; `Client::CLevel_Loading::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1BC@JNAAFLEP@?$AAL?$AAO?$AAA?$AAD?$AAI?$AAN?$AAG?$AA?5?$AA?$AA@
 CONST	SEGMENT
@@ -3492,18 +3491,18 @@ CONST	SEGMENT
 	DB	00H, 'g', 00H, 'r', 00H, 'o', 00H, 'u', 00H, 'n', 00H, 'd', 00H
 	DB	00H, 00H					; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1BG@HMGELKDN@?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
-CONST	SEGMENT
-??_C@_1BG@HMGELKDN@?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ DB 'b'
-	DB	00H, 'a', 00H, 'c', 00H, 'k', 00H, 'g', 00H, 'r', 00H, 'o', 00H
-	DB	'u', 00H, 'n', 00H, 'd', 00H, 00H, 00H	; `string'
-CONST	ENDS
 ;	COMDAT ??_C@_1CC@MHOINAEG@?$AAL?$AAa?$AAy?$AAe?$AAr?$AA_?$AAB?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
 CONST	SEGMENT
 ??_C@_1CC@MHOINAEG@?$AAL?$AAa?$AAy?$AAe?$AAr?$AA_?$AAB?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ DB 'L'
 	DB	00H, 'a', 00H, 'y', 00H, 'e', 00H, 'r', 00H, '_', 00H, 'B', 00H
 	DB	'a', 00H, 'c', 00H, 'k', 00H, 'g', 00H, 'r', 00H, 'o', 00H, 'u'
 	DB	00H, 'n', 00H, 'd', 00H, 00H, 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1BG@HMGELKDN@?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
+CONST	SEGMENT
+??_C@_1BG@HMGELKDN@?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ DB 'b'
+	DB	00H, 'a', 00H, 'c', 00H, 'k', 00H, 'g', 00H, 'r', 00H, 'o', 00H
+	DB	'u', 00H, 'n', 00H, 'd', 00H, 00H, 00H	; `string'
 CONST	ENDS
 ;	COMDAT ??_7CLevel_Loading@Client@@6B@
 CONST	SEGMENT
@@ -6783,7 +6782,7 @@ _Al$ = 296
 ?dtor$0@?0???$?0U?$_Wrap_alloc@V?$allocator@_W@std@@@std@@X@?$_String_alloc@U?$_String_base_types@_WV?$allocator@_W@std@@@std@@@std@@QEAA@$$QEAU?$_Wrap_alloc@V?$allocator@_W@std@@@1@@Z@4HA ENDP ; `std::_String_alloc<std::_String_base_types<wchar_t,std::allocator<wchar_t> > >::_String_alloc<std::_String_base_types<wchar_t,std::allocator<wchar_t> > ><std::_Wrap_alloc<std::allocator<wchar_t> >,void>'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCLoader@Client@@@Engine@@YAKAEAPEAVCLoader@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6862,7 +6861,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCLoader@Client@@@Engine@@YAKAEAPEAVCLoader@Client@@@Z ENDP ; Engine::Safe_Release<Client::CLoader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCLevel_Loading@Client@@@Engine@@YAKAEAPEAVCLevel_Loading@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6941,7 +6940,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCLevel_Loading@Client@@@Engine@@YAKAEAPEAVCLevel_Loading@Client@@@Z ENDP ; Engine::Safe_Release<Client::CLevel_Loading * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\loader.h
+; File c:\github\framework\client\public\loader.h
 ;	COMDAT ?IsFinished@CLoader@Client@@QEBA_NXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6973,7 +6972,7 @@ $LN3:
 ?IsFinished@CLoader@Client@@QEBA_NXZ ENDP		; Client::CLoader::IsFinished
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\loader.h
+; File c:\github\framework\client\public\loader.h
 ;	COMDAT ?GetLoadingStateText@CLoader@Client@@QEBA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@XZ
 _TEXT	SEGMENT
 $T1 = 196
@@ -7063,13 +7062,13 @@ $LN2@scalar:
 ??_GCLevel_Loading@Client@@EEAAPEAXI@Z ENDP		; Client::CLevel_Loading::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_loading.cpp
+; File c:\github\framework\client\private\level_loading.cpp
 ;	COMDAT ?Free@CLevel_Loading@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
 ?Free@CLevel_Loading@Client@@UEAAXXZ PROC		; Client::CLevel_Loading::Free, COMDAT
 
-; 84   : {
+; 83   : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7085,14 +7084,14 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 85   : 	__super::Free();
+; 84   : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CLevel@Engine@@UEAAXXZ
 
-; 86   : 	Safe_Release(m_pLoader);
+; 85   : 	Safe_Release(m_pLoader);
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7100,7 +7099,7 @@ $LN3:
   00042	48 8b c8	 mov	 rcx, rax
   00045	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCLoader@Client@@@Engine@@YAKAEAPEAVCLoader@Client@@@Z ; Engine::Safe_Release<Client::CLoader * __ptr64>
 
-; 87   : }
+; 86   : }
 
   0004a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -7110,7 +7109,7 @@ $LN3:
 ?Free@CLevel_Loading@Client@@UEAAXXZ ENDP		; Client::CLevel_Loading::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_loading.cpp
+; File c:\github\framework\client\private\level_loading.cpp
 ;	COMDAT ?Create@CLevel_Loading@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@2@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -7125,7 +7124,7 @@ pContext$ = 440
 eNextLevel$ = 448
 ?Create@CLevel_Loading@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@2@@Z PROC ; Client::CLevel_Loading::Create, COMDAT
 
-; 70   : {
+; 69   : {
 
 $LN8:
   00000	44 89 44 24 18	 mov	 DWORD PTR [rsp+24], r8d
@@ -7151,14 +7150,14 @@ $LN8:
   00049	48 89 85 80 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 71   : 	CLevel_Loading* pInstance = new CLevel_Loading(pDevice, pContext);
+; 70   : 	CLevel_Loading* pInstance = new CLevel_Loading(pDevice, pContext);
 
   00050	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CLevel_Loading@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA
   00056	ff c0		 inc	 eax
   00058	44 8b c8	 mov	 r9d, eax
   0005b	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EL@BILDKMJH@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DF@BHLLANJH@c?3?2github?2framework?2client?2priva@
   00062	ba 01 00 00 00	 mov	 edx, 1
   00067	b9 38 00 00 00	 mov	 ecx, 56			; 00000038H
   0006c	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -7190,8 +7189,8 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T6[rbp]
   000c5	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 72   : 
-; 73   : 	if (FAILED(pInstance->Initialize(eNextLevel)))
+; 71   : 
+; 72   : 	if (FAILED(pInstance->Initialize(eNextLevel)))
 
   000c9	8b 95 c0 01 00
 	00		 mov	 edx, DWORD PTR eNextLevel$[rbp]
@@ -7200,8 +7199,8 @@ $LN5@Create:
   000d8	85 c0		 test	 eax, eax
   000da	7d 42		 jge	 SHORT $LN2@Create
 
-; 74   : 	{
-; 75   : 		wstring message = L"Failed to Create : CLevel_Loading";
+; 73   : 	{
+; 74   : 		wstring message = L"Failed to Create : CLevel_Loading";
 
   000dc	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1EE@GAAMNEHP@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAe?$AAv?$AAe?$AAl?$AA_?$AAL?$AAo?$AAa?$AAd?$AAi?$AAn@
@@ -7209,7 +7208,7 @@ $LN5@Create:
   000e7	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   000ec	90		 npad	 1
 
-; 76   : 		MESSAGE(message);
+; 75   : 		MESSAGE(message);
 
   000ed	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000f1	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -7221,24 +7220,24 @@ $LN5@Create:
   00105	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 77   : 		Safe_Release(pInstance);
+; 76   : 		Safe_Release(pInstance);
 
   0010b	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   0010f	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCLevel_Loading@Client@@@Engine@@YAKAEAPEAVCLevel_Loading@Client@@@Z ; Engine::Safe_Release<Client::CLevel_Loading * __ptr64>
   00114	90		 npad	 1
 
-; 78   : 	}
+; 77   : 	}
 
   00115	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   00119	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN2@Create:
 
-; 79   : 
-; 80   : 	return pInstance;
+; 78   : 
+; 79   : 	return pInstance;
 
   0011e	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 81   : }
+; 80   : }
 
   00122	48 8b f8	 mov	 rdi, rax
   00125	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -7280,7 +7279,7 @@ eNextLevel$ = 448
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CLevel_Loading@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EL@BILDKMJH@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DF@BHLLANJH@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7339,7 +7338,7 @@ eNextLevel$ = 448
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CLevel_Loading@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EL@BILDKMJH@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DF@BHLLANJH@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7379,7 +7378,7 @@ eNextLevel$ = 448
 ?dtor$1@?0??Create@CLevel_Loading@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@2@@Z@4HA ENDP ; `Client::CLevel_Loading::Create'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_loading.cpp
+; File c:\github\framework\client\private\level_loading.cpp
 ;	COMDAT ?Tick@CLevel_Loading@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$4 = 8
@@ -7399,7 +7398,7 @@ this$ = 608
 TimeDelta$ = 616
 ?Tick@CLevel_Loading@Client@@UEAAXN@Z PROC		; Client::CLevel_Loading::Tick, COMDAT
 
-; 34   : {
+; 33   : {
 
 $LN14:
   00000	f2 0f 11 4c 24
@@ -7425,20 +7424,20 @@ $LN14:
   00045	48 89 85 30 02
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 35   : 	if (nullptr == m_pLoader)
+; 34   : 	if (nullptr == m_pLoader)
 
   0004c	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00053	48 83 78 28 00	 cmp	 QWORD PTR [rax+40], 0
   00058	75 05		 jne	 SHORT $LN4@Tick
 
-; 36   : 		return;
+; 35   : 		return;
 
   0005a	e9 7e 01 00 00	 jmp	 $LN1@Tick
 $LN4@Tick:
 
-; 37   : 
-; 38   : 	if (true == m_pLoader->IsFinished() && GetKeyState(VK_RETURN) & 0x8000)
+; 36   : 
+; 37   : 	if (true == m_pLoader->IsFinished() && GetKeyState(VK_RETURN) & 0x8000)
 
   0005f	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7457,20 +7456,20 @@ $LN4@Tick:
   0008e	0f 84 a8 00 00
 	00		 je	 $LN5@Tick
 
-; 39   : 	{
-; 40   : 		CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 38   : 	{
+; 39   : 		CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00094	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0009a	48 89 45 08	 mov	 QWORD PTR pGameInstance$4[rbp], rax
 
-; 41   : 		CLevel*	pLevel = { nullptr };
+; 40   : 		CLevel*	pLevel = { nullptr };
 
   0009e	48 c7 45 28 00
 	00 00 00	 mov	 QWORD PTR pLevel$5[rbp], 0
 
-; 42   : 
-; 43   : 		switch (m_eNextLevel)
+; 41   : 
+; 42   : 		switch (m_eNextLevel)
 
   000a6	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7486,9 +7485,9 @@ $LN4@Tick:
   000c8	eb 40		 jmp	 SHORT $LN2@Tick
 $LN6@Tick:
 
-; 44   : 		{
-; 45   : 		case LEVEL_LOGO:
-; 46   : 			pLevel = CLevel_Logo::Create(m_pDevice, m_pContext);
+; 43   : 		{
+; 44   : 		case LEVEL_LOGO:
+; 45   : 			pLevel = CLevel_Logo::Create(m_pDevice, m_pContext);
 
   000ca	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7499,13 +7498,13 @@ $LN6@Tick:
   000e0	e8 00 00 00 00	 call	 ?Create@CLevel_Logo@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CLevel_Logo::Create
   000e5	48 89 45 28	 mov	 QWORD PTR pLevel$5[rbp], rax
 
-; 47   : 			break;
+; 46   : 			break;
 
   000e9	eb 1f		 jmp	 SHORT $LN2@Tick
 $LN7@Tick:
 
-; 48   : 		case LEVEL_GAMEPLAY:
-; 49   : 			pLevel = CLevel_GamePlay::Create(m_pDevice, m_pContext);
+; 47   : 		case LEVEL_GAMEPLAY:
+; 48   : 			pLevel = CLevel_GamePlay::Create(m_pDevice, m_pContext);
 
   000eb	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7517,21 +7516,21 @@ $LN7@Tick:
   00106	48 89 45 28	 mov	 QWORD PTR pLevel$5[rbp], rax
 $LN2@Tick:
 
-; 50   : 			break;
-; 51   : 		}
-; 52   : 
-; 53   : 		if (nullptr == pLevel)
+; 49   : 			break;
+; 50   : 		}
+; 51   : 
+; 52   : 		if (nullptr == pLevel)
 
   0010a	48 83 7d 28 00	 cmp	 QWORD PTR pLevel$5[rbp], 0
   0010f	75 05		 jne	 SHORT $LN8@Tick
 
-; 54   : 			return;
+; 53   : 			return;
 
   00111	e9 c7 00 00 00	 jmp	 $LN1@Tick
 $LN8@Tick:
 
-; 55   : 
-; 56   : 		if (FAILED(pGameInstance->Open_Level(m_eNextLevel, pLevel)))
+; 54   : 
+; 55   : 		if (FAILED(pGameInstance->Open_Level(m_eNextLevel, pLevel)))
 
   00116	4c 8b 45 28	 mov	 r8, QWORD PTR pLevel$5[rbp]
   0011a	48 8b 85 60 02
@@ -7543,26 +7542,26 @@ $LN8@Tick:
   0012e	85 c0		 test	 eax, eax
   00130	7d 05		 jge	 SHORT $LN9@Tick
 
-; 57   : 			return;
+; 56   : 			return;
 
   00132	e9 a6 00 00 00	 jmp	 $LN1@Tick
 $LN9@Tick:
 
-; 58   : 
-; 59   : 		return;
+; 57   : 
+; 58   : 		return;
 
   00137	e9 a1 00 00 00	 jmp	 $LN1@Tick
 $LN5@Tick:
 
-; 60   : 	}
-; 61   : 
-; 62   : #ifdef _DEBUG
-; 63   : 	CApplicationManager* pApplicationManager = CApplicationManager::GetInstance();
+; 59   : 	}
+; 60   : 
+; 61   : #ifdef _DEBUG
+; 62   : 	CApplicationManager* pApplicationManager = CApplicationManager::GetInstance();
 
   0013c	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
   00141	48 89 45 48	 mov	 QWORD PTR pApplicationManager$[rbp], rax
 
-; 64   : 	wstring strTitleText = L"LOADING ";
+; 63   : 	wstring strTitleText = L"LOADING ";
 
   00145	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BC@JNAAFLEP@?$AAL?$AAO?$AAA?$AAD?$AAI?$AAN?$AAG?$AA?5?$AA?$AA@
@@ -7570,7 +7569,7 @@ $LN5@Tick:
   00150	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   00155	90		 npad	 1
 
-; 65   : 	pApplicationManager->SetTitle(strTitleText.append(m_pLoader->GetLoadingStateText()));
+; 64   : 	pApplicationManager->SetTitle(strTitleText.append(m_pLoader->GetLoadingStateText()));
 
   00156	48 8d 85 68 01
 	00 00		 lea	 rax, QWORD PTR $T6[rbp]
@@ -7608,8 +7607,8 @@ $LN5@Tick:
   001ce	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   001d3	90		 npad	 1
 
-; 66   : #endif
-; 67   : }
+; 65   : #endif
+; 66   : }
 
   001d4	48 8d 4d 68	 lea	 rcx, QWORD PTR strTitleText$[rbp]
   001d8	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
@@ -7759,13 +7758,13 @@ TimeDelta$ = 616
 ?dtor$1@?0??Tick@CLevel_Loading@Client@@UEAAXN@Z@4HA ENDP ; `Client::CLevel_Loading::Tick'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_loading.cpp
+; File c:\github\framework\client\private\level_loading.cpp
 ;	COMDAT ?Initialize@CLevel_Loading@Client@@UEAAJW4LEVEL_ID@2@@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
 $T1 = 232
 $T2 = 296
-tv136 = 312
+tv134 = 312
 this$ = 352
 eNextLevel$ = 360
 ?Initialize@CLevel_Loading@Client@@UEAAJW4LEVEL_ID@2@@Z PROC ; Client::CLevel_Loading::Initialize, COMDAT
@@ -7817,81 +7816,73 @@ $LN6:
   0006f	48 8b 85 60 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00076	48 83 78 28 00	 cmp	 QWORD PTR [rax+40], 0
-  0007b	75 0a		 jne	 SHORT $LN2@Initialize
+  0007b	75 07		 jne	 SHORT $LN2@Initialize
 
 ; 23   : 		return E_FAIL;
 
   0007d	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00082	e9 86 00 00 00	 jmp	 $LN1@Initialize
+  00082	eb 72		 jmp	 SHORT $LN1@Initialize
 $LN2@Initialize:
 
 ; 24   : 
 ; 25   : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-  00087	ff 15 00 00 00
+  00084	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
-  0008d	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
+  0008a	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 26   : 	m_pBackground = pGameInstance->Add_GameObject(LEVEL_LOADING, TEXT("proto_obj_background"), L"background", L"Layer_Background");
+; 26   : 	if(nullptr == pGameInstance->Add_GameObject(LEVEL_LOADING, TEXT("proto_obj_background"), L"Layer_Background", L"background"))
 
-  00091	48 8d 85 e8 00
+  0008e	48 8d 85 e8 00
 	00 00		 lea	 rax, QWORD PTR $T1[rbp]
-  00098	48 89 85 28 01
+  00095	48 89 85 28 01
 	00 00		 mov	 QWORD PTR $T2[rbp], rax
-  0009f	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1CC@MHOINAEG@?$AAL?$AAa?$AAy?$AAe?$AAr?$AA_?$AAB?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
-  000a6	48 8b 8d 28 01
+  0009c	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BG@HMGELKDN@?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
+  000a3	48 8b 8d 28 01
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
-  000ad	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
-  000b2	48 89 85 38 01
-	00 00		 mov	 QWORD PTR tv136[rbp], rax
-  000b9	48 c7 44 24 28
+  000aa	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  000af	48 89 85 38 01
+	00 00		 mov	 QWORD PTR tv134[rbp], rax
+  000b6	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
-  000c2	48 8b 85 38 01
-	00 00		 mov	 rax, QWORD PTR tv136[rbp]
-  000c9	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  000ce	4c 8d 0d 00 00
-	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BG@HMGELKDN@?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
-  000d5	4c 8d 05 00 00
+  000bf	48 8b 85 38 01
+	00 00		 mov	 rax, QWORD PTR tv134[rbp]
+  000c6	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  000cb	4c 8d 0d 00 00
+	00 00		 lea	 r9, OFFSET FLAT:??_C@_1CC@MHOINAEG@?$AAL?$AAa?$AAy?$AAe?$AAr?$AA_?$AAB?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
+  000d2	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CK@EFMCMFNH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
-  000dc	ba 01 00 00 00	 mov	 edx, 1
-  000e1	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  000e5	ff 15 00 00 00
+  000d9	ba 01 00 00 00	 mov	 edx, 1
+  000de	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  000e2	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAX@Z
-  000eb	48 8b 8d 60 01
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  000f2	48 89 41 30	 mov	 QWORD PTR [rcx+48], rax
+  000e8	48 85 c0	 test	 rax, rax
+  000eb	75 07		 jne	 SHORT $LN3@Initialize
 
-; 27   : 	if (nullptr == m_pBackground)
+; 27   : 		return E_FAIL;
 
-  000f6	48 8b 85 60 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000fd	48 83 78 30 00	 cmp	 QWORD PTR [rax+48], 0
-  00102	75 07		 jne	 SHORT $LN3@Initialize
-
-; 28   : 		return E_FAIL;
-
-  00104	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00109	eb 02		 jmp	 SHORT $LN1@Initialize
+  000ed	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  000f2	eb 02		 jmp	 SHORT $LN1@Initialize
 $LN3@Initialize:
 
-; 29   : 
-; 30   : 	return S_OK;
+; 28   : 
+; 29   : 	return S_OK;
 
-  0010b	33 c0		 xor	 eax, eax
+  000f4	33 c0		 xor	 eax, eax
 $LN1@Initialize:
 
-; 31   : }
+; 30   : }
 
-  0010d	48 8d a5 48 01
+  000f6	48 8d a5 48 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+328]
-  00114	5f		 pop	 rdi
-  00115	5d		 pop	 rbp
-  00116	c3		 ret	 0
+  000fd	5f		 pop	 rdi
+  000fe	5d		 pop	 rbp
+  000ff	c3		 ret	 0
 ?Initialize@CLevel_Loading@Client@@UEAAJW4LEVEL_ID@2@@Z ENDP ; Client::CLevel_Loading::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_loading.cpp
+; File c:\github\framework\client\private\level_loading.cpp
 ;	COMDAT ??1CLevel_Loading@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -7924,9 +7915,9 @@ $LN3:
 ??1CLevel_Loading@Client@@EEAA@XZ ENDP			; Client::CLevel_Loading::~CLevel_Loading
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_loading.cpp
-; File c:\users\arcco\documents\github\framework\client\public\level_loading.h
-; File c:\users\arcco\documents\github\framework\client\private\level_loading.cpp
+; File c:\github\framework\client\private\level_loading.cpp
+; File c:\github\framework\client\public\level_loading.h
+; File c:\github\framework\client\private\level_loading.cpp
 ;	COMDAT ??0CLevel_Loading@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -7970,7 +7961,7 @@ $LN4:
   00056	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CLevel_Loading@Client@@6B@
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\level_loading.h
+; File c:\github\framework\client\public\level_loading.h
 
 ; 25   : 	LEVEL_ID		m_eNextLevel = { LEVEL_END };
 
@@ -7993,7 +7984,7 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00084	48 c7 40 30 00
 	00 00 00	 mov	 QWORD PTR [rax+48], 0
-; File c:\users\arcco\documents\github\framework\client\private\level_loading.cpp
+; File c:\github\framework\client\private\level_loading.cpp
 
 ; 15   : }
 
@@ -13510,7 +13501,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_loading.cpp
+; File c:\github\framework\client\private\level_loading.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -13539,7 +13530,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_loading.cpp
+; File c:\github\framework\client\private\level_loading.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

@@ -42,6 +42,7 @@ public:
 	_bool IsVisible() { return m_isVisible; }
 	void SetVisible(_bool value) { m_isVisible = value; }
 	_bool Compare(CCollider* collider) { return this == collider; };
+	void HitColliderReset() { hitCollider.clear(); }
 	void EraseHitCollider(CCollider* collider);
 	void AddHitCollider(CCollider* collider);
 	_bool IsHitCollider(CCollider* collider);

@@ -1,17 +1,7 @@
+#include "SHADER_DEFINES.hpp"
+
 matrix g_WorldMatrix, g_ViewMatrix, g_ProjMatrix;
 float4 vColor = float4(1.f, 1.f, 1.f, 1.f);
-
-sampler LinearSampler = sampler_state {
-	filter = min_mag_mip_linear;
-	AddressU = wrap;
-	AddressV = wrap;
-};
-
-sampler PointSampler = sampler_state {
-	filter = min_mag_mip_Point;
-	AddressU = wrap;
-	AddressV = wrap;
-};
 
 struct VS_IN
 {
@@ -69,6 +59,11 @@ technique11 DefaultTachnique
 {
 	pass NonClickColor
 	{
+		SetRasterizerState(RS_Sky);
+		SetDepthStencilState(DS_Not_ZTest_ZWrite, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+
 		VertexShader = compile vs_5_0 vs_main();
 		GeometryShader = NULL;
 		HullShader = NULL;
@@ -78,6 +73,10 @@ technique11 DefaultTachnique
 
 	pass ClickColor
 	{
+		SetRasterizerState(RS_Sky);
+		SetDepthStencilState(DS_Not_ZTest_ZWrite, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
 		VertexShader = compile vs_5_0 vs_main();
 		GeometryShader = NULL;
 		HullShader = NULL;

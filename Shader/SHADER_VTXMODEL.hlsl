@@ -1,3 +1,5 @@
+#include "SHADER_DEFINES.hpp"
+
 matrix g_WorldMatrix, g_ViewMatrix, g_ProjMatrix;
 texture2D g_DiffuseTexture;
 vector g_vMatAmbient = vector(0.4f, 0.4f, 0.4f, 1.f);
@@ -14,20 +16,6 @@ float g_fPower = 50.f;
 vector g_vLightDiffuse = vector(1.f, 1.f, 1.f, 1.f);
 vector g_vLightAmbient = vector(1.f, 1.f, 1.f, 1.f);
 vector g_vLightSpecular = vector(1.f, 1.f, 1.f, 1.f);
-
-
-sampler LinearSampler = sampler_state {
-	filter = min_mag_mip_linear;
-	AddressU = wrap;
-	AddressV = wrap;
-};
-
-sampler PointSampler = sampler_state {
-	filter = min_mag_mip_Point;
-	AddressU = wrap;
-	AddressV = wrap;
-};
-
 
 struct VS_IN
 {
@@ -131,6 +119,10 @@ technique11 DefaultTechnique
 {
 	pass BackGround
 	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
 		VertexShader = compile vs_5_0 VS_MAIN();
 		GeometryShader = NULL;
 		HullShader = NULL;
@@ -140,6 +132,10 @@ technique11 DefaultTechnique
 
 	pass Model
 	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
 		VertexShader = compile vs_5_0 VS_MAIN();
 		GeometryShader = NULL;
 		HullShader = NULL;

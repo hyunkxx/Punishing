@@ -150,6 +150,7 @@ PUBLIC	?Wheat@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Wheat
 PUBLIC	?White@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::White
 PUBLIC	?WhiteSmoke@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::WhiteSmoke
 PUBLIC	?Yellow@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Yellow
+PUBLIC	?m_pInstance@CApplicationManager@Client@@0PEAV12@EA ; Client::CApplicationManager::m_pInstance
 PUBLIC	?YellowGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::YellowGreen
 PUBLIC	?g_UnitVectorEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitVectorEpsilon
 PUBLIC	?g_UnitQuaternionEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitQuaternionEpsilon
@@ -182,7 +183,6 @@ PUBLIC	?g_XMNegativeZero@DirectX@@3UXMVECTORU32@1@B	; DirectX::g_XMNegativeZero
 PUBLIC	?g_XMNegate3@DirectX@@3UXMVECTORU32@1@B		; DirectX::g_XMNegate3
 PUBLIC	?g_XMMask3@DirectX@@3UXMVECTORU32@1@B		; DirectX::g_XMMask3
 PUBLIC	?g_XMMaskX@DirectX@@3UXMVECTORU32@1@B		; DirectX::g_XMMaskX
-PUBLIC	?m_pInstance@CApplicationManager@Client@@0PEAV12@EA ; Client::CApplicationManager::m_pInstance
 PUBLIC	?g_XMMaskY@DirectX@@3UXMVECTORU32@1@B		; DirectX::g_XMMaskY
 PUBLIC	?g_XMMaskZ@DirectX@@3UXMVECTORU32@1@B		; DirectX::g_XMMaskZ
 PUBLIC	?g_XMMaskW@DirectX@@3UXMVECTORU32@1@B		; DirectX::g_XMMaskW
@@ -2434,7 +2434,7 @@ PUBLIC	??_C@_0CN@BLHJCAL@_Ptr_user?5?9?5_Ptr_container?5?$DM?$DN?5_N@ ; `string'
 PUBLIC	??_C@_1GI@DHJGPFNI@?$AA?$CC?$AA_?$AAP?$AAt?$AAr?$AA_?$AAu?$AAs?$AAe?$AAr?$AA?5?$AA?9?$AA?5?$AA_?$AAP?$AAt?$AAr?$AA_?$AAc?$AAo?$AAn?$AAt?$AAa?$AAi?$AAn?$AAe?$AAr?$AA?5?$AA?$DM?$AA?$DN?$AA?5?$AA_@ ; `string'
 PUBLIC	?npos@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@2_KB ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::npos
 PUBLIC	??_7CApplicationManager@Client@@6B@		; Client::CApplicationManager::`vftable'
-PUBLIC	??_C@_0FA@FCFOEHMO@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DK@COACHENJ@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@	; `string'
 PUBLIC	??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ ; `string'
 PUBLIC	??_R4CApplicationManager@Client@@6B@		; Client::CApplicationManager::`RTTI Complete Object Locator'
@@ -2966,7 +2966,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CApplicationManager@Client@@AEAA@XZ DD imagerel $LN5
-	DD	imagerel $LN5+161
+	DD	imagerel $LN5+171
 	DD	imagerel $unwind$??0CApplicationManager@Client@@AEAA@XZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -3304,11 +3304,10 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@ DB 'string too long', 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0FA@FCFOEHMO@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DK@COACHENJ@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0FA@FCFOEHMO@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\applicationman'
-	DB	'ager.cpp', 00H				; `string'
+??_C@_0DK@COACHENJ@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\applicationmanager.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ??_7CApplicationManager@Client@@6B@
 CONST	SEGMENT
@@ -3844,7 +3843,7 @@ $ip2state$??0CApplicationManager@Client@@AEAA@XZ DD imagerel ??0CApplicationMana
 	DD	00H
 	DD	imagerel ??0CApplicationManager@Client@@AEAA@XZ+104
 	DD	01H
-	DD	imagerel ??0CApplicationManager@Client@@AEAA@XZ+144
+	DD	imagerel ??0CApplicationManager@Client@@AEAA@XZ+154
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -6372,7 +6371,7 @@ $LN4:
   00040	83 e0 01	 and	 eax, 1
   00043	85 c0		 test	 eax, eax
   00045	74 11		 je	 SHORT $LN2@scalar
-  00047	ba 48 00 00 00	 mov	 edx, 72			; 00000048H
+  00047	ba 50 00 00 00	 mov	 edx, 80			; 00000050H
   0004c	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ??3@YAXPEAX_K@Z		; operator delete
@@ -6387,7 +6386,7 @@ $LN2@scalar:
 ??_GCApplicationManager@Client@@EEAAPEAXI@Z ENDP	; Client::CApplicationManager::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\applicationmanager.cpp
+; File c:\github\framework\client\private\applicationmanager.cpp
 ;	COMDAT ?Free@CApplicationManager@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6419,7 +6418,7 @@ $LN3:
 ?Free@CApplicationManager@Client@@UEAAXXZ ENDP		; Client::CApplicationManager::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\applicationmanager.cpp
+; File c:\github\framework\client\private\applicationmanager.cpp
 ;	COMDAT ?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -6543,7 +6542,7 @@ strTitle$ = 264
 ?dtor$0@?0??SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA ENDP ; `Client::CApplicationManager::SetTitle'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\applicationmanager.cpp
+; File c:\github\framework\client\private\applicationmanager.cpp
 ;	COMDAT ??1CApplicationManager@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6581,9 +6580,9 @@ $LN3:
 ??1CApplicationManager@Client@@EEAA@XZ ENDP		; Client::CApplicationManager::~CApplicationManager
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\applicationmanager.cpp
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
-; File c:\users\arcco\documents\github\framework\client\private\applicationmanager.cpp
+; File c:\github\framework\client\private\applicationmanager.cpp
+; File c:\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\private\applicationmanager.cpp
 ;	COMDAT ??0CApplicationManager@Client@@AEAA@XZ
 _TEXT	SEGMENT
 $T1 = 200
@@ -6624,15 +6623,15 @@ $LN5:
   0005f	48 8b c8	 mov	 rcx, rax
   00062	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   00067	90		 npad	 1
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\public\applicationmanager.h
 
-; 30   : 	_bool m_bFreeze = false;
+; 31   : 	_bool m_bFreeze = false;
 
   00068	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0006f	c6 40 38 00	 mov	 BYTE PTR [rax+56], 0
 
-; 31   : 	_float3 m_vPrevPosition = { 0.f, 0.f, 0.f };
+; 32   : 	_float3 m_vPrevPosition = { 0.f, 0.f, 0.f };
 
   00073	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6642,18 +6641,24 @@ $LN5:
   00084	0f 57 c9	 xorps	 xmm1, xmm1
   00087	48 8b c8	 mov	 rcx, rax
   0008a	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
-  0008f	90		 npad	 1
-; File c:\users\arcco\documents\github\framework\client\private\applicationmanager.cpp
+
+; 33   : 
+; 34   : 	_bool m_bHitFreeze = false;
+
+  0008f	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00096	c6 40 48 00	 mov	 BYTE PTR [rax+72], 0
+; File c:\github\framework\client\private\applicationmanager.cpp
 
 ; 8    : }
 
-  00090	48 8b 85 00 01
+  0009a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00097	48 8d a5 e8 00
+  000a1	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
-  0009e	5f		 pop	 rdi
-  0009f	5d		 pop	 rbp
-  000a0	c3		 ret	 0
+  000a8	5f		 pop	 rdi
+  000a9	5d		 pop	 rbp
+  000aa	c3		 ret	 0
 ??0CApplicationManager@Client@@AEAA@XZ ENDP		; Client::CApplicationManager::CApplicationManager
 _TEXT	ENDS
 ;	COMDAT text$x
@@ -6740,7 +6745,7 @@ this$ = 256
 ?dtor$1@?0???0CApplicationManager@Client@@AEAA@XZ@4HA ENDP ; `Client::CApplicationManager::CApplicationManager'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\applicationmanager.cpp
+; File c:\github\framework\client\private\applicationmanager.cpp
 ;	COMDAT ?DestroyInstance@CApplicationManager@Client@@SAKXZ
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6784,7 +6789,7 @@ $LN2@DestroyIns:
 ?DestroyInstance@CApplicationManager@Client@@SAKXZ ENDP	; Client::CApplicationManager::DestroyInstance
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\applicationmanager.cpp
+; File c:\github\framework\client\private\applicationmanager.cpp
 ;	COMDAT ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ
 _TEXT	SEGMENT
 $T1 = 200
@@ -6814,9 +6819,9 @@ $LN7:
   00033	41 b9 04 00 00
 	00		 mov	 r9d, 4
   00039	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0FA@FCFOEHMO@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DK@COACHENJ@c?3?2github?2framework?2client?2priva@
   00040	ba 01 00 00 00	 mov	 edx, 1
-  00045	b9 48 00 00 00	 mov	 ecx, 72			; 00000048H
+  00045	b9 50 00 00 00	 mov	 ecx, 80			; 00000050H
   0004a	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0004f	48 89 85 e8 00
 	00 00		 mov	 QWORD PTR $T2[rbp], rax
@@ -6868,7 +6873,7 @@ tv81 = 280
   00014	41 b9 04 00 00
 	00		 mov	 r9d, 4
   0001a	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0FA@FCFOEHMO@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DK@COACHENJ@c?3?2github?2framework?2client?2priva@
   00021	ba 01 00 00 00	 mov	 edx, 1
   00026	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
@@ -6896,7 +6901,7 @@ tv81 = 280
   00014	41 b9 04 00 00
 	00		 mov	 r9d, 4
   0001a	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0FA@FCFOEHMO@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DK@COACHENJ@c?3?2github?2framework?2client?2priva@
   00021	ba 01 00 00 00	 mov	 edx, 1
   00026	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
@@ -12150,7 +12155,7 @@ $LN1@wmemcmp:
 wmemcmp	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\applicationmanager.cpp
+; File c:\github\framework\client\private\applicationmanager.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -12179,7 +12184,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\applicationmanager.cpp
+; File c:\github\framework\client\private\applicationmanager.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

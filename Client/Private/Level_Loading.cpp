@@ -23,8 +23,7 @@ HRESULT CLevel_Loading::Initialize(LEVEL_ID eNextLevel)
 		return E_FAIL;
 
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
-	m_pBackground = pGameInstance->Add_GameObject(LEVEL_LOADING, TEXT("proto_obj_background"), L"background", L"Layer_Background");
-	if (nullptr == m_pBackground)
+	if(nullptr == pGameInstance->Add_GameObject(LEVEL_LOADING, TEXT("proto_obj_background"), L"Layer_Background", L"background"))
 		return E_FAIL;
 
 	return S_OK;

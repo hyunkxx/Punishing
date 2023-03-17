@@ -63,11 +63,42 @@ void CCamera::Tick(_double TimeDelta)
 
 void CCamera::LateTick(_double TimeDelta)
 {
+	if (m_bShake)
+		Shake(TimeDelta);
 }
 
 HRESULT CCamera::Render()
 {
 	return S_OK;
+}
+
+void CCamera::StartShake(_float Time, _float fPower)
+{
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	m_bShake = true;
+	m_fShakeTimeOut = Time;
+	m_fPower = fPower;
+
+	XMStoreFloat4x4(&m_PrevCamPos, pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TS_VIEW));
+}
+
+void CCamera::Shake(_double TimeDelta)
+{
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	_vector vCamPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
+	vCamPos = XMVectorSetX(vCamPos, XMVectorGetX(vCamPos) + sin(m_fPower * m_fShakeTimer) * powf(0.1f, m_fShakeTimer));
+	vCamPos = XMVectorSetY(vCamPos, 1.8f + sin(m_fPower * m_fShakeTimer) * powf(0.1f, m_fShakeTimer));
+	m_pTransform->Set_State(CTransform::STATE_POSITION, vCamPos);
+	
+	m_fShakeTimer += TimeDelta * 4.f;
+	if (m_fShakeTimer >= m_fShakeTimeOut)
+	{
+		m_bShake = false;
+		m_fShakeTimer = 0.f;
+	}
+
 }
 
 void CCamera::Free()

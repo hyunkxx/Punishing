@@ -52,7 +52,7 @@ void CFreezeArea::Tick(_double TimeDelta)
 		_vector vCurrentScale = XMLoadFloat3(&m_vScale);
 		_vector vDestScale = XMVectorSet(1.f, 1.f, 1.f, 1.f);
 
-		XMStoreFloat3(&m_vScale, XMVectorLerp(vCurrentScale, vDestScale, TimeDelta * 3.f));
+		XMStoreFloat3(&m_vScale, XMVectorLerp(vCurrentScale, vDestScale, (_float)TimeDelta * 3.f));
 
 		m_pTransform->Set_Scale(m_vScale);
 		m_pTransform->Set_State(CTransform::STATE_POSITION, pAppManager->GetPlayerPrevPosition());
@@ -65,8 +65,8 @@ void CFreezeArea::Tick(_double TimeDelta)
 		_vector vCurrentPos = XMLoadFloat3(&m_vPosition);
 		_vector vDestPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
 
-		XMStoreFloat3(&m_vScale, XMVectorLerp(vCurrentScale, vDestScale, TimeDelta * 7.f));
-		XMStoreFloat3(&m_vPosition, XMVectorLerp(vCurrentPos, vDestPos, TimeDelta * 7.f));
+		XMStoreFloat3(&m_vScale, XMVectorLerp(vCurrentScale, vDestScale, (_float)TimeDelta * 7.f));
+		XMStoreFloat3(&m_vPosition, XMVectorLerp(vCurrentPos, vDestPos, (_float)TimeDelta * 7.f));
 
 		m_pTransform->Set_Scale(m_vScale);
 		m_pTransform->Set_State(CTransform::STATE_POSITION, XMLoadFloat3(&m_vPosition));

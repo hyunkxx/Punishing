@@ -2,6 +2,7 @@
 #include "..\Public\Enemy.h"
 
 #include "GameInstance.h"
+#include "SkillBallSystem.h"
 #include "ApplicationManager.h"
 #include "Character.h"
 #include "Bone.h"
@@ -58,7 +59,9 @@ HRESULT CEnemy::Initialize(void * pArg)
 		m_pPlayerTransform = static_cast<CTransform*>(m_pPlayer->Find_Component(L"com_transform"));
 	}
 
- 	SetPosition(_float3(25.f + (s_iCount * 2), 0.f, 45.f));
+	int iRandomX = rand() % 20 + 15;
+	int iRandomZ = rand() % 25 + 35;
+ 	SetPosition(_float3(iRandomX , 0.f, iRandomZ));
 
 	bone = model->GetBonePtr("Bip001Pelvis");
 	XMStoreFloat4x4(&m_RootBoneMatrix, XMLoadFloat4x4(&bone->GetOffSetMatrix()) * XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&model->GetLocalMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix()));
@@ -150,12 +153,33 @@ HRESULT CEnemy::Render()
 
 void CEnemy::RenderGUI()
 {
-	ImGui::Begin("HP");
+}
 
-	string hp = to_string(m_State.fCurHp);
-	ImGui::Text(hp.c_str());
+void CEnemy::Reset()
+{
+	m_eState = STATE::ACTIVE;
 
-	ImGui::End();
+	m_bDead = false;
+	m_bDeadWait = false;
+
+	int iRandomX = rand() % 20 + 15;
+	int iRandomZ = rand() % 25 + 35;
+	SetPosition(_float3(iRandomX, 0.f, iRandomZ));
+
+	m_State.fCurHp = m_State.fMaxHp;
+
+	m_bTraceFinish = false;
+	m_bRotationFinish = false;
+	m_bAttack = false;
+	m_bOverlapped = false;
+	m_bMovable = false;
+	m_bHit = false;
+	m_bNuckback = false;
+	m_bNuckBackFinish = false;
+	m_bAirHit = false;
+	m_bAir = false;
+	m_bStandupStart = false;
+	m_bHolding = false;
 }
 
 _float4 CEnemy::GetPosition()
@@ -485,10 +509,11 @@ void CEnemy::Idle(_double TimeDelta)
 
 _bool CEnemy::Hit(_double TimeDelta)
 {
-	srand((unsigned int)time(nullptr));
 	int iRandom = rand() % 2;
 	
 	m_bAttackCollision = false;
+
+	m_bRotationFinish = false;
 
 	if (m_State.fCurHp <= 0.f)
 		m_bDeadWait = true;
@@ -504,13 +529,22 @@ _bool CEnemy::Hit(_double TimeDelta)
 		return false;
 	}
 
-	if (m_pAppManager->IsFreeze())
-		return false;
-
-	if(m_eType == TYPE::HUMANOID)
-		model->Setup_Animation((_uint)CLIP::HIT2, CAnimation::TYPE::ONE, true);
+	//if (m_pAppManager->IsFreeze())
+	//	return false;
+	if (m_eType == TYPE::HUMANOID)
+	{
+		if(m_iRandomHitAnim == 0)
+			model->Setup_Animation((_uint)CLIP::HIT1, CAnimation::TYPE::ONE, true);
+		else if(m_iRandomHitAnim == 1)
+			model->Setup_Animation((_uint)CLIP::HIT2, CAnimation::TYPE::ONE, true);
+	}
 	else
-		model->Setup_Animation((_uint)CLIP_TWO::HIT1, CAnimation::TYPE::ONE, true);
+	{
+		if (m_iRandomHitAnim == 0)
+			model->Setup_Animation((_uint)CLIP_TWO::HIT1, CAnimation::TYPE::ONE, true);
+		else if (m_iRandomHitAnim == 1)
+			model->Setup_Animation((_uint)CLIP_TWO::HIT2, CAnimation::TYPE::ONE, true);
+	}
 
 	if (model->AnimationIsFinishEx())
 	{
@@ -526,6 +560,16 @@ _bool CEnemy::Hit(_double TimeDelta)
 
 void CEnemy::RecvDamage(_float fDamage)
 {
+	CSkillBallSystem* pSkillSystem = CSkillBallSystem::GetInstance();
+	CApplicationManager::GetInstance()->SetHitFreeze(true);
+
+	int iRandom = rand() % 100;
+	if (iRandom < 10)
+	{
+		int iRandom = rand() % 3;
+		pSkillSystem->PushSkill(m_pDevice, m_pContext, (CSkillBase::TYPE)iRandom);
+	}
+
 	m_State.fCurHp -= fDamage;
 
 	DieCheck();
@@ -536,6 +580,15 @@ void CEnemy::SetNuckback(_float fPower)
 	m_bNuckback = true;
 	m_bNuckBackFinish = false;
 	m_fNuckbackPower = fPower;
+}
+
+void CEnemy::SetAirborne(_float fDamage)
+{
+	m_bAir = true;
+	m_bAirHit = true;
+	m_bStandupStart = false;
+	m_fStandupTimer = 0.0f;
+	RecvDamage(fDamage);
 }
 
 void CEnemy::NuckBack(_double TimeDelta)
@@ -553,8 +606,7 @@ void CEnemy::NuckBack(_double TimeDelta)
 	_vector vCurrentPos = transform->Get_State(CTransform::STATE_POSITION);
 	//_vector vDir = m_pPlayerTransform->Get_State(CTransform::STATE_LOOK);
 
-	if (!m_pAppManager->IsFreeze())
-		transform->LookAt(vPlayerPos);
+	LookPlayer(TimeDelta);
 
 	_vector vDir = vCurrentPos - vPlayerPos;
 	vDir = XMVector3Normalize(vDir);
@@ -568,8 +620,7 @@ void CEnemy::NuckBack(_double TimeDelta)
 
 void CEnemy::Airborne(_double TimeDelta)
 {
-	if (m_pAppManager->IsFreeze())
-		return;
+	m_bRotationFinish = false;
 
 	if (m_bAir)
 	{
@@ -632,6 +683,11 @@ void CEnemy::Airborne(_double TimeDelta)
 
 }
 
+void CEnemy::Holding(_double TimeDleta)
+{
+	
+}
+
 _bool CEnemy::DieCheck()
 {
 	if (m_State.fCurHp <= 0.f)
@@ -661,7 +717,7 @@ void CEnemy::Die(_double TimeDelta)
 	m_fDeadWaitTimer += (_float)TimeDelta;
 	if (m_fDeadWaitTimer >= m_fDeadWaitTimeOut)
 	{
-		Destroy();
+		SetState(STATE::DISABLE);
 	}
 }
 
@@ -672,7 +728,7 @@ _double CEnemy::Freeze(_double TimeDelta)
 		m_bAttackCollision = false;
 		m_pWeaponCollider->SetActive(false);
 		_vector CurTimeDelta = XMVectorSet(m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale);
-		m_fCurTimeScale = XMVectorGetX(XMVectorLerp(CurTimeDelta, XMVectorSet(0.0, 0.0, 0.0, 0.0), TimeDelta * 0.8));
+		m_fCurTimeScale = XMVectorGetX(XMVectorLerp(CurTimeDelta, XMVectorSet(0.1f, 0.1f, 0.1f, 0.1f), TimeDelta * 0.8));
 	}
 	else
 		m_fCurTimeScale = 1.0;
@@ -688,13 +744,30 @@ _vector CEnemy::GetRootBonePosition()
 
 void CEnemy::AnimationState(_double TimeDelta)
 {
-	if (m_bHit)
+	if (m_bAirHit)
+	{
+		Airborne(TimeDelta);
+	}
+	else if (m_bHit)
 	{
 		Hit(TimeDelta);
 	}
-	else if (m_bAirHit)
+	else if (m_bHolding)
 	{
-		Airborne(TimeDelta);
+		transform->LookAt(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION));
+
+		switch (m_eType)
+		{
+		case Client::CEnemy::TYPE::HUMANOID:
+			model->Setup_Animation((_uint)CLIP::HIT1, CAnimation::TYPE::LOOP, true);
+			break;
+		case Client::CEnemy::TYPE::ANIMAL:
+			model->Setup_Animation((_uint)CLIP_TWO::HIT2, CAnimation::TYPE::LOOP, true);
+			break;
+		default:
+			break;
+		}
+
 	}
 	else
 	{
@@ -706,18 +779,14 @@ void CEnemy::AnimationState(_double TimeDelta)
 
 		if (m_bOverlapped)
 		{
-			if (!m_pAppManager->IsFreeze())
 				OverlapProcess(TimeDelta);
 		}
 		else
 		{
 			m_OverlapAcc = 0.0;
 
-			if (!m_pAppManager->IsFreeze())
-			{
-				if (!m_bRotationFinish)
-					LookPlayer(TimeDelta);
-			}
+			if (!m_bRotationFinish)
+				LookPlayer(TimeDelta);
 
 			if (m_bRotationFinish)
 			{
@@ -858,6 +927,8 @@ void CEnemy::Free()
 {
 	__super::Free();
 
+	s_iCount--;
+
 	Safe_Release(renderer);
 	Safe_Release(transform);
 	Safe_Release(model);
@@ -877,10 +948,16 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 	{
 		if (src->Compare(m_pOverlapCollider) && dest->Compare(pAotherEnemy->GetOverlapCollider()))
 		{
-			if (model->AnimationCompare((_uint)CLIP::ATTACK1) ||
-				model->AnimationCompare((_uint)CLIP::ATTACK2) ||
-				model->AnimationCompare((_uint)CLIP::ATTACK3))
-				return;
+			if (m_eType == TYPE::HUMANOID)
+			{
+				if (model->AnimationCompare((_uint)CLIP::ATTACK4))
+					return;
+			}
+			else if (m_eType == TYPE::ANIMAL)
+			{
+				if (model->AnimationCompare((_uint)CLIP_TWO::ATTACK1))
+					return;
+			}
 
 			_float3 vSrcDir;
 
@@ -908,23 +985,44 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 
 	//플레이어 웨폰과 충돌처리
 	CCharacter* pPlayer = dynamic_cast<CCharacter*>(dest->GetOwner());
+	
 	if (pPlayer)
 	{
 		m_bOverlapped = false;
+
+		//플레이어 공격에 의해 데미지 받기
 		CCollider* pWeaponCollider = pPlayer->GetWeaponCollider();
 		if (src->Compare(collider) && dest->Compare(pWeaponCollider))
 		{
+			m_iRandomHitAnim = rand() % 2;
+
+			if (m_bHit)
+			{
+				if(model->AnimationCompare((_uint)CLIP::HIT1) || 
+					model->AnimationCompare((_uint)CLIP::HIT2) || 
+					model->AnimationCompare((_uint)CLIP_TWO::HIT1) || 
+					model->AnimationCompare((_uint)CLIP_TWO::HIT2))
+				model->AnimationReset();
+			}
+
 			m_bHit = true;
-			RecvDamage(10.f);
+			RecvDamage(pPlayer->GetDamage());
 		}
 
-		CCollider* pSkillCollider = pPlayer->GetSkillCollider();
-		if (src->Compare(collider) && dest->Compare(pSkillCollider))
-		{
-			m_bAir = true;
-			m_bAirHit = true;
-		}
+		//CCollider* pSkillCollider = pPlayer->GetSkillCollider();
+		//if (src->Compare(collider))
+		//{
+		//	if (dest->Compare(pSkillCollider))
+		//	{
+		//		CGameInstance* pInstance = CGameInstance::GetInstance();
+		//		_float DeltaTime = pInstance->GetTimer(TEXT("144FPS"));
 
+		//		Airborne(DeltaTime);
+		//		pPlayer->RecvDamage(pPlayer->GetDamage());
+		//	}
+		//}
+
+		//플레이어에게 데미지 주기
 		CCollider* pBodyCollider = pPlayer->GetBodyCollider();
 		if (src->Compare(m_pWeaponCollider))
 		{
