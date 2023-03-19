@@ -149,8 +149,11 @@ public:
 	virtual void RenderGUI() override;
 
 public:
+	void SetPlayerCamera(class CPlayerCamera* pCamera) { m_pCamera = pCamera; };
 	const CBone* GetBone(const char* szBoneName) const;
 	void SetHealthUI(class CEnemyHealthBar* value) { m_pEnemyHealthBar = value; }
+
+	void LookPos(_fvector vLookPos);
 
 private:
 	HRESULT AddWeapon();
@@ -161,7 +164,6 @@ private:
 	_bool FinishCheckPlay(CLIP eClip, CAnimation::TYPE eAnimationType);
 	void SetAnimation(CLIP eClip, CAnimation::TYPE eAnimationType);
 	void AnimationControl(_double TimeDelta);
-
 private://Camera
 
 	void CameraSocketUpdate();
@@ -187,6 +189,7 @@ private:
 	void SkillColliderControl(_double TimeDelta);
 
 public: // Enemy 관련 코드
+	void ClearEnemyCheckCollider() { mEnemyCheckCollider->HitColliderReset(); };
 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
 	_bool IsCameraLockOn() { return m_pNearEnemy != nullptr; };
 	void TargetListDeastroyCehck();
@@ -289,6 +292,7 @@ private: // Command
 
 	// 무기 충돌처리
 	_int m_iSecoundAttackCount = 0;
+	_bool m_bHitColliderCheck = false;
 	_bool m_bWeaponTimerOn = false;
 	_float m_fWeaponCollisionAcc = 0.0f; 
 	const _float m_fWeaponCollDelay = 0.5f;
@@ -316,8 +320,8 @@ private: // Command
 	//몬스터 공격
 	_bool m_bDie = false;
 	_bool m_bHit = false;
-	_float m_fCurHp = 2000.f;
-	_float m_fMaxHp = 2000.f;
+	_float m_fCurHp = 1000.f;
+	_float m_fMaxHp = 1000.f;
 
 	_bool m_bTimeStop = false;
 	_double m_fCurTimeScale = 1.;
@@ -341,6 +345,9 @@ private: // Command
 	const _float m_fDrawEnemyHealthTimeOut = 15.f;
 
 	CSkillBase::SKILL_INFO m_SkillInfo;
+
+	class CPlayerHealthBar* m_pHealthBar = nullptr;
+	class CPlayerCamera* m_pCamera = nullptr;
 };
 
 END

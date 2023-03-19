@@ -44,6 +44,8 @@ HRESULT CSkillBase::Initialize(void * pArg)
 	m_fGoalX = m_fX;
 
 	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_UsedMatrix, XMMatrixScaling(m_fWidth * 2.f, m_fHeight * 2.f, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
+
 	XMStoreFloat4x4(&m_KeyWorldMatrix, XMMatrixScaling(m_fWidth * 0.35f, m_fHeight * 0.35f, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f - (m_fWidth * 0.4f), -m_fY + g_iWinSizeY * 0.5f - (m_fHeight * 0.4f), 0.f));
 
 	XMStoreFloat4x4(&m_ViewMatrix, XMMatrixIdentity());
@@ -58,6 +60,25 @@ void CSkillBase::Tick(_double TimeDelta)
 	__super::Tick(TimeDelta);
 
 	if (m_bAlign)
+	{
+		m_fEffectAlpha -= TimeDelta * 2.f;
+		if (m_fEffectAlpha <= 0.f)
+		{
+			m_bAllgnEffectFinish = true;
+			m_fEffectAlpha = 0.f;
+		}
+	}
+
+	if (m_isDestroyWait)
+	{
+		m_fDestroyWaitTimer -= TimeDelta * 2.f;
+		if (m_fDestroyWaitTimer <= m_fDestroyWaitTimeOut)
+		{
+			Destroy();
+		}
+	}
+
+	if (m_bAlign)
 		return;
 
 	CGameInstance* pInstance = CGameInstance::GetInstance();
@@ -67,6 +88,7 @@ void CSkillBase::Tick(_double TimeDelta)
 		m_fX -= 1300.f * (_float)TimeDelta;
 		XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 		XMStoreFloat4x4(&m_KeyWorldMatrix, XMMatrixScaling(m_fWidth * 0.35f, m_fHeight * 0.35f, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f - (m_fWidth * 0.4f), -m_fY + g_iWinSizeY * 0.5f - (m_fHeight * 0.4f), 0.f));
+		XMStoreFloat4x4(&m_UsedMatrix, XMMatrixScaling(m_fWidth * 3.f, m_fHeight * 3.f, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 	}
 	else
 	{
@@ -74,6 +96,7 @@ void CSkillBase::Tick(_double TimeDelta)
 		m_fX = m_fGoalX;
 		XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 		XMStoreFloat4x4(&m_KeyWorldMatrix, XMMatrixScaling(m_fWidth * 0.35f, m_fHeight * 0.35f, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f - (m_fWidth * 0.4f), -m_fY + g_iWinSizeY * 0.5f - (m_fHeight * 0.4f), 0.f));
+		XMStoreFloat4x4(&m_UsedMatrix, XMMatrixScaling(m_fWidth * 3.f, m_fHeight * 3.f, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 	}
 }
 
@@ -96,8 +119,37 @@ HRESULT CSkillBase::Render()
 	if (FAILED(m_pTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
 		return E_FAIL;
 
-	//스킬 텍스쳐
+	if (FAILED(m_pShader->SetRawValue("g_DiscardValue", &m_fDestroyWaitTimer, sizeof(_float))))
+		return E_FAIL;
+
+	if (FAILED(m_pShader->SetRawValue("g_Alpha", &m_fDestroyWaitTimer, sizeof(_float))))
+		return E_FAIL;
+
 	_float fFill = 1.f;
+	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &fFill, sizeof(_float))))
+		return E_FAIL;
+
+	if (m_isDestroyWait)
+	{
+		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_UsedMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pTextureUse->Setup_ShaderResource(m_pShader, "g_Texture")))
+			return E_FAIL;
+
+		m_pShader->Begin(0);
+		m_pUseBuffer->Render();
+
+		return S_OK;
+	}
+
+	_float fAlpha = 1.f;
+	_float fDiscard = 0.f;
+	if (FAILED(m_pShader->SetRawValue("g_Alpha", &fAlpha, sizeof(_float))))
+		return E_FAIL;
+
+	if (FAILED(m_pShader->SetRawValue("g_DiscardValue", &fDiscard, sizeof(_float))))
+		return E_FAIL;
+
 	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &fFill, sizeof(_float))))
 		return E_FAIL;
 
@@ -113,6 +165,19 @@ HRESULT CSkillBase::Render()
 	m_pShader->Begin(0);
 	m_pKeyBackgroundBuffer->Render();
 
+	if (m_bAlign)
+	{
+		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_WorldMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pTextureWhite->Setup_ShaderResource(m_pShader, "g_Texture")))
+			return E_FAIL;
+
+		if (FAILED(m_pShader->SetRawValue("g_Alpha", &m_fEffectAlpha, sizeof(_float))))
+			return E_FAIL;
+
+		m_pShader->Begin(0);
+		m_pWhiteBuffer->Render();
+	}
 
 	return S_OK;
 }
@@ -211,7 +276,20 @@ HRESULT CSkillBase::Add_Components()
 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_r"),
 		TEXT("com_texture_r"), (CComponent**)&m_pKeyTexture[(_uint)KEY::R])))
 		return E_FAIL;
+	
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		TEXT("com_vibuffer_white_buffer"), (CComponent**)&m_pWhiteBuffer)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_skill_white"),
+		TEXT("com_texture_white"), (CComponent**)&m_pTextureWhite)))
+		return E_FAIL;
 
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		TEXT("com_vibuffer_use_buffer"), (CComponent**)&m_pUseBuffer)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_skill_use"),
+		TEXT("com_texture_use"), (CComponent**)&m_pTextureUse)))
+		return E_FAIL;
 
 	return S_OK;
 }
@@ -260,6 +338,9 @@ CGameObject* CSkillBase::Clone(void* pArg)
 void CSkillBase::Free()
 {
 	__super::Free();
+
+	Safe_Release(m_pTextureWhite);
+	Safe_Release(m_pTextureUse);
 
 	Safe_Release(m_pKeyBackgroundBuffer);
 	Safe_Release(m_pTexture);

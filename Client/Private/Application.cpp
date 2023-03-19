@@ -15,6 +15,7 @@
 
 //UI
 #include "SkillBase.h"
+#include "PlayerHealthBar.h"
 #include "EnemyHealthBar.h"
 
 _uint CApplication::s_TickCount = 0;
@@ -242,11 +243,18 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_e"),
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/E.png")))))
 		return E_FAIL;
+
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_r"),
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/R.png")))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_skill_white"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/SkillWhite.png")))))
+		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_skill_use"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/SkillUse.png")))))
+		return E_FAIL;
 
 	Safe_AddRef(m_pRenderer);
 
@@ -270,6 +278,9 @@ HRESULT CApplication::Ready_Prototype_Static_GameObject()
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_enemyhp"), CEnemyHealthBar::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_playerhp"), CPlayerHealthBar::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
 	return S_OK;

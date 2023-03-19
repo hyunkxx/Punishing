@@ -5,7 +5,7 @@
 
 BEGIN(Engine)
 
-class CLayer final : public CBase
+class ENGINE_DLL CLayer final : public CBase
 {
 public:
 	typedef unordered_map<wstring, class CGameObject*>		GAMEOBJECTS;

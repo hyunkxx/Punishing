@@ -224,8 +224,8 @@ private:
 
 	_float m_fCurTimeScale = 1.0;
 
-	_float m_fAttackCoolTimer = 2.5f;
-	const _float m_fAttackCoolTimeOut = 2.5f;
+	_float m_fAttackCoolTimer = 4.0f;
+	const _float m_fAttackCoolTimeOut = 4.0f;
 
 	_float m_fTraceLocal = 0.0f;
 	const _float m_fTraceTimeOut = 0.5f;

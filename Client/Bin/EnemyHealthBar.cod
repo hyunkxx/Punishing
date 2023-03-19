@@ -2461,6 +2461,7 @@ PUBLIC	?__LINE__Var@?0??XMMatrixOrthographicLH@DirectX@@YQ?AUXMMATRIX@2@MMMM@Z@4
 PUBLIC	??_7CEnemyHealthBar@Client@@6B@			; Client::CEnemyHealthBar::`vftable'
 PUBLIC	??_C@_09HCHKCCII@g_Texture?$AA@			; `string'
 PUBLIC	??_C@_0N@PLHHBDPH@g_FillAmount?$AA@		; `string'
+PUBLIC	??_C@_07FMLFDDAN@g_Alpha?$AA@			; `string'
 PUBLIC	??_C@_1O@FEGOGPBC@?$AA1?$AA4?$AA4?$AAF?$AAP?$AAS?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BK@GIOMOCNE@?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CG@COFFFCLL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ ; `string'
@@ -2480,7 +2481,7 @@ PUBLIC	??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@		; `string'
 PUBLIC	??_C@_0N@ELIMCBLG@g_ViewMatrix?$AA@		; `string'
 PUBLIC	??_C@_0N@OOHDPIO@g_ProjMatrix?$AA@		; `string'
 PUBLIC	?__LINE__Var@?0??Create@CEnemyHealthBar@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CEnemyHealthBar::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@ ; `string'
+PUBLIC	??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@ ; `string'
 PUBLIC	??_C@_1EG@CDNLGHML@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAE?$AAn?$AAe?$AAm?$AAy?$AAH?$AAe?$AAa?$AAl?$AAt?$AAh?$AAB@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CEnemyHealthBar::Clone'::`1'::__LINE__Var
@@ -2507,9 +2508,9 @@ PUBLIC	__real@3f800000
 PUBLIC	__real@3ff8000000000000
 PUBLIC	__real@40000000
 PUBLIC	__real@41200000
-PUBLIC	__real@42200000
+PUBLIC	__real@428c0000
 PUBLIC	__real@43b40000
-PUBLIC	__real@44098000
+PUBLIC	__real@43e10000
 PUBLIC	__real@44200000
 PUBLIC	__real@44340000
 PUBLIC	__real@447a0000
@@ -3168,8 +3169,8 @@ $pdata$?LateTick@CEnemyHealthBar@Client@@UEAAXN@Z DD imagerel $LN4
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Render@CEnemyHealthBar@Client@@UEAAJXZ DD imagerel $LN13
-	DD	imagerel $LN13+688
+$pdata$?Render@CEnemyHealthBar@Client@@UEAAJXZ DD imagerel $LN14
+	DD	imagerel $LN14+739
 	DD	imagerel $unwind$?Render@CEnemyHealthBar@Client@@UEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -3486,17 +3487,17 @@ CONST	ENDS
 CONST	SEGMENT
 __real@44200000 DD 044200000r			; 640
 CONST	ENDS
-;	COMDAT __real@44098000
+;	COMDAT __real@43e10000
 CONST	SEGMENT
-__real@44098000 DD 044098000r			; 550
+__real@43e10000 DD 043e10000r			; 450
 CONST	ENDS
 ;	COMDAT __real@43b40000
 CONST	SEGMENT
 __real@43b40000 DD 043b40000r			; 360
 CONST	ENDS
-;	COMDAT __real@42200000
+;	COMDAT __real@428c0000
 CONST	SEGMENT
-__real@42200000 DD 042200000r			; 40
+__real@428c0000 DD 0428c0000r			; 70
 CONST	ENDS
 ;	COMDAT __real@41200000
 CONST	SEGMENT
@@ -3666,7 +3667,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0d2H ; `Client::CEnemyHealthBar::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0d5H ; `Client::CEnemyHealthBar::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@
 CONST	SEGMENT
@@ -3684,14 +3685,15 @@ CONST	SEGMENT
 	DB	00H, 'a', 00H, 'l', 00H, 't', 00H, 'h', 00H, 'B', 00H, 'a', 00H
 	DB	'r', 00H, 00H, 00H				; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
+;	COMDAT ??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
 CONST	SEGMENT
-??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
-	DB	'ramework\client\private\enemyhealthbar.cpp', 00H ; `string'
+??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
+	DB	'rcco\documents\github\framework\client\private\enemyhealthbar'
+	DB	'.cpp', 00H					; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CEnemyHealthBar@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CEnemyHealthBar@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0c5H ; `Client::CEnemyHealthBar::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CEnemyHealthBar@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0c8H ; `Client::CEnemyHealthBar::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_0N@OOHDPIO@g_ProjMatrix?$AA@
 CONST	SEGMENT
@@ -3813,6 +3815,10 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_1O@FEGOGPBC@?$AA1?$AA4?$AA4?$AAF?$AAP?$AAS?$AA?$AA@ DB '1', 00H, '4'
 	DB	00H, '4', 00H, 'F', 00H, 'P', 00H, 'S', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_07FMLFDDAN@g_Alpha?$AA@
+CONST	SEGMENT
+??_C@_07FMLFDDAN@g_Alpha?$AA@ DB 'g_Alpha', 00H		; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_0N@PLHHBDPH@g_FillAmount?$AA@
 CONST	SEGMENT
@@ -7100,7 +7106,7 @@ $LN4:
 ??$?0$$V@?$_Compressed_pair@U?$_Wrap_alloc@V?$allocator@_W@std@@@std@@V?$_String_val@U?$_Simple_types@_W@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1>::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7179,7 +7185,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ENDP ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7258,7 +7264,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ENDP ; Engine::Safe_Release<Engine::CShader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7337,7 +7343,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7416,7 +7422,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ENDP ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCEnemyHealthBar@Client@@@Engine@@YAKAEAPEAVCEnemyHealthBar@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7537,13 +7543,13 @@ $LN2@scalar:
 ??_GCEnemyHealthBar@Client@@MEAAPEAXI@Z ENDP		; Client::CEnemyHealthBar::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Free@CEnemyHealthBar@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
 ?Free@CEnemyHealthBar@Client@@UEAAXXZ PROC		; Client::CEnemyHealthBar::Free, COMDAT
 
-; 223  : {
+; 226  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7559,15 +7565,15 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 224  : 	__super::Free();
+; 227  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CGameObject@Engine@@UEAAXXZ
 
-; 225  : 
-; 226  : 	Safe_Release(m_pTexture);//Background
+; 228  : 
+; 229  : 	Safe_Release(m_pTexture);//Background
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7576,7 +7582,7 @@ $LN3:
   00044	48 8b c8	 mov	 rcx, rax
   00047	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
-; 227  : 	Safe_Release(m_pTextureBlood);
+; 230  : 	Safe_Release(m_pTextureBlood);
 
   0004c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7585,7 +7591,7 @@ $LN3:
   00059	48 8b c8	 mov	 rcx, rax
   0005c	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
-; 228  : 	Safe_Release(m_pTextureFront);
+; 231  : 	Safe_Release(m_pTextureFront);
 
   00061	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7594,8 +7600,8 @@ $LN3:
   0006e	48 8b c8	 mov	 rcx, rax
   00071	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
-; 229  : 
-; 230  : 	Safe_Release(m_pRenderer);
+; 232  : 
+; 233  : 	Safe_Release(m_pRenderer);
 
   00076	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7604,7 +7610,7 @@ $LN3:
   00083	48 8b c8	 mov	 rcx, rax
   00086	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
-; 231  : 	Safe_Release(m_pShader);
+; 234  : 	Safe_Release(m_pShader);
 
   0008b	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7613,8 +7619,8 @@ $LN3:
   00098	48 8b c8	 mov	 rcx, rax
   0009b	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ; Engine::Safe_Release<Engine::CShader * __ptr64>
 
-; 232  : 
-; 233  : 	Safe_Release(m_pVIBuffer);//Background
+; 235  : 
+; 236  : 	Safe_Release(m_pVIBuffer);//Background
 
   000a0	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7623,7 +7629,7 @@ $LN3:
   000ad	48 8b c8	 mov	 rcx, rax
   000b0	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
-; 234  : 	Safe_Release(m_pVIBufferBlood);
+; 237  : 	Safe_Release(m_pVIBufferBlood);
 
   000b5	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7632,7 +7638,7 @@ $LN3:
   000c2	48 8b c8	 mov	 rcx, rax
   000c5	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
-; 235  : 	Safe_Release(m_pVIBufferFront);
+; 238  : 	Safe_Release(m_pVIBufferFront);
 
   000ca	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7641,7 +7647,7 @@ $LN3:
   000d7	48 8b c8	 mov	 rcx, rax
   000da	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
-; 236  : }
+; 239  : }
 
   000df	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -7651,7 +7657,7 @@ $LN3:
 ?Free@CEnemyHealthBar@Client@@UEAAXXZ ENDP		; Client::CEnemyHealthBar::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -7665,7 +7671,7 @@ this$ = 432
 pArg$ = 440
 ?Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CEnemyHealthBar::Clone, COMDAT
 
-; 210  : {
+; 213  : {
 
 $LN8:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -7690,14 +7696,14 @@ $LN8:
   00044	48 89 85 80 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 211  : 	CEnemyHealthBar* pInstance = new CEnemyHealthBar(*this);
+; 214  : 	CEnemyHealthBar* pInstance = new CEnemyHealthBar(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 98 01 00 00	 mov	 ecx, 408		; 00000198H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -7727,7 +7733,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T6[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 212  : 	if (FAILED(pInstance->Initialize(pArg)))
+; 215  : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 b8 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -7736,8 +7742,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 42		 jge	 SHORT $LN2@Clone
 
-; 213  : 	{
-; 214  : 		wstring message = L"Failed to Clone : CEnemyHealthBar";
+; 216  : 	{
+; 217  : 		wstring message = L"Failed to Clone : CEnemyHealthBar";
 
   000d1	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1EE@MJLBAJIJ@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAl?$AAo?$AAn?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAE?$AAn?$AAe?$AAm?$AAy?$AAH?$AAe?$AAa?$AAl?$AAt?$AAh?$AAB?$AAa@
@@ -7745,7 +7751,7 @@ $LN5@Clone:
   000dc	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   000e1	90		 npad	 1
 
-; 215  : 		MESSAGE(message);
+; 218  : 		MESSAGE(message);
 
   000e2	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000e6	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -7757,24 +7763,24 @@ $LN5@Clone:
   000fa	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 216  : 		Safe_Release(pInstance);
+; 219  : 		Safe_Release(pInstance);
 
   00100	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   00104	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCEnemyHealthBar@Client@@@Engine@@YAKAEAPEAVCEnemyHealthBar@Client@@@Z ; Engine::Safe_Release<Client::CEnemyHealthBar * __ptr64>
   00109	90		 npad	 1
 
-; 217  : 	}
+; 220  : 	}
 
   0010a	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   0010e	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN2@Clone:
 
-; 218  : 
-; 219  : 	return pInstance;
+; 221  : 
+; 222  : 	return pInstance;
 
   00113	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 220  : }
+; 223  : }
 
   00117	48 8b f8	 mov	 rdi, rax
   0011a	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -7815,7 +7821,7 @@ pArg$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7872,7 +7878,7 @@ pArg$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7911,7 +7917,7 @@ pArg$ = 440
 ?dtor$1@?0??Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CEnemyHealthBar::Clone'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Create@CEnemyHealthBar@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -7925,7 +7931,7 @@ pDevice$ = 432
 pContext$ = 440
 ?Create@CEnemyHealthBar@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CEnemyHealthBar::Create, COMDAT
 
-; 197  : {
+; 200  : {
 
 $LN8:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -7950,14 +7956,14 @@ $LN8:
   00044	48 89 85 80 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 198  : 	CEnemyHealthBar* pInstance = new CEnemyHealthBar(pDevice, pContext);
+; 201  : 	CEnemyHealthBar* pInstance = new CEnemyHealthBar(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CEnemyHealthBar@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 98 01 00 00	 mov	 ecx, 408		; 00000198H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -7989,15 +7995,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T6[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 199  : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 202  : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CEnemyHealthBar@Client@@UEAAJXZ ; Client::CEnemyHealthBar::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 42		 jge	 SHORT $LN2@Create
 
-; 200  : 	{
-; 201  : 		wstring message = L"Failed to Create : CEnemyHealthBar";
+; 203  : 	{
+; 204  : 		wstring message = L"Failed to Create : CEnemyHealthBar";
 
   000d1	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1EG@CDNLGHML@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAE?$AAn?$AAe?$AAm?$AAy?$AAH?$AAe?$AAa?$AAl?$AAt?$AAh?$AAB@
@@ -8005,7 +8011,7 @@ $LN5@Create:
   000dc	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   000e1	90		 npad	 1
 
-; 202  : 		MESSAGE(message);
+; 205  : 		MESSAGE(message);
 
   000e2	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000e6	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -8017,24 +8023,24 @@ $LN5@Create:
   000fa	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 203  : 		Safe_Release(pInstance);
+; 206  : 		Safe_Release(pInstance);
 
   00100	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   00104	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCEnemyHealthBar@Client@@@Engine@@YAKAEAPEAVCEnemyHealthBar@Client@@@Z ; Engine::Safe_Release<Client::CEnemyHealthBar * __ptr64>
   00109	90		 npad	 1
 
-; 204  : 	}
+; 207  : 	}
 
   0010a	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   0010e	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN2@Create:
 
-; 205  : 
-; 206  : 	return pInstance;
+; 208  : 
+; 209  : 	return pInstance;
 
   00113	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 207  : }
+; 210  : }
 
   00117	48 8b f8	 mov	 rdi, rax
   0011a	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -8075,7 +8081,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CEnemyHealthBar@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -8132,7 +8138,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CEnemyHealthBar@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -8171,13 +8177,13 @@ pContext$ = 440
 ?dtor$1@?0??Create@CEnemyHealthBar@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CEnemyHealthBar::Create'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Setup_ShaderResources@CEnemyHealthBar@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
 ?Setup_ShaderResources@CEnemyHealthBar@Client@@AEAAJXZ PROC ; Client::CEnemyHealthBar::Setup_ShaderResources, COMDAT
 
-; 182  : {
+; 185  : {
 
 $LN8:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8193,7 +8199,7 @@ $LN8:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 183  : 	if (nullptr == m_pShader || nullptr == m_pTextureFront)
+; 186  : 	if (nullptr == m_pShader || nullptr == m_pTextureFront)
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8207,14 +8213,14 @@ $LN8:
   0004a	75 0a		 jne	 SHORT $LN2@Setup_Shad
 $LN3@Setup_Shad:
 
-; 184  : 		return E_FAIL;
+; 187  : 		return E_FAIL;
 
   0004c	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00051	e9 a4 00 00 00	 jmp	 $LN1@Setup_Shad
 $LN2@Setup_Shad:
 
-; 185  : 
-; 186  : 	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_WorldMatrix)))
+; 188  : 
+; 189  : 	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_WorldMatrix)))
 
   00056	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8232,13 +8238,13 @@ $LN2@Setup_Shad:
   00081	85 c0		 test	 eax, eax
   00083	7d 07		 jge	 SHORT $LN4@Setup_Shad
 
-; 187  : 		return E_FAIL;
+; 190  : 		return E_FAIL;
 
   00085	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0008a	eb 6e		 jmp	 SHORT $LN1@Setup_Shad
 $LN4@Setup_Shad:
 
-; 188  : 	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &m_ViewMatrix)))
+; 191  : 	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &m_ViewMatrix)))
 
   0008c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8256,13 +8262,13 @@ $LN4@Setup_Shad:
   000b7	85 c0		 test	 eax, eax
   000b9	7d 07		 jge	 SHORT $LN5@Setup_Shad
 
-; 189  : 		return E_FAIL;
+; 192  : 		return E_FAIL;
 
   000bb	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000c0	eb 38		 jmp	 SHORT $LN1@Setup_Shad
 $LN5@Setup_Shad:
 
-; 190  : 	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &m_ProjMatrix)))
+; 193  : 	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &m_ProjMatrix)))
 
   000c2	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8280,19 +8286,19 @@ $LN5@Setup_Shad:
   000ed	85 c0		 test	 eax, eax
   000ef	7d 07		 jge	 SHORT $LN6@Setup_Shad
 
-; 191  : 		return E_FAIL;
+; 194  : 		return E_FAIL;
 
   000f1	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000f6	eb 02		 jmp	 SHORT $LN1@Setup_Shad
 $LN6@Setup_Shad:
 
-; 192  : 
-; 193  : 	return S_OK;
+; 195  : 
+; 196  : 	return S_OK;
 
   000f8	33 c0		 xor	 eax, eax
 $LN1@Setup_Shad:
 
-; 194  : }
+; 197  : }
 
   000fa	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8302,13 +8308,13 @@ $LN1@Setup_Shad:
 ?Setup_ShaderResources@CEnemyHealthBar@Client@@AEAAJXZ ENDP ; Client::CEnemyHealthBar::Setup_ShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Add_Components@CEnemyHealthBar@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
 ?Add_Components@CEnemyHealthBar@Client@@AEAAJXZ PROC	; Client::CEnemyHealthBar::Add_Components, COMDAT
 
-; 145  : {
+; 148  : {
 
 $LN11:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8324,7 +8330,7 @@ $LN11:
   00022	48 8b 8c 24 18
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+280]
 
-; 146  :  	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"),
+; 149  :  	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"),
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8345,15 +8351,15 @@ $LN11:
   00062	85 c0		 test	 eax, eax
   00064	7d 0a		 jge	 SHORT $LN2@Add_Compon
 
-; 147  : 		TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
-; 148  : 		return E_FAIL;
+; 150  : 		TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
+; 151  : 		return E_FAIL;
 
   00066	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0006b	e9 e6 01 00 00	 jmp	 $LN1@Add_Compon
 $LN2@Add_Compon:
 
-; 149  : 
-; 150  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+; 152  : 
+; 153  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
 
   00070	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8374,15 +8380,15 @@ $LN2@Add_Compon:
   000a8	85 c0		 test	 eax, eax
   000aa	7d 0a		 jge	 SHORT $LN3@Add_Compon
 
-; 151  : 		TEXT("com_vibuffer"), (CComponent**)&m_pVIBuffer)))
-; 152  : 		return E_FAIL;
+; 154  : 		TEXT("com_vibuffer"), (CComponent**)&m_pVIBuffer)))
+; 155  : 		return E_FAIL;
 
   000ac	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000b1	e9 a0 01 00 00	 jmp	 $LN1@Add_Compon
 $LN3@Add_Compon:
 
-; 153  : 
-; 154  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+; 156  : 
+; 157  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
 
   000b6	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8403,15 +8409,15 @@ $LN3@Add_Compon:
   000ee	85 c0		 test	 eax, eax
   000f0	7d 0a		 jge	 SHORT $LN4@Add_Compon
 
-; 155  : 		TEXT("com_vibuffer_blood"), (CComponent**)&m_pVIBufferBlood)))
-; 156  : 		return E_FAIL;
+; 158  : 		TEXT("com_vibuffer_blood"), (CComponent**)&m_pVIBufferBlood)))
+; 159  : 		return E_FAIL;
 
   000f2	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000f7	e9 5a 01 00 00	 jmp	 $LN1@Add_Compon
 $LN4@Add_Compon:
 
-; 157  : 
-; 158  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+; 160  : 
+; 161  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
 
   000fc	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8432,15 +8438,15 @@ $LN4@Add_Compon:
   00134	85 c0		 test	 eax, eax
   00136	7d 0a		 jge	 SHORT $LN5@Add_Compon
 
-; 159  : 		TEXT("com_vibuffer_front"), (CComponent**)&m_pVIBufferFront)))
-; 160  : 		return E_FAIL;
+; 162  : 		TEXT("com_vibuffer_front"), (CComponent**)&m_pVIBufferFront)))
+; 163  : 		return E_FAIL;
 
   00138	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0013d	e9 14 01 00 00	 jmp	 $LN1@Add_Compon
 $LN5@Add_Compon:
 
-; 161  : 
-; 162  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_ui"),
+; 164  : 
+; 165  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_ui"),
 
   00142	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8461,15 +8467,15 @@ $LN5@Add_Compon:
   0017a	85 c0		 test	 eax, eax
   0017c	7d 0a		 jge	 SHORT $LN6@Add_Compon
 
-; 163  : 		TEXT("com_shader"), (CComponent**)&m_pShader)))
-; 164  : 		return E_FAIL;
+; 166  : 		TEXT("com_shader"), (CComponent**)&m_pShader)))
+; 167  : 		return E_FAIL;
 
   0017e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00183	e9 ce 00 00 00	 jmp	 $LN1@Add_Compon
 $LN6@Add_Compon:
 
-; 165  : 
-; 166  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_back"),
+; 168  : 
+; 169  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_back"),
 
   00188	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8490,15 +8496,15 @@ $LN6@Add_Compon:
   001c0	85 c0		 test	 eax, eax
   001c2	7d 0a		 jge	 SHORT $LN7@Add_Compon
 
-; 167  : 		TEXT("com_texture_back"), (CComponent**)&m_pTexture)))
-; 168  : 		return E_FAIL;
+; 170  : 		TEXT("com_texture_back"), (CComponent**)&m_pTexture)))
+; 171  : 		return E_FAIL;
 
   001c4	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001c9	e9 88 00 00 00	 jmp	 $LN1@Add_Compon
 $LN7@Add_Compon:
 
-; 169  : 
-; 170  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_blood"),
+; 172  : 
+; 173  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_blood"),
 
   001ce	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8519,15 +8525,15 @@ $LN7@Add_Compon:
   00206	85 c0		 test	 eax, eax
   00208	7d 07		 jge	 SHORT $LN8@Add_Compon
 
-; 171  : 		TEXT("com_texture_blood"), (CComponent**)&m_pTextureBlood)))
-; 172  : 		return E_FAIL;
+; 174  : 		TEXT("com_texture_blood"), (CComponent**)&m_pTextureBlood)))
+; 175  : 		return E_FAIL;
 
   0020a	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0020f	eb 45		 jmp	 SHORT $LN1@Add_Compon
 $LN8@Add_Compon:
 
-; 173  : 
-; 174  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_front"),
+; 176  : 
+; 177  : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_front"),
 
   00211	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8548,20 +8554,20 @@ $LN8@Add_Compon:
   00249	85 c0		 test	 eax, eax
   0024b	7d 07		 jge	 SHORT $LN9@Add_Compon
 
-; 175  : 		TEXT("com_texture_front"), (CComponent**)&m_pTextureFront)))
-; 176  : 		return E_FAIL;
+; 178  : 		TEXT("com_texture_front"), (CComponent**)&m_pTextureFront)))
+; 179  : 		return E_FAIL;
 
   0024d	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00252	eb 02		 jmp	 SHORT $LN1@Add_Compon
 $LN9@Add_Compon:
 
-; 177  : 
-; 178  : 	return S_OK;
+; 180  : 
+; 181  : 	return S_OK;
 
   00254	33 c0		 xor	 eax, eax
 $LN1@Add_Compon:
 
-; 179  : }
+; 182  : }
 
   00256	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8571,7 +8577,7 @@ $LN1@Add_Compon:
 ?Add_Components@CEnemyHealthBar@Client@@AEAAJXZ ENDP	; Client::CEnemyHealthBar::Add_Components
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?SetHealth@CEnemyHealthBar@Client@@QEAAXMM@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -8587,7 +8593,7 @@ fCurHP$ = 568
 fMaxHP$ = 576
 ?SetHealth@CEnemyHealthBar@Client@@QEAAXMM@Z PROC	; Client::CEnemyHealthBar::SetHealth, COMDAT
 
-; 117  : {
+; 120  : {
 
 $LN6:
   00000	f3 0f 11 54 24
@@ -8607,13 +8613,13 @@ $LN6:
   0002e	48 8b 8c 24 58
 	02 00 00	 mov	 rcx, QWORD PTR [rsp+600]
 
-; 118  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
+; 121  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
 
   00036	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0003c	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 119  : 	_float DeltaTime = pInstance->GetTimer(TEXT("144FPS"));
+; 122  : 	_float DeltaTime = pInstance->GetTimer(TEXT("144FPS"));
 
   00040	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1O@FEGOGPBC@?$AA1?$AA4?$AA4?$AAF?$AAP?$AAS?$AA?$AA@
@@ -8622,8 +8628,8 @@ $LN6:
 	00		 call	 QWORD PTR __imp_?GetTimer@CGameInstance@Engine@@QEAAMPEB_W@Z
   00051	f3 0f 11 45 24	 movss	 DWORD PTR DeltaTime$[rbp], xmm0
 
-; 120  : 
-; 121  : 	_float fHealthCount = fMaxHP / 1000.f;
+; 123  : 
+; 124  : 	_float fHealthCount = fMaxHP / 1000.f;
 
   00056	f3 0f 10 85 40
 	02 00 00	 movss	 xmm0, DWORD PTR fMaxHP$[rbp]
@@ -8631,7 +8637,7 @@ $LN6:
 	00 00 00	 divss	 xmm0, DWORD PTR __real@447a0000
   00066	f3 0f 11 45 44	 movss	 DWORD PTR fHealthCount$[rbp], xmm0
 
-; 122  : 	m_iCurHealthCount = fCurHP / 1000.f;
+; 125  : 	m_iCurHealthCount = fCurHP / 1000.f;
 
   0006b	f3 0f 10 85 38
 	02 00 00	 movss	 xmm0, DWORD PTR fCurHP$[rbp]
@@ -8643,8 +8649,8 @@ $LN6:
   00086	89 81 94 01 00
 	00		 mov	 DWORD PTR [rcx+404], eax
 
-; 123  : 
-; 124  : 	if ((_int)fHealthCount == m_iCurHealthCount)
+; 126  : 
+; 127  : 	if ((_int)fHealthCount == m_iCurHealthCount)
 
   0008c	f3 0f 2c 45 44	 cvttss2si eax, DWORD PTR fHealthCount$[rbp]
   00091	48 8b 8d 30 02
@@ -8653,8 +8659,8 @@ $LN6:
 	00		 cmp	 eax, DWORD PTR [rcx+404]
   0009e	75 30		 jne	 SHORT $LN2@SetHealth
 
-; 125  : 	{
-; 126  : 		m_fFill = 1.f;
+; 128  : 	{
+; 129  : 		m_fFill = 1.f;
 
   000a0	48 8b 85 30 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8663,7 +8669,7 @@ $LN6:
   000af	f3 0f 11 80 8c
 	01 00 00	 movss	 DWORD PTR [rax+396], xmm0
 
-; 127  : 		m_fCurFill = 1.f;
+; 130  : 		m_fCurFill = 1.f;
 
   000b7	48 8b 85 30 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8672,14 +8678,14 @@ $LN6:
   000c6	f3 0f 11 80 90
 	01 00 00	 movss	 DWORD PTR [rax+400], xmm0
 
-; 128  : 	}
-; 129  : 	else
+; 131  : 	}
+; 132  : 	else
 
   000ce	eb 73		 jmp	 SHORT $LN3@SetHealth
 $LN2@SetHealth:
 
-; 130  : 	{
-; 131  : 		m_fFill = (fCurHP - (m_iCurHealthCount * 1000.f)) / 1000.f;
+; 133  : 	{
+; 134  : 		m_fFill = (fCurHP - (m_iCurHealthCount * 1000.f)) / 1000.f;
 
   000d0	48 8b 85 30 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8698,8 +8704,8 @@ $LN2@SetHealth:
   00105	f3 0f 11 80 8c
 	01 00 00	 movss	 DWORD PTR [rax+396], xmm0
 
-; 132  : 
-; 133  : 		if (m_fCurFill < m_fFill)
+; 135  : 
+; 136  : 		if (m_fCurFill < m_fFill)
 
   0010d	48 8b 85 30 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8711,7 +8717,7 @@ $LN2@SetHealth:
 	00 00		 comiss	 xmm0, DWORD PTR [rcx+400]
   0012a	76 17		 jbe	 SHORT $LN4@SetHealth
 
-; 134  : 			m_fCurFill = 1.f;
+; 137  : 			m_fCurFill = 1.f;
 
   0012c	48 8b 85 30 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8722,9 +8728,9 @@ $LN2@SetHealth:
 $LN4@SetHealth:
 $LN3@SetHealth:
 
-; 135  : 	}
-; 136  : 
-; 137  : 	_vector vCur = XMVectorSet(m_fCurFill, m_fCurFill, m_fCurFill, m_fCurFill);
+; 138  : 	}
+; 139  : 
+; 140  : 	_vector vCur = XMVectorSet(m_fCurFill, m_fCurFill, m_fCurFill, m_fCurFill);
 
   00143	48 8b 85 30 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8749,7 +8755,7 @@ $LN3@SetHealth:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T1[rbp]
   00192	0f 29 45 70	 movaps	 XMMWORD PTR vCur$[rbp], xmm0
 
-; 138  : 	_vector vTarget = XMVectorSet(m_fFill, m_fFill, m_fFill, m_fFill);
+; 141  : 	_vector vTarget = XMVectorSet(m_fFill, m_fFill, m_fFill, m_fFill);
 
   00196	48 8b 85 30 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8775,8 +8781,8 @@ $LN3@SetHealth:
   001e5	0f 29 85 a0 00
 	00 00		 movaps	 XMMWORD PTR vTarget$[rbp], xmm0
 
-; 139  : 
-; 140  : 	m_fCurFill = XMVectorGetX(XMVectorLerp(vCur, vTarget, (_float)DeltaTime * 1.5));
+; 142  : 
+; 143  : 	m_fCurFill = XMVectorGetX(XMVectorLerp(vCur, vTarget, (_float)DeltaTime * 1.5));
 
   001ec	f3 0f 5a 45 24	 cvtss2sd xmm0, DWORD PTR DeltaTime$[rbp]
   001f1	f2 0f 59 05 00
@@ -8797,8 +8803,8 @@ $LN3@SetHealth:
   0022a	f3 0f 11 80 90
 	01 00 00	 movss	 DWORD PTR [rax+400], xmm0
 
-; 141  : 
-; 142  : }
+; 144  : 
+; 145  : }
 
   00232	48 8d a5 18 02
 	00 00		 lea	 rsp, QWORD PTR [rbp+536]
@@ -8808,7 +8814,7 @@ $LN3@SetHealth:
 ?SetHealth@CEnemyHealthBar@Client@@QEAAXMM@Z ENDP	; Client::CEnemyHealthBar::SetHealth
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?SetFillAmount@CEnemyHealthBar@Client@@QEAAXMM@Z
 _TEXT	SEGMENT
 fHealthCount$ = 4
@@ -8817,7 +8823,7 @@ fCurHP$ = 264
 fMaxHP$ = 272
 ?SetFillAmount@CEnemyHealthBar@Client@@QEAAXMM@Z PROC	; Client::CEnemyHealthBar::SetFillAmount, COMDAT
 
-; 108  : {
+; 111  : {
 
 $LN3:
   00000	f3 0f 11 54 24
@@ -8837,7 +8843,7 @@ $LN3:
   0002c	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 109  : 	_float fHealthCount = fMaxHP / 1000.f;
+; 112  : 	_float fHealthCount = fMaxHP / 1000.f;
 
   00034	f3 0f 10 85 10
 	01 00 00	 movss	 xmm0, DWORD PTR fMaxHP$[rbp]
@@ -8845,7 +8851,7 @@ $LN3:
 	00 00 00	 divss	 xmm0, DWORD PTR __real@447a0000
   00044	f3 0f 11 45 04	 movss	 DWORD PTR fHealthCount$[rbp], xmm0
 
-; 110  : 	m_iCurHealthCount = fCurHP / 1000.f;
+; 113  : 	m_iCurHealthCount = fCurHP / 1000.f;
 
   00049	f3 0f 10 85 08
 	01 00 00	 movss	 xmm0, DWORD PTR fCurHP$[rbp]
@@ -8857,8 +8863,8 @@ $LN3:
   00064	89 81 94 01 00
 	00		 mov	 DWORD PTR [rcx+404], eax
 
-; 111  : 
-; 112  : 	m_fFill = (fCurHP - (m_iCurHealthCount * 1000.f)) / 1000.f;
+; 114  : 
+; 115  : 	m_fFill = (fCurHP - (m_iCurHealthCount * 1000.f)) / 1000.f;
 
   0006a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8877,7 +8883,7 @@ $LN3:
   0009f	f3 0f 11 80 8c
 	01 00 00	 movss	 DWORD PTR [rax+396], xmm0
 
-; 113  : 	m_fCurFill = m_fFill;
+; 116  : 	m_fCurFill = m_fFill;
 
   000a7	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8888,7 +8894,7 @@ $LN3:
   000bd	f3 0f 11 80 90
 	01 00 00	 movss	 DWORD PTR [rax+400], xmm0
 
-; 114  : }
+; 117  : }
 
   000c5	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
@@ -8898,13 +8904,13 @@ $LN3:
 ?SetFillAmount@CEnemyHealthBar@Client@@QEAAXMM@Z ENDP	; Client::CEnemyHealthBar::SetFillAmount
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?RenderGUI@CEnemyHealthBar@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
 ?RenderGUI@CEnemyHealthBar@Client@@UEAAXXZ PROC		; Client::CEnemyHealthBar::RenderGUI, COMDAT
 
-; 104  : {
+; 107  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8920,7 +8926,7 @@ $LN3:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 105  : }
+; 108  : }
 
   00028	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8930,7 +8936,7 @@ $LN3:
 ?RenderGUI@CEnemyHealthBar@Client@@UEAAXXZ ENDP		; Client::CEnemyHealthBar::RenderGUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Render@CEnemyHealthBar@Client@@UEAAJXZ
 _TEXT	SEGMENT
 value$ = 4
@@ -8940,7 +8946,7 @@ this$ = 256
 
 ; 60   : {
 
-$LN13:
+$LN14:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	57		 push	 rdi
@@ -8971,7 +8977,7 @@ $LN13:
 ; 62   : 		return E_FAIL;
 
   0004c	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00051	e9 2b 02 00 00	 jmp	 $LN1@Render
+  00051	e9 5e 02 00 00	 jmp	 $LN1@Render
 $LN2@Render:
 
 ; 63   : 
@@ -8986,7 +8992,7 @@ $LN2@Render:
 ; 65   : 		return E_FAIL;
 
   00066	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0006b	e9 11 02 00 00	 jmp	 $LN1@Render
+  0006b	e9 44 02 00 00	 jmp	 $LN1@Render
 $LN3@Render:
 
 ; 66   : 
@@ -9011,7 +9017,7 @@ $LN3@Render:
 ; 68   : 		return E_FAIL;
 
   000a0	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000a5	e9 d7 01 00 00	 jmp	 $LN1@Render
+  000a5	e9 0a 02 00 00	 jmp	 $LN1@Render
 $LN4@Render:
 
 ; 69   : 
@@ -9040,226 +9046,249 @@ $LN4@Render:
 ; 72   : 		return E_FAIL;
 
   000e0	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000e5	e9 97 01 00 00	 jmp	 $LN1@Render
+  000e5	e9 ca 01 00 00	 jmp	 $LN1@Render
 $LN5@Render:
 
 ; 73   : 
-; 74   : 	//마지막 줄이면 어둡게
-; 75   : 	if (m_iCurHealthCount == 0)
+; 74   : 	if (FAILED(m_pShader->SetRawValue("g_Alpha", &value, sizeof(_float))))
 
-  000ea	48 8b 85 00 01
+  000ea	41 b9 04 00 00
+	00		 mov	 r9d, 4
+  000f0	4c 8d 45 04	 lea	 r8, QWORD PTR value$[rbp]
+  000f4	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_07FMLFDDAN@g_Alpha?$AA@
+  000fb	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000f1	83 b8 94 01 00
-	00 00		 cmp	 DWORD PTR [rax+404], 0
-  000f8	75 1b		 jne	 SHORT $LN6@Render
-
-; 76   : 		m_pShader->Begin(1);
-
-  000fa	ba 01 00 00 00	 mov	 edx, 1
-  000ff	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00106	48 8b 88 50 01
+  00102	48 8b 88 50 01
 	00 00		 mov	 rcx, QWORD PTR [rax+336]
-  0010d	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
+  00109	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
+  0010f	85 c0		 test	 eax, eax
+  00111	7d 0a		 jge	 SHORT $LN6@Render
 
-; 77   : 	else
+; 75   : 		return E_FAIL;
 
-  00113	eb 16		 jmp	 SHORT $LN7@Render
+  00113	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00118	e9 97 01 00 00	 jmp	 $LN1@Render
 $LN6@Render:
 
-; 78   : 		m_pShader->Begin(0);
+; 76   : 
+; 77   : 	//마지막 줄이면 어둡게
+; 78   : 	if (m_iCurHealthCount == 0)
 
-  00115	33 d2		 xor	 edx, edx
-  00117	48 8b 85 00 01
+  0011d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0011e	48 8b 88 50 01
+  00124	83 b8 94 01 00
+	00 00		 cmp	 DWORD PTR [rax+404], 0
+  0012b	75 1b		 jne	 SHORT $LN7@Render
+
+; 79   : 		m_pShader->Begin(1);
+
+  0012d	ba 01 00 00 00	 mov	 edx, 1
+  00132	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00139	48 8b 88 50 01
 	00 00		 mov	 rcx, QWORD PTR [rax+336]
-  00125	ff 15 00 00 00
+  00140	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
+
+; 80   : 	else
+
+  00146	eb 16		 jmp	 SHORT $LN8@Render
 $LN7@Render:
 
-; 79   : 
-; 80   : 	m_pVIBuffer->Render();
+; 81   : 		m_pShader->Begin(0);
 
-  0012b	48 8b 85 00 01
+  00148	33 d2		 xor	 edx, edx
+  0014a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00132	48 8b 88 58 01
-	00 00		 mov	 rcx, QWORD PTR [rax+344]
-  00139	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
-
-; 81   : 
-; 82   : 	if (FAILED(m_pTextureBlood->Setup_ShaderResource(m_pShader, "g_Texture")))
-
-  0013f	45 33 c9	 xor	 r9d, r9d
-  00142	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
-  00149	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00150	48 8b 90 50 01
-	00 00		 mov	 rdx, QWORD PTR [rax+336]
-  00157	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0015e	48 8b 88 78 01
-	00 00		 mov	 rcx, QWORD PTR [rax+376]
-  00165	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
-  0016b	85 c0		 test	 eax, eax
-  0016d	7d 0a		 jge	 SHORT $LN8@Render
-
-; 83   : 		return E_FAIL;
-
-  0016f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00174	e9 08 01 00 00	 jmp	 $LN1@Render
+  00151	48 8b 88 50 01
+	00 00		 mov	 rcx, QWORD PTR [rax+336]
+  00158	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 $LN8@Render:
 
-; 84   : 
-; 85   : 	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &m_fCurFill, sizeof(_float))))
+; 82   : 
+; 83   : 	m_pVIBuffer->Render();
 
-  00179	48 8b 85 00 01
+  0015e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00180	48 05 90 01 00
-	00		 add	 rax, 400		; 00000190H
-  00186	41 b9 04 00 00
-	00		 mov	 r9d, 4
-  0018c	4c 8b c0	 mov	 r8, rax
-  0018f	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@PLHHBDPH@g_FillAmount?$AA@
-  00196	48 8b 85 00 01
+  00165	48 8b 88 58 01
+	00 00		 mov	 rcx, QWORD PTR [rax+344]
+  0016c	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
+
+; 84   : 
+; 85   : 	if (FAILED(m_pTextureBlood->Setup_ShaderResource(m_pShader, "g_Texture")))
+
+  00172	45 33 c9	 xor	 r9d, r9d
+  00175	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
+  0017c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0019d	48 8b 88 50 01
-	00 00		 mov	 rcx, QWORD PTR [rax+336]
-  001a4	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
-  001aa	85 c0		 test	 eax, eax
-  001ac	7d 0a		 jge	 SHORT $LN9@Render
+  00183	48 8b 90 50 01
+	00 00		 mov	 rdx, QWORD PTR [rax+336]
+  0018a	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00191	48 8b 88 78 01
+	00 00		 mov	 rcx, QWORD PTR [rax+376]
+  00198	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
+  0019e	85 c0		 test	 eax, eax
+  001a0	7d 0a		 jge	 SHORT $LN9@Render
 
 ; 86   : 		return E_FAIL;
 
-  001ae	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  001b3	e9 c9 00 00 00	 jmp	 $LN1@Render
+  001a2	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  001a7	e9 08 01 00 00	 jmp	 $LN1@Render
 $LN9@Render:
 
 ; 87   : 
-; 88   : 	m_pShader->Begin(0);
+; 88   : 	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &m_fCurFill, sizeof(_float))))
 
-  001b8	33 d2		 xor	 edx, edx
-  001ba	48 8b 85 00 01
+  001ac	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001c1	48 8b 88 50 01
+  001b3	48 05 90 01 00
+	00		 add	 rax, 400		; 00000190H
+  001b9	41 b9 04 00 00
+	00		 mov	 r9d, 4
+  001bf	4c 8b c0	 mov	 r8, rax
+  001c2	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@PLHHBDPH@g_FillAmount?$AA@
+  001c9	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001d0	48 8b 88 50 01
 	00 00		 mov	 rcx, QWORD PTR [rax+336]
-  001c8	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
+  001d7	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
+  001dd	85 c0		 test	 eax, eax
+  001df	7d 0a		 jge	 SHORT $LN10@Render
 
-; 89   : 	m_pVIBufferBlood->Render();
+; 89   : 		return E_FAIL;
 
-  001ce	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001d5	48 8b 88 68 01
-	00 00		 mov	 rcx, QWORD PTR [rax+360]
-  001dc	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
-
-; 90   : 
-; 91   : 	if (FAILED(m_pTextureFront->Setup_ShaderResource(m_pShader, "g_Texture")))
-
-  001e2	45 33 c9	 xor	 r9d, r9d
-  001e5	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
-  001ec	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001f3	48 8b 90 50 01
-	00 00		 mov	 rdx, QWORD PTR [rax+336]
-  001fa	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00201	48 8b 88 80 01
-	00 00		 mov	 rcx, QWORD PTR [rax+384]
-  00208	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
-  0020e	85 c0		 test	 eax, eax
-  00210	7d 07		 jge	 SHORT $LN10@Render
-
-; 92   : 		return E_FAIL;
-
-  00212	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00217	eb 68		 jmp	 SHORT $LN1@Render
+  001e1	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  001e6	e9 c9 00 00 00	 jmp	 $LN1@Render
 $LN10@Render:
 
-; 93   : 
-; 94   : 	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &m_fFill, sizeof(_float))))
+; 90   : 
+; 91   : 	m_pShader->Begin(0);
 
-  00219	48 8b 85 00 01
+  001eb	33 d2		 xor	 edx, edx
+  001ed	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00220	48 05 8c 01 00
-	00		 add	 rax, 396		; 0000018cH
-  00226	41 b9 04 00 00
-	00		 mov	 r9d, 4
-  0022c	4c 8b c0	 mov	 r8, rax
-  0022f	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@PLHHBDPH@g_FillAmount?$AA@
-  00236	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0023d	48 8b 88 50 01
+  001f4	48 8b 88 50 01
 	00 00		 mov	 rcx, QWORD PTR [rax+336]
-  00244	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
-  0024a	85 c0		 test	 eax, eax
-  0024c	7d 07		 jge	 SHORT $LN11@Render
+  001fb	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
+
+; 92   : 	m_pVIBufferBlood->Render();
+
+  00201	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00208	48 8b 88 68 01
+	00 00		 mov	 rcx, QWORD PTR [rax+360]
+  0020f	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
+
+; 93   : 
+; 94   : 	if (FAILED(m_pTextureFront->Setup_ShaderResource(m_pShader, "g_Texture")))
+
+  00215	45 33 c9	 xor	 r9d, r9d
+  00218	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
+  0021f	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00226	48 8b 90 50 01
+	00 00		 mov	 rdx, QWORD PTR [rax+336]
+  0022d	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00234	48 8b 88 80 01
+	00 00		 mov	 rcx, QWORD PTR [rax+384]
+  0023b	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
+  00241	85 c0		 test	 eax, eax
+  00243	7d 07		 jge	 SHORT $LN11@Render
 
 ; 95   : 		return E_FAIL;
 
-  0024e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00253	eb 2c		 jmp	 SHORT $LN1@Render
+  00245	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  0024a	eb 68		 jmp	 SHORT $LN1@Render
 $LN11@Render:
 
 ; 96   : 
-; 97   : 	m_pShader->Begin(0);
+; 97   : 	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &m_fFill, sizeof(_float))))
 
-  00255	33 d2		 xor	 edx, edx
-  00257	48 8b 85 00 01
+  0024c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0025e	48 8b 88 50 01
+  00253	48 05 8c 01 00
+	00		 add	 rax, 396		; 0000018cH
+  00259	41 b9 04 00 00
+	00		 mov	 r9d, 4
+  0025f	4c 8b c0	 mov	 r8, rax
+  00262	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@PLHHBDPH@g_FillAmount?$AA@
+  00269	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00270	48 8b 88 50 01
 	00 00		 mov	 rcx, QWORD PTR [rax+336]
-  00265	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
+  00277	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
+  0027d	85 c0		 test	 eax, eax
+  0027f	7d 07		 jge	 SHORT $LN12@Render
 
-; 98   : 	m_pVIBufferFront->Render();
+; 98   : 		return E_FAIL;
 
-  0026b	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00272	48 8b 88 70 01
-	00 00		 mov	 rcx, QWORD PTR [rax+368]
-  00279	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
+  00281	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00286	eb 2c		 jmp	 SHORT $LN1@Render
+$LN12@Render:
 
 ; 99   : 
-; 100  : 	return S_OK;
+; 100  : 	m_pShader->Begin(0);
 
-  0027f	33 c0		 xor	 eax, eax
+  00288	33 d2		 xor	 edx, edx
+  0028a	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00291	48 8b 88 50 01
+	00 00		 mov	 rcx, QWORD PTR [rax+336]
+  00298	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
+
+; 101  : 	m_pVIBufferFront->Render();
+
+  0029e	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  002a5	48 8b 88 70 01
+	00 00		 mov	 rcx, QWORD PTR [rax+368]
+  002ac	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
+
+; 102  : 
+; 103  : 	return S_OK;
+
+  002b2	33 c0		 xor	 eax, eax
 $LN1@Render:
 
-; 101  : }
+; 104  : }
 
-  00281	48 8b f8	 mov	 rdi, rax
-  00284	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  00288	48 8d 15 00 00
+  002b4	48 8b f8	 mov	 rdi, rax
+  002b7	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  002bb	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?Render@CEnemyHealthBar@Client@@UEAAJXZ$rtcFrameData
-  0028f	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  00294	48 8b c7	 mov	 rax, rdi
-  00297	48 8b 8d d8 00
+  002c2	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  002c7	48 8b c7	 mov	 rax, rdi
+  002ca	48 8b 8d d8 00
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  0029e	48 33 cd	 xor	 rcx, rbp
-  002a1	e8 00 00 00 00	 call	 __security_check_cookie
-  002a6	48 8d a5 e8 00
+  002d1	48 33 cd	 xor	 rcx, rbp
+  002d4	e8 00 00 00 00	 call	 __security_check_cookie
+  002d9	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
-  002ad	5f		 pop	 rdi
-  002ae	5d		 pop	 rbp
-  002af	c3		 ret	 0
+  002e0	5f		 pop	 rdi
+  002e1	5d		 pop	 rbp
+  002e2	c3		 ret	 0
 ?Render@CEnemyHealthBar@Client@@UEAAJXZ ENDP		; Client::CEnemyHealthBar::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?LateTick@CEnemyHealthBar@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -9331,7 +9360,7 @@ $LN2@LateTick:
 ?LateTick@CEnemyHealthBar@Client@@UEAAXN@Z ENDP		; Client::CEnemyHealthBar::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Tick@CEnemyHealthBar@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -9383,7 +9412,7 @@ $LN3:
 ?Tick@CEnemyHealthBar@Client@@UEAAXN@Z ENDP		; Client::CEnemyHealthBar::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Initialize@CEnemyHealthBar@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 $T1 = 400
@@ -9452,12 +9481,12 @@ $LN2@Initialize:
 $LN3@Initialize:
 
 ; 31   : 
-; 32   : 	m_fWidth = 550.f;
+; 32   : 	m_fWidth = 450.f;
 
   0006c	48 8b 85 60 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00073	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@44098000
+	00 00 00	 movss	 xmm0, DWORD PTR __real@43e10000
   0007b	f3 0f 11 80 80
 	00 00 00	 movss	 DWORD PTR [rax+128], xmm0
 
@@ -9478,12 +9507,12 @@ $LN3@Initialize:
 	00 00 00	 movss	 xmm0, DWORD PTR __real@44200000
   000a9	f3 0f 11 40 78	 movss	 DWORD PTR [rax+120], xmm0
 
-; 35   : 	m_fY = 40;
+; 35   : 	m_fY = 70.f;
 
   000ae	48 8b 85 60 05
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000b5	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@42200000
+	00 00 00	 movss	 xmm0, DWORD PTR __real@428c0000
   000bd	f3 0f 11 40 7c	 movss	 DWORD PTR [rax+124], xmm0
 
 ; 36   : 
@@ -9685,7 +9714,7 @@ $LN1@Initialize:
 ?Initialize@CEnemyHealthBar@Client@@UEAAJPEAX@Z ENDP	; Client::CEnemyHealthBar::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Initialize_Prototype@CEnemyHealthBar@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -9738,7 +9767,7 @@ $LN1@Initialize:
 ?Initialize_Prototype@CEnemyHealthBar@Client@@UEAAJXZ ENDP ; Client::CEnemyHealthBar::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ??1CEnemyHealthBar@Client@@MEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -9771,9 +9800,9 @@ $LN3:
 ??1CEnemyHealthBar@Client@@MEAA@XZ ENDP			; Client::CEnemyHealthBar::~CEnemyHealthBar
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
-; File c:\github\framework\client\public\enemyhealthbar.h
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ??0CEnemyHealthBar@Client@@IEAA@AEBV01@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -9836,7 +9865,7 @@ $LN4:
 	00		 add	 rax, 264		; 00000108H
   00097	48 8b c8	 mov	 rcx, rax
   0009a	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
-; File c:\github\framework\client\public\enemyhealthbar.h
+; File c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h
 
 ; 48   : 	CRenderer*		m_pRenderer = { nullptr };
 
@@ -9939,7 +9968,7 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00172	c7 80 94 01 00
 	00 01 00 00 00	 mov	 DWORD PTR [rax+404], 1
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 
 ; 14   : }
 
@@ -9998,9 +10027,9 @@ rhs$ = 264
 ?dtor$0@?0???0CEnemyHealthBar@Client@@IEAA@AEBV01@@Z@4HA ENDP ; `Client::CEnemyHealthBar::CEnemyHealthBar'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
-; File c:\github\framework\client\public\enemyhealthbar.h
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ??0CEnemyHealthBar@Client@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -10067,7 +10096,7 @@ $LN4:
 	00		 add	 rax, 264		; 00000108H
   000a3	48 8b c8	 mov	 rcx, rax
   000a6	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
-; File c:\github\framework\client\public\enemyhealthbar.h
+; File c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h
 
 ; 48   : 	CRenderer*		m_pRenderer = { nullptr };
 
@@ -10170,7 +10199,7 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0017e	c7 80 94 01 00
 	00 01 00 00 00	 mov	 DWORD PTR [rax+404], 1
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 
 ; 9    : }
 
@@ -17582,7 +17611,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -17611,7 +17640,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

@@ -44,6 +44,15 @@ HRESULT CPlayerCamera::Initialize(void * pArg)
 
 	m_pTransform->Set_State(CTransform::STATE_POSITION, m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
 	XMStoreFloat4(&vLookTarget, m_pTransform->Get_State(CTransform::STATE_POSITION));
+	
+	CCollider::COLLIDER_DESC collDesc;
+	collDesc.owner = this;
+	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
+	collDesc.vExtents = _float3(2.f, 2.f, 2.f);
+	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
+
+	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&m_pCollider, &collDesc));
+
 	return S_OK;
 }
 
@@ -137,15 +146,18 @@ void CPlayerCamera::LateTick(_double TimeDelta)
 
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	if (pGameInstance->Input_KeyState_Custom(DIK_8) == KEY_STATE::TAP)
-	{
-		StartShake(4.f, 10.f);
-	}
+
 }
 
 HRESULT CPlayerCamera::Render()
 {
 	return S_OK;
+}
+
+void CPlayerCamera::AttackShake()
+{
+	ShakeReset();
+	StartShake(4.f, 2.5f);
 }
 
 HRESULT CPlayerCamera::Add_Components()

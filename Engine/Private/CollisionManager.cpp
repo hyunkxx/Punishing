@@ -194,8 +194,8 @@ void CCollisionManager::PhysicsUpdate()
 					//충돌중인 리스트에서 삭제
 					m_BackgroundCollisions[i]->EraseHitCollider(m_BackgroundCollisions[j]);
 					m_BackgroundCollisions[j]->EraseHitCollider(m_BackgroundCollisions[i]);
-
 				}
+
 			}
 		}
 	}

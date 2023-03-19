@@ -75,7 +75,7 @@ CGameObject* CLayer::Find_GameObject(wstring strObjectTag)
 {
 	for (auto& pGameObject : m_GameObjects)
 	{
-		if (strObjectTag == pGameObject.first)
+		if (strObjectTag.compare(pGameObject.first))
 			return pGameObject.second;
 	}
 

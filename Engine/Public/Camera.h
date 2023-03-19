@@ -37,6 +37,7 @@ public:
 
 public:
 	void StartShake(_float Time, _float fPower);
+	void ShakeReset() { m_fShakeTimer = 0.0f; }
 	void Shake(_double TimeDelta);
 
 public:

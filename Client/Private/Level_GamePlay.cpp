@@ -12,6 +12,7 @@
 #include "Enemy.h"
 #include "Character.h"
 
+#include "PlayerCamera.h"
 #include "EnemyHealthBar.h"
 
 CLevel_GamePlay::CLevel_GamePlay(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
@@ -80,6 +81,7 @@ void CLevel_GamePlay::Tick(_double TimeDelta)
 			static_cast<CEnemy*>(iter->second)->Reset();
 		}
 		
+		static_cast<CCharacter*>(mPlayer)->ClearEnemyCheckCollider();
 	}
 
 	CSkillBallSystem* pSkillSystem = CSkillBallSystem::GetInstance();
@@ -123,10 +125,10 @@ HRESULT CLevel_GamePlay::Ready_Layer_BackGround(const _tchar* pLayerTag)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_city", L"city", pLayerTag))
+	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_city", pLayerTag, L"city"))
 		return E_FAIL;
 
-	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_sky", L"sky", pLayerTag))
+	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_sky", pLayerTag, L"sky"))
 		return E_FAIL;
 
 	return S_OK;
@@ -176,8 +178,11 @@ HRESULT CLevel_GamePlay::Ready_Layer_Camera(const _tchar* pLayerTag)
 
 	assert(mPlayer);
 
-	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_player_camera"), L"player_camera", pLayerTag, mPlayer))
+	CPlayerCamera* pCamera = static_cast<CPlayerCamera*>(pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_player_camera"), pLayerTag, L"player_camera", mPlayer));
+	if (nullptr == pCamera)
 		return E_FAIL;
+
+	static_cast<CCharacter*>(mPlayer)->SetPlayerCamera(pCamera);
 
 	return S_OK;
 }
@@ -186,7 +191,7 @@ HRESULT CLevel_GamePlay::Ready_Layer_Player(const _tchar* pLayerTag)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	mPlayer = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kamui"), L"kamui", pLayerTag);
+	mPlayer = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kamui"), pLayerTag, L"kamui");
 
 	return S_OK;
 }
@@ -226,7 +231,7 @@ HRESULT CLevel_GamePlay::Ready_Layer_Effect(const _tchar * pLayerTag)
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	CGameObject* pGameObject = nullptr;
 
-   	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_freeze_area", L"freeze", pLayerTag, mPlayer))
+   	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_freeze_area", pLayerTag, L"freeze", mPlayer))
 		return E_FAIL;
 
 	return S_OK;
@@ -237,7 +242,7 @@ HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	CGameObject* pGameObject = nullptr;
 
-	m_pHealthBar = pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_enemyhp", L"enemyhp", pLayerTag);
+	m_pHealthBar = pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_enemyhp", pLayerTag, L"enemyhp");
 	if(m_pHealthBar == nullptr)
 		return E_FAIL;
 

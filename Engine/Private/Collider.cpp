@@ -36,7 +36,12 @@ void CCollider::SetActive(_bool value)
 	m_isActive = value;
 
 	if (!m_isActive)
+	{
+		for (auto iter = hitCollider.begin(); iter != hitCollider.end(); ++iter)
+			(*iter)->EraseHitCollider(this);
+
 		hitCollider.clear();
+	}
 }
 
 void CCollider::EraseHitCollider(CCollider * collider)

@@ -114,7 +114,7 @@ void CEnemy::LateTick(_double TimeDelta)
 
 	__super::LateTick(TimeDelta);
 	
-	model->Play_Animation(TimeDelta, transform, 0.4);
+	model->Play_Animation(TimeDelta, transform, 0.2);
 
 	_matrix tranMatrix = XMLoadFloat4x4(&bone->GetOffSetMatrix()) * XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&model->GetLocalMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix());
 	
@@ -167,6 +167,9 @@ void CEnemy::Reset()
 	SetPosition(_float3(iRandomX, 0.f, iRandomZ));
 
 	m_State.fCurHp = m_State.fMaxHp;
+
+	m_fNuckBackTimer = 0.0f;
+	m_fDeadWaitTimer = 0.0f;
 
 	m_bTraceFinish = false;
 	m_bRotationFinish = false;
@@ -243,7 +246,7 @@ HRESULT CEnemy::AddComponents()
 	ZeroMemory(&collDesc, sizeof collDesc);
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 1.f, 0.f);
-	collDesc.vExtents = _float3(1.0f, 1.0f, 1.0f);
+	collDesc.vExtents = _float3(1.1f, 1.1f, 1.1f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collder_enemy"), (CComponent**)&m_pOverlapCollider, &collDesc));
@@ -992,7 +995,7 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 
 		//플레이어 공격에 의해 데미지 받기
 		CCollider* pWeaponCollider = pPlayer->GetWeaponCollider();
-		if (src->Compare(collider) && dest->Compare(pWeaponCollider))
+		if (src->Compare(m_pOverlapCollider) && dest->Compare(pWeaponCollider))
 		{
 			m_iRandomHitAnim = rand() % 2;
 
@@ -1028,8 +1031,9 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 		{
 			if (dest->Compare(pBodyCollider))
 			{
+				pPlayer->LookPos(transform->Get_State(CTransform::STATE_POSITION));
 				pPlayer->Hit();
-				pPlayer->RecvDamage(100.f);
+				pPlayer->RecvDamage(10.f);
 			}
 		}
 	}

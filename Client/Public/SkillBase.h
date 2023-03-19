@@ -46,7 +46,8 @@ public:
 public:
 	static _uint GetSkillID() { return s_iID; }
 	void SetRender(_bool value) { m_bRender = value; }
-
+	void SetAllgn(_bool value) { m_bAlign = value; }
+	void SetDestroyWait() { m_isDestroyWait = true; }
 
 public:
 	_bool IsSameType(TYPE eType) { return m_eType == eType; }
@@ -66,6 +67,7 @@ protected:
 	_float		m_fX, m_fY, m_fWidth, m_fHeight;
 	_float4x4	m_WorldMatrix, m_ViewMatrix, m_ProjMatrix;
 	_float4x4	m_KeyWorldMatrix;
+	_float4x4	m_UsedMatrix;
 
 protected:
 	CRenderer*		m_pRenderer = { nullptr };
@@ -76,6 +78,11 @@ protected:
 	CVIBuffer_Rect* m_pKeyBackgroundBuffer = { nullptr };
 	CTexture*		m_pKeyTexture[8];
 
+	CVIBuffer_Rect* m_pWhiteBuffer = { nullptr };
+	CTexture*		m_pTextureWhite = { nullptr };
+
+	CVIBuffer_Rect* m_pUseBuffer = { nullptr };
+	CTexture*		m_pTextureUse = { nullptr };
 protected:
 	static _uint s_iID;
 	_bool m_bRender = true;
@@ -84,8 +91,15 @@ protected:
 	_float m_fGoalX;
 
 	_bool m_bAlign = false;
+	_bool m_bAllgnEffectFinish = false;
+
+	_float m_fEffectAlpha = 1.f;
+
 	TYPE m_eType = TYPE::INVALID;
 
+	_bool m_isDestroyWait = false;
+	_float m_fDestroyWaitTimer = 1.f;
+	const _float m_fDestroyWaitTimeOut = 0.f;
 };
 
 END

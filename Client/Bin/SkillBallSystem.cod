@@ -2380,6 +2380,7 @@ PUBLIC	?to_wstring@std@@YA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocato
 PUBLIC	??$_Integral_to_string@_WI@std@@YA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@0@I@Z ; std::_Integral_to_string<wchar_t,unsigned int>
 PUBLIC	?GetSkillID@CSkillBase@Client@@SAIXZ		; Client::CSkillBase::GetSkillID
 PUBLIC	?SetRender@CSkillBase@Client@@QEAAX_N@Z		; Client::CSkillBase::SetRender
+PUBLIC	?SetDestroyWait@CSkillBase@Client@@QEAAXXZ	; Client::CSkillBase::SetDestroyWait
 PUBLIC	?IsSameType@CSkillBase@Client@@QEAA_NW4TYPE@12@@Z ; Client::CSkillBase::IsSameType
 PUBLIC	?GetSkillType@CSkillBase@Client@@QEBA?AW4TYPE@12@XZ ; Client::CSkillBase::GetSkillType
 PUBLIC	?GetInstance@CSkillBallSystem@Client@@SAPEAV12@XZ ; Client::CSkillBallSystem::GetInstance
@@ -2642,7 +2643,7 @@ PUBLIC	??_C@_1HA@NAPGMHAO@?$AA?$CC?$AA2?$AA?5?$AA?$CK?$AA?5?$AAs?$AAi?$AAz?$AAe?
 PUBLIC	??_C@_0CN@BLHJCAL@_Ptr_user?5?9?5_Ptr_container?5?$DM?$DN?5_N@ ; `string'
 PUBLIC	??_C@_1GI@DHJGPFNI@?$AA?$CC?$AA_?$AAP?$AAt?$AAr?$AA_?$AAu?$AAs?$AAe?$AAr?$AA?5?$AA?9?$AA?5?$AA_?$AAP?$AAt?$AAr?$AA_?$AAc?$AAo?$AAn?$AAt?$AAa?$AAi?$AAn?$AAe?$AAr?$AA?5?$AA?$DM?$AA?$DN?$AA?5?$AA_@ ; `string'
 PUBLIC	??_7CSkillBallSystem@Client@@6B@		; Client::CSkillBallSystem::`vftable'
-PUBLIC	??_C@_0DH@JIFGBDIC@c?3?2github?2framework?2client?2priva@ ; `string'
+PUBLIC	??_C@_0EN@DJIHIPPE@c?3?2users?2arcco?2documents?2github?2@ ; `string'
 PUBLIC	??_C@_1CA@CHBHGMNA@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AAb?$AAa?$AAl?$AAl?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CI@OEBPAOLP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AAb?$AAa?$AAl?$AAl?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1IM@NCODKBJH@?$AAc?$AA?3?$AA?2?$AAp?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAf?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAm?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ ; `string'
@@ -3290,6 +3291,12 @@ $pdata$?SetRender@CSkillBase@Client@@QEAAX_N@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$?SetDestroyWait@CSkillBase@Client@@QEAAXXZ DD imagerel $LN3
+	DD	imagerel $LN3+64
+	DD	imagerel $unwind$?SetDestroyWait@CSkillBase@Client@@QEAAXXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$?IsSameType@CSkillBase@Client@@QEAA_NW4TYPE@12@@Z DD imagerel $LN5
 	DD	imagerel $LN5+104
 	DD	imagerel $unwind$?IsSameType@CSkillBase@Client@@QEAA_NW4TYPE@12@@Z
@@ -3387,7 +3394,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z DD imagerel $LN45
-	DD	imagerel $LN45+2204
+	DD	imagerel $LN45+2201
 	DD	imagerel $unwind$?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -5268,10 +5275,11 @@ CONST	SEGMENT
 	DB	'k', 00H, 'i', 00H, 'l', 00H, 'l', 00H, 'b', 00H, 'a', 00H, 'l'
 	DB	00H, 'l', 00H, 00H, 00H			; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0DH@JIFGBDIC@c?3?2github?2framework?2client?2priva@
+;	COMDAT ??_C@_0EN@DJIHIPPE@c?3?2users?2arcco?2documents?2github?2@
 CONST	SEGMENT
-??_C@_0DH@JIFGBDIC@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
-	DB	'ramework\client\private\skillballsystem.cpp', 00H ; `string'
+??_C@_0EN@DJIHIPPE@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
+	DB	'rcco\documents\github\framework\client\private\skillballsyste'
+	DB	'm.cpp', 00H					; `string'
 CONST	ENDS
 ;	COMDAT ??_7CSkillBallSystem@Client@@6B@
 CONST	SEGMENT
@@ -7984,35 +7992,35 @@ $ip2state$?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@
 	DD	01H
 	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+318
 	DD	00H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+541
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+540
 	DD	02H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+561
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+560
 	DD	00H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+760
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+759
 	DD	0ffffffffH
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+833
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+832
 	DD	03H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+894
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+893
 	DD	04H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+919
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+918
 	DD	03H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1160
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1158
 	DD	05H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1180
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1178
 	DD	03H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1397
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1395
 	DD	0ffffffffH
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1470
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1468
 	DD	06H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1531
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1529
 	DD	07H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1556
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1554
 	DD	06H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1797
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1794
 	DD	08H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1817
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+1814
 	DD	06H
-	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+2034
+	DD	imagerel ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z+2031
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -8463,6 +8471,13 @@ $unwind$?IsSameType@CSkillBase@Client@@QEAA_NW4TYPE@12@@Z DD 05052c01H
 	DD	01120315H
 	DD	0700b001bH
 	DD	0500aH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?SetDestroyWait@CSkillBase@Client@@QEAAXXZ DD 05052801H
+	DD	010e0311H
+	DD	070070019H
+	DD	05006H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -23019,7 +23034,7 @@ $LN3:
 ??0?$allocator@PEAVCSkillBase@Client@@@std@@QEAA@XZ ENDP ; std::allocator<Client::CSkillBase * __ptr64>::allocator<Client::CSkillBase * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 ;	COMDAT ?Free@CSkillBallSystem@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -23057,7 +23072,7 @@ $LN3:
 ?Free@CSkillBallSystem@Client@@UEAAXXZ ENDP		; Client::CSkillBallSystem::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 ;	COMDAT ?ComputeSkillChain@CSkillBallSystem@Client@@QEAA?AUtagSkillChainData@CSkillBase@2@I@Z
 _TEXT	SEGMENT
 ChainData$ = 8
@@ -23325,7 +23340,7 @@ $LN8@ComputeSki:
 ?ComputeSkillChain@CSkillBallSystem@Client@@QEAA?AUtagSkillChainData@CSkillBase@2@I@Z ENDP ; Client::CSkillBallSystem::ComputeSkillChain
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 ;	COMDAT ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z
 _TEXT	SEGMENT
 iSkillSize$ = 4
@@ -23365,21 +23380,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -23454,7 +23469,7 @@ $LN45:
   00096	48 89 08	 mov	 QWORD PTR [rax], rcx
   00099	48 8b 85 28 08
 	00 00		 mov	 rax, QWORD PTR __$ReturnUdt$[rbp]
-  000a0	e9 c8 07 00 00	 jmp	 $LN1@UseSkill
+  000a0	e9 c5 07 00 00	 jmp	 $LN1@UseSkill
 $LN14@UseSkill:
 
 ; 78   : 
@@ -23472,7 +23487,7 @@ $LN14@UseSkill:
 ; 82   : 	if (ChainData.iChainCount == CHAIN_ONE)
 
   000bc	83 7d 48 00	 cmp	 DWORD PTR ChainData$[rbp], 0
-  000c0	0f 85 43 02 00
+  000c0	0f 85 42 02 00
 	00		 jne	 $LN15@UseSkill
 
 ; 83   : 	{
@@ -23508,9 +23523,9 @@ $LN2@UseSkill:
   00117	48 8b 85 d8 07
 	00 00		 mov	 rax, QWORD PTR tv79[rbp]
   0011e	48 89 85 e0 07
-	00 00		 mov	 QWORD PTR tv438[rbp], rax
+	00 00		 mov	 QWORD PTR tv426[rbp], rax
   00125	48 8b 95 e0 07
-	00 00		 mov	 rdx, QWORD PTR tv438[rbp]
+	00 00		 mov	 rdx, QWORD PTR tv426[rbp]
   0012c	48 8b 8d 98 00
 	00 00		 mov	 rcx, QWORD PTR iter$12[rbp]
   00133	e8 00 00 00 00	 call	 ??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Client::CSkillBase * __ptr64> > >::operator!=
@@ -23522,7 +23537,7 @@ $LN2@UseSkill:
   0014a	0f b6 85 c4 04
 	00 00		 movzx	 eax, BYTE PTR $T26[rbp]
   00151	85 c0		 test	 eax, eax
-  00153	0f 84 9f 01 00
+  00153	0f 84 9e 01 00
 	00		 je	 $LN3@UseSkill
 
 ; 86   : 		{
@@ -23531,7 +23546,7 @@ $LN2@UseSkill:
   00159	8b 85 30 08 00
 	00		 mov	 eax, DWORD PTR iIndex$[rbp]
   0015f	39 45 74	 cmp	 DWORD PTR i$11[rbp], eax
-  00162	0f 85 61 01 00
+  00162	0f 85 60 01 00
 	00		 jne	 $LN17@UseSkill
 
 ; 88   : 			{
@@ -23558,7 +23573,7 @@ $LN2@UseSkill:
   00199	e8 00 00 00 00	 call	 ?GetSkillType@CSkillBase@Client@@QEBA?AW4TYPE@12@XZ ; Client::CSkillBase::GetSkillType
   0019e	89 45 2c	 mov	 DWORD PTR SkillInfo$[rbp+4], eax
 
-; 91   : 				m_pSkills[i]->Destroy();
+; 91   : 				m_pSkills[i]->SetDestroyWait();
 
   001a1	8b 45 74	 mov	 eax, DWORD PTR i$11[rbp]
   001a4	48 8b 8d 20 08
@@ -23567,751 +23582,748 @@ $LN2@UseSkill:
   001af	8b d0		 mov	 edx, eax
   001b1	e8 00 00 00 00	 call	 ??A?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@_K@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::operator[]
   001b6	48 8b 08	 mov	 rcx, QWORD PTR [rax]
-  001b9	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Destroy@CGameObject@Engine@@QEAAXXZ
+  001b9	e8 00 00 00 00	 call	 ?SetDestroyWait@CSkillBase@Client@@QEAAXXZ ; Client::CSkillBase::SetDestroyWait
 
 ; 92   : 				iter = m_pSkills.erase(iter);
 
-  001bf	48 8d 85 18 05
+  001be	48 8d 85 18 05
 	00 00		 lea	 rax, QWORD PTR $T28[rbp]
-  001c6	48 89 85 48 05
+  001c5	48 89 85 48 05
 	00 00		 mov	 QWORD PTR $T29[rbp], rax
-  001cd	48 8b 95 98 00
+  001cc	48 8b 95 98 00
 	00 00		 mov	 rdx, QWORD PTR iter$12[rbp]
-  001d4	48 8b 8d 48 05
+  001d3	48 8b 8d 48 05
 	00 00		 mov	 rcx, QWORD PTR $T29[rbp]
-  001db	e8 00 00 00 00	 call	 ??0?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@AEBV01@@Z
-  001e0	48 89 85 d8 07
-	00 00		 mov	 QWORD PTR tv440[rbp], rax
-  001e7	48 8b 85 20 08
+  001da	e8 00 00 00 00	 call	 ??0?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@AEBV01@@Z
+  001df	48 89 85 d8 07
+	00 00		 mov	 QWORD PTR tv428[rbp], rax
+  001e6	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001ee	48 83 c0 20	 add	 rax, 32			; 00000020H
-  001f2	4c 8b 85 d8 07
-	00 00		 mov	 r8, QWORD PTR tv440[rbp]
-  001f9	48 8d 95 68 05
+  001ed	48 83 c0 20	 add	 rax, 32			; 00000020H
+  001f1	4c 8b 85 d8 07
+	00 00		 mov	 r8, QWORD PTR tv428[rbp]
+  001f8	48 8d 95 68 05
 	00 00		 lea	 rdx, QWORD PTR $T30[rbp]
-  00200	48 8b c8	 mov	 rcx, rax
-  00203	e8 00 00 00 00	 call	 ?erase@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::erase
-  00208	48 89 85 e0 07
-	00 00		 mov	 QWORD PTR tv421[rbp], rax
-  0020f	48 8b 85 e0 07
-	00 00		 mov	 rax, QWORD PTR tv421[rbp]
-  00216	48 89 85 e8 07
-	00 00		 mov	 QWORD PTR tv442[rbp], rax
-  0021d	48 8b 95 e8 07
-	00 00		 mov	 rdx, QWORD PTR tv442[rbp]
-  00224	48 8b 8d 98 00
+  001ff	48 8b c8	 mov	 rcx, rax
+  00202	e8 00 00 00 00	 call	 ?erase@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::erase
+  00207	48 89 85 e0 07
+	00 00		 mov	 QWORD PTR tv409[rbp], rax
+  0020e	48 8b 85 e0 07
+	00 00		 mov	 rax, QWORD PTR tv409[rbp]
+  00215	48 89 85 e8 07
+	00 00		 mov	 QWORD PTR tv430[rbp], rax
+  0021c	48 8b 95 e8 07
+	00 00		 mov	 rdx, QWORD PTR tv430[rbp]
+  00223	48 8b 8d 98 00
 	00 00		 mov	 rcx, QWORD PTR iter$12[rbp]
-  0022b	e8 00 00 00 00	 call	 ??4?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z
-  00230	90		 npad	 1
-  00231	48 8d 8d 68 05
+  0022a	e8 00 00 00 00	 call	 ??4?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z
+  0022f	90		 npad	 1
+  00230	48 8d 8d 68 05
 	00 00		 lea	 rcx, QWORD PTR $T30[rbp]
-  00238	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
+  00237	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
 
 ; 93   : 
 ; 94   : 				//기존 스킬볼 지웠을때 예약스킬볼에 존재하면 앞에꺼 꺼냄
 ; 95   : 				if (!m_pReserveSkills.empty())
 
-  0023d	48 8b 85 20 08
+  0023c	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00244	48 83 c0 40	 add	 rax, 64			; 00000040H
-  00248	48 8b c8	 mov	 rcx, rax
-  0024b	e8 00 00 00 00	 call	 ?empty@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEBA_NXZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::empty
-  00250	0f b6 c0	 movzx	 eax, al
-  00253	85 c0		 test	 eax, eax
-  00255	75 6e		 jne	 SHORT $LN19@UseSkill
+  00243	48 83 c0 40	 add	 rax, 64			; 00000040H
+  00247	48 8b c8	 mov	 rcx, rax
+  0024a	e8 00 00 00 00	 call	 ?empty@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEBA_NXZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::empty
+  0024f	0f b6 c0	 movzx	 eax, al
+  00252	85 c0		 test	 eax, eax
+  00254	75 6e		 jne	 SHORT $LN19@UseSkill
 
 ; 96   : 				{
 ; 97   : 					CSkillBase* pSkill = m_pReserveSkills.front();
 
-  00257	48 8b 85 20 08
+  00256	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0025e	48 83 c0 40	 add	 rax, 64			; 00000040H
-  00262	48 8b c8	 mov	 rcx, rax
-  00265	e8 00 00 00 00	 call	 ?front@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@XZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::front
-  0026a	48 8b 00	 mov	 rax, QWORD PTR [rax]
-  0026d	48 89 85 e8 00
+  0025d	48 83 c0 40	 add	 rax, 64			; 00000040H
+  00261	48 8b c8	 mov	 rcx, rax
+  00264	e8 00 00 00 00	 call	 ?front@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@XZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::front
+  00269	48 8b 00	 mov	 rax, QWORD PTR [rax]
+  0026c	48 89 85 e8 00
 	00 00		 mov	 QWORD PTR pSkill$14[rbp], rax
 
 ; 98   : 					pSkill->SetRender(true);
 
-  00274	b2 01		 mov	 dl, 1
-  00276	48 8b 8d e8 00
+  00273	b2 01		 mov	 dl, 1
+  00275	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR pSkill$14[rbp]
-  0027d	e8 00 00 00 00	 call	 ?SetRender@CSkillBase@Client@@QEAAX_N@Z ; Client::CSkillBase::SetRender
+  0027c	e8 00 00 00 00	 call	 ?SetRender@CSkillBase@Client@@QEAAX_N@Z ; Client::CSkillBase::SetRender
 
 ; 99   : 					m_pSkills.push_back(pSkill);
 
-  00282	48 8b 85 20 08
+  00281	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00289	48 83 c0 20	 add	 rax, 32			; 00000020H
-  0028d	48 8d 95 e8 00
+  00288	48 83 c0 20	 add	 rax, 32			; 00000020H
+  0028c	48 8d 95 e8 00
 	00 00		 lea	 rdx, QWORD PTR pSkill$14[rbp]
-  00294	48 8b c8	 mov	 rcx, rax
-  00297	e8 00 00 00 00	 call	 ?push_back@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAXAEBQEAVCSkillBase@Client@@@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::push_back
+  00293	48 8b c8	 mov	 rcx, rax
+  00296	e8 00 00 00 00	 call	 ?push_back@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAXAEBQEAVCSkillBase@Client@@@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::push_back
 
 ; 100  : 					m_pReserveSkills.pop();
 
-  0029c	48 8b 85 20 08
+  0029b	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002a3	48 83 c0 40	 add	 rax, 64			; 00000040H
-  002a7	48 8b c8	 mov	 rcx, rax
-  002aa	e8 00 00 00 00	 call	 ?pop@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAXXZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::pop
+  002a2	48 83 c0 40	 add	 rax, 64			; 00000040H
+  002a6	48 8b c8	 mov	 rcx, rax
+  002a9	e8 00 00 00 00	 call	 ?pop@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAXXZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::pop
 
 ; 101  : 					m_iSkillCount++;
 
-  002af	48 8b 85 20 08
+  002ae	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002b6	8b 40 1c	 mov	 eax, DWORD PTR [rax+28]
-  002b9	ff c0		 inc	 eax
-  002bb	48 8b 8d 20 08
+  002b5	8b 40 1c	 mov	 eax, DWORD PTR [rax+28]
+  002b8	ff c0		 inc	 eax
+  002ba	48 8b 8d 20 08
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  002c2	89 41 1c	 mov	 DWORD PTR [rcx+28], eax
+  002c1	89 41 1c	 mov	 DWORD PTR [rcx+28], eax
 $LN19@UseSkill:
 
 ; 102  : 				}
 ; 103  : 
 ; 104  : 				break;
 
-  002c5	eb 31		 jmp	 SHORT $LN3@UseSkill
+  002c4	eb 31		 jmp	 SHORT $LN3@UseSkill
 
 ; 105  : 			}
 ; 106  : 			else
 
-  002c7	eb 2a		 jmp	 SHORT $LN18@UseSkill
+  002c6	eb 2a		 jmp	 SHORT $LN18@UseSkill
 $LN17@UseSkill:
 
 ; 107  : 			{
 ; 108  : 				iter++;
 
-  002c9	45 33 c0	 xor	 r8d, r8d
-  002cc	48 8d 95 98 05
+  002c8	45 33 c0	 xor	 r8d, r8d
+  002cb	48 8d 95 98 05
 	00 00		 lea	 rdx, QWORD PTR $T31[rbp]
-  002d3	48 8b 8d 98 00
+  002d2	48 8b 8d 98 00
 	00 00		 mov	 rcx, QWORD PTR iter$12[rbp]
-  002da	e8 00 00 00 00	 call	 ??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA?AV01@H@Z ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Client::CSkillBase * __ptr64> > >::operator++
-  002df	48 8d 8d 98 05
+  002d9	e8 00 00 00 00	 call	 ??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA?AV01@H@Z ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Client::CSkillBase * __ptr64> > >::operator++
+  002de	48 8d 8d 98 05
 	00 00		 lea	 rcx, QWORD PTR $T31[rbp]
-  002e6	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
+  002e5	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
 
 ; 109  : 				i++;
 
-  002eb	8b 45 74	 mov	 eax, DWORD PTR i$11[rbp]
-  002ee	ff c0		 inc	 eax
-  002f0	89 45 74	 mov	 DWORD PTR i$11[rbp], eax
+  002ea	8b 45 74	 mov	 eax, DWORD PTR i$11[rbp]
+  002ed	ff c0		 inc	 eax
+  002ef	89 45 74	 mov	 DWORD PTR i$11[rbp], eax
 $LN18@UseSkill:
 
 ; 110  : 			}
 
-  002f3	e9 fe fd ff ff	 jmp	 $LN2@UseSkill
+  002f2	e9 ff fd ff ff	 jmp	 $LN2@UseSkill
 $LN3@UseSkill:
 
 ; 111  : 		}
 
-  002f8	48 8d 8d b8 00
+  002f7	48 8d 8d b8 00
 	00 00		 lea	 rcx, QWORD PTR $S1$13[rbp]
-  002ff	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
-  00304	e9 f5 04 00 00	 jmp	 $LN16@UseSkill
+  002fe	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
+  00303	e9 f3 04 00 00	 jmp	 $LN16@UseSkill
 $LN15@UseSkill:
 
 ; 112  : 	}
 ; 113  : 	else if (ChainData.iChainCount == CHAIN_TWO)
 
-  00309	83 7d 48 01	 cmp	 DWORD PTR ChainData$[rbp], 1
-  0030d	0f 85 73 02 00
+  00308	83 7d 48 01	 cmp	 DWORD PTR ChainData$[rbp], 1
+  0030c	0f 85 72 02 00
 	00		 jne	 $LN20@UseSkill
 
 ; 114  : 	{
 ; 115  : 		_uint i = 0;
 
-  00313	c7 85 04 01 00
+  00312	c7 85 04 01 00
 	00 00 00 00 00	 mov	 DWORD PTR i$15[rbp], 0
 
 ; 116  : 		_uint j = ChainData.iLeftIndex;
 
-  0031d	8b 45 4c	 mov	 eax, DWORD PTR ChainData$[rbp+4]
-  00320	89 85 24 01 00
+  0031c	8b 45 4c	 mov	 eax, DWORD PTR ChainData$[rbp+4]
+  0031f	89 85 24 01 00
 	00		 mov	 DWORD PTR j$16[rbp], eax
 
 ; 117  : 		for (auto& iter = m_pSkills.begin(); iter != m_pSkills.end(); )
 
-  00326	48 8b 85 20 08
+  00325	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0032d	48 83 c0 20	 add	 rax, 32			; 00000020H
-  00331	48 8d 95 68 01
+  0032c	48 83 c0 20	 add	 rax, 32			; 00000020H
+  00330	48 8d 95 68 01
 	00 00		 lea	 rdx, QWORD PTR $S2$18[rbp]
-  00338	48 8b c8	 mov	 rcx, rax
-  0033b	e8 00 00 00 00	 call	 ?begin@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::begin
-  00340	90		 npad	 1
-  00341	48 8d 85 68 01
+  00337	48 8b c8	 mov	 rcx, rax
+  0033a	e8 00 00 00 00	 call	 ?begin@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::begin
+  0033f	90		 npad	 1
+  00340	48 8d 85 68 01
 	00 00		 lea	 rax, QWORD PTR $S2$18[rbp]
-  00348	48 89 85 48 01
+  00347	48 89 85 48 01
 	00 00		 mov	 QWORD PTR iter$17[rbp], rax
 $LN5@UseSkill:
-  0034f	48 8b 85 20 08
+  0034e	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00356	48 83 c0 20	 add	 rax, 32			; 00000020H
-  0035a	48 8d 95 e8 05
+  00355	48 83 c0 20	 add	 rax, 32			; 00000020H
+  00359	48 8d 95 e8 05
 	00 00		 lea	 rdx, QWORD PTR $T33[rbp]
-  00361	48 8b c8	 mov	 rcx, rax
-  00364	e8 00 00 00 00	 call	 ?end@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::end
-  00369	48 89 85 d8 07
-	00 00		 mov	 QWORD PTR tv205[rbp], rax
-  00370	48 8b 85 d8 07
-	00 00		 mov	 rax, QWORD PTR tv205[rbp]
-  00377	48 89 85 e0 07
-	00 00		 mov	 QWORD PTR tv446[rbp], rax
-  0037e	48 8b 95 e0 07
-	00 00		 mov	 rdx, QWORD PTR tv446[rbp]
-  00385	48 8b 8d 48 01
+  00360	48 8b c8	 mov	 rcx, rax
+  00363	e8 00 00 00 00	 call	 ?end@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::end
+  00368	48 89 85 d8 07
+	00 00		 mov	 QWORD PTR tv201[rbp], rax
+  0036f	48 8b 85 d8 07
+	00 00		 mov	 rax, QWORD PTR tv201[rbp]
+  00376	48 89 85 e0 07
+	00 00		 mov	 QWORD PTR tv434[rbp], rax
+  0037d	48 8b 95 e0 07
+	00 00		 mov	 rdx, QWORD PTR tv434[rbp]
+  00384	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR iter$17[rbp]
-  0038c	e8 00 00 00 00	 call	 ??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Client::CSkillBase * __ptr64> > >::operator!=
-  00391	88 85 c4 05 00
+  0038b	e8 00 00 00 00	 call	 ??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Client::CSkillBase * __ptr64> > >::operator!=
+  00390	88 85 c4 05 00
 	00		 mov	 BYTE PTR $T32[rbp], al
-  00397	48 8d 8d e8 05
+  00396	48 8d 8d e8 05
 	00 00		 lea	 rcx, QWORD PTR $T33[rbp]
-  0039e	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
-  003a3	0f b6 85 c4 05
+  0039d	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
+  003a2	0f b6 85 c4 05
 	00 00		 movzx	 eax, BYTE PTR $T32[rbp]
-  003aa	85 c0		 test	 eax, eax
-  003ac	0f 84 c3 01 00
+  003a9	85 c0		 test	 eax, eax
+  003ab	0f 84 c2 01 00
 	00		 je	 $LN6@UseSkill
 
 ; 118  : 		{
 ; 119  : 			if (i >= ChainData.iLeftIndex && i <= ChainData.iRightIndex)
 
-  003b2	8b 45 4c	 mov	 eax, DWORD PTR ChainData$[rbp+4]
-  003b5	39 85 04 01 00
+  003b1	8b 45 4c	 mov	 eax, DWORD PTR ChainData$[rbp+4]
+  003b4	39 85 04 01 00
 	00		 cmp	 DWORD PTR i$15[rbp], eax
-  003bb	0f 82 7f 01 00
+  003ba	0f 82 7e 01 00
 	00		 jb	 $LN22@UseSkill
-  003c1	8b 45 50	 mov	 eax, DWORD PTR ChainData$[rbp+8]
-  003c4	39 85 04 01 00
+  003c0	8b 45 50	 mov	 eax, DWORD PTR ChainData$[rbp+8]
+  003c3	39 85 04 01 00
 	00		 cmp	 DWORD PTR i$15[rbp], eax
-  003ca	0f 87 70 01 00
+  003c9	0f 87 6f 01 00
 	00		 ja	 $LN22@UseSkill
 
 ; 120  : 			{
 ; 121  : 				m_iSkillCount--;
 
-  003d0	48 8b 85 20 08
+  003cf	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003d7	8b 40 1c	 mov	 eax, DWORD PTR [rax+28]
-  003da	ff c8		 dec	 eax
-  003dc	48 8b 8d 20 08
+  003d6	8b 40 1c	 mov	 eax, DWORD PTR [rax+28]
+  003d9	ff c8		 dec	 eax
+  003db	48 8b 8d 20 08
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  003e3	89 41 1c	 mov	 DWORD PTR [rcx+28], eax
+  003e2	89 41 1c	 mov	 DWORD PTR [rcx+28], eax
 
 ; 122  : 				SkillInfo.eType = m_pSkills[j]->GetSkillType();
 
-  003e6	8b 85 24 01 00
+  003e5	8b 85 24 01 00
 	00		 mov	 eax, DWORD PTR j$16[rbp]
-  003ec	48 8b 8d 20 08
+  003eb	48 8b 8d 20 08
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  003f3	48 83 c1 20	 add	 rcx, 32			; 00000020H
-  003f7	8b d0		 mov	 edx, eax
-  003f9	e8 00 00 00 00	 call	 ??A?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@_K@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::operator[]
-  003fe	48 8b 08	 mov	 rcx, QWORD PTR [rax]
-  00401	e8 00 00 00 00	 call	 ?GetSkillType@CSkillBase@Client@@QEBA?AW4TYPE@12@XZ ; Client::CSkillBase::GetSkillType
-  00406	89 45 2c	 mov	 DWORD PTR SkillInfo$[rbp+4], eax
+  003f2	48 83 c1 20	 add	 rcx, 32			; 00000020H
+  003f6	8b d0		 mov	 edx, eax
+  003f8	e8 00 00 00 00	 call	 ??A?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@_K@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::operator[]
+  003fd	48 8b 08	 mov	 rcx, QWORD PTR [rax]
+  00400	e8 00 00 00 00	 call	 ?GetSkillType@CSkillBase@Client@@QEBA?AW4TYPE@12@XZ ; Client::CSkillBase::GetSkillType
+  00405	89 45 2c	 mov	 DWORD PTR SkillInfo$[rbp+4], eax
 
-; 123  : 				m_pSkills[j]->Destroy();
+; 123  : 				m_pSkills[j]->SetDestroyWait();
 
-  00409	8b 85 24 01 00
+  00408	8b 85 24 01 00
 	00		 mov	 eax, DWORD PTR j$16[rbp]
-  0040f	48 8b 8d 20 08
+  0040e	48 8b 8d 20 08
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00416	48 83 c1 20	 add	 rcx, 32			; 00000020H
-  0041a	8b d0		 mov	 edx, eax
-  0041c	e8 00 00 00 00	 call	 ??A?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@_K@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::operator[]
-  00421	48 8b 08	 mov	 rcx, QWORD PTR [rax]
-  00424	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Destroy@CGameObject@Engine@@QEAAXXZ
+  00415	48 83 c1 20	 add	 rcx, 32			; 00000020H
+  00419	8b d0		 mov	 edx, eax
+  0041b	e8 00 00 00 00	 call	 ??A?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@_K@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::operator[]
+  00420	48 8b 08	 mov	 rcx, QWORD PTR [rax]
+  00423	e8 00 00 00 00	 call	 ?SetDestroyWait@CSkillBase@Client@@QEAAXXZ ; Client::CSkillBase::SetDestroyWait
 
 ; 124  : 				iter = m_pSkills.erase(iter);
 
-  0042a	48 8d 85 18 06
+  00428	48 8d 85 18 06
 	00 00		 lea	 rax, QWORD PTR $T34[rbp]
-  00431	48 89 85 48 06
+  0042f	48 89 85 48 06
 	00 00		 mov	 QWORD PTR $T35[rbp], rax
-  00438	48 8b 95 48 01
+  00436	48 8b 95 48 01
 	00 00		 mov	 rdx, QWORD PTR iter$17[rbp]
-  0043f	48 8b 8d 48 06
+  0043d	48 8b 8d 48 06
 	00 00		 mov	 rcx, QWORD PTR $T35[rbp]
-  00446	e8 00 00 00 00	 call	 ??0?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@AEBV01@@Z
-  0044b	48 89 85 d8 07
-	00 00		 mov	 QWORD PTR tv448[rbp], rax
-  00452	48 8b 85 20 08
+  00444	e8 00 00 00 00	 call	 ??0?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@AEBV01@@Z
+  00449	48 89 85 d8 07
+	00 00		 mov	 QWORD PTR tv436[rbp], rax
+  00450	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00459	48 83 c0 20	 add	 rax, 32			; 00000020H
-  0045d	4c 8b 85 d8 07
-	00 00		 mov	 r8, QWORD PTR tv448[rbp]
-  00464	48 8d 95 68 06
+  00457	48 83 c0 20	 add	 rax, 32			; 00000020H
+  0045b	4c 8b 85 d8 07
+	00 00		 mov	 r8, QWORD PTR tv436[rbp]
+  00462	48 8d 95 68 06
 	00 00		 lea	 rdx, QWORD PTR $T36[rbp]
-  0046b	48 8b c8	 mov	 rcx, rax
-  0046e	e8 00 00 00 00	 call	 ?erase@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::erase
-  00473	48 89 85 e0 07
-	00 00		 mov	 QWORD PTR tv325[rbp], rax
-  0047a	48 8b 85 e0 07
-	00 00		 mov	 rax, QWORD PTR tv325[rbp]
-  00481	48 89 85 e8 07
-	00 00		 mov	 QWORD PTR tv450[rbp], rax
-  00488	48 8b 95 e8 07
-	00 00		 mov	 rdx, QWORD PTR tv450[rbp]
-  0048f	48 8b 8d 48 01
+  00469	48 8b c8	 mov	 rcx, rax
+  0046c	e8 00 00 00 00	 call	 ?erase@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::erase
+  00471	48 89 85 e0 07
+	00 00		 mov	 QWORD PTR tv317[rbp], rax
+  00478	48 8b 85 e0 07
+	00 00		 mov	 rax, QWORD PTR tv317[rbp]
+  0047f	48 89 85 e8 07
+	00 00		 mov	 QWORD PTR tv438[rbp], rax
+  00486	48 8b 95 e8 07
+	00 00		 mov	 rdx, QWORD PTR tv438[rbp]
+  0048d	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR iter$17[rbp]
-  00496	e8 00 00 00 00	 call	 ??4?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z
-  0049b	90		 npad	 1
-  0049c	48 8d 8d 68 06
+  00494	e8 00 00 00 00	 call	 ??4?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z
+  00499	90		 npad	 1
+  0049a	48 8d 8d 68 06
 	00 00		 lea	 rcx, QWORD PTR $T36[rbp]
-  004a3	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
+  004a1	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
 
 ; 125  : 
 ; 126  : 				//기존 스킬볼 지웠을때 예약스킬볼에 존재하면 앞에꺼 꺼냄
 ; 127  : 				if (!m_pReserveSkills.empty())
 
-  004a8	48 8b 85 20 08
+  004a6	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004af	48 83 c0 40	 add	 rax, 64			; 00000040H
-  004b3	48 8b c8	 mov	 rcx, rax
-  004b6	e8 00 00 00 00	 call	 ?empty@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEBA_NXZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::empty
-  004bb	0f b6 c0	 movzx	 eax, al
-  004be	85 c0		 test	 eax, eax
-  004c0	75 6e		 jne	 SHORT $LN24@UseSkill
+  004ad	48 83 c0 40	 add	 rax, 64			; 00000040H
+  004b1	48 8b c8	 mov	 rcx, rax
+  004b4	e8 00 00 00 00	 call	 ?empty@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEBA_NXZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::empty
+  004b9	0f b6 c0	 movzx	 eax, al
+  004bc	85 c0		 test	 eax, eax
+  004be	75 6e		 jne	 SHORT $LN24@UseSkill
 
 ; 128  : 				{
 ; 129  : 					CSkillBase* pSkill = m_pReserveSkills.front();
 
-  004c2	48 8b 85 20 08
+  004c0	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004c9	48 83 c0 40	 add	 rax, 64			; 00000040H
-  004cd	48 8b c8	 mov	 rcx, rax
-  004d0	e8 00 00 00 00	 call	 ?front@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@XZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::front
-  004d5	48 8b 00	 mov	 rax, QWORD PTR [rax]
-  004d8	48 89 85 98 01
+  004c7	48 83 c0 40	 add	 rax, 64			; 00000040H
+  004cb	48 8b c8	 mov	 rcx, rax
+  004ce	e8 00 00 00 00	 call	 ?front@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@XZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::front
+  004d3	48 8b 00	 mov	 rax, QWORD PTR [rax]
+  004d6	48 89 85 98 01
 	00 00		 mov	 QWORD PTR pSkill$19[rbp], rax
 
 ; 130  : 					pSkill->SetRender(true);
 
-  004df	b2 01		 mov	 dl, 1
-  004e1	48 8b 8d 98 01
+  004dd	b2 01		 mov	 dl, 1
+  004df	48 8b 8d 98 01
 	00 00		 mov	 rcx, QWORD PTR pSkill$19[rbp]
-  004e8	e8 00 00 00 00	 call	 ?SetRender@CSkillBase@Client@@QEAAX_N@Z ; Client::CSkillBase::SetRender
+  004e6	e8 00 00 00 00	 call	 ?SetRender@CSkillBase@Client@@QEAAX_N@Z ; Client::CSkillBase::SetRender
 
 ; 131  : 					m_pSkills.push_back(pSkill);
 
-  004ed	48 8b 85 20 08
+  004eb	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004f4	48 83 c0 20	 add	 rax, 32			; 00000020H
-  004f8	48 8d 95 98 01
+  004f2	48 83 c0 20	 add	 rax, 32			; 00000020H
+  004f6	48 8d 95 98 01
 	00 00		 lea	 rdx, QWORD PTR pSkill$19[rbp]
-  004ff	48 8b c8	 mov	 rcx, rax
-  00502	e8 00 00 00 00	 call	 ?push_back@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAXAEBQEAVCSkillBase@Client@@@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::push_back
+  004fd	48 8b c8	 mov	 rcx, rax
+  00500	e8 00 00 00 00	 call	 ?push_back@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAXAEBQEAVCSkillBase@Client@@@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::push_back
 
 ; 132  : 					m_pReserveSkills.pop();
 
-  00507	48 8b 85 20 08
+  00505	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0050e	48 83 c0 40	 add	 rax, 64			; 00000040H
-  00512	48 8b c8	 mov	 rcx, rax
-  00515	e8 00 00 00 00	 call	 ?pop@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAXXZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::pop
+  0050c	48 83 c0 40	 add	 rax, 64			; 00000040H
+  00510	48 8b c8	 mov	 rcx, rax
+  00513	e8 00 00 00 00	 call	 ?pop@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAXXZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::pop
 
 ; 133  : 					m_iSkillCount++;
 
-  0051a	48 8b 85 20 08
+  00518	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00521	8b 40 1c	 mov	 eax, DWORD PTR [rax+28]
-  00524	ff c0		 inc	 eax
-  00526	48 8b 8d 20 08
+  0051f	8b 40 1c	 mov	 eax, DWORD PTR [rax+28]
+  00522	ff c0		 inc	 eax
+  00524	48 8b 8d 20 08
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0052d	89 41 1c	 mov	 DWORD PTR [rcx+28], eax
+  0052b	89 41 1c	 mov	 DWORD PTR [rcx+28], eax
 $LN24@UseSkill:
 
 ; 134  : 				}
 ; 135  : 
 ; 136  : 				i++;
 
-  00530	8b 85 04 01 00
+  0052e	8b 85 04 01 00
 	00		 mov	 eax, DWORD PTR i$15[rbp]
-  00536	ff c0		 inc	 eax
-  00538	89 85 04 01 00
+  00534	ff c0		 inc	 eax
+  00536	89 85 04 01 00
 	00		 mov	 DWORD PTR i$15[rbp], eax
 
 ; 137  : 			}
 ; 138  : 			else
 
-  0053e	eb 30		 jmp	 SHORT $LN23@UseSkill
+  0053c	eb 30		 jmp	 SHORT $LN23@UseSkill
 $LN22@UseSkill:
 
 ; 139  : 			{
 ; 140  : 				iter++;
 
-  00540	45 33 c0	 xor	 r8d, r8d
-  00543	48 8d 95 98 06
+  0053e	45 33 c0	 xor	 r8d, r8d
+  00541	48 8d 95 98 06
 	00 00		 lea	 rdx, QWORD PTR $T37[rbp]
-  0054a	48 8b 8d 48 01
+  00548	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR iter$17[rbp]
-  00551	e8 00 00 00 00	 call	 ??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA?AV01@H@Z ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Client::CSkillBase * __ptr64> > >::operator++
-  00556	48 8d 8d 98 06
+  0054f	e8 00 00 00 00	 call	 ??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA?AV01@H@Z ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Client::CSkillBase * __ptr64> > >::operator++
+  00554	48 8d 8d 98 06
 	00 00		 lea	 rcx, QWORD PTR $T37[rbp]
-  0055d	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
+  0055b	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
 
 ; 141  : 				i++;
 
-  00562	8b 85 04 01 00
+  00560	8b 85 04 01 00
 	00		 mov	 eax, DWORD PTR i$15[rbp]
-  00568	ff c0		 inc	 eax
-  0056a	89 85 04 01 00
+  00566	ff c0		 inc	 eax
+  00568	89 85 04 01 00
 	00		 mov	 DWORD PTR i$15[rbp], eax
 $LN23@UseSkill:
 
 ; 142  : 			}
 
-  00570	e9 da fd ff ff	 jmp	 $LN5@UseSkill
+  0056e	e9 db fd ff ff	 jmp	 $LN5@UseSkill
 $LN6@UseSkill:
 
 ; 143  : 		}
 
-  00575	48 8d 8d 68 01
+  00573	48 8d 8d 68 01
 	00 00		 lea	 rcx, QWORD PTR $S2$18[rbp]
-  0057c	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
-  00581	e9 78 02 00 00	 jmp	 $LN16@UseSkill
+  0057a	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
+  0057f	e9 77 02 00 00	 jmp	 $LN16@UseSkill
 $LN20@UseSkill:
 
 ; 144  : 	}
 ; 145  : 	else if (ChainData.iChainCount == CHAIN_THREE)
 
-  00586	83 7d 48 02	 cmp	 DWORD PTR ChainData$[rbp], 2
-  0058a	0f 85 6e 02 00
+  00584	83 7d 48 02	 cmp	 DWORD PTR ChainData$[rbp], 2
+  00588	0f 85 6d 02 00
 	00		 jne	 $LN16@UseSkill
 
 ; 146  : 	{
 ; 147  : 		_uint i = 0;
 
-  00590	c7 85 b4 01 00
+  0058e	c7 85 b4 01 00
 	00 00 00 00 00	 mov	 DWORD PTR i$20[rbp], 0
 
 ; 148  : 		_uint j = ChainData.iLeftIndex;
 
-  0059a	8b 45 4c	 mov	 eax, DWORD PTR ChainData$[rbp+4]
-  0059d	89 85 d4 01 00
+  00598	8b 45 4c	 mov	 eax, DWORD PTR ChainData$[rbp+4]
+  0059b	89 85 d4 01 00
 	00		 mov	 DWORD PTR j$21[rbp], eax
 
 ; 149  : 	
 ; 150  : 		for (auto& iter = m_pSkills.begin(); iter != m_pSkills.end(); )
 
-  005a3	48 8b 85 20 08
+  005a1	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  005aa	48 83 c0 20	 add	 rax, 32			; 00000020H
-  005ae	48 8d 95 18 02
+  005a8	48 83 c0 20	 add	 rax, 32			; 00000020H
+  005ac	48 8d 95 18 02
 	00 00		 lea	 rdx, QWORD PTR $S3$23[rbp]
-  005b5	48 8b c8	 mov	 rcx, rax
-  005b8	e8 00 00 00 00	 call	 ?begin@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::begin
-  005bd	90		 npad	 1
-  005be	48 8d 85 18 02
+  005b3	48 8b c8	 mov	 rcx, rax
+  005b6	e8 00 00 00 00	 call	 ?begin@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::begin
+  005bb	90		 npad	 1
+  005bc	48 8d 85 18 02
 	00 00		 lea	 rax, QWORD PTR $S3$23[rbp]
-  005c5	48 89 85 f8 01
+  005c3	48 89 85 f8 01
 	00 00		 mov	 QWORD PTR iter$22[rbp], rax
 $LN8@UseSkill:
-  005cc	48 8b 85 20 08
+  005ca	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  005d3	48 83 c0 20	 add	 rax, 32			; 00000020H
-  005d7	48 8d 95 e8 06
+  005d1	48 83 c0 20	 add	 rax, 32			; 00000020H
+  005d5	48 8d 95 e8 06
 	00 00		 lea	 rdx, QWORD PTR $T39[rbp]
-  005de	48 8b c8	 mov	 rcx, rax
-  005e1	e8 00 00 00 00	 call	 ?end@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::end
-  005e6	48 89 85 d8 07
-	00 00		 mov	 QWORD PTR tv333[rbp], rax
-  005ed	48 8b 85 d8 07
-	00 00		 mov	 rax, QWORD PTR tv333[rbp]
-  005f4	48 89 85 e0 07
-	00 00		 mov	 QWORD PTR tv454[rbp], rax
-  005fb	48 8b 95 e0 07
-	00 00		 mov	 rdx, QWORD PTR tv454[rbp]
-  00602	48 8b 8d f8 01
+  005dc	48 8b c8	 mov	 rcx, rax
+  005df	e8 00 00 00 00	 call	 ?end@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::end
+  005e4	48 89 85 d8 07
+	00 00		 mov	 QWORD PTR tv325[rbp], rax
+  005eb	48 8b 85 d8 07
+	00 00		 mov	 rax, QWORD PTR tv325[rbp]
+  005f2	48 89 85 e0 07
+	00 00		 mov	 QWORD PTR tv442[rbp], rax
+  005f9	48 8b 95 e0 07
+	00 00		 mov	 rdx, QWORD PTR tv442[rbp]
+  00600	48 8b 8d f8 01
 	00 00		 mov	 rcx, QWORD PTR iter$22[rbp]
-  00609	e8 00 00 00 00	 call	 ??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Client::CSkillBase * __ptr64> > >::operator!=
-  0060e	88 85 c4 06 00
+  00607	e8 00 00 00 00	 call	 ??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Client::CSkillBase * __ptr64> > >::operator!=
+  0060c	88 85 c4 06 00
 	00		 mov	 BYTE PTR $T38[rbp], al
-  00614	48 8d 8d e8 06
+  00612	48 8d 8d e8 06
 	00 00		 lea	 rcx, QWORD PTR $T39[rbp]
-  0061b	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
-  00620	0f b6 85 c4 06
+  00619	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
+  0061e	0f b6 85 c4 06
 	00 00		 movzx	 eax, BYTE PTR $T38[rbp]
-  00627	85 c0		 test	 eax, eax
-  00629	0f 84 c3 01 00
+  00625	85 c0		 test	 eax, eax
+  00627	0f 84 c2 01 00
 	00		 je	 $LN9@UseSkill
 
 ; 151  : 		{
 ; 152  : 			if (i >= ChainData.iLeftIndex && i <= ChainData.iRightIndex)
 
-  0062f	8b 45 4c	 mov	 eax, DWORD PTR ChainData$[rbp+4]
-  00632	39 85 b4 01 00
+  0062d	8b 45 4c	 mov	 eax, DWORD PTR ChainData$[rbp+4]
+  00630	39 85 b4 01 00
 	00		 cmp	 DWORD PTR i$20[rbp], eax
-  00638	0f 82 7f 01 00
+  00636	0f 82 7e 01 00
 	00		 jb	 $LN26@UseSkill
-  0063e	8b 45 50	 mov	 eax, DWORD PTR ChainData$[rbp+8]
-  00641	39 85 b4 01 00
+  0063c	8b 45 50	 mov	 eax, DWORD PTR ChainData$[rbp+8]
+  0063f	39 85 b4 01 00
 	00		 cmp	 DWORD PTR i$20[rbp], eax
-  00647	0f 87 70 01 00
+  00645	0f 87 6f 01 00
 	00		 ja	 $LN26@UseSkill
 
 ; 153  : 			{
 ; 154  : 				m_iSkillCount--;
 
-  0064d	48 8b 85 20 08
+  0064b	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00654	8b 40 1c	 mov	 eax, DWORD PTR [rax+28]
-  00657	ff c8		 dec	 eax
-  00659	48 8b 8d 20 08
+  00652	8b 40 1c	 mov	 eax, DWORD PTR [rax+28]
+  00655	ff c8		 dec	 eax
+  00657	48 8b 8d 20 08
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00660	89 41 1c	 mov	 DWORD PTR [rcx+28], eax
+  0065e	89 41 1c	 mov	 DWORD PTR [rcx+28], eax
 
 ; 155  : 				SkillInfo.eType = m_pSkills[j]->GetSkillType();
 
-  00663	8b 85 d4 01 00
+  00661	8b 85 d4 01 00
 	00		 mov	 eax, DWORD PTR j$21[rbp]
-  00669	48 8b 8d 20 08
+  00667	48 8b 8d 20 08
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00670	48 83 c1 20	 add	 rcx, 32			; 00000020H
-  00674	8b d0		 mov	 edx, eax
-  00676	e8 00 00 00 00	 call	 ??A?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@_K@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::operator[]
-  0067b	48 8b 08	 mov	 rcx, QWORD PTR [rax]
-  0067e	e8 00 00 00 00	 call	 ?GetSkillType@CSkillBase@Client@@QEBA?AW4TYPE@12@XZ ; Client::CSkillBase::GetSkillType
-  00683	89 45 2c	 mov	 DWORD PTR SkillInfo$[rbp+4], eax
+  0066e	48 83 c1 20	 add	 rcx, 32			; 00000020H
+  00672	8b d0		 mov	 edx, eax
+  00674	e8 00 00 00 00	 call	 ??A?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@_K@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::operator[]
+  00679	48 8b 08	 mov	 rcx, QWORD PTR [rax]
+  0067c	e8 00 00 00 00	 call	 ?GetSkillType@CSkillBase@Client@@QEBA?AW4TYPE@12@XZ ; Client::CSkillBase::GetSkillType
+  00681	89 45 2c	 mov	 DWORD PTR SkillInfo$[rbp+4], eax
 
-; 156  : 				m_pSkills[j]->Destroy();
+; 156  : 				m_pSkills[j]->SetDestroyWait();
 
-  00686	8b 85 d4 01 00
+  00684	8b 85 d4 01 00
 	00		 mov	 eax, DWORD PTR j$21[rbp]
-  0068c	48 8b 8d 20 08
+  0068a	48 8b 8d 20 08
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00693	48 83 c1 20	 add	 rcx, 32			; 00000020H
-  00697	8b d0		 mov	 edx, eax
-  00699	e8 00 00 00 00	 call	 ??A?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@_K@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::operator[]
-  0069e	48 8b 08	 mov	 rcx, QWORD PTR [rax]
-  006a1	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Destroy@CGameObject@Engine@@QEAAXXZ
+  00691	48 83 c1 20	 add	 rcx, 32			; 00000020H
+  00695	8b d0		 mov	 edx, eax
+  00697	e8 00 00 00 00	 call	 ??A?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@_K@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::operator[]
+  0069c	48 8b 08	 mov	 rcx, QWORD PTR [rax]
+  0069f	e8 00 00 00 00	 call	 ?SetDestroyWait@CSkillBase@Client@@QEAAXXZ ; Client::CSkillBase::SetDestroyWait
 
 ; 157  : 				iter = m_pSkills.erase(iter);
 
-  006a7	48 8d 85 18 07
+  006a4	48 8d 85 18 07
 	00 00		 lea	 rax, QWORD PTR $T40[rbp]
-  006ae	48 89 85 48 07
+  006ab	48 89 85 48 07
 	00 00		 mov	 QWORD PTR $T41[rbp], rax
-  006b5	48 8b 95 f8 01
+  006b2	48 8b 95 f8 01
 	00 00		 mov	 rdx, QWORD PTR iter$22[rbp]
-  006bc	48 8b 8d 48 07
+  006b9	48 8b 8d 48 07
 	00 00		 mov	 rcx, QWORD PTR $T41[rbp]
-  006c3	e8 00 00 00 00	 call	 ??0?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@AEBV01@@Z
-  006c8	48 89 85 d8 07
-	00 00		 mov	 QWORD PTR tv456[rbp], rax
-  006cf	48 8b 85 20 08
+  006c0	e8 00 00 00 00	 call	 ??0?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@AEBV01@@Z
+  006c5	48 89 85 d8 07
+	00 00		 mov	 QWORD PTR tv444[rbp], rax
+  006cc	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  006d6	48 83 c0 20	 add	 rax, 32			; 00000020H
-  006da	4c 8b 85 d8 07
-	00 00		 mov	 r8, QWORD PTR tv456[rbp]
-  006e1	48 8d 95 68 07
+  006d3	48 83 c0 20	 add	 rax, 32			; 00000020H
+  006d7	4c 8b 85 d8 07
+	00 00		 mov	 r8, QWORD PTR tv444[rbp]
+  006de	48 8d 95 68 07
 	00 00		 lea	 rdx, QWORD PTR $T42[rbp]
-  006e8	48 8b c8	 mov	 rcx, rax
-  006eb	e8 00 00 00 00	 call	 ?erase@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::erase
-  006f0	48 89 85 e0 07
-	00 00		 mov	 QWORD PTR tv197[rbp], rax
-  006f7	48 8b 85 e0 07
-	00 00		 mov	 rax, QWORD PTR tv197[rbp]
-  006fe	48 89 85 e8 07
-	00 00		 mov	 QWORD PTR tv458[rbp], rax
-  00705	48 8b 95 e8 07
-	00 00		 mov	 rdx, QWORD PTR tv458[rbp]
-  0070c	48 8b 8d f8 01
+  006e5	48 8b c8	 mov	 rcx, rax
+  006e8	e8 00 00 00 00	 call	 ?erase@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@2@@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::erase
+  006ed	48 89 85 e0 07
+	00 00		 mov	 QWORD PTR tv193[rbp], rax
+  006f4	48 8b 85 e0 07
+	00 00		 mov	 rax, QWORD PTR tv193[rbp]
+  006fb	48 89 85 e8 07
+	00 00		 mov	 QWORD PTR tv446[rbp], rax
+  00702	48 8b 95 e8 07
+	00 00		 mov	 rdx, QWORD PTR tv446[rbp]
+  00709	48 8b 8d f8 01
 	00 00		 mov	 rcx, QWORD PTR iter$22[rbp]
-  00713	e8 00 00 00 00	 call	 ??4?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z
-  00718	90		 npad	 1
-  00719	48 8d 8d 68 07
+  00710	e8 00 00 00 00	 call	 ??4?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z
+  00715	90		 npad	 1
+  00716	48 8d 8d 68 07
 	00 00		 lea	 rcx, QWORD PTR $T42[rbp]
-  00720	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
+  0071d	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
 
 ; 158  : 
 ; 159  : 				//기존 스킬볼 지웠을때 예약스킬볼에 존재하면 앞에꺼 꺼냄
 ; 160  : 				if (!m_pReserveSkills.empty())
 
-  00725	48 8b 85 20 08
+  00722	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0072c	48 83 c0 40	 add	 rax, 64			; 00000040H
-  00730	48 8b c8	 mov	 rcx, rax
-  00733	e8 00 00 00 00	 call	 ?empty@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEBA_NXZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::empty
-  00738	0f b6 c0	 movzx	 eax, al
-  0073b	85 c0		 test	 eax, eax
-  0073d	75 6e		 jne	 SHORT $LN28@UseSkill
+  00729	48 83 c0 40	 add	 rax, 64			; 00000040H
+  0072d	48 8b c8	 mov	 rcx, rax
+  00730	e8 00 00 00 00	 call	 ?empty@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEBA_NXZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::empty
+  00735	0f b6 c0	 movzx	 eax, al
+  00738	85 c0		 test	 eax, eax
+  0073a	75 6e		 jne	 SHORT $LN28@UseSkill
 
 ; 161  : 				{
 ; 162  : 					CSkillBase* pSkill = m_pReserveSkills.front();
 
-  0073f	48 8b 85 20 08
+  0073c	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00746	48 83 c0 40	 add	 rax, 64			; 00000040H
-  0074a	48 8b c8	 mov	 rcx, rax
-  0074d	e8 00 00 00 00	 call	 ?front@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@XZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::front
-  00752	48 8b 00	 mov	 rax, QWORD PTR [rax]
-  00755	48 89 85 48 02
+  00743	48 83 c0 40	 add	 rax, 64			; 00000040H
+  00747	48 8b c8	 mov	 rcx, rax
+  0074a	e8 00 00 00 00	 call	 ?front@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@XZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::front
+  0074f	48 8b 00	 mov	 rax, QWORD PTR [rax]
+  00752	48 89 85 48 02
 	00 00		 mov	 QWORD PTR pSkill$24[rbp], rax
 
 ; 163  : 					pSkill->SetRender(true);
 
-  0075c	b2 01		 mov	 dl, 1
-  0075e	48 8b 8d 48 02
+  00759	b2 01		 mov	 dl, 1
+  0075b	48 8b 8d 48 02
 	00 00		 mov	 rcx, QWORD PTR pSkill$24[rbp]
-  00765	e8 00 00 00 00	 call	 ?SetRender@CSkillBase@Client@@QEAAX_N@Z ; Client::CSkillBase::SetRender
+  00762	e8 00 00 00 00	 call	 ?SetRender@CSkillBase@Client@@QEAAX_N@Z ; Client::CSkillBase::SetRender
 
 ; 164  : 					m_pSkills.push_back(pSkill);
 
-  0076a	48 8b 85 20 08
+  00767	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00771	48 83 c0 20	 add	 rax, 32			; 00000020H
-  00775	48 8d 95 48 02
+  0076e	48 83 c0 20	 add	 rax, 32			; 00000020H
+  00772	48 8d 95 48 02
 	00 00		 lea	 rdx, QWORD PTR pSkill$24[rbp]
-  0077c	48 8b c8	 mov	 rcx, rax
-  0077f	e8 00 00 00 00	 call	 ?push_back@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAXAEBQEAVCSkillBase@Client@@@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::push_back
+  00779	48 8b c8	 mov	 rcx, rax
+  0077c	e8 00 00 00 00	 call	 ?push_back@?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAXAEBQEAVCSkillBase@Client@@@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::push_back
 
 ; 165  : 					m_pReserveSkills.pop();
 
-  00784	48 8b 85 20 08
+  00781	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0078b	48 83 c0 40	 add	 rax, 64			; 00000040H
-  0078f	48 8b c8	 mov	 rcx, rax
-  00792	e8 00 00 00 00	 call	 ?pop@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAXXZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::pop
+  00788	48 83 c0 40	 add	 rax, 64			; 00000040H
+  0078c	48 8b c8	 mov	 rcx, rax
+  0078f	e8 00 00 00 00	 call	 ?pop@?$queue@PEAVCSkillBase@Client@@V?$deque@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAAXXZ ; std::queue<Client::CSkillBase * __ptr64,std::deque<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> > >::pop
 
 ; 166  : 					m_iSkillCount++;
 
-  00797	48 8b 85 20 08
+  00794	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0079e	8b 40 1c	 mov	 eax, DWORD PTR [rax+28]
-  007a1	ff c0		 inc	 eax
-  007a3	48 8b 8d 20 08
+  0079b	8b 40 1c	 mov	 eax, DWORD PTR [rax+28]
+  0079e	ff c0		 inc	 eax
+  007a0	48 8b 8d 20 08
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  007aa	89 41 1c	 mov	 DWORD PTR [rcx+28], eax
+  007a7	89 41 1c	 mov	 DWORD PTR [rcx+28], eax
 $LN28@UseSkill:
 
 ; 167  : 				}
 ; 168  : 
 ; 169  : 				i++;
 
-  007ad	8b 85 b4 01 00
+  007aa	8b 85 b4 01 00
 	00		 mov	 eax, DWORD PTR i$20[rbp]
-  007b3	ff c0		 inc	 eax
-  007b5	89 85 b4 01 00
+  007b0	ff c0		 inc	 eax
+  007b2	89 85 b4 01 00
 	00		 mov	 DWORD PTR i$20[rbp], eax
 
 ; 170  : 			}
 ; 171  : 			else
 
-  007bb	eb 30		 jmp	 SHORT $LN27@UseSkill
+  007b8	eb 30		 jmp	 SHORT $LN27@UseSkill
 $LN26@UseSkill:
 
 ; 172  : 			{
 ; 173  : 				iter++;
 
-  007bd	45 33 c0	 xor	 r8d, r8d
-  007c0	48 8d 95 98 07
+  007ba	45 33 c0	 xor	 r8d, r8d
+  007bd	48 8d 95 98 07
 	00 00		 lea	 rdx, QWORD PTR $T43[rbp]
-  007c7	48 8b 8d f8 01
+  007c4	48 8b 8d f8 01
 	00 00		 mov	 rcx, QWORD PTR iter$22[rbp]
-  007ce	e8 00 00 00 00	 call	 ??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA?AV01@H@Z ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Client::CSkillBase * __ptr64> > >::operator++
-  007d3	48 8d 8d 98 07
+  007cb	e8 00 00 00 00	 call	 ??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA?AV01@H@Z ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Client::CSkillBase * __ptr64> > >::operator++
+  007d0	48 8d 8d 98 07
 	00 00		 lea	 rcx, QWORD PTR $T43[rbp]
-  007da	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
+  007d7	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
 
 ; 174  : 				i++;
 
-  007df	8b 85 b4 01 00
+  007dc	8b 85 b4 01 00
 	00		 mov	 eax, DWORD PTR i$20[rbp]
-  007e5	ff c0		 inc	 eax
-  007e7	89 85 b4 01 00
+  007e2	ff c0		 inc	 eax
+  007e4	89 85 b4 01 00
 	00		 mov	 DWORD PTR i$20[rbp], eax
 $LN27@UseSkill:
 
 ; 175  : 			}
 
-  007ed	e9 da fd ff ff	 jmp	 $LN8@UseSkill
+  007ea	e9 db fd ff ff	 jmp	 $LN8@UseSkill
 $LN9@UseSkill:
 
 ; 176  : 		}
 
-  007f2	48 8d 8d 18 02
+  007ef	48 8d 8d 18 02
 	00 00		 lea	 rcx, QWORD PTR $S3$23[rbp]
-  007f9	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
+  007f6	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSkillBase@Client@@@std@@@std@@@std@@QEAA@XZ
 $LN16@UseSkill:
 
 ; 177  : 	}
 ; 178  : 
 ; 179  : 	for (_uint i = 0; i < m_iSkillCount; ++i)
 
-  007fe	c7 85 64 02 00
+  007fb	c7 85 64 02 00
 	00 00 00 00 00	 mov	 DWORD PTR i$25[rbp], 0
-  00808	eb 0e		 jmp	 SHORT $LN13@UseSkill
+  00805	eb 0e		 jmp	 SHORT $LN13@UseSkill
 $LN11@UseSkill:
-  0080a	8b 85 64 02 00
+  00807	8b 85 64 02 00
 	00		 mov	 eax, DWORD PTR i$25[rbp]
-  00810	ff c0		 inc	 eax
-  00812	89 85 64 02 00
+  0080d	ff c0		 inc	 eax
+  0080f	89 85 64 02 00
 	00		 mov	 DWORD PTR i$25[rbp], eax
 $LN13@UseSkill:
-  00818	48 8b 85 20 08
+  00815	48 8b 85 20 08
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0081f	8b 40 1c	 mov	 eax, DWORD PTR [rax+28]
-  00822	39 85 64 02 00
+  0081c	8b 40 1c	 mov	 eax, DWORD PTR [rax+28]
+  0081f	39 85 64 02 00
 	00		 cmp	 DWORD PTR i$25[rbp], eax
-  00828	73 28		 jae	 SHORT $LN12@UseSkill
+  00825	73 28		 jae	 SHORT $LN12@UseSkill
 
 ; 180  : 		m_pSkills[i]->SetIndex(i);
 
-  0082a	8b 85 64 02 00
+  00827	8b 85 64 02 00
 	00		 mov	 eax, DWORD PTR i$25[rbp]
-  00830	48 8b 8d 20 08
+  0082d	48 8b 8d 20 08
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00837	48 83 c1 20	 add	 rcx, 32			; 00000020H
-  0083b	8b d0		 mov	 edx, eax
-  0083d	e8 00 00 00 00	 call	 ??A?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@_K@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::operator[]
-  00842	8b 95 64 02 00
+  00834	48 83 c1 20	 add	 rcx, 32			; 00000020H
+  00838	8b d0		 mov	 edx, eax
+  0083a	e8 00 00 00 00	 call	 ??A?$vector@PEAVCSkillBase@Client@@V?$allocator@PEAVCSkillBase@Client@@@std@@@std@@QEAAAEAPEAVCSkillBase@Client@@_K@Z ; std::vector<Client::CSkillBase * __ptr64,std::allocator<Client::CSkillBase * __ptr64> >::operator[]
+  0083f	8b 95 64 02 00
 	00		 mov	 edx, DWORD PTR i$25[rbp]
-  00848	48 8b 08	 mov	 rcx, QWORD PTR [rax]
-  0084b	e8 00 00 00 00	 call	 ?SetIndex@CSkillBase@Client@@QEAAXI@Z ; Client::CSkillBase::SetIndex
-  00850	eb b8		 jmp	 SHORT $LN11@UseSkill
+  00845	48 8b 08	 mov	 rcx, QWORD PTR [rax]
+  00848	e8 00 00 00 00	 call	 ?SetIndex@CSkillBase@Client@@QEAAXI@Z ; Client::CSkillBase::SetIndex
+  0084d	eb b8		 jmp	 SHORT $LN11@UseSkill
 $LN12@UseSkill:
 
 ; 181  : 
 ; 182  : 	SkillInfo.iChainCount = ChainData.iChainCount;
 
-  00852	8b 45 48	 mov	 eax, DWORD PTR ChainData$[rbp]
-  00855	89 45 28	 mov	 DWORD PTR SkillInfo$[rbp], eax
+  0084f	8b 45 48	 mov	 eax, DWORD PTR ChainData$[rbp]
+  00852	89 45 28	 mov	 DWORD PTR SkillInfo$[rbp], eax
 
 ; 183  : 	return SkillInfo;
 
-  00858	48 8b 85 28 08
+  00855	48 8b 85 28 08
 	00 00		 mov	 rax, QWORD PTR __$ReturnUdt$[rbp]
-  0085f	48 8b 4d 28	 mov	 rcx, QWORD PTR SkillInfo$[rbp]
-  00863	48 89 08	 mov	 QWORD PTR [rax], rcx
-  00866	48 8b 85 28 08
+  0085c	48 8b 4d 28	 mov	 rcx, QWORD PTR SkillInfo$[rbp]
+  00860	48 89 08	 mov	 QWORD PTR [rax], rcx
+  00863	48 8b 85 28 08
 	00 00		 mov	 rax, QWORD PTR __$ReturnUdt$[rbp]
 $LN1@UseSkill:
 
 ; 184  : }
 
-  0086d	48 8b f8	 mov	 rdi, rax
-  00870	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  00874	48 8d 15 00 00
+  0086a	48 8b f8	 mov	 rdi, rax
+  0086d	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  00871	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z$rtcFrameData
-  0087b	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  00880	48 8b c7	 mov	 rax, rdi
-  00883	48 8b 8d f0 07
+  00878	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  0087d	48 8b c7	 mov	 rax, rdi
+  00880	48 8b 8d f0 07
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  0088a	48 33 cd	 xor	 rcx, rbp
-  0088d	e8 00 00 00 00	 call	 __security_check_cookie
-  00892	48 8d a5 08 08
+  00887	48 33 cd	 xor	 rcx, rbp
+  0088a	e8 00 00 00 00	 call	 __security_check_cookie
+  0088f	48 8d a5 08 08
 	00 00		 lea	 rsp, QWORD PTR [rbp+2056]
-  00899	5f		 pop	 rdi
-  0089a	5d		 pop	 rbp
-  0089b	c3		 ret	 0
+  00896	5f		 pop	 rdi
+  00897	5d		 pop	 rbp
+  00898	c3		 ret	 0
 ?UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z ENDP ; Client::CSkillBallSystem::UseSkill
 _TEXT	ENDS
 ;	COMDAT text$x
@@ -24353,21 +24365,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -24424,21 +24436,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -24495,21 +24507,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -24566,21 +24578,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -24637,21 +24649,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -24708,21 +24720,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -24779,21 +24791,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -24850,21 +24862,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -24921,21 +24933,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -24996,21 +25008,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -25071,21 +25083,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -25146,21 +25158,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -25221,21 +25233,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -25296,21 +25308,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -25371,21 +25383,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -25446,21 +25458,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -25521,21 +25533,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -25596,21 +25608,21 @@ $T41 = 1864
 $T42 = 1896
 $T43 = 1944
 $T44 = 1992
-tv456 = 2008
-tv448 = 2008
-tv440 = 2008
-tv333 = 2008
-tv205 = 2008
+tv444 = 2008
+tv436 = 2008
+tv428 = 2008
+tv325 = 2008
+tv201 = 2008
 tv79 = 2008
-tv454 = 2016
-tv446 = 2016
-tv438 = 2016
-tv421 = 2016
-tv325 = 2016
-tv197 = 2016
-tv458 = 2024
-tv450 = 2024
-tv442 = 2024
+tv442 = 2016
+tv434 = 2016
+tv426 = 2016
+tv409 = 2016
+tv317 = 2016
+tv193 = 2016
+tv446 = 2024
+tv438 = 2024
+tv430 = 2024
 __$ArrayPad$ = 2032
 this$ = 2080
 __$ReturnUdt$ = 2088
@@ -25632,7 +25644,7 @@ iIndex$ = 2096
 ?dtor$13@?0??UseSkill@CSkillBallSystem@Client@@QEAA?AUtagSkillInfo@CSkillBase@2@I@Z@4HA ENDP ; `Client::CSkillBallSystem::UseSkill'::`1'::dtor$13
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 ;	COMDAT ?PushSkill@CSkillBallSystem@Client@@QEAAJPEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@CSkillBase@2@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -26052,7 +26064,7 @@ eType$ = 712
 ?dtor$2@?0??PushSkill@CSkillBallSystem@Client@@QEAAJPEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@CSkillBase@2@@Z@4HA ENDP ; `Client::CSkillBallSystem::PushSkill'::`1'::dtor$2
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 ;	COMDAT ?PushReadyTimer@CSkillBallSystem@Client@@QEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -26140,7 +26152,7 @@ $LN1@PushReadyT:
 ?PushReadyTimer@CSkillBallSystem@Client@@QEAAXN@Z ENDP	; Client::CSkillBallSystem::PushReadyTimer
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 ;	COMDAT ?Clear@CSkillBallSystem@Client@@QEAAXXZ
 _TEXT	SEGMENT
 <range>$L0$5 = 8
@@ -26406,7 +26418,7 @@ this$ = 448
 ?dtor$1@?0??Clear@CSkillBallSystem@Client@@QEAAXXZ@4HA ENDP ; `Client::CSkillBallSystem::Clear'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 ;	COMDAT ??1CSkillBallSystem@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -26449,9 +26461,9 @@ $LN3:
 ??1CSkillBallSystem@Client@@EEAA@XZ ENDP		; Client::CSkillBallSystem::~CSkillBallSystem
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\skillballsystem.cpp
-; File c:\github\framework\client\public\skillballsystem.h
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\public\skillballsystem.h
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 ;	COMDAT ??0CSkillBallSystem@Client@@AEAA@XZ
 _TEXT	SEGMENT
 $T1 = 200
@@ -26489,7 +26501,7 @@ $LN6:
   00054	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0005b	c6 40 10 01	 mov	 BYTE PTR [rax+16], 1
-; File c:\github\framework\client\public\skillballsystem.h
+; File c:\users\arcco\documents\github\framework\client\public\skillballsystem.h
 
 ; 39   : 	_float m_fReadyTimer = 0.0f;
 
@@ -26513,7 +26525,7 @@ $LN6:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00089	c7 40 1c 00 00
 	00 00		 mov	 DWORD PTR [rax+28], 0
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 
 ; 6    : IMPLEMENT_SINGLETON(CSkillBallSystem)
 
@@ -26622,7 +26634,7 @@ this$ = 256
 ?dtor$1@?0???0CSkillBallSystem@Client@@AEAA@XZ@4HA ENDP	; `Client::CSkillBallSystem::CSkillBallSystem'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 ;	COMDAT ?DestroyInstance@CSkillBallSystem@Client@@SAKXZ
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -26666,7 +26678,7 @@ $LN2@DestroyIns:
 ?DestroyInstance@CSkillBallSystem@Client@@SAKXZ ENDP	; Client::CSkillBallSystem::DestroyInstance
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 ;	COMDAT ?GetInstance@CSkillBallSystem@Client@@SAPEAV12@XZ
 _TEXT	SEGMENT
 $T1 = 200
@@ -26696,7 +26708,7 @@ $LN7:
   00033	41 b9 06 00 00
 	00		 mov	 r9d, 6
   00039	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DH@JIFGBDIC@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EN@DJIHIPPE@c?3?2users?2arcco?2documents?2github?2@
   00040	ba 01 00 00 00	 mov	 edx, 1
   00045	b9 68 00 00 00	 mov	 ecx, 104		; 00000068H
   0004a	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -26750,7 +26762,7 @@ tv81 = 280
   00014	41 b9 06 00 00
 	00		 mov	 r9d, 6
   0001a	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DH@JIFGBDIC@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EN@DJIHIPPE@c?3?2users?2arcco?2documents?2github?2@
   00021	ba 01 00 00 00	 mov	 edx, 1
   00026	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
@@ -26778,7 +26790,7 @@ tv81 = 280
   00014	41 b9 06 00 00
 	00		 mov	 r9d, 6
   0001a	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DH@JIFGBDIC@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EN@DJIHIPPE@c?3?2users?2arcco?2documents?2github?2@
   00021	ba 01 00 00 00	 mov	 edx, 1
   00026	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
@@ -26790,13 +26802,13 @@ tv81 = 280
 ?dtor$0@?0??GetInstance@CSkillBallSystem@Client@@SAPEAV12@XZ@4HA ENDP ; `Client::CSkillBallSystem::GetInstance'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\public\skillbase.h
+; File c:\users\arcco\documents\github\framework\client\public\skillbase.h
 ;	COMDAT ?GetSkillType@CSkillBase@Client@@QEBA?AW4TYPE@12@XZ
 _TEXT	SEGMENT
 this$ = 224
 ?GetSkillType@CSkillBase@Client@@QEBA?AW4TYPE@12@XZ PROC ; Client::CSkillBase::GetSkillType, COMDAT
 
-; 53   : 	TYPE GetSkillType() const { return m_eType; }
+; 54   : 	TYPE GetSkillType() const { return m_eType; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -26813,8 +26825,8 @@ $LN3:
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
   00028	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0002f	8b 80 00 02 00
-	00		 mov	 eax, DWORD PTR [rax+512]
+  0002f	8b 80 64 02 00
+	00		 mov	 eax, DWORD PTR [rax+612]
   00035	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
   0003c	5f		 pop	 rdi
@@ -26823,7 +26835,7 @@ $LN3:
 ?GetSkillType@CSkillBase@Client@@QEBA?AW4TYPE@12@XZ ENDP ; Client::CSkillBase::GetSkillType
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\public\skillbase.h
+; File c:\users\arcco\documents\github\framework\client\public\skillbase.h
 ;	COMDAT ?IsSameType@CSkillBase@Client@@QEAA_NW4TYPE@12@@Z
 _TEXT	SEGMENT
 tv66 = 192
@@ -26831,7 +26843,7 @@ this$ = 240
 eType$ = 248
 ?IsSameType@CSkillBase@Client@@QEAA_NW4TYPE@12@@Z PROC	; Client::CSkillBase::IsSameType, COMDAT
 
-; 52   : 	_bool IsSameType(TYPE eType) { return m_eType == eType; }
+; 53   : 	_bool IsSameType(TYPE eType) { return m_eType == eType; }
 
 $LN5:
   00000	89 54 24 10	 mov	 DWORD PTR [rsp+16], edx
@@ -26851,8 +26863,8 @@ $LN5:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00033	8b 8d f8 00 00
 	00		 mov	 ecx, DWORD PTR eType$[rbp]
-  00039	39 88 00 02 00
-	00		 cmp	 DWORD PTR [rax+512], ecx
+  00039	39 88 64 02 00
+	00		 cmp	 DWORD PTR [rax+612], ecx
   0003f	75 0c		 jne	 SHORT $LN3@IsSameType
   00041	c7 85 c0 00 00
 	00 01 00 00 00	 mov	 DWORD PTR tv66[rbp], 1
@@ -26871,7 +26883,40 @@ $LN4@IsSameType:
 ?IsSameType@CSkillBase@Client@@QEAA_NW4TYPE@12@@Z ENDP	; Client::CSkillBase::IsSameType
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\public\skillbase.h
+; File c:\users\arcco\documents\github\framework\client\public\skillbase.h
+;	COMDAT ?SetDestroyWait@CSkillBase@Client@@QEAAXXZ
+_TEXT	SEGMENT
+this$ = 224
+?SetDestroyWait@CSkillBase@Client@@QEAAXXZ PROC		; Client::CSkillBase::SetDestroyWait, COMDAT
+
+; 50   : 	void SetDestroyWait() { m_isDestroyWait = true; }
+
+$LN3:
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	55		 push	 rbp
+  00006	57		 push	 rdi
+  00007	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  0000e	48 8b ec	 mov	 rbp, rsp
+  00011	48 8b fc	 mov	 rdi, rsp
+  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  0001e	f3 ab		 rep stosd
+  00020	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+  00028	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0002f	c6 80 68 02 00
+	00 01		 mov	 BYTE PTR [rax+616], 1
+  00036	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  0003d	5f		 pop	 rdi
+  0003e	5d		 pop	 rbp
+  0003f	c3		 ret	 0
+?SetDestroyWait@CSkillBase@Client@@QEAAXXZ ENDP		; Client::CSkillBase::SetDestroyWait
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\users\arcco\documents\github\framework\client\public\skillbase.h
 ;	COMDAT ?SetRender@CSkillBase@Client@@QEAAX_N@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -26898,8 +26943,8 @@ $LN3:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00033	0f b6 8d e8 00
 	00 00		 movzx	 ecx, BYTE PTR value$[rbp]
-  0003a	88 88 f0 01 00
-	00		 mov	 BYTE PTR [rax+496], cl
+  0003a	88 88 50 02 00
+	00		 mov	 BYTE PTR [rax+592], cl
   00040	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
   00047	5f		 pop	 rdi
@@ -26908,7 +26953,7 @@ $LN3:
 ?SetRender@CSkillBase@Client@@QEAAX_N@Z ENDP		; Client::CSkillBase::SetRender
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\public\skillbase.h
+; File c:\users\arcco\documents\github\framework\client\public\skillbase.h
 ;	COMDAT ?GetSkillID@CSkillBase@Client@@SAIXZ
 _TEXT	SEGMENT
 ?GetSkillID@CSkillBase@Client@@SAIXZ PROC		; Client::CSkillBase::GetSkillID, COMDAT
@@ -33178,7 +33223,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -33207,7 +33252,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\skillballsystem.cpp
+; File c:\users\arcco\documents\github\framework\client\private\skillballsystem.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

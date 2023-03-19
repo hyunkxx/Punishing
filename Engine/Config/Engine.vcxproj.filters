@@ -112,6 +112,9 @@
     <Filter Include="utility\03. Components\08. Collider">
       <UniqueIdentifier>{5bef3340-4347-4dd9-ac3d-09ad0b872b66}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utility\06. Font">
+      <UniqueIdentifier>{088b4236-0a1c-4f04-b9e2-57d1e81c67a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\private\Base.cpp">
@@ -224,6 +227,12 @@
     </ClCompile>
     <ClCompile Include="..\Private\OBBCollider.cpp">
       <Filter>utility\03. Components\08. Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Font_Manager.cpp">
+      <Filter>utility\06. Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\CustomFont.cpp">
+      <Filter>utility\06. Font</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -349,6 +358,12 @@
     </ClInclude>
     <ClInclude Include="..\public\GameInstance.h">
       <Filter>utility\00. GameInstance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Font_Manager.h">
+      <Filter>utility\06. Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\CustomFont.h">
+      <Filter>utility\06. Font</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -88,11 +88,12 @@ void CCamera::Shake(_double TimeDelta)
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	_vector vCamPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
-	vCamPos = XMVectorSetX(vCamPos, XMVectorGetX(vCamPos) + sin(m_fPower * m_fShakeTimer) * powf(0.1f, m_fShakeTimer));
-	vCamPos = XMVectorSetY(vCamPos, 1.8f + sin(m_fPower * m_fShakeTimer) * powf(0.1f, m_fShakeTimer));
+	_vector vCamRight = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_RIGHT));
+
+	vCamPos = XMVectorSetY(vCamPos, 1.8f + sin(m_fPower * m_fShakeTimer) * powf(0.2f, m_fShakeTimer));
 	m_pTransform->Set_State(CTransform::STATE_POSITION, vCamPos);
 	
-	m_fShakeTimer += TimeDelta * 4.f;
+	m_fShakeTimer += TimeDelta * 15.f;
 	if (m_fShakeTimer >= m_fShakeTimeOut)
 	{
 		m_bShake = false;

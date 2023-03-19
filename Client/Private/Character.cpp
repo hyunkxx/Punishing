@@ -10,7 +10,11 @@
 #include "Wall.h"
 
 #include "SkillBallSystem.h"
+
+#include "PlayerCamera.h"
+#include "PlayerHealthBar.h"
 #include "EnemyHealthBar.h"
+#include "Layer.h"
 
 //Bip001?(리얼 루트본) Bip001Pelvis (척추) R3KalieninaMd010031 (000)
 CCharacter::CCharacter(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
@@ -61,6 +65,11 @@ HRESULT CCharacter::Initialize(void* pArg)
 	ZeroMemory(&SkillInfo, sizeof CSkillBase::SKILL_INFO);
 	SkillInfo.eType = CSkillBase::TYPE::INVALID;
 
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	if(nullptr == (m_pHealthBar = (CPlayerHealthBar*)pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_playerhp", L"layer_ui", L"playerhp")))
+		return E_FAIL;
+
 	return S_OK;
 }
 
@@ -106,6 +115,7 @@ void CCharacter::Tick(_double TimeDelta)
 
 	CameraSocketUpdate();
 	TargetListDeastroyCehck();
+	m_pHealthBar->SetHealth(m_fCurHp, m_fMaxHp);
 }
 
 void CCharacter::LateTick(_double TimeDelta)
@@ -272,8 +282,8 @@ HRESULT CCharacter::AddComponents()
 	//collDesc.vExtents = _float3(2.5f, 1.f, 1.f);
 	//collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
-	collDesc.vCenter = _float3(0.8f, 0.f, 0.f);
-	collDesc.vExtents = _float3(1.5f, 0.3f, 0.3f);
+	collDesc.vCenter = _float3(1.0f, 0.f, 0.f);
+	collDesc.vExtents = _float3(1.0f, 0.5, 0.5f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"), TEXT("com_collider_weapon"), (CComponent**)&mWeaponCollider, &collDesc)))
@@ -511,7 +521,7 @@ void CCharacter::KeyInput(_double TimeDelta)
 			default:
 				break;
 			}
-		}
+		} 
 	}
 
 	if (pGameInstance->Input_KeyState_Custom(DIK_E) == KEY_STATE::TAP)
@@ -798,15 +808,17 @@ void CCharacter::Attack(_double TimeDelta)
 	if (m_bAttacking)
 	{
 		mWeaponCollider->SetActive(true);
-	}
-
-	if ((m_bAttacking) && mModel->AnimationIsPreFinishCustom(0.4))
-	{
-		mWeaponCollider->SetActive(false);
+		if (mModel->AnimationIsPreFinishCustom(0.4))
+		{
+			m_bHitColliderCheck = true;
+			mWeaponCollider->SetActive(false);
+		}
 	}
 
 	if (pGameInstance->Input_KeyState_Custom(DIK_LCONTROL) == KEY_STATE::TAP)
 	{
+		m_bHitColliderCheck = false;
+
 		if (m_pNearEnemy)
 			mTransform->LookAt(XMLoadFloat4(&m_pNearEnemy->GetPosition()));
 
@@ -982,6 +994,8 @@ void CCharacter::SkillB(_double TimeDelta)
 	m_bDashable = false;
 	m_bSkillReady = false;
 
+	mSkillCollider->HitColliderReset();
+
 	SetAnimation(CLIP::ATTACK21, CAnimation::TYPE::ONE);
 
 }
@@ -1047,10 +1061,11 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 	{
 		if (!m_bSkillYellowAttack && m_pNearEnemy)
 		{
-			if (mModel->AnimationIsPreFinishCustom(0.7))
+			if (mModel->AnimationIsPreFinishCustom(0.5))
 			{
 				m_bSkillYellowAttack = true;
 				m_pNearEnemy->RecvDamage(GetDamage());
+				m_pCamera->AttackShake();
 			}
 		}
 
@@ -1070,6 +1085,7 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 			m_bAttackable = true;
 			m_bMoveable = true;
 			m_bDashable = true;
+			m_bRootMotion = true;
 
 			//몬스터 잡기 끝
 			m_bEnemyHolding = false;
@@ -1273,6 +1289,7 @@ void CCharacter::Hit()
 	m_bMoveable = false;
 	m_bDashable = false;
 	m_bAttackable = false;
+	mWeaponCollider->SetActive(false);
 
 	if (!mModel->AnimationCompare(CLIP::HIT1))
 	{
@@ -1284,7 +1301,10 @@ void CCharacter::RecvDamage(_float fDamage)
 {
 	m_fCurHp -= fDamage;
 	if (m_fCurHp <= 0.f)
+	{
+		m_fCurHp = 0.f;
 		m_bDie = true;
+	}
 }
 
 _double CCharacter::Freeze(_double TimeDelta)
@@ -1410,17 +1430,10 @@ void CCharacter::AnimationControl(_double TimeDelta)
 	mModel->Setup_Animation(ANIM_DESC.Clip, ANIM_DESC.Type, true);
 
 	if (AnimationCompare(CLIP::RUN) ||
-		AnimationCompare(CLIP::ATTACK1) ||
 		AnimationCompare(CLIP::ATTACK2) ||
 		AnimationCompare(CLIP::ATTACK3) ||
 		AnimationCompare(CLIP::ATTACK4) ||
 		AnimationCompare(CLIP::ATTACK5) ||
-		AnimationCompare(CLIP::ATTACK11) ||
-		AnimationCompare(CLIP::ATTACK21) ||
-		AnimationCompare(CLIP::ATTACK31) ||
-		AnimationCompare(CLIP::ATTACK12) ||
-		AnimationCompare(CLIP::ATTACK22) ||
-		AnimationCompare(CLIP::ATTACK32) ||
 		AnimationCompare(CLIP::ATTACK41) ||
 		AnimationCompare(CLIP::ATTACK42) ||
 		AnimationCompare(CLIP::ATTACK43) ||
@@ -1428,6 +1441,26 @@ void CCharacter::AnimationControl(_double TimeDelta)
 		AnimationCompare(CLIP::ATTACK45))
 	{
 		mModel->Play_Animation(TimeDelta, mTransform, 0.03f, m_bRootMotion);
+	}
+	else if (AnimationCompare(CLIP::ATTACK1) || 
+		AnimationCompare(CLIP::ATTACK41) ||
+		AnimationCompare(CLIP::ATTACK11) ||
+		AnimationCompare(CLIP::ATTACK21) ||
+		AnimationCompare(CLIP::ATTACK31) ||
+		AnimationCompare(CLIP::ATTACK12) ||
+		AnimationCompare(CLIP::ATTACK22) ||
+		AnimationCompare(CLIP::ATTACK32))
+	{
+		if (m_bEnemyHolding && !m_bSkillYellowAttack)
+		{
+			m_bRootMotion = false;
+			mTransform->MoveForward(TimeDelta * 0.65f);
+		}
+
+		if (AnimationCompare(CLIP::STAND2))
+			mModel->Play_Animation(TimeDelta, mTransform, 0.01f, m_bRootMotion);
+		else
+			mModel->Play_Animation(TimeDelta, mTransform, 0.2f, m_bRootMotion);
 	}
 	else
 		mModel->Play_Animation(TimeDelta, mTransform);
@@ -1564,6 +1597,15 @@ void CCharacter::Movement(_double TimeDelta)
 	else
 	{
 		FinishCheckPlay(CLIP::RUN_START, CAnimation::TYPE::ONE);
+	}
+}
+
+void CCharacter::LookPos(_fvector vLookPos)
+{	
+	if (!m_bHit && !m_bEvolution && !m_bUseSkill)
+	{
+		if(!mModel->AnimationCompare(CLIP::HIT1))
+			mTransform->LookAt(vLookPos);
 	}
 }
 
@@ -1747,10 +1789,13 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 	if (src->Compare(mWeaponCollider))
 	{
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
-		if (pEnemy && dest->Compare(pEnemy->GetBodyCollider()))
+		if (pEnemy && dest->Compare(pEnemy->GetOverlapCollider()))
 		{
 			m_bEnemyHealthDraw = true;
 			m_fDrawEnemyHealthTimer = 0.0f;
+
+			if (pEnemy == m_pNearEnemy)
+				m_pCamera->AttackShake();
 		}
 	}
 
@@ -1762,6 +1807,9 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 			pEnemy->SetAirborne(GetDamage());
 			m_bEnemyHealthDraw = true;
 			m_fDrawEnemyHealthTimer = 0.0f;
+
+			if(pEnemy == m_pNearEnemy)
+				m_pCamera->AttackShake();
 		}
 	}
 }

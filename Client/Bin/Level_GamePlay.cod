@@ -2409,7 +2409,9 @@ PUBLIC	?end@?$list@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$alloc
 PUBLIC	?begin@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::begin
 PUBLIC	?end@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::end
 PUBLIC	??0tagCameraDesc@CCamera@Engine@@QEAA@XZ	; Engine::CCamera::tagCameraDesc::tagCameraDesc
+PUBLIC	?SetPlayerCamera@CCharacter@Client@@QEAAXPEAVCPlayerCamera@2@@Z ; Client::CCharacter::SetPlayerCamera
 PUBLIC	?SetHealthUI@CCharacter@Client@@QEAAXPEAVCEnemyHealthBar@2@@Z ; Client::CCharacter::SetHealthUI
+PUBLIC	?ClearEnemyCheckCollider@CCharacter@Client@@QEAAXXZ ; Client::CCharacter::ClearEnemyCheckCollider
 PUBLIC	??0?$_Iterator012@Ubidirectional_iterator_tag@std@@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@2@_JPEBU32@AEBU32@U_Iterator_base12@2@@std@@QEAA@XZ ; std::_Iterator012<std::bidirectional_iterator_tag,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64>,__int64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const * __ptr64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const & __ptr64,std::_Iterator_base12>::_Iterator012<std::bidirectional_iterator_tag,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64>,__int64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const * __ptr64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const & __ptr64,std::_Iterator_base12>
 PUBLIC	??1?$_Iterator012@Ubidirectional_iterator_tag@std@@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@2@_JPEBU32@AEBU32@U_Iterator_base12@2@@std@@QEAA@XZ ; std::_Iterator012<std::bidirectional_iterator_tag,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64>,__int64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const * __ptr64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const & __ptr64,std::_Iterator_base12>::~_Iterator012<std::bidirectional_iterator_tag,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64>,__int64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const * __ptr64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const & __ptr64,std::_Iterator_base12>
 PUBLIC	??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@U_Iterator_base12@2@@std@@QEAA@PEAU?$_List_node@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@PEAX@1@PEBV?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@1@@Z ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > >,std::_Iterator_base12>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > >,std::_Iterator_base12>
@@ -2582,7 +2584,7 @@ PUBLIC	??_C@_1FM@JOEFOHML@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAC?$AAo?$AAl?$A
 PUBLIC	??_C@_1M@IBMBFLIE@?$AAw?$AAa?$AAl?$AAl?$AA_?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BO@LDNAOHLB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAw?$AAa?$AAl?$AAl?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z@4JA ; `Client::CLevel_GamePlay::Ready_Layer_Camera'::`1'::__LINE__Var
-PUBLIC	??_C@_1GM@NOPMCMLF@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@ ; `string'
+PUBLIC	??_C@_1JI@BMGMJGOL@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@ ; `string'
 PUBLIC	??_C@_1BA@DNCJICGL@?$AAm?$AAP?$AAl?$AAa?$AAy?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BM@KDGIOOAK@?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DA@CMIPDJDG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@ ; `string'
@@ -2600,7 +2602,7 @@ PUBLIC	??_C@_1CM@PEFMEMHN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AA
 PUBLIC	??_C@_1BA@LPHFANFK@?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CE@NDNBHLHL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CLevel_GamePlay::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@ ; `string'
+PUBLIC	??_C@_0EM@HILOMDFC@c?3?2users?2arcco?2documents?2github?2@ ; `string'
 PUBLIC	??_C@_1EG@FDLBOJPL@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAe?$AAv?$AAe?$AAl?$AA_?$AAG?$AAa?$AAm?$AAe?$AAP?$AAl@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1IM@NCODKBJH@?$AAc?$AA?3?$AA?2?$AAp?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAf?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAm?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ ; `string'
@@ -2682,6 +2684,7 @@ EXTRN	?GetInstance@CSkillBallSystem@Client@@SAPEAV12@XZ:PROC ; Client::CSkillBal
 EXTRN	?Clear@CSkillBallSystem@Client@@QEAAXXZ:PROC	; Client::CSkillBallSystem::Clear
 EXTRN	?PushReadyTimer@CSkillBallSystem@Client@@QEAAXN@Z:PROC ; Client::CSkillBallSystem::PushReadyTimer
 EXTRN	?PushSkill@CSkillBallSystem@Client@@QEAAJPEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@CSkillBase@2@@Z:PROC ; Client::CSkillBallSystem::PushSkill
+EXTRN	__imp_?HitColliderReset@CCollider@Engine@@QEAAXXZ:PROC
 EXTRN	__imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ:PROC
 EXTRN	__imp_?Open_Level@CGameInstance@Engine@@QEAAJIPEAVCLevel@2@@Z:PROC
 EXTRN	__imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAX@Z:PROC
@@ -3328,7 +3331,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Tick@CLevel_GamePlay@Client@@UEAAXN@Z DD imagerel $LN19
-	DD	imagerel $LN19+736
+	DD	imagerel $LN19+752
 	DD	imagerel $unwind$?Tick@CLevel_GamePlay@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -3382,7 +3385,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z DD imagerel $LN6
-	DD	imagerel $LN6+516
+	DD	imagerel $LN6+551
 	DD	imagerel $unwind$?Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -3507,9 +3510,21 @@ $pdata$??0tagCameraDesc@CCamera@Engine@@QEAA@XZ DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$?SetPlayerCamera@CCharacter@Client@@QEAAXPEAVCPlayerCamera@2@@Z DD imagerel $LN3
+	DD	imagerel $LN3+76
+	DD	imagerel $unwind$?SetPlayerCamera@CCharacter@Client@@QEAAXPEAVCPlayerCamera@2@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$?SetHealthUI@CCharacter@Client@@QEAAXPEAVCEnemyHealthBar@2@@Z DD imagerel $LN3
 	DD	imagerel $LN3+76
 	DD	imagerel $unwind$?SetHealthUI@CCharacter@Client@@QEAAXPEAVCEnemyHealthBar@2@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?ClearEnemyCheckCollider@CCharacter@Client@@QEAAXXZ DD imagerel $LN3
+	DD	imagerel $LN3+72
+	DD	imagerel $unwind$?ClearEnemyCheckCollider@CCharacter@Client@@QEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -4800,14 +4815,15 @@ CONST	SEGMENT
 	DB	00H, 'a', 00H, 'm', 00H, 'e', 00H, 'P', 00H, 'l', 00H, 'a', 00H
 	DB	'y', 00H, 00H, 00H				; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@
+;	COMDAT ??_C@_0EM@HILOMDFC@c?3?2users?2arcco?2documents?2github?2@
 CONST	SEGMENT
-??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
-	DB	'ramework\client\private\level_gameplay.cpp', 00H ; `string'
+??_C@_0EM@HILOMDFC@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
+	DB	'rcco\documents\github\framework\client\private\level_gameplay'
+	DB	'.cpp', 00H					; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0f8H ; `Client::CLevel_GamePlay::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0fdH ; `Client::CLevel_GamePlay::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1CE@NDNBHLHL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@
 CONST	SEGMENT
@@ -4912,22 +4928,25 @@ CONST	SEGMENT
 	DB	'P', 00H, 'l', 00H, 'a', 00H, 'y', 00H, 'e', 00H, 'r', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1GM@NOPMCMLF@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@
+;	COMDAT ??_C@_1JI@BMGMJGOL@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@
 CONST	SEGMENT
-??_C@_1GM@NOPMCMLF@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@ DB 'c'
-	DB	00H, ':', 00H, '\', 00H, 'g', 00H, 'i', 00H, 't', 00H, 'h', 00H
-	DB	'u', 00H, 'b', 00H, '\', 00H, 'f', 00H, 'r', 00H, 'a', 00H, 'm'
-	DB	00H, 'e', 00H, 'w', 00H, 'o', 00H, 'r', 00H, 'k', 00H, '\', 00H
-	DB	'c', 00H, 'l', 00H, 'i', 00H, 'e', 00H, 'n', 00H, 't', 00H, '\'
-	DB	00H, 'p', 00H, 'r', 00H, 'i', 00H, 'v', 00H, 'a', 00H, 't', 00H
-	DB	'e', 00H, '\', 00H, 'l', 00H, 'e', 00H, 'v', 00H, 'e', 00H, 'l'
-	DB	00H, '_', 00H, 'g', 00H, 'a', 00H, 'm', 00H, 'e', 00H, 'p', 00H
-	DB	'l', 00H, 'a', 00H, 'y', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p'
-	DB	00H, 00H, 00H				; `string'
+??_C@_1JI@BMGMJGOL@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@ DB 'c'
+	DB	00H, ':', 00H, '\', 00H, 'u', 00H, 's', 00H, 'e', 00H, 'r', 00H
+	DB	's', 00H, '\', 00H, 'a', 00H, 'r', 00H, 'c', 00H, 'c', 00H, 'o'
+	DB	00H, '\', 00H, 'd', 00H, 'o', 00H, 'c', 00H, 'u', 00H, 'm', 00H
+	DB	'e', 00H, 'n', 00H, 't', 00H, 's', 00H, '\', 00H, 'g', 00H, 'i'
+	DB	00H, 't', 00H, 'h', 00H, 'u', 00H, 'b', 00H, '\', 00H, 'f', 00H
+	DB	'r', 00H, 'a', 00H, 'm', 00H, 'e', 00H, 'w', 00H, 'o', 00H, 'r'
+	DB	00H, 'k', 00H, '\', 00H, 'c', 00H, 'l', 00H, 'i', 00H, 'e', 00H
+	DB	'n', 00H, 't', 00H, '\', 00H, 'p', 00H, 'r', 00H, 'i', 00H, 'v'
+	DB	00H, 'a', 00H, 't', 00H, 'e', 00H, '\', 00H, 'l', 00H, 'e', 00H
+	DB	'v', 00H, 'e', 00H, 'l', 00H, '_', 00H, 'g', 00H, 'a', 00H, 'm'
+	DB	00H, 'e', 00H, 'p', 00H, 'l', 00H, 'a', 00H, 'y', 00H, '.', 00H
+	DB	'c', 00H, 'p', 00H, 'p', 00H, 00H, 00H	; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z@4JA DD 09cH ; `Client::CLevel_GamePlay::Ready_Layer_Camera'::`1'::__LINE__Var
+?__LINE__Var@?0??Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z@4JA DD 09eH ; `Client::CLevel_GamePlay::Ready_Layer_Camera'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1BO@LDNAOHLB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAw?$AAa?$AAl?$AAl?$AA?$AA@
 CONST	SEGMENT
@@ -6551,7 +6570,21 @@ $unwind$??0?$_Iterator012@Ubidirectional_iterator_tag@std@@U?$pair@$$CBV?$basic_
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
+$unwind$?ClearEnemyCheckCollider@CCharacter@Client@@QEAAXXZ DD 025052a01H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
 $unwind$?SetHealthUI@CCharacter@Client@@QEAAXPEAVCEnemyHealthBar@2@@Z DD 05052d01H
+	DD	01130316H
+	DD	0700c0019H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?SetPlayerCamera@CCharacter@Client@@QEAAXPEAVCPlayerCamera@2@@Z DD 05052d01H
 	DD	01130316H
 	DD	0700c0019H
 	DD	0500bH
@@ -6804,10 +6837,10 @@ xdata	ENDS
 xdata	SEGMENT
 $unwind$?Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z DD 035054019H
 	DD	01133318H
-	DD	0700c0049H
+	DD	0700c004dH
 	DD	0500bH
 	DD	imagerel __GSHandlerCheck
-	DD	0230H
+	DD	0250H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -11775,7 +11808,7 @@ $LN3:
 ?pointer_to@?$pointer_traits@PEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@SAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@2@AEAU32@@Z ENDP ; std::pointer_traits<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> * __ptr64>::pointer_to
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCLevel_GamePlay@Client@@@Engine@@YAKAEAPEAVCLevel_GamePlay@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -15332,14 +15365,49 @@ $LN4:
 ??0?$_Iterator012@Ubidirectional_iterator_tag@std@@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@2@_JPEBU32@AEBU32@U_Iterator_base12@2@@std@@QEAA@XZ ENDP ; std::_Iterator012<std::bidirectional_iterator_tag,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64>,__int64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const * __ptr64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const & __ptr64,std::_Iterator_base12>::_Iterator012<std::bidirectional_iterator_tag,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64>,__int64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const * __ptr64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const & __ptr64,std::_Iterator_base12>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\public\character.h
+; File c:\users\arcco\documents\github\framework\client\public\character.h
+;	COMDAT ?ClearEnemyCheckCollider@CCharacter@Client@@QEAAXXZ
+_TEXT	SEGMENT
+this$ = 224
+?ClearEnemyCheckCollider@CCharacter@Client@@QEAAXXZ PROC ; Client::CCharacter::ClearEnemyCheckCollider, COMDAT
+
+; 192  : 	void ClearEnemyCheckCollider() { mEnemyCheckCollider->HitColliderReset(); };
+
+$LN3:
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	55		 push	 rbp
+  00006	57		 push	 rdi
+  00007	48 81 ec e8 00
+	00 00		 sub	 rsp, 232		; 000000e8H
+  0000e	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
+  00013	48 8b fc	 mov	 rdi, rsp
+  00016	b9 3a 00 00 00	 mov	 ecx, 58			; 0000003aH
+  0001b	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00020	f3 ab		 rep stosd
+  00022	48 8b 8c 24 08
+	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
+  0002a	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00031	48 8b 88 c8 00
+	00 00		 mov	 rcx, QWORD PTR [rax+200]
+  00038	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?HitColliderReset@CCollider@Engine@@QEAAXXZ
+  0003e	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  00045	5f		 pop	 rdi
+  00046	5d		 pop	 rbp
+  00047	c3		 ret	 0
+?ClearEnemyCheckCollider@CCharacter@Client@@QEAAXXZ ENDP ; Client::CCharacter::ClearEnemyCheckCollider
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\users\arcco\documents\github\framework\client\public\character.h
 ;	COMDAT ?SetHealthUI@CCharacter@Client@@QEAAXPEAVCEnemyHealthBar@2@@Z
 _TEXT	SEGMENT
 this$ = 224
 value$ = 232
 ?SetHealthUI@CCharacter@Client@@QEAAXPEAVCEnemyHealthBar@2@@Z PROC ; Client::CCharacter::SetHealthUI, COMDAT
 
-; 153  : 	void SetHealthUI(class CEnemyHealthBar* value) { m_pEnemyHealthBar = value; }
+; 154  : 	void SetHealthUI(class CEnemyHealthBar* value) { m_pEnemyHealthBar = value; }
 
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -15367,6 +15435,43 @@ $LN3:
   0004a	5d		 pop	 rbp
   0004b	c3		 ret	 0
 ?SetHealthUI@CCharacter@Client@@QEAAXPEAVCEnemyHealthBar@2@@Z ENDP ; Client::CCharacter::SetHealthUI
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\users\arcco\documents\github\framework\client\public\character.h
+;	COMDAT ?SetPlayerCamera@CCharacter@Client@@QEAAXPEAVCPlayerCamera@2@@Z
+_TEXT	SEGMENT
+this$ = 224
+pCamera$ = 232
+?SetPlayerCamera@CCharacter@Client@@QEAAXPEAVCPlayerCamera@2@@Z PROC ; Client::CCharacter::SetPlayerCamera, COMDAT
+
+; 152  : 	void SetPlayerCamera(class CPlayerCamera* pCamera) { m_pCamera = pCamera; };
+
+$LN3:
+  00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
+  00005	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  0000a	55		 push	 rbp
+  0000b	57		 push	 rdi
+  0000c	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  00013	48 8b ec	 mov	 rbp, rsp
+  00016	48 8b fc	 mov	 rdi, rsp
+  00019	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  0001e	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00023	f3 ab		 rep stosd
+  00025	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+  0002d	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00034	48 8b 8d e8 00
+	00 00		 mov	 rcx, QWORD PTR pCamera$[rbp]
+  0003b	48 89 88 98 02
+	00 00		 mov	 QWORD PTR [rax+664], rcx
+  00042	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  00049	5f		 pop	 rdi
+  0004a	5d		 pop	 rbp
+  0004b	c3		 ret	 0
+?SetPlayerCamera@CCharacter@Client@@QEAAXPEAVCPlayerCamera@2@@Z ENDP ; Client::CCharacter::SetPlayerCamera
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??0tagCameraDesc@CCamera@Engine@@QEAA@XZ
@@ -15901,14 +16006,14 @@ $LN2@scalar:
 ??_GCLevel_GamePlay@Client@@EEAAPEAXI@Z ENDP		; Client::CLevel_GamePlay::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Free@CLevel_GamePlay@Client@@UEAAXXZ
 _TEXT	SEGMENT
 pSkillSystem$ = 8
 this$ = 256
 ?Free@CLevel_GamePlay@Client@@UEAAXXZ PROC		; Client::CLevel_GamePlay::Free, COMDAT
 
-; 262  : {
+; 267  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -15924,26 +16029,26 @@ $LN3:
   00022	48 8b 8c 24 28
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
 
-; 263  : 	__super::Free();
+; 268  : 	__super::Free();
 
   0002a	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CLevel@Engine@@UEAAXXZ
 
-; 264  : 
-; 265  : 	CSkillBallSystem* pSkillSystem = CSkillBallSystem::GetInstance();
+; 269  : 
+; 270  : 	CSkillBallSystem* pSkillSystem = CSkillBallSystem::GetInstance();
 
   00037	e8 00 00 00 00	 call	 ?GetInstance@CSkillBallSystem@Client@@SAPEAV12@XZ ; Client::CSkillBallSystem::GetInstance
   0003c	48 89 45 08	 mov	 QWORD PTR pSkillSystem$[rbp], rax
 
-; 266  : 	pSkillSystem->Clear();
+; 271  : 	pSkillSystem->Clear();
 
   00040	48 8b 4d 08	 mov	 rcx, QWORD PTR pSkillSystem$[rbp]
   00044	e8 00 00 00 00	 call	 ?Clear@CSkillBallSystem@Client@@QEAAXXZ ; Client::CSkillBallSystem::Clear
 
-; 267  : 
-; 268  : }
+; 272  : 
+; 273  : }
 
   00049	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
@@ -15953,7 +16058,7 @@ $LN3:
 ?Free@CLevel_GamePlay@Client@@UEAAXXZ ENDP		; Client::CLevel_GamePlay::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Create@CLevel_GamePlay@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -15967,7 +16072,7 @@ pDevice$ = 432
 pContext$ = 440
 ?Create@CLevel_GamePlay@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CLevel_GamePlay::Create, COMDAT
 
-; 248  : {
+; 253  : {
 
 $LN8:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -15992,14 +16097,14 @@ $LN8:
   00044	48 89 85 80 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 249  : 	CLevel_GamePlay* pInstance = new CLevel_GamePlay(pDevice, pContext);
+; 254  : 	CLevel_GamePlay* pInstance = new CLevel_GamePlay(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@HILOMDFC@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 30 00 00 00	 mov	 ecx, 48			; 00000030H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -16031,16 +16136,16 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T6[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 250  : 
-; 251  : 	if (FAILED(pInstance->Initialize()))
+; 255  : 
+; 256  : 	if (FAILED(pInstance->Initialize()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize@CLevel_GamePlay@Client@@UEAAJXZ ; Client::CLevel_GamePlay::Initialize
   000cd	85 c0		 test	 eax, eax
   000cf	7d 42		 jge	 SHORT $LN2@Create
 
-; 252  : 	{
-; 253  : 		wstring message = L"Failed to Create : CLevel_GamePlay";
+; 257  : 	{
+; 258  : 		wstring message = L"Failed to Create : CLevel_GamePlay";
 
   000d1	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1EG@FDLBOJPL@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAe?$AAv?$AAe?$AAl?$AA_?$AAG?$AAa?$AAm?$AAe?$AAP?$AAl@
@@ -16048,7 +16153,7 @@ $LN5@Create:
   000dc	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   000e1	90		 npad	 1
 
-; 254  : 		MESSAGE(message);
+; 259  : 		MESSAGE(message);
 
   000e2	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000e6	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -16060,24 +16165,24 @@ $LN5@Create:
   000fa	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 255  : 		Safe_Release(pInstance);
+; 260  : 		Safe_Release(pInstance);
 
   00100	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   00104	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCLevel_GamePlay@Client@@@Engine@@YAKAEAPEAVCLevel_GamePlay@Client@@@Z ; Engine::Safe_Release<Client::CLevel_GamePlay * __ptr64>
   00109	90		 npad	 1
 
-; 256  : 	}
+; 261  : 	}
 
   0010a	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   0010e	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN2@Create:
 
-; 257  : 
-; 258  : 	return pInstance;
+; 262  : 
+; 263  : 	return pInstance;
 
   00113	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 259  : }
+; 264  : }
 
   00117	48 8b f8	 mov	 rdi, rax
   0011a	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -16118,7 +16223,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@HILOMDFC@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -16175,7 +16280,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CLevel_GamePlay@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@HILBMLPD@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@HILOMDFC@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -16214,7 +16319,7 @@ pContext$ = 440
 ?dtor$1@?0??Create@CLevel_GamePlay@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CLevel_GamePlay::Create'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Ready_Layer_UI@CLevel_GamePlay@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -16226,7 +16331,7 @@ this$ = 384
 pLayerTag$ = 392
 ?Ready_Layer_UI@CLevel_GamePlay@Client@@AEAAJPEB_W@Z PROC ; Client::CLevel_GamePlay::Ready_Layer_UI, COMDAT
 
-; 236  : {
+; 241  : {
 
 $LN5:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -16243,26 +16348,26 @@ $LN5:
   00027	48 8b 8c 24 b8
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+440]
 
-; 237  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 242  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   0002f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00035	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 238  : 	CGameObject* pGameObject = nullptr;
+; 243  : 	CGameObject* pGameObject = nullptr;
 
   00039	48 c7 45 28 00
 	00 00 00	 mov	 QWORD PTR pGameObject$[rbp], 0
 
-; 239  : 
-; 240  : 	m_pHealthBar = pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_enemyhp", L"enemyhp", pLayerTag);
+; 244  : 
+; 245  : 	m_pHealthBar = pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_enemyhp", pLayerTag, L"enemyhp");
 
   00041	48 8d 85 08 01
 	00 00		 lea	 rax, QWORD PTR $T1[rbp]
   00048	48 89 85 48 01
 	00 00		 mov	 QWORD PTR $T2[rbp], rax
-  0004f	48 8b 95 88 01
-	00 00		 mov	 rdx, QWORD PTR pLayerTag$[rbp]
+  0004f	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BA@LPHFANFK@?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@
   00056	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
   0005d	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
@@ -16273,8 +16378,8 @@ $LN5:
   00072	48 8b 85 58 01
 	00 00		 mov	 rax, QWORD PTR tv85[rbp]
   00079	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  0007e	4c 8d 0d 00 00
-	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BA@LPHFANFK@?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@
+  0007e	4c 8b 8d 88 01
+	00 00		 mov	 r9, QWORD PTR pLayerTag$[rbp]
   00085	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CE@NDNBHLHL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@
   0008c	33 d2		 xor	 edx, edx
@@ -16285,26 +16390,26 @@ $LN5:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0009f	48 89 41 28	 mov	 QWORD PTR [rcx+40], rax
 
-; 241  : 	if(m_pHealthBar == nullptr)
+; 246  : 	if(m_pHealthBar == nullptr)
 
   000a3	48 8b 85 80 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000aa	48 83 78 28 00	 cmp	 QWORD PTR [rax+40], 0
   000af	75 07		 jne	 SHORT $LN2@Ready_Laye
 
-; 242  : 		return E_FAIL;
+; 247  : 		return E_FAIL;
 
   000b1	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000b6	eb 02		 jmp	 SHORT $LN1@Ready_Laye
 $LN2@Ready_Laye:
 
-; 243  : 
-; 244  : 	return S_OK;
+; 248  : 
+; 249  : 	return S_OK;
 
   000b8	33 c0		 xor	 eax, eax
 $LN1@Ready_Laye:
 
-; 245  : }
+; 250  : }
 
   000ba	48 8d a5 68 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+360]
@@ -16314,7 +16419,7 @@ $LN1@Ready_Laye:
 ?Ready_Layer_UI@CLevel_GamePlay@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_GamePlay::Ready_Layer_UI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Ready_Layer_Effect@CLevel_GamePlay@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -16326,7 +16431,7 @@ this$ = 384
 pLayerTag$ = 392
 ?Ready_Layer_Effect@CLevel_GamePlay@Client@@AEAAJPEB_W@Z PROC ; Client::CLevel_GamePlay::Ready_Layer_Effect, COMDAT
 
-; 225  : {
+; 230  : {
 
 $LN5:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -16343,26 +16448,26 @@ $LN5:
   00027	48 8b 8c 24 b8
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+440]
 
-; 226  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 231  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   0002f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00035	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 227  : 	CGameObject* pGameObject = nullptr;
+; 232  : 	CGameObject* pGameObject = nullptr;
 
   00039	48 c7 45 28 00
 	00 00 00	 mov	 QWORD PTR pGameObject$[rbp], 0
 
-; 228  : 
-; 229  :    	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_freeze_area", L"freeze", pLayerTag, mPlayer))
+; 233  : 
+; 234  :    	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_freeze_area", pLayerTag, L"freeze", mPlayer))
 
   00041	48 8d 85 08 01
 	00 00		 lea	 rax, QWORD PTR $T1[rbp]
   00048	48 89 85 48 01
 	00 00		 mov	 QWORD PTR $T2[rbp], rax
-  0004f	48 8b 95 88 01
-	00 00		 mov	 rdx, QWORD PTR pLayerTag$[rbp]
+  0004f	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1O@JLKOBFLB@?$AAf?$AAr?$AAe?$AAe?$AAz?$AAe?$AA?$AA@
   00056	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
   0005d	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
@@ -16375,8 +16480,8 @@ $LN5:
   00079	48 8b 85 58 01
 	00 00		 mov	 rax, QWORD PTR tv84[rbp]
   00080	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  00085	4c 8d 0d 00 00
-	00 00		 lea	 r9, OFFSET FLAT:??_C@_1O@JLKOBFLB@?$AAf?$AAr?$AAe?$AAe?$AAz?$AAe?$AA?$AA@
+  00085	4c 8b 8d 88 01
+	00 00		 mov	 r9, QWORD PTR pLayerTag$[rbp]
   0008c	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CM@PEFMEMHN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAf?$AAr?$AAe?$AAe?$AAz?$AAe?$AA_?$AAa?$AAr?$AAe?$AAa?$AA?$AA@
   00093	ba 03 00 00 00	 mov	 edx, 3
@@ -16386,19 +16491,19 @@ $LN5:
   000a2	48 85 c0	 test	 rax, rax
   000a5	75 07		 jne	 SHORT $LN2@Ready_Laye
 
-; 230  : 		return E_FAIL;
+; 235  : 		return E_FAIL;
 
   000a7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000ac	eb 02		 jmp	 SHORT $LN1@Ready_Laye
 $LN2@Ready_Laye:
 
-; 231  : 
-; 232  : 	return S_OK;
+; 236  : 
+; 237  : 	return S_OK;
 
   000ae	33 c0		 xor	 eax, eax
 $LN1@Ready_Laye:
 
-; 233  : }
+; 238  : }
 
   000b0	48 8d a5 68 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+360]
@@ -16408,7 +16513,7 @@ $LN1@Ready_Laye:
 ?Ready_Layer_Effect@CLevel_GamePlay@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_GamePlay::Ready_Layer_Effect
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Ready_Layer_Enemy@CLevel_GamePlay@Client@@AEAAJPEB_WPEAVCGameObject@Engine@@@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -16433,7 +16538,7 @@ pLayerTag$ = 968
 pPlayer$ = 976
 ?Ready_Layer_Enemy@CLevel_GamePlay@Client@@AEAAJPEB_WPEAVCGameObject@Engine@@@Z PROC ; Client::CLevel_GamePlay::Ready_Layer_Enemy, COMDAT
 
-; 195  : {
+; 200  : {
 
 $LN15:
   00000	4c 89 44 24 18	 mov	 QWORD PTR [rsp+24], r8
@@ -16451,42 +16556,42 @@ $LN15:
   0002c	48 8b 8c 24 f8
 	03 00 00	 mov	 rcx, QWORD PTR [rsp+1016]
 
-; 196  : 	if (nullptr == pPlayer)
+; 201  : 	if (nullptr == pPlayer)
 
   00034	48 83 bd d0 03
 	00 00 00	 cmp	 QWORD PTR pPlayer$[rbp], 0
   0003c	75 0a		 jne	 SHORT $LN2@Ready_Laye
 
-; 197  : 		return E_FAIL;
+; 202  : 		return E_FAIL;
 
   0003e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00043	e9 3e 02 00 00	 jmp	 $LN1@Ready_Laye
 $LN2@Ready_Laye:
 
-; 198  : 
-; 199  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 203  : 
+; 204  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00048	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0004e	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 200  : 	CGameObject* pGameObject = nullptr;
+; 205  : 	CGameObject* pGameObject = nullptr;
 
   00052	48 c7 45 28 00
 	00 00 00	 mov	 QWORD PTR pGameObject$[rbp], 0
 
-; 201  : 
-; 202  : 	if (pGameInstance->Input_KeyState_Custom(DIK_INSERT) == KEY_STATE::TAP)
+; 206  : 
+; 207  : 	if (pGameInstance->Input_KeyState_Custom(DIK_INSERT) == KEY_STATE::TAP)
 
   0005a	ba d2 00 00 00	 mov	 edx, 210		; 000000d2H
   0005f	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
   00063	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z
 
-; 203  : 	{
-; 204  : 	}
-; 205  : 
-; 206  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy01", pPlayer))
+; 208  : 	{
+; 209  : 	}
+; 210  : 
+; 211  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy01", pPlayer))
 
   00069	48 8d 85 c8 01
 	00 00		 lea	 rax, QWORD PTR $T1[rbp]
@@ -16516,14 +16621,14 @@ $LN2@Ready_Laye:
   000c6	48 39 45 28	 cmp	 QWORD PTR pGameObject$[rbp], rax
   000ca	75 0a		 jne	 SHORT $LN4@Ready_Laye
 
-; 207  : 		return E_FAIL;
+; 212  : 		return E_FAIL;
 
   000cc	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000d1	e9 b0 01 00 00	 jmp	 $LN1@Ready_Laye
 $LN4@Ready_Laye:
 
-; 208  : 
-; 209  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy02", pPlayer))
+; 213  : 
+; 214  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy02", pPlayer))
 
   000d6	48 8d 85 28 02
 	00 00		 lea	 rax, QWORD PTR $T3[rbp]
@@ -16553,14 +16658,14 @@ $LN4@Ready_Laye:
   00133	48 39 45 28	 cmp	 QWORD PTR pGameObject$[rbp], rax
   00137	75 0a		 jne	 SHORT $LN5@Ready_Laye
 
-; 210  : 		return E_FAIL;
+; 215  : 		return E_FAIL;
 
   00139	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0013e	e9 43 01 00 00	 jmp	 $LN1@Ready_Laye
 $LN5@Ready_Laye:
 
-; 211  : 
-; 212  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy02"), pLayerTag, L"enemy03", pPlayer))
+; 216  : 
+; 217  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy02"), pLayerTag, L"enemy03", pPlayer))
 
   00143	48 8d 85 88 02
 	00 00		 lea	 rax, QWORD PTR $T5[rbp]
@@ -16590,14 +16695,14 @@ $LN5@Ready_Laye:
   001a0	48 39 45 28	 cmp	 QWORD PTR pGameObject$[rbp], rax
   001a4	75 0a		 jne	 SHORT $LN6@Ready_Laye
 
-; 213  : 		return E_FAIL;
+; 218  : 		return E_FAIL;
 
   001a6	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001ab	e9 d6 00 00 00	 jmp	 $LN1@Ready_Laye
 $LN6@Ready_Laye:
 
-; 214  : 
-; 215  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy04", pPlayer))
+; 219  : 
+; 220  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy04", pPlayer))
 
   001b0	48 8d 85 e8 02
 	00 00		 lea	 rax, QWORD PTR $T7[rbp]
@@ -16627,14 +16732,14 @@ $LN6@Ready_Laye:
   0020d	48 39 45 28	 cmp	 QWORD PTR pGameObject$[rbp], rax
   00211	75 07		 jne	 SHORT $LN7@Ready_Laye
 
-; 216  : 		return E_FAIL;
+; 221  : 		return E_FAIL;
 
   00213	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00218	eb 6c		 jmp	 SHORT $LN1@Ready_Laye
 $LN7@Ready_Laye:
 
-; 217  : 
-; 218  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy05", pPlayer))
+; 222  : 
+; 223  : 	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy05", pPlayer))
 
   0021a	48 8d 85 48 03
 	00 00		 lea	 rax, QWORD PTR $T9[rbp]
@@ -16664,19 +16769,19 @@ $LN7@Ready_Laye:
   00277	48 39 45 28	 cmp	 QWORD PTR pGameObject$[rbp], rax
   0027b	75 07		 jne	 SHORT $LN8@Ready_Laye
 
-; 219  : 		return E_FAIL;
+; 224  : 		return E_FAIL;
 
   0027d	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00282	eb 02		 jmp	 SHORT $LN1@Ready_Laye
 $LN8@Ready_Laye:
 
-; 220  : 
-; 221  : 	return S_OK;
+; 225  : 
+; 226  : 	return S_OK;
 
   00284	33 c0		 xor	 eax, eax
 $LN1@Ready_Laye:
 
-; 222  : }
+; 227  : }
 
   00286	48 8d a5 a8 03
 	00 00		 lea	 rsp, QWORD PTR [rbp+936]
@@ -16686,7 +16791,7 @@ $LN1@Ready_Laye:
 ?Ready_Layer_Enemy@CLevel_GamePlay@Client@@AEAAJPEB_WPEAVCGameObject@Engine@@@Z ENDP ; Client::CLevel_GamePlay::Ready_Layer_Enemy
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Ready_Layer_Player@CLevel_GamePlay@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -16697,7 +16802,7 @@ this$ = 352
 pLayerTag$ = 360
 ?Ready_Layer_Player@CLevel_GamePlay@Client@@AEAAJPEB_W@Z PROC ; Client::CLevel_GamePlay::Ready_Layer_Player, COMDAT
 
-; 186  : {
+; 191  : {
 
 $LN4:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -16714,21 +16819,21 @@ $LN4:
   00027	48 8b 8c 24 98
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+408]
 
-; 187  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 192  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   0002f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00035	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 188  : 
-; 189  : 	mPlayer = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kamui"), L"kamui", pLayerTag);
+; 193  : 
+; 194  : 	mPlayer = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kamui"), pLayerTag, L"kamui");
 
   00039	48 8d 85 e8 00
 	00 00		 lea	 rax, QWORD PTR $T1[rbp]
   00040	48 89 85 28 01
 	00 00		 mov	 QWORD PTR $T2[rbp], rax
-  00047	48 8b 95 68 01
-	00 00		 mov	 rdx, QWORD PTR pLayerTag$[rbp]
+  00047	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1M@LFOAAPEJ@?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@
   0004e	48 8b 8d 28 01
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
   00055	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
@@ -16739,8 +16844,8 @@ $LN4:
   0006a	48 8b 85 38 01
 	00 00		 mov	 rax, QWORD PTR tv83[rbp]
   00071	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  00076	4c 8d 0d 00 00
-	00 00		 lea	 r9, OFFSET FLAT:??_C@_1M@LFOAAPEJ@?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@
+  00076	4c 8b 8d 68 01
+	00 00		 mov	 r9, QWORD PTR pLayerTag$[rbp]
   0007d	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CA@GEPPBAML@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAk?$AAa?$AAm?$AAu?$AAi?$AA?$AA@
   00084	ba 03 00 00 00	 mov	 edx, 3
@@ -16751,12 +16856,12 @@ $LN4:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0009a	48 89 41 20	 mov	 QWORD PTR [rcx+32], rax
 
-; 190  : 
-; 191  : 	return S_OK;
+; 195  : 
+; 196  : 	return S_OK;
 
   0009e	33 c0		 xor	 eax, eax
 
-; 192  : }
+; 197  : }
 
   000a0	48 8d a5 48 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+328]
@@ -16766,57 +16871,58 @@ $LN4:
 ?Ready_Layer_Player@CLevel_GamePlay@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_GamePlay::Ready_Layer_Player
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
 CameraDesc$ = 40
-$T4 = 324
-$T5 = 356
-$T6 = 388
-$T7 = 424
-$T8 = 488
-tv153 = 504
-__$ArrayPad$ = 512
-this$ = 560
-pLayerTag$ = 568
+pCamera$ = 136
+$T4 = 356
+$T5 = 388
+$T6 = 420
+$T7 = 456
+$T8 = 520
+tv164 = 536
+__$ArrayPad$ = 544
+this$ = 592
+pLayerTag$ = 600
 ?Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z PROC ; Client::CLevel_GamePlay::Ready_Layer_Camera, COMDAT
 
-; 156  : {
+; 158  : {
 
 $LN6:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   00005	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0000a	55		 push	 rbp
   0000b	57		 push	 rdi
-  0000c	48 81 ec 48 02
-	00 00		 sub	 rsp, 584		; 00000248H
+  0000c	48 81 ec 68 02
+	00 00		 sub	 rsp, 616		; 00000268H
   00013	48 8d 6c 24 30	 lea	 rbp, QWORD PTR [rsp+48]
   00018	48 8b fc	 mov	 rdi, rsp
-  0001b	b9 92 00 00 00	 mov	 ecx, 146		; 00000092H
+  0001b	b9 9a 00 00 00	 mov	 ecx, 154		; 0000009aH
   00020	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00025	f3 ab		 rep stosd
-  00027	48 8b 8c 24 68
-	02 00 00	 mov	 rcx, QWORD PTR [rsp+616]
+  00027	48 8b 8c 24 88
+	02 00 00	 mov	 rcx, QWORD PTR [rsp+648]
   0002f	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR __security_cookie
   00036	48 33 c5	 xor	 rax, rbp
-  00039	48 89 85 00 02
+  00039	48 89 85 20 02
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 157  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 159  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00040	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00046	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 158  : 
-; 159  : 	CCamera::CAMERA_DESC CameraDesc;
+; 160  : 
+; 161  : 	CCamera::CAMERA_DESC CameraDesc;
 
   0004a	48 8d 4d 28	 lea	 rcx, QWORD PTR CameraDesc$[rbp]
   0004e	e8 00 00 00 00	 call	 ??0tagCameraDesc@CCamera@Engine@@QEAA@XZ
 
-; 160  : 	ZeroMemory(&CameraDesc, sizeof(CCamera::CAMERA_DESC));
+; 162  : 	ZeroMemory(&CameraDesc, sizeof(CCamera::CAMERA_DESC));
 
   00053	41 b8 3c 00 00
 	00		 mov	 r8d, 60			; 0000003cH
@@ -16824,69 +16930,69 @@ $LN6:
   0005b	48 8d 4d 28	 lea	 rcx, QWORD PTR CameraDesc$[rbp]
   0005f	e8 00 00 00 00	 call	 memset
 
-; 161  : 
-; 162  : 	CameraDesc.TransformDesc.fMoveSpeed = 20.f;
+; 163  : 
+; 164  : 	CameraDesc.TransformDesc.fMoveSpeed = 20.f;
 
   00064	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@41a00000
   0006c	f3 0f 11 45 28	 movss	 DWORD PTR CameraDesc$[rbp], xmm0
 
-; 163  : 	CameraDesc.TransformDesc.fRotationSpeed = XMConvertToRadians(60.f);
+; 165  : 	CameraDesc.TransformDesc.fRotationSpeed = XMConvertToRadians(60.f);
 
   00071	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42700000
   00079	e8 00 00 00 00	 call	 ?XMConvertToRadians@DirectX@@YAMM@Z ; DirectX::XMConvertToRadians
   0007e	f3 0f 11 45 2c	 movss	 DWORD PTR CameraDesc$[rbp+4], xmm0
 
-; 164  : 
-; 165  : 	CameraDesc.vEye = _float3(0.f, 10.f, -5.f);
+; 166  : 
+; 167  : 	CameraDesc.vEye = _float3(0.f, 10.f, -5.f);
 
   00083	f3 0f 10 1d 00
 	00 00 00	 movss	 xmm3, DWORD PTR __real@c0a00000
   0008b	f3 0f 10 15 00
 	00 00 00	 movss	 xmm2, DWORD PTR __real@41200000
   00093	0f 57 c9	 xorps	 xmm1, xmm1
-  00096	48 8d 8d 44 01
+  00096	48 8d 8d 64 01
 	00 00		 lea	 rcx, QWORD PTR $T4[rbp]
   0009d	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
   000a2	48 8b d0	 mov	 rdx, rax
   000a5	48 8d 4d 30	 lea	 rcx, QWORD PTR CameraDesc$[rbp+8]
   000a9	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
 
-; 166  : 	CameraDesc.vAt = _float3(0.f, 0.f, 0.f);
+; 168  : 	CameraDesc.vAt = _float3(0.f, 0.f, 0.f);
 
   000ae	0f 57 db	 xorps	 xmm3, xmm3
   000b1	0f 57 d2	 xorps	 xmm2, xmm2
   000b4	0f 57 c9	 xorps	 xmm1, xmm1
-  000b7	48 8d 8d 64 01
+  000b7	48 8d 8d 84 01
 	00 00		 lea	 rcx, QWORD PTR $T5[rbp]
   000be	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
   000c3	48 8b d0	 mov	 rdx, rax
   000c6	48 8d 4d 3c	 lea	 rcx, QWORD PTR CameraDesc$[rbp+20]
   000ca	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
 
-; 167  : 	CameraDesc.vAxisY = _float3(0.f, 1.f, 0.f);
+; 169  : 	CameraDesc.vAxisY = _float3(0.f, 1.f, 0.f);
 
   000cf	0f 57 db	 xorps	 xmm3, xmm3
   000d2	f3 0f 10 15 00
 	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
   000da	0f 57 c9	 xorps	 xmm1, xmm1
-  000dd	48 8d 8d 84 01
+  000dd	48 8d 8d a4 01
 	00 00		 lea	 rcx, QWORD PTR $T6[rbp]
   000e4	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
   000e9	48 8b d0	 mov	 rdx, rax
   000ec	48 8d 4d 48	 lea	 rcx, QWORD PTR CameraDesc$[rbp+32]
   000f0	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
 
-; 168  : 
-; 169  : 	CameraDesc.fFovy = XMConvertToRadians(45.f);
+; 170  : 
+; 171  : 	CameraDesc.fFovy = XMConvertToRadians(45.f);
 
   000f5	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42340000
   000fd	e8 00 00 00 00	 call	 ?XMConvertToRadians@DirectX@@YAMM@Z ; DirectX::XMConvertToRadians
   00102	f3 0f 11 45 54	 movss	 DWORD PTR CameraDesc$[rbp+44], xmm0
 
-; 170  : 	CameraDesc.fAspect = g_iWinSizeX / (_float)g_iWinSizeY;
+; 172  : 	CameraDesc.fAspect = g_iWinSizeX / (_float)g_iWinSizeY;
 
   00107	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@44a00000
@@ -16894,25 +17000,25 @@ $LN6:
 	00 00 00	 divss	 xmm0, DWORD PTR __real@44340000
   00117	f3 0f 11 45 58	 movss	 DWORD PTR CameraDesc$[rbp+48], xmm0
 
-; 171  : 	CameraDesc.fNear = 0.1f;
+; 173  : 	CameraDesc.fNear = 0.1f;
 
   0011c	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3dcccccd
   00124	f3 0f 11 45 5c	 movss	 DWORD PTR CameraDesc$[rbp+52], xmm0
 
-; 172  : 	CameraDesc.fFar = 1000.f;
+; 174  : 	CameraDesc.fFar = 1000.f;
 
   00129	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@447a0000
   00131	f3 0f 11 45 60	 movss	 DWORD PTR CameraDesc$[rbp+56], xmm0
 
-; 173  : 
-; 174  : 	//if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_dynamic_camera"), L"dynamic_camera", pLayerTag, &CameraDesc))
-; 175  : 	//	return E_FAIL;
-; 176  : 
-; 177  : 	assert(mPlayer);
+; 175  : 
+; 176  : 	//if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_dynamic_camera"), L"dynamic_camera", pLayerTag, &CameraDesc))
+; 177  : 	//	return E_FAIL;
+; 178  : 
+; 179  : 	assert(mPlayer);
 
-  00136	48 8b 85 30 02
+  00136	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0013d	48 83 78 20 00	 cmp	 QWORD PTR [rax+32], 0
   00142	75 22		 jne	 SHORT $LN4@Ready_Laye
@@ -16921,7 +17027,7 @@ $LN6:
   0014a	83 c0 15	 add	 eax, 21
   0014d	44 8b c0	 mov	 r8d, eax
   00150	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1GM@NOPMCMLF@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1JI@BMGMJGOL@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@
   00157	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_C@_1BA@DNCJICGL@?$AAm?$AAP?$AAl?$AAa?$AAy?$AAe?$AAr?$AA?$AA@
   0015e	ff 15 00 00 00
@@ -16929,71 +17035,87 @@ $LN6:
   00164	33 c0		 xor	 eax, eax
 $LN4@Ready_Laye:
 
-; 178  : 
-; 179  : 	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_player_camera"), L"player_camera", pLayerTag, mPlayer))
+; 180  : 
+; 181  : 	CPlayerCamera* pCamera = static_cast<CPlayerCamera*>(pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_player_camera"), pLayerTag, L"player_camera", mPlayer));
 
-  00166	48 8d 85 a8 01
+  00166	48 8d 85 c8 01
 	00 00		 lea	 rax, QWORD PTR $T7[rbp]
-  0016d	48 89 85 e8 01
+  0016d	48 89 85 08 02
 	00 00		 mov	 QWORD PTR $T8[rbp], rax
-  00174	48 8b 95 38 02
-	00 00		 mov	 rdx, QWORD PTR pLayerTag$[rbp]
-  0017b	48 8b 8d e8 01
+  00174	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BM@KDGIOOAK@?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@
+  0017b	48 8b 8d 08 02
 	00 00		 mov	 rcx, QWORD PTR $T8[rbp]
   00182	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
-  00187	48 89 85 f8 01
-	00 00		 mov	 QWORD PTR tv153[rbp], rax
-  0018e	48 8b 85 30 02
+  00187	48 89 85 18 02
+	00 00		 mov	 QWORD PTR tv164[rbp], rax
+  0018e	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00195	48 8b 40 20	 mov	 rax, QWORD PTR [rax+32]
   00199	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
-  0019e	48 8b 85 f8 01
-	00 00		 mov	 rax, QWORD PTR tv153[rbp]
+  0019e	48 8b 85 18 02
+	00 00		 mov	 rax, QWORD PTR tv164[rbp]
   001a5	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  001aa	4c 8d 0d 00 00
-	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BM@KDGIOOAK@?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@
+  001aa	4c 8b 8d 58 02
+	00 00		 mov	 r9, QWORD PTR pLayerTag$[rbp]
   001b1	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DA@CMIPDJDG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@
   001b8	ba 03 00 00 00	 mov	 edx, 3
   001bd	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
   001c1	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAX@Z
-  001c7	48 85 c0	 test	 rax, rax
-  001ca	75 07		 jne	 SHORT $LN2@Ready_Laye
+  001c7	48 89 85 88 00
+	00 00		 mov	 QWORD PTR pCamera$[rbp], rax
 
-; 180  : 		return E_FAIL;
+; 182  : 	if (nullptr == pCamera)
 
-  001cc	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  001d1	eb 02		 jmp	 SHORT $LN1@Ready_Laye
+  001ce	48 83 bd 88 00
+	00 00 00	 cmp	 QWORD PTR pCamera$[rbp], 0
+  001d6	75 07		 jne	 SHORT $LN2@Ready_Laye
+
+; 183  : 		return E_FAIL;
+
+  001d8	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  001dd	eb 19		 jmp	 SHORT $LN1@Ready_Laye
 $LN2@Ready_Laye:
 
-; 181  : 
-; 182  : 	return S_OK;
+; 184  : 
+; 185  : 	static_cast<CCharacter*>(mPlayer)->SetPlayerCamera(pCamera);
 
-  001d3	33 c0		 xor	 eax, eax
+  001df	48 8b 95 88 00
+	00 00		 mov	 rdx, QWORD PTR pCamera$[rbp]
+  001e6	48 8b 85 50 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001ed	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  001f1	e8 00 00 00 00	 call	 ?SetPlayerCamera@CCharacter@Client@@QEAAXPEAVCPlayerCamera@2@@Z ; Client::CCharacter::SetPlayerCamera
+
+; 186  : 
+; 187  : 	return S_OK;
+
+  001f6	33 c0		 xor	 eax, eax
 $LN1@Ready_Laye:
 
-; 183  : }
+; 188  : }
 
-  001d5	48 8b f8	 mov	 rdi, rax
-  001d8	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
-  001dc	48 8d 15 00 00
+  001f8	48 8b f8	 mov	 rdi, rax
+  001fb	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
+  001ff	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z$rtcFrameData
-  001e3	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  001e8	48 8b c7	 mov	 rax, rdi
-  001eb	48 8b 8d 00 02
+  00206	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  0020b	48 8b c7	 mov	 rax, rdi
+  0020e	48 8b 8d 20 02
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  001f2	48 33 cd	 xor	 rcx, rbp
-  001f5	e8 00 00 00 00	 call	 __security_check_cookie
-  001fa	48 8d a5 18 02
-	00 00		 lea	 rsp, QWORD PTR [rbp+536]
-  00201	5f		 pop	 rdi
-  00202	5d		 pop	 rbp
-  00203	c3		 ret	 0
+  00215	48 33 cd	 xor	 rcx, rbp
+  00218	e8 00 00 00 00	 call	 __security_check_cookie
+  0021d	48 8d a5 38 02
+	00 00		 lea	 rsp, QWORD PTR [rbp+568]
+  00224	5f		 pop	 rdi
+  00225	5d		 pop	 rbp
+  00226	c3		 ret	 0
 ?Ready_Layer_Camera@CLevel_GamePlay@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_GamePlay::Ready_Layer_Camera
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Ready_Layer_Wall@CLevel_GamePlay@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -17017,7 +17139,7 @@ this$ = 944
 pLayerTag$ = 952
 ?Ready_Layer_Wall@CLevel_GamePlay@Client@@AEAAJPEB_W@Z PROC ; Client::CLevel_GamePlay::Ready_Layer_Wall, COMDAT
 
-; 136  : {
+; 138  : {
 
 $LN11:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -17042,14 +17164,14 @@ $LN11:
   00044	48 89 85 88 03
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 137  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 139  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   0004b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00051	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 138  : 
-; 139  :  	vector<CWall::CUBE_DESC> CubeDescs;
+; 140  : 
+; 141  :  	vector<CWall::CUBE_DESC> CubeDescs;
 
   00055	ba 20 00 00 00	 mov	 edx, 32			; 00000020H
   0005a	48 8d 4d 28	 lea	 rcx, QWORD PTR CubeDescs$[rbp]
@@ -17058,24 +17180,24 @@ $LN11:
   00067	e8 00 00 00 00	 call	 ??0?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@QEAA@XZ ; std::vector<Client::CWall::tagCubeDesc,std::allocator<Client::CWall::tagCubeDesc> >::vector<Client::CWall::tagCubeDesc,std::allocator<Client::CWall::tagCubeDesc> >
   0006c	90		 npad	 1
 
-; 140  : 	CubeDescs.reserve(20);
+; 142  : 	CubeDescs.reserve(20);
 
   0006d	ba 14 00 00 00	 mov	 edx, 20
   00072	48 8d 4d 28	 lea	 rcx, QWORD PTR CubeDescs$[rbp]
   00076	e8 00 00 00 00	 call	 ?reserve@?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@QEAAX_K@Z ; std::vector<Client::CWall::tagCubeDesc,std::allocator<Client::CWall::tagCubeDesc> >::reserve
 
-; 141  : 	_uint iCount = 0;
+; 143  : 	_uint iCount = 0;
 
   0007b	c7 45 64 00 00
 	00 00		 mov	 DWORD PTR iCount$[rbp], 0
 
-; 142  : 	CStageCollisionManager* pStageManager = CStageCollisionManager::GetInstance();
+; 144  : 	CStageCollisionManager* pStageManager = CStageCollisionManager::GetInstance();
 
   00082	e8 00 00 00 00	 call	 ?GetInstance@CStageCollisionManager@Client@@SAPEAV12@XZ ; Client::CStageCollisionManager::GetInstance
   00087	48 89 85 88 00
 	00 00		 mov	 QWORD PTR pStageManager$[rbp], rax
 
-; 143  : 	pStageManager->LoadCollisionData(L"../../CollisionData/GamePlayCollisionData.bin", &CubeDescs, &iCount);
+; 145  : 	pStageManager->LoadCollisionData(L"../../CollisionData/GamePlayCollisionData.bin", &CubeDescs, &iCount);
 
   0008e	4c 8d 45 64	 lea	 r8, QWORD PTR iCount$[rbp]
   00092	48 8d 55 28	 lea	 rdx, QWORD PTR CubeDescs$[rbp]
@@ -17083,8 +17205,8 @@ $LN11:
 	00 00		 lea	 rcx, OFFSET FLAT:??_C@_1FM@JOEFOHML@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAC?$AAo?$AAl?$AAl?$AAi?$AAs?$AAi?$AAo?$AAn?$AAD?$AAa?$AAt?$AAa?$AA?1?$AAG?$AAa?$AAm?$AAe?$AAP?$AAl?$AAa?$AAy?$AAC?$AAo?$AAl?$AAl@
   0009d	e8 00 00 00 00	 call	 ?LoadCollisionData@CStageCollisionManager@Client@@SAJPEB_WPEAV?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@PEAI@Z ; Client::CStageCollisionManager::LoadCollisionData
 
-; 144  : 
-; 145  : 	 for (_uint i = 0; i < iCount; ++i)
+; 146  : 
+; 147  : 	 for (_uint i = 0; i < iCount; ++i)
 
   000a2	c7 85 a4 00 00
 	00 00 00 00 00	 mov	 DWORD PTR i$6[rbp], 0
@@ -17102,8 +17224,8 @@ $LN4@Ready_Laye:
   000c5	0f 83 06 01 00
 	00		 jae	 $LN3@Ready_Laye
 
-; 146  : 	{
-; 147  : 		wstring strName = L"wall_" + to_wstring(i);
+; 148  : 	{
+; 149  : 		wstring strName = L"wall_" + to_wstring(i);
 
   000cb	8b 95 a4 00 00
 	00		 mov	 edx, DWORD PTR i$6[rbp]
@@ -17128,7 +17250,7 @@ $LN4@Ready_Laye:
 	00 00		 lea	 rcx, QWORD PTR $T8[rbp]
   00114	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 
-; 148  : 		if (nullptr == pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_wall", pLayerTag, strName.c_str(), &CubeDescs[i]))
+; 150  : 		if (nullptr == pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_wall", pLayerTag, strName.c_str(), &CubeDescs[i]))
 
   00119	48 8d 85 c8 02
 	00 00		 lea	 rax, QWORD PTR $T9[rbp]
@@ -17167,7 +17289,7 @@ $LN4@Ready_Laye:
   00193	48 85 c0	 test	 rax, rax
   00196	75 28		 jne	 SHORT $LN5@Ready_Laye
 
-; 149  : 			return E_FAIL;
+; 151  : 			return E_FAIL;
 
   00198	c7 85 24 03 00
 	00 05 40 00 80	 mov	 DWORD PTR $T11[rbp], -2147467259 ; ffffffff80004005H
@@ -17182,7 +17304,7 @@ $LN4@Ready_Laye:
   001be	eb 2a		 jmp	 SHORT $LN1@Ready_Laye
 $LN5@Ready_Laye:
 
-; 150  : 	}
+; 152  : 	}
 
   001c0	48 8d 8d c8 00
 	00 00		 lea	 rcx, QWORD PTR strName$7[rbp]
@@ -17190,8 +17312,8 @@ $LN5@Ready_Laye:
   001cc	e9 dd fe ff ff	 jmp	 $LN2@Ready_Laye
 $LN3@Ready_Laye:
 
-; 151  : 
-; 152  : 	return S_OK;
+; 153  : 
+; 154  : 	return S_OK;
 
   001d1	c7 85 44 03 00
 	00 00 00 00 00	 mov	 DWORD PTR $T12[rbp], 0
@@ -17201,7 +17323,7 @@ $LN3@Ready_Laye:
 	00		 mov	 eax, DWORD PTR $T12[rbp]
 $LN1@Ready_Laye:
 
-; 153  : }
+; 155  : }
 
   001ea	48 8b f8	 mov	 rdi, rax
   001ed	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
@@ -17438,7 +17560,7 @@ pLayerTag$ = 952
 ?dtor$2@?0??Ready_Layer_Wall@CLevel_GamePlay@Client@@AEAAJPEB_W@Z@4HA ENDP ; `Client::CLevel_GamePlay::Ready_Layer_Wall'::`1'::dtor$2
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Ready_Layer_BackGround@CLevel_GamePlay@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -17452,7 +17574,7 @@ this$ = 448
 pLayerTag$ = 456
 ?Ready_Layer_BackGround@CLevel_GamePlay@Client@@AEAAJPEB_W@Z PROC ; Client::CLevel_GamePlay::Ready_Layer_BackGround, COMDAT
 
-; 123  : {
+; 125  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -17469,21 +17591,21 @@ $LN7:
   00027	48 8b 8c 24 f8
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+504]
 
-; 124  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 126  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   0002f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00035	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 125  : 
-; 126  : 	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_city", L"city", pLayerTag))
+; 127  : 
+; 128  : 	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_city", pLayerTag, L"city"))
 
   00039	48 8d 85 e8 00
 	00 00		 lea	 rax, QWORD PTR $T1[rbp]
   00040	48 89 85 28 01
 	00 00		 mov	 QWORD PTR $T2[rbp], rax
-  00047	48 8b 95 c8 01
-	00 00		 mov	 rdx, QWORD PTR pLayerTag$[rbp]
+  00047	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_19GPIFDDKL@?$AAc?$AAi?$AAt?$AAy?$AA?$AA@
   0004e	48 8b 8d 28 01
 	00 00		 mov	 rcx, QWORD PTR $T2[rbp]
   00055	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
@@ -17494,8 +17616,8 @@ $LN7:
   0006a	48 8b 85 98 01
 	00 00		 mov	 rax, QWORD PTR tv132[rbp]
   00071	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  00076	4c 8d 0d 00 00
-	00 00		 lea	 r9, OFFSET FLAT:??_C@_19GPIFDDKL@?$AAc?$AAi?$AAt?$AAy?$AA?$AA@
+  00076	4c 8b 8d c8 01
+	00 00		 mov	 r9, QWORD PTR pLayerTag$[rbp]
   0007d	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1BO@MGDCPKMN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAc?$AAi?$AAt?$AAy?$AA?$AA@
   00084	ba 03 00 00 00	 mov	 edx, 3
@@ -17505,21 +17627,21 @@ $LN7:
   00093	48 85 c0	 test	 rax, rax
   00096	75 07		 jne	 SHORT $LN2@Ready_Laye
 
-; 127  : 		return E_FAIL;
+; 129  : 		return E_FAIL;
 
   00098	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0009d	eb 68		 jmp	 SHORT $LN1@Ready_Laye
 $LN2@Ready_Laye:
 
-; 128  : 
-; 129  : 	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_sky", L"sky", pLayerTag))
+; 130  : 
+; 131  : 	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_sky", pLayerTag, L"sky"))
 
   0009f	48 8d 85 48 01
 	00 00		 lea	 rax, QWORD PTR $T3[rbp]
   000a6	48 89 85 88 01
 	00 00		 mov	 QWORD PTR $T4[rbp], rax
-  000ad	48 8b 95 c8 01
-	00 00		 mov	 rdx, QWORD PTR pLayerTag$[rbp]
+  000ad	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_17MMAGKGGK@?$AAs?$AAk?$AAy?$AA?$AA@
   000b4	48 8b 8d 88 01
 	00 00		 mov	 rcx, QWORD PTR $T4[rbp]
   000bb	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
@@ -17530,8 +17652,8 @@ $LN2@Ready_Laye:
   000d0	48 8b 85 98 01
 	00 00		 mov	 rax, QWORD PTR tv134[rbp]
   000d7	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  000dc	4c 8d 0d 00 00
-	00 00		 lea	 r9, OFFSET FLAT:??_C@_17MMAGKGGK@?$AAs?$AAk?$AAy?$AA?$AA@
+  000dc	4c 8b 8d c8 01
+	00 00		 mov	 r9, QWORD PTR pLayerTag$[rbp]
   000e3	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1BM@HAOMGLKF@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAs?$AAk?$AAy?$AA?$AA@
   000ea	ba 03 00 00 00	 mov	 edx, 3
@@ -17541,19 +17663,19 @@ $LN2@Ready_Laye:
   000f9	48 85 c0	 test	 rax, rax
   000fc	75 07		 jne	 SHORT $LN3@Ready_Laye
 
-; 130  : 		return E_FAIL;
+; 132  : 		return E_FAIL;
 
   000fe	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00103	eb 02		 jmp	 SHORT $LN1@Ready_Laye
 $LN3@Ready_Laye:
 
-; 131  : 
-; 132  : 	return S_OK;
+; 133  : 
+; 134  : 	return S_OK;
 
   00105	33 c0		 xor	 eax, eax
 $LN1@Ready_Laye:
 
-; 133  : }
+; 135  : }
 
   00107	48 8d a5 a8 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+424]
@@ -17563,7 +17685,7 @@ $LN1@Ready_Laye:
 ?Ready_Layer_BackGround@CLevel_GamePlay@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_GamePlay::Ready_Layer_BackGround
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Ready_Light@CLevel_GamePlay@Client@@AEAAJXZ
 _TEXT	SEGMENT
 GameInstance$ = 8
@@ -17577,7 +17699,7 @@ __$ArrayPad$ = 584
 this$ = 624
 ?Ready_Light@CLevel_GamePlay@Client@@AEAAJXZ PROC	; Client::CLevel_GamePlay::Ready_Light, COMDAT
 
-; 103  : {
+; 105  : {
 
 $LN4:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -17598,19 +17720,19 @@ $LN4:
   00034	48 89 85 48 02
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 104  : 	CGameInstance* GameInstance = CGameInstance::GetInstance();
+; 106  : 	CGameInstance* GameInstance = CGameInstance::GetInstance();
 
   0003b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00041	48 89 45 08	 mov	 QWORD PTR GameInstance$[rbp], rax
 
-; 105  : 	
-; 106  : 	LIGHT_DESC LightDesc;
+; 107  : 	
+; 108  : 	LIGHT_DESC LightDesc;
 
   00045	48 8d 4d 30	 lea	 rcx, QWORD PTR LightDesc$[rbp]
   00049	e8 00 00 00 00	 call	 ??0tagLight_Desc@Engine@@QEAA@XZ
 
-; 107  : 	ZeroMemory(&LightDesc, sizeof(LIGHT_DESC));
+; 109  : 	ZeroMemory(&LightDesc, sizeof(LIGHT_DESC));
 
   0004e	41 b8 58 00 00
 	00		 mov	 r8d, 88			; 00000058H
@@ -17618,13 +17740,13 @@ $LN4:
   00056	48 8d 4d 30	 lea	 rcx, QWORD PTR LightDesc$[rbp]
   0005a	e8 00 00 00 00	 call	 memset
 
-; 108  : 	
-; 109  : 	LightDesc.eLightType = LIGHT_DESC::TYPE_DIRECTIONAL;
+; 110  : 	
+; 111  : 	LightDesc.eLightType = LIGHT_DESC::TYPE_DIRECTIONAL;
 
   0005f	c7 45 30 00 00
 	00 00		 mov	 DWORD PTR LightDesc$[rbp], 0
 
-; 110  : 	LightDesc.vDirection = _float4(0.f, -1.f, 1.f, 0.f);
+; 112  : 	LightDesc.vDirection = _float4(0.f, -1.f, 1.f, 0.f);
 
   00066	0f 57 c0	 xorps	 xmm0, xmm0
   00069	f3 0f 11 44 24
@@ -17641,7 +17763,7 @@ $LN4:
   00091	48 8d 4d 34	 lea	 rcx, QWORD PTR LightDesc$[rbp+4]
   00095	e8 00 00 00 00	 call	 ??4XMFLOAT4@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT4::operator=
 
-; 111  : 	LightDesc.vPosition = _float4(1.f, 1.f, 1.f, 1.f);
+; 113  : 	LightDesc.vPosition = _float4(1.f, 1.f, 1.f, 1.f);
 
   0009a	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
@@ -17660,7 +17782,7 @@ $LN4:
   000cf	48 8d 4d 44	 lea	 rcx, QWORD PTR LightDesc$[rbp+20]
   000d3	e8 00 00 00 00	 call	 ??4XMFLOAT4@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT4::operator=
 
-; 112  : 	LightDesc.vDiffuse = _float4(1.f, 1.f, 1.f, 1.f);
+; 114  : 	LightDesc.vDiffuse = _float4(1.f, 1.f, 1.f, 1.f);
 
   000d8	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
@@ -17679,7 +17801,7 @@ $LN4:
   0010d	48 8d 4d 58	 lea	 rcx, QWORD PTR LightDesc$[rbp+40]
   00111	e8 00 00 00 00	 call	 ??4XMFLOAT4@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT4::operator=
 
-; 113  : 	LightDesc.vAmbient = _float4(1.f, 1.f, 1.f, 1.f);
+; 115  : 	LightDesc.vAmbient = _float4(1.f, 1.f, 1.f, 1.f);
 
   00116	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
@@ -17698,7 +17820,7 @@ $LN4:
   0014b	48 8d 4d 68	 lea	 rcx, QWORD PTR LightDesc$[rbp+56]
   0014f	e8 00 00 00 00	 call	 ??4XMFLOAT4@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT4::operator=
 
-; 114  : 	LightDesc.vSpecular = _float4(1.f, 1.f, 1.f, 1.f);
+; 116  : 	LightDesc.vSpecular = _float4(1.f, 1.f, 1.f, 1.f);
 
   00154	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
@@ -17717,8 +17839,8 @@ $LN4:
   00189	48 8d 4d 78	 lea	 rcx, QWORD PTR LightDesc$[rbp+72]
   0018d	e8 00 00 00 00	 call	 ??4XMFLOAT4@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT4::operator=
 
-; 115  : 
-; 116  : 	if (FAILED(GameInstance->AddLight(m_pDevice, m_pContext, LightDesc)))
+; 117  : 
+; 118  : 	if (FAILED(GameInstance->AddLight(m_pDevice, m_pContext, LightDesc)))
 
   00192	4c 8d 4d 30	 lea	 r9, QWORD PTR LightDesc$[rbp]
   00196	48 8b 85 70 02
@@ -17733,19 +17855,19 @@ $LN4:
   001b6	85 c0		 test	 eax, eax
   001b8	7d 07		 jge	 SHORT $LN2@Ready_Ligh
 
-; 117  : 		return E_FAIL;
+; 119  : 		return E_FAIL;
 
   001ba	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001bf	eb 02		 jmp	 SHORT $LN1@Ready_Ligh
 $LN2@Ready_Ligh:
 
-; 118  : 
-; 119  : 	return S_OK;
+; 120  : 
+; 121  : 	return S_OK;
 
   001c1	33 c0		 xor	 eax, eax
 $LN1@Ready_Ligh:
 
-; 120  : }
+; 122  : }
 
   001c3	48 8b f8	 mov	 rdi, rax
   001c6	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
@@ -17765,7 +17887,7 @@ $LN1@Ready_Ligh:
 ?Ready_Light@CLevel_GamePlay@Client@@AEAAJXZ ENDP	; Client::CLevel_GamePlay::Ready_Light
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Tick@CLevel_GamePlay@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pApplicationManager$ = 8
@@ -17778,15 +17900,15 @@ $T7 = 440
 $T8 = 468
 $T9 = 504
 $T10 = 552
-tv250 = 568
+tv256 = 568
 tv152 = 568
-tv253 = 576
+tv259 = 576
 __$ArrayPad$ = 584
 this$ = 624
 TimeDelta$ = 632
 ?Tick@CLevel_GamePlay@Client@@UEAAXN@Z PROC		; Client::CLevel_GamePlay::Tick, COMDAT
 
-; 54   : {
+; 55   : {
 
 $LN19:
   00000	f2 0f 11 4c 24
@@ -17812,13 +17934,13 @@ $LN19:
   00045	48 89 85 48 02
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 55   : #ifdef _DEBUG
-; 56   : 	CApplicationManager* pApplicationManager = CApplicationManager::GetInstance(); 
+; 56   : #ifdef _DEBUG
+; 57   : 	CApplicationManager* pApplicationManager = CApplicationManager::GetInstance(); 
 
   0004c	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
   00051	48 89 45 08	 mov	 QWORD PTR pApplicationManager$[rbp], rax
 
-; 57   : 	pApplicationManager->SetTitle(L"LEVEL_GAMEPLAY");
+; 58   : 	pApplicationManager->SetTitle(L"LEVEL_GAMEPLAY");
 
   00055	48 8d 85 78 01
 	00 00		 lea	 rax, QWORD PTR $T6[rbp]
@@ -17830,21 +17952,21 @@ $LN19:
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
   00071	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   00076	48 89 85 38 02
-	00 00		 mov	 QWORD PTR tv250[rbp], rax
+	00 00		 mov	 QWORD PTR tv256[rbp], rax
   0007d	48 8b 95 38 02
-	00 00		 mov	 rdx, QWORD PTR tv250[rbp]
+	00 00		 mov	 rdx, QWORD PTR tv256[rbp]
   00084	48 8b 4d 08	 mov	 rcx, QWORD PTR pApplicationManager$[rbp]
   00088	e8 00 00 00 00	 call	 ?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ; Client::CApplicationManager::SetTitle
 
-; 58   : #endif
-; 59   : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 59   : #endif
+; 60   : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   0008d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00093	48 89 45 28	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 60   : 
-; 61   : 	if (pGameInstance->Input_KeyState_Custom(DIK_ESCAPE) == KEY_STATE::TAP)
+; 61   : 
+; 62   : 	if (pGameInstance->Input_KeyState_Custom(DIK_ESCAPE) == KEY_STATE::TAP)
 
   00097	ba 01 00 00 00	 mov	 edx, 1
   0009c	48 8b 4d 28	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
@@ -17853,8 +17975,8 @@ $LN19:
   000a6	83 f8 01	 cmp	 eax, 1
   000a9	75 3c		 jne	 SHORT $LN5@Tick
 
-; 62   : 	{
-; 63   : 		if (FAILED(pGameInstance->Open_Level(LEVEL_LOADING, CLevel_Loading::Create(m_pDevice, m_pContext, LEVEL_BOSS))))
+; 63   : 	{
+; 64   : 		if (FAILED(pGameInstance->Open_Level(LEVEL_LOADING, CLevel_Loading::Create(m_pDevice, m_pContext, LEVEL_BOSS))))
 
   000ab	41 b8 04 00 00
 	00		 mov	 r8d, 4
@@ -17873,32 +17995,32 @@ $LN19:
   000de	85 c0		 test	 eax, eax
   000e0	7d 05		 jge	 SHORT $LN5@Tick
 
-; 64   : 			return;
+; 65   : 			return;
 
-  000e2	e9 d0 01 00 00	 jmp	 $LN1@Tick
+  000e2	e9 e0 01 00 00	 jmp	 $LN1@Tick
 $LN5@Tick:
 
-; 65   : 	}
-; 66   : 
-; 67   : 	//妮府傈 积己
-; 68   : 	//if (pGameInstance->Input_KeyState_Custom(DIK_INSERT) == KEY_STATE::TAP)
-; 69   : 	//{
-; 70   : 	//	CStageCollisionManager* pStageManager = CStageCollisionManager::GetInstance();
-; 71   : 	//	pStageManager->AddWall(m_pDevice, m_pContext);
-; 72   : 	//}
-; 73   : 
-; 74   : 	if (pGameInstance->Input_KeyState_Custom(DIK_0) == KEY_STATE::TAP)
+; 66   : 	}
+; 67   : 
+; 68   : 	//妮府傈 积己
+; 69   : 	//if (pGameInstance->Input_KeyState_Custom(DIK_INSERT) == KEY_STATE::TAP)
+; 70   : 	//{
+; 71   : 	//	CStageCollisionManager* pStageManager = CStageCollisionManager::GetInstance();
+; 72   : 	//	pStageManager->AddWall(m_pDevice, m_pContext);
+; 73   : 	//}
+; 74   : 
+; 75   : 	if (pGameInstance->Input_KeyState_Custom(DIK_0) == KEY_STATE::TAP)
 
   000e7	ba 0b 00 00 00	 mov	 edx, 11
   000ec	48 8b 4d 28	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
   000f0	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z
   000f6	83 f8 01	 cmp	 eax, 1
-  000f9	0f 85 be 00 00
+  000f9	0f 85 ce 00 00
 	00		 jne	 $LN7@Tick
 
-; 75   : 	{
-; 76   : 		CLayer* pLayer = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("layer_enemy"));
+; 76   : 	{
+; 77   : 		CLayer* pLayer = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("layer_enemy"));
 
   000ff	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1BI@DCFJMCMJ@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AA?$AA@
@@ -17908,8 +18030,8 @@ $LN5@Tick:
 	00		 call	 QWORD PTR __imp_?Find_Layer@CGameInstance@Engine@@QEAAPEAVCLayer@2@IPEB_W@Z
   00115	48 89 45 48	 mov	 QWORD PTR pLayer$4[rbp], rax
 
-; 77   : 
-; 78   : 		for (auto iter = pLayer->m_GameObjects.begin(); iter != pLayer->m_GameObjects.end(); ++iter)
+; 78   : 
+; 79   : 		for (auto iter = pLayer->m_GameObjects.begin(); iter != pLayer->m_GameObjects.end(); ++iter)
 
   00119	ba 18 00 00 00	 mov	 edx, 24
   0011e	48 8d 4d 68	 lea	 rcx, QWORD PTR iter$5[rbp]
@@ -17936,9 +18058,9 @@ $LN4@Tick:
   00165	48 8b 85 38 02
 	00 00		 mov	 rax, QWORD PTR tv152[rbp]
   0016c	48 89 85 40 02
-	00 00		 mov	 QWORD PTR tv253[rbp], rax
+	00 00		 mov	 QWORD PTR tv259[rbp], rax
   00173	48 8b 95 40 02
-	00 00		 mov	 rdx, QWORD PTR tv253[rbp]
+	00 00		 mov	 rdx, QWORD PTR tv259[rbp]
   0017a	48 8d 4d 68	 lea	 rcx, QWORD PTR iter$5[rbp]
   0017e	e8 00 00 00 00	 call	 ??9?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator!=
   00183	88 85 d4 01 00
@@ -17951,8 +18073,8 @@ $LN4@Tick:
   0019c	85 c0		 test	 eax, eax
   0019e	74 14		 je	 SHORT $LN3@Tick
 
-; 79   : 		{
-; 80   : 			static_cast<CEnemy*>(iter->second)->Reset();
+; 80   : 		{
+; 81   : 			static_cast<CEnemy*>(iter->second)->Reset();
 
   001a0	48 8d 4d 68	 lea	 rcx, QWORD PTR iter$5[rbp]
   001a4	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
@@ -17961,139 +18083,146 @@ $LN4@Tick:
   001b2	eb 8a		 jmp	 SHORT $LN2@Tick
 $LN3@Tick:
 
-; 81   : 		}
+; 82   : 		}
 
   001b4	48 8d 4d 68	 lea	 rcx, QWORD PTR iter$5[rbp]
   001b8	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
+
+; 83   : 		
+; 84   : 		static_cast<CCharacter*>(mPlayer)->ClearEnemyCheckCollider();
+
+  001bd	48 8b 85 70 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001c4	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  001c8	e8 00 00 00 00	 call	 ?ClearEnemyCheckCollider@CCharacter@Client@@QEAAXXZ ; Client::CCharacter::ClearEnemyCheckCollider
 $LN7@Tick:
 
-; 82   : 		
-; 83   : 	}
-; 84   : 
-; 85   : 	CSkillBallSystem* pSkillSystem = CSkillBallSystem::GetInstance();
+; 85   : 	}
+; 86   : 
+; 87   : 	CSkillBallSystem* pSkillSystem = CSkillBallSystem::GetInstance();
 
-  001bd	e8 00 00 00 00	 call	 ?GetInstance@CSkillBallSystem@Client@@SAPEAV12@XZ ; Client::CSkillBallSystem::GetInstance
-  001c2	48 89 85 98 00
+  001cd	e8 00 00 00 00	 call	 ?GetInstance@CSkillBallSystem@Client@@SAPEAV12@XZ ; Client::CSkillBallSystem::GetInstance
+  001d2	48 89 85 98 00
 	00 00		 mov	 QWORD PTR pSkillSystem$[rbp], rax
 
-; 86   : 	pSkillSystem->PushReadyTimer(TimeDelta);
+; 88   : 	pSkillSystem->PushReadyTimer(TimeDelta);
 
-  001c9	f2 0f 10 8d 78
+  001d9	f2 0f 10 8d 78
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  001d1	48 8b 8d 98 00
+  001e1	48 8b 8d 98 00
 	00 00		 mov	 rcx, QWORD PTR pSkillSystem$[rbp]
-  001d8	e8 00 00 00 00	 call	 ?PushReadyTimer@CSkillBallSystem@Client@@QEAAXN@Z ; Client::CSkillBallSystem::PushReadyTimer
+  001e8	e8 00 00 00 00	 call	 ?PushReadyTimer@CSkillBallSystem@Client@@QEAAXN@Z ; Client::CSkillBallSystem::PushReadyTimer
 
-; 87   : 
-; 88   : 	if (pGameInstance->Input_KeyState_Custom(DIK_1) == KEY_STATE::TAP)
+; 89   : 
+; 90   : 	if (pGameInstance->Input_KeyState_Custom(DIK_1) == KEY_STATE::TAP)
 
-  001dd	ba 02 00 00 00	 mov	 edx, 2
-  001e2	48 8b 4d 28	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  001e6	ff 15 00 00 00
+  001ed	ba 02 00 00 00	 mov	 edx, 2
+  001f2	48 8b 4d 28	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  001f6	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z
-  001ec	83 f8 01	 cmp	 eax, 1
-  001ef	75 2a		 jne	 SHORT $LN8@Tick
+  001fc	83 f8 01	 cmp	 eax, 1
+  001ff	75 2a		 jne	 SHORT $LN8@Tick
 
-; 89   : 		pSkillSystem->PushSkill(m_pDevice, m_pContext, CSkillBase::TYPE::RED);
+; 91   : 		pSkillSystem->PushSkill(m_pDevice, m_pContext, CSkillBase::TYPE::RED);
 
-  001f1	45 33 c9	 xor	 r9d, r9d
-  001f4	48 8b 85 70 02
+  00201	45 33 c9	 xor	 r9d, r9d
+  00204	48 8b 85 70 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001fb	4c 8b 40 18	 mov	 r8, QWORD PTR [rax+24]
-  001ff	48 8b 85 70 02
+  0020b	4c 8b 40 18	 mov	 r8, QWORD PTR [rax+24]
+  0020f	48 8b 85 70 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00206	48 8b 50 10	 mov	 rdx, QWORD PTR [rax+16]
-  0020a	48 8b 8d 98 00
+  00216	48 8b 50 10	 mov	 rdx, QWORD PTR [rax+16]
+  0021a	48 8b 8d 98 00
 	00 00		 mov	 rcx, QWORD PTR pSkillSystem$[rbp]
-  00211	e8 00 00 00 00	 call	 ?PushSkill@CSkillBallSystem@Client@@QEAAJPEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@CSkillBase@2@@Z ; Client::CSkillBallSystem::PushSkill
-  00216	e9 9c 00 00 00	 jmp	 $LN1@Tick
+  00221	e8 00 00 00 00	 call	 ?PushSkill@CSkillBallSystem@Client@@QEAAJPEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@CSkillBase@2@@Z ; Client::CSkillBallSystem::PushSkill
+  00226	e9 9c 00 00 00	 jmp	 $LN1@Tick
 $LN8@Tick:
 
-; 90   : 
-; 91   : 	else if (pGameInstance->Input_KeyState_Custom(DIK_2) == KEY_STATE::TAP)
+; 92   : 
+; 93   : 	else if (pGameInstance->Input_KeyState_Custom(DIK_2) == KEY_STATE::TAP)
 
-  0021b	ba 03 00 00 00	 mov	 edx, 3
-  00220	48 8b 4d 28	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  00224	ff 15 00 00 00
+  0022b	ba 03 00 00 00	 mov	 edx, 3
+  00230	48 8b 4d 28	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  00234	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z
-  0022a	83 f8 01	 cmp	 eax, 1
-  0022d	75 2a		 jne	 SHORT $LN10@Tick
+  0023a	83 f8 01	 cmp	 eax, 1
+  0023d	75 2a		 jne	 SHORT $LN10@Tick
 
-; 92   : 		pSkillSystem->PushSkill(m_pDevice, m_pContext, CSkillBase::TYPE::BLUE);
+; 94   : 		pSkillSystem->PushSkill(m_pDevice, m_pContext, CSkillBase::TYPE::BLUE);
 
-  0022f	41 b9 01 00 00
+  0023f	41 b9 01 00 00
 	00		 mov	 r9d, 1
-  00235	48 8b 85 70 02
+  00245	48 8b 85 70 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0023c	4c 8b 40 18	 mov	 r8, QWORD PTR [rax+24]
-  00240	48 8b 85 70 02
+  0024c	4c 8b 40 18	 mov	 r8, QWORD PTR [rax+24]
+  00250	48 8b 85 70 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00247	48 8b 50 10	 mov	 rdx, QWORD PTR [rax+16]
-  0024b	48 8b 8d 98 00
+  00257	48 8b 50 10	 mov	 rdx, QWORD PTR [rax+16]
+  0025b	48 8b 8d 98 00
 	00 00		 mov	 rcx, QWORD PTR pSkillSystem$[rbp]
-  00252	e8 00 00 00 00	 call	 ?PushSkill@CSkillBallSystem@Client@@QEAAJPEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@CSkillBase@2@@Z ; Client::CSkillBallSystem::PushSkill
-  00257	eb 5e		 jmp	 SHORT $LN1@Tick
+  00262	e8 00 00 00 00	 call	 ?PushSkill@CSkillBallSystem@Client@@QEAAJPEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@CSkillBase@2@@Z ; Client::CSkillBallSystem::PushSkill
+  00267	eb 5e		 jmp	 SHORT $LN1@Tick
 $LN10@Tick:
 
-; 93   : 
-; 94   : 	else if (pGameInstance->Input_KeyState_Custom(DIK_3) == KEY_STATE::TAP)
+; 95   : 
+; 96   : 	else if (pGameInstance->Input_KeyState_Custom(DIK_3) == KEY_STATE::TAP)
 
-  00259	ba 04 00 00 00	 mov	 edx, 4
-  0025e	48 8b 4d 28	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  00262	ff 15 00 00 00
+  00269	ba 04 00 00 00	 mov	 edx, 4
+  0026e	48 8b 4d 28	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  00272	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z
-  00268	83 f8 01	 cmp	 eax, 1
-  0026b	75 2a		 jne	 SHORT $LN12@Tick
+  00278	83 f8 01	 cmp	 eax, 1
+  0027b	75 2a		 jne	 SHORT $LN12@Tick
 
-; 95   : 		pSkillSystem->PushSkill(m_pDevice, m_pContext, CSkillBase::TYPE::YELLOW);
+; 97   : 		pSkillSystem->PushSkill(m_pDevice, m_pContext, CSkillBase::TYPE::YELLOW);
 
-  0026d	41 b9 02 00 00
+  0027d	41 b9 02 00 00
 	00		 mov	 r9d, 2
-  00273	48 8b 85 70 02
+  00283	48 8b 85 70 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0027a	4c 8b 40 18	 mov	 r8, QWORD PTR [rax+24]
-  0027e	48 8b 85 70 02
+  0028a	4c 8b 40 18	 mov	 r8, QWORD PTR [rax+24]
+  0028e	48 8b 85 70 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00285	48 8b 50 10	 mov	 rdx, QWORD PTR [rax+16]
-  00289	48 8b 8d 98 00
+  00295	48 8b 50 10	 mov	 rdx, QWORD PTR [rax+16]
+  00299	48 8b 8d 98 00
 	00 00		 mov	 rcx, QWORD PTR pSkillSystem$[rbp]
-  00290	e8 00 00 00 00	 call	 ?PushSkill@CSkillBallSystem@Client@@QEAAJPEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@CSkillBase@2@@Z ; Client::CSkillBallSystem::PushSkill
-  00295	eb 20		 jmp	 SHORT $LN1@Tick
+  002a0	e8 00 00 00 00	 call	 ?PushSkill@CSkillBallSystem@Client@@QEAAJPEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@CSkillBase@2@@Z ; Client::CSkillBallSystem::PushSkill
+  002a5	eb 20		 jmp	 SHORT $LN1@Tick
 $LN12@Tick:
 
-; 96   : 
-; 97   : 	else if (pGameInstance->Input_KeyState_Custom(DIK_4) == KEY_STATE::TAP)
+; 98   : 
+; 99   : 	else if (pGameInstance->Input_KeyState_Custom(DIK_4) == KEY_STATE::TAP)
 
-  00297	ba 05 00 00 00	 mov	 edx, 5
-  0029c	48 8b 4d 28	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  002a0	ff 15 00 00 00
+  002a7	ba 05 00 00 00	 mov	 edx, 5
+  002ac	48 8b 4d 28	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  002b0	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z
-  002a6	83 f8 01	 cmp	 eax, 1
-  002a9	75 0c		 jne	 SHORT $LN1@Tick
+  002b6	83 f8 01	 cmp	 eax, 1
+  002b9	75 0c		 jne	 SHORT $LN1@Tick
 
-; 98   : 		pSkillSystem->Clear();
+; 100  : 		pSkillSystem->Clear();
 
-  002ab	48 8b 8d 98 00
+  002bb	48 8b 8d 98 00
 	00 00		 mov	 rcx, QWORD PTR pSkillSystem$[rbp]
-  002b2	e8 00 00 00 00	 call	 ?Clear@CSkillBallSystem@Client@@QEAAXXZ ; Client::CSkillBallSystem::Clear
+  002c2	e8 00 00 00 00	 call	 ?Clear@CSkillBallSystem@Client@@QEAAXXZ ; Client::CSkillBallSystem::Clear
 $LN1@Tick:
 
-; 99   : 
-; 100  : }
+; 101  : 
+; 102  : }
 
-  002b7	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  002bb	48 8d 15 00 00
+  002c7	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  002cb	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?Tick@CLevel_GamePlay@Client@@UEAAXN@Z$rtcFrameData
-  002c2	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  002c7	48 8b 8d 48 02
+  002d2	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  002d7	48 8b 8d 48 02
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  002ce	48 33 cd	 xor	 rcx, rbp
-  002d1	e8 00 00 00 00	 call	 __security_check_cookie
-  002d6	48 8d a5 58 02
+  002de	48 33 cd	 xor	 rcx, rbp
+  002e1	e8 00 00 00 00	 call	 __security_check_cookie
+  002e6	48 8d a5 58 02
 	00 00		 lea	 rsp, QWORD PTR [rbp+600]
-  002dd	5f		 pop	 rdi
-  002de	5d		 pop	 rbp
-  002df	c3		 ret	 0
+  002ed	5f		 pop	 rdi
+  002ee	5d		 pop	 rbp
+  002ef	c3		 ret	 0
 ?Tick@CLevel_GamePlay@Client@@UEAAXN@Z ENDP		; Client::CLevel_GamePlay::Tick
 _TEXT	ENDS
 ;	COMDAT text$x
@@ -18108,9 +18237,9 @@ $T7 = 440
 $T8 = 468
 $T9 = 504
 $T10 = 552
-tv250 = 568
+tv256 = 568
 tv152 = 568
-tv253 = 576
+tv259 = 576
 __$ArrayPad$ = 584
 this$ = 624
 TimeDelta$ = 632
@@ -18138,9 +18267,9 @@ $T7 = 440
 $T8 = 468
 $T9 = 504
 $T10 = 552
-tv250 = 568
+tv256 = 568
 tv152 = 568
-tv253 = 576
+tv259 = 576
 __$ArrayPad$ = 584
 this$ = 624
 TimeDelta$ = 632
@@ -18173,9 +18302,9 @@ $T7 = 440
 $T8 = 468
 $T9 = 504
 $T10 = 552
-tv250 = 568
+tv256 = 568
 tv152 = 568
-tv253 = 576
+tv259 = 576
 __$ArrayPad$ = 584
 this$ = 624
 TimeDelta$ = 632
@@ -18207,9 +18336,9 @@ $T7 = 440
 $T8 = 468
 $T9 = 504
 $T10 = 552
-tv250 = 568
+tv256 = 568
 tv152 = 568
-tv253 = 576
+tv259 = 576
 __$ArrayPad$ = 584
 this$ = 624
 TimeDelta$ = 632
@@ -18230,13 +18359,13 @@ TimeDelta$ = 632
 ?dtor$2@?0??Tick@CLevel_GamePlay@Client@@UEAAXN@Z@4HA ENDP ; `Client::CLevel_GamePlay::Tick'::`1'::dtor$2
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?Initialize@CLevel_GamePlay@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
 ?Initialize@CLevel_GamePlay@Client@@UEAAJXZ PROC	; Client::CLevel_GamePlay::Initialize, COMDAT
 
-; 23   : {
+; 24   : {
 
 $LN11:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -18252,7 +18381,7 @@ $LN11:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 24   : 	if (FAILED(Ready_Light()))
+; 25   : 	if (FAILED(Ready_Light()))
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -18260,14 +18389,14 @@ $LN11:
   00036	85 c0		 test	 eax, eax
   00038	7d 0a		 jge	 SHORT $LN2@Initialize
 
-; 25   : 		return E_FAIL;
+; 26   : 		return E_FAIL;
 
   0003a	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0003f	e9 03 01 00 00	 jmp	 $LN1@Initialize
 $LN2@Initialize:
 
-; 26   : 
-; 27   : 	if(FAILED(Ready_Layer_BackGround(TEXT("layer_background"))))
+; 27   : 
+; 28   : 	if(FAILED(Ready_Layer_BackGround(TEXT("layer_background"))))
 
   00044	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1CC@EBLHBMD@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
@@ -18277,14 +18406,14 @@ $LN2@Initialize:
   00057	85 c0		 test	 eax, eax
   00059	7d 0a		 jge	 SHORT $LN3@Initialize
 
-; 28   : 		return E_FAIL;
+; 29   : 		return E_FAIL;
 
   0005b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00060	e9 e2 00 00 00	 jmp	 $LN1@Initialize
 $LN3@Initialize:
 
-; 29   : 
-; 30   : 	if (FAILED(Ready_Layer_Wall(TEXT("layer_wall"))))
+; 30   : 
+; 31   : 	if (FAILED(Ready_Layer_Wall(TEXT("layer_wall"))))
 
   00065	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BG@ILAJFGLP@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAw?$AAa?$AAl?$AAl?$AA?$AA@
@@ -18294,14 +18423,14 @@ $LN3@Initialize:
   00078	85 c0		 test	 eax, eax
   0007a	7d 0a		 jge	 SHORT $LN4@Initialize
 
-; 31   : 		return E_FAIL;
+; 32   : 		return E_FAIL;
 
   0007c	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00081	e9 c1 00 00 00	 jmp	 $LN1@Initialize
 $LN4@Initialize:
 
-; 32   : 
-; 33   : 	if (FAILED(Ready_Layer_Player(TEXT("layer_player"))))
+; 33   : 
+; 34   : 	if (FAILED(Ready_Layer_Player(TEXT("layer_player"))))
 
   00086	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BK@CFEAAEAA@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA?$AA@
@@ -18311,14 +18440,14 @@ $LN4@Initialize:
   00099	85 c0		 test	 eax, eax
   0009b	7d 0a		 jge	 SHORT $LN5@Initialize
 
-; 34   : 		return E_FAIL;
+; 35   : 		return E_FAIL;
 
   0009d	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000a2	e9 a0 00 00 00	 jmp	 $LN1@Initialize
 $LN5@Initialize:
 
-; 35   : 
-; 36   : 	if (FAILED(Ready_Layer_Enemy(TEXT("layer_enemy"), mPlayer)))
+; 36   : 
+; 37   : 	if (FAILED(Ready_Layer_Enemy(TEXT("layer_enemy"), mPlayer)))
 
   000a7	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -18331,14 +18460,14 @@ $LN5@Initialize:
   000c5	85 c0		 test	 eax, eax
   000c7	7d 07		 jge	 SHORT $LN6@Initialize
 
-; 37   : 		return E_FAIL;
+; 38   : 		return E_FAIL;
 
   000c9	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000ce	eb 77		 jmp	 SHORT $LN1@Initialize
 $LN6@Initialize:
 
-; 38   : 
-; 39   : 	if (FAILED(Ready_Layer_Camera(TEXT("layer_camera"))))
+; 39   : 
+; 40   : 	if (FAILED(Ready_Layer_Camera(TEXT("layer_camera"))))
 
   000d0	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BK@MMGLBCOB@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@
@@ -18348,14 +18477,14 @@ $LN6@Initialize:
   000e3	85 c0		 test	 eax, eax
   000e5	7d 07		 jge	 SHORT $LN7@Initialize
 
-; 40   : 		return E_FAIL;
+; 41   : 		return E_FAIL;
 
   000e7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000ec	eb 59		 jmp	 SHORT $LN1@Initialize
 $LN7@Initialize:
 
-; 41   : 
-; 42   : 	if (FAILED(Ready_Layer_Effect(TEXT("layer_effect"))))
+; 42   : 
+; 43   : 	if (FAILED(Ready_Layer_Effect(TEXT("layer_effect"))))
 
   000ee	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BK@BHJMDNLM@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAe?$AAf?$AAf?$AAe?$AAc?$AAt?$AA?$AA@
@@ -18365,14 +18494,14 @@ $LN7@Initialize:
   00101	85 c0		 test	 eax, eax
   00103	7d 07		 jge	 SHORT $LN8@Initialize
 
-; 43   : 		return E_FAIL;
+; 44   : 		return E_FAIL;
 
   00105	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0010a	eb 3b		 jmp	 SHORT $LN1@Initialize
 $LN8@Initialize:
 
-; 44   : 
-; 45   : 	if (FAILED(Ready_Layer_UI(TEXT("layer_ui"))))
+; 45   : 
+; 46   : 	if (FAILED(Ready_Layer_UI(TEXT("layer_ui"))))
 
   0010c	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BC@GDEMFKNH@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAu?$AAi?$AA?$AA@
@@ -18382,14 +18511,14 @@ $LN8@Initialize:
   0011f	85 c0		 test	 eax, eax
   00121	7d 07		 jge	 SHORT $LN9@Initialize
 
-; 46   : 		return E_FAIL;
+; 47   : 		return E_FAIL;
 
   00123	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00128	eb 1d		 jmp	 SHORT $LN1@Initialize
 $LN9@Initialize:
 
-; 47   : 
-; 48   : 	static_cast<CCharacter*>(mPlayer)->SetHealthUI(static_cast<CEnemyHealthBar*>(m_pHealthBar));
+; 48   : 
+; 49   : 	static_cast<CCharacter*>(mPlayer)->SetHealthUI(static_cast<CEnemyHealthBar*>(m_pHealthBar));
 
   0012a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -18399,13 +18528,13 @@ $LN9@Initialize:
   0013c	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
   00140	e8 00 00 00 00	 call	 ?SetHealthUI@CCharacter@Client@@QEAAXPEAVCEnemyHealthBar@2@@Z ; Client::CCharacter::SetHealthUI
 
-; 49   : 
-; 50   : 	return S_OK;
+; 50   : 
+; 51   : 	return S_OK;
 
   00145	33 c0		 xor	 eax, eax
 $LN1@Initialize:
 
-; 51   : }
+; 52   : }
 
   00147	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -18415,13 +18544,13 @@ $LN1@Initialize:
 ?Initialize@CLevel_GamePlay@Client@@UEAAJXZ ENDP	; Client::CLevel_GamePlay::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ??1CLevel_GamePlay@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
 ??1CLevel_GamePlay@Client@@EEAA@XZ PROC			; Client::CLevel_GamePlay::~CLevel_GamePlay, COMDAT
 
-; 20   : }
+; 21   : }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -18448,9 +18577,9 @@ $LN3:
 ??1CLevel_GamePlay@Client@@EEAA@XZ ENDP			; Client::CLevel_GamePlay::~CLevel_GamePlay
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
-; File c:\github\framework\client\public\level_gameplay.h
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\public\level_gameplay.h
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ??0CLevel_GamePlay@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -18458,7 +18587,7 @@ pDevice$ = 232
 pContext$ = 240
 ??0CLevel_GamePlay@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CLevel_GamePlay::CLevel_GamePlay, COMDAT
 
-; 19   : {
+; 20   : {
 
 $LN4:
   00000	4c 89 44 24 18	 mov	 QWORD PTR [rsp+24], r8
@@ -18476,7 +18605,7 @@ $LN4:
   0002c	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 18   : 	: CLevel(pDevice, pContext)
+; 19   : 	: CLevel(pDevice, pContext)
 
   00034	4c 8b 85 f0 00
 	00 00		 mov	 r8, QWORD PTR pContext$[rbp]
@@ -18487,14 +18616,14 @@ $LN4:
   00049	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_??0CLevel@Engine@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 
-; 19   : {
+; 20   : {
 
   0004f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00056	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CLevel_GamePlay@Client@@6B@
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\github\framework\client\public\level_gameplay.h
+; File c:\users\arcco\documents\github\framework\client\public\level_gameplay.h
 
 ; 35   : 	CGameObject* mPlayer = nullptr;
 
@@ -18509,9 +18638,9 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00076	48 c7 40 28 00
 	00 00 00	 mov	 QWORD PTR [rax+40], 0
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 
-; 20   : }
+; 21   : }
 
   0007e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -25609,7 +25738,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -25638,7 +25767,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\level_gameplay.cpp
+; File c:\users\arcco\documents\github\framework\client\private\level_gameplay.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

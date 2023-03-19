@@ -3,6 +3,7 @@
 
 BEGIN(Engine)
 class CBone;
+class CCollider;
 END
 
 BEGIN(Client)
@@ -22,6 +23,9 @@ public:
 	virtual HRESULT Render() override;
 
 public:
+	void AttackShake();
+
+public:
 	HRESULT Add_Components();
 	HRESULT Setup_ShaderResources();
 
@@ -34,6 +38,7 @@ private:
 	CGameObject* m_pTarget = nullptr;
 	CTransform* m_pTargetTransform = nullptr;
 	CTransform* m_pSocketTransform = nullptr;
+	CCollider* m_pCollider = nullptr;
 
 	_bool m_bMouseLock = true;
 

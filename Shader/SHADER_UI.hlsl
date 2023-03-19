@@ -4,6 +4,8 @@ matrix g_WorldMatrix, g_ViewMatrix, g_ProjMatrix;
 texture2D g_Texture;
 
 float g_FillAmount = 1.0f;
+float g_Alpha = 1.f;
+float g_DiscardValue = 0.f;
 
 struct VS_IN
 {
@@ -52,6 +54,10 @@ PS_OUT PS_MAIN(PS_IN In)
 		discard;
 
 	Out.vColor = g_Texture.Sample(LinearSampler, In.vTexUV);
+	Out.vColor.a = g_Texture.Sample(LinearSampler, In.vTexUV).w * g_Alpha;
+
+	if (Out.vColor.r <= g_DiscardValue)
+		discard;
 
 	return Out;
 }

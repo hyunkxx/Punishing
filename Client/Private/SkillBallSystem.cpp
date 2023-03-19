@@ -88,7 +88,7 @@ CSkillBase::SKILL_INFO CSkillBallSystem::UseSkill(_uint iIndex)
 			{
 				m_iSkillCount--;
 				SkillInfo.eType = m_pSkills[iIndex]->GetSkillType();
-				m_pSkills[i]->Destroy();
+				m_pSkills[i]->SetDestroyWait();
 				iter = m_pSkills.erase(iter);
 
 				//기존 스킬볼 지웠을때 예약스킬볼에 존재하면 앞에꺼 꺼냄
@@ -120,7 +120,7 @@ CSkillBase::SKILL_INFO CSkillBallSystem::UseSkill(_uint iIndex)
 			{
 				m_iSkillCount--;
 				SkillInfo.eType = m_pSkills[j]->GetSkillType();
-				m_pSkills[j]->Destroy();
+				m_pSkills[j]->SetDestroyWait();
 				iter = m_pSkills.erase(iter);
 
 				//기존 스킬볼 지웠을때 예약스킬볼에 존재하면 앞에꺼 꺼냄
@@ -153,7 +153,7 @@ CSkillBase::SKILL_INFO CSkillBallSystem::UseSkill(_uint iIndex)
 			{
 				m_iSkillCount--;
 				SkillInfo.eType = m_pSkills[j]->GetSkillType();
-				m_pSkills[j]->Destroy();
+				m_pSkills[j]->SetDestroyWait();
 				iter = m_pSkills.erase(iter);
 
 				//기존 스킬볼 지웠을때 예약스킬볼에 존재하면 앞에꺼 꺼냄

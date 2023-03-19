@@ -1,2 +1,7 @@
-﻿  Client.vcxproj -> C:\Github\Framework\Client\Config\../Bin/Client.exe
+﻿  PlayerHealthBar.cpp
+c:\users\arcco\documents\github\framework\client\public\playerhealthbar.h(65): warning C4244: '초기화 중': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\playerhealthbar.cpp(114): warning C4244: '=': 'Engine::_float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\playerhealthbar.cpp(126): warning C4244: '=': 'Engine::_float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\playerhealthbar.cpp(144): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Client.vcxproj -> C:\Users\arcco\Documents\GitHub\Framework\Client\Config\../Bin/Client.exe
   Client.vcxproj -> ../Bin/Client.pdb (Full PDB)

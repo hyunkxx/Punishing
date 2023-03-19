@@ -165,12 +165,14 @@
     <ClInclude Include="..\public\CollisionManager.h" />
     <ClInclude Include="..\public\Component.h" />
     <ClInclude Include="..\public\Component_Manager.h" />
+    <ClInclude Include="..\public\CustomFont.h" />
     <ClInclude Include="..\Public\DebugDraw\DebugDraw.h" />
     <ClInclude Include="..\Public\Engine_Defines.h" />
     <ClInclude Include="..\Public\Engine_Macro.h" />
     <ClInclude Include="..\Public\Engine_Struct.h" />
     <ClInclude Include="..\Public\Engine_Template.h" />
     <ClInclude Include="..\Public\Engine_Typedef.h" />
+    <ClInclude Include="..\public\Font_Manager.h" />
     <ClInclude Include="..\public\GameInstance.h" />
     <ClInclude Include="..\public\GameObject.h" />
     <ClInclude Include="..\public\Graphic_Device.h" />
@@ -208,8 +210,10 @@
     <ClCompile Include="..\private\CollisionManager.cpp" />
     <ClCompile Include="..\private\Component.cpp" />
     <ClCompile Include="..\private\Component_Manager.cpp" />
+    <ClCompile Include="..\private\CustomFont.cpp" />
     <ClCompile Include="..\Private\DebugDraw.cpp" />
     <ClCompile Include="..\Private\Engine_Struct.cpp" />
+    <ClCompile Include="..\private\Font_Manager.cpp" />
     <ClCompile Include="..\private\GameInstance.cpp" />
     <ClCompile Include="..\private\GameObject.cpp" />
     <ClCompile Include="..\private\Graphic_Device.cpp" />

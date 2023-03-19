@@ -29,10 +29,10 @@ HRESULT CEnemyHealthBar::Initialize(void * pArg)
 	if (FAILED(Add_Components()))
 		return E_FAIL;
 
-	m_fWidth = 550.f;
+	m_fWidth = 450.f;
 	m_fHeight = 10.f;
 	m_fX = g_iWinSizeX >> 1;
-	m_fY = 40;
+	m_fY = 70.f;
 
 	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_ViewMatrix, XMMatrixIdentity());
@@ -69,6 +69,9 @@ HRESULT CEnemyHealthBar::Render()
 
 	_float value = 1.f;
 	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &value, sizeof(_float))))
+		return E_FAIL;
+
+	if (FAILED(m_pShader->SetRawValue("g_Alpha", &value, sizeof(_float))))
 		return E_FAIL;
 
 	//마지막 줄이면 어둡게

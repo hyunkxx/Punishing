@@ -196,6 +196,9 @@
     <ClInclude Include="..\public\SkillBase.h">
       <Filter>src\02. GameObjects\04. Character\Skill</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\PlayerHealthBar.h">
+      <Filter>src\02. GameObjects\06. UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -296,6 +299,9 @@
     </ClCompile>
     <ClCompile Include="..\private\SkillBase.cpp">
       <Filter>src\02. GameObjects\04. Character\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\PlayerHealthBar.cpp">
+      <Filter>src\02. GameObjects\06. UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
