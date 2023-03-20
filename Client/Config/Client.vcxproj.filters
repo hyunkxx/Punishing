@@ -199,6 +199,9 @@
     <ClInclude Include="..\public\PlayerHealthBar.h">
       <Filter>src\02. GameObjects\06. UI</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\PlayerIcon.h">
+      <Filter>src\02. GameObjects\06. UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -301,6 +304,9 @@
       <Filter>src\02. GameObjects\04. Character\Skill</Filter>
     </ClCompile>
     <ClCompile Include="..\private\PlayerHealthBar.cpp">
+      <Filter>src\02. GameObjects\06. UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\PlayerIcon.cpp">
       <Filter>src\02. GameObjects\06. UI</Filter>
     </ClCompile>
   </ItemGroup>

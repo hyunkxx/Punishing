@@ -2468,7 +2468,7 @@ PUBLIC	??_C@_0N@ELIMCBLG@g_ViewMatrix?$AA@		; `string'
 PUBLIC	??_C@_0N@OOHDPIO@g_ProjMatrix?$AA@		; `string'
 PUBLIC	??_C@_09HCHKCCII@g_Texture?$AA@			; `string'
 PUBLIC	?__LINE__Var@?0??Create@CBackGround@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CBackGround::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EI@INJEIJIE@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DC@DBFIDOKM@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1DO@OAINKLME@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAB?$AAa?$AAc?$AAk?$AAG?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CBackGround@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CBackGround::Clone'::`1'::__LINE__Var
@@ -3618,11 +3618,10 @@ CONST	SEGMENT
 	DB	'B', 00H, 'a', 00H, 'c', 00H, 'k', 00H, 'G', 00H, 'r', 00H, 'o'
 	DB	00H, 'u', 00H, 'n', 00H, 'd', 00H, 00H, 00H	; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EI@INJEIJIE@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DC@DBFIDOKM@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EI@INJEIJIE@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\background.cpp'
-	DB	00H						; `string'
+??_C@_0DC@DBFIDOKM@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\background.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CBackGround@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -6931,7 +6930,7 @@ $LN4:
 ??$?0$$V@?$_Compressed_pair@U?$_Wrap_alloc@V?$allocator@_W@std@@@std@@V?$_String_val@U?$_Simple_types@_W@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1>::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7010,7 +7009,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ENDP ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7089,7 +7088,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ENDP ; Engine::Safe_Release<Engine::CShader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7168,7 +7167,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7247,7 +7246,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ENDP ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCBackGround@Client@@@Engine@@YAKAEAPEAVCBackGround@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7368,7 +7367,7 @@ $LN2@scalar:
 ??_GCBackGround@Client@@MEAAPEAXI@Z ENDP		; Client::CBackGround::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?Free@CBackGround@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -7444,7 +7443,7 @@ $LN3:
 ?Free@CBackGround@Client@@UEAAXXZ ENDP			; Client::CBackGround::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?Clone@CBackGround@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -7490,7 +7489,7 @@ $LN8:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@INJEIJIE@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@DBFIDOKM@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 68 01 00 00	 mov	 ecx, 360		; 00000168H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -7608,7 +7607,7 @@ pArg$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CBackGround@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@INJEIJIE@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@DBFIDOKM@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7665,7 +7664,7 @@ pArg$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CBackGround@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@INJEIJIE@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@DBFIDOKM@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7704,7 +7703,7 @@ pArg$ = 440
 ?dtor$1@?0??Clone@CBackGround@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CBackGround::Clone'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?Create@CBackGround@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -7750,7 +7749,7 @@ $LN8:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@INJEIJIE@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@DBFIDOKM@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 68 01 00 00	 mov	 ecx, 360		; 00000168H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -7868,7 +7867,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CBackGround@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@INJEIJIE@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@DBFIDOKM@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7925,7 +7924,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CBackGround@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@INJEIJIE@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@DBFIDOKM@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7964,7 +7963,7 @@ pContext$ = 440
 ?dtor$1@?0??Create@CBackGround@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CBackGround::Create'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?Setup_ShaderResources@CBackGround@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -8120,7 +8119,7 @@ $LN1@Setup_Shad:
 ?Setup_ShaderResources@CBackGround@Client@@AEAAJXZ ENDP	; Client::CBackGround::Setup_ShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?Add_Components@CBackGround@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -8273,7 +8272,7 @@ $LN1@Add_Compon:
 ?Add_Components@CBackGround@Client@@AEAAJXZ ENDP	; Client::CBackGround::Add_Components
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?RenderGUI@CBackGround@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -8305,7 +8304,7 @@ $LN3:
 ?RenderGUI@CBackGround@Client@@UEAAXXZ ENDP		; Client::CBackGround::RenderGUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?Render@CBackGround@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -8393,7 +8392,7 @@ $LN1@Render:
 ?Render@CBackGround@Client@@UEAAJXZ ENDP		; Client::CBackGround::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?LateTick@CBackGround@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -8459,7 +8458,7 @@ $LN2@LateTick:
 ?LateTick@CBackGround@Client@@UEAAXN@Z ENDP		; Client::CBackGround::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?Tick@CBackGround@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -8503,7 +8502,7 @@ $LN3:
 ?Tick@CBackGround@Client@@UEAAXN@Z ENDP			; Client::CBackGround::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?Initialize@CBackGround@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 $T1 = 400
@@ -8805,7 +8804,7 @@ $LN1@Initialize:
 ?Initialize@CBackGround@Client@@UEAAJPEAX@Z ENDP	; Client::CBackGround::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?Initialize_Prototype@CBackGround@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -8858,7 +8857,7 @@ $LN1@Initialize:
 ?Initialize_Prototype@CBackGround@Client@@UEAAJXZ ENDP	; Client::CBackGround::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ??1CBackGround@Client@@MEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -8891,9 +8890,9 @@ $LN3:
 ??1CBackGround@Client@@MEAA@XZ ENDP			; Client::CBackGround::~CBackGround
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
-; File c:\users\arcco\documents\github\framework\client\public\background.h
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
+; File c:\github\framework\client\public\background.h
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ??0CBackGround@Client@@IEAA@AEBV01@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -8956,7 +8955,7 @@ $LN4:
 	00		 add	 rax, 264		; 00000108H
   00097	48 8b c8	 mov	 rcx, rax
   0009a	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
-; File c:\users\arcco\documents\github\framework\client\public\background.h
+; File c:\github\framework\client\public\background.h
 
 ; 43   : 	CRenderer*		m_pRenderer = { nullptr };
 
@@ -8989,7 +8988,7 @@ $LN4:
   000dc	48 c7 80 60 01
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+352], 0
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 
 ; 14   : }
 
@@ -9048,9 +9047,9 @@ rhs$ = 264
 ?dtor$0@?0???0CBackGround@Client@@IEAA@AEBV01@@Z@4HA ENDP ; `Client::CBackGround::CBackGround'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
-; File c:\users\arcco\documents\github\framework\client\public\background.h
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
+; File c:\github\framework\client\public\background.h
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ??0CBackGround@Client@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -9117,7 +9116,7 @@ $LN4:
 	00		 add	 rax, 264		; 00000108H
   000a3	48 8b c8	 mov	 rcx, rax
   000a6	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
-; File c:\users\arcco\documents\github\framework\client\public\background.h
+; File c:\github\framework\client\public\background.h
 
 ; 43   : 	CRenderer*		m_pRenderer = { nullptr };
 
@@ -9150,7 +9149,7 @@ $LN4:
   000e8	48 c7 80 60 01
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+352], 0
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 
 ; 9    : }
 
@@ -16409,7 +16408,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -16438,7 +16437,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\background.cpp
+; File c:\github\framework\client\private\background.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

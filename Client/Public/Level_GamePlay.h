@@ -34,7 +34,7 @@ public:
 
 	CGameObject* mPlayer = nullptr;
 	CGameObject* m_pHealthBar = nullptr;
-
+	class CPlayerCamera* mCamera = nullptr;
 };
 
 END

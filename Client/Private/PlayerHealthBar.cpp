@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "..\Public\PlayerHealthBar.h"
 
+#include "ApplicationManager.h"
 #include "GameInstance.h"
 
 CPlayerHealthBar::CPlayerHealthBar(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
@@ -34,7 +35,10 @@ HRESULT CPlayerHealthBar::Initialize(void * pArg)
 	m_fX = 175.f;
 	m_fY = 100.f;
 
-	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixRotationZ(XMConvertToRadians(-2.f)) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth - 75.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fX + 25.f - g_iWinSizeX * 0.5f, -m_fY - 20.f + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_PlayerDashMatrix, XMMatrixScaling(m_fWidth - 75.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fX + 25.f - g_iWinSizeX * 0.5f, -m_fY - 20.f + g_iWinSizeY * 0.5f, 0.f));
+
+	XMStoreFloat4x4(&m_PlayerBackWorld, XMMatrixScaling(m_fWidth + 100.f, m_fHeight * 5.f, 1.f) * XMMatrixTranslation((m_fX - 50.f) - g_iWinSizeX * 0.5f, -m_fY + (g_iWinSizeY - 50.f) * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_ViewMatrix, XMMatrixIdentity());
 	XMStoreFloat4x4(&m_ProjMatrix, XMMatrixOrthographicLH((_float)g_iWinSizeX, (_float)g_iWinSizeY, 0.f, 1.f));
 
@@ -46,7 +50,9 @@ void CPlayerHealthBar::Tick(_double TimeDelta)
 	__super::Tick(TimeDelta);
 
 	CGameInstance* pInstance = CGameInstance::GetInstance();
-	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixRotationZ(XMConvertToRadians(-2.f)) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth - 75.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fX + 30.f - g_iWinSizeX * 0.5f, -m_fY + 35.f + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_PlayerDashMatrix, XMMatrixScaling(m_fWidth - 75.f, m_fHeight - 14.f, 1.f) * XMMatrixTranslation(m_fX + 30.f - g_iWinSizeX * 0.5f, -m_fY + 20.f + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_PlayerBackWorld, XMMatrixScaling(m_fWidth + 100.f, m_fHeight * 5.f, 1.f) * XMMatrixTranslation((m_fX) - g_iWinSizeX * 0.5f, (-m_fY + 50.f) + g_iWinSizeY * 0.5f, 0.f));
 }
 
 void CPlayerHealthBar::LateTick(_double TimeDelta)
@@ -65,22 +71,55 @@ HRESULT CPlayerHealthBar::Render()
 	if (FAILED(Setup_ShaderResources()))
 		return E_FAIL;
 
-	if (FAILED(m_pTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_PlayerBackWorld)))
 		return E_FAIL;
 
-	_float value = 1.f;
+	static const _float value = 1.f;
+	static const _float discardValue = 0.f;
 	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &value, sizeof(_float))))
 		return E_FAIL;
 
-	if (FAILED(m_pShader->SetRawValue("g_Alpha", &value, sizeof(_float))))
+	if (FAILED(m_pShader->SetRawValue("g_DiscardValue", &discardValue, sizeof(_float))))
 		return E_FAIL;
 
-	//마지막 줄이면 어둡게
-	if (m_iCurHealthCount == 0)
-		m_pShader->Begin(1);
+	if (FAILED(m_pShader->SetRawValue("g_Alpha", &value, sizeof(_float))))
+		return E_FAIL; 
+
+	if (FAILED(m_pPlayerBackImage->Setup_ShaderResource(m_pShader, "g_Texture")))
+		return E_FAIL;
+
+	m_pShader->Begin(0);
+	m_pPlayerBackBuffer->Render();
+
+	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_PlayerDashMatrix)))
+		return E_FAIL;
+
+	if (FAILED(m_pDashImage->Setup_ShaderResource(m_pShader, "g_Texture")))
+		return E_FAIL;
+
+	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &m_fDashFill, sizeof(_float))))
+		return E_FAIL;
+
+	//빨강 대쉬 불가 , 주황 레디 , blue
+	if(m_fCurDashGage < 20.f)
+		m_pShader->Begin(2);
+	else if(!CApplicationManager::GetInstance()->IsFreezeReady())
+		m_pShader->Begin(3);
 	else
 		m_pShader->Begin(0);
 
+	m_pDashBuffer->Render();
+
+	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &value, sizeof(_float))))
+		return E_FAIL;
+
+	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_WorldMatrix)))
+		return E_FAIL;
+
+	if (FAILED(m_pTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+		return E_FAIL;
+
+	m_pShader->Begin(0);
 	m_pVIBuffer->Render();
 
 	if (FAILED(m_pTextureBlood->Setup_ShaderResource(m_pShader, "g_Texture")))
@@ -145,6 +184,27 @@ void CPlayerHealthBar::SetHealth(_float fCurHP, _float fMaxHP)
 
 }
 
+void CPlayerHealthBar::SetDashFillAmount(_float fCurDashGage, _float fMaxDashGage)
+{
+	m_fDashFill = fCurDashGage / 100.f;
+	m_fDashCurFill = m_fDashFill;
+}
+
+void CPlayerHealthBar::SetDash(_float fCurDashGage, _float fMaxDashGage)
+{
+	CGameInstance* pInstance = CGameInstance::GetInstance();
+	_float DeltaTime = pInstance->GetTimer(TEXT("144FPS"));
+
+	m_fCurDashGage = fCurDashGage;
+
+	m_fDashFill = fCurDashGage / 100.f;
+
+	_vector vCur = XMVectorSet(m_fDashCurFill, m_fDashCurFill, m_fDashCurFill, m_fDashCurFill);
+	_vector vTarget = XMVectorSet(m_fDashFill, m_fDashFill, m_fDashFill, m_fDashFill);
+
+	m_fDashCurFill = XMVectorGetX(XMVectorLerp(vCur, vTarget, (_float)DeltaTime * 1.5));
+}
+
 HRESULT CPlayerHealthBar::Add_Components()
 {
 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"),
@@ -177,6 +237,22 @@ HRESULT CPlayerHealthBar::Add_Components()
 
 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_front"),
 		TEXT("com_texture_front"), (CComponent**)&m_pTextureFront)))
+		return E_FAIL;
+
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		TEXT("com_texture_playerback_buffer"), (CComponent**)&m_pPlayerBackBuffer)))
+		return E_FAIL;
+
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_player_back"),
+		TEXT("com_texture_playerback"), (CComponent**)&m_pPlayerBackImage)))
+		return E_FAIL;
+
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		TEXT("com_texture_dash_buffer"), (CComponent**)&m_pDashBuffer)))
+		return E_FAIL;
+
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_dash"),
+		TEXT("com_texture_dash"), (CComponent**)&m_pDashImage)))
 		return E_FAIL;
 
 	return S_OK;
@@ -230,6 +306,12 @@ CGameObject* CPlayerHealthBar::Clone(void* pArg)
 void CPlayerHealthBar::Free()
 {
 	__super::Free();
+
+	Safe_Release(m_pDashImage);
+	Safe_Release(m_pDashBuffer);
+
+	Safe_Release(m_pPlayerBackBuffer);
+	Safe_Release(m_pPlayerBackImage);
 
 	Safe_Release(m_pTexture);//Background
 	Safe_Release(m_pTextureBlood);

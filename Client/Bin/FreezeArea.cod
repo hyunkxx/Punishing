@@ -2345,7 +2345,7 @@ PUBLIC	??_C@_0BA@PCOGIHOF@g_vLightDiffuse?$AA@		; `string'
 PUBLIC	??_C@_0BB@IJIIKIH@g_vLightSpecular?$AA@		; `string'
 PUBLIC	??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@		; `string'
 PUBLIC	?__LINE__Var@?0??Create@CFreezeArea@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CFreezeArea::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DO@LPFJJOBC@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAF?$AAr?$AAe?$AAe?$AAz?$AAe?$AAA?$AAr?$AAe?$AAa?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CFreezeArea::Clone'::`1'::__LINE__Var
@@ -2769,11 +2769,10 @@ CONST	SEGMENT
 	DB	'e', 00H, 's', 00H, 's', 00H, 'a', 00H, 'g', 00H, 'e', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\freezearea.cpp'
-	DB	00H						; `string'
+??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\freezearea.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CFreezeArea@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -3310,7 +3309,7 @@ $unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z DD 025053901H
 	DD	05015H
 xdata	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3389,7 +3388,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ENDP ; Engine::Safe_Release<Engine::CShader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3468,7 +3467,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ENDP ; Engine::Safe_Release<Engine::CModel * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3547,7 +3546,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ENDP ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3626,7 +3625,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCFreezeArea@Client@@@Engine@@YAKAEAPEAVCFreezeArea@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3705,7 +3704,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCFreezeArea@Client@@@Engine@@YAKAEAPEAVCFreezeArea@Client@@@Z ENDP ; Engine::Safe_Release<Client::CFreezeArea * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?GetPlayerPrevPosition@CApplicationManager@Client@@QEAA?AT__m128@@XZ
 _TEXT	SEGMENT
 $T1 = 208
@@ -3713,7 +3712,7 @@ this$ = 272
 __$ReturnUdt$ = 280
 ?GetPlayerPrevPosition@CApplicationManager@Client@@QEAA?AT__m128@@XZ PROC ; Client::CApplicationManager::GetPlayerPrevPosition, COMDAT
 
-; 22   : 	_vector GetPlayerPrevPosition() { return XMLoadFloat3(&m_vPrevPosition); }
+; 24   : 	_vector GetPlayerPrevPosition() { return XMLoadFloat3(&m_vPrevPosition); }
 
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -3751,13 +3750,13 @@ $LN3:
 ?GetPlayerPrevPosition@CApplicationManager@Client@@QEAA?AT__m128@@XZ ENDP ; Client::CApplicationManager::GetPlayerPrevPosition
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?IsFreeze@CApplicationManager@Client@@QEBA_NXZ
 _TEXT	SEGMENT
 this$ = 224
 ?IsFreeze@CApplicationManager@Client@@QEBA_NXZ PROC	; Client::CApplicationManager::IsFreeze, COMDAT
 
-; 20   : 	_bool IsFreeze() const { return m_bFreeze; }
+; 22   : 	_bool IsFreeze() const { return m_bFreeze; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3941,7 +3940,7 @@ $LN4:
 ??0CFreezeArea@Client@@QEAA@AEBV01@@Z ENDP		; Client::CFreezeArea::CFreezeArea
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Free@CFreezeArea@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4017,7 +4016,7 @@ $LN3:
 ?Free@CFreezeArea@Client@@UEAAXXZ ENDP			; Client::CFreezeArea::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -4062,7 +4061,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 c0 00 00 00	 mov	 ecx, 192		; 000000c0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -4165,7 +4164,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4198,7 +4197,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4210,7 +4209,7 @@ pArg$ = 376
 ?dtor$0@?0??Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CFreezeArea::Clone'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Create@CFreezeArea@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -4255,7 +4254,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 c0 00 00 00	 mov	 ecx, 192		; 000000c0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -4358,7 +4357,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CFreezeArea@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4391,7 +4390,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CFreezeArea@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@GEDCPNAM@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@NIPOEKCE@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4403,7 +4402,7 @@ pContext$ = 376
 ?dtor$0@?0??Create@CFreezeArea@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CFreezeArea::Create'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?SetupShaderResources@CFreezeArea@Client@@AEAAJXZ
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -4692,7 +4691,7 @@ $LN1@SetupShade:
 ?SetupShaderResources@CFreezeArea@Client@@AEAAJXZ ENDP	; Client::CFreezeArea::SetupShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?AddComponents@CFreezeArea@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4840,7 +4839,7 @@ $LN1@AddCompone:
 ?AddComponents@CFreezeArea@Client@@AEAAJXZ ENDP		; Client::CFreezeArea::AddComponents
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?SetPosition@CFreezeArea@Client@@QEAAXT__m128@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4886,7 +4885,7 @@ $LN3:
 ?SetPosition@CFreezeArea@Client@@QEAAXT__m128@@@Z ENDP	; Client::CFreezeArea::SetPosition
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?RenderGUI@CFreezeArea@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4918,7 +4917,7 @@ $LN3:
 ?RenderGUI@CFreezeArea@Client@@UEAAXXZ ENDP		; Client::CFreezeArea::RenderGUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Render@CFreezeArea@Client@@UEAAJXZ
 _TEXT	SEGMENT
 MeshCount$ = 4
@@ -5061,7 +5060,7 @@ $LN1@Render:
 ?Render@CFreezeArea@Client@@UEAAJXZ ENDP		; Client::CFreezeArea::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?LateTick@CFreezeArea@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -5137,7 +5136,7 @@ $LN2@LateTick:
 ?LateTick@CFreezeArea@Client@@UEAAXN@Z ENDP		; Client::CFreezeArea::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Tick@CFreezeArea@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pAppManager$ = 8
@@ -5535,7 +5534,7 @@ $LN3@Tick:
 ?Tick@CFreezeArea@Client@@UEAAXN@Z ENDP			; Client::CFreezeArea::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Initialize@CFreezeArea@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -5654,7 +5653,7 @@ $LN1@Initialize:
 ?Initialize@CFreezeArea@Client@@UEAAJPEAX@Z ENDP	; Client::CFreezeArea::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?Initialize_Prototype@CFreezeArea@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -5707,7 +5706,7 @@ $LN1@Initialize:
 ?Initialize_Prototype@CFreezeArea@Client@@UEAAJXZ ENDP	; Client::CFreezeArea::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ??1CFreezeArea@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -5740,9 +5739,9 @@ $LN3:
 ??1CFreezeArea@Client@@EEAA@XZ ENDP			; Client::CFreezeArea::~CFreezeArea
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
-; File c:\users\arcco\documents\github\framework\client\public\freezearea.h
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\public\freezearea.h
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ??0CFreezeArea@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -5791,7 +5790,7 @@ $LN4:
   00062	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CFreezeArea@Client@@6B@
   00069	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\freezearea.h
+; File c:\github\framework\client\public\freezearea.h
 
 ; 43   : 	CRenderer* m_pRenderer = nullptr;
 
@@ -5873,7 +5872,7 @@ $LN4:
   00113	48 8b c8	 mov	 rcx, rax
   00116	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
   0011b	90		 npad	 1
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 
 ; 13   : }
 
@@ -6465,7 +6464,7 @@ $LN3:
 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ENDP			; DirectX::XMFLOAT3::XMFLOAT3
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -6494,7 +6493,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\freezearea.cpp
+; File c:\github\framework\client\private\freezearea.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

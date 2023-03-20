@@ -24,7 +24,7 @@ public:
 
 public:
 	void AttackShake();
-
+	CCollider* GetCollider() { return m_pCollider; }
 public:
 	HRESULT Add_Components();
 	HRESULT Setup_ShaderResources();

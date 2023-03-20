@@ -12,6 +12,7 @@
 #include "SkillBallSystem.h"
 
 #include "PlayerCamera.h"
+#include "PlayerIcon.h"
 #include "PlayerHealthBar.h"
 #include "EnemyHealthBar.h"
 #include "Layer.h"
@@ -70,11 +71,31 @@ HRESULT CCharacter::Initialize(void* pArg)
 	if(nullptr == (m_pHealthBar = (CPlayerHealthBar*)pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_playerhp", L"layer_ui", L"playerhp")))
 		return E_FAIL;
 
+	if (nullptr == (m_pPlayerIcon = (CPlayerIcon*)pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_playericon", L"layer_ui", L"playericon")))
+		return E_FAIL;
+	m_pPlayerIcon->SetupPlayer(this);
+
 	return S_OK;
 }
 
 void CCharacter::Tick(_double TimeDelta)
 {
+	m_fCurDash += 5.f * TimeDelta;
+	if (m_fCurDash >= 100.f)
+		m_fCurDash = 100.f;
+
+	if (m_bFreezeReadyWait)
+	{
+		m_fFreezeReadyTimer += TimeDelta;
+		if (m_fFreezeReadyTimer >= m_fFreezeReadyTimeOut)
+		{
+			m_bFreezeReadyWait = false;
+			m_pAppManager->SetFreezeReady(true);
+
+			m_fFreezeReadyTimer = 0.f;
+		}
+	}
+
 	TimeDelta = Freeze(TimeDelta);
 
 	__super::Tick(TimeDelta);
@@ -116,6 +137,7 @@ void CCharacter::Tick(_double TimeDelta)
 	CameraSocketUpdate();
 	TargetListDeastroyCehck();
 	m_pHealthBar->SetHealth(m_fCurHp, m_fMaxHp);
+	m_pHealthBar->SetDash(m_fCurDash, m_fMaxDash);
 }
 
 void CCharacter::LateTick(_double TimeDelta)
@@ -167,6 +189,27 @@ HRESULT CCharacter::Render()
 
 void CCharacter::RenderGUI()
 {
+}
+
+_fmatrix CCharacter::GetTargetMatrix()
+{
+	if(m_pNearEnemy != nullptr)
+
+	return m_pNearEnemy->GetWorldMatrix();
+}
+
+_float2 CCharacter::GetTargetWindowPos()
+{
+	if (m_pNearEnemy == nullptr)
+		return _float2(FLT_MAX, FLT_MAX);
+
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	_vector vPos = XMLoadFloat4(&m_pNearEnemy->GetPosition());
+	_vector vFixPos = XMVector3TransformCoord(XMVectorSetY(vPos, XMVectorGetY(vPos) + 1.f), pGameInstance->Get_Transform_Matrix(CPipeLine::TS_VIEW));
+	vFixPos = XMVector3TransformCoord(vFixPos, pGameInstance->Get_Transform_Matrix(CPipeLine::TS_PROJ));
+
+	return _float2(XMVectorGetX(vFixPos), XMVectorGetY(vFixPos) + 1.f);
 }
 
 const CBone * CCharacter::GetBone(const char * szBoneName) const
@@ -282,8 +325,8 @@ HRESULT CCharacter::AddComponents()
 	//collDesc.vExtents = _float3(2.5f, 1.f, 1.f);
 	//collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
-	collDesc.vCenter = _float3(1.0f, 0.f, 0.f);
-	collDesc.vExtents = _float3(1.0f, 0.5, 0.5f);
+	collDesc.vCenter = _float3(0.8f, 0.f, 0.f);
+	collDesc.vExtents = _float3(1.7f, 0.4f, 0.4f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"), TEXT("com_collider_weapon"), (CComponent**)&mWeaponCollider, &collDesc)))
@@ -647,22 +690,29 @@ void CCharacter::Dash(_double TimeDelta)
 		{
 			if (pGameInstance->Input_KeyState_Custom(DIK_UPARROW) == KEY_STATE::AWAY)
 			{
-				m_bFrontDashReady = true;
-				m_bLeftDashReady = false;
-				m_bRightDashReady = false;
+				if (m_fCurDash >= 20.f)
+				{
+					m_bFrontDashReady = true;
+					m_bLeftDashReady = false;
+					m_bRightDashReady = false;
+				}
 			}
 		}
 		else
 		{
 			if (pGameInstance->Input_KeyState_Custom(DIK_UPARROW) == KEY_STATE::TAP)
 			{
-				SetAnimation(CLIP::MOVE1, CAnimation::ONE);
-				m_bAttackable = false;
-				m_bMoveable = false;
-				m_bDashable = false;
-				m_bSkillReady = false;
+				if (m_fCurDash >= 20.f && !mModel->AnimationCompare(CLIP::MOVE1))
+				{
+					m_fCurDash -= 20.f;
+					SetAnimation(CLIP::MOVE1, CAnimation::ONE);
+					m_bAttackable = false;
+					m_bMoveable = false;
+					m_bDashable = false;
+					m_bSkillReady = false;
 
-				SavePrevPos();
+					SavePrevPos();
+				}
 			}
 		}
 	}
@@ -674,22 +724,29 @@ void CCharacter::Dash(_double TimeDelta)
 		{
 			if (pGameInstance->Input_KeyState_Custom(DIK_LEFTARROW) == KEY_STATE::AWAY)
 			{
-				m_bFrontDashReady = false;
-				m_bLeftDashReady = true;
-				m_bRightDashReady = false;
+				if (m_fCurDash >= 20.f)
+				{
+					m_bFrontDashReady = false;
+					m_bLeftDashReady = true;
+					m_bRightDashReady = false;
+				}
 			}
 		}
 		else
 		{
 			if (pGameInstance->Input_KeyState_Custom(DIK_LEFTARROW) == KEY_STATE::TAP)
 			{
-				SetAnimation(CLIP::MOVE1, CAnimation::ONE);
-				m_bAttackable = false;
-				m_bMoveable = false;
-				m_bDashable = false;
-				m_bSkillReady = false;
+				if (m_fCurDash >= 20.f && !mModel->AnimationCompare(CLIP::MOVE1))
+				{
+					m_fCurDash -= 20.f;
+					SetAnimation(CLIP::MOVE1, CAnimation::ONE);
+					m_bAttackable = false;
+					m_bMoveable = false;
+					m_bDashable = false;
+					m_bSkillReady = false;
 
-				SavePrevPos();
+					SavePrevPos();
+				}
 			}
 		}
 	}
@@ -701,22 +758,29 @@ void CCharacter::Dash(_double TimeDelta)
 		{
 			if (pGameInstance->Input_KeyState_Custom(DIK_RIGHTARROW) == KEY_STATE::AWAY)
 			{
-				m_bFrontDashReady = false;
-				m_bLeftDashReady = false;
-				m_bRightDashReady = true;
+				if (m_fCurDash >= 20.f)
+				{
+					m_bFrontDashReady = false;
+					m_bLeftDashReady = false;
+					m_bRightDashReady = true;
+				}
 			}
 		}
 		else
 		{
 			if (pGameInstance->Input_KeyState_Custom(DIK_RIGHTARROW) == KEY_STATE::TAP)
 			{
-				SetAnimation(CLIP::MOVE1, CAnimation::ONE);
-				m_bAttackable = false;
-				m_bMoveable = false;
-				m_bDashable = false;
-				m_bSkillReady = false;
+				if (m_fCurDash >= 20.f && !mModel->AnimationCompare(CLIP::MOVE1))
+				{
+					m_fCurDash -= 20.f;
+					SetAnimation(CLIP::MOVE1, CAnimation::ONE);
+					m_bAttackable = false;
+					m_bMoveable = false;
+					m_bDashable = false;
+					m_bSkillReady = false;
 
-				SavePrevPos();
+					SavePrevPos();
+				}
 			}
 		}
 	}
@@ -726,13 +790,16 @@ void CCharacter::Dash(_double TimeDelta)
 	{
 		if (pGameInstance->Input_KeyState_Custom(DIK_Z) == KEY_STATE::TAP)
 		{
-			SetAnimation(CLIP::MOVE2, CAnimation::ONE);
-			m_bAttackable = false;
-			m_bMoveable = false;
-			m_bDashable = false;
-			m_bSkillReady = false;
-
-			SavePrevPos();
+			if (m_fCurDash >= 20.f && !mModel->AnimationCompare(CLIP::MOVE2))
+			{
+				m_fCurDash -= 20.f;
+				SavePrevPos();
+				SetAnimation(CLIP::MOVE2, CAnimation::ONE);
+				m_bAttackable = false;
+				m_bMoveable = false;
+				m_bDashable = false;
+				m_bSkillReady = false;
+			}
 		}
 	}
 
@@ -973,6 +1040,7 @@ void CCharacter::SkillA(_double TimeDelta)
 	if (!m_bSkillReady)
 		return;
 
+	mWeaponCollider->SetActive(false);
 	m_bUseSkill = true;
 	m_bMoveable = false;
 	m_bAttackable = false;
@@ -988,6 +1056,7 @@ void CCharacter::SkillB(_double TimeDelta)
 	if (!m_bSkillReady)
 		return;
 
+	mWeaponCollider->SetActive(false);
 	m_bUseSkill = true;
 	m_bMoveable = false;
 	m_bAttackable = false;
@@ -1008,6 +1077,7 @@ void CCharacter::SkillC(_double TimeDelta)
 	if (m_pNearEnemy != nullptr)
 		mTransform->LookAt(XMLoadFloat4(&m_pNearEnemy->GetPosition()));
 
+	mWeaponCollider->SetActive(false);
 	m_bUseSkill = true;
 	m_bMoveable = false;
 	m_bAttackable = false;
@@ -1065,6 +1135,8 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 			{
 				m_bSkillYellowAttack = true;
 				m_pNearEnemy->RecvDamage(GetDamage());
+				m_pNearEnemy->SetHold(false);
+
 				m_pCamera->AttackShake();
 			}
 		}
@@ -1192,6 +1264,9 @@ void CCharacter::NearTargetChange()
 	if (m_bEnemyHolding)
 		return;
 
+	if (mModel->AnimationCompare(CLIP::ATTACK31))
+		return;
+
 	if(m_iEnemyIndex < m_Enemys.size())
 		m_iEnemyIndex++;
 
@@ -1311,6 +1386,8 @@ _double CCharacter::Freeze(_double TimeDelta)
 {
 	if (m_pAppManager->IsFreeze())
 	{
+		m_pAppManager->SetFreezeReady(false);
+
 		_vector CurTimeDelta = XMVectorSet((_float)m_fCurTimeScale, (_float)m_fCurTimeScale, (_float)m_fCurTimeScale, (_float)m_fCurTimeScale);
 		m_fCurTimeScale = XMVectorGetX(XMVectorLerp(CurTimeDelta, XMVectorSet(0.0, 0.0, 0.0, 0.0), (_float)TimeDelta * 0.8f));
 
@@ -1333,6 +1410,8 @@ _double CCharacter::Freeze(_double TimeDelta)
 		m_fTimeStopLocal += TimeDelta;
 		if (m_fTimeStopLocal >= m_fTimeStopTimeOut)
 		{
+			//대기쿨타임 돌림
+			m_bFreezeReadyWait = true;
 			m_pAppManager->SetFreeze(false);
 			m_fTimeStopLocal = 0.0f;
 			m_fCurTimeScale = 1.0f;
@@ -1755,7 +1834,7 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 	if (src->Compare(mEnemyCheckCollider))
 	{
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
-		if (pEnemy)
+		if (pEnemy && dest->Compare(pEnemy->GetOverlapCollider()))
 		{
 			if (!FindTargetFromList(dest->GetOwner()))
 				m_Enemys.push_back(pEnemy);
@@ -1769,7 +1848,8 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
 		if (pEnemy && dest->Compare(pEnemy->GetWeaponCollider()))
 		{
-			pAppManager->SetFreeze(true);
+			if(pAppManager->IsFreezeReady())
+				pAppManager->SetFreeze(true);
 		}
 	}
 
@@ -1912,11 +1992,12 @@ void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 				pEnemy->SetHold(true);
 				m_bEnemyHolding = true;
 				m_bRootMotion = true;
-
 			}
 			
 		}
 	}
+
+
 }
 
 void CCharacter::OnCollisionExit(CCollider * src, CCollider * dest)

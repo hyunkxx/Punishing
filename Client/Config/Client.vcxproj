@@ -188,6 +188,7 @@
     <ClInclude Include="..\public\Boss.h" />
     <ClInclude Include="..\Public\Client_Defines.h" />
     <ClInclude Include="..\public\PlayerHealthBar.h" />
+    <ClInclude Include="..\Public\PlayerIcon.h" />
     <ClInclude Include="..\public\SkillBallSystem.h" />
     <ClInclude Include="..\public\DynamicCamera.h" />
     <ClInclude Include="..\public\Enemy.h" />
@@ -247,6 +248,7 @@
     <ClCompile Include="..\private\BackGround.cpp" />
     <ClCompile Include="..\private\Boss.cpp" />
     <ClCompile Include="..\private\PlayerHealthBar.cpp" />
+    <ClCompile Include="..\Private\PlayerIcon.cpp" />
     <ClCompile Include="..\private\SkillBallSystem.cpp" />
     <ClCompile Include="..\private\DynamicCamera.cpp" />
     <ClCompile Include="..\private\Enemy.cpp" />

@@ -4,6 +4,7 @@
 #include "GameInstance.h"
 #include "SkillBallSystem.h"
 #include "ApplicationManager.h"
+#include "PlayerCamera.h"
 #include "Character.h"
 #include "Bone.h"
 
@@ -83,6 +84,8 @@ void CEnemy::Tick(_double TimeDelta)
 {
 	TimeDelta = Freeze(TimeDelta);
 
+	m_bAlpha = false;
+
 	__super::Tick(TimeDelta);
 	
 	if (m_bAttackCollision)
@@ -118,13 +121,14 @@ void CEnemy::LateTick(_double TimeDelta)
 
 	_matrix tranMatrix = XMLoadFloat4x4(&bone->GetOffSetMatrix()) * XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&model->GetLocalMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix());
 	
+	_float4x4 overlapMatrix = transform->Get_WorldMatrix();
 	//collider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));
 	collider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));
-	m_pOverlapCollider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));
+	m_pOverlapCollider->Update(XMLoadFloat4x4(&overlapMatrix));
 	m_pWeaponCollider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));	
 
 	if (nullptr != renderer)
-		renderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+		renderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
 }
 
 HRESULT CEnemy::Render()
@@ -144,7 +148,12 @@ HRESULT CEnemy::Render()
 		model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
 
 		model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
-		shader->Begin(0);
+
+		if(m_bAlpha)
+			shader->Begin(1);
+		else
+			shader->Begin(0);
+
 		model->Render(i);
 	}
 
@@ -153,6 +162,11 @@ HRESULT CEnemy::Render()
 
 void CEnemy::RenderGUI()
 {
+}
+
+_fmatrix CEnemy::GetWorldMatrix()
+{
+	return XMLoadFloat4x4(&transform->Get_WorldMatrix());
 }
 
 void CEnemy::Reset()
@@ -245,7 +259,7 @@ HRESULT CEnemy::AddComponents()
 
 	ZeroMemory(&collDesc, sizeof collDesc);
 	collDesc.owner = this;
-	collDesc.vCenter = _float3(0.f, 1.f, 0.f);
+	collDesc.vCenter = _float3(0.f, 1.3f, 0.f);
 	collDesc.vExtents = _float3(1.1f, 1.1f, 1.1f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
@@ -715,7 +729,13 @@ void CEnemy::Die(_double TimeDelta)
 	}
 
 	if (m_bDeadWait && model->AnimationIsFinishEx())
+	{
+		CCollider* pColl = m_pPlayer->GetEnemyCheckCollider();
+		pColl->EraseHitCollider(m_pOverlapCollider);
+		m_pOverlapCollider->EraseHitCollider(pColl);
+
 		m_bDead = true;
+	}
 
 	m_fDeadWaitTimer += (_float)TimeDelta;
 	if (m_fDeadWaitTimer >= m_fDeadWaitTimeOut)
@@ -1043,7 +1063,11 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 
 void CEnemy::OnCollisionStay(CCollider * src, CCollider * dest)
 {
-
+	CPlayerCamera* pCamera = dynamic_cast<CPlayerCamera*>(dest->GetOwner());
+	if (src->Compare(m_pOverlapCollider) && pCamera && dest->Compare(m_pCamera->GetCollider()))
+	{
+		m_bAlpha = true;
+	}
 }
 
 void CEnemy::OnCollisionExit(CCollider * src, CCollider * dest)

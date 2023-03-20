@@ -2481,7 +2481,7 @@ PUBLIC	??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@		; `string'
 PUBLIC	??_C@_0N@ELIMCBLG@g_ViewMatrix?$AA@		; `string'
 PUBLIC	??_C@_0N@OOHDPIO@g_ProjMatrix?$AA@		; `string'
 PUBLIC	?__LINE__Var@?0??Create@CEnemyHealthBar@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CEnemyHealthBar::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1EG@CDNLGHML@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAE?$AAn?$AAe?$AAm?$AAy?$AAH?$AAe?$AAa?$AAl?$AAt?$AAh?$AAB@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CEnemyHealthBar::Clone'::`1'::__LINE__Var
@@ -3685,11 +3685,10 @@ CONST	SEGMENT
 	DB	00H, 'a', 00H, 'l', 00H, 't', 00H, 'h', 00H, 'B', 00H, 'a', 00H
 	DB	'r', 00H, 00H, 00H				; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\enemyhealthbar'
-	DB	'.cpp', 00H					; `string'
+??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\enemyhealthbar.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CEnemyHealthBar@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -7106,7 +7105,7 @@ $LN4:
 ??$?0$$V@?$_Compressed_pair@U?$_Wrap_alloc@V?$allocator@_W@std@@@std@@V?$_String_val@U?$_Simple_types@_W@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1>::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7185,7 +7184,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ENDP ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7264,7 +7263,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ENDP ; Engine::Safe_Release<Engine::CShader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7343,7 +7342,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7422,7 +7421,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ENDP ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCEnemyHealthBar@Client@@@Engine@@YAKAEAPEAVCEnemyHealthBar@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7543,7 +7542,7 @@ $LN2@scalar:
 ??_GCEnemyHealthBar@Client@@MEAAPEAXI@Z ENDP		; Client::CEnemyHealthBar::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Free@CEnemyHealthBar@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -7657,7 +7656,7 @@ $LN3:
 ?Free@CEnemyHealthBar@Client@@UEAAXXZ ENDP		; Client::CEnemyHealthBar::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -7703,7 +7702,7 @@ $LN8:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 98 01 00 00	 mov	 ecx, 408		; 00000198H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -7821,7 +7820,7 @@ pArg$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7878,7 +7877,7 @@ pArg$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7917,7 +7916,7 @@ pArg$ = 440
 ?dtor$1@?0??Clone@CEnemyHealthBar@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CEnemyHealthBar::Clone'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Create@CEnemyHealthBar@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -7963,7 +7962,7 @@ $LN8:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 98 01 00 00	 mov	 ecx, 408		; 00000198H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -8081,7 +8080,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CEnemyHealthBar@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -8138,7 +8137,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CEnemyHealthBar@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@NEOHDNCC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@NEOIDFID@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -8177,7 +8176,7 @@ pContext$ = 440
 ?dtor$1@?0??Create@CEnemyHealthBar@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CEnemyHealthBar::Create'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Setup_ShaderResources@CEnemyHealthBar@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -8308,7 +8307,7 @@ $LN1@Setup_Shad:
 ?Setup_ShaderResources@CEnemyHealthBar@Client@@AEAAJXZ ENDP ; Client::CEnemyHealthBar::Setup_ShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Add_Components@CEnemyHealthBar@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -8577,7 +8576,7 @@ $LN1@Add_Compon:
 ?Add_Components@CEnemyHealthBar@Client@@AEAAJXZ ENDP	; Client::CEnemyHealthBar::Add_Components
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?SetHealth@CEnemyHealthBar@Client@@QEAAXMM@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -8814,7 +8813,7 @@ $LN3@SetHealth:
 ?SetHealth@CEnemyHealthBar@Client@@QEAAXMM@Z ENDP	; Client::CEnemyHealthBar::SetHealth
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?SetFillAmount@CEnemyHealthBar@Client@@QEAAXMM@Z
 _TEXT	SEGMENT
 fHealthCount$ = 4
@@ -8904,7 +8903,7 @@ $LN3:
 ?SetFillAmount@CEnemyHealthBar@Client@@QEAAXMM@Z ENDP	; Client::CEnemyHealthBar::SetFillAmount
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?RenderGUI@CEnemyHealthBar@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -8936,7 +8935,7 @@ $LN3:
 ?RenderGUI@CEnemyHealthBar@Client@@UEAAXXZ ENDP		; Client::CEnemyHealthBar::RenderGUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Render@CEnemyHealthBar@Client@@UEAAJXZ
 _TEXT	SEGMENT
 value$ = 4
@@ -9288,7 +9287,7 @@ $LN1@Render:
 ?Render@CEnemyHealthBar@Client@@UEAAJXZ ENDP		; Client::CEnemyHealthBar::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?LateTick@CEnemyHealthBar@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -9360,7 +9359,7 @@ $LN2@LateTick:
 ?LateTick@CEnemyHealthBar@Client@@UEAAXN@Z ENDP		; Client::CEnemyHealthBar::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Tick@CEnemyHealthBar@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -9412,7 +9411,7 @@ $LN3:
 ?Tick@CEnemyHealthBar@Client@@UEAAXN@Z ENDP		; Client::CEnemyHealthBar::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Initialize@CEnemyHealthBar@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 $T1 = 400
@@ -9714,7 +9713,7 @@ $LN1@Initialize:
 ?Initialize@CEnemyHealthBar@Client@@UEAAJPEAX@Z ENDP	; Client::CEnemyHealthBar::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?Initialize_Prototype@CEnemyHealthBar@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -9767,7 +9766,7 @@ $LN1@Initialize:
 ?Initialize_Prototype@CEnemyHealthBar@Client@@UEAAJXZ ENDP ; Client::CEnemyHealthBar::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ??1CEnemyHealthBar@Client@@MEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -9800,9 +9799,9 @@ $LN3:
 ??1CEnemyHealthBar@Client@@MEAA@XZ ENDP			; Client::CEnemyHealthBar::~CEnemyHealthBar
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
-; File c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\public\enemyhealthbar.h
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ??0CEnemyHealthBar@Client@@IEAA@AEBV01@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -9865,7 +9864,7 @@ $LN4:
 	00		 add	 rax, 264		; 00000108H
   00097	48 8b c8	 mov	 rcx, rax
   0009a	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
-; File c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h
+; File c:\github\framework\client\public\enemyhealthbar.h
 
 ; 48   : 	CRenderer*		m_pRenderer = { nullptr };
 
@@ -9968,7 +9967,7 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00172	c7 80 94 01 00
 	00 01 00 00 00	 mov	 DWORD PTR [rax+404], 1
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 
 ; 14   : }
 
@@ -10027,9 +10026,9 @@ rhs$ = 264
 ?dtor$0@?0???0CEnemyHealthBar@Client@@IEAA@AEBV01@@Z@4HA ENDP ; `Client::CEnemyHealthBar::CEnemyHealthBar'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
-; File c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\public\enemyhealthbar.h
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ??0CEnemyHealthBar@Client@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -10096,7 +10095,7 @@ $LN4:
 	00		 add	 rax, 264		; 00000108H
   000a3	48 8b c8	 mov	 rcx, rax
   000a6	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
-; File c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h
+; File c:\github\framework\client\public\enemyhealthbar.h
 
 ; 48   : 	CRenderer*		m_pRenderer = { nullptr };
 
@@ -10199,7 +10198,7 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0017e	c7 80 94 01 00
 	00 01 00 00 00	 mov	 DWORD PTR [rax+404], 1
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 
 ; 9    : }
 
@@ -17611,7 +17610,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -17640,7 +17639,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyhealthbar.cpp
+; File c:\github\framework\client\private\enemyhealthbar.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

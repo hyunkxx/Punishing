@@ -149,12 +149,17 @@ public:
 	virtual void RenderGUI() override;
 
 public:
+	_fmatrix GetTargetMatrix();
+	_float2 GetTargetWindowPos();
 	void SetPlayerCamera(class CPlayerCamera* pCamera) { m_pCamera = pCamera; };
 	const CBone* GetBone(const char* szBoneName) const;
 	void SetHealthUI(class CEnemyHealthBar* value) { m_pEnemyHealthBar = value; }
 
 	void LookPos(_fvector vLookPos);
 
+	_bool IsAttackalbe() { return m_bAttackable; }
+	_bool IsDashable() { return m_bDashable; }
+	_bool IsDashGageFull() { return m_fCurDash >= 20.f; }
 private:
 	HRESULT AddWeapon();
 	HRESULT AddComponents();
@@ -216,6 +221,7 @@ public: //충돌관련
 	class CCollider* GetBodyCollider() const { return mCollider; };
 	CCollider* GetWeaponCollider() const { return mWeaponCollider; }
 	CCollider* GetSkillCollider() const { return mSkillCollider; }
+	CCollider* GetEnemyCheckCollider() const { return mEnemyCheckCollider; }
 
 public:
 	static CCharacter* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
@@ -346,8 +352,17 @@ private: // Command
 
 	CSkillBase::SKILL_INFO m_SkillInfo;
 
+	_float m_fCurDash = 50.f;
+	_float m_fMaxDash = 100.f;
+
 	class CPlayerHealthBar* m_pHealthBar = nullptr;
 	class CPlayerCamera* m_pCamera = nullptr;
+
+	_bool m_bFreezeReadyWait = false;
+	_float m_fFreezeReadyTimer = 0.f;
+	const _float m_fFreezeReadyTimeOut = 8.f;
+
+	class CPlayerIcon* m_pPlayerIcon = nullptr;
 };
 
 END

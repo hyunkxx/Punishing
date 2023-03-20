@@ -48,10 +48,10 @@ HRESULT CPlayerCamera::Initialize(void * pArg)
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
-	collDesc.vExtents = _float3(2.f, 2.f, 2.f);
+	collDesc.vExtents = _float3(2.5f, 3.f, 6.f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
-	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&m_pCollider, &collDesc));
+	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"), TEXT("com_collider"), (CComponent**)&m_pCollider, &collDesc));
 
 	return S_OK;
 }
@@ -138,6 +138,9 @@ void CPlayerCamera::Tick(_double TimeDelta)
 		XMStoreFloat4(&vLookTarget, vCurLook);
 		m_pTransform->LookAt(vCurLook);
 	}
+
+	pGameInstance->AddCollider(m_pCollider);
+	m_pCollider->Update(pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TS_VIEW));
 }
 
 void CPlayerCamera::LateTick(_double TimeDelta)

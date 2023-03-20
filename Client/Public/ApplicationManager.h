@@ -16,6 +16,8 @@ public:
 	void SetTitle(wstring strTitle);
 
 	//초산공간 오픈
+	_bool IsFreezeReady() const { return m_bFreezeReady; }
+	void SetFreezeReady(_bool value) { m_bFreezeReady = value; }
 	void SetFreeze(_bool value) { m_bFreeze = value; }
 	_bool IsFreeze() const { return m_bFreeze; }
 	void SetPlayerPrevPosition(_float3 value) { m_vPrevPosition = value; }
@@ -29,6 +31,8 @@ public:
 private:
 	std::wstring m_strTitleText;
 	_bool m_bFreeze = false;
+	_bool m_bFreezeReady = true;
+
 	_float3 m_vPrevPosition = { 0.f, 0.f, 0.f };
 
 	_bool m_bHitFreeze = false;

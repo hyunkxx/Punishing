@@ -105,6 +105,9 @@ public:
 	virtual void RenderGUI() override;
 
 public:
+	_fmatrix GetWorldMatrix();
+	void SetupCamera(class CPlayerCamera* pCamera) { m_pCamera = pCamera; };
+
 	void Reset();
 	_bool IsOverlap() const { return m_bOverlapped; }
 	void SetOverlap(_bool value, _float3 vNagative) { m_bOverlapped = value; m_vNagative = vNagative; }
@@ -243,6 +246,10 @@ private:
 	_bool m_bHolding = false;
 
 	_int m_iRandomHitAnim = 0;
+
+	_bool m_bAlpha = false;
+	class CPlayerCamera* m_pCamera;
+
 };
 
 END

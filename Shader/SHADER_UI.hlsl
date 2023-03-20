@@ -62,6 +62,31 @@ PS_OUT PS_MAIN(PS_IN In)
 	return Out;
 }
 
+PS_OUT PS_RED(PS_IN In)
+{
+	PS_OUT			Out = (PS_OUT)0;
+
+	if (In.vTexUV.x > g_FillAmount)
+		discard;
+
+	Out.vColor = g_Texture.Sample(LinearSampler, In.vTexUV);
+	Out.vColor.rgb = float3(0.8f, 0.0f, 0.f);
+
+	return Out;
+}
+
+PS_OUT PS_YELLOW(PS_IN In)
+{
+	PS_OUT			Out = (PS_OUT)0;
+
+	if (In.vTexUV.x > g_FillAmount)
+		discard;
+
+	Out.vColor = float4(1.f, 0.5f, 0.2f, 1.f);
+
+	return Out;
+}
+
 PS_OUT PS_DARK(PS_IN In)
 {
 	PS_OUT			Out = (PS_OUT)0;
@@ -101,5 +126,31 @@ technique11 DefaultTechnique
 		HullShader = NULL;
 		DomainShader = NULL;
 		PixelShader = compile ps_5_0 PS_DARK();
+	}
+
+	pass Red
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_RED();
+	}
+
+	pass Yellow
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_YELLOW();
 	}
 }

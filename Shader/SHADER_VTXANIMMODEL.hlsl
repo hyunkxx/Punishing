@@ -105,6 +105,38 @@ PS_OUT PS_MAIN(PS_IN In)
 	return Out;
 }
 
+PS_OUT PS_ALPHA(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+
+	vector vMtrlDiffuse = g_DiffuseTexture.Sample(LinearSampler, In.vTexUV);
+
+	if (vMtrlDiffuse.a <= 0.1f)
+		discard;
+
+	float fShade = saturate(dot(normalize(g_vLightDir) * -1.f, In.vNormal));
+
+	if (fShade > 0.9f)
+		fShade = 1.f;
+	else if (fShade > 0.7f)
+		fShade = 0.7f;
+	else if (fShade > 0.2f)
+		fShade = 0.2f;
+	else if (fShade > 0.0f)
+		fShade = 0.0f;
+
+	vector vReflect = reflect(normalize(g_vLightDir), In.vNormal);
+	vector vLook = In.vWorldPos - g_vCamPosition;
+
+	float fSpecular = pow(saturate(dot(normalize(vReflect) * -1.f, normalize(vLook))), 30.f);
+
+	Out.vColor = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
+	Out.vColor.a = 0.4f;
+
+	return Out;
+}
+
+
 technique11 DefaultTechnique
 {
 	pass Model
@@ -118,5 +150,18 @@ technique11 DefaultTechnique
 		HullShader = NULL;
 		DomainShader = NULL;
 		PixelShader = compile ps_5_0 PS_MAIN();
+	}
+
+	pass ModelAlpha
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_ALPHA();
 	}
 }

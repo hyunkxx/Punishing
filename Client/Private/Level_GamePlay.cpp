@@ -34,10 +34,10 @@ HRESULT CLevel_GamePlay::Initialize()
 	if (FAILED(Ready_Layer_Player(TEXT("layer_player"))))
 		return E_FAIL;
 
-	if (FAILED(Ready_Layer_Enemy(TEXT("layer_enemy"), mPlayer)))
+	if (FAILED(Ready_Layer_Camera(TEXT("layer_camera"))))
 		return E_FAIL;
 
-	if (FAILED(Ready_Layer_Camera(TEXT("layer_camera"))))
+	if (FAILED(Ready_Layer_Enemy(TEXT("layer_enemy"), mPlayer)))
 		return E_FAIL;
 
 	if (FAILED(Ready_Layer_Effect(TEXT("layer_effect"))))
@@ -178,11 +178,11 @@ HRESULT CLevel_GamePlay::Ready_Layer_Camera(const _tchar* pLayerTag)
 
 	assert(mPlayer);
 
-	CPlayerCamera* pCamera = static_cast<CPlayerCamera*>(pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_player_camera"), pLayerTag, L"player_camera", mPlayer));
-	if (nullptr == pCamera)
+	mCamera = static_cast<CPlayerCamera*>(pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_player_camera"), pLayerTag, L"player_camera", mPlayer));
+	if (nullptr == mCamera)
 		return E_FAIL;
 
-	static_cast<CCharacter*>(mPlayer)->SetPlayerCamera(pCamera);
+	static_cast<CCharacter*>(mPlayer)->SetPlayerCamera(mCamera);
 
 	return S_OK;
 }
@@ -208,20 +208,25 @@ HRESULT CLevel_GamePlay::Ready_Layer_Enemy(const _tchar * pLayerTag, CGameObject
 	{
 	}
 
-	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy01", pPlayer))
+	if (nullptr == (pGameObject = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy01", pPlayer)))
 		return E_FAIL;
+	static_cast<CEnemy*>(pGameObject)->SetupCamera(mCamera);
 
-	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy02", pPlayer))
+	if (nullptr == (pGameObject = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy02", pPlayer)))
 		return E_FAIL;
+	static_cast<CEnemy*>(pGameObject)->SetupCamera(mCamera);
 
-	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy02"), pLayerTag, L"enemy03", pPlayer))
+	if (nullptr == (pGameObject = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy02"), pLayerTag, L"enemy03", pPlayer)))
 		return E_FAIL;
+	static_cast<CEnemy*>(pGameObject)->SetupCamera(mCamera);
 
-	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy04", pPlayer))
+	if (nullptr == (pGameObject = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy04", pPlayer)))
 		return E_FAIL;
+	static_cast<CEnemy*>(pGameObject)->SetupCamera(mCamera);
 
-	if (pGameObject == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy05", pPlayer))
+	if (nullptr == (pGameObject = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_enemy01"), pLayerTag, L"enemy05", pPlayer)))
 		return E_FAIL;
+	static_cast<CEnemy*>(pGameObject)->SetupCamera(mCamera);
 
 	return S_OK;
 }

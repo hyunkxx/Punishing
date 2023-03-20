@@ -15,6 +15,7 @@
 
 //UI
 #include "SkillBase.h"
+#include "PlayerIcon.h"
 #include "PlayerHealthBar.h"
 #include "EnemyHealthBar.h"
 
@@ -203,6 +204,14 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_front.png")))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_player_back"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/PlayerBack.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_dash"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/dash.png")))))
+		return E_FAIL;
+
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_red"),
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Red.png")))))
 		return E_FAIL;
@@ -256,6 +265,24 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/SkillUse.png")))))
 		return E_FAIL;
 
+
+	//버튼 아이콘들
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_attack_icon"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/AttackIcon.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_dash_icon"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/DashIcon.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_back_icon"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/BackIcon.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_target"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/Target.png")))))
+		return E_FAIL;
+
 	Safe_AddRef(m_pRenderer);
 
 	return S_OK;
@@ -281,6 +308,9 @@ HRESULT CApplication::Ready_Prototype_Static_GameObject()
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_playerhp"), CPlayerHealthBar::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_playericon"), CPlayerIcon::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
 	return S_OK;
