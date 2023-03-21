@@ -34,7 +34,15 @@ HRESULT CEnemyHealthBar::Initialize(void * pArg)
 	m_fX = g_iWinSizeX >> 1;
 	m_fY = 70.f;
 
+	//라인
+	m_fLineX = m_fX + m_fWidth * 0.5f + 12.f;
+	m_fLineY = m_fY;
+	m_fLineWidth = 18.f;
+	m_fLineHeight = 25.f;
+
 	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_LineMatrix[0], XMMatrixScaling(m_fLineWidth, m_fLineHeight, 1.f) * XMMatrixTranslation(m_fLineX - g_iWinSizeX * 0.5f, -m_fLineY + g_iWinSizeY * 0.5f, 0.f));
+
 	XMStoreFloat4x4(&m_ViewMatrix, XMMatrixIdentity());
 	XMStoreFloat4x4(&m_ProjMatrix, XMMatrixOrthographicLH((_float)g_iWinSizeX, (_float)g_iWinSizeY, 0.f, 1.f));
 	
@@ -46,6 +54,10 @@ void CEnemyHealthBar::Tick(_double TimeDelta)
 	__super::Tick(TimeDelta);
 
 	CGameInstance* pInstance = CGameInstance::GetInstance();
+
+	for(int i = 0 ; i < 3 ; ++i)
+		XMStoreFloat4x4(&m_LineMatrix[i], XMMatrixScaling(m_fLineWidth, m_fLineHeight, 1.f) * XMMatrixTranslation(m_fLineX + (i * 18.f) - g_iWinSizeX * 0.5f, -m_fLineY + g_iWinSizeY * 0.5f, 0.f));
+
 }
 
 void CEnemyHealthBar::LateTick(_double TimeDelta)
@@ -68,10 +80,15 @@ HRESULT CEnemyHealthBar::Render()
 		return E_FAIL;
 
 	_float value = 1.f;
+	_float value2 = 0.f;
+
 	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &value, sizeof(_float))))
 		return E_FAIL;
 
 	if (FAILED(m_pShader->SetRawValue("g_Alpha", &value, sizeof(_float))))
+		return E_FAIL;
+
+	if (FAILED(m_pShader->SetRawValue("g_DiscardValue", &value2, sizeof(_float))))
 		return E_FAIL;
 
 	//마지막 줄이면 어둡게
@@ -99,6 +116,32 @@ HRESULT CEnemyHealthBar::Render()
 
 	m_pShader->Begin(0);
 	m_pVIBufferFront->Render();
+
+	//라인 x
+	if (FAILED(m_pHpCountTexture[10]->Setup_ShaderResource(m_pShader, "g_Texture")))
+		return E_FAIL;
+	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_LineMatrix[0])))
+		return E_FAIL;
+	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &value, sizeof(_float))))
+		return E_FAIL;
+	if (FAILED(m_pShader->SetRawValue("g_Alpha", &value, sizeof(_float))))
+		return E_FAIL;
+
+	m_pShader->Begin(0);
+	m_pHpCountBuffer->Render();
+
+	//라인 카운트
+	string strCount = to_string(m_iCurHealthCount);
+	for (int i = 0; i < strCount.size() ; ++i)
+	{
+		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_LineMatrix[i + 1])))
+			return E_FAIL;
+		if (FAILED(m_pHpCountTexture[strCount[i] - '0']->Setup_ShaderResource(m_pShader, "g_Texture")))
+			return E_FAIL;
+
+		m_pShader->Begin(0);
+		m_pHpCountBuffer->Render();
+	}
 
 	return S_OK;
 }
@@ -178,6 +221,43 @@ HRESULT CEnemyHealthBar::Add_Components()
 		TEXT("com_texture_front"), (CComponent**)&m_pTextureFront)))
 		return E_FAIL;
 
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_0"),
+		TEXT("com_texture_0"), (CComponent**)&m_pHpCountTexture[0])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_1"),
+		TEXT("com_texture_1"), (CComponent**)&m_pHpCountTexture[1])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_2"),
+		TEXT("com_texture_2"), (CComponent**)&m_pHpCountTexture[2])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_3"),
+		TEXT("com_texture_3"), (CComponent**)&m_pHpCountTexture[3])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_4"),
+		TEXT("com_texture_4"), (CComponent**)&m_pHpCountTexture[4])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_5"),
+		TEXT("com_texture_5"), (CComponent**)&m_pHpCountTexture[5])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_6"),
+		TEXT("com_texture_6"), (CComponent**)&m_pHpCountTexture[6])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_7"),
+		TEXT("com_texture_7"), (CComponent**)&m_pHpCountTexture[7])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_8"),
+		TEXT("com_texture_8"), (CComponent**)&m_pHpCountTexture[8])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_9"),
+		TEXT("com_texture_9"), (CComponent**)&m_pHpCountTexture[9])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_x"),
+		TEXT("com_texture_x"), (CComponent**)&m_pHpCountTexture[10])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		TEXT("com_texture_count_buffer"), (CComponent**)&m_pHpCountBuffer)))
+		return E_FAIL;
+
 	return S_OK;
 }
 
@@ -236,4 +316,6 @@ void CEnemyHealthBar::Free()
 	Safe_Release(m_pVIBuffer);//Background
 	Safe_Release(m_pVIBufferBlood);
 	Safe_Release(m_pVIBufferFront);
+
+	Safe_Release(m_pHpCountBuffer);
 }

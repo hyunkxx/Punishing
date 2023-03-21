@@ -262,51 +262,51 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_0"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/0.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/0.png")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_1"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/1.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/1.png")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_2"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/2.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/2.png")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_3"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/3.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/3.png")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_4"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/4.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/4.png")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_5"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/5.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/5.png")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_6"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/6.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/6.png")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_7"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/7.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/7.png")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_8"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/8.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/8.png")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_9"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/9.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/9.png")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_x"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/x.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/x.png")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_combo"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/Combo.dds")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/Combo.png")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_skill_white"),

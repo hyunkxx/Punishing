@@ -80,11 +80,14 @@ HRESULT CCharacter::Initialize(void* pArg)
 
 void CCharacter::Tick(_double TimeDelta)
 {
-	m_fCurComboTimer += TimeDelta;
-	if (m_fCurComboTimer >= m_fComboTimeOut)
+	if (m_iComboCount > 0)
 	{
-		m_iComboCount = 0;
-		m_fCurComboTimer = 0.f;
+		m_fCurComboTimer += TimeDelta;
+		if (m_fCurComboTimer >= m_fComboTimeOut)
+		{
+			m_iComboCount = 0;
+			m_fCurComboTimer = 0.f;
+		}
 	}
 
 	m_fCurDash += 5.f * TimeDelta;
@@ -149,13 +152,14 @@ void CCharacter::Tick(_double TimeDelta)
 
 void CCharacter::LateTick(_double TimeDelta)
 {
+	m_pPlayerIcon->SetCombo(m_iComboCount);
+	m_pPlayerIcon->SetComboPerTime(m_fCurComboTimer);
+
 	TimeDelta = Freeze(TimeDelta);
 	__super::LateTick(TimeDelta);
 
 	FindNearTarget();
 	RenderEnemyHealth(TimeDelta);
-
-	m_pPlayerIcon->SetCombo(m_iComboCount);
 
 	//콜리전 세팅
 	_matrix transMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&mTransform->Get_WorldMatrix());
@@ -644,7 +648,7 @@ void CCharacter::Dash(_double TimeDelta)
 
 	if (m_bAttacking)
 	{
-		m_bDashable = false;
+		//m_bDashable = false;
 		if (mModel->AnimationIsPreFinish())
 			m_bDashable = true;
 	}
@@ -666,7 +670,9 @@ void CCharacter::Dash(_double TimeDelta)
 	{
 		mCollider->SetActive(false);
 		mWeaponCollider->SetActive(false);
+		mSkillCollider->SetActive(false);
 
+		m_bUseSkill = false;
 		m_bSkillReady = false;
 
 		if (mModel->AnimationIsPreFinish())
@@ -687,9 +693,12 @@ void CCharacter::Dash(_double TimeDelta)
 			m_fDashRightTimer = 0.0;
 		}
 	}
+	
+	if(!AnimationCompare(CLIP::MOVE1) && !AnimationCompare(CLIP::MOVE2))
+		mCollider->SetActive(true);
 
-	//스킬 사용중에 대쉬금지
-	if (m_bUseSkill)
+	//이동공격 스킬 사용중에 대쉬금지
+	if (AnimationCompare(CLIP::ATTACK31) || AnimationCompare(CLIP::ATTACK32))
 		return;
 
 	//정면 대쉬
@@ -747,6 +756,9 @@ void CCharacter::Dash(_double TimeDelta)
 			{
 				if (m_fCurDash >= 20.f && !mModel->AnimationCompare(CLIP::MOVE1))
 				{
+					if (m_bAttacking)
+						mTransform->LookAt(mTransform->Get_State(CTransform::STATE_POSITION) + -XMVector3Normalize(mTransform->Get_State(CTransform::STATE_RIGHT)));
+
 					m_fCurDash -= 20.f;
 					SetAnimation(CLIP::MOVE1, CAnimation::ONE);
 					m_bAttackable = false;
@@ -781,6 +793,9 @@ void CCharacter::Dash(_double TimeDelta)
 			{
 				if (m_fCurDash >= 20.f && !mModel->AnimationCompare(CLIP::MOVE1))
 				{
+					if (m_bAttacking)
+						mTransform->LookAt(mTransform->Get_State(CTransform::STATE_POSITION) + XMVector3Normalize(mTransform->Get_State(CTransform::STATE_RIGHT)));
+
 					m_fCurDash -= 20.f;
 					SetAnimation(CLIP::MOVE1, CAnimation::ONE);
 					m_bAttackable = false;
@@ -904,7 +919,7 @@ void CCharacter::Attack(_double TimeDelta)
 			if (m_bAttacking)
 			{
 				m_bMoveable = false;
-				m_bDashable = false;
+				//m_bDashable = false;
 				m_bAttacking = true;
 
 				if (m_iCurAttackCount == CLIP::ATTACK5)
@@ -944,7 +959,7 @@ void CCharacter::Attack(_double TimeDelta)
 			if (m_bAttacking)
 			{
 				m_bMoveable = false;
-				m_bDashable = false;
+				//m_bDashable = false;
 				m_bAttacking = true;
 
 				if (m_iCurAttackCount == CLIP::ATTACK45)
@@ -1053,7 +1068,7 @@ void CCharacter::SkillA(_double TimeDelta)
 	m_bUseSkill = true;
 	m_bMoveable = false;
 	m_bAttackable = false;
-	m_bDashable = false;
+	//m_bDashable = false;
 	m_bSkillReady = false;
 
 	mWeaponCollider->SetActive(true);
@@ -1069,7 +1084,7 @@ void CCharacter::SkillB(_double TimeDelta)
 	m_bUseSkill = true;
 	m_bMoveable = false;
 	m_bAttackable = false;
-	m_bDashable = false;
+	//m_bDashable = false;
 	m_bSkillReady = false;
 
 	mSkillCollider->HitColliderReset();
@@ -1825,6 +1840,9 @@ void CCharacter::Free()
 { 
 	__super::Free();
 
+	Safe_Release(m_pHealthBar);
+	Safe_Release(m_pPlayerIcon);
+
 	Safe_Release(mDashCheckCollider);
 	Safe_Release(mWallCheckCollider);
 	Safe_Release(mWeaponCollider);
@@ -1871,6 +1889,7 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 			{
 				m_bEnemyHealthDraw = true;
 				m_fDrawEnemyHealthTimer = 0.0f;
+				AddCombo();
 			}
 		}
 	}
@@ -1884,7 +1903,12 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 			m_fDrawEnemyHealthTimer = 0.0f;
 
 			if (pEnemy == m_pNearEnemy)
+			{
 				m_pCamera->AttackShake();
+
+				AddCombo();
+				ResetComboTime();
+			}
 		}
 	}
 
@@ -1897,8 +1921,13 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 			m_bEnemyHealthDraw = true;
 			m_fDrawEnemyHealthTimer = 0.0f;
 
-			if(pEnemy == m_pNearEnemy)
+			if (pEnemy == m_pNearEnemy)
+			{
 				m_pCamera->AttackShake();
+
+				AddCombo();
+				ResetComboTime();
+			}
 		}
 	}
 }
@@ -1994,13 +2023,15 @@ void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 			//	mModel->AnimationCompare(CLIP::ATTACK22))
 			//	m_bRootMotion = false;
 
-
 			if (mModel->AnimationCompare(CLIP::ATTACK31) && m_pNearEnemy == pEnemy ||
 				mModel->AnimationCompare(CLIP::ATTACK32) && m_pNearEnemy == pEnemy)
 			{
-				pEnemy->SetHold(true);
-				m_bEnemyHolding = true;
-				m_bRootMotion = true;
+				if (!m_bEnemyHolding)
+				{
+					pEnemy->SetHold(true);
+					m_bEnemyHolding = true;
+					m_bRootMotion = true;
+				}
 			}
 			
 		}

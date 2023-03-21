@@ -44,6 +44,9 @@ private:
 	_float		m_fX, m_fY, m_fWidth, m_fHeight;
 	_float4x4	m_WorldMatrix, m_ViewMatrix, m_ProjMatrix;
 
+	_float		m_fLineX, m_fLineY, m_fLineWidth, m_fLineHeight;
+	_float4x4	m_LineMatrix[3];//0 : x  1 && 2 : 카운트
+
 private:
 	CRenderer*		m_pRenderer = { nullptr };
 	CShader*		m_pShader = { nullptr };
@@ -55,6 +58,10 @@ private:
 
 	CTexture*		m_pTextureBlood = { nullptr };
 	CTexture*		m_pTextureFront = { nullptr };
+
+	//체력 라인 수
+	CVIBuffer_Rect* m_pHpCountBuffer = { nullptr };
+	CTexture*		m_pHpCountTexture[11];
 
 private:
 	_bool m_bRender = false;

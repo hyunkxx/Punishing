@@ -53,6 +53,7 @@ void CPlayerHealthBar::Tick(_double TimeDelta)
 	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth - 75.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fX + 30.f - g_iWinSizeX * 0.5f, -m_fY + 35.f + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_PlayerDashMatrix, XMMatrixScaling(m_fWidth - 75.f, m_fHeight - 14.f, 1.f) * XMMatrixTranslation(m_fX + 30.f - g_iWinSizeX * 0.5f, -m_fY + 20.f + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_PlayerBackWorld, XMMatrixScaling(m_fWidth + 100.f, m_fHeight * 5.f, 1.f) * XMMatrixTranslation((m_fX) - g_iWinSizeX * 0.5f, (-m_fY + 50.f) + g_iWinSizeY * 0.5f, 0.f));
+
 }
 
 void CPlayerHealthBar::LateTick(_double TimeDelta)
@@ -196,7 +197,6 @@ void CPlayerHealthBar::SetDash(_float fCurDashGage, _float fMaxDashGage)
 	_float DeltaTime = pInstance->GetTimer(TEXT("144FPS"));
 
 	m_fCurDashGage = fCurDashGage;
-
 	m_fDashFill = fCurDashGage / 100.f;
 
 	_vector vCur = XMVectorSet(m_fDashCurFill, m_fDashCurFill, m_fDashCurFill, m_fDashCurFill);
@@ -323,4 +323,6 @@ void CPlayerHealthBar::Free()
 	Safe_Release(m_pVIBuffer);//Background
 	Safe_Release(m_pVIBufferBlood);
 	Safe_Release(m_pVIBufferFront);
+
+
 }

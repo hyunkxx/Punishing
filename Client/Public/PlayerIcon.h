@@ -14,7 +14,7 @@ BEGIN(Client)
 class CPlayerIcon final : public CGameObject
 {
 public:
-	enum { NUM_SIZE_X = 50 };
+	enum { NUM_SIZE_X = 42 };
 
 protected:
 	CPlayerIcon(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
@@ -30,6 +30,8 @@ public:
 	virtual void RenderGUI() override;
 
 public:
+	void SetComboPerTime(_float fCurTime) { m_fComboCurTime = fCurTime; }
+
 	void SetCombo(_int iComboCount) { m_iCombo = iComboCount; }
 	void SetRender(_bool value) { m_bRender = value; }
 	void SetupPlayer(class CCharacter* pPlayer) { m_pPlayer = pPlayer; }
@@ -110,6 +112,19 @@ private:
 
 	_bool m_bComboRender = true;
 	_int m_iCombo = 0;
+
+	//콤보 게이지
+	_float m_fFill = 1.f;
+	_float m_fComboCurTime = 0.0f;
+	const _float m_fComboTimeOut = 3.5f;
+
+	//쉐이크
+	_float m_fPrevX = 0.f;//이전위치 기록
+	_float m_fPrevY = 0.f;//이전위치 기록
+	_bool m_isShake = false;
+	_float m_fShakeAcc = 0.f;
+	const _float m_fShakeTimeOut = 2.f;
+
 };
 
 END

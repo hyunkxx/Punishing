@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "..\Public\PlayerIcon.h"
 
+#include "ApplicationManager.h"
 #include "GameInstance.h"
 #include "Character.h"
 
@@ -44,17 +45,17 @@ HRESULT CPlayerIcon::Initialize(void * pArg)
 	m_fComboNumX = m_fOriginComboNumX = 150.f;
 	m_fComboNumY = g_iWinSizeY >> 1;
 	m_fComboNumWidth = NUM_SIZE_X;
-	m_fComboNumHeight = 80.f;
+	m_fComboNumHeight = 68.f;
 
 	//콤보 이미지
 	m_fComboImageWidth = 100.f;
-	m_fComboImageHeight = 35.f;
+	m_fComboImageHeight = 30.f;
 
 	//콤보 게이지
-	m_fComboGageX = 300.f;
-	m_fComboGageY = (g_iWinSizeY >> 1) + 50.f;
-	m_fComboGageWidth = 280.f;
-	m_fComboGageHeight = 5.f;
+	m_fComboGageX = 310.f;
+	m_fComboGageY = (g_iWinSizeY >> 1) + 40.f;
+	m_fComboGageWidth = 250.f;
+	m_fComboGageHeight = 3.f;
 
 	XMStoreFloat4x4(&m_AttackMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_DashMatrix, XMMatrixScaling(m_fWidth - 10.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fX - 80.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
@@ -87,16 +88,51 @@ void CPlayerIcon::Tick(_double TimeDelta)
 	else
 		m_bTargetImageRender = false;
 
-	string strCombo = to_string(m_iCombo);
-	if (m_iCombo <= 0)
+	CGameInstance* pInstance = CGameInstance::GetInstance();
+}
+
+void CPlayerIcon::LateTick(_double TimeDelta)
+{
+	__super::LateTick(TimeDelta);
+
+	CGameInstance* pInstance = CGameInstance::GetInstance();
+
+	//쉐이크 온오프 테스트용
+	if (pInstance->Input_KeyState_Custom(DIK_N) == KEY_STATE::TAP)
 	{
-		m_iCombo = 0;
+		m_fPrevX = m_fOriginComboNumX;
+		m_fPrevY = g_iWinSizeY >> 1;
+		m_isShake = true;
+	}
+
+	if (m_isShake)
+	{
+		m_fShakeAcc += TimeDelta * 10.f;
+
+		if (m_fShakeAcc >= m_fShakeTimeOut)
+		{
+			m_isShake = false;
+			m_fShakeAcc = 0.f;
+		}
+		//몰랑
+		m_fComboNumX = m_fComboNumX + sin(m_fShakeAcc * 5.f) * powf(0.5f, m_fShakeAcc);
+		m_fComboNumY = m_fComboNumY + cos(m_fShakeAcc * 5.f) * powf(0.5f, m_fShakeAcc);
+	}
+	else
+	{
+		m_fComboNumX = m_fPrevX;
+		m_fComboNumY = m_fPrevY;
+	}
+
+	string strCombo = to_string(m_pPlayer->GetComboCount());
+	if (m_pPlayer->GetComboCount() == 0)
+	{
+		m_fFill = 1.f;
 		m_bComboRender = false;
 	}
 	else
 	{
 		m_bComboRender = true;
-
 		switch (strCombo.size())
 		{
 		case 0:
@@ -115,8 +151,6 @@ void CPlayerIcon::Tick(_double TimeDelta)
 			m_fComboNumX = m_fOriginComboNumX + 205 - NUM_SIZE_X * 4.f;
 			break;
 		default:
-			m_iCombo = 9999;
-			m_fComboNumX = m_fOriginComboNumX + 205 - NUM_SIZE_X * 4.f;
 			break;
 		}
 
@@ -125,14 +159,9 @@ void CPlayerIcon::Tick(_double TimeDelta)
 
 		m_fComboImageX = m_fOriginComboNumX + 205 + 30.f;
 		XMStoreFloat4x4(&m_ComboMatrix, XMMatrixScaling(m_fComboImageWidth, m_fComboImageHeight, 1.f) * XMMatrixTranslation(m_fComboImageX - g_iWinSizeX * 0.5f, -m_fComboNumY - 20.f + g_iWinSizeY * 0.5f, 0.f));
+
+		m_fFill = (m_fComboTimeOut - m_fComboCurTime) / m_fComboTimeOut;
 	}
-
-	CGameInstance* pInstance = CGameInstance::GetInstance();
-}
-
-void CPlayerIcon::LateTick(_double TimeDelta)
-{
-	__super::LateTick(TimeDelta);
 
 	if (nullptr != m_pRenderer && m_bRender)
 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_UI, this);
@@ -193,6 +222,11 @@ HRESULT CPlayerIcon::Render()
 		m_pShader->Begin(0);
 	else
 		m_pShader->Begin(2);
+
+	//초간공간 사용불가시 이거
+	//if (!CApplicationManager::GetInstance()->IsFreezeReady())
+	//	m_pShader->Begin(3);
+
 	m_pBackVIBuffer->Render();
 
 	if (FAILED(m_pDashTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
@@ -221,7 +255,7 @@ HRESULT CPlayerIcon::Render()
 	//콤보 숫자
 	if (m_bComboRender)
 	{
-		for (int i = 0; i < to_string(m_iCombo).size(); ++i)
+		for (int i = 0; i < to_string(m_pPlayer->GetComboCount()).size(); ++i)
 		{
 			if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_ComboNumberMatrix[i])))
 				return E_FAIL;
@@ -249,6 +283,9 @@ HRESULT CPlayerIcon::Render()
 		if (FAILED(m_pComboGageTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
 			return E_FAIL;
 
+		if (FAILED(m_pShader->SetRawValue("g_FillAmount", &m_fFill, sizeof(_float))))
+			return E_FAIL;
+
 		m_pShader->Begin(0);
 		m_pComboGageBuffer->Render();
 	}
@@ -262,7 +299,7 @@ void CPlayerIcon::RenderGUI()
 
 CTexture* CPlayerIcon::ComputeComboToTexture(int iIndex)
 {
-	string strCombo = to_string(m_iCombo);
+	string strCombo = to_string(m_pPlayer->GetComboCount());
 	int index = strCombo[iIndex] - '0';
 	return m_pComboNumberTexture[index];
 }
@@ -429,7 +466,8 @@ void CPlayerIcon::Free()
 {
 	__super::Free();
 
-
+	Safe_Release(m_pComboGageBuffer);
+	Safe_Release(m_pComboGageTexture);
 	Safe_Release(m_pComboNumberBuffer);
 	for(int i = 0 ; i < 10 ; ++i)
 		Safe_Release(m_pComboNumberTexture[i]);

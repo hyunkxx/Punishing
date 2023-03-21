@@ -50,10 +50,6 @@ HRESULT CEnemy::Initialize(void * pArg)
 
 	AddComponents();
 
-	ZeroMemory(&m_State, sizeof(ENEMY_STATE));
-	m_State.fMaxHp = 4000.f;
-	m_State.fCurHp = 4000.f;
-
 	if (nullptr != pArg)
 	{
 		m_pPlayer = (CCharacter*)pArg;
@@ -67,12 +63,17 @@ HRESULT CEnemy::Initialize(void * pArg)
 	bone = model->GetBonePtr("Bip001Pelvis");
 	XMStoreFloat4x4(&m_RootBoneMatrix, XMLoadFloat4x4(&bone->GetOffSetMatrix()) * XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&model->GetLocalMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix()));
 
+	ZeroMemory(&m_State, sizeof(ENEMY_STATE));
 	switch (m_eType)
 	{
 	case TYPE::HUMANOID:
+		m_State.fMaxHp = 4000.f;
+		m_State.fCurHp = 4000.f;
 		m_pWeaponBone = model->GetBonePtr("BulletCase");
 		break;
 	case TYPE::ANIMAL:
+		m_State.fMaxHp = 12000.f;
+		m_State.fCurHp = 12000.f;
 		m_pWeaponBone = model->GetBonePtr("Bip001");
 		break;
 	}
@@ -587,8 +588,8 @@ void CEnemy::RecvDamage(_float fDamage)
 		pSkillSystem->PushSkill(m_pDevice, m_pContext, (CSkillBase::TYPE)iRandom);
 	}
 
-	m_pPlayer->AddCombo();
-	m_pPlayer->ResetComboTime();
+	//m_pPlayer->AddCombo();
+	//m_pPlayer->ResetComboTime();
 
 	m_State.fCurHp -= fDamage;
 

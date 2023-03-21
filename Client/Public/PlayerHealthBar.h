@@ -68,6 +68,8 @@ private:
 	CTexture*		m_pTextureBlood = { nullptr };
 	CTexture*		m_pTextureFront = { nullptr };
 
+
+
 private:
 	_bool m_bRender = true;
 
