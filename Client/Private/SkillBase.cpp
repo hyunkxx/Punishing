@@ -36,8 +36,8 @@ HRESULT CSkillBase::Initialize(void * pArg)
 	if (FAILED(Add_Components()))
 		return E_FAIL;
 
-	m_fWidth = 50.f;
-	m_fHeight = 50.f;
+	m_fWidth = 60.f;
+	m_fHeight = 60.f;
 	m_fX = g_iWinSizeX >> 1;
 	m_fY = g_iWinSizeY - 100.f;
 
@@ -198,7 +198,7 @@ void CSkillBase::SetIndex(_uint iIndex)
 {
 	m_bAlign = false;
 	m_iIndex = iIndex;
-	m_fGoalX = (iIndex + 1) * 50.f;
+	m_fGoalX = (iIndex + 1) * 60.f;
 }
 
 HRESULT CSkillBase::Add_Components()

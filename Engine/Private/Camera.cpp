@@ -90,9 +90,13 @@ void CCamera::Shake(_double TimeDelta)
 	_vector vCamPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
 	_vector vCamRight = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_RIGHT));
 
+	_vector vCameLook = XMLoadFloat3(&m_CameraDesc.vAt);
+	vCameLook = XMVectorSetY(vCameLook, XMVectorGetY(vCameLook) + sin(m_fPower * m_fShakeTimer) * powf(0.2f, m_fShakeTimer));
+
 	vCamPos = XMVectorSetY(vCamPos, 1.8f + sin(m_fPower * m_fShakeTimer) * powf(0.2f, m_fShakeTimer));
 	m_pTransform->Set_State(CTransform::STATE_POSITION, vCamPos);
-	
+	m_pTransform->LookAt(vCameLook);
+
 	m_fShakeTimer += TimeDelta * 15.f;
 	if (m_fShakeTimer >= m_fShakeTimeOut)
 	{

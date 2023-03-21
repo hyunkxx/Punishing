@@ -2376,6 +2376,8 @@ PUBLIC	??_GCEnemy@Client@@UEAAPEAXI@Z			; Client::CEnemy::`scalar deleting destr
 PUBLIC	?IsFreeze@CApplicationManager@Client@@QEBA_NXZ	; Client::CApplicationManager::IsFreeze
 PUBLIC	?SetHitFreeze@CApplicationManager@Client@@QEAAX_N@Z ; Client::CApplicationManager::SetHitFreeze
 PUBLIC	?GetCollider@CPlayerCamera@Client@@QEAAPEAVCCollider@Engine@@XZ ; Client::CPlayerCamera::GetCollider
+PUBLIC	?ResetComboTime@CCharacter@Client@@QEAAXXZ	; Client::CCharacter::ResetComboTime
+PUBLIC	?AddCombo@CCharacter@Client@@QEAAXXZ		; Client::CCharacter::AddCombo
 PUBLIC	?GetBodyCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ ; Client::CCharacter::GetBodyCollider
 PUBLIC	?GetWeaponCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ ; Client::CCharacter::GetWeaponCollider
 PUBLIC	?GetEnemyCheckCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ ; Client::CCharacter::GetEnemyCheckCollider
@@ -2935,7 +2937,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?RecvDamage@CEnemy@Client@@QEAAXM@Z DD imagerel $LN4
-	DD	imagerel $LN4+211
+	DD	imagerel $LN4+249
 	DD	imagerel $unwind$?RecvDamage@CEnemy@Client@@QEAAXM@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -3099,6 +3101,18 @@ pdata	SEGMENT
 $pdata$?GetCollider@CPlayerCamera@Client@@QEAAPEAVCCollider@Engine@@XZ DD imagerel $LN3
 	DD	imagerel $LN3+64
 	DD	imagerel $unwind$?GetCollider@CPlayerCamera@Client@@QEAAPEAVCCollider@Engine@@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?ResetComboTime@CCharacter@Client@@QEAAXXZ DD imagerel $LN3
+	DD	imagerel $LN3+68
+	DD	imagerel $unwind$?ResetComboTime@CCharacter@Client@@QEAAXXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?AddCombo@CCharacter@Client@@QEAAXXZ DD imagerel $LN3
+	DD	imagerel $LN3+78
+	DD	imagerel $unwind$?AddCombo@CCharacter@Client@@QEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -3539,7 +3553,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CEnemy@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CEnemy@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 03aaH ; `Client::CEnemy::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CEnemy@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 03adH ; `Client::CEnemy::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1DE@HGPPJNOD@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAE?$AAn?$AAe?$AAm?$AAy?$AA?$AA@
 CONST	SEGMENT
@@ -3562,7 +3576,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CEnemy@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@23@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CEnemy@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@23@@Z@4JA DD 039eH ; `Client::CEnemy::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CEnemy@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@23@@Z@4JA DD 03a1H ; `Client::CEnemy::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@
 CONST	SEGMENT
@@ -3885,6 +3899,20 @@ xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$?GetBodyCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ DD 05052801H
+	DD	010e0311H
+	DD	070070019H
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?AddCombo@CCharacter@Client@@QEAAXXZ DD 05052801H
+	DD	010e0311H
+	DD	070070019H
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?ResetComboTime@CCharacter@Client@@QEAAXXZ DD 05052801H
 	DD	010e0311H
 	DD	070070019H
 	DD	05006H
@@ -5617,7 +5645,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetEnemyCheckCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ PROC ; Client::CCharacter::GetEnemyCheckCollider, COMDAT
 
-; 224  : 	CCollider* GetEnemyCheckCollider() const { return mEnemyCheckCollider; }
+; 226  : 	CCollider* GetEnemyCheckCollider() const { return mEnemyCheckCollider; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -5650,7 +5678,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetWeaponCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ PROC ; Client::CCharacter::GetWeaponCollider, COMDAT
 
-; 222  : 	CCollider* GetWeaponCollider() const { return mWeaponCollider; }
+; 224  : 	CCollider* GetWeaponCollider() const { return mWeaponCollider; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -5683,7 +5711,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetBodyCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ PROC ; Client::CCharacter::GetBodyCollider, COMDAT
 
-; 221  : 	class CCollider* GetBodyCollider() const { return mCollider; };
+; 223  : 	class CCollider* GetBodyCollider() const { return mCollider; };
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -5708,6 +5736,78 @@ $LN3:
   0003e	5d		 pop	 rbp
   0003f	c3		 ret	 0
 ?GetBodyCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ ENDP ; Client::CCharacter::GetBodyCollider
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\github\framework\client\public\character.h
+;	COMDAT ?AddCombo@CCharacter@Client@@QEAAXXZ
+_TEXT	SEGMENT
+this$ = 224
+?AddCombo@CCharacter@Client@@QEAAXXZ PROC		; Client::CCharacter::AddCombo, COMDAT
+
+; 161  : 	void AddCombo() { m_iComboCount++; }
+
+$LN3:
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	55		 push	 rbp
+  00006	57		 push	 rdi
+  00007	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  0000e	48 8b ec	 mov	 rbp, rsp
+  00011	48 8b fc	 mov	 rdi, rsp
+  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  0001e	f3 ab		 rep stosd
+  00020	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+  00028	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0002f	8b 80 c0 02 00
+	00		 mov	 eax, DWORD PTR [rax+704]
+  00035	ff c0		 inc	 eax
+  00037	48 8b 8d e0 00
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  0003e	89 81 c0 02 00
+	00		 mov	 DWORD PTR [rcx+704], eax
+  00044	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  0004b	5f		 pop	 rdi
+  0004c	5d		 pop	 rbp
+  0004d	c3		 ret	 0
+?AddCombo@CCharacter@Client@@QEAAXXZ ENDP		; Client::CCharacter::AddCombo
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\github\framework\client\public\character.h
+;	COMDAT ?ResetComboTime@CCharacter@Client@@QEAAXXZ
+_TEXT	SEGMENT
+this$ = 224
+?ResetComboTime@CCharacter@Client@@QEAAXXZ PROC		; Client::CCharacter::ResetComboTime, COMDAT
+
+; 160  : 	void ResetComboTime() { m_fCurComboTimer = 0.f; }
+
+$LN3:
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	55		 push	 rbp
+  00006	57		 push	 rdi
+  00007	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  0000e	48 8b ec	 mov	 rbp, rsp
+  00011	48 8b fc	 mov	 rdi, rsp
+  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  0001e	f3 ab		 rep stosd
+  00020	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+  00028	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0002f	0f 57 c0	 xorps	 xmm0, xmm0
+  00032	f3 0f 11 80 c4
+	02 00 00	 movss	 DWORD PTR [rax+708], xmm0
+  0003a	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  00041	5f		 pop	 rdi
+  00042	5d		 pop	 rbp
+  00043	c3		 ret	 0
+?ResetComboTime@CCharacter@Client@@QEAAXXZ ENDP		; Client::CCharacter::ResetComboTime
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\github\framework\client\public\playercamera.h
@@ -5859,7 +5959,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CEnemy@Client@@UEAAXXZ PROC			; Client::CEnemy::Free, COMDAT
 
-; 950  : {
+; 953  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -5875,15 +5975,15 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 951  : 	__super::Free();
+; 954  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CGameObject@Engine@@UEAAXXZ
 
-; 952  : 
-; 953  : 	s_iCount--;
+; 955  : 
+; 956  : 	s_iCount--;
 
   00037	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?s_iCount@CEnemy@Client@@0IA ; Client::CEnemy::s_iCount
@@ -5891,8 +5991,8 @@ $LN3:
   0003f	89 05 00 00 00
 	00		 mov	 DWORD PTR ?s_iCount@CEnemy@Client@@0IA, eax ; Client::CEnemy::s_iCount
 
-; 954  : 
-; 955  : 	Safe_Release(renderer);
+; 957  : 
+; 958  : 	Safe_Release(renderer);
 
   00045	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5901,7 +6001,7 @@ $LN3:
   00052	48 8b c8	 mov	 rcx, rax
   00055	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
-; 956  : 	Safe_Release(transform);
+; 959  : 	Safe_Release(transform);
 
   0005a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5910,7 +6010,7 @@ $LN3:
   00067	48 8b c8	 mov	 rcx, rax
   0006a	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 957  : 	Safe_Release(model);
+; 960  : 	Safe_Release(model);
 
   0006f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5919,7 +6019,7 @@ $LN3:
   0007c	48 8b c8	 mov	 rcx, rax
   0007f	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ; Engine::Safe_Release<Engine::CModel * __ptr64>
 
-; 958  : 	Safe_Release(shader);
+; 961  : 	Safe_Release(shader);
 
   00084	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5928,7 +6028,7 @@ $LN3:
   00091	48 8b c8	 mov	 rcx, rax
   00094	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ; Engine::Safe_Release<Engine::CShader * __ptr64>
 
-; 959  : 	Safe_Release(collider);
+; 962  : 	Safe_Release(collider);
 
   00099	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5937,7 +6037,7 @@ $LN3:
   000a6	48 8b c8	 mov	 rcx, rax
   000a9	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCCollider@Engine@@@Engine@@YAKAEAPEAVCCollider@0@@Z ; Engine::Safe_Release<Engine::CCollider * __ptr64>
 
-; 960  : 	Safe_Release(m_pOverlapCollider);
+; 963  : 	Safe_Release(m_pOverlapCollider);
 
   000ae	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5946,7 +6046,7 @@ $LN3:
   000bb	48 8b c8	 mov	 rcx, rax
   000be	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCCollider@Engine@@@Engine@@YAKAEAPEAVCCollider@0@@Z ; Engine::Safe_Release<Engine::CCollider * __ptr64>
 
-; 961  : }
+; 964  : }
 
   000c3	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -5969,7 +6069,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CEnemy@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CEnemy::Clone, COMDAT
 
-; 938  : {
+; 941  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -5994,7 +6094,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 939  : 	CEnemy* pInstance = new CEnemy(*this);
+; 942  : 	CEnemy* pInstance = new CEnemy(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CEnemy@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
@@ -6031,7 +6131,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 940  : 	if (FAILED(pInstance->Initialize(pArg)))
+; 943  : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 78 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -6040,8 +6140,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Clone
 
-; 941  : 	{
-; 942  : 		MSG_BOX("Failed to Clone : CEnemy");
+; 944  : 	{
+; 945  : 		MSG_BOX("Failed to Clone : CEnemy");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -6052,19 +6152,19 @@ $LN5@Clone:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 943  : 		Safe_Release(pInstance);
+; 946  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCEnemy@Client@@@Engine@@YAKAEAPEAVCEnemy@Client@@@Z ; Engine::Safe_Release<Client::CEnemy * __ptr64>
 $LN2@Clone:
 
-; 944  : 	}
-; 945  : 
-; 946  : 	return pInstance;
+; 947  : 	}
+; 948  : 
+; 949  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 947  : }
+; 950  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -6163,7 +6263,7 @@ pContext$ = 376
 eType$ = 384
 ?Create@CEnemy@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@12@@Z PROC ; Client::CEnemy::Create, COMDAT
 
-; 926  : {
+; 929  : {
 
 $LN7:
   00000	44 89 44 24 18	 mov	 DWORD PTR [rsp+24], r8d
@@ -6189,7 +6289,7 @@ $LN7:
   00049	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 927  : 	CEnemy*	pInstance = new CEnemy(pDevice, pContext);
+; 930  : 	CEnemy*	pInstance = new CEnemy(pDevice, pContext);
 
   00050	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CEnemy@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4TYPE@23@@Z@4JA
@@ -6228,7 +6328,7 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c5	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 928  : 	if (FAILED(pInstance->Initialize_Prototype(eType)))
+; 931  : 	if (FAILED(pInstance->Initialize_Prototype(eType)))
 
   000c9	8b 95 80 01 00
 	00		 mov	 edx, DWORD PTR eType$[rbp]
@@ -6237,8 +6337,8 @@ $LN5@Create:
   000d8	85 c0		 test	 eax, eax
   000da	7d 22		 jge	 SHORT $LN2@Create
 
-; 929  : 	{
-; 930  : 		MSG_BOX("Failed to Create : CEnemy");
+; 932  : 	{
+; 933  : 		MSG_BOX("Failed to Create : CEnemy");
 
   000dc	45 33 c9	 xor	 r9d, r9d
   000df	4c 8d 05 00 00
@@ -6249,19 +6349,19 @@ $LN5@Create:
   000ef	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 931  : 		Safe_Release(pInstance);
+; 934  : 		Safe_Release(pInstance);
 
   000f5	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000f9	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCEnemy@Client@@@Engine@@YAKAEAPEAVCEnemy@Client@@@Z ; Engine::Safe_Release<Client::CEnemy * __ptr64>
 $LN2@Create:
 
-; 932  : 	}
-; 933  : 
-; 934  : 	return pInstance;
+; 935  : 	}
+; 936  : 
+; 937  : 	return pInstance;
 
   000fe	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 935  : }
+; 938  : }
 
   00102	48 8b f8	 mov	 rdi, rax
   00105	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -6356,7 +6456,7 @@ src$ = 232
 dest$ = 240
 ?OnCollisionExit@CEnemy@Client@@UEAAXPEAVCCollider@Engine@@0@Z PROC ; Client::CEnemy::OnCollisionExit, COMDAT
 
-; 1074 : {
+; 1077 : {
 
 $LN3:
   00000	4c 89 44 24 18	 mov	 QWORD PTR [rsp+24], r8
@@ -6374,16 +6474,16 @@ $LN3:
   0002a	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 1075 : 	//CEnemy* pEnemy = dynamic_cast<CEnemy*>(src->GetOwner());
-; 1076 : 	//CEnemy* pAotherEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
-; 1077 : 
-; 1078 : 	////둘다 에너미 타입이고 기본 충돌체일때
-; 1079 : 	//if (pEnemy && pAotherEnemy)
-; 1080 : 	//{
-; 1081 : 	//	pEnemy->SetOverlap(false, _float3());
-; 1082 : 	//	pAotherEnemy->SetOverlap(false, _float3());
-; 1083 : 	//}
-; 1084 : }
+; 1078 : 	//CEnemy* pEnemy = dynamic_cast<CEnemy*>(src->GetOwner());
+; 1079 : 	//CEnemy* pAotherEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
+; 1080 : 
+; 1081 : 	////둘다 에너미 타입이고 기본 충돌체일때
+; 1082 : 	//if (pEnemy && pAotherEnemy)
+; 1083 : 	//{
+; 1084 : 	//	pEnemy->SetOverlap(false, _float3());
+; 1085 : 	//	pAotherEnemy->SetOverlap(false, _float3());
+; 1086 : 	//}
+; 1087 : }
 
   00032	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -6402,7 +6502,7 @@ src$ = 264
 dest$ = 272
 ?OnCollisionStay@CEnemy@Client@@UEAAXPEAVCCollider@Engine@@0@Z PROC ; Client::CEnemy::OnCollisionStay, COMDAT
 
-; 1065 : {
+; 1068 : {
 
 $LN4:
   00000	4c 89 44 24 18	 mov	 QWORD PTR [rsp+24], r8
@@ -6420,7 +6520,7 @@ $LN4:
   0002c	48 8b 8c 24 38
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+312]
 
-; 1066 : 	CPlayerCamera* pCamera = dynamic_cast<CPlayerCamera*>(dest->GetOwner());
+; 1069 : 	CPlayerCamera* pCamera = dynamic_cast<CPlayerCamera*>(dest->GetOwner());
 
   00034	48 8b 8d 10 01
 	00 00		 mov	 rcx, QWORD PTR dest$[rbp]
@@ -6437,7 +6537,7 @@ $LN4:
   0005c	e8 00 00 00 00	 call	 __RTDynamicCast
   00061	48 89 45 08	 mov	 QWORD PTR pCamera$[rbp], rax
 
-; 1067 : 	if (src->Compare(m_pOverlapCollider) && pCamera && dest->Compare(m_pCamera->GetCollider()))
+; 1070 : 	if (src->Compare(m_pOverlapCollider) && pCamera && dest->Compare(m_pCamera->GetCollider()))
 
   00065	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6465,8 +6565,8 @@ $LN4:
   000b1	85 c0		 test	 eax, eax
   000b3	74 0e		 je	 SHORT $LN2@OnCollisio
 
-; 1068 : 	{
-; 1069 : 		m_bAlpha = true;
+; 1071 : 	{
+; 1072 : 		m_bAlpha = true;
 
   000b5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6474,8 +6574,8 @@ $LN4:
 	00 01		 mov	 BYTE PTR [rax+328], 1
 $LN2@OnCollisio:
 
-; 1070 : 	}
-; 1071 : }
+; 1073 : 	}
+; 1074 : }
 
   000c3	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
@@ -6523,7 +6623,7 @@ src$ = 1928
 dest$ = 1936
 ?OnCollisionEnter@CEnemy@Client@@UEAAXPEAVCCollider@Engine@@0@Z PROC ; Client::CEnemy::OnCollisionEnter, COMDAT
 
-; 964  : {
+; 967  : {
 
 $LN19:
   00000	4c 89 44 24 18	 mov	 QWORD PTR [rsp+24], r8
@@ -6547,8 +6647,8 @@ $LN19:
   0003f	48 89 85 58 07
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 965  : 	//몬스터 끼리 밀어내기 처리
-; 966  : 	CEnemy* pEnemy = dynamic_cast<CEnemy*>(src->GetOwner());
+; 968  : 	//몬스터 끼리 밀어내기 처리
+; 969  : 	CEnemy* pEnemy = dynamic_cast<CEnemy*>(src->GetOwner());
 
   00046	48 8b 8d 88 07
 	00 00		 mov	 rcx, QWORD PTR src$[rbp]
@@ -6565,7 +6665,7 @@ $LN19:
   0006e	e8 00 00 00 00	 call	 __RTDynamicCast
   00073	48 89 45 08	 mov	 QWORD PTR pEnemy$[rbp], rax
 
-; 967  : 	CEnemy* pAotherEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
+; 970  : 	CEnemy* pAotherEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
 
   00077	48 8b 8d 90 07
 	00 00		 mov	 rcx, QWORD PTR dest$[rbp]
@@ -6582,9 +6682,9 @@ $LN19:
   0009f	e8 00 00 00 00	 call	 __RTDynamicCast
   000a4	48 89 45 28	 mov	 QWORD PTR pAotherEnemy$[rbp], rax
 
-; 968  : 	//둘다 에너미 타입이고 기본 충돌체일때
-; 969  : 
-; 970  : 	if (pEnemy && pAotherEnemy)
+; 971  : 	//둘다 에너미 타입이고 기본 충돌체일때
+; 972  : 
+; 973  : 	if (pEnemy && pAotherEnemy)
 
   000a8	48 83 7d 08 00	 cmp	 QWORD PTR pEnemy$[rbp], 0
   000ad	0f 84 c5 02 00
@@ -6593,8 +6693,8 @@ $LN19:
   000b8	0f 84 ba 02 00
 	00		 je	 $LN2@OnCollisio
 
-; 971  : 	{
-; 972  : 		if (src->Compare(m_pOverlapCollider) && dest->Compare(pAotherEnemy->GetOverlapCollider()))
+; 974  : 	{
+; 975  : 		if (src->Compare(m_pOverlapCollider) && dest->Compare(pAotherEnemy->GetOverlapCollider()))
 
   000be	48 8b 85 80 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6619,16 +6719,16 @@ $LN19:
   000ff	0f 84 73 02 00
 	00		 je	 $LN3@OnCollisio
 
-; 973  : 		{
-; 974  : 			if (m_eType == TYPE::HUMANOID)
+; 976  : 		{
+; 977  : 			if (m_eType == TYPE::HUMANOID)
 
   00105	48 8b 85 80 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0010c	83 78 60 00	 cmp	 DWORD PTR [rax+96], 0
   00110	75 24		 jne	 SHORT $LN4@OnCollisio
 
-; 975  : 			{
-; 976  : 				if (model->AnimationCompare((_uint)CLIP::ATTACK4))
+; 978  : 			{
+; 979  : 				if (model->AnimationCompare((_uint)CLIP::ATTACK4))
 
   00112	ba 03 00 00 00	 mov	 edx, 3
   00117	48 8b 85 80 07
@@ -6640,25 +6740,25 @@ $LN19:
   0012b	85 c0		 test	 eax, eax
   0012d	74 05		 je	 SHORT $LN6@OnCollisio
 
-; 977  : 					return;
+; 980  : 					return;
 
   0012f	e9 77 04 00 00	 jmp	 $LN1@OnCollisio
 $LN6@OnCollisio:
 
-; 978  : 			}
+; 981  : 			}
 
   00134	eb 2c		 jmp	 SHORT $LN5@OnCollisio
 $LN4@OnCollisio:
 
-; 979  : 			else if (m_eType == TYPE::ANIMAL)
+; 982  : 			else if (m_eType == TYPE::ANIMAL)
 
   00136	48 8b 85 80 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0013d	83 78 60 01	 cmp	 DWORD PTR [rax+96], 1
   00141	75 1f		 jne	 SHORT $LN7@OnCollisio
 
-; 980  : 			{
-; 981  : 				if (model->AnimationCompare((_uint)CLIP_TWO::ATTACK1))
+; 983  : 			{
+; 984  : 				if (model->AnimationCompare((_uint)CLIP_TWO::ATTACK1))
 
   00143	33 d2		 xor	 edx, edx
   00145	48 8b 85 80 07
@@ -6670,23 +6770,23 @@ $LN4@OnCollisio:
   00159	85 c0		 test	 eax, eax
   0015b	74 05		 je	 SHORT $LN8@OnCollisio
 
-; 982  : 					return;
+; 985  : 					return;
 
   0015d	e9 49 04 00 00	 jmp	 $LN1@OnCollisio
 $LN8@OnCollisio:
 $LN7@OnCollisio:
 $LN5@OnCollisio:
 
-; 983  : 			}
-; 984  : 
-; 985  : 			_float3 vSrcDir;
+; 986  : 			}
+; 987  : 
+; 988  : 			_float3 vSrcDir;
 
   00162	48 8d 4d 48	 lea	 rcx, QWORD PTR vSrcDir$4[rbp]
   00166	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@XZ ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 986  : 
-; 987  : 			//현재 밀리고있을때
-; 988  : 			if (pEnemy->IsOverlap())
+; 989  : 
+; 990  : 			//현재 밀리고있을때
+; 991  : 			if (pEnemy->IsOverlap())
 
   0016b	48 8b 4d 08	 mov	 rcx, QWORD PTR pEnemy$[rbp]
   0016f	e8 00 00 00 00	 call	 ?IsOverlap@CEnemy@Client@@QEBA_NXZ ; Client::CEnemy::IsOverlap
@@ -6695,9 +6795,9 @@ $LN5@OnCollisio:
   00179	0f 84 21 01 00
 	00		 je	 $LN9@OnCollisio
 
-; 989  : 			{
-; 990  : 				//이전에 밀리고있는방향
-; 991  : 				_vector vPrevDir = XMLoadFloat3(&m_vNagative);
+; 992  : 			{
+; 993  : 				//이전에 밀리고있는방향
+; 994  : 				_vector vPrevDir = XMLoadFloat3(&m_vNagative);
 
   0017f	48 8b 85 80 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6712,7 +6812,7 @@ $LN5@OnCollisio:
   001a2	0f 29 85 80 00
 	00 00		 movaps	 XMMWORD PTR vPrevDir$5[rbp], xmm0
 
-; 992  : 				_vector vDir = XMVector3Normalize(vPrevDir + XMLoadFloat4(&pAotherEnemy->GetPosition()) - XMLoadFloat4(&pEnemy->GetPosition()));
+; 995  : 				_vector vDir = XMVector3Normalize(vPrevDir + XMLoadFloat4(&pAotherEnemy->GetPosition()) - XMLoadFloat4(&pEnemy->GetPosition()));
 
   001a9	48 8d 95 64 04
 	00 00		 lea	 rdx, QWORD PTR $T14[rbp]
@@ -6754,7 +6854,7 @@ $LN5@OnCollisio:
   00235	0f 29 85 b0 00
 	00 00		 movaps	 XMMWORD PTR vDir$6[rbp], xmm0
 
-; 993  : 				XMStoreFloat3(&vSrcDir, -vDir);
+; 996  : 				XMStoreFloat3(&vSrcDir, -vDir);
 
   0023c	0f 28 85 b0 00
 	00 00		 movaps	 xmm0, XMMWORD PTR vDir$6[rbp]
@@ -6766,8 +6866,8 @@ $LN5@OnCollisio:
   00256	48 8d 4d 48	 lea	 rcx, QWORD PTR vSrcDir$4[rbp]
   0025a	e8 00 00 00 00	 call	 ?XMStoreFloat3@DirectX@@YQXPEAUXMFLOAT3@1@T__m128@@@Z ; DirectX::XMStoreFloat3
 
-; 994  : 
-; 995  : 				m_OverlapAcc = 0.0f;
+; 997  : 
+; 998  : 				m_OverlapAcc = 0.0f;
 
   0025f	48 8b 85 80 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6775,7 +6875,7 @@ $LN5@OnCollisio:
   00269	f2 0f 11 80 f8
 	00 00 00	 movsd	 QWORD PTR [rax+248], xmm0
 
-; 996  : 				pEnemy->SetOverlap(true, vSrcDir);
+; 999  : 				pEnemy->SetOverlap(true, vSrcDir);
 
   00271	48 8d 85 e0 06
 	00 00		 lea	 rax, QWORD PTR $T27[rbp]
@@ -6790,14 +6890,14 @@ $LN5@OnCollisio:
   00292	48 8b 4d 08	 mov	 rcx, QWORD PTR pEnemy$[rbp]
   00296	e8 00 00 00 00	 call	 ?SetOverlap@CEnemy@Client@@QEAAX_NUXMFLOAT3@DirectX@@@Z ; Client::CEnemy::SetOverlap
 
-; 997  : 			}
-; 998  : 			else
+; 1000 : 			}
+; 1001 : 			else
 
   0029b	e9 d8 00 00 00	 jmp	 $LN10@OnCollisio
 $LN9@OnCollisio:
 
-; 999  : 			{
-; 1000 : 				_vector vDir = XMVector3Normalize(XMLoadFloat4(&pAotherEnemy->GetPosition()) - XMLoadFloat4(&pEnemy->GetPosition()));
+; 1002 : 			{
+; 1003 : 				_vector vDir = XMVector3Normalize(XMLoadFloat4(&pAotherEnemy->GetPosition()) - XMLoadFloat4(&pEnemy->GetPosition()));
 
   002a0	48 8d 95 e4 05
 	00 00		 lea	 rdx, QWORD PTR $T22[rbp]
@@ -6832,7 +6932,7 @@ $LN9@OnCollisio:
   00312	0f 29 85 e0 00
 	00 00		 movaps	 XMMWORD PTR vDir$7[rbp], xmm0
 
-; 1001 : 				XMStoreFloat3(&vSrcDir, -vDir);
+; 1004 : 				XMStoreFloat3(&vSrcDir, -vDir);
 
   00319	0f 28 85 e0 00
 	00 00		 movaps	 xmm0, XMMWORD PTR vDir$7[rbp]
@@ -6844,8 +6944,8 @@ $LN9@OnCollisio:
   00333	48 8d 4d 48	 lea	 rcx, QWORD PTR vSrcDir$4[rbp]
   00337	e8 00 00 00 00	 call	 ?XMStoreFloat3@DirectX@@YQXPEAUXMFLOAT3@1@T__m128@@@Z ; DirectX::XMStoreFloat3
 
-; 1002 : 
-; 1003 : 				m_OverlapAcc = 0.0f;
+; 1005 : 
+; 1006 : 				m_OverlapAcc = 0.0f;
 
   0033c	48 8b 85 80 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6853,7 +6953,7 @@ $LN9@OnCollisio:
   00346	f2 0f 11 80 f8
 	00 00 00	 movsd	 QWORD PTR [rax+248], xmm0
 
-; 1004 : 				pEnemy->SetOverlap(true, vSrcDir);
+; 1007 : 				pEnemy->SetOverlap(true, vSrcDir);
 
   0034e	48 8d 85 10 07
 	00 00		 lea	 rax, QWORD PTR $T28[rbp]
@@ -6871,12 +6971,12 @@ $LN10@OnCollisio:
 $LN3@OnCollisio:
 $LN2@OnCollisio:
 
-; 1005 : 			}
-; 1006 : 		}
-; 1007 : 	}
-; 1008 : 
-; 1009 : 	//플레이어 웨폰과 충돌처리
-; 1010 : 	CCharacter* pPlayer = dynamic_cast<CCharacter*>(dest->GetOwner());
+; 1008 : 			}
+; 1009 : 		}
+; 1010 : 	}
+; 1011 : 
+; 1012 : 	//플레이어 웨폰과 충돌처리
+; 1013 : 	CCharacter* pPlayer = dynamic_cast<CCharacter*>(dest->GetOwner());
 
   00378	48 8b 8d 90 07
 	00 00		 mov	 rcx, QWORD PTR dest$[rbp]
@@ -6894,25 +6994,25 @@ $LN2@OnCollisio:
   003a5	48 89 85 08 01
 	00 00		 mov	 QWORD PTR pPlayer$[rbp], rax
 
-; 1011 : 	
-; 1012 : 	if (pPlayer)
+; 1014 : 	
+; 1015 : 	if (pPlayer)
 
   003ac	48 83 bd 08 01
 	00 00 00	 cmp	 QWORD PTR pPlayer$[rbp], 0
   003b4	0f 84 f1 01 00
 	00		 je	 $LN11@OnCollisio
 
-; 1013 : 	{
-; 1014 : 		m_bOverlapped = false;
+; 1016 : 	{
+; 1017 : 		m_bOverlapped = false;
 
   003ba	48 8b 85 80 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003c1	c6 80 f0 00 00
 	00 00		 mov	 BYTE PTR [rax+240], 0
 
-; 1015 : 
-; 1016 : 		//플레이어 공격에 의해 데미지 받기
-; 1017 : 		CCollider* pWeaponCollider = pPlayer->GetWeaponCollider();
+; 1018 : 
+; 1019 : 		//플레이어 공격에 의해 데미지 받기
+; 1020 : 		CCollider* pWeaponCollider = pPlayer->GetWeaponCollider();
 
   003c8	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR pPlayer$[rbp]
@@ -6920,7 +7020,7 @@ $LN2@OnCollisio:
   003d4	48 89 85 28 01
 	00 00		 mov	 QWORD PTR pWeaponCollider$8[rbp], rax
 
-; 1018 : 		if (src->Compare(m_pOverlapCollider) && dest->Compare(pWeaponCollider))
+; 1021 : 		if (src->Compare(m_pOverlapCollider) && dest->Compare(pWeaponCollider))
 
   003db	48 8b 85 80 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6944,8 +7044,8 @@ $LN2@OnCollisio:
   00417	0f 84 e6 00 00
 	00		 je	 $LN12@OnCollisio
 
-; 1019 : 		{
-; 1020 : 			m_iRandomHitAnim = rand() % 2;
+; 1022 : 		{
+; 1023 : 			m_iRandomHitAnim = rand() % 2;
 
   0041d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_rand
@@ -6958,8 +7058,8 @@ $LN2@OnCollisio:
   00432	89 81 4c 01 00
 	00		 mov	 DWORD PTR [rcx+332], eax
 
-; 1021 : 
-; 1022 : 			if (m_bHit)
+; 1024 : 
+; 1025 : 			if (m_bHit)
 
   00438	48 8b 85 80 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6969,10 +7069,10 @@ $LN2@OnCollisio:
   00448	0f 84 85 00 00
 	00		 je	 $LN13@OnCollisio
 
-; 1023 : 			{
-; 1024 : 				if(model->AnimationCompare((_uint)CLIP::HIT1) || 
-; 1025 : 					model->AnimationCompare((_uint)CLIP::HIT2) || 
-; 1026 : 					model->AnimationCompare((_uint)CLIP_TWO::HIT1) || 
+; 1026 : 			{
+; 1027 : 				if(model->AnimationCompare((_uint)CLIP::HIT1) || 
+; 1028 : 					model->AnimationCompare((_uint)CLIP::HIT2) || 
+; 1029 : 					model->AnimationCompare((_uint)CLIP_TWO::HIT1) || 
 
   0044e	ba 09 00 00 00	 mov	 edx, 9
   00453	48 8b 85 80 07
@@ -7012,8 +7112,8 @@ $LN2@OnCollisio:
   004c0	74 11		 je	 SHORT $LN14@OnCollisio
 $LN15@OnCollisio:
 
-; 1027 : 					model->AnimationCompare((_uint)CLIP_TWO::HIT2))
-; 1028 : 				model->AnimationReset();
+; 1030 : 					model->AnimationCompare((_uint)CLIP_TWO::HIT2))
+; 1031 : 				model->AnimationReset();
 
   004c2	48 8b 85 80 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7023,16 +7123,16 @@ $LN15@OnCollisio:
 $LN14@OnCollisio:
 $LN13@OnCollisio:
 
-; 1029 : 			}
-; 1030 : 
-; 1031 : 			m_bHit = true;
+; 1032 : 			}
+; 1033 : 
+; 1034 : 			m_bHit = true;
 
   004d3	48 8b 85 80 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004da	c6 80 17 01 00
 	00 01		 mov	 BYTE PTR [rax+279], 1
 
-; 1032 : 			RecvDamage(pPlayer->GetDamage());
+; 1035 : 			RecvDamage(pPlayer->GetDamage());
 
   004e1	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR pPlayer$[rbp]
@@ -7045,23 +7145,23 @@ $LN13@OnCollisio:
   004fe	e8 00 00 00 00	 call	 ?RecvDamage@CEnemy@Client@@QEAAXM@Z ; Client::CEnemy::RecvDamage
 $LN12@OnCollisio:
 
-; 1033 : 		}
-; 1034 : 
-; 1035 : 		//CCollider* pSkillCollider = pPlayer->GetSkillCollider();
-; 1036 : 		//if (src->Compare(collider))
-; 1037 : 		//{
-; 1038 : 		//	if (dest->Compare(pSkillCollider))
-; 1039 : 		//	{
-; 1040 : 		//		CGameInstance* pInstance = CGameInstance::GetInstance();
-; 1041 : 		//		_float DeltaTime = pInstance->GetTimer(TEXT("144FPS"));
-; 1042 : 
-; 1043 : 		//		Airborne(DeltaTime);
-; 1044 : 		//		pPlayer->RecvDamage(pPlayer->GetDamage());
-; 1045 : 		//	}
-; 1046 : 		//}
-; 1047 : 
-; 1048 : 		//플레이어에게 데미지 주기
-; 1049 : 		CCollider* pBodyCollider = pPlayer->GetBodyCollider();
+; 1036 : 		}
+; 1037 : 
+; 1038 : 		//CCollider* pSkillCollider = pPlayer->GetSkillCollider();
+; 1039 : 		//if (src->Compare(collider))
+; 1040 : 		//{
+; 1041 : 		//	if (dest->Compare(pSkillCollider))
+; 1042 : 		//	{
+; 1043 : 		//		CGameInstance* pInstance = CGameInstance::GetInstance();
+; 1044 : 		//		_float DeltaTime = pInstance->GetTimer(TEXT("144FPS"));
+; 1045 : 
+; 1046 : 		//		Airborne(DeltaTime);
+; 1047 : 		//		pPlayer->RecvDamage(pPlayer->GetDamage());
+; 1048 : 		//	}
+; 1049 : 		//}
+; 1050 : 
+; 1051 : 		//플레이어에게 데미지 주기
+; 1052 : 		CCollider* pBodyCollider = pPlayer->GetBodyCollider();
 
   00503	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR pPlayer$[rbp]
@@ -7069,7 +7169,7 @@ $LN12@OnCollisio:
   0050f	48 89 85 48 01
 	00 00		 mov	 QWORD PTR pBodyCollider$9[rbp], rax
 
-; 1050 : 		if (src->Compare(m_pWeaponCollider))
+; 1053 : 		if (src->Compare(m_pWeaponCollider))
 
   00516	48 8b 85 80 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7082,8 +7182,8 @@ $LN12@OnCollisio:
   00531	85 c0		 test	 eax, eax
   00533	74 76		 je	 SHORT $LN16@OnCollisio
 
-; 1051 : 		{
-; 1052 : 			if (dest->Compare(pBodyCollider))
+; 1054 : 		{
+; 1055 : 			if (dest->Compare(pBodyCollider))
 
   00535	48 8b 95 48 01
 	00 00		 mov	 rdx, QWORD PTR pBodyCollider$9[rbp]
@@ -7095,8 +7195,8 @@ $LN12@OnCollisio:
   0054c	85 c0		 test	 eax, eax
   0054e	74 5b		 je	 SHORT $LN17@OnCollisio
 
-; 1053 : 			{
-; 1054 : 				pPlayer->LookPos(transform->Get_State(CTransform::STATE_POSITION));
+; 1056 : 			{
+; 1057 : 				pPlayer->LookPos(transform->Get_State(CTransform::STATE_POSITION));
 
   00550	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -7116,13 +7216,13 @@ $LN12@OnCollisio:
 	00 00		 mov	 rcx, QWORD PTR pPlayer$[rbp]
   00586	e8 00 00 00 00	 call	 ?LookPos@CCharacter@Client@@QEAAXT__m128@@@Z ; Client::CCharacter::LookPos
 
-; 1055 : 				pPlayer->Hit();
+; 1058 : 				pPlayer->Hit();
 
   0058b	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR pPlayer$[rbp]
   00592	e8 00 00 00 00	 call	 ?Hit@CCharacter@Client@@QEAAXXZ ; Client::CCharacter::Hit
 
-; 1056 : 				pPlayer->RecvDamage(10.f);
+; 1059 : 				pPlayer->RecvDamage(10.f);
 
   00597	f3 0f 10 0d 00
 	00 00 00	 movss	 xmm1, DWORD PTR __real@41200000
@@ -7134,12 +7234,12 @@ $LN16@OnCollisio:
 $LN11@OnCollisio:
 $LN1@OnCollisio:
 
-; 1057 : 			}
-; 1058 : 		}
-; 1059 : 	}
-; 1060 : 
-; 1061 : 
-; 1062 : }
+; 1060 : 			}
+; 1061 : 		}
+; 1062 : 	}
+; 1063 : 
+; 1064 : 
+; 1065 : }
 
   005ab	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
   005af	48 8d 15 00 00
@@ -7175,7 +7275,7 @@ this$ = 592
 TimeDelta$ = 600
 ?AnimationState@CEnemy@Client@@AEAAXN@Z PROC		; Client::CEnemy::AnimationState, COMDAT
 
-; 769  : {
+; 772  : {
 
 $LN44:
   00000	f2 0f 11 4c 24
@@ -7198,7 +7298,7 @@ $LN44:
   0003a	48 89 85 28 02
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 770  : 	if (m_bAirHit)
+; 773  : 	if (m_bAirHit)
 
   00041	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7207,8 +7307,8 @@ $LN44:
   0004f	85 c0		 test	 eax, eax
   00051	74 19		 je	 SHORT $LN4@AnimationS
 
-; 771  : 	{
-; 772  : 		Airborne(TimeDelta);
+; 774  : 	{
+; 775  : 		Airborne(TimeDelta);
 
   00053	f2 0f 10 8d 58
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7218,8 +7318,8 @@ $LN44:
   00067	e9 e4 05 00 00	 jmp	 $LN5@AnimationS
 $LN4@AnimationS:
 
-; 773  : 	}
-; 774  : 	else if (m_bHit)
+; 776  : 	}
+; 777  : 	else if (m_bHit)
 
   0006c	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7228,8 +7328,8 @@ $LN4@AnimationS:
   0007a	85 c0		 test	 eax, eax
   0007c	74 19		 je	 SHORT $LN6@AnimationS
 
-; 775  : 	{
-; 776  : 		Hit(TimeDelta);
+; 778  : 	{
+; 779  : 		Hit(TimeDelta);
 
   0007e	f2 0f 10 8d 58
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7239,8 +7339,8 @@ $LN4@AnimationS:
   00092	e9 b9 05 00 00	 jmp	 $LN7@AnimationS
 $LN6@AnimationS:
 
-; 777  : 	}
-; 778  : 	else if (m_bHolding)
+; 780  : 	}
+; 781  : 	else if (m_bHolding)
 
   00097	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7250,8 +7350,8 @@ $LN6@AnimationS:
   000a7	0f 84 b8 00 00
 	00		 je	 $LN8@AnimationS
 
-; 779  : 	{
-; 780  : 		transform->LookAt(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION));
+; 782  : 	{
+; 783  : 		transform->LookAt(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION));
 
   000ad	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -7275,8 +7375,8 @@ $LN6@AnimationS:
   000ed	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?LookAt@CTransform@Engine@@QEAAXT__m128@@@Z
 
-; 781  : 
-; 782  : 		switch (m_eType)
+; 784  : 
+; 785  : 		switch (m_eType)
 
   000f3	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7293,9 +7393,9 @@ $LN6@AnimationS:
   00118	eb 46		 jmp	 SHORT $LN12@AnimationS
 $LN10@AnimationS:
 
-; 783  : 		{
-; 784  : 		case Client::CEnemy::TYPE::HUMANOID:
-; 785  : 			model->Setup_Animation((_uint)CLIP::HIT1, CAnimation::TYPE::LOOP, true);
+; 786  : 		{
+; 787  : 		case Client::CEnemy::TYPE::HUMANOID:
+; 788  : 			model->Setup_Animation((_uint)CLIP::HIT1, CAnimation::TYPE::LOOP, true);
 
   0011a	41 b1 01	 mov	 r9b, 1
   0011d	41 b8 01 00 00
@@ -7308,13 +7408,13 @@ $LN10@AnimationS:
   00136	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_Animation@CModel@Engine@@QEAAJIW4TYPE@CAnimation@2@_N@Z
 
-; 786  : 			break;
+; 789  : 			break;
 
   0013c	eb 22		 jmp	 SHORT $LN2@AnimationS
 $LN11@AnimationS:
 
-; 787  : 		case Client::CEnemy::TYPE::ANIMAL:
-; 788  : 			model->Setup_Animation((_uint)CLIP_TWO::HIT2, CAnimation::TYPE::LOOP, true);
+; 790  : 		case Client::CEnemy::TYPE::ANIMAL:
+; 791  : 			model->Setup_Animation((_uint)CLIP_TWO::HIT2, CAnimation::TYPE::LOOP, true);
 
   0013e	41 b1 01	 mov	 r9b, 1
   00141	41 b8 01 00 00
@@ -7329,19 +7429,19 @@ $LN11@AnimationS:
 $LN12@AnimationS:
 $LN2@AnimationS:
 
-; 789  : 			break;
-; 790  : 		default:
-; 791  : 			break;
-; 792  : 		}
-; 793  : 
-; 794  : 	}
-; 795  : 	else
+; 792  : 			break;
+; 793  : 		default:
+; 794  : 			break;
+; 795  : 		}
+; 796  : 
+; 797  : 	}
+; 798  : 	else
 
   00160	e9 eb 04 00 00	 jmp	 $LN9@AnimationS
 $LN8@AnimationS:
 
-; 796  : 	{
-; 797  : 		_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+; 799  : 	{
+; 800  : 		_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
 
   00165	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -7353,7 +7453,7 @@ $LN8@AnimationS:
   0017d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 798  : 		_vector vPosition = transform->Get_State(CTransform::STATE_POSITION);
+; 801  : 		_vector vPosition = transform->Get_State(CTransform::STATE_POSITION);
 
   00183	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -7365,8 +7465,8 @@ $LN8@AnimationS:
   0019b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 799  : 
-; 800  : 		_vector vTargetDir = vPlayerPos - vPosition;
+; 802  : 
+; 803  : 		_vector vTargetDir = vPlayerPos - vPosition;
 
   001a1	0f 28 4d 40	 movaps	 xmm1, XMMWORD PTR vPosition$6[rbp]
   001a5	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vPlayerPos$5[rbp]
@@ -7377,7 +7477,7 @@ $LN8@AnimationS:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T10[rbp]
   001bc	0f 29 45 70	 movaps	 XMMWORD PTR vTargetDir$7[rbp], xmm0
 
-; 801  : 		_float vDistance = XMVectorGetX(XMVector3Length(vTargetDir));
+; 804  : 		_float vDistance = XMVectorGetX(XMVector3Length(vTargetDir));
 
   001c0	0f 28 45 70	 movaps	 xmm0, XMMWORD PTR vTargetDir$7[rbp]
   001c4	e8 00 00 00 00	 call	 ?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Length
@@ -7389,8 +7489,8 @@ $LN8@AnimationS:
   001dc	f3 0f 11 85 94
 	00 00 00	 movss	 DWORD PTR vDistance$8[rbp], xmm0
 
-; 802  : 
-; 803  : 		if (m_bOverlapped)
+; 805  : 
+; 806  : 		if (m_bOverlapped)
 
   001e4	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7399,8 +7499,8 @@ $LN8@AnimationS:
   001f2	85 c0		 test	 eax, eax
   001f4	74 19		 je	 SHORT $LN13@AnimationS
 
-; 804  : 		{
-; 805  : 				OverlapProcess(TimeDelta);
+; 807  : 		{
+; 808  : 				OverlapProcess(TimeDelta);
 
   001f6	f2 0f 10 8d 58
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7408,14 +7508,14 @@ $LN8@AnimationS:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00205	e8 00 00 00 00	 call	 ?OverlapProcess@CEnemy@Client@@AEAAXN@Z ; Client::CEnemy::OverlapProcess
 
-; 806  : 		}
-; 807  : 		else
+; 809  : 		}
+; 810  : 		else
 
   0020a	e9 41 04 00 00	 jmp	 $LN14@AnimationS
 $LN13@AnimationS:
 
-; 808  : 		{
-; 809  : 			m_OverlapAcc = 0.0;
+; 811  : 		{
+; 812  : 			m_OverlapAcc = 0.0;
 
   0020f	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7423,8 +7523,8 @@ $LN13@AnimationS:
   00219	f2 0f 11 80 70
 	01 00 00	 movsd	 QWORD PTR [rax+368], xmm0
 
-; 810  : 
-; 811  : 			if (!m_bRotationFinish)
+; 813  : 
+; 814  : 			if (!m_bRotationFinish)
 
   00221	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7433,7 +7533,7 @@ $LN13@AnimationS:
   0022f	85 c0		 test	 eax, eax
   00231	75 14		 jne	 SHORT $LN15@AnimationS
 
-; 812  : 				LookPlayer(TimeDelta);
+; 815  : 				LookPlayer(TimeDelta);
 
   00233	f2 0f 10 8d 58
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7442,8 +7542,8 @@ $LN13@AnimationS:
   00242	e8 00 00 00 00	 call	 ?LookPlayer@CEnemy@Client@@AEAAXN@Z ; Client::CEnemy::LookPlayer
 $LN15@AnimationS:
 
-; 813  : 
-; 814  : 			if (m_bRotationFinish)
+; 816  : 
+; 817  : 			if (m_bRotationFinish)
 
   00247	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7453,8 +7553,8 @@ $LN15@AnimationS:
   00257	0f 84 9d 02 00
 	00		 je	 $LN16@AnimationS
 
-; 815  : 			{
-; 816  : 				if (vDistance > m_fAttackRange)
+; 818  : 			{
+; 819  : 				if (vDistance > m_fAttackRange)
 
   0025d	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7465,8 +7565,8 @@ $LN15@AnimationS:
   00273	0f 86 a2 01 00
 	00		 jbe	 $LN17@AnimationS
 
-; 817  : 				{
-; 818  : 					if (m_bAttack)
+; 820  : 				{
+; 821  : 					if (m_bAttack)
 
   00279	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7476,8 +7576,8 @@ $LN15@AnimationS:
   00289	0f 84 d6 00 00
 	00		 je	 $LN19@AnimationS
 
-; 819  : 					{
-; 820  : 						if (m_eType == TYPE::HUMANOID)
+; 822  : 					{
+; 823  : 						if (m_eType == TYPE::HUMANOID)
 
   0028f	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7485,8 +7585,8 @@ $LN15@AnimationS:
 	00 00		 cmp	 DWORD PTR [rax+216], 0
   0029d	75 63		 jne	 SHORT $LN21@AnimationS
 
-; 821  : 						{
-; 822  : 							if (model->AnimationCompare(((_uint)CLIP::ATTACK4)))
+; 824  : 						{
+; 825  : 							if (model->AnimationCompare(((_uint)CLIP::ATTACK4)))
 
   0029f	ba 03 00 00 00	 mov	 edx, 3
   002a4	48 8b 85 50 02
@@ -7499,8 +7599,8 @@ $LN15@AnimationS:
   002bb	85 c0		 test	 eax, eax
   002bd	74 41		 je	 SHORT $LN23@AnimationS
 
-; 823  : 							{
-; 824  : 								if (model->AnimationIsFinishEx())
+; 826  : 							{
+; 827  : 								if (model->AnimationIsFinishEx())
 
   002bf	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7512,8 +7612,8 @@ $LN15@AnimationS:
   002d6	85 c0		 test	 eax, eax
   002d8	74 26		 je	 SHORT $LN24@AnimationS
 
-; 825  : 								{
-; 826  : 									Trace(TimeDelta);
+; 828  : 								{
+; 829  : 									Trace(TimeDelta);
 
   002da	f2 0f 10 8d 58
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7521,7 +7621,7 @@ $LN15@AnimationS:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   002e9	e8 00 00 00 00	 call	 ?Trace@CEnemy@Client@@AEAAXN@Z ; Client::CEnemy::Trace
 
-; 827  : 									m_fAttackCoolTimer = 0.f;
+; 830  : 									m_fAttackCoolTimer = 0.f;
 
   002ee	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7531,16 +7631,16 @@ $LN15@AnimationS:
 $LN24@AnimationS:
 $LN23@AnimationS:
 
-; 828  : 								}
-; 829  : 							}
-; 830  : 						}
-; 831  : 						else
+; 831  : 								}
+; 832  : 							}
+; 833  : 						}
+; 834  : 						else
 
   00300	eb 5e		 jmp	 SHORT $LN22@AnimationS
 $LN21@AnimationS:
 
-; 832  : 						{
-; 833  : 							if (model->AnimationCompare(((_uint)CLIP::ATTACK1)))
+; 835  : 						{
+; 836  : 							if (model->AnimationCompare(((_uint)CLIP::ATTACK1)))
 
   00302	33 d2		 xor	 edx, edx
   00304	48 8b 85 50 02
@@ -7553,8 +7653,8 @@ $LN21@AnimationS:
   0031b	85 c0		 test	 eax, eax
   0031d	74 41		 je	 SHORT $LN25@AnimationS
 
-; 834  : 							{
-; 835  : 								if (model->AnimationIsFinishEx())
+; 837  : 							{
+; 838  : 								if (model->AnimationIsFinishEx())
 
   0031f	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7566,8 +7666,8 @@ $LN21@AnimationS:
   00336	85 c0		 test	 eax, eax
   00338	74 26		 je	 SHORT $LN26@AnimationS
 
-; 836  : 								{
-; 837  : 									Trace(TimeDelta);
+; 839  : 								{
+; 840  : 									Trace(TimeDelta);
 
   0033a	f2 0f 10 8d 58
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7575,7 +7675,7 @@ $LN21@AnimationS:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00349	e8 00 00 00 00	 call	 ?Trace@CEnemy@Client@@AEAAXN@Z ; Client::CEnemy::Trace
 
-; 838  : 									m_fAttackCoolTimer = 0.f;
+; 841  : 									m_fAttackCoolTimer = 0.f;
 
   0034e	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7586,17 +7686,17 @@ $LN26@AnimationS:
 $LN25@AnimationS:
 $LN22@AnimationS:
 
-; 839  : 								}
-; 840  : 							}
-; 841  : 						}
-; 842  : 					}
-; 843  : 					else
+; 842  : 								}
+; 843  : 							}
+; 844  : 						}
+; 845  : 					}
+; 846  : 					else
 
   00360	e9 b1 00 00 00	 jmp	 $LN20@AnimationS
 $LN19@AnimationS:
 
-; 844  : 					{
-; 845  : 						if (m_bTraceFinish)
+; 847  : 					{
+; 848  : 						if (m_bTraceFinish)
 
   00365	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7605,8 +7705,8 @@ $LN19@AnimationS:
   00373	85 c0		 test	 eax, eax
   00375	74 79		 je	 SHORT $LN27@AnimationS
 
-; 846  : 						{
-; 847  : 							m_fTraceLocal += TimeDelta;
+; 849  : 						{
+; 850  : 							m_fTraceLocal += TimeDelta;
 
   00377	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7620,7 +7720,7 @@ $LN19@AnimationS:
   00399	f3 0f 11 80 ac
 	01 00 00	 movss	 DWORD PTR [rax+428], xmm0
 
-; 848  : 							if (m_fTraceLocal >= m_fTraceTimeOut)
+; 851  : 							if (m_fTraceLocal >= m_fTraceTimeOut)
 
   003a1	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7632,8 +7732,8 @@ $LN19@AnimationS:
 	00 00		 comiss	 xmm0, DWORD PTR [rcx+432]
   003be	72 2e		 jb	 SHORT $LN29@AnimationS
 
-; 849  : 							{
-; 850  : 								m_fTraceLocal = 0.0;
+; 852  : 							{
+; 853  : 								m_fTraceLocal = 0.0;
 
   003c0	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7641,14 +7741,14 @@ $LN19@AnimationS:
   003ca	f3 0f 11 80 ac
 	01 00 00	 movss	 DWORD PTR [rax+428], xmm0
 
-; 851  : 								m_bRotationFinish = false;
+; 854  : 								m_bRotationFinish = false;
 
   003d2	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003d9	c6 80 49 01 00
 	00 00		 mov	 BYTE PTR [rax+329], 0
 
-; 852  : 								m_bTraceFinish = false;
+; 855  : 								m_bTraceFinish = false;
 
   003e0	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7656,15 +7756,15 @@ $LN19@AnimationS:
 	00 00		 mov	 BYTE PTR [rax+328], 0
 $LN29@AnimationS:
 
-; 853  : 							}
-; 854  : 						}
-; 855  : 						else
+; 856  : 							}
+; 857  : 						}
+; 858  : 						else
 
   003ee	eb 26		 jmp	 SHORT $LN28@AnimationS
 $LN27@AnimationS:
 
-; 856  : 						{
-; 857  : 							Trace(TimeDelta);
+; 859  : 						{
+; 860  : 							Trace(TimeDelta);
 
   003f0	f2 0f 10 8d 58
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7672,7 +7772,7 @@ $LN27@AnimationS:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   003ff	e8 00 00 00 00	 call	 ?Trace@CEnemy@Client@@AEAAXN@Z ; Client::CEnemy::Trace
 
-; 858  : 							m_fAttackCoolTimer = 0.f;
+; 861  : 							m_fAttackCoolTimer = 0.f;
 
   00404	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7682,24 +7782,24 @@ $LN27@AnimationS:
 $LN28@AnimationS:
 $LN20@AnimationS:
 
-; 859  : 						}
-; 860  : 					}
-; 861  : 				}
-; 862  : 				else
+; 862  : 						}
+; 863  : 					}
+; 864  : 				}
+; 865  : 				else
 
   00416	e9 df 00 00 00	 jmp	 $LN18@AnimationS
 $LN17@AnimationS:
 
-; 863  : 				{
-; 864  : 					m_bTraceFinish = true;
+; 866  : 				{
+; 867  : 					m_bTraceFinish = true;
 
   0041b	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00422	c6 80 48 01 00
 	00 01		 mov	 BYTE PTR [rax+328], 1
 
-; 865  : 
-; 866  : 					if (!m_bAttack)
+; 868  : 
+; 869  : 					if (!m_bAttack)
 
   00429	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7708,8 +7808,8 @@ $LN17@AnimationS:
   00437	85 c0		 test	 eax, eax
   00439	75 56		 jne	 SHORT $LN30@AnimationS
 
-; 867  : 					{
-; 868  : 						if (m_eType == TYPE::HUMANOID)
+; 870  : 					{
+; 871  : 						if (m_eType == TYPE::HUMANOID)
 
   0043b	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7717,7 +7817,7 @@ $LN17@AnimationS:
 	00 00		 cmp	 DWORD PTR [rax+216], 0
   00449	75 24		 jne	 SHORT $LN31@AnimationS
 
-; 869  : 							model->Setup_Animation((_uint)CLIP::STAND, CAnimation::TYPE::LOOP, true);
+; 872  : 							model->Setup_Animation((_uint)CLIP::STAND, CAnimation::TYPE::LOOP, true);
 
   0044b	41 b1 01	 mov	 r9b, 1
   0044e	41 b8 01 00 00
@@ -7730,12 +7830,12 @@ $LN17@AnimationS:
   00467	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_Animation@CModel@Engine@@QEAAJIW4TYPE@CAnimation@2@_N@Z
 
-; 870  : 						else
+; 873  : 						else
 
   0046d	eb 22		 jmp	 SHORT $LN32@AnimationS
 $LN31@AnimationS:
 
-; 871  : 							model->Setup_Animation((_uint)CLIP_TWO::STAND2, CAnimation::TYPE::LOOP, true);
+; 874  : 							model->Setup_Animation((_uint)CLIP_TWO::STAND2, CAnimation::TYPE::LOOP, true);
 
   0046f	41 b1 01	 mov	 r9b, 1
   00472	41 b8 01 00 00
@@ -7750,9 +7850,9 @@ $LN31@AnimationS:
 $LN32@AnimationS:
 $LN30@AnimationS:
 
-; 872  : 					}
-; 873  : 
-; 874  : 					m_fAttackCoolTimer += TimeDelta;
+; 875  : 					}
+; 876  : 
+; 877  : 					m_fAttackCoolTimer += TimeDelta;
 
   00491	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7766,7 +7866,7 @@ $LN30@AnimationS:
   004b3	f3 0f 11 80 a4
 	01 00 00	 movss	 DWORD PTR [rax+420], xmm0
 
-; 875  : 					if (m_fAttackCoolTimer >= m_fAttackCoolTimeOut)
+; 878  : 					if (m_fAttackCoolTimer >= m_fAttackCoolTimeOut)
 
   004bb	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7778,15 +7878,15 @@ $LN30@AnimationS:
 	00 00		 comiss	 xmm0, DWORD PTR [rcx+424]
   004d8	72 20		 jb	 SHORT $LN33@AnimationS
 
-; 876  : 					{
-; 877  : 						m_bAttack = true;
+; 879  : 					{
+; 880  : 						m_bAttack = true;
 
   004da	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004e1	c6 80 50 01 00
 	00 01		 mov	 BYTE PTR [rax+336], 1
 
-; 878  : 						m_fAttackCoolTimer = 0.f;
+; 881  : 						m_fAttackCoolTimer = 0.f;
 
   004e8	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7797,11 +7897,11 @@ $LN33@AnimationS:
 $LN18@AnimationS:
 $LN16@AnimationS:
 
-; 879  : 					}
-; 880  : 				}
-; 881  : 			}
-; 882  : 
-; 883  : 			if (m_bAttack)
+; 882  : 					}
+; 883  : 				}
+; 884  : 			}
+; 885  : 
+; 886  : 			if (m_bAttack)
 
   004fa	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7811,8 +7911,8 @@ $LN16@AnimationS:
   0050a	0f 84 11 01 00
 	00		 je	 $LN34@AnimationS
 
-; 884  : 			{
-; 885  : 				Attack(TimeDelta);
+; 887  : 			{
+; 888  : 				Attack(TimeDelta);
 
   00510	f2 0f 10 8d 58
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7820,8 +7920,8 @@ $LN16@AnimationS:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0051f	e8 00 00 00 00	 call	 ?Attack@CEnemy@Client@@AEAAXN@Z ; Client::CEnemy::Attack
 
-; 886  : 
-; 887  : 				if (!m_bAttackCollision || !m_bAttackOneCall)
+; 889  : 
+; 890  : 				if (!m_bAttackCollision || !m_bAttackOneCall)
 
   00524	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7837,15 +7937,15 @@ $LN16@AnimationS:
   00546	75 4d		 jne	 SHORT $LN35@AnimationS
 $LN36@AnimationS:
 
-; 888  : 				{
-; 889  : 					m_bAttackOneCall = true;
+; 891  : 				{
+; 892  : 					m_bAttackOneCall = true;
 
   00548	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0054f	c6 80 8c 01 00
 	00 01		 mov	 BYTE PTR [rax+396], 1
 
-; 890  : 					if (model->AnimationIsPreFinishEx())
+; 893  : 					if (model->AnimationIsPreFinishEx())
 
   00556	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7857,15 +7957,15 @@ $LN36@AnimationS:
   0056d	85 c0		 test	 eax, eax
   0056f	74 24		 je	 SHORT $LN37@AnimationS
 
-; 891  : 					{
-; 892  : 						m_bAttackCollision = true;
+; 894  : 					{
+; 895  : 						m_bAttackCollision = true;
 
   00571	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00578	c6 80 8d 01 00
 	00 01		 mov	 BYTE PTR [rax+397], 1
 
-; 893  : 						m_pWeaponCollider->SetActive(true);
+; 896  : 						m_pWeaponCollider->SetActive(true);
 
   0057f	b2 01		 mov	 dl, 1
   00581	48 8b 85 50 02
@@ -7877,10 +7977,10 @@ $LN36@AnimationS:
 $LN37@AnimationS:
 $LN35@AnimationS:
 
-; 894  : 					}
-; 895  : 				}
-; 896  : 
-; 897  : 				if (model->AnimationIsPreFinish())
+; 897  : 					}
+; 898  : 				}
+; 899  : 
+; 900  : 				if (model->AnimationIsPreFinish())
 
   00595	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7892,15 +7992,15 @@ $LN35@AnimationS:
   005ac	85 c0		 test	 eax, eax
   005ae	74 24		 je	 SHORT $LN38@AnimationS
 
-; 898  : 				{
-; 899  : 					m_bAttackCollision = false;
+; 901  : 				{
+; 902  : 					m_bAttackCollision = false;
 
   005b0	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   005b7	c6 80 8d 01 00
 	00 00		 mov	 BYTE PTR [rax+397], 0
 
-; 900  : 					m_pWeaponCollider->SetActive(false);
+; 903  : 					m_pWeaponCollider->SetActive(false);
 
   005be	33 d2		 xor	 edx, edx
   005c0	48 8b 85 50 02
@@ -7911,9 +8011,9 @@ $LN35@AnimationS:
 	00		 call	 QWORD PTR __imp_?SetActive@CCollider@Engine@@QEAAX_N@Z
 $LN38@AnimationS:
 
-; 901  : 				}
-; 902  : 
-; 903  : 				if (model->AnimationIsFinishEx())
+; 904  : 				}
+; 905  : 
+; 906  : 				if (model->AnimationIsFinishEx())
 
   005d4	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7925,22 +8025,22 @@ $LN38@AnimationS:
   005eb	85 c0		 test	 eax, eax
   005ed	74 32		 je	 SHORT $LN39@AnimationS
 
-; 904  : 				{
-; 905  : 					m_bAttackOneCall = false;
+; 907  : 				{
+; 908  : 					m_bAttackOneCall = false;
 
   005ef	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   005f6	c6 80 8c 01 00
 	00 00		 mov	 BYTE PTR [rax+396], 0
 
-; 906  : 					m_bAttackCollision = false;
+; 909  : 					m_bAttackCollision = false;
 
   005fd	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00604	c6 80 8d 01 00
 	00 00		 mov	 BYTE PTR [rax+397], 0
 
-; 907  : 					m_pWeaponCollider->SetActive(false);
+; 910  : 					m_pWeaponCollider->SetActive(false);
 
   0060b	33 d2		 xor	 edx, edx
   0060d	48 8b 85 50 02
@@ -7952,10 +8052,10 @@ $LN38@AnimationS:
 $LN39@AnimationS:
 $LN34@AnimationS:
 
-; 908  : 				}
-; 909  : 			}
-; 910  : 
-; 911  : 			if (model->AnimationIsFinishEx())
+; 911  : 				}
+; 912  : 			}
+; 913  : 
+; 914  : 			if (model->AnimationIsFinishEx())
 
   00621	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7967,7 +8067,7 @@ $LN34@AnimationS:
   00638	85 c0		 test	 eax, eax
   0063a	74 14		 je	 SHORT $LN40@AnimationS
 
-; 912  : 				Idle(TimeDelta);
+; 915  : 				Idle(TimeDelta);
 
   0063c	f2 0f 10 8d 58
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -7980,10 +8080,10 @@ $LN9@AnimationS:
 $LN7@AnimationS:
 $LN5@AnimationS:
 
-; 913  : 		}
-; 914  : 	}
-; 915  :  
-; 916  : 	if(!m_bAttackCollision)
+; 916  : 		}
+; 917  : 	}
+; 918  :  
+; 919  : 	if(!m_bAttackCollision)
 
   00650	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7992,7 +8092,7 @@ $LN5@AnimationS:
   0065e	85 c0		 test	 eax, eax
   00660	75 16		 jne	 SHORT $LN41@AnimationS
 
-; 917  : 		m_pWeaponCollider->SetActive(false);
+; 920  : 		m_pWeaponCollider->SetActive(false);
 
   00662	33 d2		 xor	 edx, edx
   00664	48 8b 85 50 02
@@ -8003,8 +8103,8 @@ $LN5@AnimationS:
 	00		 call	 QWORD PTR __imp_?SetActive@CCollider@Engine@@QEAAX_N@Z
 $LN41@AnimationS:
 
-; 918  : 
-; 919  : 	if (m_bNuckback)
+; 921  : 
+; 922  : 	if (m_bNuckback)
 
   00678	48 8b 85 50 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8013,8 +8113,8 @@ $LN41@AnimationS:
   00686	85 c0		 test	 eax, eax
   00688	74 14		 je	 SHORT $LN42@AnimationS
 
-; 920  : 	{
-; 921  : 		NuckBack(TimeDelta);
+; 923  : 	{
+; 924  : 		NuckBack(TimeDelta);
 
   0068a	f2 0f 10 8d 58
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -8023,8 +8123,8 @@ $LN41@AnimationS:
   00699	e8 00 00 00 00	 call	 ?NuckBack@CEnemy@Client@@AEAAXN@Z ; Client::CEnemy::NuckBack
 $LN42@AnimationS:
 
-; 922  : 	}
-; 923  : }
+; 925  : 	}
+; 926  : }
 
   0069e	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
   006a2	48 8d 15 00 00
@@ -8053,7 +8153,7 @@ this$ = 416
 TimeDelta$ = 424
 ?Freeze@CEnemy@Client@@AEAANN@Z PROC			; Client::CEnemy::Freeze, COMDAT
 
-; 748  : {
+; 751  : {
 
 $LN5:
   00000	f2 0f 11 4c 24
@@ -8071,7 +8171,7 @@ $LN5:
   00028	48 8b 8c 24 d8
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+472]
 
-; 749  : 	if (m_pAppManager->IsFreeze())
+; 752  : 	if (m_pAppManager->IsFreeze())
 
   00030	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8083,15 +8183,15 @@ $LN5:
   00048	0f 84 ee 00 00
 	00		 je	 $LN2@Freeze
 
-; 750  : 	{
-; 751  : 		m_bAttackCollision = false;
+; 753  : 	{
+; 754  : 		m_bAttackCollision = false;
 
   0004e	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00055	c6 80 8d 01 00
 	00 00		 mov	 BYTE PTR [rax+397], 0
 
-; 752  : 		m_pWeaponCollider->SetActive(false);
+; 755  : 		m_pWeaponCollider->SetActive(false);
 
   0005c	33 d2		 xor	 edx, edx
   0005e	48 8b 85 a0 01
@@ -8101,7 +8201,7 @@ $LN5:
   0006c	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetActive@CCollider@Engine@@QEAAX_N@Z
 
-; 753  : 		_vector CurTimeDelta = XMVectorSet(m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale);
+; 756  : 		_vector CurTimeDelta = XMVectorSet(m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale);
 
   00072	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8126,7 +8226,7 @@ $LN5:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T2[rbp]
   000c1	0f 29 45 10	 movaps	 XMMWORD PTR CurTimeDelta$1[rbp], xmm0
 
-; 754  : 		m_fCurTimeScale = XMVectorGetX(XMVectorLerp(CurTimeDelta, XMVectorSet(0.1f, 0.1f, 0.1f, 0.1f), TimeDelta * 0.8));
+; 757  : 		m_fCurTimeScale = XMVectorGetX(XMVectorLerp(CurTimeDelta, XMVectorSet(0.1f, 0.1f, 0.1f, 0.1f), TimeDelta * 0.8));
 
   000c5	f3 0f 10 1d 00
 	00 00 00	 movss	 xmm3, DWORD PTR __real@3dcccccd
@@ -8159,13 +8259,13 @@ $LN5:
   00132	f3 0f 11 80 a0
 	01 00 00	 movss	 DWORD PTR [rax+416], xmm0
 
-; 755  : 	}
-; 756  : 	else
+; 758  : 	}
+; 759  : 	else
 
   0013a	eb 17		 jmp	 SHORT $LN3@Freeze
 $LN2@Freeze:
 
-; 757  : 		m_fCurTimeScale = 1.0;
+; 760  : 		m_fCurTimeScale = 1.0;
 
   0013c	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8175,8 +8275,8 @@ $LN2@Freeze:
 	01 00 00	 movss	 DWORD PTR [rax+416], xmm0
 $LN3@Freeze:
 
-; 758  : 
-; 759  : 	return TimeDelta = TimeDelta * m_fCurTimeScale;
+; 761  : 
+; 762  : 	return TimeDelta = TimeDelta * m_fCurTimeScale;
 
   00153	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8191,7 +8291,7 @@ $LN3@Freeze:
   00179	f2 0f 10 85 a8
 	01 00 00	 movsd	 xmm0, QWORD PTR TimeDelta$[rbp]
 
-; 760  : }
+; 763  : }
 
   00181	48 8d a5 88 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+392]
@@ -8209,7 +8309,7 @@ this$ = 256
 TimeDelta$ = 264
 ?Die@CEnemy@Client@@AEAAXN@Z PROC			; Client::CEnemy::Die, COMDAT
 
-; 720  : {
+; 723  : {
 
 $LN8:
   00000	f2 0f 11 4c 24
@@ -8227,7 +8327,7 @@ $LN8:
   00028	48 8b 8c 24 28
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
 
-; 721  : 	if (!m_bDead)
+; 724  : 	if (!m_bDead)
 
   00030	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8236,8 +8336,8 @@ $LN8:
   0003e	85 c0		 test	 eax, eax
   00040	75 6a		 jne	 SHORT $LN2@Die
 
-; 722  : 	{
-; 723  : 		static_cast<CCharacter*>(m_pPlayer)->DeleteTargetFromList(this);
+; 725  : 	{
+; 726  : 		static_cast<CCharacter*>(m_pPlayer)->DeleteTargetFromList(this);
 
   00042	48 8b 95 00 01
 	00 00		 mov	 rdx, QWORD PTR this$[rbp]
@@ -8247,8 +8347,8 @@ $LN8:
 	00 00		 mov	 rcx, QWORD PTR [rax+312]
   00057	e8 00 00 00 00	 call	 ?DeleteTargetFromList@CCharacter@Client@@QEAAXPEAVCGameObject@Engine@@@Z ; Client::CCharacter::DeleteTargetFromList
 
-; 724  : 
-; 725  : 		if (m_eType == TYPE::HUMANOID)
+; 727  : 
+; 728  : 		if (m_eType == TYPE::HUMANOID)
 
   0005c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8256,7 +8356,7 @@ $LN8:
 	00 00		 cmp	 DWORD PTR [rax+216], 0
   0006a	75 21		 jne	 SHORT $LN3@Die
 
-; 726  : 			model->Setup_Animation((_uint)CLIP::DEATH, CAnimation::TYPE::ONE, true);
+; 729  : 			model->Setup_Animation((_uint)CLIP::DEATH, CAnimation::TYPE::ONE, true);
 
   0006c	41 b1 01	 mov	 r9b, 1
   0006f	45 33 c0	 xor	 r8d, r8d
@@ -8268,12 +8368,12 @@ $LN8:
   00085	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_Animation@CModel@Engine@@QEAAJIW4TYPE@CAnimation@2@_N@Z
 
-; 727  : 		else
+; 730  : 		else
 
   0008b	eb 1f		 jmp	 SHORT $LN4@Die
 $LN3@Die:
 
-; 728  : 			model->Setup_Animation((_uint)CLIP_TWO::DEATH, CAnimation::TYPE::ONE, true);
+; 731  : 			model->Setup_Animation((_uint)CLIP_TWO::DEATH, CAnimation::TYPE::ONE, true);
 
   0008d	41 b1 01	 mov	 r9b, 1
   00090	45 33 c0	 xor	 r8d, r8d
@@ -8287,9 +8387,9 @@ $LN3@Die:
 $LN4@Die:
 $LN2@Die:
 
-; 729  : 	}
-; 730  : 
-; 731  : 	if (m_bDeadWait && model->AnimationIsFinishEx())
+; 732  : 	}
+; 733  : 
+; 734  : 	if (m_bDeadWait && model->AnimationIsFinishEx())
 
   000ac	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8307,8 +8407,8 @@ $LN2@Die:
   000d5	85 c0		 test	 eax, eax
   000d7	74 55		 je	 SHORT $LN5@Die
 
-; 732  : 	{
-; 733  : 		CCollider* pColl = m_pPlayer->GetEnemyCheckCollider();
+; 735  : 	{
+; 736  : 		CCollider* pColl = m_pPlayer->GetEnemyCheckCollider();
 
   000d9	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8317,7 +8417,7 @@ $LN2@Die:
   000e7	e8 00 00 00 00	 call	 ?GetEnemyCheckCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ ; Client::CCharacter::GetEnemyCheckCollider
   000ec	48 89 45 08	 mov	 QWORD PTR pColl$1[rbp], rax
 
-; 734  : 		pColl->EraseHitCollider(m_pOverlapCollider);
+; 737  : 		pColl->EraseHitCollider(m_pOverlapCollider);
 
   000f0	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8327,7 +8427,7 @@ $LN2@Die:
   00102	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?EraseHitCollider@CCollider@Engine@@QEAAXPEAV12@@Z
 
-; 735  : 		m_pOverlapCollider->EraseHitCollider(pColl);
+; 738  : 		m_pOverlapCollider->EraseHitCollider(pColl);
 
   00108	48 8b 55 08	 mov	 rdx, QWORD PTR pColl$1[rbp]
   0010c	48 8b 85 00 01
@@ -8337,8 +8437,8 @@ $LN2@Die:
   0011a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?EraseHitCollider@CCollider@Engine@@QEAAXPEAV12@@Z
 
-; 736  : 
-; 737  : 		m_bDead = true;
+; 739  : 
+; 740  : 		m_bDead = true;
 
   00120	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8346,9 +8446,9 @@ $LN2@Die:
 	00 01		 mov	 BYTE PTR [rax+385], 1
 $LN5@Die:
 
-; 738  : 	}
-; 739  : 
-; 740  : 	m_fDeadWaitTimer += (_float)TimeDelta;
+; 741  : 	}
+; 742  : 
+; 743  : 	m_fDeadWaitTimer += (_float)TimeDelta;
 
   0012e	f2 0f 5a 85 08
 	01 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
@@ -8363,7 +8463,7 @@ $LN5@Die:
   00153	f3 0f 11 80 84
 	01 00 00	 movss	 DWORD PTR [rax+388], xmm0
 
-; 741  : 	if (m_fDeadWaitTimer >= m_fDeadWaitTimeOut)
+; 744  : 	if (m_fDeadWaitTimer >= m_fDeadWaitTimeOut)
 
   0015b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8375,8 +8475,8 @@ $LN5@Die:
 	00 00		 comiss	 xmm0, DWORD PTR [rcx+392]
   00178	72 12		 jb	 SHORT $LN6@Die
 
-; 742  : 	{
-; 743  : 		SetState(STATE::DISABLE);
+; 745  : 	{
+; 746  : 		SetState(STATE::DISABLE);
 
   0017a	ba 01 00 00 00	 mov	 edx, 1
   0017f	48 8b 8d 00 01
@@ -8385,8 +8485,8 @@ $LN5@Die:
 	00		 call	 QWORD PTR __imp_?SetState@CGameObject@Engine@@QEAAXW4STATE@12@@Z
 $LN6@Die:
 
-; 744  : 	}
-; 745  : }
+; 747  : 	}
+; 748  : }
 
   0018c	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
@@ -8402,7 +8502,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?DieCheck@CEnemy@Client@@AEAA_NXZ PROC			; Client::CEnemy::DieCheck, COMDAT
 
-; 709  : {
+; 712  : {
 
 $LN4:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8418,7 +8518,7 @@ $LN4:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 710  : 	if (m_State.fCurHp <= 0.f)
+; 713  : 	if (m_State.fCurHp <= 0.f)
 
   00028	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8427,28 +8527,28 @@ $LN4:
 	00 00		 comiss	 xmm0, DWORD PTR [rax+300]
   00039	72 12		 jb	 SHORT $LN2@DieCheck
 
-; 711  : 	{
-; 712  : 		m_bDeadWait = true;
+; 714  : 	{
+; 715  : 		m_bDeadWait = true;
 
   0003b	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00042	c6 80 82 01 00
 	00 01		 mov	 BYTE PTR [rax+386], 1
 
-; 713  : 		return true;
+; 716  : 		return true;
 
   00049	b0 01		 mov	 al, 1
   0004b	eb 02		 jmp	 SHORT $LN1@DieCheck
 $LN2@DieCheck:
 
-; 714  : 	}
-; 715  : 
-; 716  : 	return false;
+; 717  : 	}
+; 718  : 
+; 719  : 	return false;
 
   0004d	32 c0		 xor	 al, al
 $LN1@DieCheck:
 
-; 717  : }
+; 720  : }
 
   0004f	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8465,7 +8565,7 @@ this$ = 224
 TimeDleta$ = 232
 ?Holding@CEnemy@Client@@AEAAXN@Z PROC			; Client::CEnemy::Holding, COMDAT
 
-; 704  : {
+; 707  : {
 
 $LN3:
   00000	f2 0f 11 4c 24
@@ -8483,8 +8583,8 @@ $LN3:
   00026	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 705  : 	
-; 706  : }
+; 708  : 	
+; 709  : }
 
   0002e	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8501,7 +8601,7 @@ this$ = 224
 TimeDelta$ = 232
 ?Airborne@CEnemy@Client@@AEAAXN@Z PROC			; Client::CEnemy::Airborne, COMDAT
 
-; 639  : {
+; 642  : {
 
 $LN23:
   00000	f2 0f 11 4c 24
@@ -8519,15 +8619,15 @@ $LN23:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 640  : 	m_bRotationFinish = false;
+; 643  : 	m_bRotationFinish = false;
 
   00030	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00037	c6 80 49 01 00
 	00 00		 mov	 BYTE PTR [rax+329], 0
 
-; 641  : 
-; 642  : 	if (m_bAir)
+; 644  : 
+; 645  : 	if (m_bAir)
 
   0003e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8536,8 +8636,8 @@ $LN23:
   0004c	85 c0		 test	 eax, eax
   0004e	74 52		 je	 SHORT $LN2@Airborne
 
-; 643  : 	{
-; 644  : 		if(m_eType == TYPE::HUMANOID)
+; 646  : 	{
+; 647  : 		if(m_eType == TYPE::HUMANOID)
 
   00050	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8545,7 +8645,7 @@ $LN23:
 	00 00		 cmp	 DWORD PTR [rax+216], 0
   0005e	75 21		 jne	 SHORT $LN4@Airborne
 
-; 645  : 			model->Setup_Animation((_uint)CLIP::HITDOWN, CAnimation::TYPE::ONE, false);
+; 648  : 			model->Setup_Animation((_uint)CLIP::HITDOWN, CAnimation::TYPE::ONE, false);
 
   00060	45 33 c9	 xor	 r9d, r9d
   00063	45 33 c0	 xor	 r8d, r8d
@@ -8557,12 +8657,12 @@ $LN23:
   00079	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_Animation@CModel@Engine@@QEAAJIW4TYPE@CAnimation@2@_N@Z
 
-; 646  : 		else
+; 649  : 		else
 
   0007f	eb 1f		 jmp	 SHORT $LN5@Airborne
 $LN4@Airborne:
 
-; 647  : 			model->Setup_Animation((_uint)CLIP_TWO::HITDOWN, CAnimation::TYPE::ONE, false);
+; 650  : 			model->Setup_Animation((_uint)CLIP_TWO::HITDOWN, CAnimation::TYPE::ONE, false);
 
   00081	45 33 c9	 xor	 r9d, r9d
   00084	45 33 c0	 xor	 r8d, r8d
@@ -8575,14 +8675,14 @@ $LN4@Airborne:
 	00		 call	 QWORD PTR __imp_?Setup_Animation@CModel@Engine@@QEAAJIW4TYPE@CAnimation@2@_N@Z
 $LN5@Airborne:
 
-; 648  : 	}
-; 649  : 	else
+; 651  : 	}
+; 652  : 	else
 
   000a0	eb 50		 jmp	 SHORT $LN3@Airborne
 $LN2@Airborne:
 
-; 650  : 	{
-; 651  : 		if (m_eType == TYPE::HUMANOID)
+; 653  : 	{
+; 654  : 		if (m_eType == TYPE::HUMANOID)
 
   000a2	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8590,7 +8690,7 @@ $LN2@Airborne:
 	00 00		 cmp	 DWORD PTR [rax+216], 0
   000b0	75 21		 jne	 SHORT $LN6@Airborne
 
-; 652  : 			model->Setup_Animation((_uint)CLIP::STANDUP, CAnimation::TYPE::ONE, false);
+; 655  : 			model->Setup_Animation((_uint)CLIP::STANDUP, CAnimation::TYPE::ONE, false);
 
   000b2	45 33 c9	 xor	 r9d, r9d
   000b5	45 33 c0	 xor	 r8d, r8d
@@ -8602,12 +8702,12 @@ $LN2@Airborne:
   000cb	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_Animation@CModel@Engine@@QEAAJIW4TYPE@CAnimation@2@_N@Z
 
-; 653  : 		else
+; 656  : 		else
 
   000d1	eb 1f		 jmp	 SHORT $LN7@Airborne
 $LN6@Airborne:
 
-; 654  : 			model->Setup_Animation((_uint)CLIP_TWO::STANDUP, CAnimation::TYPE::ONE, false);
+; 657  : 			model->Setup_Animation((_uint)CLIP_TWO::STANDUP, CAnimation::TYPE::ONE, false);
 
   000d3	45 33 c9	 xor	 r9d, r9d
   000d6	45 33 c0	 xor	 r8d, r8d
@@ -8621,9 +8721,9 @@ $LN6@Airborne:
 $LN7@Airborne:
 $LN3@Airborne:
 
-; 655  : 	}
-; 656  : 
-; 657  : 	if (m_eType == TYPE::HUMANOID)
+; 658  : 	}
+; 659  : 
+; 660  : 	if (m_eType == TYPE::HUMANOID)
 
   000f2	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8632,8 +8732,8 @@ $LN3@Airborne:
   00100	0f 85 a7 00 00
 	00		 jne	 $LN8@Airborne
 
-; 658  : 	{
-; 659  : 		if (model->AnimationCompare((_uint)CLIP::HITDOWN))
+; 661  : 	{
+; 662  : 		if (model->AnimationCompare((_uint)CLIP::HITDOWN))
 
   00106	ba 0d 00 00 00	 mov	 edx, 13
   0010b	48 8b 85 e0 00
@@ -8646,8 +8746,8 @@ $LN3@Airborne:
   00122	85 c0		 test	 eax, eax
   00124	74 2b		 je	 SHORT $LN10@Airborne
 
-; 660  : 		{
-; 661  : 			if (model->AnimationIsFinishEx())
+; 663  : 		{
+; 664  : 			if (model->AnimationIsFinishEx())
 
   00126	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8659,7 +8759,7 @@ $LN3@Airborne:
   0013d	85 c0		 test	 eax, eax
   0013f	74 0e		 je	 SHORT $LN12@Airborne
 
-; 662  : 				m_bStandupStart = true;
+; 665  : 				m_bStandupStart = true;
 
   00141	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8667,12 +8767,12 @@ $LN3@Airborne:
 	00 01		 mov	 BYTE PTR [rax+438], 1
 $LN12@Airborne:
 
-; 663  : 		}
+; 666  : 		}
 
   0014f	eb 57		 jmp	 SHORT $LN11@Airborne
 $LN10@Airborne:
 
-; 664  : 		else if (model->AnimationCompare((_uint)CLIP::STANDUP))
+; 667  : 		else if (model->AnimationCompare((_uint)CLIP::STANDUP))
 
   00151	ba 15 00 00 00	 mov	 edx, 21
   00156	48 8b 85 e0 00
@@ -8685,8 +8785,8 @@ $LN10@Airborne:
   0016d	85 c0		 test	 eax, eax
   0016f	74 37		 je	 SHORT $LN13@Airborne
 
-; 665  : 		{
-; 666  : 			if (model->AnimationIsFinishEx())
+; 668  : 		{
+; 669  : 			if (model->AnimationIsFinishEx())
 
   00171	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8698,15 +8798,15 @@ $LN10@Airborne:
   00188	85 c0		 test	 eax, eax
   0018a	74 1c		 je	 SHORT $LN14@Airborne
 
-; 667  : 			{
-; 668  : 				m_bAir = false;
+; 670  : 			{
+; 671  : 				m_bAir = false;
 
   0018c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00193	c6 80 b5 01 00
 	00 00		 mov	 BYTE PTR [rax+437], 0
 
-; 669  : 				m_bAirHit = false;
+; 672  : 				m_bAirHit = false;
 
   0019a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8716,16 +8816,16 @@ $LN14@Airborne:
 $LN13@Airborne:
 $LN11@Airborne:
 
-; 670  : 			}
-; 671  : 		}
-; 672  : 	}
-; 673  : 	else
+; 673  : 			}
+; 674  : 		}
+; 675  : 	}
+; 676  : 	else
 
   001a8	e9 a2 00 00 00	 jmp	 $LN9@Airborne
 $LN8@Airborne:
 
-; 674  : 	{
-; 675  : 		if (model->AnimationCompare((_uint)CLIP_TWO::HITDOWN))
+; 677  : 	{
+; 678  : 		if (model->AnimationCompare((_uint)CLIP_TWO::HITDOWN))
 
   001ad	ba 0b 00 00 00	 mov	 edx, 11
   001b2	48 8b 85 e0 00
@@ -8738,8 +8838,8 @@ $LN8@Airborne:
   001c9	85 c0		 test	 eax, eax
   001cb	74 2b		 je	 SHORT $LN15@Airborne
 
-; 676  : 		{
-; 677  : 			if (model->AnimationIsFinishEx())
+; 679  : 		{
+; 680  : 			if (model->AnimationIsFinishEx())
 
   001cd	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8751,7 +8851,7 @@ $LN8@Airborne:
   001e4	85 c0		 test	 eax, eax
   001e6	74 0e		 je	 SHORT $LN17@Airborne
 
-; 678  : 				m_bStandupStart = true;
+; 681  : 				m_bStandupStart = true;
 
   001e8	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8759,12 +8859,12 @@ $LN8@Airborne:
 	00 01		 mov	 BYTE PTR [rax+438], 1
 $LN17@Airborne:
 
-; 679  : 		}
+; 682  : 		}
 
   001f6	eb 57		 jmp	 SHORT $LN16@Airborne
 $LN15@Airborne:
 
-; 680  : 		else if (model->AnimationCompare((_uint)CLIP_TWO::STANDUP))
+; 683  : 		else if (model->AnimationCompare((_uint)CLIP_TWO::STANDUP))
 
   001f8	ba 10 00 00 00	 mov	 edx, 16
   001fd	48 8b 85 e0 00
@@ -8777,8 +8877,8 @@ $LN15@Airborne:
   00214	85 c0		 test	 eax, eax
   00216	74 37		 je	 SHORT $LN18@Airborne
 
-; 681  : 		{
-; 682  : 			if (model->AnimationIsFinishEx())
+; 684  : 		{
+; 685  : 			if (model->AnimationIsFinishEx())
 
   00218	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8790,15 +8890,15 @@ $LN15@Airborne:
   0022f	85 c0		 test	 eax, eax
   00231	74 1c		 je	 SHORT $LN19@Airborne
 
-; 683  : 			{
-; 684  : 				m_bAir = false;
+; 686  : 			{
+; 687  : 				m_bAir = false;
 
   00233	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0023a	c6 80 b5 01 00
 	00 00		 mov	 BYTE PTR [rax+437], 0
 
-; 685  : 				m_bAirHit = false;
+; 688  : 				m_bAirHit = false;
 
   00241	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8809,11 +8909,11 @@ $LN18@Airborne:
 $LN16@Airborne:
 $LN9@Airborne:
 
-; 686  : 			}
-; 687  : 		}
-; 688  : 	}
-; 689  : 
-; 690  : 	if (m_bStandupStart)
+; 689  : 			}
+; 690  : 		}
+; 691  : 	}
+; 692  : 
+; 693  : 	if (m_bStandupStart)
 
   0024f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8822,8 +8922,8 @@ $LN9@Airborne:
   0025d	85 c0		 test	 eax, eax
   0025f	74 7a		 je	 SHORT $LN20@Airborne
 
-; 691  : 	{
-; 692  : 		m_fStandupTimer += (_float)TimeDelta;
+; 694  : 	{
+; 695  : 		m_fStandupTimer += (_float)TimeDelta;
 
   00261	f2 0f 5a 85 e8
 	00 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
@@ -8838,7 +8938,7 @@ $LN9@Airborne:
   00286	f3 0f 11 80 b8
 	01 00 00	 movss	 DWORD PTR [rax+440], xmm0
 
-; 693  : 		if (m_fStandupTimer >= m_fStandupTimeOut)
+; 696  : 		if (m_fStandupTimer >= m_fStandupTimeOut)
 
   0028e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8850,22 +8950,22 @@ $LN9@Airborne:
 	00 00		 comiss	 xmm0, DWORD PTR [rcx+444]
   002ab	72 2e		 jb	 SHORT $LN21@Airborne
 
-; 694  : 		{
-; 695  : 			m_bAir = false;
+; 697  : 		{
+; 698  : 			m_bAir = false;
 
   002ad	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   002b4	c6 80 b5 01 00
 	00 00		 mov	 BYTE PTR [rax+437], 0
 
-; 696  : 			m_bStandupStart = false;
+; 699  : 			m_bStandupStart = false;
 
   002bb	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   002c2	c6 80 b6 01 00
 	00 00		 mov	 BYTE PTR [rax+438], 0
 
-; 697  : 			m_fStandupTimer = 0.0f;
+; 700  : 			m_fStandupTimer = 0.0f;
 
   002c9	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8875,10 +8975,10 @@ $LN9@Airborne:
 $LN21@Airborne:
 $LN20@Airborne:
 
-; 698  : 		}
-; 699  : 	}
-; 700  : 
-; 701  : }
+; 701  : 		}
+; 702  : 	}
+; 703  : 
+; 704  : }
 
   002db	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8906,7 +9006,7 @@ this$ = 704
 TimeDelta$ = 712
 ?NuckBack@CEnemy@Client@@AEAAXN@Z PROC			; Client::CEnemy::NuckBack, COMDAT
 
-; 612  : {
+; 615  : {
 
 $LN4:
   00000	f2 0f 11 4c 24
@@ -8929,7 +9029,7 @@ $LN4:
   0003a	48 89 85 98 02
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 613  : 	m_fNuckBackTimer += (_float)TimeDelta;
+; 616  : 	m_fNuckBackTimer += (_float)TimeDelta;
 
   00041	f2 0f 5a 85 c8
 	02 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
@@ -8944,7 +9044,7 @@ $LN4:
   00066	f3 0f 11 80 98
 	01 00 00	 movss	 DWORD PTR [rax+408], xmm0
 
-; 614  : 	if (m_fNuckBackTimer >= m_fNuckBackTimeOut)
+; 617  : 	if (m_fNuckBackTimer >= m_fNuckBackTimeOut)
 
   0006e	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8956,8 +9056,8 @@ $LN4:
 	00 00		 comiss	 xmm0, DWORD PTR [rcx+412]
   0008b	72 45		 jb	 SHORT $LN2@NuckBack
 
-; 615  : 	{
-; 616  : 		m_fNuckbackPower = 0.4f;
+; 618  : 	{
+; 619  : 		m_fNuckbackPower = 0.4f;
 
   0008d	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8966,21 +9066,21 @@ $LN4:
   0009c	f3 0f 11 80 94
 	01 00 00	 movss	 DWORD PTR [rax+404], xmm0
 
-; 617  : 		m_bNuckback = false;
+; 620  : 		m_bNuckback = false;
 
   000a4	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000ab	c6 80 90 01 00
 	00 00		 mov	 BYTE PTR [rax+400], 0
 
-; 618  : 		m_bNuckBackFinish = true;
+; 621  : 		m_bNuckBackFinish = true;
 
   000b2	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000b9	c6 80 91 01 00
 	00 01		 mov	 BYTE PTR [rax+401], 1
 
-; 619  : 		m_fNuckBackTimer = 0.0f;
+; 622  : 		m_fNuckBackTimer = 0.0f;
 
   000c0	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8989,9 +9089,9 @@ $LN4:
 	01 00 00	 movss	 DWORD PTR [rax+408], xmm0
 $LN2@NuckBack:
 
-; 620  : 	}
-; 621  : 
-; 622  : 	_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+; 623  : 	}
+; 624  : 
+; 625  : 	_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
 
   000d2	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -9003,7 +9103,7 @@ $LN2@NuckBack:
   000ea	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 623  : 	_vector vCurrentPos = transform->Get_State(CTransform::STATE_POSITION);
+; 626  : 	_vector vCurrentPos = transform->Get_State(CTransform::STATE_POSITION);
 
   000f0	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -9015,9 +9115,9 @@ $LN2@NuckBack:
   00108	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 624  : 	//_vector vDir = m_pPlayerTransform->Get_State(CTransform::STATE_LOOK);
-; 625  : 
-; 626  : 	LookPlayer(TimeDelta);
+; 627  : 	//_vector vDir = m_pPlayerTransform->Get_State(CTransform::STATE_LOOK);
+; 628  : 
+; 629  : 	LookPlayer(TimeDelta);
 
   0010e	f2 0f 10 8d c8
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -9025,8 +9125,8 @@ $LN2@NuckBack:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0011d	e8 00 00 00 00	 call	 ?LookPlayer@CEnemy@Client@@AEAAXN@Z ; Client::CEnemy::LookPlayer
 
-; 627  : 
-; 628  : 	_vector vDir = vCurrentPos - vPlayerPos;
+; 630  : 
+; 631  : 	_vector vDir = vCurrentPos - vPlayerPos;
 
   00122	0f 28 4d 10	 movaps	 xmm1, XMMWORD PTR vPlayerPos$[rbp]
   00126	0f 28 45 40	 movaps	 xmm0, XMMWORD PTR vCurrentPos$[rbp]
@@ -9037,7 +9137,7 @@ $LN2@NuckBack:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T5[rbp]
   0013d	0f 29 45 70	 movaps	 XMMWORD PTR vDir$[rbp], xmm0
 
-; 629  : 	vDir = XMVector3Normalize(vDir);
+; 632  : 	vDir = XMVector3Normalize(vDir);
 
   00141	0f 28 45 70	 movaps	 xmm0, XMMWORD PTR vDir$[rbp]
   00145	e8 00 00 00 00	 call	 ?XMVector3Normalize@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Normalize
@@ -9047,9 +9147,9 @@ $LN2@NuckBack:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T6[rbp]
   00158	0f 29 45 70	 movaps	 XMMWORD PTR vDir$[rbp], xmm0
 
-; 630  : 
-; 631  : 	_vector vPos;
-; 632  : 	vPos = vCurrentPos + (vDir) * m_fNuckbackPower;
+; 633  : 
+; 634  : 	_vector vPos;
+; 635  : 	vPos = vCurrentPos + (vDir) * m_fNuckbackPower;
 
   0015c	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9070,7 +9170,7 @@ $LN2@NuckBack:
   00199	0f 29 85 a0 00
 	00 00		 movaps	 XMMWORD PTR vPos$[rbp], xmm0
 
-; 633  : 	vCurrentPos = XMVectorLerp(vCurrentPos, vPos, TimeDelta * 0.8);
+; 636  : 	vCurrentPos = XMVectorLerp(vCurrentPos, vPos, TimeDelta * 0.8);
 
   001a0	f2 0f 10 85 c8
 	02 00 00	 movsd	 xmm0, QWORD PTR TimeDelta$[rbp]
@@ -9088,7 +9188,7 @@ $LN2@NuckBack:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T9[rbp]
   001d5	0f 29 45 40	 movaps	 XMMWORD PTR vCurrentPos$[rbp], xmm0
 
-; 634  : 	transform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
+; 637  : 	transform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
 
   001d9	0f 28 45 40	 movaps	 xmm0, XMMWORD PTR vCurrentPos$[rbp]
   001dd	0f 29 85 80 02
@@ -9103,8 +9203,8 @@ $LN2@NuckBack:
   001fe	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 635  : 
-; 636  : }
+; 638  : 
+; 639  : }
 
   00204	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
   00208	48 8d 15 00 00
@@ -11981,33 +12081,50 @@ $LN2@RecvDamage:
 
 ; 588  : 	}
 ; 589  : 
-; 590  : 	m_State.fCurHp -= fDamage;
+; 590  : 	m_pPlayer->AddCombo();
 
   00097	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0009e	f3 0f 10 80 2c
-	01 00 00	 movss	 xmm0, DWORD PTR [rax+300]
-  000a6	f3 0f 5c 85 48
-	01 00 00	 subss	 xmm0, DWORD PTR fDamage$[rbp]
-  000ae	48 8b 85 40 01
+  0009e	48 8b 88 38 01
+	00 00		 mov	 rcx, QWORD PTR [rax+312]
+  000a5	e8 00 00 00 00	 call	 ?AddCombo@CCharacter@Client@@QEAAXXZ ; Client::CCharacter::AddCombo
+
+; 591  : 	m_pPlayer->ResetComboTime();
+
+  000aa	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000b5	f3 0f 11 80 2c
+  000b1	48 8b 88 38 01
+	00 00		 mov	 rcx, QWORD PTR [rax+312]
+  000b8	e8 00 00 00 00	 call	 ?ResetComboTime@CCharacter@Client@@QEAAXXZ ; Client::CCharacter::ResetComboTime
+
+; 592  : 
+; 593  : 	m_State.fCurHp -= fDamage;
+
+  000bd	48 8b 85 40 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000c4	f3 0f 10 80 2c
+	01 00 00	 movss	 xmm0, DWORD PTR [rax+300]
+  000cc	f3 0f 5c 85 48
+	01 00 00	 subss	 xmm0, DWORD PTR fDamage$[rbp]
+  000d4	48 8b 85 40 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000db	f3 0f 11 80 2c
 	01 00 00	 movss	 DWORD PTR [rax+300], xmm0
 
-; 591  : 
-; 592  : 	DieCheck();
+; 594  : 
+; 595  : 	DieCheck();
 
-  000bd	48 8b 8d 40 01
+  000e3	48 8b 8d 40 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  000c4	e8 00 00 00 00	 call	 ?DieCheck@CEnemy@Client@@AEAA_NXZ ; Client::CEnemy::DieCheck
+  000ea	e8 00 00 00 00	 call	 ?DieCheck@CEnemy@Client@@AEAA_NXZ ; Client::CEnemy::DieCheck
 
-; 593  : }
+; 596  : }
 
-  000c9	48 8d a5 28 01
+  000ef	48 8d a5 28 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+296]
-  000d0	5f		 pop	 rdi
-  000d1	5d		 pop	 rbp
-  000d2	c3		 ret	 0
+  000f6	5f		 pop	 rdi
+  000f7	5d		 pop	 rbp
+  000f8	c3		 ret	 0
 ?RecvDamage@CEnemy@Client@@QEAAXM@Z ENDP		; Client::CEnemy::RecvDamage
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -12018,7 +12135,7 @@ this$ = 224
 fDamage$ = 232
 ?SetAirborne@CEnemy@Client@@QEAAXM@Z PROC		; Client::CEnemy::SetAirborne, COMDAT
 
-; 603  : {
+; 606  : {
 
 $LN3:
   00000	f3 0f 11 4c 24
@@ -12036,28 +12153,28 @@ $LN3:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 604  : 	m_bAir = true;
+; 607  : 	m_bAir = true;
 
   00030	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00037	c6 80 b5 01 00
 	00 01		 mov	 BYTE PTR [rax+437], 1
 
-; 605  : 	m_bAirHit = true;
+; 608  : 	m_bAirHit = true;
 
   0003e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00045	c6 80 b4 01 00
 	00 01		 mov	 BYTE PTR [rax+436], 1
 
-; 606  : 	m_bStandupStart = false;
+; 609  : 	m_bStandupStart = false;
 
   0004c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00053	c6 80 b6 01 00
 	00 00		 mov	 BYTE PTR [rax+438], 0
 
-; 607  : 	m_fStandupTimer = 0.0f;
+; 610  : 	m_fStandupTimer = 0.0f;
 
   0005a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -12065,7 +12182,7 @@ $LN3:
   00064	f3 0f 11 80 b8
 	01 00 00	 movss	 DWORD PTR [rax+440], xmm0
 
-; 608  : 	RecvDamage(fDamage);
+; 611  : 	RecvDamage(fDamage);
 
   0006c	f3 0f 10 8d e8
 	00 00 00	 movss	 xmm1, DWORD PTR fDamage$[rbp]
@@ -12073,7 +12190,7 @@ $LN3:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0007b	e8 00 00 00 00	 call	 ?RecvDamage@CEnemy@Client@@QEAAXM@Z ; Client::CEnemy::RecvDamage
 
-; 609  : }
+; 612  : }
 
   00080	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -12090,7 +12207,7 @@ this$ = 224
 fPower$ = 232
 ?SetNuckback@CEnemy@Client@@QEAAXM@Z PROC		; Client::CEnemy::SetNuckback, COMDAT
 
-; 596  : {
+; 599  : {
 
 $LN3:
   00000	f3 0f 11 4c 24
@@ -12108,21 +12225,21 @@ $LN3:
   00026	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 597  : 	m_bNuckback = true;
+; 600  : 	m_bNuckback = true;
 
   0002e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00035	c6 80 90 01 00
 	00 01		 mov	 BYTE PTR [rax+400], 1
 
-; 598  : 	m_bNuckBackFinish = false;
+; 601  : 	m_bNuckBackFinish = false;
 
   0003c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00043	c6 80 91 01 00
 	00 00		 mov	 BYTE PTR [rax+401], 0
 
-; 599  : 	m_fNuckbackPower = fPower;
+; 602  : 	m_fNuckbackPower = fPower;
 
   0004a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -12131,7 +12248,7 @@ $LN3:
   00059	f3 0f 11 80 94
 	01 00 00	 movss	 DWORD PTR [rax+404], xmm0
 
-; 600  : }
+; 603  : }
 
   00061	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -12185,7 +12302,7 @@ this$ = 512
 __$ReturnUdt$ = 520
 ?GetRootBonePosition@CEnemy@Client@@QEAA?AT__m128@@XZ PROC ; Client::CEnemy::GetRootBonePosition, COMDAT
 
-; 763  : {
+; 766  : {
 
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -12208,7 +12325,7 @@ $LN3:
   0003a	48 89 85 d8 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 764  : 	_matrix BoneMatrix = XMLoadFloat4x4(&m_RootBoneMatrix);
+; 767  : 	_matrix BoneMatrix = XMLoadFloat4x4(&m_RootBoneMatrix);
 
   00041	48 8b 85 00 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -12240,7 +12357,7 @@ $LN3:
   0009e	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
   000a3	f3 a4		 rep movsb
 
-; 765  : 	return BoneMatrix.r[3];
+; 768  : 	return BoneMatrix.r[3];
 
   000a5	b8 10 00 00 00	 mov	 eax, 16
   000aa	48 6b c0 03	 imul	 rax, rax, 3
@@ -12251,7 +12368,7 @@ $LN3:
   000bd	48 8b 85 08 02
 	00 00		 mov	 rax, QWORD PTR __$ReturnUdt$[rbp]
 
-; 766  : }
+; 769  : }
 
   000c4	48 8b f8	 mov	 rdi, rax
   000c7	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]

@@ -13,6 +13,9 @@ BEGIN(Client)
 
 class CPlayerIcon final : public CGameObject
 {
+public:
+	enum { NUM_SIZE_X = 50 };
+
 protected:
 	CPlayerIcon(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	CPlayerIcon(const CPlayerIcon& rhs);
@@ -27,8 +30,10 @@ public:
 	virtual void RenderGUI() override;
 
 public:
+	void SetCombo(_int iComboCount) { m_iCombo = iComboCount; }
 	void SetRender(_bool value) { m_bRender = value; }
 	void SetupPlayer(class CCharacter* pPlayer) { m_pPlayer = pPlayer; }
+	CTexture* ComputeComboToTexture(int iIndex);
 
 private:
 	HRESULT Add_Components();
@@ -46,6 +51,19 @@ private:
 	//버튼별 위치
 	_float4x4	m_AttackMatrix, m_DashMatrix, m_EvolutionMatrix;
 	_float4x4	m_TargetMatrix;
+
+	//콤보 숫자
+	_float		m_fComboNumX, m_fComboNumY, m_fComboNumWidth, m_fComboNumHeight;
+	_float		m_fOriginComboNumX = 150.f;
+	_float4x4	m_ComboNumberMatrix[4];
+
+	//콤보 이미지
+	_float		m_fComboImageX, m_fComboImageWidth, m_fComboImageHeight;
+	_float4x4	m_ComboMatrix;
+
+	//콤보 게이지
+	_float		m_fComboGageX, m_fComboGageY, m_fComboGageWidth, m_fComboGageHeight;
+	_float4x4	m_ComboGageMatrix;
 
 	_float		m_fTargetX, m_fTargetY, m_fTargetWidth, m_fTargetHeight;
 	_float		m_fGageX, m_fGageY, m_fGageWidth, m_fGageHeight;
@@ -75,10 +93,23 @@ private:
 	_bool m_bTargetImageRender = false;
 	CVIBuffer_Rect* m_pTargetVIBuffer = { nullptr };
 	CTexture*		m_pTargetTexture = { nullptr };
+
+	//콤보 이미지
+	CVIBuffer_Rect* m_pComboNumberBuffer = { nullptr };
+	CTexture*		m_pComboNumberTexture[10] = { nullptr };
+
+	CVIBuffer_Rect* m_pComboBuffer = { nullptr };
+	CTexture*		m_pComboTexture = { nullptr };
+
+	CVIBuffer_Rect* m_pComboGageBuffer = { nullptr };
+	CTexture*		m_pComboGageTexture = { nullptr };
+
 private:
 	_bool m_bRender = true;
 	class CCharacter* m_pPlayer = nullptr;
 
+	_bool m_bComboRender = true;
+	_int m_iCombo = 0;
 };
 
 END

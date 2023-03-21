@@ -587,6 +587,9 @@ void CEnemy::RecvDamage(_float fDamage)
 		pSkillSystem->PushSkill(m_pDevice, m_pContext, (CSkillBase::TYPE)iRandom);
 	}
 
+	m_pPlayer->AddCombo();
+	m_pPlayer->ResetComboTime();
+
 	m_State.fCurHp -= fDamage;
 
 	DieCheck();

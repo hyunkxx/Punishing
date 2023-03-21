@@ -2459,6 +2459,8 @@ PUBLIC	??_C@_1DI@MMJOPCKC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAS?$AAh?$AAa?$A
 PUBLIC	??_C@_1CI@NFFEDNON@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAu?$AAi?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1FI@GIHKFDKM@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAb?$AAa?$AAc@ ; `string'
 PUBLIC	??_C@_1DK@HBIABGPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1GK@NOJAHIHF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@ ; `string'
+PUBLIC	??_C@_1DK@HKFEKIKO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAc?$AAo?$AAm?$AAb?$AAo?$AA_?$AAg?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1HE@CHMDFPLH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@ ; `string'
 PUBLIC	??_C@_1EC@OBDDCONO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAa?$AAc?$AAk@ ; `string'
 PUBLIC	??_C@_1HG@IIDDJEOA@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@ ; `string'
@@ -2491,6 +2493,30 @@ PUBLIC	??_C@_1EE@PNHGOGGO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$A
 PUBLIC	??_C@_1CI@GOKBGDBI@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1EE@IFPGOCBN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAR?$AA?4?$AAp?$AAn@ ; `string'
 PUBLIC	??_C@_1CI@KDGPAMDO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@MHIOMMPF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA0?$AA?4?$AAd?$AAd@ ; `string'
+PUBLIC	??_C@_1CI@JCHCJMII@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA0?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@FMCLIAJK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA1?$AA?4?$AAd?$AAd@ ; `string'
+PUBLIC	??_C@_1CI@CKMOPLON@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA1?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@CLLFFCGK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA2?$AA?4?$AAd?$AAd@ ; `string'
+PUBLIC	??_C@_1CI@DIHLFEAD@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA2?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@LABABOAF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA3?$AA?4?$AAd?$AAd@ ; `string'
+PUBLIC	??_C@_1CI@IAMHDDGG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA3?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@MEIIPHIK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA4?$AA?4?$AAd?$AAd@ ; `string'
+PUBLIC	??_C@_1CI@BNBAALNP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA4?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@FPCNLLOF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA5?$AA?4?$AAd?$AAd@ ; `string'
+PUBLIC	??_C@_1CI@KFKMGMLK@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA5?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@CILDGJBF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA6?$AA?4?$AAd?$AAd@ ; `string'
+PUBLIC	??_C@_1CI@LHBJMDFE@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA6?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@LDBGCFHK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA7?$AA?4?$AAd?$AAd@ ; `string'
+PUBLIC	??_C@_1CI@PKFKEDB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA7?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@MBICLKAL@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA8?$AA?4?$AAd?$AAd@ ; `string'
+PUBLIC	??_C@_1CI@FHMGLEGH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA8?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@FKCHPGGE@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA9?$AA?4?$AAd?$AAd@ ; `string'
+PUBLIC	??_C@_1CI@OPHKNDAC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA9?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EE@PBOBANPL@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAx?$AA?4?$AAd?$AAd@ ; `string'
+PUBLIC	??_C@_1CI@MMNCOMFK@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAx?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1EM@DFHMEEMI@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAC?$AAo?$AAm?$AAb@ ; `string'
+PUBLIC	??_C@_1DA@EDAEHBPC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAc?$AAo?$AAm?$AAb?$AAo?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1GE@JJALNPOC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@ ; `string'
 PUBLIC	??_C@_1DM@JELOGDPN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AA_?$AAw?$AAh?$AAi?$AAt?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1GA@GNKLLIAE@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@ ; `string'
@@ -3132,8 +3158,8 @@ $pdata$?dtor$0@?0??Open_Level@CApplication@Client@@AEAAJW4LEVEL_ID@2@@Z@4HA DD i
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ DD imagerel $LN35
-	DD	imagerel $LN35+2802
+$pdata$?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ DD imagerel $LN48
+	DD	imagerel $LN48+3894
 	DD	imagerel $unwind$?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -3536,7 +3562,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA DD 0150H ; `Client::CApplication::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA DD 0184H ; `Client::CApplication::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1CK@OCCCIPEC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AAi?$AAc?$AAo?$AAn?$AA?$AA@
 CONST	SEGMENT
@@ -3713,6 +3739,211 @@ CONST	SEGMENT
 	DB	'l', 00H, '/', 00H, 'S', 00H, 'k', 00H, 'i', 00H, 'l', 00H, 'l'
 	DB	00H, 'W', 00H, 'h', 00H, 'i', 00H, 't', 00H, 'e', 00H, '.', 00H
 	DB	'p', 00H, 'n', 00H, 'g', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1DA@EDAEHBPC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAc?$AAo?$AAm?$AAb?$AAo?$AA?$AA@
+CONST	SEGMENT
+??_C@_1DA@EDAEHBPC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAc?$AAo?$AAm?$AAb?$AAo?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'c', 00H, 'o', 00H
+	DB	'm', 00H, 'b', 00H, 'o', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EM@DFHMEEMI@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAC?$AAo?$AAm?$AAb@
+CONST	SEGMENT
+??_C@_1EM@DFHMEEMI@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAC?$AAo?$AAm?$AAb@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, 'C', 00H, 'o', 00H, 'm', 00H, 'b', 00H, 'o', 00H
+	DB	'.', 00H, 'd', 00H, 'd', 00H, 's', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@MMNCOMFK@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAx?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@MMNCOMFK@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAx?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'x', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@PBOBANPL@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAx?$AA?4?$AAd?$AAd@
+CONST	SEGMENT
+??_C@_1EE@PBOBANPL@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAx?$AA?4?$AAd?$AAd@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, 'x', 00H, '.', 00H, 'd', 00H, 'd', 00H, 's', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@OPHKNDAC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA9?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@OPHKNDAC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA9?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, '9', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@FKCHPGGE@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA9?$AA?4?$AAd?$AAd@
+CONST	SEGMENT
+??_C@_1EE@FKCHPGGE@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA9?$AA?4?$AAd?$AAd@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, '9', 00H, '.', 00H, 'd', 00H, 'd', 00H, 's', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@FHMGLEGH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA8?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@FHMGLEGH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA8?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, '8', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@MBICLKAL@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA8?$AA?4?$AAd?$AAd@
+CONST	SEGMENT
+??_C@_1EE@MBICLKAL@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA8?$AA?4?$AAd?$AAd@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, '8', 00H, '.', 00H, 'd', 00H, 'd', 00H, 's', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@PKFKEDB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA7?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@PKFKEDB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA7?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, '7', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@LDBGCFHK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA7?$AA?4?$AAd?$AAd@
+CONST	SEGMENT
+??_C@_1EE@LDBGCFHK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA7?$AA?4?$AAd?$AAd@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, '7', 00H, '.', 00H, 'd', 00H, 'd', 00H, 's', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@LHBJMDFE@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA6?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@LHBJMDFE@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA6?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, '6', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@CILDGJBF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA6?$AA?4?$AAd?$AAd@
+CONST	SEGMENT
+??_C@_1EE@CILDGJBF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA6?$AA?4?$AAd?$AAd@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, '6', 00H, '.', 00H, 'd', 00H, 'd', 00H, 's', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@KFKMGMLK@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA5?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@KFKMGMLK@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA5?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, '5', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@FPCNLLOF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA5?$AA?4?$AAd?$AAd@
+CONST	SEGMENT
+??_C@_1EE@FPCNLLOF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA5?$AA?4?$AAd?$AAd@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, '5', 00H, '.', 00H, 'd', 00H, 'd', 00H, 's', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@BNBAALNP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA4?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@BNBAALNP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA4?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, '4', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@MEIIPHIK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA4?$AA?4?$AAd?$AAd@
+CONST	SEGMENT
+??_C@_1EE@MEIIPHIK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA4?$AA?4?$AAd?$AAd@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, '4', 00H, '.', 00H, 'd', 00H, 'd', 00H, 's', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@IAMHDDGG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA3?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@IAMHDDGG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA3?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, '3', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@LABABOAF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA3?$AA?4?$AAd?$AAd@
+CONST	SEGMENT
+??_C@_1EE@LABABOAF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA3?$AA?4?$AAd?$AAd@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, '3', 00H, '.', 00H, 'd', 00H, 'd', 00H, 's', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@DIHLFEAD@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA2?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@DIHLFEAD@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA2?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, '2', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@CLLFFCGK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA2?$AA?4?$AAd?$AAd@
+CONST	SEGMENT
+??_C@_1EE@CLLFFCGK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA2?$AA?4?$AAd?$AAd@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, '2', 00H, '.', 00H, 'd', 00H, 'd', 00H, 's', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@CKMOPLON@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA1?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@CKMOPLON@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA1?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, '1', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@FMCLIAJK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA1?$AA?4?$AAd?$AAd@
+CONST	SEGMENT
+??_C@_1EE@FMCLIAJK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA1?$AA?4?$AAd?$AAd@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, '1', 00H, '.', 00H, 'd', 00H, 'd', 00H, 's', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CI@JCHCJMII@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA0?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CI@JCHCJMII@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA0?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, '0', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EE@MHIOMMPF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA0?$AA?4?$AAd?$AAd@
+CONST	SEGMENT
+??_C@_1EE@MHIOMMPF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA0?$AA?4?$AAd?$AAd@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, '/', 00H, '0', 00H, '.', 00H, 'd', 00H, 'd', 00H, 's', 00H
+	DB	00H, 00H					; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1CI@KDGPAMDO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AA?$AA@
 CONST	SEGMENT
@@ -4016,6 +4247,28 @@ CONST	SEGMENT
 	DB	00H, 'e', 00H, 'a', 00H, 'l', 00H, 't', 00H, 'h', 00H, 'B', 00H
 	DB	'a', 00H, 'r', 00H, '_', 00H, 'b', 00H, 'a', 00H, 'c', 00H, 'k'
 	DB	00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1DK@HKFEKIKO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAc?$AAo?$AAm?$AAb?$AAo?$AA_?$AAg?$AAa?$AAg?$AAe?$AA?$AA@
+CONST	SEGMENT
+??_C@_1DK@HKFEKIKO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAc?$AAo?$AAm?$AAb?$AAo?$AA_?$AAg?$AAa?$AAg?$AAe?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'c', 00H, 'o', 00H
+	DB	'm', 00H, 'b', 00H, 'o', 00H, '_', 00H, 'g', 00H, 'a', 00H, 'g'
+	DB	00H, 'e', 00H, 00H, 00H			; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1GK@NOJAHIHF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
+CONST	SEGMENT
+??_C@_1GK@NOJAHIHF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@ DB '.'
+	DB	00H, '.', 00H, '/', 00H, '.', 00H, '.', 00H, '/', 00H, 'R', 00H
+	DB	'e', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H, 'e'
+	DB	00H, '/', 00H, 'T', 00H, 'e', 00H, 'x', 00H, 't', 00H, 'u', 00H
+	DB	'r', 00H, 'e', 00H, '/', 00H, 'I', 00H, 'm', 00H, 'a', 00H, 'g'
+	DB	00H, 'e', 00H, '/', 00H, 'H', 00H, 'e', 00H, 'a', 00H, 'l', 00H
+	DB	't', 00H, 'h', 00H, 'B', 00H, 'a', 00H, 'r', 00H, '/', 00H, 'C'
+	DB	00H, 'o', 00H, 'm', 00H, 'b', 00H, 'o', 00H, 'G', 00H, 'a', 00H
+	DB	'g', 00H, 'e', 00H, '.', 00H, 'p', 00H, 'n', 00H, 'g', 00H, 00H
+	DB	00H						; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1DK@HBIABGPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAa?$AAc?$AAk?$AAg?$AAr?$AAo?$AAu?$AAn?$AAd?$AA?$AA@
 CONST	SEGMENT
@@ -7724,7 +7977,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CApplication@Client@@UEAAXXZ PROC			; Client::CApplication::Free, COMDAT
 
-; 350  : {
+; 402  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7740,14 +7993,14 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 351  : 	DestroyManager();
+; 403  : 	DestroyManager();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	e8 00 00 00 00	 call	 ?DestroyManager@CApplication@Client@@AEAAXXZ ; Client::CApplication::DestroyManager
 
-; 352  : 
-; 353  : 	Safe_Release(m_pRenderer);
+; 404  : 
+; 405  : 	Safe_Release(m_pRenderer);
 
   00036	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7755,8 +8008,8 @@ $LN3:
   00041	48 8b c8	 mov	 rcx, rax
   00044	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
-; 354  : 
-; 355  : 	Safe_Release(m_pDevice);
+; 406  : 
+; 407  : 	Safe_Release(m_pDevice);
 
   00049	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7764,7 +8017,7 @@ $LN3:
   00054	48 8b c8	 mov	 rcx, rax
   00057	e8 00 00 00 00	 call	 ??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z ; Engine::Safe_Release<ID3D11Device * __ptr64>
 
-; 356  : 	Safe_Release(m_pContext);
+; 408  : 	Safe_Release(m_pContext);
 
   0005c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7772,8 +8025,8 @@ $LN3:
   00067	48 8b c8	 mov	 rcx, rax
   0006a	e8 00 00 00 00	 call	 ??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z ; Engine::Safe_Release<ID3D11DeviceContext * __ptr64>
 
-; 357  : 
-; 358  : 	Safe_Release(m_pGameInstance);
+; 409  : 
+; 410  : 	Safe_Release(m_pGameInstance);
 
   0006f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7781,12 +8034,12 @@ $LN3:
   0007a	48 8b c8	 mov	 rcx, rax
   0007d	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCGameInstance@Engine@@@Engine@@YAKAEAPEAVCGameInstance@0@@Z ; Engine::Safe_Release<Engine::CGameInstance * __ptr64>
 
-; 359  : 	CGameInstance::Engine_Release();
+; 411  : 	CGameInstance::Engine_Release();
 
   00082	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Engine_Release@CGameInstance@Engine@@SAXXZ
 
-; 360  : }
+; 412  : }
 
   00088	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -7808,7 +8061,7 @@ tv82 = 376
 __$ArrayPad$ = 384
 ?Create@CApplication@Client@@SAPEAV12@XZ PROC		; Client::CApplication::Create, COMDAT
 
-; 336  : {
+; 388  : {
 
 $LN8:
   00000	40 55		 push	 rbp
@@ -7829,7 +8082,7 @@ $LN8:
   00033	48 89 85 80 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 337  : 	CApplication* pInstance = new CApplication();
+; 389  : 	CApplication* pInstance = new CApplication();
 
   0003a	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA
@@ -7864,16 +8117,16 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T6[rbp]
   000a1	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 338  : 
-; 339  : 	if (FAILED(pInstance->Initialize()))
+; 390  : 
+; 391  : 	if (FAILED(pInstance->Initialize()))
 
   000a5	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000a9	e8 00 00 00 00	 call	 ?Initialize@CApplication@Client@@QEAAJXZ ; Client::CApplication::Initialize
   000ae	85 c0		 test	 eax, eax
   000b0	7d 42		 jge	 SHORT $LN2@Create
 
-; 340  : 	{
-; 341  : 		wstring message = L"Failed to Create : CApplication";
+; 392  : 	{
+; 393  : 		wstring message = L"Failed to Create : CApplication";
 
   000b2	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1EA@NHBKHCID@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAA?$AAp?$AAp?$AAl?$AAi?$AAc?$AAa?$AAt?$AAi?$AAo?$AAn?$AA?$AA@
@@ -7881,7 +8134,7 @@ $LN5@Create:
   000bd	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   000c2	90		 npad	 1
 
-; 342  : 		MESSAGE(message);
+; 394  : 		MESSAGE(message);
 
   000c3	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000c7	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -7893,24 +8146,24 @@ $LN5@Create:
   000db	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 343  : 		Safe_Release(pInstance);
+; 395  : 		Safe_Release(pInstance);
 
   000e1	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000e5	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCApplication@Client@@@Engine@@YAKAEAPEAVCApplication@Client@@@Z ; Engine::Safe_Release<Client::CApplication * __ptr64>
   000ea	90		 npad	 1
 
-; 344  : 	}
+; 396  : 	}
 
   000eb	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000ef	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN2@Create:
 
-; 345  : 
-; 346  : 	return pInstance;
+; 397  : 
+; 398  : 	return pInstance;
 
   000f4	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 347  : }
+; 399  : }
 
   000f8	48 8b f8	 mov	 rdi, rax
   000fb	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -8045,7 +8298,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?DestroyManager@CApplication@Client@@AEAAXXZ PROC	; Client::CApplication::DestroyManager, COMDAT
 
-; 328  : {
+; 380  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8061,26 +8314,26 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 329  : 	m_pGUIManager->Shutdown();
+; 381  : 	m_pGUIManager->Shutdown();
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00031	48 8b 48 40	 mov	 rcx, QWORD PTR [rax+64]
   00035	e8 00 00 00 00	 call	 ?Shutdown@CImGUIManager@Client@@QEAAXXZ ; Client::CImGUIManager::Shutdown
 
-; 330  : 	CApplicationManager::DestroyInstance();
+; 382  : 	CApplicationManager::DestroyInstance();
 
   0003a	e8 00 00 00 00	 call	 ?DestroyInstance@CApplicationManager@Client@@SAKXZ ; Client::CApplicationManager::DestroyInstance
 
-; 331  : 	CStageCollisionManager::DestroyInstance();
+; 383  : 	CStageCollisionManager::DestroyInstance();
 
   0003f	e8 00 00 00 00	 call	 ?DestroyInstance@CStageCollisionManager@Client@@SAKXZ ; Client::CStageCollisionManager::DestroyInstance
 
-; 332  : 	CSkillBallSystem::DestroyInstance();
+; 384  : 	CSkillBallSystem::DestroyInstance();
 
   00044	e8 00 00 00 00	 call	 ?DestroyInstance@CSkillBallSystem@Client@@SAKXZ ; Client::CSkillBallSystem::DestroyInstance
 
-; 333  : }
+; 385  : }
 
   00049	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8096,7 +8349,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?InitializeManager@CApplication@Client@@AEAAJXZ PROC	; Client::CApplication::InitializeManager, COMDAT
 
-; 320  : {
+; 372  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8112,20 +8365,20 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 321  : 	CApplicationManager::GetInstance();
+; 373  : 	CApplicationManager::GetInstance();
 
   0002a	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
 
-; 322  : 	CStageCollisionManager::GetInstance();
+; 374  : 	CStageCollisionManager::GetInstance();
 
   0002f	e8 00 00 00 00	 call	 ?GetInstance@CStageCollisionManager@Client@@SAPEAV12@XZ ; Client::CStageCollisionManager::GetInstance
 
-; 323  : 
-; 324  : 	return S_OK;
+; 375  : 
+; 376  : 	return S_OK;
 
   00034	33 c0		 xor	 eax, eax
 
-; 325  : }
+; 377  : }
 
   00036	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8141,7 +8394,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Ready_Prototype_Static_GameObject@CApplication@Client@@AEAAJXZ PROC ; Client::CApplication::Ready_Prototype_Static_GameObject, COMDAT
 
-; 292  : {
+; 344  : {
 
 $LN10:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8157,7 +8410,7 @@ $LN10:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 293  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_dynamic_camera"),
+; 345  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_dynamic_camera"),
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8177,15 +8430,15 @@ $LN10:
   00060	85 c0		 test	 eax, eax
   00062	7d 0a		 jge	 SHORT $LN2@Ready_Prot
 
-; 294  : 		CDynamicCamera::Create(m_pDevice, m_pContext))))
-; 295  : 		return E_FAIL;
+; 346  : 		CDynamicCamera::Create(m_pDevice, m_pContext))))
+; 347  : 		return E_FAIL;
 
   00064	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00069	e9 94 01 00 00	 jmp	 $LN1@Ready_Prot
 $LN2@Ready_Prot:
 
-; 296  : 
-; 297  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_background"),
+; 348  : 
+; 349  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_background"),
 
   0006e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8205,15 +8458,15 @@ $LN2@Ready_Prot:
   000a4	85 c0		 test	 eax, eax
   000a6	7d 0a		 jge	 SHORT $LN3@Ready_Prot
 
-; 298  : 		CBackGround::Create(m_pDevice, m_pContext))))
-; 299  : 		return E_FAIL;
+; 350  : 		CBackGround::Create(m_pDevice, m_pContext))))
+; 351  : 		return E_FAIL;
 
   000a8	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000ad	e9 50 01 00 00	 jmp	 $LN1@Ready_Prot
 $LN3@Ready_Prot:
 
-; 300  : 
-; 301  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_wall"), CWall::Create(m_pDevice, m_pContext))))
+; 352  : 
+; 353  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_wall"), CWall::Create(m_pDevice, m_pContext))))
 
   000b2	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8233,14 +8486,14 @@ $LN3@Ready_Prot:
   000e8	85 c0		 test	 eax, eax
   000ea	7d 0a		 jge	 SHORT $LN4@Ready_Prot
 
-; 302  : 		return E_FAIL;
+; 354  : 		return E_FAIL;
 
   000ec	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000f1	e9 0c 01 00 00	 jmp	 $LN1@Ready_Prot
 $LN4@Ready_Prot:
 
-; 303  : 
-; 304  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_skillball"), CSkillBase::Create(m_pDevice, m_pContext))))
+; 355  : 
+; 356  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_skillball"), CSkillBase::Create(m_pDevice, m_pContext))))
 
   000f6	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8260,14 +8513,14 @@ $LN4@Ready_Prot:
   0012c	85 c0		 test	 eax, eax
   0012e	7d 0a		 jge	 SHORT $LN5@Ready_Prot
 
-; 305  : 		return E_FAIL;
+; 357  : 		return E_FAIL;
 
   00130	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00135	e9 c8 00 00 00	 jmp	 $LN1@Ready_Prot
 $LN5@Ready_Prot:
 
-; 306  : 
-; 307  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_enemyhp"), CEnemyHealthBar::Create(m_pDevice, m_pContext))))
+; 358  : 
+; 359  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_enemyhp"), CEnemyHealthBar::Create(m_pDevice, m_pContext))))
 
   0013a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8287,14 +8540,14 @@ $LN5@Ready_Prot:
   00170	85 c0		 test	 eax, eax
   00172	7d 0a		 jge	 SHORT $LN6@Ready_Prot
 
-; 308  : 		return E_FAIL;
+; 360  : 		return E_FAIL;
 
   00174	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00179	e9 84 00 00 00	 jmp	 $LN1@Ready_Prot
 $LN6@Ready_Prot:
 
-; 309  : 
-; 310  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_playerhp"), CPlayerHealthBar::Create(m_pDevice, m_pContext))))
+; 361  : 
+; 362  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_playerhp"), CPlayerHealthBar::Create(m_pDevice, m_pContext))))
 
   0017e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8314,14 +8567,14 @@ $LN6@Ready_Prot:
   001b4	85 c0		 test	 eax, eax
   001b6	7d 07		 jge	 SHORT $LN7@Ready_Prot
 
-; 311  : 		return E_FAIL;
+; 363  : 		return E_FAIL;
 
   001b8	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001bd	eb 43		 jmp	 SHORT $LN1@Ready_Prot
 $LN7@Ready_Prot:
 
-; 312  : 
-; 313  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_playericon"), CPlayerIcon::Create(m_pDevice, m_pContext))))
+; 364  : 
+; 365  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_playericon"), CPlayerIcon::Create(m_pDevice, m_pContext))))
 
   001bf	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8341,19 +8594,19 @@ $LN7@Ready_Prot:
   001f5	85 c0		 test	 eax, eax
   001f7	7d 07		 jge	 SHORT $LN8@Ready_Prot
 
-; 314  : 		return E_FAIL;
+; 366  : 		return E_FAIL;
 
   001f9	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001fe	eb 02		 jmp	 SHORT $LN1@Ready_Prot
 $LN8@Ready_Prot:
 
-; 315  : 
-; 316  : 	return S_OK;
+; 367  : 
+; 368  : 	return S_OK;
 
   00200	33 c0		 xor	 eax, eax
 $LN1@Ready_Prot:
 
-; 317  : }
+; 369  : }
 
   00202	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8372,7 +8625,7 @@ this$ = 240
 
 ; 154  : {
 
-$LN35:
+$LN48:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	57		 push	 rdi
@@ -8420,7 +8673,7 @@ $LN35:
 ; 157  : 		return E_FAIL;
 
   00084	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00089	e9 5a 0a 00 00	 jmp	 $LN1@Ready_Prot
+  00089	e9 9e 0e 00 00	 jmp	 $LN1@Ready_Prot
 $LN2@Ready_Prot:
 
 ; 158  : 
@@ -8450,7 +8703,7 @@ $LN2@Ready_Prot:
 ; 161  : 		return E_FAIL;
 
   000cb	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000d0	e9 13 0a 00 00	 jmp	 $LN1@Ready_Prot
+  000d0	e9 57 0e 00 00	 jmp	 $LN1@Ready_Prot
 $LN3@Ready_Prot:
 
 ; 162  : 
@@ -8480,7 +8733,7 @@ $LN3@Ready_Prot:
 ; 165  : 		return E_FAIL;
 
   00112	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00117	e9 cc 09 00 00	 jmp	 $LN1@Ready_Prot
+  00117	e9 10 0e 00 00	 jmp	 $LN1@Ready_Prot
 $LN4@Ready_Prot:
 
 ; 166  : 
@@ -8516,7 +8769,7 @@ $LN4@Ready_Prot:
 ; 169  : 		return E_FAIL;
 
   0016f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00174	e9 6f 09 00 00	 jmp	 $LN1@Ready_Prot
+  00174	e9 b3 0d 00 00	 jmp	 $LN1@Ready_Prot
 $LN5@Ready_Prot:
 
 ; 170  : 
@@ -8552,7 +8805,7 @@ $LN5@Ready_Prot:
 ; 173  : 		return E_FAIL;
 
   001cc	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  001d1	e9 12 09 00 00	 jmp	 $LN1@Ready_Prot
+  001d1	e9 56 0d 00 00	 jmp	 $LN1@Ready_Prot
 $LN6@Ready_Prot:
 
 ; 174  : 
@@ -8588,7 +8841,7 @@ $LN6@Ready_Prot:
 ; 177  : 		return E_FAIL;
 
   00229	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0022e	e9 b5 08 00 00	 jmp	 $LN1@Ready_Prot
+  0022e	e9 f9 0c 00 00	 jmp	 $LN1@Ready_Prot
 $LN7@Ready_Prot:
 
 ; 178  : 
@@ -8624,7 +8877,7 @@ $LN7@Ready_Prot:
 ; 181  : 		return E_FAIL;
 
   00286	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0028b	e9 58 08 00 00	 jmp	 $LN1@Ready_Prot
+  0028b	e9 9c 0c 00 00	 jmp	 $LN1@Ready_Prot
 $LN8@Ready_Prot:
 
 ; 182  : 
@@ -8660,7 +8913,7 @@ $LN8@Ready_Prot:
 ; 185  : 		return E_FAIL;
 
   002e3	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  002e8	e9 fb 07 00 00	 jmp	 $LN1@Ready_Prot
+  002e8	e9 3f 0c 00 00	 jmp	 $LN1@Ready_Prot
 $LN9@Ready_Prot:
 
 ; 186  : 
@@ -8696,7 +8949,7 @@ $LN9@Ready_Prot:
 ; 189  : 		return E_FAIL;
 
   00340	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00345	e9 9e 07 00 00	 jmp	 $LN1@Ready_Prot
+  00345	e9 e2 0b 00 00	 jmp	 $LN1@Ready_Prot
 $LN10@Ready_Prot:
 
 ; 190  : 
@@ -8730,16 +8983,16 @@ $LN10@Ready_Prot:
 ; 193  : 		return E_FAIL;
 
   00397	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0039c	e9 47 07 00 00	 jmp	 $LN1@Ready_Prot
+  0039c	e9 8b 0b 00 00	 jmp	 $LN1@Ready_Prot
 $LN11@Ready_Prot:
 
 ; 194  : 
-; 195  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_back"),
+; 195  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_combo_gage"),
 
   003a1	41 b9 01 00 00
 	00		 mov	 r9d, 1
   003a7	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1HE@CHMDFPLH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1GK@NOJAHIHF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
   003ae	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003b5	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -8750,7 +9003,7 @@ $LN11@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   003ca	4c 8b c8	 mov	 r9, rax
   003cd	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EC@OBDDCONO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAa?$AAc?$AAk@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DK@HKFEKIKO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAc?$AAo?$AAm?$AAb?$AAo?$AA_?$AAg?$AAa?$AAg?$AAe?$AA?$AA@
   003d4	33 d2		 xor	 edx, edx
   003d6	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8760,20 +9013,20 @@ $LN11@Ready_Prot:
   003e7	85 c0		 test	 eax, eax
   003e9	7d 0a		 jge	 SHORT $LN12@Ready_Prot
 
-; 196  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_back.png")))))
+; 196  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/ComboGage.png")))))
 ; 197  : 		return E_FAIL;
 
   003eb	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  003f0	e9 f3 06 00 00	 jmp	 $LN1@Ready_Prot
+  003f0	e9 37 0b 00 00	 jmp	 $LN1@Ready_Prot
 $LN12@Ready_Prot:
 
 ; 198  : 
-; 199  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_blood"),
+; 199  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_back"),
 
   003f5	41 b9 01 00 00
 	00		 mov	 r9d, 1
   003fb	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1HG@IIDDJEOA@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1HE@CHMDFPLH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
   00402	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00409	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -8784,7 +9037,7 @@ $LN12@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   0041e	4c 8b c8	 mov	 r9, rax
   00421	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@EOOJLINA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAl?$AAo?$AAo@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EC@OBDDCONO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAa?$AAc?$AAk@
   00428	33 d2		 xor	 edx, edx
   0042a	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8794,20 +9047,20 @@ $LN12@Ready_Prot:
   0043b	85 c0		 test	 eax, eax
   0043d	7d 0a		 jge	 SHORT $LN13@Ready_Prot
 
-; 200  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_blood.png")))))
+; 200  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_back.png")))))
 ; 201  : 		return E_FAIL;
 
   0043f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00444	e9 9f 06 00 00	 jmp	 $LN1@Ready_Prot
+  00444	e9 e3 0a 00 00	 jmp	 $LN1@Ready_Prot
 $LN13@Ready_Prot:
 
 ; 202  : 
-; 203  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_front"),
+; 203  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_blood"),
 
   00449	41 b9 01 00 00
 	00		 mov	 r9d, 1
   0044f	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1HG@GAEHDNKC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1HG@IIDDJEOA@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
   00456	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0045d	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -8818,7 +9071,7 @@ $LN13@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   00472	4c 8b c8	 mov	 r9, rax
   00475	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@OPMNLGMO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAf?$AAr?$AAo?$AAn@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@EOOJLINA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAb?$AAl?$AAo?$AAo@
   0047c	33 d2		 xor	 edx, edx
   0047e	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8828,20 +9081,20 @@ $LN13@Ready_Prot:
   0048f	85 c0		 test	 eax, eax
   00491	7d 0a		 jge	 SHORT $LN14@Ready_Prot
 
-; 204  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_front.png")))))
+; 204  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_blood.png")))))
 ; 205  : 		return E_FAIL;
 
   00493	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00498	e9 4b 06 00 00	 jmp	 $LN1@Ready_Prot
+  00498	e9 8f 0a 00 00	 jmp	 $LN1@Ready_Prot
 $LN14@Ready_Prot:
 
 ; 206  : 
-; 207  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_player_back"),
+; 207  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_front"),
 
   0049d	41 b9 01 00 00
 	00		 mov	 r9d, 1
   004a3	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1GM@NCCKNBI@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1HG@GAEHDNKC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
   004aa	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004b1	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -8852,7 +9105,7 @@ $LN14@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   004c6	4c 8b c8	 mov	 r9, rax
   004c9	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DM@HNOIHKOP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAb?$AAa?$AAc?$AAk?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@OPMNLGMO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAh?$AAe?$AAa?$AAl?$AAt?$AAh?$AAb?$AAa?$AAr?$AA_?$AAf?$AAr?$AAo?$AAn@
   004d0	33 d2		 xor	 edx, edx
   004d2	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8862,20 +9115,20 @@ $LN14@Ready_Prot:
   004e3	85 c0		 test	 eax, eax
   004e5	7d 0a		 jge	 SHORT $LN15@Ready_Prot
 
-; 208  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/PlayerBack.png")))))
+; 208  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_front.png")))))
 ; 209  : 		return E_FAIL;
 
   004e7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  004ec	e9 f7 05 00 00	 jmp	 $LN1@Ready_Prot
+  004ec	e9 3b 0a 00 00	 jmp	 $LN1@Ready_Prot
 $LN15@Ready_Prot:
 
 ; 210  : 
-; 211  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_dash"),
+; 211  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_player_back"),
 
   004f1	41 b9 01 00 00
 	00		 mov	 r9d, 1
   004f7	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1GA@BMEMGJKO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1GM@NCCKNBI@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
   004fe	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00505	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -8886,7 +9139,7 @@ $LN15@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   0051a	4c 8b c8	 mov	 r9, rax
   0051d	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CO@GCOHOLJ@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AAa?$AAs?$AAh?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DM@HNOIHKOP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAb?$AAa?$AAc?$AAk?$AA?$AA@
   00524	33 d2		 xor	 edx, edx
   00526	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8896,20 +9149,20 @@ $LN15@Ready_Prot:
   00537	85 c0		 test	 eax, eax
   00539	7d 0a		 jge	 SHORT $LN16@Ready_Prot
 
-; 212  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/dash.png")))))
+; 212  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/PlayerBack.png")))))
 ; 213  : 		return E_FAIL;
 
   0053b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00540	e9 a3 05 00 00	 jmp	 $LN1@Ready_Prot
+  00540	e9 e7 09 00 00	 jmp	 $LN1@Ready_Prot
 $LN16@Ready_Prot:
 
 ; 214  : 
-; 215  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_red"),
+; 215  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_dash"),
 
   00545	41 b9 01 00 00
 	00		 mov	 r9d, 1
   0054b	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FG@BBFMJJDK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1GA@BMEMGJKO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAH?$AAe?$AAa@
   00552	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00559	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -8920,7 +9173,7 @@ $LN16@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   0056e	4c 8b c8	 mov	 r9, rax
   00571	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CM@FICJANHB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AAe?$AAd?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CO@GCOHOLJ@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AAa?$AAs?$AAh?$AA?$AA@
   00578	33 d2		 xor	 edx, edx
   0057a	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8930,20 +9183,20 @@ $LN16@Ready_Prot:
   0058b	85 c0		 test	 eax, eax
   0058d	7d 0a		 jge	 SHORT $LN17@Ready_Prot
 
-; 216  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Red.png")))))
+; 216  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/dash.png")))))
 ; 217  : 		return E_FAIL;
 
   0058f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00594	e9 4f 05 00 00	 jmp	 $LN1@Ready_Prot
+  00594	e9 93 09 00 00	 jmp	 $LN1@Ready_Prot
 $LN17@Ready_Prot:
 
 ; 218  : 
-; 219  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_blue"),
+; 219  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_red"),
 
   00599	41 b9 01 00 00
 	00		 mov	 r9d, 1
   0059f	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FI@KKPMHDHH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FG@BBFMJJDK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
   005a6	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   005ad	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -8954,7 +9207,7 @@ $LN17@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   005c2	4c 8b c8	 mov	 r9, rax
   005c5	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CO@LEAGCAOP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAl?$AAu?$AAe?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CM@FICJANHB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AAe?$AAd?$AA?$AA@
   005cc	33 d2		 xor	 edx, edx
   005ce	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8964,20 +9217,20 @@ $LN17@Ready_Prot:
   005df	85 c0		 test	 eax, eax
   005e1	7d 0a		 jge	 SHORT $LN18@Ready_Prot
 
-; 220  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Blue.png")))))
+; 220  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Red.png")))))
 ; 221  : 		return E_FAIL;
 
   005e3	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  005e8	e9 fb 04 00 00	 jmp	 $LN1@Ready_Prot
+  005e8	e9 3f 09 00 00	 jmp	 $LN1@Ready_Prot
 $LN18@Ready_Prot:
 
 ; 222  : 
-; 223  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_yellow"),
+; 223  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_blue"),
 
   005ed	41 b9 01 00 00
 	00		 mov	 r9d, 1
   005f3	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FM@CABLKNLP@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FI@KKPMHDHH@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
   005fa	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00601	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -8988,7 +9241,7 @@ $LN18@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   00616	4c 8b c8	 mov	 r9, rax
   00619	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DC@FDJKGOCO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAy?$AAe?$AAl?$AAl?$AAo?$AAw?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CO@LEAGCAOP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAl?$AAu?$AAe?$AA?$AA@
   00620	33 d2		 xor	 edx, edx
   00622	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8998,21 +9251,20 @@ $LN18@Ready_Prot:
   00633	85 c0		 test	 eax, eax
   00635	7d 0a		 jge	 SHORT $LN19@Ready_Prot
 
-; 224  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Yellow.png")))))
+; 224  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Blue.png")))))
 ; 225  : 		return E_FAIL;
 
   00637	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0063c	e9 a7 04 00 00	 jmp	 $LN1@Ready_Prot
+  0063c	e9 eb 08 00 00	 jmp	 $LN1@Ready_Prot
 $LN19@Ready_Prot:
 
 ; 226  : 
-; 227  : 	//Key q w e r a s d f
-; 228  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_a"),
+; 227  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_yellow"),
 
   00641	41 b9 01 00 00
 	00		 mov	 r9d, 1
   00647	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@POHANNBB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAA?$AA?4?$AAp?$AAn@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FM@CABLKNLP@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
   0064e	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00655	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9023,7 +9275,7 @@ $LN19@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   0066a	4c 8b c8	 mov	 r9, rax
   0066d	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@OBMDPEEP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAa?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DC@FDJKGOCO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAy?$AAe?$AAl?$AAl?$AAo?$AAw?$AA?$AA@
   00674	33 d2		 xor	 edx, edx
   00676	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9033,20 +9285,21 @@ $LN19@Ready_Prot:
   00687	85 c0		 test	 eax, eax
   00689	7d 0a		 jge	 SHORT $LN20@Ready_Prot
 
-; 229  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/A.png")))))
-; 230  : 		return E_FAIL;
+; 228  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Yellow.png")))))
+; 229  : 		return E_FAIL;
 
   0068b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00690	e9 53 04 00 00	 jmp	 $LN1@Ready_Prot
+  00690	e9 97 08 00 00	 jmp	 $LN1@Ready_Prot
 $LN20@Ready_Prot:
 
-; 231  : 
-; 232  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_s"),
+; 230  : 
+; 231  : 	//Key q w e r a s d f
+; 232  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_a"),
 
   00695	41 b9 01 00 00
 	00		 mov	 r9d, 1
   0069b	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@BOFDKOHC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAS?$AA?4?$AAp?$AAn@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@POHANNBB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAA?$AA?4?$AAp?$AAn@
   006a2	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   006a9	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9057,7 +9310,7 @@ $LN20@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   006be	4c 8b c8	 mov	 r9, rax
   006c1	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@BLNDGLFL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAs?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@OBMDPEEP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAa?$AA?$AA@
   006c8	33 d2		 xor	 edx, edx
   006ca	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9067,20 +9320,20 @@ $LN20@Ready_Prot:
   006db	85 c0		 test	 eax, eax
   006dd	7d 0a		 jge	 SHORT $LN21@Ready_Prot
 
-; 233  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/S.png")))))
+; 233  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/A.png")))))
 ; 234  : 		return E_FAIL;
 
   006df	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  006e4	e9 ff 03 00 00	 jmp	 $LN1@Ready_Prot
+  006e4	e9 43 08 00 00	 jmp	 $LN1@Ready_Prot
 $LN21@Ready_Prot:
 
 ; 235  : 
-; 236  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_d"),
+; 236  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_s"),
 
   006e9	41 b9 01 00 00
 	00		 mov	 r9d, 1
   006ef	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@GGNDKKAB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAD?$AA?4?$AAp?$AAn@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@BOFDKOHC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAS?$AA?4?$AAp?$AAn@
   006f6	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   006fd	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9091,7 +9344,7 @@ $LN21@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   00712	4c 8b c8	 mov	 r9, rax
   00715	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@NGBNAEHN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@BLNDGLFL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAs?$AA?$AA@
   0071c	33 d2		 xor	 edx, edx
   0071e	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9101,20 +9354,20 @@ $LN21@Ready_Prot:
   0072f	85 c0		 test	 eax, eax
   00731	7d 0a		 jge	 SHORT $LN22@Ready_Prot
 
-; 237  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/D.png")))))
+; 237  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/S.png")))))
 ; 238  : 		return E_FAIL;
 
   00733	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00738	e9 ab 03 00 00	 jmp	 $LN1@Ready_Prot
+  00738	e9 ef 07 00 00	 jmp	 $LN1@Ready_Prot
 $LN22@Ready_Prot:
 
 ; 239  : 
-; 240  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_f"),
+; 240  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_d"),
 
   0073d	41 b9 01 00 00
 	00		 mov	 r9d, 1
   00743	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@IKOIDEJO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAF?$AA?4?$AAp?$AAn@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@GGNDKKAB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAD?$AA?4?$AAp?$AAn@
   0074a	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00751	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9125,7 +9378,7 @@ $LN22@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   00766	4c 8b c8	 mov	 r9, rax
   00769	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@HMBEMMPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAf?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@NGBNAEHN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AA?$AA@
   00770	33 d2		 xor	 edx, edx
   00772	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9135,20 +9388,20 @@ $LN22@Ready_Prot:
   00783	85 c0		 test	 eax, eax
   00785	7d 0a		 jge	 SHORT $LN23@Ready_Prot
 
-; 241  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/F.png")))))
+; 241  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/D.png")))))
 ; 242  : 		return E_FAIL;
 
   00787	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0078c	e9 57 03 00 00	 jmp	 $LN1@Ready_Prot
+  0078c	e9 9b 07 00 00	 jmp	 $LN1@Ready_Prot
 $LN23@Ready_Prot:
 
 ; 243  : 
-; 244  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_q"),
+; 244  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_f"),
 
   00791	41 b9 01 00 00
 	00		 mov	 r9d, 1
   00797	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@PCGIDAON@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAQ?$AA?4?$AAp?$AAn@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@IKOIDEJO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAF?$AA?4?$AAp?$AAn@
   0079e	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   007a5	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9159,7 +9412,7 @@ $LN23@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   007ba	4c 8b c8	 mov	 r9, rax
   007bd	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@LBNKKDNA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAq?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@HMBEMMPG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAf?$AA?$AA@
   007c4	33 d2		 xor	 edx, edx
   007c6	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9169,20 +9422,20 @@ $LN23@Ready_Prot:
   007d7	85 c0		 test	 eax, eax
   007d9	7d 0a		 jge	 SHORT $LN24@Ready_Prot
 
-; 245  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/Q.png")))))
+; 245  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/F.png")))))
 ; 246  : 		return E_FAIL;
 
   007db	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  007e0	e9 03 03 00 00	 jmp	 $LN1@Ready_Prot
+  007e0	e9 47 07 00 00	 jmp	 $LN1@Ready_Prot
 $LN24@Ready_Prot:
 
 ; 247  : 
-; 248  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_w"),
+; 248  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_q"),
 
   007e5	41 b9 01 00 00
 	00		 mov	 r9d, 1
   007eb	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@BNFFJFAN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAW?$AA?4?$AAp?$AAn@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@PCGIDAON@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAQ?$AA?4?$AAp?$AAn@
   007f2	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   007f9	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9193,7 +9446,7 @@ $LN24@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   0080e	4c 8b c8	 mov	 r9, rax
   00811	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@JELBPMAM@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAw?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@LBNKKDNA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAq?$AA?$AA@
   00818	33 d2		 xor	 edx, edx
   0081a	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9203,20 +9456,20 @@ $LN24@Ready_Prot:
   0082b	85 c0		 test	 eax, eax
   0082d	7d 0a		 jge	 SHORT $LN25@Ready_Prot
 
-; 249  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/W.png")))))
+; 249  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/Q.png")))))
 ; 250  : 		return E_FAIL;
 
   0082f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00834	e9 af 02 00 00	 jmp	 $LN1@Ready_Prot
+  00834	e9 f3 06 00 00	 jmp	 $LN1@Ready_Prot
 $LN25@Ready_Prot:
 
 ; 251  : 
-; 252  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_e"),
+; 252  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_w"),
 
   00839	41 b9 01 00 00
 	00		 mov	 r9d, 1
   0083f	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@PNHGOGGO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAE?$AA?4?$AAp?$AAn@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@BNFFJFAN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAW?$AA?4?$AAp?$AAn@
   00846	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0084d	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9227,7 +9480,7 @@ $LN25@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   00862	4c 8b c8	 mov	 r9, rax
   00865	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@GOKBGDBI@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAe?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@JELBPMAM@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAw?$AA?$AA@
   0086c	33 d2		 xor	 edx, edx
   0086e	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9237,20 +9490,20 @@ $LN25@Ready_Prot:
   0087f	85 c0		 test	 eax, eax
   00881	7d 0a		 jge	 SHORT $LN26@Ready_Prot
 
-; 253  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/E.png")))))
+; 253  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/W.png")))))
 ; 254  : 		return E_FAIL;
 
   00883	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00888	e9 5b 02 00 00	 jmp	 $LN1@Ready_Prot
+  00888	e9 9f 06 00 00	 jmp	 $LN1@Ready_Prot
 $LN26@Ready_Prot:
 
 ; 255  : 
-; 256  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_r"),
+; 256  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_e"),
 
   0088d	41 b9 01 00 00
 	00		 mov	 r9d, 1
   00893	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@IFPGOCBN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAR?$AA?4?$AAp?$AAn@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@PNHGOGGO@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAE?$AA?4?$AAp?$AAn@
   0089a	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   008a1	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9261,7 +9514,7 @@ $LN26@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   008b6	4c 8b c8	 mov	 r9, rax
   008b9	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@KDGPAMDO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@GOKBGDBI@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAe?$AA?$AA@
   008c0	33 d2		 xor	 edx, edx
   008c2	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9271,20 +9524,20 @@ $LN26@Ready_Prot:
   008d3	85 c0		 test	 eax, eax
   008d5	7d 0a		 jge	 SHORT $LN27@Ready_Prot
 
-; 257  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/R.png")))))
+; 257  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/E.png")))))
 ; 258  : 		return E_FAIL;
 
   008d7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  008dc	e9 07 02 00 00	 jmp	 $LN1@Ready_Prot
+  008dc	e9 4b 06 00 00	 jmp	 $LN1@Ready_Prot
 $LN27@Ready_Prot:
 
 ; 259  : 
-; 260  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_skill_white"),
+; 260  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_r"),
 
   008e1	41 b9 01 00 00
 	00		 mov	 r9d, 1
   008e7	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1GE@JJALNPOC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@IFPGOCBN@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAR?$AA?4?$AAp?$AAn@
   008ee	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   008f5	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9295,7 +9548,7 @@ $LN27@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   0090a	4c 8b c8	 mov	 r9, rax
   0090d	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DM@JELOGDPN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AA_?$AAw?$AAh?$AAi?$AAt?$AAe?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@KDGPAMDO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAr?$AA?$AA@
   00914	33 d2		 xor	 edx, edx
   00916	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9305,20 +9558,20 @@ $LN27@Ready_Prot:
   00927	85 c0		 test	 eax, eax
   00929	7d 0a		 jge	 SHORT $LN28@Ready_Prot
 
-; 261  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/SkillWhite.png")))))
+; 261  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/R.png")))))
 ; 262  : 		return E_FAIL;
 
   0092b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00930	e9 b3 01 00 00	 jmp	 $LN1@Ready_Prot
+  00930	e9 f7 05 00 00	 jmp	 $LN1@Ready_Prot
 $LN28@Ready_Prot:
 
 ; 263  : 
-; 264  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_skill_use"),
+; 264  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_0"),
 
   00935	41 b9 01 00 00
 	00		 mov	 r9d, 1
   0093b	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1GA@GNKLLIAE@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@MHIOMMPF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA0?$AA?4?$AAd?$AAd@
   00942	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00949	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9329,7 +9582,7 @@ $LN28@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   0095e	4c 8b c8	 mov	 r9, rax
   00961	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DI@NNCICFJM@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AA_?$AAu?$AAs?$AAe?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@JCHCJMII@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA0?$AA?$AA@
   00968	33 d2		 xor	 edx, edx
   0096a	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9339,22 +9592,20 @@ $LN28@Ready_Prot:
   0097b	85 c0		 test	 eax, eax
   0097d	7d 0a		 jge	 SHORT $LN29@Ready_Prot
 
-; 265  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/SkillUse.png")))))
+; 265  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/0.dds")))))
 ; 266  : 		return E_FAIL;
 
   0097f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00984	e9 5f 01 00 00	 jmp	 $LN1@Ready_Prot
+  00984	e9 a3 05 00 00	 jmp	 $LN1@Ready_Prot
 $LN29@Ready_Prot:
 
 ; 267  : 
-; 268  : 
-; 269  : 	//버튼 아이콘들
-; 270  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_attack_icon"),
+; 268  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_1"),
 
   00989	41 b9 01 00 00
 	00		 mov	 r9d, 1
   0098f	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1GC@OKKOFHLF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAI?$AAc?$AAo@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@FMCLIAJK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA1?$AA?4?$AAd?$AAd@
   00996	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0099d	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9365,7 +9616,7 @@ $LN29@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   009b2	4c 8b c8	 mov	 r9, rax
   009b5	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DM@ODJB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAa?$AAt?$AAt?$AAa?$AAc?$AAk?$AA_?$AAi?$AAc?$AAo?$AAn?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@CKMOPLON@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA1?$AA?$AA@
   009bc	33 d2		 xor	 edx, edx
   009be	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9375,20 +9626,20 @@ $LN29@Ready_Prot:
   009cf	85 c0		 test	 eax, eax
   009d1	7d 0a		 jge	 SHORT $LN30@Ready_Prot
 
-; 271  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/AttackIcon.png")))))
-; 272  : 		return E_FAIL;
+; 269  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/1.dds")))))
+; 270  : 		return E_FAIL;
 
   009d3	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  009d8	e9 0b 01 00 00	 jmp	 $LN1@Ready_Prot
+  009d8	e9 4f 05 00 00	 jmp	 $LN1@Ready_Prot
 $LN30@Ready_Prot:
 
-; 273  : 
-; 274  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_dash_icon"),
+; 271  : 
+; 272  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_2"),
 
   009dd	41 b9 01 00 00
 	00		 mov	 r9d, 1
   009e3	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FO@BECJOKAL@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAI?$AAc?$AAo@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@CLLFFCGK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA2?$AA?4?$AAd?$AAd@
   009ea	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   009f1	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9399,7 +9650,7 @@ $LN30@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   00a06	4c 8b c8	 mov	 r9, rax
   00a09	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DI@NKIMINMK@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AAa?$AAs?$AAh?$AA_?$AAi?$AAc?$AAo?$AAn?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@DIHLFEAD@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA2?$AA?$AA@
   00a10	33 d2		 xor	 edx, edx
   00a12	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9409,20 +9660,20 @@ $LN30@Ready_Prot:
   00a23	85 c0		 test	 eax, eax
   00a25	7d 0a		 jge	 SHORT $LN31@Ready_Prot
 
-; 275  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/DashIcon.png")))))
-; 276  : 		return E_FAIL;
+; 273  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/2.dds")))))
+; 274  : 		return E_FAIL;
 
   00a27	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00a2c	e9 b7 00 00 00	 jmp	 $LN1@Ready_Prot
+  00a2c	e9 fb 04 00 00	 jmp	 $LN1@Ready_Prot
 $LN31@Ready_Prot:
 
-; 277  : 
-; 278  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_back_icon"),
+; 275  : 
+; 276  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_3"),
 
   00a31	41 b9 01 00 00
 	00		 mov	 r9d, 1
   00a37	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FO@CNKJDADB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAI?$AAc?$AAo@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@LABABOAF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA3?$AA?4?$AAd?$AAd@
   00a3e	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00a45	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
@@ -9433,7 +9684,7 @@ $LN31@Ready_Prot:
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
   00a5a	4c 8b c8	 mov	 r9, rax
   00a5d	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DI@MEOJALFK@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAa?$AAc?$AAk?$AA_?$AAi?$AAc?$AAo?$AAn?$AA?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@IAMHDDGG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA3?$AA?$AA@
   00a64	33 d2		 xor	 edx, edx
   00a66	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9441,71 +9692,515 @@ $LN31@Ready_Prot:
   00a71	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
   00a77	85 c0		 test	 eax, eax
-  00a79	7d 07		 jge	 SHORT $LN32@Ready_Prot
+  00a79	7d 0a		 jge	 SHORT $LN32@Ready_Prot
 
-; 279  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/BackIcon.png")))))
-; 280  : 		return E_FAIL;
+; 277  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/3.dds")))))
+; 278  : 		return E_FAIL;
 
   00a7b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00a80	eb 66		 jmp	 SHORT $LN1@Ready_Prot
+  00a80	e9 a7 04 00 00	 jmp	 $LN1@Ready_Prot
 $LN32@Ready_Prot:
 
-; 281  : 
-; 282  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_target"),
+; 279  : 
+; 280  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_4"),
 
-  00a82	41 b9 01 00 00
+  00a85	41 b9 01 00 00
 	00		 mov	 r9d, 1
-  00a88	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FK@CIKHLLAL@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAI?$AAc?$AAo@
-  00a8f	48 8b 85 f0 00
+  00a8b	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@MEIIPHIK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA4?$AA?4?$AAd?$AAd@
+  00a92	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00a96	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
-  00a9a	48 8b 85 f0 00
+  00a99	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00a9d	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00aa1	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
-  00aa5	ff 15 00 00 00
+  00aa4	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00aa8	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
-  00aab	4c 8b c8	 mov	 r9, rax
-  00aae	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DC@DAEFAEIP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAt?$AAa?$AAr?$AAg?$AAe?$AAt?$AA?$AA@
-  00ab5	33 d2		 xor	 edx, edx
-  00ab7	48 8b 85 f0 00
+  00aae	4c 8b c8	 mov	 r9, rax
+  00ab1	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@BNBAALNP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA4?$AA?$AA@
+  00ab8	33 d2		 xor	 edx, edx
+  00aba	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00abe	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
-  00ac2	ff 15 00 00 00
+  00ac1	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00ac5	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
-  00ac8	85 c0		 test	 eax, eax
-  00aca	7d 07		 jge	 SHORT $LN33@Ready_Prot
+  00acb	85 c0		 test	 eax, eax
+  00acd	7d 0a		 jge	 SHORT $LN33@Ready_Prot
 
-; 283  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/Target.png")))))
-; 284  : 		return E_FAIL;
+; 281  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/4.dds")))))
+; 282  : 		return E_FAIL;
 
-  00acc	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00ad1	eb 15		 jmp	 SHORT $LN1@Ready_Prot
+  00acf	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00ad4	e9 53 04 00 00	 jmp	 $LN1@Ready_Prot
 $LN33@Ready_Prot:
 
-; 285  : 
-; 286  : 	Safe_AddRef(m_pRenderer);
+; 283  : 
+; 284  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_5"),
 
-  00ad3	48 8b 85 f0 00
+  00ad9	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00adf	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@FPCNLLOF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA5?$AA?4?$AAd?$AAd@
+  00ae6	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00ada	48 83 c0 38	 add	 rax, 56			; 00000038H
-  00ade	48 8b c8	 mov	 rcx, rax
-  00ae1	e8 00 00 00 00	 call	 ??$Safe_AddRef@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_AddRef<Engine::CRenderer * __ptr64>
+  00aed	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00af1	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00af8	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00afc	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00b02	4c 8b c8	 mov	 r9, rax
+  00b05	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@KFKMGMLK@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA5?$AA?$AA@
+  00b0c	33 d2		 xor	 edx, edx
+  00b0e	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00b15	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00b19	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00b1f	85 c0		 test	 eax, eax
+  00b21	7d 0a		 jge	 SHORT $LN34@Ready_Prot
+
+; 285  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/5.dds")))))
+; 286  : 		return E_FAIL;
+
+  00b23	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00b28	e9 ff 03 00 00	 jmp	 $LN1@Ready_Prot
+$LN34@Ready_Prot:
 
 ; 287  : 
-; 288  : 	return S_OK;
+; 288  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_6"),
 
-  00ae6	33 c0		 xor	 eax, eax
+  00b2d	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00b33	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@CILDGJBF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA6?$AA?4?$AAd?$AAd@
+  00b3a	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00b41	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00b45	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00b4c	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00b50	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00b56	4c 8b c8	 mov	 r9, rax
+  00b59	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@LHBJMDFE@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA6?$AA?$AA@
+  00b60	33 d2		 xor	 edx, edx
+  00b62	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00b69	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00b6d	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00b73	85 c0		 test	 eax, eax
+  00b75	7d 0a		 jge	 SHORT $LN35@Ready_Prot
+
+; 289  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/6.dds")))))
+; 290  : 		return E_FAIL;
+
+  00b77	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00b7c	e9 ab 03 00 00	 jmp	 $LN1@Ready_Prot
+$LN35@Ready_Prot:
+
+; 291  : 
+; 292  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_7"),
+
+  00b81	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00b87	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@LDBGCFHK@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA7?$AA?4?$AAd?$AAd@
+  00b8e	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00b95	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00b99	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00ba0	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00ba4	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00baa	4c 8b c8	 mov	 r9, rax
+  00bad	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@PKFKEDB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA7?$AA?$AA@
+  00bb4	33 d2		 xor	 edx, edx
+  00bb6	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00bbd	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00bc1	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00bc7	85 c0		 test	 eax, eax
+  00bc9	7d 0a		 jge	 SHORT $LN36@Ready_Prot
+
+; 293  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/7.dds")))))
+; 294  : 		return E_FAIL;
+
+  00bcb	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00bd0	e9 57 03 00 00	 jmp	 $LN1@Ready_Prot
+$LN36@Ready_Prot:
+
+; 295  : 
+; 296  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_8"),
+
+  00bd5	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00bdb	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@MBICLKAL@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA8?$AA?4?$AAd?$AAd@
+  00be2	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00be9	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00bed	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00bf4	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00bf8	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00bfe	4c 8b c8	 mov	 r9, rax
+  00c01	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@FHMGLEGH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA8?$AA?$AA@
+  00c08	33 d2		 xor	 edx, edx
+  00c0a	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00c11	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00c15	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00c1b	85 c0		 test	 eax, eax
+  00c1d	7d 0a		 jge	 SHORT $LN37@Ready_Prot
+
+; 297  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/8.dds")))))
+; 298  : 		return E_FAIL;
+
+  00c1f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00c24	e9 03 03 00 00	 jmp	 $LN1@Ready_Prot
+$LN37@Ready_Prot:
+
+; 299  : 
+; 300  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_9"),
+
+  00c29	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00c2f	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@FKCHPGGE@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AA9?$AA?4?$AAd?$AAd@
+  00c36	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00c3d	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00c41	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00c48	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00c4c	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00c52	4c 8b c8	 mov	 r9, rax
+  00c55	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@OPHKNDAC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AA9?$AA?$AA@
+  00c5c	33 d2		 xor	 edx, edx
+  00c5e	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00c65	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00c69	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00c6f	85 c0		 test	 eax, eax
+  00c71	7d 0a		 jge	 SHORT $LN38@Ready_Prot
+
+; 301  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/9.dds")))))
+; 302  : 		return E_FAIL;
+
+  00c73	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00c78	e9 af 02 00 00	 jmp	 $LN1@Ready_Prot
+$LN38@Ready_Prot:
+
+; 303  : 
+; 304  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_x"),
+
+  00c7d	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00c83	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EE@PBOBANPL@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAx?$AA?4?$AAd?$AAd@
+  00c8a	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00c91	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00c95	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00c9c	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00ca0	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00ca6	4c 8b c8	 mov	 r9, rax
+  00ca9	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@MMNCOMFK@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAx?$AA?$AA@
+  00cb0	33 d2		 xor	 edx, edx
+  00cb2	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00cb9	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00cbd	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00cc3	85 c0		 test	 eax, eax
+  00cc5	7d 0a		 jge	 SHORT $LN39@Ready_Prot
+
+; 305  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/x.dds")))))
+; 306  : 		return E_FAIL;
+
+  00cc7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00ccc	e9 5b 02 00 00	 jmp	 $LN1@Ready_Prot
+$LN39@Ready_Prot:
+
+; 307  : 
+; 308  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_combo"),
+
+  00cd1	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00cd7	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1EM@DFHMEEMI@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AA?1?$AAC?$AAo?$AAm?$AAb@
+  00cde	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00ce5	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00ce9	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00cf0	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00cf4	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00cfa	4c 8b c8	 mov	 r9, rax
+  00cfd	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DA@EDAEHBPC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAc?$AAo?$AAm?$AAb?$AAo?$AA?$AA@
+  00d04	33 d2		 xor	 edx, edx
+  00d06	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00d0d	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00d11	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00d17	85 c0		 test	 eax, eax
+  00d19	7d 0a		 jge	 SHORT $LN40@Ready_Prot
+
+; 309  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/Combo.dds")))))
+; 310  : 		return E_FAIL;
+
+  00d1b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00d20	e9 07 02 00 00	 jmp	 $LN1@Ready_Prot
+$LN40@Ready_Prot:
+
+; 311  : 
+; 312  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_skill_white"),
+
+  00d25	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00d2b	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1GE@JJALNPOC@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+  00d32	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00d39	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00d3d	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00d44	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00d48	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00d4e	4c 8b c8	 mov	 r9, rax
+  00d51	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DM@JELOGDPN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AA_?$AAw?$AAh?$AAi?$AAt?$AAe?$AA?$AA@
+  00d58	33 d2		 xor	 edx, edx
+  00d5a	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00d61	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00d65	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00d6b	85 c0		 test	 eax, eax
+  00d6d	7d 0a		 jge	 SHORT $LN41@Ready_Prot
+
+; 313  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/SkillWhite.png")))))
+; 314  : 		return E_FAIL;
+
+  00d6f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00d74	e9 b3 01 00 00	 jmp	 $LN1@Ready_Prot
+$LN41@Ready_Prot:
+
+; 315  : 
+; 316  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_skill_use"),
+
+  00d79	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00d7f	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1GA@GNKLLIAE@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAS?$AAk?$AAi@
+  00d86	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00d8d	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00d91	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00d98	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00d9c	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00da2	4c 8b c8	 mov	 r9, rax
+  00da5	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DI@NNCICFJM@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AA_?$AAu?$AAs?$AAe?$AA?$AA@
+  00dac	33 d2		 xor	 edx, edx
+  00dae	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00db5	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00db9	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00dbf	85 c0		 test	 eax, eax
+  00dc1	7d 0a		 jge	 SHORT $LN42@Ready_Prot
+
+; 317  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/SkillUse.png")))))
+; 318  : 		return E_FAIL;
+
+  00dc3	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00dc8	e9 5f 01 00 00	 jmp	 $LN1@Ready_Prot
+$LN42@Ready_Prot:
+
+; 319  : 
+; 320  : 
+; 321  : 	//버튼 아이콘들
+; 322  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_attack_icon"),
+
+  00dcd	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00dd3	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1GC@OKKOFHLF@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAI?$AAc?$AAo@
+  00dda	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00de1	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00de5	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00dec	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00df0	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00df6	4c 8b c8	 mov	 r9, rax
+  00df9	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DM@ODJB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAa?$AAt?$AAt?$AAa?$AAc?$AAk?$AA_?$AAi?$AAc?$AAo?$AAn?$AA?$AA@
+  00e00	33 d2		 xor	 edx, edx
+  00e02	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00e09	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00e0d	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00e13	85 c0		 test	 eax, eax
+  00e15	7d 0a		 jge	 SHORT $LN43@Ready_Prot
+
+; 323  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/AttackIcon.png")))))
+; 324  : 		return E_FAIL;
+
+  00e17	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00e1c	e9 0b 01 00 00	 jmp	 $LN1@Ready_Prot
+$LN43@Ready_Prot:
+
+; 325  : 
+; 326  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_dash_icon"),
+
+  00e21	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00e27	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FO@BECJOKAL@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAI?$AAc?$AAo@
+  00e2e	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00e35	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00e39	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00e40	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00e44	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00e4a	4c 8b c8	 mov	 r9, rax
+  00e4d	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DI@NKIMINMK@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AAa?$AAs?$AAh?$AA_?$AAi?$AAc?$AAo?$AAn?$AA?$AA@
+  00e54	33 d2		 xor	 edx, edx
+  00e56	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00e5d	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00e61	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00e67	85 c0		 test	 eax, eax
+  00e69	7d 0a		 jge	 SHORT $LN44@Ready_Prot
+
+; 327  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/DashIcon.png")))))
+; 328  : 		return E_FAIL;
+
+  00e6b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00e70	e9 b7 00 00 00	 jmp	 $LN1@Ready_Prot
+$LN44@Ready_Prot:
+
+; 329  : 
+; 330  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_back_icon"),
+
+  00e75	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00e7b	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FO@CNKJDADB@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAI?$AAc?$AAo@
+  00e82	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00e89	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00e8d	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00e94	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00e98	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00e9e	4c 8b c8	 mov	 r9, rax
+  00ea1	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DI@MEOJALFK@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAb?$AAa?$AAc?$AAk?$AA_?$AAi?$AAc?$AAo?$AAn?$AA?$AA@
+  00ea8	33 d2		 xor	 edx, edx
+  00eaa	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00eb1	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00eb5	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00ebb	85 c0		 test	 eax, eax
+  00ebd	7d 07		 jge	 SHORT $LN45@Ready_Prot
+
+; 331  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/BackIcon.png")))))
+; 332  : 		return E_FAIL;
+
+  00ebf	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00ec4	eb 66		 jmp	 SHORT $LN1@Ready_Prot
+$LN45@Ready_Prot:
+
+; 333  : 
+; 334  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_target"),
+
+  00ec6	41 b9 01 00 00
+	00		 mov	 r9d, 1
+  00ecc	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1FK@CIKHLLAL@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAR?$AAe?$AAs?$AAo?$AAu?$AAr?$AAc?$AAe?$AA?1?$AAT?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA?1?$AAI?$AAm?$AAa?$AAg?$AAe?$AA?1?$AAI?$AAc?$AAo@
+  00ed3	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00eda	48 8b 50 28	 mov	 rdx, QWORD PTR [rax+40]
+  00ede	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00ee5	48 8b 48 20	 mov	 rcx, QWORD PTR [rax+32]
+  00ee9	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Create@CTexture@Engine@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@PEB_WI@Z
+  00eef	4c 8b c8	 mov	 r9, rax
+  00ef2	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DC@DAEFAEIP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAt?$AAa?$AAr?$AAg?$AAe?$AAt?$AA?$AA@
+  00ef9	33 d2		 xor	 edx, edx
+  00efb	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00f02	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  00f06	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z
+  00f0c	85 c0		 test	 eax, eax
+  00f0e	7d 07		 jge	 SHORT $LN46@Ready_Prot
+
+; 335  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/Target.png")))))
+; 336  : 		return E_FAIL;
+
+  00f10	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00f15	eb 15		 jmp	 SHORT $LN1@Ready_Prot
+$LN46@Ready_Prot:
+
+; 337  : 
+; 338  : 	Safe_AddRef(m_pRenderer);
+
+  00f17	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00f1e	48 83 c0 38	 add	 rax, 56			; 00000038H
+  00f22	48 8b c8	 mov	 rcx, rax
+  00f25	e8 00 00 00 00	 call	 ??$Safe_AddRef@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_AddRef<Engine::CRenderer * __ptr64>
+
+; 339  : 
+; 340  : 	return S_OK;
+
+  00f2a	33 c0		 xor	 eax, eax
 $LN1@Ready_Prot:
 
-; 289  : }
+; 341  : }
 
-  00ae8	48 8d a5 d8 00
+  00f2c	48 8d a5 d8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+216]
-  00aef	5f		 pop	 rdi
-  00af0	5d		 pop	 rbp
-  00af1	c3		 ret	 0
+  00f33	5f		 pop	 rdi
+  00f34	5d		 pop	 rbp
+  00f35	c3		 ret	 0
 ?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ ENDP ; Client::CApplication::Ready_Prototype_Static_Component
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI

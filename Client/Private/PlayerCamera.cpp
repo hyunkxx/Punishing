@@ -138,6 +138,7 @@ void CPlayerCamera::Tick(_double TimeDelta)
 		XMStoreFloat4(&vLookTarget, vCurLook);
 		m_pTransform->LookAt(vCurLook);
 	}
+	m_CameraDesc.vAt = _float3{ vLookTarget.x, vLookTarget.y, vLookTarget.z };
 
 	pGameInstance->AddCollider(m_pCollider);
 	m_pCollider->Update(pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TS_VIEW));

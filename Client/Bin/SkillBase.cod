@@ -2632,7 +2632,7 @@ PUBLIC	__real@3f800000
 PUBLIC	__real@40000000
 PUBLIC	__real@4000000000000000
 PUBLIC	__real@40400000
-PUBLIC	__real@42480000
+PUBLIC	__real@42700000
 PUBLIC	__real@43b40000
 PUBLIC	__real@441b0000
 PUBLIC	__real@44200000
@@ -4255,9 +4255,9 @@ CONST	ENDS
 CONST	SEGMENT
 __real@43b40000 DD 043b40000r			; 360
 CONST	ENDS
-;	COMDAT __real@42480000
+;	COMDAT __real@42700000
 CONST	SEGMENT
-__real@42480000 DD 042480000r			; 50
+__real@42700000 DD 042700000r			; 60
 CONST	ENDS
 ;	COMDAT __real@40400000
 CONST	SEGMENT
@@ -12811,7 +12811,7 @@ $LN3:
   00047	89 88 54 02 00
 	00		 mov	 DWORD PTR [rax+596], ecx
 
-; 201  : 	m_fGoalX = (iIndex + 1) * 50.f;
+; 201  : 	m_fGoalX = (iIndex + 1) * 60.f;
 
   0004d	8b 85 e8 00 00
 	00		 mov	 eax, DWORD PTR iIndex$[rbp]
@@ -12819,7 +12819,7 @@ $LN3:
   00055	8b c0		 mov	 eax, eax
   00057	f3 48 0f 2a c0	 cvtsi2ss xmm0, rax
   0005c	f3 0f 59 05 00
-	00 00 00	 mulss	 xmm0, DWORD PTR __real@42480000
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@42700000
   00064	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0006b	f3 0f 11 80 58
@@ -14940,21 +14940,21 @@ $LN3@Initialize:
 $LN4@Initialize:
 
 ; 38   : 
-; 39   : 	m_fWidth = 50.f;
+; 39   : 	m_fWidth = 60.f;
 
   00098	48 8b 85 20 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0009f	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@42480000
+	00 00 00	 movss	 xmm0, DWORD PTR __real@42700000
   000a7	f3 0f 11 80 80
 	00 00 00	 movss	 DWORD PTR [rax+128], xmm0
 
-; 40   : 	m_fHeight = 50.f;
+; 40   : 	m_fHeight = 60.f;
 
   000af	48 8b 85 20 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000b6	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@42480000
+	00 00 00	 movss	 xmm0, DWORD PTR __real@42700000
   000be	f3 0f 11 80 84
 	00 00 00	 movss	 DWORD PTR [rax+132], xmm0
 

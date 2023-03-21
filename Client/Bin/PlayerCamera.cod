@@ -2604,7 +2604,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Tick@CPlayerCamera@Client@@UEAAXN@Z DD imagerel $LN6
-	DD	imagerel $LN6+1601
+	DD	imagerel $LN6+1680
 	DD	imagerel $unwind$?Tick@CPlayerCamera@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2905,7 +2905,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0bdH ; `Client::CPlayerCamera::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0beH ; `Client::CPlayerCamera::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1EE@CMOMLOPH@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AAd?$AA?5?$AA?3?$AA?5?$AAC?$AAP?$AAl?$AAa?$AAy?$AAe?$AAr?$AAC?$AAa?$AAm?$AAe?$AAr@
 CONST	SEGMENT
@@ -2930,7 +2930,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CPlayerCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CPlayerCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0b1H ; `Client::CPlayerCamera::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CPlayerCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0b2H ; `Client::CPlayerCamera::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1CO@HJBGOIAH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAo?$AAb?$AAb?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@
 CONST	SEGMENT
@@ -3246,10 +3246,10 @@ xdata	ENDS
 xdata	SEGMENT
 $unwind$?Tick@CPlayerCamera@Client@@UEAAXN@Z DD 025064219H
 	DD	0115231aH
-	DD	0700e019aH
+	DD	0700e019eH
 	DD	0500c600dH
 	DD	imagerel __GSHandlerCheck
-	DD	0cc8H
+	DD	0ce8H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -3782,7 +3782,7 @@ tv66 = 192
 this$ = 240
 ?IsCameraLockOn@CCharacter@Client@@QEAA_NXZ PROC	; Client::CCharacter::IsCameraLockOn, COMDAT
 
-; 199  : 	_bool IsCameraLockOn() { return m_pNearEnemy != nullptr; };
+; 201  : 	_bool IsCameraLockOn() { return m_pNearEnemy != nullptr; };
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3826,7 +3826,7 @@ tv67 = 192
 this$ = 240
 ?GetLockOnTarget@CCharacter@Client@@QEAAPEAVCGameObject@Engine@@XZ PROC ; Client::CCharacter::GetLockOnTarget, COMDAT
 
-; 198  : 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
+; 200  : 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3958,7 +3958,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CPlayerCamera@Client@@UEAAXXZ PROC		; Client::CPlayerCamera::Free, COMDAT
 
-; 201  : {
+; 202  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3974,15 +3974,15 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 202  : 	__super::Free();
+; 203  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CCamera@Engine@@UEAAXXZ
 
-; 203  : 
-; 204  : 	Safe_Release(m_pTransform);
+; 204  : 
+; 205  : 	Safe_Release(m_pTransform);
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3990,7 +3990,7 @@ $LN3:
   00042	48 8b c8	 mov	 rcx, rax
   00045	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 205  : }
+; 206  : }
 
   0004a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4013,7 +4013,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CPlayerCamera::Clone, COMDAT
 
-; 189  : {
+; 190  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4038,7 +4038,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 190  : 	CPlayerCamera*	pInstance = new CPlayerCamera(*this);
+; 191  : 	CPlayerCamera*	pInstance = new CPlayerCamera(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
@@ -4075,7 +4075,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 191  : 	if (FAILED(pInstance->Initialize(pArg)))
+; 192  : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 78 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -4084,8 +4084,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Clone
 
-; 192  : 	{
-; 193  : 		MSG_BOX("Failed to Cloned : CPlayerCamera");
+; 193  : 	{
+; 194  : 		MSG_BOX("Failed to Cloned : CPlayerCamera");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -4096,19 +4096,19 @@ $LN5@Clone:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 194  : 		Safe_Release(pInstance);
+; 195  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCPlayerCamera@Client@@@Engine@@YAKAEAPEAVCPlayerCamera@Client@@@Z ; Engine::Safe_Release<Client::CPlayerCamera * __ptr64>
 $LN2@Clone:
 
-; 195  : 	}
-; 196  : 
-; 197  : 	return pInstance;
+; 196  : 	}
+; 197  : 
+; 198  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 198  : }
+; 199  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -4206,7 +4206,7 @@ pDevice$ = 368
 pContext$ = 376
 ?Create@CPlayerCamera@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CPlayerCamera::Create, COMDAT
 
-; 177  : {
+; 178  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4231,7 +4231,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 178  : 	CPlayerCamera*	pInstance = new CPlayerCamera(pDevice, pContext);
+; 179  : 	CPlayerCamera*	pInstance = new CPlayerCamera(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CPlayerCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -4270,15 +4270,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 179  : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 180  : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CPlayerCamera@Client@@UEAAJXZ ; Client::CPlayerCamera::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Create
 
-; 180  : 	{
-; 181  : 		MSG_BOX("Failed to Created : CPlayerCamera");
+; 181  : 	{
+; 182  : 		MSG_BOX("Failed to Created : CPlayerCamera");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -4289,19 +4289,19 @@ $LN5@Create:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 182  : 		Safe_Release(pInstance);
+; 183  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCPlayerCamera@Client@@@Engine@@YAKAEAPEAVCPlayerCamera@Client@@@Z ; Engine::Safe_Release<Client::CPlayerCamera * __ptr64>
 $LN2@Create:
 
-; 183  : 	}
-; 184  : 
-; 185  : 	return pInstance;
+; 184  : 	}
+; 185  : 
+; 186  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 186  : }
+; 187  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -4392,7 +4392,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Setup_ShaderResources@CPlayerCamera@Client@@QEAAJXZ PROC ; Client::CPlayerCamera::Setup_ShaderResources, COMDAT
 
-; 172  : {
+; 173  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4408,11 +4408,11 @@ $LN3:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 173  : 	return S_OK;
+; 174  : 	return S_OK;
 
   00028	33 c0		 xor	 eax, eax
 
-; 174  : }
+; 175  : }
 
   0002a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4428,7 +4428,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Add_Components@CPlayerCamera@Client@@QEAAJXZ PROC	; Client::CPlayerCamera::Add_Components, COMDAT
 
-; 167  : {
+; 168  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4444,11 +4444,11 @@ $LN3:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 168  : 	return S_OK;
+; 169  : 	return S_OK;
 
   00028	33 c0		 xor	 eax, eax
 
-; 169  : }
+; 170  : }
 
   0002a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4464,7 +4464,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?AttackShake@CPlayerCamera@Client@@QEAAXXZ PROC		; Client::CPlayerCamera::AttackShake, COMDAT
 
-; 161  : {
+; 162  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4480,14 +4480,14 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 162  : 	ShakeReset();
+; 163  : 	ShakeReset();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?ShakeReset@CCamera@Engine@@QEAAXXZ
 
-; 163  : 	StartShake(4.f, 2.5f);
+; 164  : 	StartShake(4.f, 2.5f);
 
   00037	f3 0f 10 15 00
 	00 00 00	 movss	 xmm2, DWORD PTR __real@40200000
@@ -4498,7 +4498,7 @@ $LN3:
   0004e	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?StartShake@CCamera@Engine@@QEAAXMM@Z
 
-; 164  : }
+; 165  : }
 
   00054	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4514,7 +4514,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Render@CPlayerCamera@Client@@UEAAJXZ PROC		; Client::CPlayerCamera::Render, COMDAT
 
-; 156  : {
+; 157  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4530,11 +4530,11 @@ $LN3:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 157  : 	return S_OK;
+; 158  : 	return S_OK;
 
   00028	33 c0		 xor	 eax, eax
 
-; 158  : }
+; 159  : }
 
   0002a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4552,7 +4552,7 @@ this$ = 256
 TimeDelta$ = 264
 ?LateTick@CPlayerCamera@Client@@UEAAXN@Z PROC		; Client::CPlayerCamera::LateTick, COMDAT
 
-; 147  : {
+; 148  : {
 
 $LN3:
   00000	f2 0f 11 4c 24
@@ -4570,7 +4570,7 @@ $LN3:
   00028	48 8b 8c 24 28
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
 
-; 148  : 	__super::LateTick(TimeDelta);
+; 149  : 	__super::LateTick(TimeDelta);
 
   00030	f2 0f 10 8d 08
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -4579,16 +4579,16 @@ $LN3:
   0003f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?LateTick@CCamera@Engine@@UEAAXN@Z
 
-; 149  : 
-; 150  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 150  : 
+; 151  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00045	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0004b	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 151  : 
 ; 152  : 
-; 153  : }
+; 153  : 
+; 154  : }
 
   0004f	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
@@ -4642,16 +4642,17 @@ $T41 = 2688
 $T42 = 2736
 $T43 = 2784
 $T44 = 2832
-$T45 = 2880
-$T46 = 2976
-$T47 = 3024
-$T48 = 3072
-$T49 = 3120
-$T50 = 3168
-tv311 = 3236
-__$ArrayPad$ = 3240
-this$ = 3280
-TimeDelta$ = 3288
+$T45 = 2868
+$T46 = 2912
+$T47 = 3008
+$T48 = 3056
+$T49 = 3104
+$T50 = 3152
+$T51 = 3200
+tv311 = 3268
+__$ArrayPad$ = 3272
+this$ = 3312
+TimeDelta$ = 3320
 ?Tick@CPlayerCamera@Client@@UEAAXN@Z PROC		; Client::CPlayerCamera::Tick, COMDAT
 
 ; 60   : {
@@ -4663,26 +4664,26 @@ $LN6:
   0000b	55		 push	 rbp
   0000c	56		 push	 rsi
   0000d	57		 push	 rdi
-  0000e	48 81 ec d0 0c
-	00 00		 sub	 rsp, 3280		; 00000cd0H
+  0000e	48 81 ec f0 0c
+	00 00		 sub	 rsp, 3312		; 00000cf0H
   00015	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
   0001a	48 8b fc	 mov	 rdi, rsp
-  0001d	b9 34 03 00 00	 mov	 ecx, 820		; 00000334H
+  0001d	b9 3c 03 00 00	 mov	 ecx, 828		; 0000033cH
   00022	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00027	f3 ab		 rep stosd
-  00029	48 8b 8c 24 f8
-	0c 00 00	 mov	 rcx, QWORD PTR [rsp+3320]
+  00029	48 8b 8c 24 18
+	0d 00 00	 mov	 rcx, QWORD PTR [rsp+3352]
   00031	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR __security_cookie
   00038	48 33 c5	 xor	 rax, rbp
-  0003b	48 89 85 a8 0c
+  0003b	48 89 85 c8 0c
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
 ; 61   : 	__super::Tick(TimeDelta);
 
-  00042	f2 0f 10 8d d8
+  00042	f2 0f 10 8d f8
 	0c 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  0004a	48 8b 8d d0 0c
+  0004a	48 8b 8d f0 0c
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00051	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Tick@CCamera@Engine@@UEAAXN@Z
@@ -4700,7 +4701,7 @@ $LN6:
   00061	41 b8 03 00 00
 	00		 mov	 r8d, 3
   00067	48 8d 55 30	 lea	 rdx, QWORD PTR vTargetPos$[rbp]
-  0006b	48 8b 85 d0 0c
+  0006b	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00072	48 8b 88 20 01
 	00 00		 mov	 rcx, QWORD PTR [rax+288]
@@ -4713,7 +4714,7 @@ $LN6:
 	00		 mov	 r8d, 2
   00085	48 8d 95 a0 06
 	00 00		 lea	 rdx, QWORD PTR $T20[rbp]
-  0008c	48 8b 85 d0 0c
+  0008c	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00093	48 8b 88 20 01
 	00 00		 mov	 rcx, QWORD PTR [rax+288]
@@ -4766,7 +4767,7 @@ $LN6:
 ; 92   : 	//카메라가 락온 되었을때
 ; 93   : 	if (static_cast<CCharacter*>(m_pTarget)->IsCameraLockOn())
 
-  000dd	48 8b 85 d0 0c
+  000dd	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000e4	48 8b 88 18 01
 	00 00		 mov	 rcx, QWORD PTR [rax+280]
@@ -4781,7 +4782,7 @@ $LN6:
 
   000fb	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
-  00102	48 8b 85 d0 0c
+  00102	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00109	48 8b 88 18 01
 	00 00		 mov	 rcx, QWORD PTR [rax+280]
@@ -4794,7 +4795,7 @@ $LN6:
 
   0011d	48 8d 95 54 07
 	00 00		 lea	 rdx, QWORD PTR $T24[rbp]
-  00124	48 8b 85 d0 0c
+  00124	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0012b	48 8b 88 18 01
 	00 00		 mov	 rcx, QWORD PTR [rax+280]
@@ -4825,7 +4826,7 @@ $LN6:
 ; 97   : 
 ; 98   : 		_vector vDistance = XMLoadFloat4(&((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition()) - vCameraPos;
 
-  00184	48 8b 85 d0 0c
+  00184	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0018b	48 8b 88 18 01
 	00 00		 mov	 rcx, QWORD PTR [rax+280]
@@ -4923,7 +4924,7 @@ $LN4@Tick:
 	00		 mov	 r8d, 3
   00295	48 8d 95 60 09
 	00 00		 lea	 rdx, QWORD PTR $T35[rbp]
-  0029c	48 8b 85 d0 0c
+  0029c	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   002a3	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
   002a7	ff 15 00 00 00
@@ -4948,7 +4949,7 @@ $LN4@Tick:
 	00		 mov	 r8d, 3
   002df	48 8d 95 60 01
 	00 00		 lea	 rdx, QWORD PTR vCurPosition$12[rbp]
-  002e6	48 8b 85 d0 0c
+  002e6	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   002ed	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
   002f1	ff 15 00 00 00
@@ -4956,7 +4957,7 @@ $LN4@Tick:
 
 ; 111  : 		_vector vPosition = XMVectorLerp(vCurPosition, vCameraPos, (_float)TimeDelta * 4.0f);
 
-  002f7	f2 0f 5a 85 d8
+  002f7	f2 0f 5a 85 f8
 	0c 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
   002ff	f3 0f 59 05 00
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@40800000
@@ -4982,7 +4983,7 @@ $LN4@Tick:
 ; 118  : 
 ; 119  : 		_float4 vLockOnTargetPos = ((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition();
 
-  00332	48 8b 85 d0 0c
+  00332	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00339	48 8b 88 18 01
 	00 00		 mov	 rcx, QWORD PTR [rax+280]
@@ -5006,12 +5007,12 @@ $LN4@Tick:
 
   0036c	0f 28 85 90 01
 	00 00		 movaps	 xmm0, XMMWORD PTR vPosition$13[rbp]
-  00373	0f 29 85 a0 0b
-	00 00		 movaps	 XMMWORD PTR $T46[rbp], xmm0
-  0037a	4c 8d 85 a0 0b
-	00 00		 lea	 r8, QWORD PTR $T46[rbp]
+  00373	0f 29 85 c0 0b
+	00 00		 movaps	 XMMWORD PTR $T47[rbp], xmm0
+  0037a	4c 8d 85 c0 0b
+	00 00		 lea	 r8, QWORD PTR $T47[rbp]
   00381	ba 03 00 00 00	 mov	 edx, 3
-  00386	48 8b 85 d0 0c
+  00386	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0038d	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
   00391	ff 15 00 00 00
@@ -5025,7 +5026,7 @@ $LN4@Tick:
   0039e	e8 00 00 00 00	 call	 ?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
   003a3	0f 29 85 f0 09
 	00 00		 movaps	 XMMWORD PTR $T38[rbp], xmm0
-  003aa	48 8b 85 d0 0c
+  003aa	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003b1	48 05 88 01 00
 	00		 add	 rax, 392		; 00000188H
@@ -5033,7 +5034,7 @@ $LN4@Tick:
   003ba	e8 00 00 00 00	 call	 ?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
   003bf	0f 29 85 20 0a
 	00 00		 movaps	 XMMWORD PTR $T39[rbp], xmm0
-  003c6	f2 0f 5a 85 d8
+  003c6	f2 0f 5a 85 f8
 	0c 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
   003ce	f3 0f 59 05 00
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@40000000
@@ -5052,7 +5053,7 @@ $LN4@Tick:
 
 ; 125  : 		XMStoreFloat4(&vLookTarget, vCurLook);
 
-  00401	48 8b 85 d0 0c
+  00401	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00408	48 05 88 01 00
 	00		 add	 rax, 392		; 00000188H
@@ -5064,7 +5065,7 @@ $LN4@Tick:
 ; 126  : 
 ; 127  : 		m_pTransform->LookAt(XMLoadFloat4(&vLookTarget));
 
-  0041d	48 8b 85 d0 0c
+  0041d	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00424	48 05 88 01 00
 	00		 add	 rax, 392		; 00000188H
@@ -5074,11 +5075,11 @@ $LN4@Tick:
 	00 00		 movaps	 XMMWORD PTR $T40[rbp], xmm0
   00439	0f 28 85 50 0a
 	00 00		 movaps	 xmm0, XMMWORD PTR $T40[rbp]
-  00440	0f 29 85 d0 0b
-	00 00		 movaps	 XMMWORD PTR $T47[rbp], xmm0
-  00447	48 8d 95 d0 0b
-	00 00		 lea	 rdx, QWORD PTR $T47[rbp]
-  0044e	48 8b 85 d0 0c
+  00440	0f 29 85 f0 0b
+	00 00		 movaps	 XMMWORD PTR $T48[rbp], xmm0
+  00447	48 8d 95 f0 0b
+	00 00		 lea	 rdx, QWORD PTR $T48[rbp]
+  0044e	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00455	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
   00459	ff 15 00 00 00
@@ -5097,7 +5098,7 @@ $LN2@Tick:
 	00		 mov	 r8d, 3
   0046a	48 8d 95 20 02
 	00 00		 lea	 rdx, QWORD PTR vCurPosition$16[rbp]
-  00471	48 8b 85 d0 0c
+  00471	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00478	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
   0047c	ff 15 00 00 00
@@ -5105,23 +5106,23 @@ $LN2@Tick:
 
 ; 132  : 		_vector vPosition = XMVectorLerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 4.0f);
 
-  00482	f2 0f 5a 85 d8
+  00482	f2 0f 5a 85 f8
 	0c 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
   0048a	f3 0f 59 05 00
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@40800000
-  00492	f3 0f 11 85 a4
+  00492	f3 0f 11 85 c4
 	0c 00 00	 movss	 DWORD PTR tv311[rbp], xmm0
   0049a	41 b8 03 00 00
 	00		 mov	 r8d, 3
   004a0	48 8d 95 b0 0a
 	00 00		 lea	 rdx, QWORD PTR $T42[rbp]
-  004a7	48 8b 85 d0 0c
+  004a7	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004ae	48 8b 88 28 01
 	00 00		 mov	 rcx, QWORD PTR [rax+296]
   004b5	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
-  004bb	f3 0f 10 85 a4
+  004bb	f3 0f 10 85 c4
 	0c 00 00	 movss	 xmm0, DWORD PTR tv311[rbp]
   004c3	0f 28 d0	 movaps	 xmm2, xmm0
   004c6	0f 10 08	 movups	 xmm1, XMMWORD PTR [rax]
@@ -5141,12 +5142,12 @@ $LN2@Tick:
 
   004ea	0f 28 85 50 02
 	00 00		 movaps	 xmm0, XMMWORD PTR vPosition$17[rbp]
-  004f1	0f 29 85 00 0c
-	00 00		 movaps	 XMMWORD PTR $T48[rbp], xmm0
-  004f8	4c 8d 85 00 0c
-	00 00		 lea	 r8, QWORD PTR $T48[rbp]
+  004f1	0f 29 85 20 0c
+	00 00		 movaps	 XMMWORD PTR $T49[rbp], xmm0
+  004f8	4c 8d 85 20 0c
+	00 00		 lea	 r8, QWORD PTR $T49[rbp]
   004ff	ba 03 00 00 00	 mov	 edx, 3
-  00504	48 8b 85 d0 0c
+  00504	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0050b	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
   0050f	ff 15 00 00 00
@@ -5155,7 +5156,7 @@ $LN2@Tick:
 ; 136  : 
 ; 137  : 		_vector vCurLook = XMVectorLerp(XMLoadFloat4(&vLookTarget), vTargetPos, (_float)TimeDelta * 2.f);
 
-  00515	48 8b 85 d0 0c
+  00515	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0051c	48 05 88 01 00
 	00		 add	 rax, 392		; 00000188H
@@ -5163,7 +5164,7 @@ $LN2@Tick:
   00525	e8 00 00 00 00	 call	 ?XMLoadFloat4@DirectX@@YQ?AT__m128@@PEBUXMFLOAT4@1@@Z ; DirectX::XMLoadFloat4
   0052a	0f 29 85 10 0b
 	00 00		 movaps	 XMMWORD PTR $T44[rbp], xmm0
-  00531	f2 0f 5a 85 d8
+  00531	f2 0f 5a 85 f8
 	0c 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
   00539	f3 0f 59 05 00
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@40000000
@@ -5181,7 +5182,7 @@ $LN2@Tick:
 
 ; 138  : 		XMStoreFloat4(&vLookTarget, vCurLook);
 
-  00569	48 8b 85 d0 0c
+  00569	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00570	48 05 88 01 00
 	00		 add	 rax, 392		; 00000188H
@@ -5194,11 +5195,11 @@ $LN2@Tick:
 
   00585	0f 28 85 80 02
 	00 00		 movaps	 xmm0, XMMWORD PTR vCurLook$18[rbp]
-  0058c	0f 29 85 30 0c
-	00 00		 movaps	 XMMWORD PTR $T49[rbp], xmm0
-  00593	48 8d 95 30 0c
-	00 00		 lea	 rdx, QWORD PTR $T49[rbp]
-  0059a	48 8b 85 d0 0c
+  0058c	0f 29 85 50 0c
+	00 00		 movaps	 XMMWORD PTR $T50[rbp], xmm0
+  00593	48 8d 95 50 0c
+	00 00		 lea	 rdx, QWORD PTR $T50[rbp]
+  0059a	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   005a1	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]
   005a5	ff 15 00 00 00
@@ -5206,61 +5207,85 @@ $LN2@Tick:
 $LN3@Tick:
 
 ; 140  : 	}
-; 141  : 
-; 142  : 	pGameInstance->AddCollider(m_pCollider);
+; 141  : 	m_CameraDesc.vAt = _float3{ vLookTarget.x, vLookTarget.y, vLookTarget.z };
 
-  005ab	45 33 c0	 xor	 r8d, r8d
-  005ae	48 8b 85 d0 0c
+  005ab	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  005b5	48 8b 90 30 01
+  005b2	f3 0f 10 98 90
+	01 00 00	 movss	 xmm3, DWORD PTR [rax+400]
+  005ba	48 8b 85 f0 0c
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  005c1	f3 0f 10 90 8c
+	01 00 00	 movss	 xmm2, DWORD PTR [rax+396]
+  005c9	48 8b 85 f0 0c
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  005d0	f3 0f 10 88 88
+	01 00 00	 movss	 xmm1, DWORD PTR [rax+392]
+  005d8	48 8d 8d 34 0b
+	00 00		 lea	 rcx, QWORD PTR $T45[rbp]
+  005df	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
+  005e4	48 8b 8d f0 0c
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  005eb	48 81 c1 9c 00
+	00 00		 add	 rcx, 156		; 0000009cH
+  005f2	48 8b d0	 mov	 rdx, rax
+  005f5	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
+
+; 142  : 
+; 143  : 	pGameInstance->AddCollider(m_pCollider);
+
+  005fa	45 33 c0	 xor	 r8d, r8d
+  005fd	48 8b 85 f0 0c
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00604	48 8b 90 30 01
 	00 00		 mov	 rdx, QWORD PTR [rax+304]
-  005bc	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  005c0	ff 15 00 00 00
+  0060b	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  0060f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?AddCollider@CGameInstance@Engine@@QEAAJPEAVCCollider@2@I@Z
 
-; 143  : 	m_pCollider->Update(pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TS_VIEW));
+; 144  : 	m_pCollider->Update(pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TS_VIEW));
 
-  005c6	45 33 c0	 xor	 r8d, r8d
-  005c9	48 8d 95 40 0b
-	00 00		 lea	 rdx, QWORD PTR $T45[rbp]
-  005d0	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  005d4	ff 15 00 00 00
+  00615	45 33 c0	 xor	 r8d, r8d
+  00618	48 8d 95 60 0b
+	00 00		 lea	 rdx, QWORD PTR $T46[rbp]
+  0061f	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  00623	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_Transform_Matrix_Inverse@CGameInstance@Engine@@QEAA?AUXMMATRIX@DirectX@@W4TRANSFORM_STATE@CPipeLine@2@@Z
-  005da	48 8d 8d 60 0c
-	00 00		 lea	 rcx, QWORD PTR $T50[rbp]
-  005e1	48 8b f9	 mov	 rdi, rcx
-  005e4	48 8b f0	 mov	 rsi, rax
-  005e7	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  005ec	f3 a4		 rep movsb
-  005ee	48 8b 85 d0 0c
+  00629	48 8d 8d 80 0c
+	00 00		 lea	 rcx, QWORD PTR $T51[rbp]
+  00630	48 8b f9	 mov	 rdi, rcx
+  00633	48 8b f0	 mov	 rsi, rax
+  00636	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  0063b	f3 a4		 rep movsb
+  0063d	48 8b 85 f0 0c
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  005f5	48 8b 80 30 01
+  00644	48 8b 80 30 01
 	00 00		 mov	 rax, QWORD PTR [rax+304]
-  005fc	48 8b 8d d0 0c
+  0064b	48 8b 8d f0 0c
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00603	48 8b 89 30 01
+  00652	48 8b 89 30 01
 	00 00		 mov	 rcx, QWORD PTR [rcx+304]
-  0060a	48 8b 00	 mov	 rax, QWORD PTR [rax]
-  0060d	48 8d 95 60 0c
-	00 00		 lea	 rdx, QWORD PTR $T50[rbp]
-  00614	ff 50 30	 call	 QWORD PTR [rax+48]
+  00659	48 8b 00	 mov	 rax, QWORD PTR [rax]
+  0065c	48 8d 95 80 0c
+	00 00		 lea	 rdx, QWORD PTR $T51[rbp]
+  00663	ff 50 30	 call	 QWORD PTR [rax+48]
 
-; 144  : }
+; 145  : }
 
-  00617	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  0061b	48 8d 15 00 00
+  00666	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  0066a	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?Tick@CPlayerCamera@Client@@UEAAXN@Z$rtcFrameData
-  00622	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  00627	48 8b 8d a8 0c
+  00671	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  00676	48 8b 8d c8 0c
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  0062e	48 33 cd	 xor	 rcx, rbp
-  00631	e8 00 00 00 00	 call	 __security_check_cookie
-  00636	48 8d a5 b0 0c
-	00 00		 lea	 rsp, QWORD PTR [rbp+3248]
-  0063d	5f		 pop	 rdi
-  0063e	5e		 pop	 rsi
-  0063f	5d		 pop	 rbp
-  00640	c3		 ret	 0
+  0067d	48 33 cd	 xor	 rcx, rbp
+  00680	e8 00 00 00 00	 call	 __security_check_cookie
+  00685	48 8d a5 d0 0c
+	00 00		 lea	 rsp, QWORD PTR [rbp+3280]
+  0068c	5f		 pop	 rdi
+  0068d	5e		 pop	 rsi
+  0068e	5d		 pop	 rbp
+  0068f	c3		 ret	 0
 ?Tick@CPlayerCamera@Client@@UEAAXN@Z ENDP		; Client::CPlayerCamera::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI

@@ -157,6 +157,8 @@ public:
 
 	void LookPos(_fvector vLookPos);
 
+	void ResetComboTime() { m_fCurComboTimer = 0.f; }
+	void AddCombo() { m_iComboCount++; }
 	_bool IsAttackalbe() { return m_bAttackable; }
 	_bool IsDashable() { return m_bDashable; }
 	_bool IsDashGageFull() { return m_fCurDash >= 20.f; }
@@ -363,6 +365,9 @@ private: // Command
 	const _float m_fFreezeReadyTimeOut = 8.f;
 
 	class CPlayerIcon* m_pPlayerIcon = nullptr;
+	_int m_iComboCount = 0;
+	_float m_fCurComboTimer = 0.f;
+	const _float m_fComboTimeOut = 5.f;
 };
 
 END

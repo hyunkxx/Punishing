@@ -30,17 +30,39 @@ HRESULT CPlayerIcon::Initialize(void * pArg)
 	if (FAILED(Add_Components()))
 		return E_FAIL;
 
+	//공격 대쉬 버튼
 	m_fWidth = 90.f;
 	m_fHeight = 90.f;
-
 	m_fX = g_iWinSizeX - 60.f;
 	m_fY = g_iWinSizeY - 120.f;
 
+	//락온 타겟
 	m_fTargetWidth = 50.f;
 	m_fTargetHeight = 50.f;
 
+	//콤보 숫자
+	m_fComboNumX = m_fOriginComboNumX = 150.f;
+	m_fComboNumY = g_iWinSizeY >> 1;
+	m_fComboNumWidth = NUM_SIZE_X;
+	m_fComboNumHeight = 80.f;
+
+	//콤보 이미지
+	m_fComboImageWidth = 100.f;
+	m_fComboImageHeight = 35.f;
+
+	//콤보 게이지
+	m_fComboGageX = 300.f;
+	m_fComboGageY = (g_iWinSizeY >> 1) + 50.f;
+	m_fComboGageWidth = 280.f;
+	m_fComboGageHeight = 5.f;
+
 	XMStoreFloat4x4(&m_AttackMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_DashMatrix, XMMatrixScaling(m_fWidth - 10.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fX - 80.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
+
+	XMStoreFloat4x4(&m_ComboGageMatrix, XMMatrixScaling(m_fComboGageWidth, m_fComboGageHeight, 1.f) * XMMatrixTranslation(m_fComboGageX - g_iWinSizeX * 0.5f, -m_fComboGageY + g_iWinSizeY * 0.5f, 0.f));
+
+	for(int i = 0 ; i < 4 ; ++i)
+		XMStoreFloat4x4(&m_ComboNumberMatrix[i], XMMatrixScaling(m_fComboNumWidth, m_fComboNumHeight, 1.f) * XMMatrixTranslation(m_fOriginComboNumX - g_iWinSizeX * 0.5f, -m_fComboNumY + g_iWinSizeY * 0.5f, 0.f));
 
 	XMStoreFloat4x4(&m_ViewMatrix, XMMatrixIdentity());
 	XMStoreFloat4x4(&m_ProjMatrix, XMMatrixOrthographicLH((_float)g_iWinSizeX, (_float)g_iWinSizeY, 0.f, 1.f));
@@ -58,24 +80,52 @@ void CPlayerIcon::Tick(_double TimeDelta)
 		CGameInstance* pInstance = CGameInstance::GetInstance();
 
 		m_bTargetImageRender = true;
-		m_fTargetX = (vTargetPos.x + 1) * g_iWinSizeX * 0.5f + 0.f;
+		m_fTargetX = (vTargetPos.x + 1) * g_iWinSizeX * 0.5f;
 		m_fTargetY = (1 - vTargetPos.y) * g_iWinSizeY * 0.5f + g_iWinSizeY * 0.5f;
-
-		//이미 스크린 스페이스임
 		XMStoreFloat4x4(&m_TargetMatrix, XMMatrixScaling(m_fTargetWidth, m_fTargetHeight, 1.f) * XMMatrixTranslation(m_fTargetX - g_iWinSizeX * 0.5f, -m_fTargetY + g_iWinSizeY * 0.5f, 0.0f));
-
-		//스크린 좌표
-		/*_vector vScreenPos = (XMMatrixScaling(m_fTargetWidth, m_fTargetHeight, 1.f) * XMMatrixTranslation(m_fTargetX - g_iWinSizeX * 0.5f, -m_fTargetY + g_iWinSizeY * 0.5f, 0.f)).r[3];
-		_vector vPos = XMVector3Unproject(vScreenPos, 0, 0, g_iWinSizeX, g_iWinSizeY, 0.f, 1000.f,
-			pInstance->Get_Transform_Matrix(CPipeLine::TS_PROJ),
-			pInstance->Get_Transform_Matrix(CPipeLine::TS_VIEW),
-			m_pPlayer->GetTargetMatrix());
-
-		_vector vTargetUIPos = XMVector3TransformCoord(vPos, m_pPlayer->GetTargetMatrix());
-		XMStoreFloat4x4(&m_TargetMatrix, XMMatrixScaling(m_fTargetWidth, m_fTargetHeight, 1.f) * XMMatrixTranslation(XMVectorGetX(vTargetUIPos), XMVectorGetY(vTargetUIPos), XMVectorGetZ(vTargetUIPos)));*/
 	}
 	else
 		m_bTargetImageRender = false;
+
+	string strCombo = to_string(m_iCombo);
+	if (m_iCombo <= 0)
+	{
+		m_iCombo = 0;
+		m_bComboRender = false;
+	}
+	else
+	{
+		m_bComboRender = true;
+
+		switch (strCombo.size())
+		{
+		case 0:
+			m_fComboNumX = m_fOriginComboNumX + 205;
+			break;
+		case 1:
+			m_fComboNumX = m_fOriginComboNumX + 205 - NUM_SIZE_X;
+			break;
+		case 2:
+			m_fComboNumX = m_fOriginComboNumX + 205 - NUM_SIZE_X * 2.f;
+			break;
+		case 3:
+			m_fComboNumX = m_fOriginComboNumX + 205 - NUM_SIZE_X * 3.f;
+			break;
+		case 4:
+			m_fComboNumX = m_fOriginComboNumX + 205 - NUM_SIZE_X * 4.f;
+			break;
+		default:
+			m_iCombo = 9999;
+			m_fComboNumX = m_fOriginComboNumX + 205 - NUM_SIZE_X * 4.f;
+			break;
+		}
+
+		for (int i = 0; i < 4; ++i)
+			XMStoreFloat4x4(&m_ComboNumberMatrix[i], XMMatrixScaling(m_fComboNumWidth, m_fComboNumHeight, 1.f) * XMMatrixTranslation(m_fComboNumX + (i * NUM_SIZE_X) - g_iWinSizeX * 0.5f, -m_fComboNumY + g_iWinSizeY * 0.5f, 0.f));
+
+		m_fComboImageX = m_fOriginComboNumX + 205 + 30.f;
+		XMStoreFloat4x4(&m_ComboMatrix, XMMatrixScaling(m_fComboImageWidth, m_fComboImageHeight, 1.f) * XMMatrixTranslation(m_fComboImageX - g_iWinSizeX * 0.5f, -m_fComboNumY - 20.f + g_iWinSizeY * 0.5f, 0.f));
+	}
 
 	CGameInstance* pInstance = CGameInstance::GetInstance();
 }
@@ -168,11 +218,53 @@ HRESULT CPlayerIcon::Render()
 		m_pTargetVIBuffer->Render();
 	}
 
+	//콤보 숫자
+	if (m_bComboRender)
+	{
+		for (int i = 0; i < to_string(m_iCombo).size(); ++i)
+		{
+			if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_ComboNumberMatrix[i])))
+				return E_FAIL;
+
+			if (FAILED(ComputeComboToTexture(i)->Setup_ShaderResource(m_pShader, "g_Texture")))
+				return E_FAIL;
+
+			m_pShader->Begin(0);
+			m_pComboNumberBuffer->Render();
+		}
+		//콤보 이미지
+		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_ComboMatrix)))
+			return E_FAIL;
+
+		if (FAILED(m_pComboTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+			return E_FAIL;
+
+		m_pShader->Begin(0);
+		m_pComboBuffer->Render();
+
+		//콤보 게이지
+		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_ComboGageMatrix)))
+			return E_FAIL;
+
+		if (FAILED(m_pComboGageTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+			return E_FAIL;
+
+		m_pShader->Begin(0);
+		m_pComboGageBuffer->Render();
+	}
+
 	return S_OK;
 }
 
 void CPlayerIcon::RenderGUI()
 {
+}
+
+CTexture* CPlayerIcon::ComputeComboToTexture(int iIndex)
+{
+	string strCombo = to_string(m_iCombo);
+	int index = strCombo[iIndex] - '0';
+	return m_pComboNumberTexture[index];
 }
 
 HRESULT CPlayerIcon::Add_Components()
@@ -224,6 +316,73 @@ HRESULT CPlayerIcon::Add_Components()
 		TEXT("com_texture_target"), (CComponent**)&m_pTargetTexture)))
 		return E_FAIL;
 
+	//콤보 숫자
+	wstring strComboNumBufferName = L"com_vibuffer_combo_num_" + to_wstring(0);
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		strComboNumBufferName.c_str(), (CComponent**)&m_pComboNumberBuffer)))
+		return E_FAIL;
+
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_0"),
+		TEXT("com_texture_0"), (CComponent**)&m_pComboNumberTexture[0])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_1"),
+		TEXT("com_texture_1"), (CComponent**)&m_pComboNumberTexture[1])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_2"),
+		TEXT("com_texture_2"), (CComponent**)&m_pComboNumberTexture[2])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_3"),
+		TEXT("com_texture_3"), (CComponent**)&m_pComboNumberTexture[3])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_4"),
+		TEXT("com_texture_4"), (CComponent**)&m_pComboNumberTexture[4])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_5"),
+		TEXT("com_texture_5"), (CComponent**)&m_pComboNumberTexture[5])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_6"),
+		TEXT("com_texture_6"), (CComponent**)&m_pComboNumberTexture[6])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_7"),
+		TEXT("com_texture_7"), (CComponent**)&m_pComboNumberTexture[7])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_8"),
+		TEXT("com_texture_8"), (CComponent**)&m_pComboNumberTexture[8])))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_9"),
+		TEXT("com_texture_9"), (CComponent**)&m_pComboNumberTexture[9])))
+		return E_FAIL;
+
+	//Combo 이미지
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		TEXT("com_buffer_combo"), (CComponent**)&m_pComboBuffer)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_combo"),
+		TEXT("com_texture_combo"), (CComponent**)&m_pComboTexture)))
+		return E_FAIL;
+
+	//Combo Gage
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		TEXT("com_buffer_combogage"), (CComponent**)&m_pComboGageBuffer)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_combo_gage"),
+		TEXT("com_texture_combogage"), (CComponent**)&m_pComboGageTexture)))
+		return E_FAIL;
+
+
+	//for (int i = 0; i < 10; ++i)
+	//{
+	//	//wstring strProtoComboNumTexture = L"proto_com_texture_" + to_wstring(i);
+	//	//wstring strComboTextureName = L"com_texture_" + to_wstring(i);
+	//	_tchar szProtoBuff[64] = L"";
+	//	_tchar szComBuff[64] = L"";
+	//	wsprintf(szProtoBuff, L"proto_com_texture_%d", i);
+	//	wsprintf(szComBuff, L"com_texture_%d", i);
+	//	if (FAILED(__super::Add_Component(LEVEL_STATIC, szProtoBuff,
+	//		szComBuff, (CComponent**)&m_pComboNumberTexture[i])))
+	//		return E_FAIL;
+	//}
+
 	return S_OK;
 }
 
@@ -270,6 +429,13 @@ void CPlayerIcon::Free()
 {
 	__super::Free();
 
+
+	Safe_Release(m_pComboNumberBuffer);
+	for(int i = 0 ; i < 10 ; ++i)
+		Safe_Release(m_pComboNumberTexture[i]);
+
+	Safe_Release(m_pComboBuffer);
+	Safe_Release(m_pComboTexture);
 	Safe_Release(m_pBackVIBuffer);
 	Safe_Release(m_pBackTexture);
 	Safe_Release(m_pAttackVIBuffer);

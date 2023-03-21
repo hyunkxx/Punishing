@@ -15381,7 +15381,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?ClearEnemyCheckCollider@CCharacter@Client@@QEAAXXZ PROC ; Client::CCharacter::ClearEnemyCheckCollider, COMDAT
 
-; 197  : 	void ClearEnemyCheckCollider() { mEnemyCheckCollider->HitColliderReset(); };
+; 199  : 	void ClearEnemyCheckCollider() { mEnemyCheckCollider->HitColliderReset(); };
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx

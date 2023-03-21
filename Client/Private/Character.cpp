@@ -80,6 +80,13 @@ HRESULT CCharacter::Initialize(void* pArg)
 
 void CCharacter::Tick(_double TimeDelta)
 {
+	m_fCurComboTimer += TimeDelta;
+	if (m_fCurComboTimer >= m_fComboTimeOut)
+	{
+		m_iComboCount = 0;
+		m_fCurComboTimer = 0.f;
+	}
+
 	m_fCurDash += 5.f * TimeDelta;
 	if (m_fCurDash >= 100.f)
 		m_fCurDash = 100.f;
@@ -147,6 +154,8 @@ void CCharacter::LateTick(_double TimeDelta)
 
 	FindNearTarget();
 	RenderEnemyHealth(TimeDelta);
+
+	m_pPlayerIcon->SetCombo(m_iComboCount);
 
 	//콜리전 세팅
 	_matrix transMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&mTransform->Get_WorldMatrix());
