@@ -65,7 +65,7 @@ void CLayer::RenderGUI()
 	{
 		if (nullptr != pGameObject.second)
 		{
-			if(!pGameObject.second->IsDestroy())
+			if(pGameObject.second->IsActive())
 				pGameObject.second->RenderGUI();
 		}
 	}

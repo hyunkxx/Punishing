@@ -15,7 +15,7 @@ void CStageCollisionManager::AddWall(ID3D11Device* pDevice, ID3D11DeviceContext*
 		return;
 
 	wstring strObjectName = L"collision" + to_wstring(m_Walls.size());
-	CWall* pWall = static_cast<CWall*>(pInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_wall", L"layer_collision", strObjectName.c_str()));
+	CWall* pWall = static_cast<CWall*>(pInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_wall", L"layer_collision", strObjectName.c_str()));
 
 	if(pWall)
 		m_Walls.push_back(pWall);
@@ -54,16 +54,16 @@ void CStageCollisionManager::Tick(_double TimeDelta)
 		}
 	}
 
-	if (pInstance->Input_KeyState_Custom(DIK_LCONTROL) == KEY_STATE::HOLD &&
-		pInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::TAP)
-	{
-		SaveCollisionData();
-	}
+	//if (pInstance->Input_KeyState_Custom(DIK_LCONTROL) == KEY_STATE::HOLD &&
+	//	pInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::TAP)
+	//{
+	//	SaveCollisionData();
+	//}
 
 	if (!m_Walls.empty())
 	{
 		CCollider* pCollider = static_cast<CCollider*>(m_Walls[m_iCurrentIndex]->Find_Component(L"com_collider"));
-		//pCollider->IsColl() ? pCollider->SetColor(_float4(1.f, 0.f, 0.f, 1.f)) : pCollider->SetColor(_float4(1.f, 1.f, 0.f, 1.f));
+		pCollider->IsColl() ? pCollider->SetColor(_float4(1.f, 0.f, 0.f, 1.f)) : pCollider->SetColor(_float4(1.f, 1.f, 0.f, 1.f));
 		pCollider->SetColor(_float4(1.f, 1.f, 0.f, 1.f));
 	}
 
@@ -207,8 +207,8 @@ HRESULT CStageCollisionManager::SaveCollisionData()
 
 void CStageCollisionManager::Free()
 {
-	for (auto& pWall : m_Walls)
-		Safe_Release(pWall);
+	//for (auto& pWall : m_Walls)
+	//	Safe_Release(pWall);
 
-	m_Walls.clear();
+	//m_Walls.clear();
 }

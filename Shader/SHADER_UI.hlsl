@@ -56,7 +56,7 @@ PS_OUT PS_MAIN(PS_IN In)
 	Out.vColor = g_Texture.Sample(LinearSampler, In.vTexUV);
 	Out.vColor.a = g_Texture.Sample(LinearSampler, In.vTexUV).w * g_Alpha;
 
-	if (Out.vColor.r <= g_DiscardValue)
+	if (Out.vColor.r < g_DiscardValue)
 		discard;
 
 	return Out;

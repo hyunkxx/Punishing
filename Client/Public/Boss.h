@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include "Enemy.h"
 #include "Animation.h"
 #include "Collider.h"
 
@@ -18,7 +19,7 @@ END
 BEGIN(Client)
 class CCharacter;
 
-class CBoss final : public CGameObject
+class CBoss final : public CEnemy
 {
 public:
 	explicit CBoss(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
@@ -38,16 +39,22 @@ private:
 	HRESULT SetupShaderResources();
 
 public:
+	virtual _float4 GetPosition() override;
+	virtual _float GetLengthFromCamera() override;
+
+	//Collider
+	virtual class CCollider* GetBodyCollider() override { return collider; }
+	virtual class CCollider* GetWeaponCollider() override  { return m_pWeaponCollider; }
+	virtual class CCollider* GetOverlapCollider() override  { return m_pOverlapCollider; }
+
+	virtual void OnCollisionEnter(CCollider * src, CCollider * dest) override;
+	virtual void OnCollisionStay(CCollider * src, CCollider * dest) override;
+	virtual void OnCollisionExit(CCollider * src, CCollider * dest) override;
+
+public:
 	static CBoss* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	virtual CGameObject* Clone(void* pArg) override;
 	virtual void Free() override;
-
-private:
-	CRenderer* renderer = nullptr;
-	CTransform* transform = nullptr;
-	CModel* model = nullptr;
-	CShader* shader = nullptr;
-	CCollider* collider = nullptr;
 
 };
 

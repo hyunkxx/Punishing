@@ -27,6 +27,7 @@ public:
 	virtual void RenderGUI() override;
 
 public:
+	void StartShake() { m_fShakeAcc = 0.f; m_isShake = true; }
 	void SetFillAmount(_float fCurHP, _float fMaxHP);
 	void SetHealth(_float fCurHP, _float fMaxHP);
 	void SetRender(_bool value) { m_bRender = value; }
@@ -70,6 +71,13 @@ private:
 	_float m_fCurFill = 1.f;
 
 	_int m_iCurHealthCount = 1.f;
+
+	//Ω¶¿Ã≈©
+	_bool m_isShake = false;
+	_float m_fShakeX = 0.f;
+	_float m_fShakeY = 0.f;
+	_float m_fShakeAcc = 0.f;
+	const _float m_fShakeTimeOut = 2.5f;
 };
 
 END

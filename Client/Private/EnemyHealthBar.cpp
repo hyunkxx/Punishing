@@ -30,15 +30,15 @@ HRESULT CEnemyHealthBar::Initialize(void * pArg)
 		return E_FAIL;
 
 	m_fWidth = 450.f;
-	m_fHeight = 10.f;
+	m_fHeight = 7.f;
 	m_fX = g_iWinSizeX >> 1;
 	m_fY = 70.f;
 
 	//¶óÀÎ
 	m_fLineX = m_fX + m_fWidth * 0.5f + 12.f;
 	m_fLineY = m_fY;
-	m_fLineWidth = 18.f;
-	m_fLineHeight = 25.f;
+	m_fLineWidth = 13.f;
+	m_fLineHeight = 20.f;
 
 	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_LineMatrix[0], XMMatrixScaling(m_fLineWidth, m_fLineHeight, 1.f) * XMMatrixTranslation(m_fLineX - g_iWinSizeX * 0.5f, -m_fLineY + g_iWinSizeY * 0.5f, 0.f));
@@ -55,8 +55,26 @@ void CEnemyHealthBar::Tick(_double TimeDelta)
 
 	CGameInstance* pInstance = CGameInstance::GetInstance();
 
+	if (m_isShake)
+	{
+		m_fShakeAcc += TimeDelta * 10.f;
+
+		if (m_fShakeAcc >= m_fShakeTimeOut)
+		{
+			m_isShake = false;
+			m_fShakeAcc = 0.f;
+			m_fShakeX = 0.f;
+			m_fShakeY = 0.f;
+		}
+
+		m_fShakeX = 5.f * sin(m_fShakeAcc * 10.f) * powf(0.5f, m_fShakeAcc);
+		m_fShakeY = 5.f * sin(m_fShakeAcc * 10.f) * powf(0.5f, m_fShakeAcc);
+	}
+
+	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX + m_fShakeX - g_iWinSizeX * 0.5f, -m_fY + m_fShakeY + g_iWinSizeY * 0.5f, 0.f));
+
 	for(int i = 0 ; i < 3 ; ++i)
-		XMStoreFloat4x4(&m_LineMatrix[i], XMMatrixScaling(m_fLineWidth, m_fLineHeight, 1.f) * XMMatrixTranslation(m_fLineX + (i * 18.f) - g_iWinSizeX * 0.5f, -m_fLineY + g_iWinSizeY * 0.5f, 0.f));
+		XMStoreFloat4x4(&m_LineMatrix[i], XMMatrixScaling(m_fLineWidth, m_fLineHeight, 1.f) * XMMatrixTranslation(m_fLineX + (i * 13.f) - g_iWinSizeX * 0.5f, -m_fLineY + g_iWinSizeY * 0.5f, 0.f));
 
 }
 

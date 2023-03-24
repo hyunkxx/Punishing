@@ -19,7 +19,7 @@ BEGIN(Client)
 
 class CCharacter;
 
-class CEnemy final : 
+class CEnemy : 
 	public CGameObject, 
 	public IOnCollisionEnter,
 	public IOnCollisionStay,
@@ -104,19 +104,21 @@ public:
 	virtual HRESULT Render() override;
 	virtual void RenderGUI() override;
 
+	virtual _float4 GetPosition();
 public:
 	_fmatrix GetWorldMatrix();
+
+	void LookPlayer();
 	void SetupCamera(class CPlayerCamera* pCamera) { m_pCamera = pCamera; };
 
-	void Reset();
+	_float2 Reset(_float3 vPos, _float fRadius);
 	_bool IsOverlap() const { return m_bOverlapped; }
 	void SetOverlap(_bool value, _float3 vNagative) { m_bOverlapped = value; m_vNagative = vNagative; }
-	_float4 GetPosition();
 	void SetPosition(_float3 vPosition);
 	_vector GetRootBonePosition();
-	class CCollider* GetBodyCollider() { return collider; }
-	class CCollider* GetWeaponCollider() { return m_pWeaponCollider; }
-	class CCollider* GetOverlapCollider() { return m_pOverlapCollider; }
+	virtual class CCollider* GetBodyCollider() { return collider; }
+	virtual class CCollider* GetWeaponCollider() { return m_pWeaponCollider; }
+	virtual class CCollider* GetOverlapCollider() { return m_pOverlapCollider; }
 	void SetNuckback(_float fPower);
 	void SetHold(_bool value) { m_bHolding = value; }
 	void SetAirborne(_float fDamage);
@@ -126,11 +128,11 @@ public:
 
 	//Á×´ÂÁß
 	_bool IsDeadWait() const { return m_bDeadWait; }
-private:
+protected:
 	HRESULT AddComponents();
 	HRESULT SetupShaderResources();
 
-private:
+protected:
 	void OverlapProcess(_double TimeDelta);
 	void LookPlayer(_double TimeDelta);
 	void Trace(_double TimeDelta);
@@ -141,6 +143,9 @@ private:
 
 	void NuckBack(_double TimeDelta);
 	void Airborne(_double TimeDelta);
+	_bool IsAirbone() { return m_bAir; };
+	void AirboneReset();
+
 	void Holding(_double TimeDleta);
 
 	_bool DieCheck();
@@ -155,12 +160,14 @@ public:
 	virtual void OnCollisionStay(CCollider * src, CCollider * dest);
 	virtual void OnCollisionExit(CCollider * src, CCollider * dest);
 
+	virtual _float GetLengthFromCamera() override;
+
 public:
 	static CEnemy* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, TYPE eType);
 	virtual CGameObject* Clone(void* pArg) override;
 	virtual void Free() override;
 
-private:
+protected:
 	CRenderer* renderer = nullptr;
 	CTransform* transform = nullptr;
 	CModel* model = nullptr;
@@ -174,10 +181,10 @@ private:
 	CBone* m_pWeaponBone = nullptr;
 
 	class CApplicationManager* m_pAppManager = nullptr;
-private:
+protected:
 	static _uint s_iCount;
 
-private:
+protected:
 	TYPE m_eType = TYPE::HUMANOID;
 
 	_float4x4 m_RootBoneMatrix;
@@ -221,7 +228,7 @@ private:
 
 	_bool m_bNuckback = false;
 	_bool m_bNuckBackFinish = false;
-	_float m_fNuckbackPower = 4.0f;
+	_float m_fNuckbackPower = 8.0f;
 	_float m_fNuckBackTimer = 0.0f;
 	const _float m_fNuckBackTimeOut = 0.15f;
 
@@ -250,6 +257,12 @@ private:
 	_bool m_bAlpha = false;
 	class CPlayerCamera* m_pCamera;
 
+	_float m_fAirboneAcc = 0.f;
+	const _float m_fAirboneTimeOut = 2.f;
+
+	_bool m_bSpawnWait = true;
+	_float m_fSpawnWaitAcc = 0.f;
+	_float m_fSpawnWaitTimeOut = 2.f;
 };
 
 END

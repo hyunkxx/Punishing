@@ -186,7 +186,10 @@
     <ClInclude Include="..\public\ApplicationManager.h" />
     <ClInclude Include="..\public\BackGround.h" />
     <ClInclude Include="..\public\Boss.h" />
+    <ClInclude Include="..\Public\BossRoom.h" />
     <ClInclude Include="..\Public\Client_Defines.h" />
+    <ClInclude Include="..\public\DamageFont.h" />
+    <ClInclude Include="..\public\EnemySpawner.h" />
     <ClInclude Include="..\public\PlayerHealthBar.h" />
     <ClInclude Include="..\Public\PlayerIcon.h" />
     <ClInclude Include="..\public\SkillBallSystem.h" />
@@ -247,6 +250,9 @@
     <ClCompile Include="..\private\ApplicationManager.cpp" />
     <ClCompile Include="..\private\BackGround.cpp" />
     <ClCompile Include="..\private\Boss.cpp" />
+    <ClCompile Include="..\Private\BossRoom.cpp" />
+    <ClCompile Include="..\private\DamageFont.cpp" />
+    <ClCompile Include="..\private\EnemySpawner.cpp" />
     <ClCompile Include="..\private\PlayerHealthBar.cpp" />
     <ClCompile Include="..\Private\PlayerIcon.cpp" />
     <ClCompile Include="..\private\SkillBallSystem.cpp" />

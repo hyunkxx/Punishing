@@ -55,6 +55,8 @@ protected:
 	_float m_fShakeTimer = 0.f;
 	_float m_fShakeTimeOut = 1.f;
 	_float4x4 m_PrevCamPos;
+	_float m_fPrevFOV;
+	_float m_fLocalTimeAcc = 0.f;
 
 };
 

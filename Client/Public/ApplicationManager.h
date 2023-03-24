@@ -8,6 +8,9 @@ class CApplicationManager final : public CBase
 {
 	DECLARE_SINGLETON(CApplicationManager)
 
+public:
+	enum class LEVEL { GAMEPLAY, BOSS, MAX };
+
 private:
 	CApplicationManager();
 	virtual ~CApplicationManager() = default;
@@ -25,6 +28,14 @@ public:
 
 	void SetHitFreeze(_bool value) { m_bHitFreeze = value; }
 	_bool IsHitFreeze() const { return m_bHitFreeze; }
+
+	//레벨이 끝났다는 설정 및 체크
+	void SetLevelFinish(LEVEL eLevel) { m_bLevelEnd[(_uint)eLevel] = true; }
+	_bool IsLevelFinish(LEVEL eLevel) { return m_bLevelEnd[(_uint)eLevel]; }
+
+	void SetWinMotion(_bool value) { m_isWinMotionPlay = value; }
+	_bool IsWinMotionPlay() { return m_isWinMotionPlay; }
+	//이걸로 여기저기서 체크할래
 public:
 	virtual void Free() override;
 
@@ -36,6 +47,11 @@ private:
 	_float3 m_vPrevPosition = { 0.f, 0.f, 0.f };
 
 	_bool m_bHitFreeze = false;
+
+	//레벨 끝났다
+	_bool m_bLevelEnd[(_uint)LEVEL::MAX] = { false, false };
+	//레벨 승리 모션중
+	_bool m_isWinMotionPlay = false;
 };
 
 END

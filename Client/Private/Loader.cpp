@@ -6,12 +6,18 @@
 #include "BackGround.h"
 #include "Terrain.h"
 #include "City.h"
+#include "BossRoom.h"
 #include "Skybox.h"
 #include "Character.h"
 #include "Enemy.h"
 #include "Weapon.h"
 #include "Boss.h"
 #include "Wall.h"
+#include "EnemySpawner.h"
+
+#include "PlayerIcon.h"
+#include "PlayerHealthBar.h"
+#include "EnemyHealthBar.h"
 
 #include "FreezeArea.h"
 
@@ -36,6 +42,9 @@ unsigned int APIENTRY ThreadEntry(void* pArg)
 		break;
 	case LEVEL_GAMEPLAY:
 		pLoader->Load_Level_GamePlay();
+		break;
+	case LEVEL_BOSS:
+		pLoader->Load_Level_BossRoom();
 		break;
 	}
 
@@ -171,8 +180,8 @@ HRESULT CLoader::Load_Level_GamePlay()
 	//GamePlay GameObject
 #pragma region GAMEOBJECTS
 
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_terrain"), CTerrain::Create(m_pDevice, m_pContext))))
-		return E_FAIL;
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_terrain"), CTerrain::Create(m_pDevice, m_pContext))))
+	//	return E_FAIL;
 
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_city"), CCity::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
@@ -198,6 +207,8 @@ HRESULT CLoader::Load_Level_GamePlay()
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_freeze_area"), CFreezeArea::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_spawner"), CEnemySpawner::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
 #pragma endregion
 
 	m_szLoadingStateText = L"Load Completed";
@@ -229,8 +240,12 @@ HRESULT CLoader::Load_Level_BossRoom()
 	m_szLoadingStateText = L"Model..";
 
 	_matrix	cityMatrix = XMMatrixIdentity();
-	cityMatrix = XMMatrixRotationY(XMConvertToRadians(180.f));
 
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, L"proto_com_model_bossroom",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Level/BossRoom/BossRoom.fbx", cityMatrix))))
+		return E_FAIL;
+
+	cityMatrix = XMMatrixRotationY(XMConvertToRadians(180.f));
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, L"proto_com_model_sky",
 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Level/Load/Sky.fbx", cityMatrix))))
 		return E_FAIL;
@@ -266,20 +281,23 @@ HRESULT CLoader::Load_Level_BossRoom()
 
 	//GamePlay GameObject
 #pragma region GAMEOBJECTS
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_sky"), CSkybox::Create(m_pDevice, m_pContext))))
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_bossroom"), CBossRoom::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui"), CCharacter::Create(m_pDevice, m_pContext))))
-		return E_FAIL;
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_sky"), CSkybox::Create(m_pDevice, m_pContext))))
+	//	return E_FAIL;
 
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui_weapon"), CWeapon::Create(m_pDevice, m_pContext))))
-		return E_FAIL;
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui"), CCharacter::Create(m_pDevice, m_pContext))))
+	//	return E_FAIL;
 
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_boss"), CBoss::Create(m_pDevice, m_pContext))))
-		return E_FAIL;
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_kamui_weapon"), CWeapon::Create(m_pDevice, m_pContext))))
+	//	return E_FAIL;
 
-	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_player_camera"), CPlayerCamera::Create(m_pDevice, m_pContext))))
-		return E_FAIL;
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_boss"), CBoss::Create(m_pDevice, m_pContext))))
+	//	return E_FAIL;
+
+	//if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_player_camera"), CPlayerCamera::Create(m_pDevice, m_pContext))))
+	//	return E_FAIL;
 
 #pragma endregion
 

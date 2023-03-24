@@ -20,6 +20,7 @@ public:
 	void DeleteObject();
 	void Tick(_double TimeDelta);
 	void RenderGUI();
+	void Clear() { m_Walls.clear(); }
 
 public:
 	static HRESULT LoadCollisionData(const wchar_t * pPath, vector<CWall::CUBE_DESC>* CubeDescs_out, _uint* iCollisionCount_out);

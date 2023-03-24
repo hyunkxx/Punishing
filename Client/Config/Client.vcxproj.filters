@@ -202,6 +202,15 @@
     <ClInclude Include="..\Public\PlayerIcon.h">
       <Filter>src\02. GameObjects\06. UI</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\EnemySpawner.h">
+      <Filter>src\02. GameObjects\04. Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\BossRoom.h">
+      <Filter>src\02. GameObjects\03. Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\DamageFont.h">
+      <Filter>src\02. GameObjects\06. UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -307,6 +316,15 @@
       <Filter>src\02. GameObjects\06. UI</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\PlayerIcon.cpp">
+      <Filter>src\02. GameObjects\06. UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\EnemySpawner.cpp">
+      <Filter>src\02. GameObjects\04. Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\BossRoom.cpp">
+      <Filter>src\02. GameObjects\03. Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\DamageFont.cpp">
       <Filter>src\02. GameObjects\06. UI</Filter>
     </ClCompile>
   </ItemGroup>

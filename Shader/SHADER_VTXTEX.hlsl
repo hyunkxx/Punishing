@@ -75,7 +75,7 @@ PS_OUT PS_MAIN_ALPHA(PS_IN In)
 {
 	PS_OUT			Out = (PS_OUT)0;
 
-	Out.vColor = float4(1.f, 0.f, 0.f, 0.2f) * g_Texture.Sample(LinearSampler, In.vTexUV);
+	Out.vColor = g_Texture.Sample(LinearSampler, In.vTexUV);
 
 	return Out;
 }
@@ -103,7 +103,7 @@ technique11 DefaultTechnique
 	{
 		SetRasterizerState(RS_Default);
 		SetDepthStencilState(DS_Default, 0);
-		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+		SetBlendState(BS_AlphaBlend, float4(1.0f, 0.f, 0.f, 0.f), 0xffffffff);
 
 		/* 렌더스테이츠를 정의한다. */
 		VertexShader = compile vs_5_0 VS_MAIN();

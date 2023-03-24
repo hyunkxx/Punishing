@@ -2358,6 +2358,7 @@ EXTRN	__imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ:PROC
 EXTRN	__imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z:PROC
 EXTRN	__imp_?Input_MouseState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@W4MOUSE_KEYSTATE@2@@Z:PROC
 EXTRN	__imp_?Input_MouseMove@CGameInstance@Engine@@QEAAJW4MOUSE_MOVESTATE@2@@Z:PROC
+EXTRN	?GetLengthFromCamera@CGameObject@Engine@@UEAAMXZ:PROC ; Engine::CGameObject::GetLengthFromCamera
 EXTRN	?RenderGUI@CGameObject@Engine@@UEAAXXZ:PROC	; Engine::CGameObject::RenderGUI
 EXTRN	_RTC_CheckStackVars:PROC
 EXTRN	_RTC_InitBase:PROC
@@ -2687,6 +2688,7 @@ CONST	SEGMENT
 	DQ	FLAT:?LateTick@CDynamicCamera@Client@@UEAAXN@Z
 	DQ	FLAT:?Render@CDynamicCamera@Client@@UEAAJXZ
 	DQ	FLAT:?RenderGUI@CGameObject@Engine@@UEAAXXZ
+	DQ	FLAT:?GetLengthFromCamera@CGameObject@Engine@@UEAAMXZ
 	DQ	FLAT:?Clone@CDynamicCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 CONST	ENDS
 ;	COMDAT xdata
@@ -3037,7 +3039,7 @@ $LN4:
   00040	83 e0 01	 and	 eax, 1
   00043	85 c0		 test	 eax, eax
   00045	74 11		 je	 SHORT $LN2@scalar
-  00047	ba 18 01 00 00	 mov	 edx, 280		; 00000118H
+  00047	ba 20 01 00 00	 mov	 edx, 288		; 00000120H
   0004c	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ??3@YAXPEAX_K@Z		; operator delete
@@ -3138,7 +3140,7 @@ $LN7:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EL@FNNFFPIE@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 18 01 00 00	 mov	 ecx, 280		; 00000118H
+  00062	b9 20 01 00 00	 mov	 ecx, 288		; 00000120H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 08 01
 	00 00		 mov	 QWORD PTR $T5[rbp], rax
@@ -3331,7 +3333,7 @@ $LN7:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EL@FNNFFPIE@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 18 01 00 00	 mov	 ecx, 280		; 00000118H
+  00062	b9 20 01 00 00	 mov	 ecx, 288		; 00000120H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 08 01
 	00 00		 mov	 QWORD PTR $T5[rbp], rax

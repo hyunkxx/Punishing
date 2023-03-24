@@ -68,11 +68,23 @@ HRESULT CCharacter::Initialize(void* pArg)
 
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	if(nullptr == (m_pHealthBar = (CPlayerHealthBar*)pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_playerhp", L"layer_ui", L"playerhp")))
-		return E_FAIL;
+	if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+	{
+		SetPosition(_float3(31.f, 0.f, 20.f));
+		if (nullptr == (m_pHealthBar = (CPlayerHealthBar*)pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_playerhp", L"layer_ui", L"playerhp")))
+			return E_FAIL;
+		if (nullptr == (m_pPlayerIcon = (CPlayerIcon*)pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_playericon", L"layer_ui", L"playericon")))
+			return E_FAIL;
+	}
+	else
+	{
+		SetPosition(_float3(0.f, 0.f, -6.f));
+		if (nullptr == (m_pHealthBar = (CPlayerHealthBar*)pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_playerhp", L"layer_ui", L"playerhp1")))
+			return E_FAIL;
+		if (nullptr == (m_pPlayerIcon = (CPlayerIcon*)pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_playericon", L"layer_ui", L"playericon1")))
+			return E_FAIL;
+	}
 
-	if (nullptr == (m_pPlayerIcon = (CPlayerIcon*)pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_playericon", L"layer_ui", L"playericon")))
-		return E_FAIL;
 	m_pPlayerIcon->SetupPlayer(this);
 
 	return S_OK;
@@ -80,6 +92,30 @@ HRESULT CCharacter::Initialize(void* pArg)
 
 void CCharacter::Tick(_double TimeDelta)
 {
+	if (m_EvolutionCount >= 30)
+	{
+		m_bEvolutionReady = true;
+		m_fCurEvolutionAcc = 0.f;
+	}
+
+	if (mModel->AnimationCompare(CLIP::ATTACK51))
+	{
+		if (mModel->AnimationIsFinishEx())
+			m_bGageDownStart = true;
+	}
+
+	if (m_bGageDownStart)
+	{
+		m_fCurEvolutionAcc += TimeDelta;
+		if (m_fCurEvolutionAcc >= m_fEvolutionTimeOut)
+		{
+			m_bGageDownStart = false;
+			m_bEvolution = false;
+			m_fCurEvolutionAcc = 0.f;
+		}
+	}
+
+
 	if (m_iComboCount > 0)
 	{
 		m_fCurComboTimer += TimeDelta;
@@ -119,26 +155,57 @@ void CCharacter::Tick(_double TimeDelta)
 	pGameInstance->AddCollider(mWeaponCollider);
 	pGameInstance->AddCollider(mSkillCollider);
 
-	if (m_bHit)
+
+
+	if (m_bWin)
 	{
-		if (mModel->AnimationIsPreFinishCustom(0.15))
+		CApplicationManager::GetInstance()->SetWinMotion(true);
+		m_pPlayerIcon->SetRender(false);
+		m_pHealthBar->SetRender(false);
+
+		if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
 		{
-			m_bHit = false;
-			m_bMoveable = true;
-			m_bDashable = true;
-			m_bAttackable = true;
+			//첫번쨰 맵 엔딩위치 및 각도
+			_vector vEndPosition = XMVectorSet(41.f, 0.f, 78.f, 1.f);
+			mTransform->Set_State(CTransform::STATE_POSITION, vEndPosition);
+			//mTransform->SetRotation(VECTOR_UP, XMConvertToRadians(255.f));
+			mTransform->SetRotation(VECTOR_UP, XMConvertToRadians(225.f)); // 엔딩 위치
+			SetAnimation(CLIP::WIN, CAnimation::TYPE::ONE);
 		}
+		else
+		{
+			//두번쨰 맵 엔딩위치 및 각도
+			_vector vEndPosition = XMVectorSet(0.f, 0.f, 20.f, 1.f);
+			mTransform->Set_State(CTransform::STATE_POSITION, vEndPosition);
+			mTransform->SetRotation(VECTOR_UP, XMConvertToRadians(180.f));
+			//mTransform->SetRotation(VECTOR_UP, XMConvertToRadians(225.f)); // 엔딩 위치
+			SetAnimation(CLIP::WIN, CAnimation::TYPE::ONE);
+		}
+
 	}
+	else
+	{
+		if (m_bHit)
+		{
+			if (mModel->AnimationIsPreFinishCustom(0.15))
+			{
+				m_bHit = false;
+				m_bMoveable = true;
+				m_bDashable = true;
+				m_bAttackable = true;
+			}
+		}
 
-	KeyInput(TimeDelta);
-	Dash(TimeDelta);
-	Attack(TimeDelta);
+		KeyInput(TimeDelta);
+		Dash(TimeDelta);
+		Attack(TimeDelta);
 
-	if(!m_WallHit)
-		XMStoreFloat3(&vPrevPosition, mTransform->Get_State(CTransform::STATE_POSITION));
+		if (!m_WallHit)
+			XMStoreFloat3(&vPrevPosition, mTransform->Get_State(CTransform::STATE_POSITION));
 
-	if (m_bEnemyHolding)
-		HoldEnemy();
+		if (m_bEnemyHolding)
+			HoldEnemy();
+	}
 
 	AnimationControl(TimeDelta);
 	SkillColliderControl(TimeDelta);
@@ -202,13 +269,26 @@ HRESULT CCharacter::Render()
 
 void CCharacter::RenderGUI()
 {
+	ImGui::Begin("Player Position");
+
+	_float3 vPos;
+	XMStoreFloat3(&vPos, mTransform->Get_State(CTransform::STATE_POSITION));
+	ImGui::InputFloat3("World Pos ", (_float*)&vPos);
+
+	ImGui::End();
+}
+
+void CCharacter::SetPosition(_float3 vPos)
+{
+	mTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(vPos.x, 0.f, vPos.z, 1.f));
 }
 
 _fmatrix CCharacter::GetTargetMatrix()
 {
 	if(m_pNearEnemy != nullptr)
-
-	return m_pNearEnemy->GetWorldMatrix();
+		return m_pNearEnemy->GetWorldMatrix();
+	else
+		return _fmatrix();
 }
 
 _float2 CCharacter::GetTargetWindowPos()
@@ -281,7 +361,7 @@ HRESULT CCharacter::AddComponents()
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
-	collDesc.vExtents = _float3(1.8f, 1.8f, 1.8f);
+	collDesc.vExtents = _float3(1.9f, 1.9f, 1.9f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&mCollider, &collDesc)))
@@ -339,7 +419,7 @@ HRESULT CCharacter::AddComponents()
 	//collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	collDesc.vCenter = _float3(0.8f, 0.f, 0.f);
-	collDesc.vExtents = _float3(1.7f, 0.4f, 0.4f);
+	collDesc.vExtents = _float3(1.7f, 0.2f, 0.3f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"), TEXT("com_collider_weapon"), (CComponent**)&mWeaponCollider, &collDesc)))
@@ -401,14 +481,21 @@ void CCharacter::KeyInput(_double TimeDelta)
 	//테스트 코드
 	if (pGameInstance->Input_KeyState_Custom(DIK_P) == KEY_STATE::TAP)
 	{
-		if (!m_bUseSkill)
+		if (!m_bUseSkill && m_bEvolutionReady)
 		{
-			m_bEvolution = !m_bEvolution;
+			m_EvolutionCount = 0;
+
+			m_bEvolution = true;
 			SetAnimation(CLIP::ATTACK51, CAnimation::TYPE::ONE);
 			m_bAttackable = false;
 			m_bMoveable = false;
 			m_bDashable = false;
 			m_bEvolutionAttack = false;
+			m_bEvolutionReady = false;
+
+			m_bRedAddGageReady = true;
+			m_bYellowAddGageReady = true;
+			m_bBlueAddGageReady = true;
 		}
 	}
 
@@ -431,6 +518,8 @@ void CCharacter::KeyInput(_double TimeDelta)
 
 					pEnemy->SetAirborne(GetDamage());
 				}
+
+				m_pCamera->StartShake(5.f, 50.f);
 			}
 		}
 
@@ -441,6 +530,7 @@ void CCharacter::KeyInput(_double TimeDelta)
 		if (!m_bUseSkill && m_bSkillReady)
 		{
 			m_SkillInfo = pSkillSystem->UseSkill(0);
+			AddEvolutionGage(m_SkillInfo);
 			switch (m_SkillInfo.eType)
 			{
 			case Client::CSkillBase::TYPE::RED:
@@ -465,6 +555,7 @@ void CCharacter::KeyInput(_double TimeDelta)
 		if (!m_bUseSkill && m_bSkillReady)
 		{
 			m_SkillInfo = pSkillSystem->UseSkill(1);
+			AddEvolutionGage(m_SkillInfo);
 			switch (m_SkillInfo.eType)
 			{
 			case Client::CSkillBase::TYPE::RED:
@@ -489,6 +580,7 @@ void CCharacter::KeyInput(_double TimeDelta)
 		if (!m_bUseSkill && m_bSkillReady)
 		{
 			m_SkillInfo = pSkillSystem->UseSkill(2);
+			AddEvolutionGage(m_SkillInfo);
 			switch (m_SkillInfo.eType)
 			{
 			case Client::CSkillBase::TYPE::RED:
@@ -513,6 +605,7 @@ void CCharacter::KeyInput(_double TimeDelta)
 		if (!m_bUseSkill && m_bSkillReady)
 		{
 			m_SkillInfo = pSkillSystem->UseSkill(3);
+			AddEvolutionGage(m_SkillInfo);
 			switch (m_SkillInfo.eType)
 			{
 			case Client::CSkillBase::TYPE::RED:
@@ -537,6 +630,7 @@ void CCharacter::KeyInput(_double TimeDelta)
 		if (!m_bUseSkill && m_bSkillReady)
 		{
 			m_SkillInfo = pSkillSystem->UseSkill(4);
+			AddEvolutionGage(m_SkillInfo);
 			switch (m_SkillInfo.eType)
 			{
 			case Client::CSkillBase::TYPE::RED:
@@ -561,6 +655,7 @@ void CCharacter::KeyInput(_double TimeDelta)
 		if (!m_bUseSkill && m_bSkillReady)
 		{
 			m_SkillInfo = pSkillSystem->UseSkill(5);
+			AddEvolutionGage(m_SkillInfo);
 			switch (m_SkillInfo.eType)
 			{
 			case Client::CSkillBase::TYPE::RED:
@@ -585,6 +680,7 @@ void CCharacter::KeyInput(_double TimeDelta)
 		if (!m_bUseSkill && m_bSkillReady)
 		{
 			m_SkillInfo = pSkillSystem->UseSkill(6);
+			AddEvolutionGage(m_SkillInfo);
 			switch (m_SkillInfo.eType)
 			{
 			case Client::CSkillBase::TYPE::RED:
@@ -609,6 +705,7 @@ void CCharacter::KeyInput(_double TimeDelta)
 		if (!m_bUseSkill && m_bSkillReady)
 		{
 			m_SkillInfo = pSkillSystem->UseSkill(7);
+			AddEvolutionGage(m_SkillInfo);
 			switch (m_SkillInfo.eType)
 			{
 			case Client::CSkillBase::TYPE::RED:
@@ -628,6 +725,7 @@ void CCharacter::KeyInput(_double TimeDelta)
 		}
 	}
 
+
 	if (mModel->AnimationCompare(CLIP::ATTACK51))
 	{
 		if (mModel->AnimationIsFinishEx())
@@ -645,6 +743,9 @@ void CCharacter::KeyInput(_double TimeDelta)
 void CCharacter::Dash(_double TimeDelta)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	if (AnimationCompare(CLIP::ATTACK51))
+		return;
 
 	if (m_bAttacking)
 	{
@@ -668,7 +769,7 @@ void CCharacter::Dash(_double TimeDelta)
 
 	if (AnimationCompare(CLIP::MOVE1) || AnimationCompare(CLIP::MOVE2))
 	{
-		mCollider->SetActive(false);
+		//mCollider->SetActive(false);
 		mWeaponCollider->SetActive(false);
 		mSkillCollider->SetActive(false);
 
@@ -677,7 +778,7 @@ void CCharacter::Dash(_double TimeDelta)
 
 		if (mModel->AnimationIsPreFinish())
 		{
-			mCollider->SetActive(true);
+			//mCollider->SetActive(true);
 			m_bDashable = true;
 			
 			m_bSkillReady = true;
@@ -1159,14 +1260,20 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 			{
 				m_bSkillYellowAttack = true;
 				m_pNearEnemy->RecvDamage(GetDamage());
-				m_pNearEnemy->SetHold(false);
+				//m_pNearEnemy->SetHold(false);
+
+				if (!m_bEvolution)
+					m_EvolutionCount++;
+
+				m_pPlayerIcon->StartShake();
+				m_pEnemyHealthBar->StartShake();
 
 				m_pCamera->AttackShake();
 			}
 		}
 
-		if (m_pNearEnemy && m_pNearEnemy->IsDeadWait())
-			m_bEnemyHolding = false;
+		//if (m_pNearEnemy && m_pNearEnemy->IsDeadWait())
+		//	m_bEnemyHolding = false;
 
 		if (mModel->AnimationIsFinishEx())
 		{
@@ -1378,6 +1485,9 @@ void CCharacter::Hit()
 		return;
 	}
 
+	if (AnimationCompare(CLIP::MOVE1) || AnimationCompare(CLIP::MOVE2))
+		return;
+
 	if (m_bUseSkill)
 		return;
 
@@ -1398,6 +1508,10 @@ void CCharacter::Hit()
 
 void CCharacter::RecvDamage(_float fDamage)
 {
+	//대쉬중 데미지 X
+	if (AnimationCompare(CLIP::MOVE1) || AnimationCompare(CLIP::MOVE2))
+		return;
+
 	m_fCurHp -= fDamage;
 	if (m_fCurHp <= 0.f)
 	{
@@ -1459,9 +1573,11 @@ void CCharacter::RenderEnemyHealth(_double TimeDelta)
 	}
 	else
 	{
-		m_bEnemyHealthDraw = false;
-		//m_pEnemyHealthBar->SetHealth(1.f, 1.f);
-		m_pEnemyHealthBar->SetRender(false);
+		if (m_pEnemyHealthBar)
+		{
+			m_bEnemyHealthDraw = false;
+			m_pEnemyHealthBar->SetRender(false);
+		}
 	}
 
 	if (m_bEnemyHealthDraw)
@@ -1563,7 +1679,7 @@ void CCharacter::AnimationControl(_double TimeDelta)
 		if (AnimationCompare(CLIP::STAND2))
 			mModel->Play_Animation(TimeDelta, mTransform, 0.01f, m_bRootMotion);
 		else
-			mModel->Play_Animation(TimeDelta, mTransform, 0.2f, m_bRootMotion);
+			mModel->Play_Animation(TimeDelta, mTransform, 0.1f, m_bRootMotion);
 	}
 	else
 		mModel->Play_Animation(TimeDelta, mTransform);
@@ -1709,6 +1825,57 @@ void CCharacter::LookPos(_fvector vLookPos)
 	{
 		if(!mModel->AnimationCompare(CLIP::HIT1))
 			mTransform->LookAt(vLookPos);
+	}
+}
+
+void CCharacter::AddEvolutionGage(CSkillBase::SKILL_INFO SkillInfo)
+{
+	//변신중 스킬사용시 분노게이지 회복
+	if (SkillInfo.eType == Client::CSkillBase::TYPE::RED)
+	{
+		if (!m_bRedAddGageReady)
+			return;
+		else
+			m_bRedAddGageReady = false;
+	}
+	else if(SkillInfo.eType == Client::CSkillBase::TYPE::YELLOW)
+	{
+		if (!m_bYellowAddGageReady)
+			return;
+		else
+			m_bYellowAddGageReady = false;
+	}
+	else if (SkillInfo.eType == Client::CSkillBase::TYPE::BLUE)
+	{
+		if (!m_bBlueAddGageReady)
+			return;
+		else
+			m_bBlueAddGageReady = false;
+	}
+
+	if (m_bEvolution)
+	{
+		if (SkillInfo.iChainCount == 0)
+		{
+			if (m_fCurEvolutionAcc - 2.5f >= 0.f)
+				m_fCurEvolutionAcc -= 2.5f;
+			else
+				m_fCurEvolutionAcc = 0.f;
+		}
+		else if (SkillInfo.iChainCount == 1)
+		{
+			if (m_fCurEvolutionAcc - 4.0f >= 0.f)
+				m_fCurEvolutionAcc -= 4.0f;
+			else
+				m_fCurEvolutionAcc = 0.f;
+		}
+		else if (SkillInfo.iChainCount == 2)
+		{
+			if (m_fCurEvolutionAcc - 6.0f >= 0.f)
+				m_fCurEvolutionAcc -= 6.0f;
+			else
+				m_fCurEvolutionAcc = 0.f;
+		}
 	}
 }
 
@@ -1905,6 +2072,11 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 			if (pEnemy == m_pNearEnemy)
 			{
 				m_pCamera->AttackShake();
+				m_pEnemyHealthBar->StartShake();
+				m_pPlayerIcon->StartShake();
+
+				if (!m_bEvolution)
+					m_EvolutionCount++;
 
 				AddCombo();
 				ResetComboTime();
@@ -1924,6 +2096,11 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 			if (pEnemy == m_pNearEnemy)
 			{
 				m_pCamera->AttackShake();
+				m_pEnemyHealthBar->StartShake();
+				m_pPlayerIcon->StartShake();
+
+				if(!m_bEvolution)
+					m_EvolutionCount++;
 
 				AddCombo();
 				ResetComboTime();
@@ -2036,7 +2213,6 @@ void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 			
 		}
 	}
-
 
 }
 

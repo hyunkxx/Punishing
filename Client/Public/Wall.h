@@ -45,6 +45,7 @@ public:
 
 private:
 	HRESULT AddComponents();
+	HRESULT AddComponents_GamePlay();
 
 public:
 	static CWall* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
@@ -59,6 +60,9 @@ protected:
 	enum { LEFT, RIGHT, FRONT, BACK };
 	CUBE_DESC m_CubeDesc;
 	_float3 m_vPlanePos[4]; //4개의 면의 중심위치 높이는 0
+
+	//0이면 게임플레이 1이면 보스룸
+	_int m_iLevelIndex = 0;
 
 };
 

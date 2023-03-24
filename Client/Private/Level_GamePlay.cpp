@@ -11,6 +11,8 @@
 #include "DynamicCamera.h"
 #include "Enemy.h"
 #include "Character.h"
+#include "EnemySpawner.h"
+
 
 #include "PlayerCamera.h"
 #include "EnemyHealthBar.h"
@@ -40,6 +42,9 @@ HRESULT CLevel_GamePlay::Initialize()
 	if (FAILED(Ready_Layer_Enemy(TEXT("layer_enemy"), mPlayer)))
 		return E_FAIL;
 
+	if (FAILED(Ready_Layer_Spawner(TEXT("layer_spawner"))))
+		return E_FAIL;
+
 	if (FAILED(Ready_Layer_Effect(TEXT("layer_effect"))))
 		return E_FAIL;
 
@@ -59,30 +64,18 @@ void CLevel_GamePlay::Tick(_double TimeDelta)
 #endif
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	if (pGameInstance->Input_KeyState_Custom(DIK_ESCAPE) == KEY_STATE::TAP)
+	if(CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
 	{
 		if (FAILED(pGameInstance->Open_Level(LEVEL_LOADING, CLevel_Loading::Create(m_pDevice, m_pContext, LEVEL_BOSS))))
 			return;
 	}
 
-	//妮府傈 积己
+	////妮府傈 积己
 	//if (pGameInstance->Input_KeyState_Custom(DIK_INSERT) == KEY_STATE::TAP)
 	//{
 	//	CStageCollisionManager* pStageManager = CStageCollisionManager::GetInstance();
 	//	pStageManager->AddWall(m_pDevice, m_pContext);
 	//}
-
-	if (pGameInstance->Input_KeyState_Custom(DIK_0) == KEY_STATE::TAP)
-	{
-		CLayer* pLayer = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("layer_enemy"));
-
-		for (auto iter = pLayer->m_GameObjects.begin(); iter != pLayer->m_GameObjects.end(); ++iter)
-		{
-			static_cast<CEnemy*>(iter->second)->Reset();
-		}
-		
-		static_cast<CCharacter*>(mPlayer)->ClearEnemyCheckCollider();
-	}
 
 	CSkillBallSystem* pSkillSystem = CSkillBallSystem::GetInstance();
 	pSkillSystem->PushReadyTimer(TimeDelta);
@@ -109,7 +102,7 @@ HRESULT CLevel_GamePlay::Ready_Light()
 	ZeroMemory(&LightDesc, sizeof(LIGHT_DESC));
 	
 	LightDesc.eLightType = LIGHT_DESC::TYPE_DIRECTIONAL;
-	LightDesc.vDirection = _float4(0.f, -1.f, 1.f, 0.f);
+	LightDesc.vDirection = _float4(-1.f, -0.8f, 1.f, 0.f);
 	LightDesc.vPosition = _float4(1.f, 1.f, 1.f, 1.f);
 	LightDesc.vDiffuse = _float4(1.f, 1.f, 1.f, 1.f);
 	LightDesc.vAmbient = _float4(1.f, 1.f, 1.f, 1.f);
@@ -142,12 +135,12 @@ HRESULT CLevel_GamePlay::Ready_Layer_Wall(const _tchar * pLayerTag)
 	CubeDescs.reserve(20);
 	_uint iCount = 0;
 	CStageCollisionManager* pStageManager = CStageCollisionManager::GetInstance();
+	pStageManager->Clear();
 	pStageManager->LoadCollisionData(L"../../CollisionData/GamePlayCollisionData.bin", &CubeDescs, &iCount);
-
 	 for (_uint i = 0; i < iCount; ++i)
 	{
 		wstring strName = L"wall_" + to_wstring(i);
-		if (nullptr == pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_wall", pLayerTag, strName.c_str(), &CubeDescs[i]))
+		if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_wall", pLayerTag, strName.c_str(), &CubeDescs[i]))
 			return E_FAIL;
 	}
 
@@ -231,6 +224,18 @@ HRESULT CLevel_GamePlay::Ready_Layer_Enemy(const _tchar * pLayerTag, CGameObject
 	return S_OK;
 }
 
+HRESULT CLevel_GamePlay::Ready_Layer_Spawner(const _tchar * pLayerTag)
+{
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	CGameObject* pGameObject = nullptr;
+
+	if (nullptr == (pGameObject = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_spawner"), pLayerTag, L"spawner01")))
+		return E_FAIL;
+	static_cast<CEnemySpawner*>(pGameObject)->SetupCamera(mCamera);
+	
+	return S_OK;
+}
+
 HRESULT CLevel_GamePlay::Ready_Layer_Effect(const _tchar * pLayerTag)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
@@ -247,9 +252,13 @@ HRESULT CLevel_GamePlay::Ready_Layer_UI(const _tchar * pLayerTag)
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	CGameObject* pGameObject = nullptr;
 
-	m_pHealthBar = pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_enemyhp", pLayerTag, L"enemyhp");
+	m_pHealthBar = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_enemyhp", pLayerTag, L"enemyhp");
 	if(m_pHealthBar == nullptr)
 		return E_FAIL;
+
+	//pGameObject = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_damagefont", pLayerTag, L"damagefont");
+	//if (pGameObject == nullptr)
+	//	return E_FAIL;
 
 	return S_OK;
 }

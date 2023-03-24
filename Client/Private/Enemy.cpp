@@ -72,11 +72,17 @@ HRESULT CEnemy::Initialize(void * pArg)
 		m_pWeaponBone = model->GetBonePtr("BulletCase");
 		break;
 	case TYPE::ANIMAL:
-		m_State.fMaxHp = 12000.f;
-		m_State.fCurHp = 12000.f;
+		m_State.fMaxHp = 6000.f;
+		m_State.fCurHp = 6000.f;
 		m_pWeaponBone = model->GetBonePtr("Bip001");
 		break;
 	}
+
+	m_eState = CGameObject::STATE::DISABLE;
+
+	int iRandomWaitTime = rand() % 3 + 1;
+	int iRandomWaitTimeDot = rand() % 10;
+	m_fSpawnWaitTimeOut = (_float)iRandomWaitTime + ((_float)iRandomWaitTimeDot * 0.1f);
 
 	return S_OK;
 }
@@ -95,7 +101,7 @@ void CEnemy::Tick(_double TimeDelta)
 		if (m_fAttackCollisionLocal >= m_fAttackCollisionTimeOut)
 		{
 			m_bAttackCollision = false;
-			m_pWeaponCollider->SetActive(false);
+			//m_pWeaponCollider->SetActive(false);
 			m_fAttackCollisionLocal = 0.0f;
 		}
 	}
@@ -118,7 +124,7 @@ void CEnemy::LateTick(_double TimeDelta)
 
 	__super::LateTick(TimeDelta);
 	
-	model->Play_Animation(TimeDelta, transform, 0.2);
+	model->Play_Animation(TimeDelta, transform, 0.1);
 
 	_matrix tranMatrix = XMLoadFloat4x4(&bone->GetOffSetMatrix()) * XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&model->GetLocalMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix());
 	
@@ -170,16 +176,23 @@ _fmatrix CEnemy::GetWorldMatrix()
 	return XMLoadFloat4x4(&transform->Get_WorldMatrix());
 }
 
-void CEnemy::Reset()
+void CEnemy::LookPlayer()
+{
+	transform->LookAt(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION));
+}
+
+_float2 CEnemy::Reset(_float3 vPos, _float fRadius)
 {
 	m_eState = STATE::ACTIVE;
 
 	m_bDead = false;
 	m_bDeadWait = false;
+	
+	_float2 iRandomPos = {0.f, 0.f};
 
-	int iRandomX = rand() % 20 + 15;
-	int iRandomZ = rand() % 25 + 35;
-	SetPosition(_float3(iRandomX, 0.f, iRandomZ));
+	iRandomPos.x = (rand() % (int)fRadius) - ((int)fRadius >> 1) + (int)vPos.x;
+	iRandomPos.y = (rand() % (int)fRadius) - ((int)fRadius >> 1) + (int)vPos.z;
+	SetPosition(_float3(iRandomPos.x, 0.f, iRandomPos.y));
 
 	m_State.fCurHp = m_State.fMaxHp;
 
@@ -198,6 +211,15 @@ void CEnemy::Reset()
 	m_bAir = false;
 	m_bStandupStart = false;
 	m_bHolding = false;
+
+	m_bSpawnWait = true;
+	m_fSpawnWaitAcc = 0.f;
+
+	int iRandomWaitTime = rand() % 3 + 1;
+	int iRandomWaitTimeDot = rand() % 10;
+	m_fSpawnWaitTimeOut = (_float)iRandomWaitTime + ((_float)iRandomWaitTimeDot * 0.1f);
+
+	return iRandomPos;
 }
 
 _float4 CEnemy::GetPosition()
@@ -253,7 +275,7 @@ HRESULT CEnemy::AddComponents()
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 1.f, 0.f);
-	collDesc.vExtents = _float3(1.f, 2.f, 1.f);
+	collDesc.vExtents = _float3(1.5f, 2.f, 1.5f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"), TEXT("com_collider"), (CComponent**)&collider, &collDesc));
@@ -559,7 +581,7 @@ _bool CEnemy::Hit(_double TimeDelta)
 	else
 	{
 		if (m_iRandomHitAnim == 0)
-			model->Setup_Animation((_uint)CLIP_TWO::HIT1, CAnimation::TYPE::ONE, true);
+			model->Setup_Animation((_uint)CLIP_TWO::HIT2, CAnimation::TYPE::ONE, true);
 		else if (m_iRandomHitAnim == 1)
 			model->Setup_Animation((_uint)CLIP_TWO::HIT2, CAnimation::TYPE::ONE, true);
 	}
@@ -582,11 +604,14 @@ void CEnemy::RecvDamage(_float fDamage)
 	CApplicationManager::GetInstance()->SetHitFreeze(true);
 
 	int iRandom = rand() % 100;
-	if (iRandom < 10)
+	if (iRandom < 30)
 	{
 		int iRandom = rand() % 3;
 		pSkillSystem->PushSkill(m_pDevice, m_pContext, (CSkillBase::TYPE)iRandom);
 	}
+
+	//if (IsAirbone())
+	//	AirboneReset();
 
 	//m_pPlayer->AddCombo();
 	//m_pPlayer->ResetComboTime();
@@ -634,7 +659,7 @@ void CEnemy::NuckBack(_double TimeDelta)
 
 	_vector vPos;
 	vPos = vCurrentPos + (vDir) * m_fNuckbackPower;
-	vCurrentPos = XMVectorLerp(vCurrentPos, vPos, TimeDelta * 0.8);
+	vCurrentPos = XMVectorLerp(vCurrentPos, vPos, TimeDelta * 0.8f);
 	transform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
 
 }
@@ -704,6 +729,20 @@ void CEnemy::Airborne(_double TimeDelta)
 
 }
 
+void CEnemy::AirboneReset()
+{
+	if (m_eType == TYPE::HUMANOID)
+	{
+		if (model->AnimationCompare((_uint)CLIP::HITDOWN))
+			model->AnimationReset();
+	}
+	else
+	{
+		if (model->AnimationCompare((_uint)CLIP_TWO::HITDOWN))
+			model->AnimationReset();
+	}
+}
+
 void CEnemy::Holding(_double TimeDleta)
 {
 	
@@ -771,6 +810,33 @@ _vector CEnemy::GetRootBonePosition()
 
 void CEnemy::AnimationState(_double TimeDelta)
 {
+	//스폰됬을떄 대기
+	if (m_bSpawnWait)
+	{
+		if (m_bHit || m_bAirHit || m_bHolding)
+		{
+			m_fSpawnWaitAcc = 0.f;
+			m_bSpawnWait = false;
+		}
+
+		if (m_eType == TYPE::HUMANOID)
+			model->Setup_Animation((_uint)CLIP::STAND, CAnimation::TYPE::LOOP, true);
+		else
+			model->Setup_Animation((_uint)CLIP_TWO::STAND2, CAnimation::TYPE::LOOP, true);
+
+		m_fSpawnWaitAcc += TimeDelta;
+
+		if (m_fSpawnWaitAcc >= m_fSpawnWaitTimeOut)
+		{
+			m_bSpawnWait = false;
+			m_fSpawnWaitAcc = 0.f;
+		}
+
+		return;
+	}
+
+
+
 	if (m_bAirHit)
 	{
 		Airborne(TimeDelta);
@@ -778,6 +844,7 @@ void CEnemy::AnimationState(_double TimeDelta)
 	else if (m_bHit)
 	{
 		Hit(TimeDelta);
+		NuckBack(TimeDelta);
 	}
 	else if (m_bHolding)
 	{
@@ -898,14 +965,9 @@ void CEnemy::AnimationState(_double TimeDelta)
 					}
 				}
 
-				if (model->AnimationIsPreFinish())
-				{
-					m_bAttackCollision = false;
-					m_pWeaponCollider->SetActive(false);
-				}
-
 				if (model->AnimationIsFinishEx())
 				{
+					m_bAttack = false;
 					m_bAttackOneCall = false;
 					m_bAttackCollision = false;
 					m_pWeaponCollider->SetActive(false);
@@ -917,7 +979,8 @@ void CEnemy::AnimationState(_double TimeDelta)
 		}
 	}
  
-	if(!m_bAttackCollision)
+	//공격중이 아닌데 켜져있으면 끄자 && 초산 공간일떄도 
+	if(m_pAppManager->IsFreeze() || (!m_bAttack && m_pWeaponCollider->IsActive()))
 		m_pWeaponCollider->SetActive(false);
 
 	if (m_bNuckback)
@@ -1025,11 +1088,17 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 
 			if (m_bHit)
 			{
-				if(model->AnimationCompare((_uint)CLIP::HIT1) || 
-					model->AnimationCompare((_uint)CLIP::HIT2) || 
-					model->AnimationCompare((_uint)CLIP_TWO::HIT1) || 
+				if (model->AnimationCompare((_uint)CLIP::HIT1) ||
+					model->AnimationCompare((_uint)CLIP::HIT2) ||
+					model->AnimationCompare((_uint)CLIP_TWO::HIT1) ||
 					model->AnimationCompare((_uint)CLIP_TWO::HIT2))
-				model->AnimationReset();
+				{
+					//탑승한애는 애니메이션 리셋시 너무 떨려서 이렇게 처리해놓음
+					if (m_eType == TYPE::ANIMAL)
+						model->Setup_Animation((_uint)CLIP_TWO::HIT2, CAnimation::TYPE::ONE, true);
+					else
+						model->AnimationReset();
+				}
 			}
 
 			m_bHit = true;
@@ -1057,7 +1126,7 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 			{
 				pPlayer->LookPos(transform->Get_State(CTransform::STATE_POSITION));
 				pPlayer->Hit();
-				pPlayer->RecvDamage(10.f);
+				pPlayer->RecvDamage(25.f);
 			}
 		}
 	}
@@ -1085,4 +1154,16 @@ void CEnemy::OnCollisionExit(CCollider * src, CCollider * dest)
 	//	pEnemy->SetOverlap(false, _float3());
 	//	pAotherEnemy->SetOverlap(false, _float3());
 	//}
+}
+
+_float CEnemy::GetLengthFromCamera()
+{
+	CPipeLine* pPipeLine = CPipeLine::GetInstance();
+
+	_vector vPos = transform->Get_State(CTransform::STATE_POSITION);
+	_vector vCamPos = XMLoadFloat4(&pPipeLine->Get_CamPosition());
+
+	_float fLength = XMVectorGetX(XMVector3Length(vPos - vCamPos));
+
+	return fLength;
 }

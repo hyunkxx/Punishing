@@ -39,7 +39,7 @@ HRESULT CSkillBase::Initialize(void * pArg)
 	m_fWidth = 60.f;
 	m_fHeight = 60.f;
 	m_fX = g_iWinSizeX >> 1;
-	m_fY = g_iWinSizeY - 100.f;
+	m_fY = g_iWinSizeY - 60.f;
 
 	m_fGoalX = m_fX;
 
@@ -184,14 +184,6 @@ HRESULT CSkillBase::Render()
 
 void CSkillBase::RenderGUI()
 {
-	ImGui::Begin("Skill");
-	string index = "index " + to_string(m_iIndex);
-
-	int random = rand() % 10;
-	string pos = "pos X " + to_string(random);
-	//ImGui::Text(index.c_str());
-	ImGui::Text(pos.c_str());
-	ImGui::End();
 }
 
 void CSkillBase::SetIndex(_uint iIndex)

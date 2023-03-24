@@ -39,6 +39,7 @@ public:
 	_bool IsDestroy() { return m_eState == STATE::DESTROY; }
 
 public:
+	virtual _float GetLengthFromCamera() { return 0.f; };
 	virtual CGameObject* Clone(void* pArg = nullptr) = 0;
 	virtual void Free() override;
 

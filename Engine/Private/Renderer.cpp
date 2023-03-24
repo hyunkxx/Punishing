@@ -1,6 +1,6 @@
 #include "..\Public\Renderer.h"
 #include "GameObject.h"
-
+#include "IAlphaSortable.h"
 
 CRenderer::CRenderer(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CComponent(pDevice, pContext)
@@ -25,17 +25,36 @@ HRESULT CRenderer::Add_RenderGroup(RENDER_GROUP eRenderGroup, CGameObject* pGame
 
 void CRenderer::Draw()
 {
-	for (auto& RenderList : m_RenderObject)
+	//for (auto& RenderList : m_RenderObject)
+	for (int i = 0; i < RENDER_END; ++i)
 	{
-		for (auto& pGameObject : RenderList)
+		if (i == RENDER_ALPHABLEND)
+			ZSort();
+
+		for (auto& pGameObject : m_RenderObject[i])
 		{
 			if (nullptr != pGameObject)
 				pGameObject->Render();
 
 			Safe_Release(pGameObject);
 		}
-		RenderList.clear();
+		m_RenderObject[i].clear();
 	}
+}
+
+bool Compute(Engine::CGameObject* pSourObject, Engine::CGameObject* pDestObject)
+{
+	_float fSourLength = pSourObject->GetLengthFromCamera();
+	_float fDestLength = pDestObject->GetLengthFromCamera();
+
+	return fSourLength > fDestLength;
+}
+
+void CRenderer::ZSort()
+{
+	//for (auto& pGameObject : m_RenderObject[RENDER_ALPHABLEND])
+	//sort(m_RenderObject[RENDER_ALPHABLEND].begin(), m_RenderObject[RENDER_ALPHABLEND].end());
+	m_RenderObject[RENDER_ALPHABLEND].sort(Compute);
 }
 
 CRenderer* CRenderer::Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)

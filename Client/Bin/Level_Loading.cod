@@ -2470,7 +2470,6 @@ EXTRN	__imp__invalid_parameter:PROC
 EXTRN	memcpy:PROC
 EXTRN	__imp_memmove:PROC
 EXTRN	__imp_wcslen:PROC
-EXTRN	__imp_GetKeyState:PROC
 EXTRN	__imp_MessageBoxW:PROC
 EXTRN	__imp_??0_Lockit@std@@QEAA@H@Z:PROC
 EXTRN	__imp_??1_Lockit@std@@QEAA@XZ:PROC
@@ -2494,6 +2493,7 @@ EXTRN	__imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V
 EXTRN	?Create@CLoader@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@2@@Z:PROC ; Client::CLoader::Create
 EXTRN	?Create@CLevel_Logo@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z:PROC ; Client::CLevel_Logo::Create
 EXTRN	?Create@CLevel_GamePlay@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z:PROC ; Client::CLevel_GamePlay::Create
+EXTRN	?Create@CLevel_BossRoom@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z:PROC ; Client::CLevel_BossRoom::Create
 EXTRN	?Initialize@CLevel@Engine@@UEAAJXZ:PROC		; Engine::CLevel::Initialize
 EXTRN	?RenderLevelUI@CLevel@Engine@@UEAAXXZ:PROC	; Engine::CLevel::RenderLevelUI
 EXTRN	_CxxThrowException:PROC
@@ -3024,8 +3024,8 @@ $pdata$?Initialize@CLevel_Loading@Client@@UEAAJW4LEVEL_ID@2@@Z DD imagerel $LN6
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Tick@CLevel_Loading@Client@@UEAAXN@Z DD imagerel $LN14
-	DD	imagerel $LN14+518
+$pdata$?Tick@CLevel_Loading@Client@@UEAAXN@Z DD imagerel $LN15
+	DD	imagerel $LN15+535
 	DD	imagerel $unwind$?Tick@CLevel_Loading@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -3476,7 +3476,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CLevel_Loading@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CLevel_Loading@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA DD 045H ; `Client::CLevel_Loading::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CLevel_Loading@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA DD 04aH ; `Client::CLevel_Loading::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1BC@JNAAFLEP@?$AAL?$AAO?$AAA?$AAD?$AAI?$AAN?$AAG?$AA?5?$AA?$AA@
 CONST	SEGMENT
@@ -4129,13 +4129,13 @@ xdata	ENDS
 xdata	SEGMENT
 $ip2state$?Tick@CLevel_Loading@Client@@UEAAXN@Z DD imagerel ?Tick@CLevel_Loading@Client@@UEAAXN@Z
 	DD	0ffffffffH
-	DD	imagerel ?Tick@CLevel_Loading@Client@@UEAAXN@Z+342
+	DD	imagerel ?Tick@CLevel_Loading@Client@@UEAAXN@Z+359
 	DD	00H
-	DD	imagerel ?Tick@CLevel_Loading@Client@@UEAAXN@Z+400
+	DD	imagerel ?Tick@CLevel_Loading@Client@@UEAAXN@Z+417
 	DD	01H
-	DD	imagerel ?Tick@CLevel_Loading@Client@@UEAAXN@Z+455
+	DD	imagerel ?Tick@CLevel_Loading@Client@@UEAAXN@Z+472
 	DD	00H
-	DD	imagerel ?Tick@CLevel_Loading@Client@@UEAAXN@Z+468
+	DD	imagerel ?Tick@CLevel_Loading@Client@@UEAAXN@Z+485
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -7069,7 +7069,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CLevel_Loading@Client@@UEAAXXZ PROC		; Client::CLevel_Loading::Free, COMDAT
 
-; 83   : {
+; 88   : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7085,14 +7085,14 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 84   : 	__super::Free();
+; 89   : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CLevel@Engine@@UEAAXXZ
 
-; 85   : 	Safe_Release(m_pLoader);
+; 90   : 	Safe_Release(m_pLoader);
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7100,7 +7100,7 @@ $LN3:
   00042	48 8b c8	 mov	 rcx, rax
   00045	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCLoader@Client@@@Engine@@YAKAEAPEAVCLoader@Client@@@Z ; Engine::Safe_Release<Client::CLoader * __ptr64>
 
-; 86   : }
+; 91   : }
 
   0004a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -7125,7 +7125,7 @@ pContext$ = 440
 eNextLevel$ = 448
 ?Create@CLevel_Loading@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@2@@Z PROC ; Client::CLevel_Loading::Create, COMDAT
 
-; 69   : {
+; 74   : {
 
 $LN8:
   00000	44 89 44 24 18	 mov	 DWORD PTR [rsp+24], r8d
@@ -7151,7 +7151,7 @@ $LN8:
   00049	48 89 85 80 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 70   : 	CLevel_Loading* pInstance = new CLevel_Loading(pDevice, pContext);
+; 75   : 	CLevel_Loading* pInstance = new CLevel_Loading(pDevice, pContext);
 
   00050	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CLevel_Loading@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA
@@ -7190,8 +7190,8 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T6[rbp]
   000c5	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 71   : 
-; 72   : 	if (FAILED(pInstance->Initialize(eNextLevel)))
+; 76   : 
+; 77   : 	if (FAILED(pInstance->Initialize(eNextLevel)))
 
   000c9	8b 95 c0 01 00
 	00		 mov	 edx, DWORD PTR eNextLevel$[rbp]
@@ -7200,8 +7200,8 @@ $LN5@Create:
   000d8	85 c0		 test	 eax, eax
   000da	7d 42		 jge	 SHORT $LN2@Create
 
-; 73   : 	{
-; 74   : 		wstring message = L"Failed to Create : CLevel_Loading";
+; 78   : 	{
+; 79   : 		wstring message = L"Failed to Create : CLevel_Loading";
 
   000dc	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1EE@GAAMNEHP@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAe?$AAv?$AAe?$AAl?$AA_?$AAL?$AAo?$AAa?$AAd?$AAi?$AAn@
@@ -7209,7 +7209,7 @@ $LN5@Create:
   000e7	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   000ec	90		 npad	 1
 
-; 75   : 		MESSAGE(message);
+; 80   : 		MESSAGE(message);
 
   000ed	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000f1	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -7221,24 +7221,24 @@ $LN5@Create:
   00105	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 76   : 		Safe_Release(pInstance);
+; 81   : 		Safe_Release(pInstance);
 
   0010b	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   0010f	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCLevel_Loading@Client@@@Engine@@YAKAEAPEAVCLevel_Loading@Client@@@Z ; Engine::Safe_Release<Client::CLevel_Loading * __ptr64>
   00114	90		 npad	 1
 
-; 77   : 	}
+; 82   : 	}
 
   00115	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   00119	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN2@Create:
 
-; 78   : 
-; 79   : 	return pInstance;
+; 83   : 
+; 84   : 	return pInstance;
 
   0011e	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 80   : }
+; 85   : }
 
   00122	48 8b f8	 mov	 rdi, rax
   00125	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -7390,18 +7390,18 @@ $T6 = 360
 $T7 = 424
 $T8 = 456
 $T9 = 520
-tv78 = 532
-tv156 = 536
-tv164 = 544
-tv183 = 552
+tv73 = 532
+tv169 = 536
+tv177 = 544
+tv196 = 552
 __$ArrayPad$ = 560
 this$ = 608
 TimeDelta$ = 616
 ?Tick@CLevel_Loading@Client@@UEAAXN@Z PROC		; Client::CLevel_Loading::Tick, COMDAT
 
-; 33   : {
+; 35   : {
 
-$LN14:
+$LN15:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7425,20 +7425,20 @@ $LN14:
   00045	48 89 85 30 02
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 34   : 	if (nullptr == m_pLoader)
+; 36   : 	if (nullptr == m_pLoader)
 
   0004c	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00053	48 83 78 28 00	 cmp	 QWORD PTR [rax+40], 0
   00058	75 05		 jne	 SHORT $LN4@Tick
 
-; 35   : 		return;
+; 37   : 		return;
 
-  0005a	e9 7e 01 00 00	 jmp	 $LN1@Tick
+  0005a	e9 8f 01 00 00	 jmp	 $LN1@Tick
 $LN4@Tick:
 
-; 36   : 
-; 37   : 	if (true == m_pLoader->IsFinished() && GetKeyState(VK_RETURN) & 0x8000)
+; 38   : 
+; 39   : 	if (true == m_pLoader->IsFinished())
 
   0005f	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7446,187 +7446,199 @@ $LN4@Tick:
   0006a	e8 00 00 00 00	 call	 ?IsFinished@CLoader@Client@@QEBA_NXZ ; Client::CLoader::IsFinished
   0006f	0f b6 c0	 movzx	 eax, al
   00072	83 f8 01	 cmp	 eax, 1
-  00075	0f 85 c1 00 00
+  00075	0f 85 d2 00 00
 	00		 jne	 $LN5@Tick
-  0007b	b9 0d 00 00 00	 mov	 ecx, 13
-  00080	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_GetKeyState
-  00086	98		 cwde
-  00087	25 00 80 00 00	 and	 eax, 32768		; 00008000H
-  0008c	85 c0		 test	 eax, eax
-  0008e	0f 84 a8 00 00
-	00		 je	 $LN5@Tick
 
-; 38   : 	{
-; 39   : 		CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 40   : 	{
+; 41   : 		CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-  00094	ff 15 00 00 00
+  0007b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
-  0009a	48 89 45 08	 mov	 QWORD PTR pGameInstance$4[rbp], rax
+  00081	48 89 45 08	 mov	 QWORD PTR pGameInstance$4[rbp], rax
 
-; 40   : 		CLevel*	pLevel = { nullptr };
+; 42   : 		CLevel*	pLevel = { nullptr };
 
-  0009e	48 c7 45 28 00
+  00085	48 c7 45 28 00
 	00 00 00	 mov	 QWORD PTR pLevel$5[rbp], 0
 
-; 41   : 
-; 42   : 		switch (m_eNextLevel)
+; 43   : 
+; 44   : 		switch (m_eNextLevel)
 
-  000a6	48 8b 85 60 02
+  0008d	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000ad	8b 40 20	 mov	 eax, DWORD PTR [rax+32]
-  000b0	89 85 14 02 00
-	00		 mov	 DWORD PTR tv78[rbp], eax
-  000b6	83 bd 14 02 00
-	00 02		 cmp	 DWORD PTR tv78[rbp], 2
-  000bd	74 0b		 je	 SHORT $LN6@Tick
-  000bf	83 bd 14 02 00
-	00 03		 cmp	 DWORD PTR tv78[rbp], 3
-  000c6	74 23		 je	 SHORT $LN7@Tick
-  000c8	eb 40		 jmp	 SHORT $LN2@Tick
+  00094	8b 40 20	 mov	 eax, DWORD PTR [rax+32]
+  00097	89 85 14 02 00
+	00		 mov	 DWORD PTR tv73[rbp], eax
+  0009d	83 bd 14 02 00
+	00 02		 cmp	 DWORD PTR tv73[rbp], 2
+  000a4	74 14		 je	 SHORT $LN6@Tick
+  000a6	83 bd 14 02 00
+	00 03		 cmp	 DWORD PTR tv73[rbp], 3
+  000ad	74 2c		 je	 SHORT $LN7@Tick
+  000af	83 bd 14 02 00
+	00 04		 cmp	 DWORD PTR tv73[rbp], 4
+  000b6	74 44		 je	 SHORT $LN8@Tick
+  000b8	eb 61		 jmp	 SHORT $LN2@Tick
 $LN6@Tick:
 
-; 43   : 		{
-; 44   : 		case LEVEL_LOGO:
-; 45   : 			pLevel = CLevel_Logo::Create(m_pDevice, m_pContext);
+; 45   : 		{
+; 46   : 		case LEVEL_LOGO:
+; 47   : 			pLevel = CLevel_Logo::Create(m_pDevice, m_pContext);
 
-  000ca	48 8b 85 60 02
+  000ba	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000d1	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
-  000d5	48 8b 85 60 02
+  000c1	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  000c5	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000dc	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
-  000e0	e8 00 00 00 00	 call	 ?Create@CLevel_Logo@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CLevel_Logo::Create
-  000e5	48 89 45 28	 mov	 QWORD PTR pLevel$5[rbp], rax
+  000cc	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  000d0	e8 00 00 00 00	 call	 ?Create@CLevel_Logo@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CLevel_Logo::Create
+  000d5	48 89 45 28	 mov	 QWORD PTR pLevel$5[rbp], rax
 
-; 46   : 			break;
+; 48   : 			break;
 
-  000e9	eb 1f		 jmp	 SHORT $LN2@Tick
+  000d9	eb 40		 jmp	 SHORT $LN2@Tick
 $LN7@Tick:
 
-; 47   : 		case LEVEL_GAMEPLAY:
-; 48   : 			pLevel = CLevel_GamePlay::Create(m_pDevice, m_pContext);
+; 49   : 		case LEVEL_GAMEPLAY:
+; 50   :  			pLevel = CLevel_GamePlay::Create(m_pDevice, m_pContext);
 
-  000eb	48 8b 85 60 02
+  000db	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000f2	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
-  000f6	48 8b 85 60 02
+  000e2	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  000e6	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000fd	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
-  00101	e8 00 00 00 00	 call	 ?Create@CLevel_GamePlay@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CLevel_GamePlay::Create
-  00106	48 89 45 28	 mov	 QWORD PTR pLevel$5[rbp], rax
-$LN2@Tick:
+  000ed	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  000f1	e8 00 00 00 00	 call	 ?Create@CLevel_GamePlay@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CLevel_GamePlay::Create
+  000f6	48 89 45 28	 mov	 QWORD PTR pLevel$5[rbp], rax
 
-; 49   : 			break;
-; 50   : 		}
-; 51   : 
-; 52   : 		if (nullptr == pLevel)
+; 51   : 			break;
 
-  0010a	48 83 7d 28 00	 cmp	 QWORD PTR pLevel$5[rbp], 0
-  0010f	75 05		 jne	 SHORT $LN8@Tick
-
-; 53   : 			return;
-
-  00111	e9 c7 00 00 00	 jmp	 $LN1@Tick
+  000fa	eb 1f		 jmp	 SHORT $LN2@Tick
 $LN8@Tick:
 
-; 54   : 
-; 55   : 		if (FAILED(pGameInstance->Open_Level(m_eNextLevel, pLevel)))
+; 52   : 		case LEVEL_BOSS:
+; 53   : 			pLevel = CLevel_BossRoom::Create(m_pDevice, m_pContext);
 
-  00116	4c 8b 45 28	 mov	 r8, QWORD PTR pLevel$5[rbp]
-  0011a	48 8b 85 60 02
+  000fc	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00121	8b 50 20	 mov	 edx, DWORD PTR [rax+32]
-  00124	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$4[rbp]
-  00128	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Open_Level@CGameInstance@Engine@@QEAAJIPEAVCLevel@2@@Z
-  0012e	85 c0		 test	 eax, eax
-  00130	7d 05		 jge	 SHORT $LN9@Tick
+  00103	48 8b 50 18	 mov	 rdx, QWORD PTR [rax+24]
+  00107	48 8b 85 60 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0010e	48 8b 48 10	 mov	 rcx, QWORD PTR [rax+16]
+  00112	e8 00 00 00 00	 call	 ?Create@CLevel_BossRoom@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CLevel_BossRoom::Create
+  00117	48 89 45 28	 mov	 QWORD PTR pLevel$5[rbp], rax
+$LN2@Tick:
 
-; 56   : 			return;
+; 54   : 			break;
+; 55   : 		}
+; 56   : 
+; 57   : 		if (nullptr == pLevel)
 
-  00132	e9 a6 00 00 00	 jmp	 $LN1@Tick
+  0011b	48 83 7d 28 00	 cmp	 QWORD PTR pLevel$5[rbp], 0
+  00120	75 05		 jne	 SHORT $LN9@Tick
+
+; 58   : 			return;
+
+  00122	e9 c7 00 00 00	 jmp	 $LN1@Tick
 $LN9@Tick:
 
-; 57   : 
-; 58   : 		return;
+; 59   : 
+; 60   : 		if (FAILED(pGameInstance->Open_Level(m_eNextLevel, pLevel)))
 
-  00137	e9 a1 00 00 00	 jmp	 $LN1@Tick
+  00127	4c 8b 45 28	 mov	 r8, QWORD PTR pLevel$5[rbp]
+  0012b	48 8b 85 60 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00132	8b 50 20	 mov	 edx, DWORD PTR [rax+32]
+  00135	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$4[rbp]
+  00139	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Open_Level@CGameInstance@Engine@@QEAAJIPEAVCLevel@2@@Z
+  0013f	85 c0		 test	 eax, eax
+  00141	7d 05		 jge	 SHORT $LN10@Tick
+
+; 61   : 			return;
+
+  00143	e9 a6 00 00 00	 jmp	 $LN1@Tick
+$LN10@Tick:
+
+; 62   : 
+; 63   : 		return;
+
+  00148	e9 a1 00 00 00	 jmp	 $LN1@Tick
 $LN5@Tick:
 
-; 59   : 	}
-; 60   : 
-; 61   : #ifdef _DEBUG
-; 62   : 	CApplicationManager* pApplicationManager = CApplicationManager::GetInstance();
+; 64   : 	}
+; 65   : 
+; 66   : #ifdef _DEBUG
+; 67   : 	CApplicationManager* pApplicationManager = CApplicationManager::GetInstance();
 
-  0013c	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
-  00141	48 89 45 48	 mov	 QWORD PTR pApplicationManager$[rbp], rax
+  0014d	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
+  00152	48 89 45 48	 mov	 QWORD PTR pApplicationManager$[rbp], rax
 
-; 63   : 	wstring strTitleText = L"LOADING ";
+; 68   : 	wstring strTitleText = L"LOADING ";
 
-  00145	48 8d 15 00 00
+  00156	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BC@JNAAFLEP@?$AAL?$AAO?$AAA?$AAD?$AAI?$AAN?$AAG?$AA?5?$AA?$AA@
-  0014c	48 8d 4d 68	 lea	 rcx, QWORD PTR strTitleText$[rbp]
-  00150	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
-  00155	90		 npad	 1
+  0015d	48 8d 4d 68	 lea	 rcx, QWORD PTR strTitleText$[rbp]
+  00161	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  00166	90		 npad	 1
 
-; 64   : 	pApplicationManager->SetTitle(strTitleText.append(m_pLoader->GetLoadingStateText()));
+; 69   : 	pApplicationManager->SetTitle(strTitleText.append(m_pLoader->GetLoadingStateText()));
 
-  00156	48 8d 85 68 01
+  00167	48 8d 85 68 01
 	00 00		 lea	 rax, QWORD PTR $T6[rbp]
-  0015d	48 89 85 a8 01
+  0016e	48 89 85 a8 01
 	00 00		 mov	 QWORD PTR $T7[rbp], rax
-  00164	48 8d 95 c8 01
+  00175	48 8d 95 c8 01
 	00 00		 lea	 rdx, QWORD PTR $T8[rbp]
-  0016b	48 8b 85 60 02
+  0017c	48 8b 85 60 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00172	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
-  00176	e8 00 00 00 00	 call	 ?GetLoadingStateText@CLoader@Client@@QEBA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@XZ ; Client::CLoader::GetLoadingStateText
-  0017b	48 89 85 18 02
-	00 00		 mov	 QWORD PTR tv156[rbp], rax
-  00182	48 8b 85 18 02
-	00 00		 mov	 rax, QWORD PTR tv156[rbp]
-  00189	48 89 85 20 02
-	00 00		 mov	 QWORD PTR tv164[rbp], rax
-  00190	48 8b 95 20 02
-	00 00		 mov	 rdx, QWORD PTR tv164[rbp]
-  00197	48 8d 4d 68	 lea	 rcx, QWORD PTR strTitleText$[rbp]
-  0019b	e8 00 00 00 00	 call	 ?append@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@AEBV12@@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::append
-  001a0	48 8b d0	 mov	 rdx, rax
-  001a3	48 8b 8d a8 01
+  00183	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
+  00187	e8 00 00 00 00	 call	 ?GetLoadingStateText@CLoader@Client@@QEBA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@XZ ; Client::CLoader::GetLoadingStateText
+  0018c	48 89 85 18 02
+	00 00		 mov	 QWORD PTR tv169[rbp], rax
+  00193	48 8b 85 18 02
+	00 00		 mov	 rax, QWORD PTR tv169[rbp]
+  0019a	48 89 85 20 02
+	00 00		 mov	 QWORD PTR tv177[rbp], rax
+  001a1	48 8b 95 20 02
+	00 00		 mov	 rdx, QWORD PTR tv177[rbp]
+  001a8	48 8d 4d 68	 lea	 rcx, QWORD PTR strTitleText$[rbp]
+  001ac	e8 00 00 00 00	 call	 ?append@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@AEBV12@@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::append
+  001b1	48 8b d0	 mov	 rdx, rax
+  001b4	48 8b 8d a8 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
-  001aa	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@AEBV01@@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
-  001af	48 89 85 28 02
-	00 00		 mov	 QWORD PTR tv183[rbp], rax
-  001b6	48 8b 95 28 02
-	00 00		 mov	 rdx, QWORD PTR tv183[rbp]
-  001bd	48 8b 4d 48	 mov	 rcx, QWORD PTR pApplicationManager$[rbp]
-  001c1	e8 00 00 00 00	 call	 ?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ; Client::CApplicationManager::SetTitle
-  001c6	90		 npad	 1
-  001c7	48 8d 8d c8 01
+  001bb	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@AEBV01@@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  001c0	48 89 85 28 02
+	00 00		 mov	 QWORD PTR tv196[rbp], rax
+  001c7	48 8b 95 28 02
+	00 00		 mov	 rdx, QWORD PTR tv196[rbp]
+  001ce	48 8b 4d 48	 mov	 rcx, QWORD PTR pApplicationManager$[rbp]
+  001d2	e8 00 00 00 00	 call	 ?SetTitle@CApplicationManager@Client@@QEAAXV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ; Client::CApplicationManager::SetTitle
+  001d7	90		 npad	 1
+  001d8	48 8d 8d c8 01
 	00 00		 lea	 rcx, QWORD PTR $T8[rbp]
-  001ce	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
-  001d3	90		 npad	 1
+  001df	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  001e4	90		 npad	 1
 
-; 65   : #endif
-; 66   : }
+; 70   : #endif
+; 71   : }
 
-  001d4	48 8d 4d 68	 lea	 rcx, QWORD PTR strTitleText$[rbp]
-  001d8	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  001e5	48 8d 4d 68	 lea	 rcx, QWORD PTR strTitleText$[rbp]
+  001e9	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN1@Tick:
-  001dd	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  001e1	48 8d 15 00 00
+  001ee	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  001f2	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?Tick@CLevel_Loading@Client@@UEAAXN@Z$rtcFrameData
-  001e8	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  001ed	48 8b 8d 30 02
+  001f9	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  001fe	48 8b 8d 30 02
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  001f4	48 33 cd	 xor	 rcx, rbp
-  001f7	e8 00 00 00 00	 call	 __security_check_cookie
-  001fc	48 8d a5 48 02
+  00205	48 33 cd	 xor	 rcx, rbp
+  00208	e8 00 00 00 00	 call	 __security_check_cookie
+  0020d	48 8d a5 48 02
 	00 00		 lea	 rsp, QWORD PTR [rbp+584]
-  00203	5f		 pop	 rdi
-  00204	5d		 pop	 rbp
-  00205	c3		 ret	 0
+  00214	5f		 pop	 rdi
+  00215	5d		 pop	 rbp
+  00216	c3		 ret	 0
 ?Tick@CLevel_Loading@Client@@UEAAXN@Z ENDP		; Client::CLevel_Loading::Tick
 _TEXT	ENDS
 ;	COMDAT text$x
@@ -7639,10 +7651,10 @@ $T6 = 360
 $T7 = 424
 $T8 = 456
 $T9 = 520
-tv78 = 532
-tv156 = 536
-tv164 = 544
-tv183 = 552
+tv73 = 532
+tv169 = 536
+tv177 = 544
+tv196 = 552
 __$ArrayPad$ = 560
 this$ = 608
 TimeDelta$ = 616
@@ -7668,10 +7680,10 @@ $T6 = 360
 $T7 = 424
 $T8 = 456
 $T9 = 520
-tv78 = 532
-tv156 = 536
-tv164 = 544
-tv183 = 552
+tv73 = 532
+tv169 = 536
+tv177 = 544
+tv196 = 552
 __$ArrayPad$ = 560
 this$ = 608
 TimeDelta$ = 616
@@ -7702,10 +7714,10 @@ $T6 = 360
 $T7 = 424
 $T8 = 456
 $T9 = 520
-tv78 = 532
-tv156 = 536
-tv164 = 544
-tv183 = 552
+tv73 = 532
+tv169 = 536
+tv177 = 544
+tv196 = 552
 __$ArrayPad$ = 560
 this$ = 608
 TimeDelta$ = 616
@@ -7735,10 +7747,10 @@ $T6 = 360
 $T7 = 424
 $T8 = 456
 $T9 = 520
-tv78 = 532
-tv156 = 536
-tv164 = 544
-tv183 = 552
+tv73 = 532
+tv169 = 536
+tv177 = 544
+tv196 = 552
 __$ArrayPad$ = 560
 this$ = 608
 TimeDelta$ = 616
@@ -7770,7 +7782,7 @@ this$ = 352
 eNextLevel$ = 360
 ?Initialize@CLevel_Loading@Client@@UEAAJW4LEVEL_ID@2@@Z PROC ; Client::CLevel_Loading::Initialize, COMDAT
 
-; 18   : {
+; 19   : {
 
 $LN6:
   00000	89 54 24 10	 mov	 DWORD PTR [rsp+16], edx
@@ -7787,7 +7799,7 @@ $LN6:
   00026	48 8b 8c 24 98
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+408]
 
-; 19   : 	m_eNextLevel = eNextLevel;
+; 20   : 	m_eNextLevel = eNextLevel;
 
   0002e	48 8b 85 60 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7795,8 +7807,8 @@ $LN6:
 	00		 mov	 ecx, DWORD PTR eNextLevel$[rbp]
   0003b	89 48 20	 mov	 DWORD PTR [rax+32], ecx
 
-; 20   : 
-; 21   : 	m_pLoader = CLoader::Create(m_pDevice, m_pContext, m_eNextLevel);
+; 21   : 
+; 22   : 	m_pLoader = CLoader::Create(m_pDevice, m_pContext, m_eNextLevel);
 
   0003e	48 8b 85 60 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7812,27 +7824,28 @@ $LN6:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0006b	48 89 41 28	 mov	 QWORD PTR [rcx+40], rax
 
-; 22   : 	if (nullptr == m_pLoader)
+; 23   : 	if (nullptr == m_pLoader)
 
   0006f	48 8b 85 60 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00076	48 83 78 28 00	 cmp	 QWORD PTR [rax+40], 0
   0007b	75 07		 jne	 SHORT $LN2@Initialize
 
-; 23   : 		return E_FAIL;
+; 24   : 		return E_FAIL;
 
   0007d	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00082	eb 72		 jmp	 SHORT $LN1@Initialize
 $LN2@Initialize:
 
-; 24   : 
-; 25   : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 25   : 
+; 26   : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00084	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0008a	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 26   : 	if(nullptr == pGameInstance->Add_GameObject(LEVEL_LOADING, TEXT("proto_obj_background"), L"Layer_Background", L"background"))
+; 27   : 
+; 28   : 	if (nullptr == pGameInstance->Add_GameObject(LEVEL_LOADING, TEXT("proto_obj_background"), L"Layer_Background", L"background"))
 
   0008e	48 8d 85 e8 00
 	00 00		 lea	 rax, QWORD PTR $T1[rbp]
@@ -7861,19 +7874,19 @@ $LN2@Initialize:
   000e8	48 85 c0	 test	 rax, rax
   000eb	75 07		 jne	 SHORT $LN3@Initialize
 
-; 27   : 		return E_FAIL;
+; 29   : 		return E_FAIL;
 
   000ed	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000f2	eb 02		 jmp	 SHORT $LN1@Initialize
 $LN3@Initialize:
 
-; 28   : 
-; 29   : 	return S_OK;
+; 30   : 
+; 31   : 	return S_OK;
 
   000f4	33 c0		 xor	 eax, eax
 $LN1@Initialize:
 
-; 30   : }
+; 32   : }
 
   000f6	48 8d a5 48 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+328]
@@ -7889,7 +7902,7 @@ _TEXT	SEGMENT
 this$ = 224
 ??1CLevel_Loading@Client@@EEAA@XZ PROC			; Client::CLevel_Loading::~CLevel_Loading, COMDAT
 
-; 15   : }
+; 16   : }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7926,7 +7939,7 @@ pDevice$ = 232
 pContext$ = 240
 ??0CLevel_Loading@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CLevel_Loading::CLevel_Loading, COMDAT
 
-; 14   : {
+; 15   : {
 
 $LN4:
   00000	4c 89 44 24 18	 mov	 QWORD PTR [rsp+24], r8
@@ -7944,7 +7957,7 @@ $LN4:
   0002c	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 13   : 	: CLevel(pDevice, pContext)
+; 14   : 	: CLevel(pDevice, pContext)
 
   00034	4c 8b 85 f0 00
 	00 00		 mov	 r8, QWORD PTR pContext$[rbp]
@@ -7955,7 +7968,7 @@ $LN4:
   00049	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_??0CLevel@Engine@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 
-; 14   : {
+; 15   : {
 
   0004f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7987,7 +8000,7 @@ $LN4:
 	00 00 00	 mov	 QWORD PTR [rax+48], 0
 ; File c:\users\arcco\documents\github\framework\client\private\level_loading.cpp
 
-; 15   : }
+; 16   : }
 
   0008c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]

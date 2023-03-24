@@ -37,6 +37,12 @@ HRESULT CPlayerIcon::Initialize(void * pArg)
 	m_fX = g_iWinSizeX - 60.f;
 	m_fY = g_iWinSizeY - 120.f;
 
+	//º¯½Å ¹öÆ°
+	m_fEvolutionButtonX = m_fX - 100.f;
+	m_fEvolutionButtonY = m_fY;
+	m_fEvolutionButtonXWidth = 90.f;
+	m_fEvolutionButtonXHeight = 90.f;
+
 	//¶ô¿Â Å¸°Ù
 	m_fTargetWidth = 50.f;
 	m_fTargetHeight = 50.f;
@@ -45,7 +51,7 @@ HRESULT CPlayerIcon::Initialize(void * pArg)
 	m_fComboNumX = m_fOriginComboNumX = 150.f;
 	m_fComboNumY = g_iWinSizeY >> 1;
 	m_fComboNumWidth = NUM_SIZE_X;
-	m_fComboNumHeight = 68.f;
+	m_fComboNumHeight = 62.f;
 
 	//ÄÞº¸ ÀÌ¹ÌÁö
 	m_fComboImageWidth = 100.f;
@@ -57,8 +63,17 @@ HRESULT CPlayerIcon::Initialize(void * pArg)
 	m_fComboGageWidth = 250.f;
 	m_fComboGageHeight = 3.f;
 
+	//º¯½Å °ÔÀÌÁö
+	m_fEvolutionGageWidth = 300.f;
+	m_fEvolutionGageHeight = 40.f;
+	m_fEvolutionGageX = 300  >> 1;
+	m_fEvolutionGageY = 100.f;
+
+
+	XMStoreFloat4x4(&m_EvolutionMatrix, XMMatrixScaling(m_fEvolutionGageWidth, m_fEvolutionGageHeight, 1.f) * XMMatrixTranslation(m_fEvolutionGageX - g_iWinSizeX * 0.5f, -m_fEvolutionGageY + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_AttackMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_DashMatrix, XMMatrixScaling(m_fWidth - 10.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fX - 80.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_EvolutionButtonMatrix, XMMatrixScaling(m_fWidth - 10.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fEvolutionButtonX - 80.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
 
 	XMStoreFloat4x4(&m_ComboGageMatrix, XMMatrixScaling(m_fComboGageWidth, m_fComboGageHeight, 1.f) * XMMatrixTranslation(m_fComboGageX - g_iWinSizeX * 0.5f, -m_fComboGageY + g_iWinSizeY * 0.5f, 0.f));
 
@@ -97,14 +112,6 @@ void CPlayerIcon::LateTick(_double TimeDelta)
 
 	CGameInstance* pInstance = CGameInstance::GetInstance();
 
-	//½¦ÀÌÅ© ¿Â¿ÀÇÁ Å×½ºÆ®¿ë
-	if (pInstance->Input_KeyState_Custom(DIK_N) == KEY_STATE::TAP)
-	{
-		m_fPrevX = m_fOriginComboNumX;
-		m_fPrevY = g_iWinSizeY >> 1;
-		m_isShake = true;
-	}
-
 	if (m_isShake)
 	{
 		m_fShakeAcc += TimeDelta * 10.f;
@@ -113,15 +120,12 @@ void CPlayerIcon::LateTick(_double TimeDelta)
 		{
 			m_isShake = false;
 			m_fShakeAcc = 0.f;
+			m_fShakeX = 0.f;
+			m_fShakeY = 0.f;
 		}
-		//¸ô¶û
-		m_fComboNumX = m_fComboNumX + sin(m_fShakeAcc * 5.f) * powf(0.5f, m_fShakeAcc);
-		m_fComboNumY = m_fComboNumY + cos(m_fShakeAcc * 5.f) * powf(0.5f, m_fShakeAcc);
-	}
-	else
-	{
-		m_fComboNumX = m_fPrevX;
-		m_fComboNumY = m_fPrevY;
+
+		m_fShakeX = 4.5f * sin(m_fShakeAcc * 10.f) * powf(0.5f, m_fShakeAcc);
+		m_fShakeY = 4.5f * sin(m_fShakeAcc * 10.f) * powf(0.5f, m_fShakeAcc);
 	}
 
 	string strCombo = to_string(m_pPlayer->GetComboCount());
@@ -155,12 +159,40 @@ void CPlayerIcon::LateTick(_double TimeDelta)
 		}
 
 		for (int i = 0; i < 4; ++i)
-			XMStoreFloat4x4(&m_ComboNumberMatrix[i], XMMatrixScaling(m_fComboNumWidth, m_fComboNumHeight, 1.f) * XMMatrixTranslation(m_fComboNumX + (i * NUM_SIZE_X) - g_iWinSizeX * 0.5f, -m_fComboNumY + g_iWinSizeY * 0.5f, 0.f));
+			XMStoreFloat4x4(&m_ComboNumberMatrix[i], XMMatrixScaling(m_fComboNumWidth, m_fComboNumHeight, 1.f) * XMMatrixTranslation(m_fComboNumX + m_fShakeX + (i * NUM_SIZE_X) - g_iWinSizeX * 0.5f, -m_fComboNumY + m_fShakeY + g_iWinSizeY * 0.5f, 0.f));
 
 		m_fComboImageX = m_fOriginComboNumX + 205 + 30.f;
-		XMStoreFloat4x4(&m_ComboMatrix, XMMatrixScaling(m_fComboImageWidth, m_fComboImageHeight, 1.f) * XMMatrixTranslation(m_fComboImageX - g_iWinSizeX * 0.5f, -m_fComboNumY - 20.f + g_iWinSizeY * 0.5f, 0.f));
+		XMStoreFloat4x4(&m_ComboMatrix, XMMatrixScaling(m_fComboImageWidth, m_fComboImageHeight, 1.f) * XMMatrixTranslation(m_fComboImageX + m_fShakeX - g_iWinSizeX * 0.5f, -m_fComboNumY + m_fShakeY - 20.f + g_iWinSizeY * 0.5f, 0.f));
 
 		m_fFill = (m_fComboTimeOut - m_fComboCurTime) / m_fComboTimeOut;
+	}
+
+	_float fCurEvolutionTimeAcc = m_pPlayer->GetCurEvolutionTime();
+	_float fEvolutionTimeOut = m_pPlayer->GetEvolutionTime();
+
+	m_fEvolutionGageFill = (fEvolutionTimeOut - fCurEvolutionTimeAcc) / fEvolutionTimeOut;
+	
+	//±ôºý±ôºý
+	if (m_pPlayer->IsEvolutionReady())
+	{
+		if (m_bMaxAlpha)
+		{
+			m_fEvolutionAlpha -= TimeDelta * 2.f;
+			if (m_fEvolutionAlpha <= 0.f)
+			{
+				m_bMaxAlpha = false;
+				m_fEvolutionAlpha = 0.f;
+			}
+		}
+		else
+		{
+			m_fEvolutionAlpha += TimeDelta * 2.f;
+			if (m_fEvolutionAlpha >= 1.f)
+			{
+				m_bMaxAlpha = true;
+				m_fEvolutionAlpha = 1.f;
+			}
+		}
 	}
 
 	if (nullptr != m_pRenderer && m_bRender)
@@ -290,6 +322,55 @@ HRESULT CPlayerIcon::Render()
 		m_pComboGageBuffer->Render();
 	}
 
+	//º¯½Å °ÔÀÌÁö
+	if (m_pPlayer->IsEvolution())
+	{
+		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_EvolutionMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pEvolutionGageBackTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+			return E_FAIL;
+		if (FAILED(m_pShader->SetRawValue("g_FillAmount", &fValue, sizeof(_float))))
+			return E_FAIL;
+
+		m_pShader->Begin(0);
+		m_pEvolutionGageBuffer->Render();
+
+		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_EvolutionMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pEvolutionGageFrontTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+			return E_FAIL;
+		if (FAILED(m_pShader->SetRawValue("g_FillAmount", &m_fEvolutionGageFill, sizeof(_float))))
+			return E_FAIL;
+
+		m_pShader->Begin(0);
+		m_pEvolutionGageBuffer->Render();
+	}
+
+	if (m_pPlayer->IsEvolutionReady())
+	{
+		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_EvolutionButtonMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pBackTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+			return E_FAIL;
+		if (FAILED(m_pShader->SetRawValue("g_FillAmount", &fValue, sizeof(_float))))
+			return E_FAIL;
+
+		m_pShader->Begin(0);
+		m_pEvolutionButtonBuffer->Render();
+
+		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_EvolutionButtonMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pEvolutionButtonTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+			return E_FAIL;
+		if (FAILED(m_pShader->SetRawValue("g_FillAmount", &m_fEvolutionGageFill, sizeof(_float))))
+			return E_FAIL;
+		if (FAILED(m_pShader->SetRawValue("g_Alpha", &m_fEvolutionAlpha, sizeof(_float))))
+			return E_FAIL;
+
+		m_pShader->Begin(0);
+		m_pEvolutionButtonBuffer->Render();
+	}
+
 	return S_OK;
 }
 
@@ -406,6 +487,24 @@ HRESULT CPlayerIcon::Add_Components()
 		TEXT("com_texture_combogage"), (CComponent**)&m_pComboGageTexture)))
 		return E_FAIL;
 
+	//Evolution Gage
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		TEXT("com_buffer_evolution"), (CComponent**)&m_pEvolutionGageBuffer)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_evolution_back"),
+		TEXT("com_texture_evolution_back"), (CComponent**)&m_pEvolutionGageBackTexture)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_evolution_front"),
+		TEXT("com_texture_evolution_front"), (CComponent**)&m_pEvolutionGageFrontTexture)))
+		return E_FAIL;
+
+	//Evolution Button
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		TEXT("com_buffer_evolution_icon"), (CComponent**)&m_pEvolutionButtonBuffer)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_evolution_icon"),
+		TEXT("com_texture_evolution_icon"), (CComponent**)&m_pEvolutionButtonTexture)))
+		return E_FAIL;
 
 	//for (int i = 0; i < 10; ++i)
 	//{
@@ -484,6 +583,13 @@ void CPlayerIcon::Free()
 	Safe_Release(m_pEvolutionTexture);
 	Safe_Release(m_pTargetVIBuffer);
 	Safe_Release(m_pTargetTexture);
+
+	Safe_Release(m_pEvolutionGageBuffer);
+	Safe_Release(m_pEvolutionGageBackTexture);
+	Safe_Release(m_pEvolutionGageFrontTexture);
+
+	Safe_Release(m_pEvolutionButtonBuffer);
+	Safe_Release(m_pEvolutionButtonTexture);
 
 	Safe_Release(m_pRenderer);
 	Safe_Release(m_pShader);

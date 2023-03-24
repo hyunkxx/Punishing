@@ -2379,6 +2379,7 @@ EXTRN	__imp_?GetInstance@CPipeLine@Engine@@SAPEAV12@XZ:PROC
 EXTRN	__imp_?Get_Transform_float4x4@CPipeLine@Engine@@QEAA?AUXMFLOAT4X4@DirectX@@W4TRANSFORM_STATE@12@@Z:PROC
 EXTRN	__imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ:PROC
 EXTRN	__imp_?Get_CamPosition@CGameInstance@Engine@@QEAA?AUXMFLOAT4@DirectX@@XZ:PROC
+EXTRN	?GetLengthFromCamera@CGameObject@Engine@@UEAAMXZ:PROC ; Engine::CGameObject::GetLengthFromCamera
 EXTRN	?RenderGUI@CGameObject@Engine@@UEAAXXZ:PROC	; Engine::CGameObject::RenderGUI
 EXTRN	_RTC_CheckStackVars:PROC
 EXTRN	_RTC_InitBase:PROC
@@ -2799,6 +2800,7 @@ CONST	SEGMENT
 	DQ	FLAT:?LateTick@CTerrain@Client@@UEAAXN@Z
 	DQ	FLAT:?Render@CTerrain@Client@@UEAAJXZ
 	DQ	FLAT:?RenderGUI@CGameObject@Engine@@UEAAXXZ
+	DQ	FLAT:?GetLengthFromCamera@CGameObject@Engine@@UEAAMXZ
 	DQ	FLAT:?Clone@CTerrain@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 CONST	ENDS
 ;	COMDAT xdata

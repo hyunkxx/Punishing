@@ -2522,7 +2522,6 @@ PUBLIC	?max_size@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@
 PUBLIC	?empty@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEBA_NXZ ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::empty
 PUBLIC	??A?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAAEAPEAVCWall@Client@@_K@Z ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::operator[]
 PUBLIC	?push_back@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXAEBQEAVCWall@Client@@@Z ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::push_back
-PUBLIC	?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::clear
 PUBLIC	?_Destroy@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@IEAAXPEAPEAVCWall@Client@@0@Z ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::_Destroy
 PUBLIC	?_Grow_to@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@IEBA_K_K@Z ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::_Grow_to
 PUBLIC	?_Inside@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@IEBA_NPEBQEAVCWall@Client@@@Z ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::_Inside
@@ -2583,7 +2582,6 @@ PUBLIC	?_Reallocate@?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDes
 PUBLIC	?_Reserve@?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@IEAAX_K@Z ; std::vector<Client::CWall::tagCubeDesc,std::allocator<Client::CWall::tagCubeDesc> >::_Reserve
 PUBLIC	?_Xlen@?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@IEBAXXZ ; std::vector<Client::CWall::tagCubeDesc,std::allocator<Client::CWall::tagCubeDesc> >::_Xlen
 PUBLIC	?_Orphan_range@?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@IEBAXPEAUtagCubeDesc@CWall@Client@@0@Z ; std::vector<Client::CWall::tagCubeDesc,std::allocator<Client::CWall::tagCubeDesc> >::_Orphan_range
-PUBLIC	??$Safe_Release@PEAVCWall@Client@@@Engine@@YAKAEAPEAVCWall@Client@@@Z ; Engine::Safe_Release<Client::CWall * __ptr64>
 PUBLIC	??$addressof@QEAVCWall@Client@@@std@@YAPEBQEAVCWall@Client@@AEBQEAV12@@Z ; std::addressof<Client::CWall * __ptr64 const>
 PUBLIC	??$_Unfancy@PEAVCWall@Client@@@std@@YAPEAPEAVCWall@Client@@PEAPEAV12@@Z ; std::_Unfancy<Client::CWall * __ptr64>
 PUBLIC	??$construct@PEAVCWall@Client@@AEAPEAV12@@?$_Wrap_alloc@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXPEAPEAVCWall@Client@@AEAPEAV23@@Z ; std::_Wrap_alloc<std::allocator<Client::CWall * __ptr64> >::construct<Client::CWall * __ptr64,Client::CWall * __ptr64 & __ptr64>
@@ -2825,6 +2823,7 @@ EXTRN	?SetRotation@CWall@Client@@QEAAXUXMFLOAT3@DirectX@@@Z:PROC ; Client::CWall
 EXTRN	?SetPosition@CWall@Client@@QEAAXUXMFLOAT3@DirectX@@@Z:PROC ; Client::CWall::SetPosition
 EXTRN	??_ECStageCollisionManager@Client@@EEAAPEAXI@Z:PROC ; Client::CStageCollisionManager::`vector deleting destructor'
 EXTRN	__imp_?SetColor@CCollider@Engine@@QEAAXUXMFLOAT4@DirectX@@@Z:PROC
+EXTRN	__imp_?IsColl@CCollider@Engine@@QEBA_NXZ:PROC
 EXTRN	__imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ:PROC
 EXTRN	__imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAX@Z:PROC
 EXTRN	__imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z:PROC
@@ -3881,7 +3880,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?AddWall@CStageCollisionManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z DD imagerel $LN9
-	DD	imagerel $LN9+393
+	DD	imagerel $LN9+390
 	DD	imagerel $unwind$?AddWall@CStageCollisionManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -3904,8 +3903,8 @@ $pdata$?DeleteObject@CStageCollisionManager@Client@@QEAAXXZ DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Tick@CStageCollisionManager@Client@@QEAAXN@Z DD imagerel $LN18
-	DD	imagerel $LN18+1044
+$pdata$?Tick@CStageCollisionManager@Client@@QEAAXN@Z DD imagerel $LN19
+	DD	imagerel $LN19+1191
 	DD	imagerel $unwind$?Tick@CStageCollisionManager@Client@@QEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -3970,21 +3969,9 @@ $pdata$?dtor$2@?0??SaveCollisionData@CStageCollisionManager@Client@@QEAAJXZ@4HA 
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Free@CStageCollisionManager@Client@@UEAAXXZ DD imagerel $LN8
-	DD	imagerel $LN8+281
+$pdata$?Free@CStageCollisionManager@Client@@UEAAXXZ DD imagerel $LN3
+	DD	imagerel $LN3+50
 	DD	imagerel $unwind$?Free@CStageCollisionManager@Client@@UEAAXXZ
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?dtor$0@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA DD imagerel ?dtor$0@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA
-	DD	imagerel ?dtor$0@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA+36
-	DD	imagerel $unwind$?dtor$0@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?dtor$1@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA DD imagerel ?dtor$1@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA
-	DD	imagerel ?dtor$1@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA+36
-	DD	imagerel $unwind$?dtor$1@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -4255,12 +4242,6 @@ pdata	SEGMENT
 $pdata$?push_back@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXAEBQEAVCWall@Client@@@Z DD imagerel $LN7
 	DD	imagerel $LN7+645
 	DD	imagerel $unwind$?push_back@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXAEBQEAVCWall@Client@@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ DD imagerel $LN3
-	DD	imagerel $LN3+181
-	DD	imagerel $unwind$?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -4651,12 +4632,6 @@ pdata	SEGMENT
 $pdata$?dtor$0@?0??_Orphan_range@?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@IEBAXPEAUtagCubeDesc@CWall@Client@@0@Z@4HA DD imagerel ?dtor$0@?0??_Orphan_range@?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@IEBAXPEAUtagCubeDesc@CWall@Client@@0@Z@4HA
 	DD	imagerel ?dtor$0@?0??_Orphan_range@?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@IEBAXPEAUtagCubeDesc@CWall@Client@@0@Z@4HA+37
 	DD	imagerel $unwind$?dtor$0@?0??_Orphan_range@?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@IEBAXPEAUtagCubeDesc@CWall@Client@@0@Z@4HA
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??$Safe_Release@PEAVCWall@Client@@@Engine@@YAKAEAPEAVCWall@Client@@@Z DD imagerel $LN5
-	DD	imagerel $LN5+114
-	DD	imagerel $unwind$??$Safe_Release@PEAVCWall@Client@@@Engine@@YAKAEAPEAVCWall@Client@@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -7209,13 +7184,6 @@ $unwind$??$addressof@QEAVCWall@Client@@@std@@YAPEBQEAVCWall@Client@@AEBQEAV12@@Z
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??$Safe_Release@PEAVCWall@Client@@@Engine@@YAKAEAPEAVCWall@Client@@@Z DD 025052a01H
-	DD	010e2313H
-	DD	070070021H
-	DD	05006H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
 $unwind$?dtor$0@?0??_Orphan_range@?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@IEBAXPEAUtagCubeDesc@CWall@Client@@0@Z@4HA DD 031001H
 	DD	0700c4210H
 	DD	0500bH
@@ -7893,33 +7861,6 @@ $unwind$?_Destroy@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$ip2state$?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ DD imagerel ?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ
-	DD	0ffffffffH
-xdata	ENDS
-;	COMDAT CONST
-CONST	SEGMENT
-$cppxdata$?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ DD 019930522H
-	DD	00H
-	DD	00H
-	DD	00H
-	DD	00H
-	DD	01H
-	DD	imagerel $ip2state$?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ
-	DD	0e8H
-	DD	00H
-	DD	05H
-CONST	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ DD 025053519H
-	DD	010e2313H
-	DD	070070021H
-	DD	05006H
-	DD	imagerel __CxxFrameHandler3
-	DD	imagerel $cppxdata$?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
 $unwind$?push_back@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXAEBQEAVCWall@Client@@@Z DD 025052f01H
 	DD	01132318H
 	DD	0700c0023H
@@ -8407,91 +8348,11 @@ $unwind$??0?$allocator@PEAVCWall@Client@@@std@@QEAA@XZ DD 05052801H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$1@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA DD 031001H
-	DD	0700c4210H
-	DD	0500bH
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?dtor$0@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA DD 031001H
-	DD	0700c4210H
-	DD	0500bH
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$ip2state$?Free@CStageCollisionManager@Client@@UEAAXXZ DD imagerel ?Free@CStageCollisionManager@Client@@UEAAXXZ
-	DD	0ffffffffH
-	DD	imagerel ?Free@CStageCollisionManager@Client@@UEAAXXZ+113
-	DD	00H
-	DD	imagerel ?Free@CStageCollisionManager@Client@@UEAAXXZ+141
-	DD	01H
-	DD	imagerel ?Free@CStageCollisionManager@Client@@UEAAXXZ+202
-	DD	00H
-	DD	imagerel ?Free@CStageCollisionManager@Client@@UEAAXXZ+212
-	DD	0ffffffffH
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$stateUnwindMap$?Free@CStageCollisionManager@Client@@UEAAXXZ DD 0ffffffffH
-	DD	imagerel ?dtor$0@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA
-	DD	00H
-	DD	imagerel ?dtor$1@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?Free@CStageCollisionManager@Client@@UEAAXXZ DD 025054619H
-	DD	010e2313H
-	DD	070070035H
+$unwind$?Free@CStageCollisionManager@Client@@UEAAXXZ DD 05052801H
+	DD	010e0311H
+	DD	070070019H
 	DD	05006H
-	DD	imagerel __GSHandlerCheck_EH
-	DD	imagerel $cppxdata$?Free@CStageCollisionManager@Client@@UEAAXXZ
-	DD	019aH
 xdata	ENDS
-;	COMDAT CONST
-CONST	SEGMENT
-?Free@CStageCollisionManager@Client@@UEAAXXZ$rtcName$0 DB 03cH ; Client::CStageCollisionManager::Free
-	DB	062H
-	DB	065H
-	DB	067H
-	DB	069H
-	DB	06eH
-	DB	03eH
-	DB	024H
-	DB	04cH
-	DB	030H
-	DB	00H
-	ORG $+5
-?Free@CStageCollisionManager@Client@@UEAAXXZ$rtcName$1 DB 03cH ; Client::CStageCollisionManager::Free
-	DB	065H
-	DB	06eH
-	DB	064H
-	DB	03eH
-	DB	024H
-	DB	04cH
-	DB	030H
-	DB	00H
-	ORG $+7
-?Free@CStageCollisionManager@Client@@UEAAXXZ$rtcVarDesc DD 078H ; Client::CStageCollisionManager::Free
-	DD	018H
-	DQ	FLAT:?Free@CStageCollisionManager@Client@@UEAAXXZ$rtcName$1
-	DD	048H
-	DD	018H
-	DQ	FLAT:?Free@CStageCollisionManager@Client@@UEAAXXZ$rtcName$0
-	ORG $+96
-?Free@CStageCollisionManager@Client@@UEAAXXZ$rtcFrameData DD 02H ; Client::CStageCollisionManager::Free
-	DD	00H
-	DQ	FLAT:?Free@CStageCollisionManager@Client@@UEAAXXZ$rtcVarDesc
-$cppxdata$?Free@CStageCollisionManager@Client@@UEAAXXZ DD 019930522H
-	DD	02H
-	DD	imagerel $stateUnwindMap$?Free@CStageCollisionManager@Client@@UEAAXXZ
-	DD	00H
-	DD	00H
-	DD	05H
-	DD	imagerel $ip2state$?Free@CStageCollisionManager@Client@@UEAAXXZ
-	DD	0188H
-	DD	00H
-	DD	01H
-CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$?dtor$2@?0??SaveCollisionData@CStageCollisionManager@Client@@QEAAJXZ@4HA DD 031001H
@@ -8844,13 +8705,13 @@ xdata	ENDS
 xdata	SEGMENT
 $ip2state$?Tick@CStageCollisionManager@Client@@QEAAXN@Z DD imagerel ?Tick@CStageCollisionManager@Client@@QEAAXN@Z
 	DD	0ffffffffH
-	DD	imagerel ?Tick@CStageCollisionManager@Client@@QEAAXN@Z+820
+	DD	imagerel ?Tick@CStageCollisionManager@Client@@QEAAXN@Z+967
 	DD	00H
-	DD	imagerel ?Tick@CStageCollisionManager@Client@@QEAAXN@Z+857
+	DD	imagerel ?Tick@CStageCollisionManager@Client@@QEAAXN@Z+1004
 	DD	01H
-	DD	imagerel ?Tick@CStageCollisionManager@Client@@QEAAXN@Z+977
+	DD	imagerel ?Tick@CStageCollisionManager@Client@@QEAAXN@Z+1124
 	DD	00H
-	DD	imagerel ?Tick@CStageCollisionManager@Client@@QEAAXN@Z+990
+	DD	imagerel ?Tick@CStageCollisionManager@Client@@QEAAXN@Z+1137
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -8864,11 +8725,11 @@ xdata	ENDS
 xdata	SEGMENT
 $unwind$?Tick@CStageCollisionManager@Client@@QEAAXN@Z DD 035064d19H
 	DD	0115331aH
-	DD	0700e0084H
+	DD	0700e009cH
 	DD	0500c600dH
 	DD	imagerel __GSHandlerCheck_EH
 	DD	imagerel $cppxdata$?Tick@CStageCollisionManager@Client@@QEAAXN@Z
-	DD	0412H
+	DD	04d2H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -8911,7 +8772,7 @@ $cppxdata$?Tick@CStageCollisionManager@Client@@QEAAXN@Z DD 019930522H
 	DD	00H
 	DD	05H
 	DD	imagerel $ip2state$?Tick@CStageCollisionManager@Client@@QEAAXN@Z
-	DD	03f8H
+	DD	04b8H
 	DD	00H
 	DD	01H
 CONST	ENDS
@@ -8942,7 +8803,7 @@ $ip2state$?AddWall@CStageCollisionManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3
 	DD	00H
 	DD	imagerel ?AddWall@CStageCollisionManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z+201
 	DD	02H
-	DD	imagerel ?AddWall@CStageCollisionManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z+343
+	DD	imagerel ?AddWall@CStageCollisionManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z+340
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -17528,85 +17389,6 @@ $LN3:
 ??$addressof@QEAVCWall@Client@@@std@@YAPEBQEAVCWall@Client@@AEBQEAV12@@Z ENDP ; std::addressof<Client::CWall * __ptr64 const>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
-;	COMDAT ??$Safe_Release@PEAVCWall@Client@@@Engine@@YAKAEAPEAVCWall@Client@@@Z
-_TEXT	SEGMENT
-dwRefCnt$ = 4
-classType$ = 256
-??$Safe_Release@PEAVCWall@Client@@@Engine@@YAKAEAPEAVCWall@Client@@@Z PROC ; Engine::Safe_Release<Client::CWall * __ptr64>, COMDAT
-
-; 18   : 	{
-
-$LN5:
-  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
-  00005	55		 push	 rbp
-  00006	57		 push	 rdi
-  00007	48 81 ec 08 01
-	00 00		 sub	 rsp, 264		; 00000108H
-  0000e	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
-  00013	48 8b fc	 mov	 rdi, rsp
-  00016	b9 42 00 00 00	 mov	 ecx, 66			; 00000042H
-  0001b	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
-  00020	f3 ab		 rep stosd
-  00022	48 8b 8c 24 28
-	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
-
-; 19   : 		unsigned long dwRefCnt = 0;
-
-  0002a	c7 45 04 00 00
-	00 00		 mov	 DWORD PTR dwRefCnt$[rbp], 0
-
-; 20   : 
-; 21   : 		if (nullptr != classType)
-
-  00031	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR classType$[rbp]
-  00038	48 83 38 00	 cmp	 QWORD PTR [rax], 0
-  0003c	74 27		 je	 SHORT $LN2@Safe_Relea
-
-; 22   : 		{
-; 23   : 			dwRefCnt = classType->Release();
-
-  0003e	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR classType$[rbp]
-  00045	48 8b 08	 mov	 rcx, QWORD PTR [rax]
-  00048	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Release@CBase@Engine@@QEAAKXZ
-  0004e	89 45 04	 mov	 DWORD PTR dwRefCnt$[rbp], eax
-
-; 24   : 
-; 25   : 			if (0 == dwRefCnt)
-
-  00051	83 7d 04 00	 cmp	 DWORD PTR dwRefCnt$[rbp], 0
-  00055	75 0e		 jne	 SHORT $LN3@Safe_Relea
-
-; 26   : 			{
-; 27   : 				classType = nullptr;
-
-  00057	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR classType$[rbp]
-  0005e	48 c7 00 00 00
-	00 00		 mov	 QWORD PTR [rax], 0
-$LN3@Safe_Relea:
-$LN2@Safe_Relea:
-
-; 28   : 			}
-; 29   : 		}
-; 30   : 
-; 31   : 		return dwRefCnt;
-
-  00065	8b 45 04	 mov	 eax, DWORD PTR dwRefCnt$[rbp]
-
-; 32   : 	}
-
-  00068	48 8d a5 e8 00
-	00 00		 lea	 rsp, QWORD PTR [rbp+232]
-  0006f	5f		 pop	 rdi
-  00070	5d		 pop	 rbp
-  00071	c3		 ret	 0
-??$Safe_Release@PEAVCWall@Client@@@Engine@@YAKAEAPEAVCWall@Client@@@Z ENDP ; Engine::Safe_Release<Client::CWall * __ptr64>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector
 ;	COMDAT ?_Orphan_range@?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@IEBAXPEAUtagCubeDesc@CWall@Client@@0@Z
 _TEXT	SEGMENT
@@ -21865,89 +21647,6 @@ $LN3:
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector
-;	COMDAT ?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ
-_TEXT	SEGMENT
-$T1 = 200
-tv95 = 216
-tv75 = 216
-this$ = 256
-?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ PROC ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::clear, COMDAT
-
-; 1539 : 		{	// erase all
-
-$LN3:
-  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
-  00005	55		 push	 rbp
-  00006	57		 push	 rdi
-  00007	48 81 ec 08 01
-	00 00		 sub	 rsp, 264		; 00000108H
-  0000e	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
-  00013	48 8b fc	 mov	 rdi, rsp
-  00016	b9 42 00 00 00	 mov	 ecx, 66			; 00000042H
-  0001b	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
-  00020	f3 ab		 rep stosd
-  00022	48 8b 8c 24 28
-	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
-  0002a	48 c7 85 c8 00
-	00 00 fe ff ff
-	ff		 mov	 QWORD PTR $T1[rbp], -2
-
-; 1540 : 		this->_Orphan_all();
-
-  00035	48 8b 8d 00 01
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0003c	e8 00 00 00 00	 call	 ?_Orphan_all@?$_Vector_alloc@U?$_Vec_base_types@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@@std@@QEAAXXZ ; std::_Vector_alloc<std::_Vec_base_types<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> > >::_Orphan_all
-  00041	90		 npad	 1
-
-; 1541 : 		_Destroy(this->_Myfirst(), this->_Mylast());
-
-  00042	48 8b 8d 00 01
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00049	e8 00 00 00 00	 call	 ?_Mylast@?$_Vector_alloc@U?$_Vec_base_types@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@@std@@QEAAAEAPEAPEAVCWall@Client@@XZ ; std::_Vector_alloc<std::_Vec_base_types<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> > >::_Mylast
-  0004e	90		 npad	 1
-  0004f	48 89 85 d8 00
-	00 00		 mov	 QWORD PTR tv75[rbp], rax
-  00056	48 8b 8d 00 01
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0005d	e8 00 00 00 00	 call	 ?_Myfirst@?$_Vector_alloc@U?$_Vec_base_types@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@@std@@QEAAAEAPEAPEAVCWall@Client@@XZ ; std::_Vector_alloc<std::_Vec_base_types<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> > >::_Myfirst
-  00062	90		 npad	 1
-  00063	48 8b 8d d8 00
-	00 00		 mov	 rcx, QWORD PTR tv75[rbp]
-  0006a	4c 8b 01	 mov	 r8, QWORD PTR [rcx]
-  0006d	48 8b 10	 mov	 rdx, QWORD PTR [rax]
-  00070	48 8b 8d 00 01
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00077	e8 00 00 00 00	 call	 ?_Destroy@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@IEAAXPEAPEAVCWall@Client@@0@Z ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::_Destroy
-  0007c	90		 npad	 1
-
-; 1542 : 		this->_Mylast() = this->_Myfirst();
-
-  0007d	48 8b 8d 00 01
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00084	e8 00 00 00 00	 call	 ?_Myfirst@?$_Vector_alloc@U?$_Vec_base_types@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@@std@@QEAAAEAPEAPEAVCWall@Client@@XZ ; std::_Vector_alloc<std::_Vec_base_types<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> > >::_Myfirst
-  00089	90		 npad	 1
-  0008a	48 89 85 d8 00
-	00 00		 mov	 QWORD PTR tv95[rbp], rax
-  00091	48 8b 8d 00 01
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00098	e8 00 00 00 00	 call	 ?_Mylast@?$_Vector_alloc@U?$_Vec_base_types@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@@std@@QEAAAEAPEAPEAVCWall@Client@@XZ ; std::_Vector_alloc<std::_Vec_base_types<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> > >::_Mylast
-  0009d	90		 npad	 1
-  0009e	48 8b 8d d8 00
-	00 00		 mov	 rcx, QWORD PTR tv95[rbp]
-  000a5	48 8b 09	 mov	 rcx, QWORD PTR [rcx]
-  000a8	48 89 08	 mov	 QWORD PTR [rax], rcx
-
-; 1543 : 		}
-
-  000ab	48 8d a5 e8 00
-	00 00		 lea	 rsp, QWORD PTR [rbp+232]
-  000b2	5f		 pop	 rdi
-  000b3	5d		 pop	 rbp
-  000b4	c3		 ret	 0
-?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ ENDP ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::clear
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector
 ;	COMDAT ?push_back@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXAEBQEAVCWall@Client@@@Z
 _TEXT	SEGMENT
 _Idx$1 = 8
@@ -24277,209 +23976,38 @@ _TEXT	ENDS
 ; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?Free@CStageCollisionManager@Client@@UEAAXXZ
 _TEXT	SEGMENT
-<range>$L0$5 = 8
-<begin>$L0$6 = 40
-<end>$L0$7 = 88
-pWall$8 = 136
-$T9 = 360
-__$ArrayPad$ = 376
-this$ = 416
+this$ = 224
 ?Free@CStageCollisionManager@Client@@UEAAXXZ PROC	; Client::CStageCollisionManager::Free, COMDAT
 
 ; 209  : {
 
-$LN8:
+$LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	57		 push	 rdi
-  00007	48 81 ec a8 01
-	00 00		 sub	 rsp, 424		; 000001a8H
-  0000e	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
-  00013	48 8b fc	 mov	 rdi, rsp
-  00016	b9 6a 00 00 00	 mov	 ecx, 106		; 0000006aH
-  0001b	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
-  00020	f3 ab		 rep stosd
-  00022	48 8b 8c 24 c8
-	01 00 00	 mov	 rcx, QWORD PTR [rsp+456]
-  0002a	48 c7 85 68 01
-	00 00 fe ff ff
-	ff		 mov	 QWORD PTR $T9[rbp], -2
-  00035	48 8b 05 00 00
-	00 00		 mov	 rax, QWORD PTR __security_cookie
-  0003c	48 33 c5	 xor	 rax, rbp
-  0003f	48 89 85 78 01
-	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
+  00007	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  0000e	48 8b ec	 mov	 rbp, rsp
+  00011	48 8b fc	 mov	 rdi, rsp
+  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  0001e	f3 ab		 rep stosd
+  00020	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 210  : 	for (auto& pWall : m_Walls)
-
-  00046	48 8b 85 a0 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0004d	48 83 c0 18	 add	 rax, 24
-  00051	48 89 45 08	 mov	 QWORD PTR <range>$L0$5[rbp], rax
-  00055	ba 18 00 00 00	 mov	 edx, 24
-  0005a	48 8d 4d 28	 lea	 rcx, QWORD PTR <begin>$L0$6[rbp]
-  0005e	e8 00 00 00 00	 call	 ?__autoclassinit2@?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAAX_K@Z
-  00063	48 8d 55 28	 lea	 rdx, QWORD PTR <begin>$L0$6[rbp]
-  00067	48 8b 4d 08	 mov	 rcx, QWORD PTR <range>$L0$5[rbp]
-  0006b	e8 00 00 00 00	 call	 ?begin@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::begin
-  00070	90		 npad	 1
-  00071	ba 18 00 00 00	 mov	 edx, 24
-  00076	48 8d 4d 58	 lea	 rcx, QWORD PTR <end>$L0$7[rbp]
-  0007a	e8 00 00 00 00	 call	 ?__autoclassinit2@?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAAX_K@Z
-  0007f	48 8d 55 58	 lea	 rdx, QWORD PTR <end>$L0$7[rbp]
-  00083	48 8b 4d 08	 mov	 rcx, QWORD PTR <range>$L0$5[rbp]
-  00087	e8 00 00 00 00	 call	 ?end@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::end
-  0008c	90		 npad	 1
-  0008d	eb 09		 jmp	 SHORT $LN4@Free
-$LN2@Free:
-  0008f	48 8d 4d 28	 lea	 rcx, QWORD PTR <begin>$L0$6[rbp]
-  00093	e8 00 00 00 00	 call	 ??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAAAEAV01@XZ ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Client::CWall * __ptr64> > >::operator++
-$LN4@Free:
-  00098	48 8d 55 58	 lea	 rdx, QWORD PTR <end>$L0$7[rbp]
-  0009c	48 8d 4d 28	 lea	 rcx, QWORD PTR <begin>$L0$6[rbp]
-  000a0	e8 00 00 00 00	 call	 ??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Client::CWall * __ptr64> > >::operator!=
-  000a5	0f b6 c0	 movzx	 eax, al
-  000a8	85 c0		 test	 eax, eax
-  000aa	74 1e		 je	 SHORT $LN3@Free
-  000ac	48 8d 4d 28	 lea	 rcx, QWORD PTR <begin>$L0$6[rbp]
-  000b0	e8 00 00 00 00	 call	 ??D?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEBAAEAPEAVCWall@Client@@XZ ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Client::CWall * __ptr64> > >::operator*
-  000b5	48 89 85 88 00
-	00 00		 mov	 QWORD PTR pWall$8[rbp], rax
-
-; 211  : 		Safe_Release(pWall);
-
-  000bc	48 8b 8d 88 00
-	00 00		 mov	 rcx, QWORD PTR pWall$8[rbp]
-  000c3	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCWall@Client@@@Engine@@YAKAEAPEAVCWall@Client@@@Z ; Engine::Safe_Release<Client::CWall * __ptr64>
-  000c8	eb c5		 jmp	 SHORT $LN2@Free
-$LN3@Free:
-  000ca	48 8d 4d 58	 lea	 rcx, QWORD PTR <end>$L0$7[rbp]
-  000ce	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAA@XZ
-  000d3	90		 npad	 1
-  000d4	48 8d 4d 28	 lea	 rcx, QWORD PTR <begin>$L0$6[rbp]
-  000d8	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAA@XZ
-
+; 210  : 	//for (auto& pWall : m_Walls)
+; 211  : 	//	Safe_Release(pWall);
 ; 212  : 
-; 213  : 	m_Walls.clear();
-
-  000dd	48 8b 85 a0 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000e4	48 83 c0 18	 add	 rax, 24
-  000e8	48 8b c8	 mov	 rcx, rax
-  000eb	e8 00 00 00 00	 call	 ?clear@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXXZ ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::clear
-
+; 213  : 	//m_Walls.clear();
 ; 214  : }
 
-  000f0	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  000f4	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:?Free@CStageCollisionManager@Client@@UEAAXXZ$rtcFrameData
-  000fb	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  00100	48 8b 8d 78 01
-	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  00107	48 33 cd	 xor	 rcx, rbp
-  0010a	e8 00 00 00 00	 call	 __security_check_cookie
-  0010f	48 8d a5 88 01
-	00 00		 lea	 rsp, QWORD PTR [rbp+392]
-  00116	5f		 pop	 rdi
-  00117	5d		 pop	 rbp
-  00118	c3		 ret	 0
+  00028	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  0002f	5f		 pop	 rdi
+  00030	5d		 pop	 rbp
+  00031	c3		 ret	 0
 ?Free@CStageCollisionManager@Client@@UEAAXXZ ENDP	; Client::CStageCollisionManager::Free
 _TEXT	ENDS
-;	COMDAT text$x
-text$x	SEGMENT
-<range>$L0$5 = 8
-<begin>$L0$6 = 40
-<end>$L0$7 = 88
-pWall$8 = 136
-$T9 = 360
-__$ArrayPad$ = 376
-this$ = 416
-?dtor$0@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA PROC ; `Client::CStageCollisionManager::Free'::`1'::dtor$0
-  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
-  00005	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
-  0000a	55		 push	 rbp
-  0000b	57		 push	 rdi
-  0000c	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  00010	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  00014	48 8d 4d 28	 lea	 rcx, QWORD PTR <begin>$L0$6[rbp]
-  00018	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAA@XZ
-  0001d	48 83 c4 28	 add	 rsp, 40			; 00000028H
-  00021	5f		 pop	 rdi
-  00022	5d		 pop	 rbp
-  00023	c3		 ret	 0
-?dtor$0@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA ENDP ; `Client::CStageCollisionManager::Free'::`1'::dtor$0
-<range>$L0$5 = 8
-<begin>$L0$6 = 40
-<end>$L0$7 = 88
-pWall$8 = 136
-$T9 = 360
-__$ArrayPad$ = 376
-this$ = 416
-?dtor$1@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA PROC ; `Client::CStageCollisionManager::Free'::`1'::dtor$1
-  00024	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
-  00029	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
-  0002e	55		 push	 rbp
-  0002f	57		 push	 rdi
-  00030	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  00034	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  00038	48 8d 4d 58	 lea	 rcx, QWORD PTR <end>$L0$7[rbp]
-  0003c	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAA@XZ
-  00041	48 83 c4 28	 add	 rsp, 40			; 00000028H
-  00045	5f		 pop	 rdi
-  00046	5d		 pop	 rbp
-  00047	c3		 ret	 0
-?dtor$1@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA ENDP ; `Client::CStageCollisionManager::Free'::`1'::dtor$1
-text$x	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT text$x
-text$x	SEGMENT
-<range>$L0$5 = 8
-<begin>$L0$6 = 40
-<end>$L0$7 = 88
-pWall$8 = 136
-$T9 = 360
-__$ArrayPad$ = 376
-this$ = 416
-?dtor$0@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA PROC ; `Client::CStageCollisionManager::Free'::`1'::dtor$0
-  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
-  00005	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
-  0000a	55		 push	 rbp
-  0000b	57		 push	 rdi
-  0000c	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  00010	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  00014	48 8d 4d 28	 lea	 rcx, QWORD PTR <begin>$L0$6[rbp]
-  00018	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAA@XZ
-  0001d	48 83 c4 28	 add	 rsp, 40			; 00000028H
-  00021	5f		 pop	 rdi
-  00022	5d		 pop	 rbp
-  00023	c3		 ret	 0
-?dtor$0@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA ENDP ; `Client::CStageCollisionManager::Free'::`1'::dtor$0
-text$x	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT text$x
-text$x	SEGMENT
-<range>$L0$5 = 8
-<begin>$L0$6 = 40
-<end>$L0$7 = 88
-pWall$8 = 136
-$T9 = 360
-__$ArrayPad$ = 376
-this$ = 416
-?dtor$1@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA PROC ; `Client::CStageCollisionManager::Free'::`1'::dtor$1
-  00024	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
-  00029	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
-  0002e	55		 push	 rbp
-  0002f	57		 push	 rdi
-  00030	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  00034	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  00038	48 8d 4d 58	 lea	 rcx, QWORD PTR <end>$L0$7[rbp]
-  0003c	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAA@XZ
-  00041	48 83 c4 28	 add	 rsp, 40			; 00000028H
-  00045	5f		 pop	 rdi
-  00046	5d		 pop	 rbp
-  00047	c3		 ret	 0
-?dtor$1@?0??Free@CStageCollisionManager@Client@@UEAAXXZ@4HA ENDP ; `Client::CStageCollisionManager::Free'::`1'::dtor$1
-text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?SaveCollisionData@CStageCollisionManager@Client@@QEAAJXZ
@@ -25769,46 +25297,51 @@ pWall$11 = 264
 $T12 = 676
 $T13 = 724
 $T14 = 772
-$T15 = 832
-$T16 = 880
+$T15 = 820
+$T16 = 868
 $T17 = 928
-$T18 = 968
-tv74 = 984
-__$ArrayPad$ = 992
-this$ = 1040
-TimeDelta$ = 1048
+$T18 = 976
+$T19 = 1024
+$T20 = 1072
+$T21 = 1120
+$T22 = 1160
+tv218 = 1172
+tv74 = 1176
+__$ArrayPad$ = 1184
+this$ = 1232
+TimeDelta$ = 1240
 ?Tick@CStageCollisionManager@Client@@QEAAXN@Z PROC	; Client::CStageCollisionManager::Tick, COMDAT
 
 ; 29   : {
 
-$LN18:
+$LN19:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0000b	55		 push	 rbp
   0000c	56		 push	 rsi
   0000d	57		 push	 rdi
-  0000e	48 81 ec 20 04
-	00 00		 sub	 rsp, 1056		; 00000420H
+  0000e	48 81 ec e0 04
+	00 00		 sub	 rsp, 1248		; 000004e0H
   00015	48 8d 6c 24 30	 lea	 rbp, QWORD PTR [rsp+48]
   0001a	48 8b fc	 mov	 rdi, rsp
-  0001d	b9 08 01 00 00	 mov	 ecx, 264		; 00000108H
+  0001d	b9 38 01 00 00	 mov	 ecx, 312		; 00000138H
   00022	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00027	f3 ab		 rep stosd
-  00029	48 8b 8c 24 48
-	04 00 00	 mov	 rcx, QWORD PTR [rsp+1096]
-  00031	48 c7 85 c8 03
+  00029	48 8b 8c 24 08
+	05 00 00	 mov	 rcx, QWORD PTR [rsp+1288]
+  00031	48 c7 85 88 04
 	00 00 fe ff ff
-	ff		 mov	 QWORD PTR $T18[rbp], -2
+	ff		 mov	 QWORD PTR $T22[rbp], -2
   0003c	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR __security_cookie
   00043	48 33 c5	 xor	 rax, rbp
-  00046	48 89 85 e0 03
+  00046	48 89 85 a0 04
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
 ; 30   : 	if (m_isActive == false)
 
-  0004d	48 8b 85 10 04
+  0004d	48 8b 85 d0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00054	0f b6 40 10	 movzx	 eax, BYTE PTR [rax+16]
   00058	85 c0		 test	 eax, eax
@@ -25816,7 +25349,7 @@ $LN18:
 
 ; 31   : 		return;
 
-  0005c	e9 89 03 00 00	 jmp	 $LN1@Tick
+  0005c	e9 1c 04 00 00	 jmp	 $LN1@Tick
 $LN5@Tick:
 
 ; 32   : 
@@ -25846,17 +25379,17 @@ $LN5@Tick:
 ; 37   : 		{
 ; 38   : 			if (m_iCurrentIndex < m_Walls.size() - 1)
 
-  0008e	48 8b 85 10 04
+  0008e	48 8b 85 d0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00095	8b 40 14	 mov	 eax, DWORD PTR [rax+20]
-  00098	48 89 85 d8 03
+  00098	48 89 85 98 04
 	00 00		 mov	 QWORD PTR tv74[rbp], rax
-  0009f	48 8b 8d 10 04
+  0009f	48 8b 8d d0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   000a6	48 83 c1 18	 add	 rcx, 24
   000aa	e8 00 00 00 00	 call	 ?size@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEBA_KXZ ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::size
   000af	48 ff c8	 dec	 rax
-  000b2	48 8b 8d d8 03
+  000b2	48 8b 8d 98 04
 	00 00		 mov	 rcx, QWORD PTR tv74[rbp]
   000b9	48 3b c8	 cmp	 rcx, rax
   000bc	0f 83 9d 00 00
@@ -25865,10 +25398,10 @@ $LN5@Tick:
 ; 39   : 			{
 ; 40   : 				CCollider* pCollider = static_cast<CCollider*>(m_Walls[m_iCurrentIndex]->Find_Component(L"com_collider"));
 
-  000c2	48 8b 85 10 04
+  000c2	48 8b 85 d0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000c9	8b 40 14	 mov	 eax, DWORD PTR [rax+20]
-  000cc	48 8b 8d 10 04
+  000cc	48 8b 8d d0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   000d3	48 83 c1 18	 add	 rcx, 24
   000d7	8b d0		 mov	 edx, eax
@@ -25895,25 +25428,25 @@ $LN5@Tick:
   00118	48 8d 8d a4 02
 	00 00		 lea	 rcx, QWORD PTR $T12[rbp]
   0011f	e8 00 00 00 00	 call	 ??0XMFLOAT4@DirectX@@QEAA@MMMM@Z ; DirectX::XMFLOAT4::XMFLOAT4
-  00124	48 8d 8d 40 03
-	00 00		 lea	 rcx, QWORD PTR $T15[rbp]
+  00124	48 8d 8d a0 03
+	00 00		 lea	 rcx, QWORD PTR $T17[rbp]
   0012b	48 8b f9	 mov	 rdi, rcx
   0012e	48 8b f0	 mov	 rsi, rax
   00131	b9 10 00 00 00	 mov	 ecx, 16
   00136	f3 a4		 rep movsb
-  00138	48 8d 95 40 03
-	00 00		 lea	 rdx, QWORD PTR $T15[rbp]
+  00138	48 8d 95 a0 03
+	00 00		 lea	 rdx, QWORD PTR $T17[rbp]
   0013f	48 8b 4d 28	 mov	 rcx, QWORD PTR pCollider$5[rbp]
   00143	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetColor@CCollider@Engine@@QEAAXUXMFLOAT4@DirectX@@@Z
 
 ; 42   : 				m_iCurrentIndex++;				
 
-  00149	48 8b 85 10 04
+  00149	48 8b 85 d0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00150	8b 40 14	 mov	 eax, DWORD PTR [rax+20]
   00153	ff c0		 inc	 eax
-  00155	48 8b 8d 10 04
+  00155	48 8b 8d d0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0015c	89 41 14	 mov	 DWORD PTR [rcx+20], eax
 $LN9@Tick:
@@ -25938,7 +25471,7 @@ $LN7@Tick:
 ; 47   : 		{
 ; 48   : 			if (m_iCurrentIndex > 0)
 
-  0017c	48 8b 85 10 04
+  0017c	48 8b 85 d0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00183	83 78 14 00	 cmp	 DWORD PTR [rax+20], 0
   00187	0f 86 9d 00 00
@@ -25947,10 +25480,10 @@ $LN7@Tick:
 ; 49   : 			{
 ; 50   : 				CCollider* pCollider = static_cast<CCollider*>(m_Walls[m_iCurrentIndex]->Find_Component(L"com_collider"));
 
-  0018d	48 8b 85 10 04
+  0018d	48 8b 85 d0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00194	8b 40 14	 mov	 eax, DWORD PTR [rax+20]
-  00197	48 8b 8d 10 04
+  00197	48 8b 8d d0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0019e	48 83 c1 18	 add	 rcx, 24
   001a2	8b d0		 mov	 edx, eax
@@ -25977,25 +25510,25 @@ $LN7@Tick:
   001e3	48 8d 8d d4 02
 	00 00		 lea	 rcx, QWORD PTR $T13[rbp]
   001ea	e8 00 00 00 00	 call	 ??0XMFLOAT4@DirectX@@QEAA@MMMM@Z ; DirectX::XMFLOAT4::XMFLOAT4
-  001ef	48 8d 8d 70 03
-	00 00		 lea	 rcx, QWORD PTR $T16[rbp]
+  001ef	48 8d 8d d0 03
+	00 00		 lea	 rcx, QWORD PTR $T18[rbp]
   001f6	48 8b f9	 mov	 rdi, rcx
   001f9	48 8b f0	 mov	 rsi, rax
   001fc	b9 10 00 00 00	 mov	 ecx, 16
   00201	f3 a4		 rep movsb
-  00203	48 8d 95 70 03
-	00 00		 lea	 rdx, QWORD PTR $T16[rbp]
+  00203	48 8d 95 d0 03
+	00 00		 lea	 rdx, QWORD PTR $T18[rbp]
   0020a	48 8b 4d 48	 mov	 rcx, QWORD PTR pCollider$6[rbp]
   0020e	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetColor@CCollider@Engine@@QEAAXUXMFLOAT4@DirectX@@@Z
 
 ; 52   : 				m_iCurrentIndex--;
 
-  00214	48 8b 85 10 04
+  00214	48 8b 85 d0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0021b	8b 40 14	 mov	 eax, DWORD PTR [rax+20]
   0021e	ff c8		 dec	 eax
-  00220	48 8b 8d 10 04
+  00220	48 8b 8d d0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00227	89 41 14	 mov	 DWORD PTR [rcx+20], eax
 $LN6@Tick:
@@ -26004,199 +25537,239 @@ $LN6@Tick:
 ; 54   : 		}
 ; 55   : 	}
 ; 56   : 
-; 57   : 	if (pInstance->Input_KeyState_Custom(DIK_LCONTROL) == KEY_STATE::HOLD &&
-
-  0022a	ba 1d 00 00 00	 mov	 edx, 29
-  0022f	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
-  00233	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z
-  00239	85 c0		 test	 eax, eax
-  0023b	75 20		 jne	 SHORT $LN12@Tick
-  0023d	ba 1f 00 00 00	 mov	 edx, 31
-  00242	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
-  00246	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z
-  0024c	83 f8 01	 cmp	 eax, 1
-  0024f	75 0c		 jne	 SHORT $LN12@Tick
-
-; 58   : 		pInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::TAP)
-; 59   : 	{
-; 60   : 		SaveCollisionData();
-
-  00251	48 8b 8d 10 04
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00258	e8 00 00 00 00	 call	 ?SaveCollisionData@CStageCollisionManager@Client@@QEAAJXZ ; Client::CStageCollisionManager::SaveCollisionData
-$LN12@Tick:
-
-; 61   : 	}
+; 57   : 	//if (pInstance->Input_KeyState_Custom(DIK_LCONTROL) == KEY_STATE::HOLD &&
+; 58   : 	//	pInstance->Input_KeyState_Custom(DIK_S) == KEY_STATE::TAP)
+; 59   : 	//{
+; 60   : 	//	SaveCollisionData();
+; 61   : 	//}
 ; 62   : 
 ; 63   : 	if (!m_Walls.empty())
 
-  0025d	48 8b 85 10 04
+  0022a	48 8b 85 d0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00264	48 83 c0 18	 add	 rax, 24
-  00268	48 8b c8	 mov	 rcx, rax
-  0026b	e8 00 00 00 00	 call	 ?empty@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEBA_NXZ ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::empty
-  00270	0f b6 c0	 movzx	 eax, al
-  00273	85 c0		 test	 eax, eax
-  00275	0f 85 82 00 00
-	00		 jne	 $LN13@Tick
+  00231	48 83 c0 18	 add	 rax, 24
+  00235	48 8b c8	 mov	 rcx, rax
+  00238	e8 00 00 00 00	 call	 ?empty@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEBA_NXZ ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::empty
+  0023d	0f b6 c0	 movzx	 eax, al
+  00240	85 c0		 test	 eax, eax
+  00242	0f 85 48 01 00
+	00		 jne	 $LN12@Tick
 
 ; 64   : 	{
 ; 65   : 		CCollider* pCollider = static_cast<CCollider*>(m_Walls[m_iCurrentIndex]->Find_Component(L"com_collider"));
 
-  0027b	48 8b 85 10 04
+  00248	48 8b 85 d0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00282	8b 40 14	 mov	 eax, DWORD PTR [rax+20]
-  00285	48 8b 8d 10 04
+  0024f	8b 40 14	 mov	 eax, DWORD PTR [rax+20]
+  00252	48 8b 8d d0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0028c	48 83 c1 18	 add	 rcx, 24
-  00290	8b d0		 mov	 edx, eax
-  00292	e8 00 00 00 00	 call	 ??A?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAAEAPEAVCWall@Client@@_K@Z ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::operator[]
-  00297	48 8d 15 00 00
+  00259	48 83 c1 18	 add	 rcx, 24
+  0025d	8b d0		 mov	 edx, eax
+  0025f	e8 00 00 00 00	 call	 ??A?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAAEAPEAVCWall@Client@@_K@Z ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::operator[]
+  00264	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BK@BKCENIHA@?$AAc?$AAo?$AAm?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@
-  0029e	48 8b 08	 mov	 rcx, QWORD PTR [rax]
-  002a1	ff 15 00 00 00
+  0026b	48 8b 08	 mov	 rcx, QWORD PTR [rax]
+  0026e	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Find_Component@CGameObject@Engine@@QEAAPEAVCComponent@2@PEB_W@Z
-  002a7	48 89 45 68	 mov	 QWORD PTR pCollider$7[rbp], rax
+  00274	48 89 45 68	 mov	 QWORD PTR pCollider$7[rbp], rax
 
-; 66   : 		//pCollider->IsColl() ? pCollider->SetColor(_float4(1.f, 0.f, 0.f, 1.f)) : pCollider->SetColor(_float4(1.f, 1.f, 0.f, 1.f));
+; 66   : 		pCollider->IsColl() ? pCollider->SetColor(_float4(1.f, 0.f, 0.f, 1.f)) : pCollider->SetColor(_float4(1.f, 1.f, 0.f, 1.f));
+
+  00278	48 8b 4d 68	 mov	 rcx, QWORD PTR pCollider$7[rbp]
+  0027c	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?IsColl@CCollider@Engine@@QEBA_NXZ
+  00282	0f b6 c0	 movzx	 eax, al
+  00285	85 c0		 test	 eax, eax
+  00287	74 59		 je	 SHORT $LN15@Tick
+  00289	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
+  00291	f3 0f 11 44 24
+	20		 movss	 DWORD PTR [rsp+32], xmm0
+  00297	0f 57 db	 xorps	 xmm3, xmm3
+  0029a	0f 57 d2	 xorps	 xmm2, xmm2
+  0029d	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@3f800000
+  002a5	48 8d 8d 04 03
+	00 00		 lea	 rcx, QWORD PTR $T14[rbp]
+  002ac	e8 00 00 00 00	 call	 ??0XMFLOAT4@DirectX@@QEAA@MMMM@Z ; DirectX::XMFLOAT4::XMFLOAT4
+  002b1	48 8d 8d 00 04
+	00 00		 lea	 rcx, QWORD PTR $T19[rbp]
+  002b8	48 8b f9	 mov	 rdi, rcx
+  002bb	48 8b f0	 mov	 rsi, rax
+  002be	b9 10 00 00 00	 mov	 ecx, 16
+  002c3	f3 a4		 rep movsb
+  002c5	48 8d 95 00 04
+	00 00		 lea	 rdx, QWORD PTR $T19[rbp]
+  002cc	48 8b 4d 68	 mov	 rcx, QWORD PTR pCollider$7[rbp]
+  002d0	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetColor@CCollider@Engine@@QEAAXUXMFLOAT4@DirectX@@@Z
+  002d6	c7 85 94 04 00
+	00 00 00 00 00	 mov	 DWORD PTR tv218[rbp], 0
+  002e0	eb 5c		 jmp	 SHORT $LN16@Tick
+$LN15@Tick:
+  002e2	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
+  002ea	f3 0f 11 44 24
+	20		 movss	 DWORD PTR [rsp+32], xmm0
+  002f0	0f 57 db	 xorps	 xmm3, xmm3
+  002f3	f3 0f 10 15 00
+	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
+  002fb	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@3f800000
+  00303	48 8d 8d 34 03
+	00 00		 lea	 rcx, QWORD PTR $T15[rbp]
+  0030a	e8 00 00 00 00	 call	 ??0XMFLOAT4@DirectX@@QEAA@MMMM@Z ; DirectX::XMFLOAT4::XMFLOAT4
+  0030f	48 8d 8d 30 04
+	00 00		 lea	 rcx, QWORD PTR $T20[rbp]
+  00316	48 8b f9	 mov	 rdi, rcx
+  00319	48 8b f0	 mov	 rsi, rax
+  0031c	b9 10 00 00 00	 mov	 ecx, 16
+  00321	f3 a4		 rep movsb
+  00323	48 8d 95 30 04
+	00 00		 lea	 rdx, QWORD PTR $T20[rbp]
+  0032a	48 8b 4d 68	 mov	 rcx, QWORD PTR pCollider$7[rbp]
+  0032e	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetColor@CCollider@Engine@@QEAAXUXMFLOAT4@DirectX@@@Z
+  00334	c7 85 94 04 00
+	00 00 00 00 00	 mov	 DWORD PTR tv218[rbp], 0
+$LN16@Tick:
+
 ; 67   : 		pCollider->SetColor(_float4(1.f, 1.f, 0.f, 1.f));
 
-  002ab	f3 0f 10 05 00
+  0033e	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
-  002b3	f3 0f 11 44 24
+  00346	f3 0f 11 44 24
 	20		 movss	 DWORD PTR [rsp+32], xmm0
-  002b9	0f 57 db	 xorps	 xmm3, xmm3
-  002bc	f3 0f 10 15 00
+  0034c	0f 57 db	 xorps	 xmm3, xmm3
+  0034f	f3 0f 10 15 00
 	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
-  002c4	f3 0f 10 0d 00
+  00357	f3 0f 10 0d 00
 	00 00 00	 movss	 xmm1, DWORD PTR __real@3f800000
-  002cc	48 8d 8d 04 03
-	00 00		 lea	 rcx, QWORD PTR $T14[rbp]
-  002d3	e8 00 00 00 00	 call	 ??0XMFLOAT4@DirectX@@QEAA@MMMM@Z ; DirectX::XMFLOAT4::XMFLOAT4
-  002d8	48 8d 8d a0 03
-	00 00		 lea	 rcx, QWORD PTR $T17[rbp]
-  002df	48 8b f9	 mov	 rdi, rcx
-  002e2	48 8b f0	 mov	 rsi, rax
-  002e5	b9 10 00 00 00	 mov	 ecx, 16
-  002ea	f3 a4		 rep movsb
-  002ec	48 8d 95 a0 03
-	00 00		 lea	 rdx, QWORD PTR $T17[rbp]
-  002f3	48 8b 4d 68	 mov	 rcx, QWORD PTR pCollider$7[rbp]
-  002f7	ff 15 00 00 00
+  0035f	48 8d 8d 64 03
+	00 00		 lea	 rcx, QWORD PTR $T16[rbp]
+  00366	e8 00 00 00 00	 call	 ??0XMFLOAT4@DirectX@@QEAA@MMMM@Z ; DirectX::XMFLOAT4::XMFLOAT4
+  0036b	48 8d 8d 60 04
+	00 00		 lea	 rcx, QWORD PTR $T21[rbp]
+  00372	48 8b f9	 mov	 rdi, rcx
+  00375	48 8b f0	 mov	 rsi, rax
+  00378	b9 10 00 00 00	 mov	 ecx, 16
+  0037d	f3 a4		 rep movsb
+  0037f	48 8d 95 60 04
+	00 00		 lea	 rdx, QWORD PTR $T21[rbp]
+  00386	48 8b 4d 68	 mov	 rcx, QWORD PTR pCollider$7[rbp]
+  0038a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetColor@CCollider@Engine@@QEAAXUXMFLOAT4@DirectX@@@Z
-$LN13@Tick:
+$LN12@Tick:
 
 ; 68   : 	}
 ; 69   : 
 ; 70   : 	for (auto& pWall : m_Walls)
 
-  002fd	48 8b 85 10 04
+  00390	48 8b 85 d0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00304	48 83 c0 18	 add	 rax, 24
-  00308	48 89 85 88 00
+  00397	48 83 c0 18	 add	 rax, 24
+  0039b	48 89 85 88 00
 	00 00		 mov	 QWORD PTR <range>$L0$8[rbp], rax
-  0030f	ba 18 00 00 00	 mov	 edx, 24
-  00314	48 8d 8d a8 00
+  003a2	ba 18 00 00 00	 mov	 edx, 24
+  003a7	48 8d 8d a8 00
 	00 00		 lea	 rcx, QWORD PTR <begin>$L0$9[rbp]
-  0031b	e8 00 00 00 00	 call	 ?__autoclassinit2@?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAAX_K@Z
-  00320	48 8d 95 a8 00
+  003ae	e8 00 00 00 00	 call	 ?__autoclassinit2@?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAAX_K@Z
+  003b3	48 8d 95 a8 00
 	00 00		 lea	 rdx, QWORD PTR <begin>$L0$9[rbp]
-  00327	48 8b 8d 88 00
+  003ba	48 8b 8d 88 00
 	00 00		 mov	 rcx, QWORD PTR <range>$L0$8[rbp]
-  0032e	e8 00 00 00 00	 call	 ?begin@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::begin
-  00333	90		 npad	 1
-  00334	ba 18 00 00 00	 mov	 edx, 24
-  00339	48 8d 8d d8 00
+  003c1	e8 00 00 00 00	 call	 ?begin@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::begin
+  003c6	90		 npad	 1
+  003c7	ba 18 00 00 00	 mov	 edx, 24
+  003cc	48 8d 8d d8 00
 	00 00		 lea	 rcx, QWORD PTR <end>$L0$10[rbp]
-  00340	e8 00 00 00 00	 call	 ?__autoclassinit2@?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAAX_K@Z
-  00345	48 8d 95 d8 00
+  003d3	e8 00 00 00 00	 call	 ?__autoclassinit2@?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAAX_K@Z
+  003d8	48 8d 95 d8 00
 	00 00		 lea	 rdx, QWORD PTR <end>$L0$10[rbp]
-  0034c	48 8b 8d 88 00
+  003df	48 8b 8d 88 00
 	00 00		 mov	 rcx, QWORD PTR <range>$L0$8[rbp]
-  00353	e8 00 00 00 00	 call	 ?end@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::end
-  00358	90		 npad	 1
-  00359	eb 0c		 jmp	 SHORT $LN4@Tick
+  003e6	e8 00 00 00 00	 call	 ?end@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@2@XZ ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::end
+  003eb	90		 npad	 1
+  003ec	eb 0c		 jmp	 SHORT $LN4@Tick
 $LN2@Tick:
-  0035b	48 8d 8d a8 00
+  003ee	48 8d 8d a8 00
 	00 00		 lea	 rcx, QWORD PTR <begin>$L0$9[rbp]
-  00362	e8 00 00 00 00	 call	 ??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAAAEAV01@XZ ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Client::CWall * __ptr64> > >::operator++
+  003f5	e8 00 00 00 00	 call	 ??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAAAEAV01@XZ ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Client::CWall * __ptr64> > >::operator++
 $LN4@Tick:
-  00367	48 8d 95 d8 00
+  003fa	48 8d 95 d8 00
 	00 00		 lea	 rdx, QWORD PTR <end>$L0$10[rbp]
-  0036e	48 8d 8d a8 00
+  00401	48 8d 8d a8 00
 	00 00		 lea	 rcx, QWORD PTR <begin>$L0$9[rbp]
-  00375	e8 00 00 00 00	 call	 ??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Client::CWall * __ptr64> > >::operator!=
-  0037a	0f b6 c0	 movzx	 eax, al
-  0037d	85 c0		 test	 eax, eax
-  0037f	74 50		 je	 SHORT $LN3@Tick
-  00381	48 8d 8d a8 00
+  00408	e8 00 00 00 00	 call	 ??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Client::CWall * __ptr64> > >::operator!=
+  0040d	0f b6 c0	 movzx	 eax, al
+  00410	85 c0		 test	 eax, eax
+  00412	74 50		 je	 SHORT $LN3@Tick
+  00414	48 8d 8d a8 00
 	00 00		 lea	 rcx, QWORD PTR <begin>$L0$9[rbp]
-  00388	e8 00 00 00 00	 call	 ??D?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEBAAEAPEAVCWall@Client@@XZ ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Client::CWall * __ptr64> > >::operator*
-  0038d	48 89 85 08 01
+  0041b	e8 00 00 00 00	 call	 ??D?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEBAAEAPEAVCWall@Client@@XZ ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Client::CWall * __ptr64> > >::operator*
+  00420	48 89 85 08 01
 	00 00		 mov	 QWORD PTR pWall$11[rbp], rax
 
 ; 71   : 	{
 ; 72   : 		if (pWall)
 
-  00394	48 8b 85 08 01
+  00427	48 8b 85 08 01
 	00 00		 mov	 rax, QWORD PTR pWall$11[rbp]
-  0039b	48 83 38 00	 cmp	 QWORD PTR [rax], 0
-  0039f	74 2e		 je	 SHORT $LN14@Tick
+  0042e	48 83 38 00	 cmp	 QWORD PTR [rax], 0
+  00432	74 2e		 je	 SHORT $LN13@Tick
 
 ; 73   : 		{
 ; 74   : 			pWall->Tick(TimeDelta);
 
-  003a1	f2 0f 10 8d 18
+  00434	f2 0f 10 8d d8
 	04 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  003a9	48 8b 85 08 01
+  0043c	48 8b 85 08 01
 	00 00		 mov	 rax, QWORD PTR pWall$11[rbp]
-  003b0	48 8b 08	 mov	 rcx, QWORD PTR [rax]
-  003b3	e8 00 00 00 00	 call	 ?Tick@CWall@Client@@UEAAXN@Z ; Client::CWall::Tick
+  00443	48 8b 08	 mov	 rcx, QWORD PTR [rax]
+  00446	e8 00 00 00 00	 call	 ?Tick@CWall@Client@@UEAAXN@Z ; Client::CWall::Tick
 
 ; 75   : 			pWall->LateTick(TimeDelta);
 
-  003b8	f2 0f 10 8d 18
+  0044b	f2 0f 10 8d d8
 	04 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  003c0	48 8b 85 08 01
+  00453	48 8b 85 08 01
 	00 00		 mov	 rax, QWORD PTR pWall$11[rbp]
-  003c7	48 8b 08	 mov	 rcx, QWORD PTR [rax]
-  003ca	e8 00 00 00 00	 call	 ?LateTick@CWall@Client@@UEAAXN@Z ; Client::CWall::LateTick
-$LN14@Tick:
+  0045a	48 8b 08	 mov	 rcx, QWORD PTR [rax]
+  0045d	e8 00 00 00 00	 call	 ?LateTick@CWall@Client@@UEAAXN@Z ; Client::CWall::LateTick
+$LN13@Tick:
 
 ; 76   : 		}
 
-  003cf	eb 8a		 jmp	 SHORT $LN2@Tick
+  00462	eb 8a		 jmp	 SHORT $LN2@Tick
 $LN3@Tick:
 
 ; 77   : 	}
 
-  003d1	48 8d 8d d8 00
+  00464	48 8d 8d d8 00
 	00 00		 lea	 rcx, QWORD PTR <end>$L0$10[rbp]
-  003d8	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAA@XZ
-  003dd	90		 npad	 1
-  003de	48 8d 8d a8 00
+  0046b	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAA@XZ
+  00470	90		 npad	 1
+  00471	48 8d 8d a8 00
 	00 00		 lea	 rcx, QWORD PTR <begin>$L0$9[rbp]
-  003e5	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAA@XZ
+  00478	e8 00 00 00 00	 call	 ??1?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCWall@Client@@@std@@@std@@@std@@QEAA@XZ
 $LN1@Tick:
 
 ; 78   : }
 
-  003ea	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
-  003ee	48 8d 15 00 00
+  0047d	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
+  00481	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?Tick@CStageCollisionManager@Client@@QEAAXN@Z$rtcFrameData
-  003f5	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  003fa	48 8b 8d e0 03
+  00488	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  0048d	48 8b 8d a0 04
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  00401	48 33 cd	 xor	 rcx, rbp
-  00404	e8 00 00 00 00	 call	 __security_check_cookie
-  00409	48 8d a5 f0 03
-	00 00		 lea	 rsp, QWORD PTR [rbp+1008]
-  00410	5f		 pop	 rdi
-  00411	5e		 pop	 rsi
-  00412	5d		 pop	 rbp
-  00413	c3		 ret	 0
+  00494	48 33 cd	 xor	 rcx, rbp
+  00497	e8 00 00 00 00	 call	 __security_check_cookie
+  0049c	48 8d a5 b0 04
+	00 00		 lea	 rsp, QWORD PTR [rbp+1200]
+  004a3	5f		 pop	 rdi
+  004a4	5e		 pop	 rsi
+  004a5	5d		 pop	 rbp
+  004a6	c3		 ret	 0
 ?Tick@CStageCollisionManager@Client@@QEAAXN@Z ENDP	; Client::CStageCollisionManager::Tick
 _TEXT	ENDS
 ;	COMDAT text$x
@@ -26212,14 +25785,19 @@ pWall$11 = 264
 $T12 = 676
 $T13 = 724
 $T14 = 772
-$T15 = 832
-$T16 = 880
+$T15 = 820
+$T16 = 868
 $T17 = 928
-$T18 = 968
-tv74 = 984
-__$ArrayPad$ = 992
-this$ = 1040
-TimeDelta$ = 1048
+$T18 = 976
+$T19 = 1024
+$T20 = 1072
+$T21 = 1120
+$T22 = 1160
+tv218 = 1172
+tv74 = 1176
+__$ArrayPad$ = 1184
+this$ = 1232
+TimeDelta$ = 1240
 ?dtor$0@?0??Tick@CStageCollisionManager@Client@@QEAAXN@Z@4HA PROC ; `Client::CStageCollisionManager::Tick'::`1'::dtor$0
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -26246,14 +25824,19 @@ pWall$11 = 264
 $T12 = 676
 $T13 = 724
 $T14 = 772
-$T15 = 832
-$T16 = 880
+$T15 = 820
+$T16 = 868
 $T17 = 928
-$T18 = 968
-tv74 = 984
-__$ArrayPad$ = 992
-this$ = 1040
-TimeDelta$ = 1048
+$T18 = 976
+$T19 = 1024
+$T20 = 1072
+$T21 = 1120
+$T22 = 1160
+tv218 = 1172
+tv74 = 1176
+__$ArrayPad$ = 1184
+this$ = 1232
+TimeDelta$ = 1240
 ?dtor$1@?0??Tick@CStageCollisionManager@Client@@QEAAXN@Z@4HA PROC ; `Client::CStageCollisionManager::Tick'::`1'::dtor$1
   00027	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0002c	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -26284,14 +25867,19 @@ pWall$11 = 264
 $T12 = 676
 $T13 = 724
 $T14 = 772
-$T15 = 832
-$T16 = 880
+$T15 = 820
+$T16 = 868
 $T17 = 928
-$T18 = 968
-tv74 = 984
-__$ArrayPad$ = 992
-this$ = 1040
-TimeDelta$ = 1048
+$T18 = 976
+$T19 = 1024
+$T20 = 1072
+$T21 = 1120
+$T22 = 1160
+tv218 = 1172
+tv74 = 1176
+__$ArrayPad$ = 1184
+this$ = 1232
+TimeDelta$ = 1240
 ?dtor$0@?0??Tick@CStageCollisionManager@Client@@QEAAXN@Z@4HA PROC ; `Client::CStageCollisionManager::Tick'::`1'::dtor$0
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -26322,14 +25910,19 @@ pWall$11 = 264
 $T12 = 676
 $T13 = 724
 $T14 = 772
-$T15 = 832
-$T16 = 880
+$T15 = 820
+$T16 = 868
 $T17 = 928
-$T18 = 968
-tv74 = 984
-__$ArrayPad$ = 992
-this$ = 1040
-TimeDelta$ = 1048
+$T18 = 976
+$T19 = 1024
+$T20 = 1072
+$T21 = 1120
+$T22 = 1160
+tv218 = 1172
+tv74 = 1176
+__$ArrayPad$ = 1184
+this$ = 1232
+TimeDelta$ = 1240
 ?dtor$1@?0??Tick@CStageCollisionManager@Client@@QEAAXN@Z@4HA PROC ; `Client::CStageCollisionManager::Tick'::`1'::dtor$1
   00027	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0002c	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -26434,7 +26027,7 @@ $LN9:
 
 ; 11   : 		return;
 
-  0005f	e9 fc 00 00 00	 jmp	 $LN1@AddWall
+  0005f	e9 f9 00 00 00	 jmp	 $LN1@AddWall
 $LN2@AddWall:
 
 ; 12   : 
@@ -26451,7 +26044,7 @@ $LN2@AddWall:
 
 ; 15   : 		return;
 
-  00075	e9 e6 00 00 00	 jmp	 $LN1@AddWall
+  00075	e9 e3 00 00 00	 jmp	 $LN1@AddWall
 $LN3@AddWall:
 
 ; 16   : 
@@ -26483,7 +26076,7 @@ $LN3@AddWall:
 	00 00		 lea	 rcx, QWORD PTR $T5[rbp]
   000d0	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 
-; 18   : 	CWall* pWall = static_cast<CWall*>(pInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_wall", L"layer_collision", strObjectName.c_str()));
+; 18   : 	CWall* pWall = static_cast<CWall*>(pInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_wall", L"layer_collision", strObjectName.c_str()));
 
   000d5	48 8d 85 88 01
 	00 00		 lea	 rax, QWORD PTR $T6[rbp]
@@ -26506,47 +26099,47 @@ $LN3@AddWall:
 	00 00		 lea	 r9, OFFSET FLAT:??_C@_1CA@BJJHPBLD@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAs?$AAi?$AAo?$AAn?$AA?$AA@
   0011e	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1BO@LDNAOHLB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAw?$AAa?$AAl?$AAl?$AA?$AA@
-  00125	ba 03 00 00 00	 mov	 edx, 3
-  0012a	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
-  0012e	ff 15 00 00 00
+  00125	33 d2		 xor	 edx, edx
+  00127	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
+  0012b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAX@Z
-  00134	48 89 45 68	 mov	 QWORD PTR pWall$[rbp], rax
+  00131	48 89 45 68	 mov	 QWORD PTR pWall$[rbp], rax
 
 ; 19   : 
 ; 20   : 	if(pWall)
 
-  00138	48 83 7d 68 00	 cmp	 QWORD PTR pWall$[rbp], 0
-  0013d	74 18		 je	 SHORT $LN4@AddWall
+  00135	48 83 7d 68 00	 cmp	 QWORD PTR pWall$[rbp], 0
+  0013a	74 18		 je	 SHORT $LN4@AddWall
 
 ; 21   : 		m_Walls.push_back(pWall);
 
-  0013f	48 8b 85 30 02
+  0013c	48 8b 85 30 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00146	48 83 c0 18	 add	 rax, 24
-  0014a	48 8d 55 68	 lea	 rdx, QWORD PTR pWall$[rbp]
-  0014e	48 8b c8	 mov	 rcx, rax
-  00151	e8 00 00 00 00	 call	 ?push_back@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXAEBQEAVCWall@Client@@@Z ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::push_back
-  00156	90		 npad	 1
+  00143	48 83 c0 18	 add	 rax, 24
+  00147	48 8d 55 68	 lea	 rdx, QWORD PTR pWall$[rbp]
+  0014b	48 8b c8	 mov	 rcx, rax
+  0014e	e8 00 00 00 00	 call	 ?push_back@?$vector@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@QEAAXAEBQEAVCWall@Client@@@Z ; std::vector<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> >::push_back
+  00153	90		 npad	 1
 $LN4@AddWall:
 
 ; 22   : }
 
-  00157	48 8d 4d 28	 lea	 rcx, QWORD PTR strObjectName$[rbp]
-  0015b	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  00154	48 8d 4d 28	 lea	 rcx, QWORD PTR strObjectName$[rbp]
+  00158	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN1@AddWall:
-  00160	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
-  00164	48 8d 15 00 00
+  0015d	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
+  00161	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?AddWall@CStageCollisionManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z$rtcFrameData
-  0016b	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  00170	48 8b 8d 08 02
+  00168	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  0016d	48 8b 8d 08 02
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  00177	48 33 cd	 xor	 rcx, rbp
-  0017a	e8 00 00 00 00	 call	 __security_check_cookie
-  0017f	48 8d a5 18 02
+  00174	48 33 cd	 xor	 rcx, rbp
+  00177	e8 00 00 00 00	 call	 __security_check_cookie
+  0017c	48 8d a5 18 02
 	00 00		 lea	 rsp, QWORD PTR [rbp+536]
-  00186	5f		 pop	 rdi
-  00187	5d		 pop	 rbp
-  00188	c3		 ret	 0
+  00183	5f		 pop	 rdi
+  00184	5d		 pop	 rbp
+  00185	c3		 ret	 0
 ?AddWall@CStageCollisionManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ENDP ; Client::CStageCollisionManager::AddWall
 _TEXT	ENDS
 ;	COMDAT text$x
@@ -26750,7 +26343,7 @@ $LN3:
   0004f	c6 40 10 01	 mov	 BYTE PTR [rax+16], 1
 ; File c:\users\arcco\documents\github\framework\client\public\stagecollisionmanager.h
 
-; 34   : 	_uint m_iCurrentIndex = 0;
+; 35   : 	_uint m_iCurrentIndex = 0;
 
   00053	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]

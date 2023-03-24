@@ -2401,6 +2401,7 @@ EXTRN	__imp_?Get_Transform_float4x4@CGameInstance@Engine@@QEAA?AUXMFLOAT4X4@Dire
 EXTRN	__imp_?Get_CamPosition@CGameInstance@Engine@@QEAA?AUXMFLOAT4@DirectX@@XZ:PROC
 EXTRN	__imp_?GetLightDesc@CGameInstance@Engine@@QEAAPEBUtagLight_Desc@2@I@Z:PROC
 EXTRN	?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ:PROC ; Client::CApplicationManager::GetInstance
+EXTRN	?GetLengthFromCamera@CGameObject@Engine@@UEAAMXZ:PROC ; Engine::CGameObject::GetLengthFromCamera
 EXTRN	_RTC_CheckStackVars:PROC
 EXTRN	_RTC_InitBase:PROC
 EXTRN	_RTC_Shutdown:PROC
@@ -2882,6 +2883,7 @@ CONST	SEGMENT
 	DQ	FLAT:?LateTick@CFreezeArea@Client@@UEAAXN@Z
 	DQ	FLAT:?Render@CFreezeArea@Client@@UEAAJXZ
 	DQ	FLAT:?RenderGUI@CFreezeArea@Client@@UEAAXXZ
+	DQ	FLAT:?GetLengthFromCamera@CGameObject@Engine@@UEAAMXZ
 	DQ	FLAT:?Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??XMStoreFloat3@DirectX@@YQXPEAUXMFLOAT3@2@T__m128@@@Z@4JA
@@ -3713,7 +3715,7 @@ this$ = 272
 __$ReturnUdt$ = 280
 ?GetPlayerPrevPosition@CApplicationManager@Client@@QEAA?AT__m128@@XZ PROC ; Client::CApplicationManager::GetPlayerPrevPosition, COMDAT
 
-; 24   : 	_vector GetPlayerPrevPosition() { return XMLoadFloat3(&m_vPrevPosition); }
+; 27   : 	_vector GetPlayerPrevPosition() { return XMLoadFloat3(&m_vPrevPosition); }
 
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -3757,7 +3759,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?IsFreeze@CApplicationManager@Client@@QEBA_NXZ PROC	; Client::CApplicationManager::IsFreeze, COMDAT
 
-; 22   : 	_bool IsFreeze() const { return m_bFreeze; }
+; 25   : 	_bool IsFreeze() const { return m_bFreeze; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx

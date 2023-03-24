@@ -2399,6 +2399,7 @@ EXTRN	__imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ:PROC
 EXTRN	__imp_?Get_Transform_float4x4@CGameInstance@Engine@@QEAA?AUXMFLOAT4X4@DirectX@@W4TRANSFORM_STATE@CPipeLine@2@@Z:PROC
 EXTRN	__imp_?Get_CamPosition@CGameInstance@Engine@@QEAA?AUXMFLOAT4@DirectX@@XZ:PROC
 EXTRN	__imp_?GetLightDesc@CGameInstance@Engine@@QEAAPEBUtagLight_Desc@2@I@Z:PROC
+EXTRN	?GetLengthFromCamera@CGameObject@Engine@@UEAAMXZ:PROC ; Engine::CGameObject::GetLengthFromCamera
 EXTRN	_RTC_CheckStackVars:PROC
 EXTRN	_RTC_InitBase:PROC
 EXTRN	_RTC_Shutdown:PROC
@@ -2891,6 +2892,7 @@ CONST	SEGMENT
 	DQ	FLAT:?LateTick@CWeapon@Client@@UEAAXN@Z
 	DQ	FLAT:?Render@CWeapon@Client@@UEAAJXZ
 	DQ	FLAT:?RenderGUI@CWeapon@Client@@UEAAXXZ
+	DQ	FLAT:?GetLengthFromCamera@CGameObject@Engine@@UEAAMXZ
 	DQ	FLAT:?Clone@CWeapon@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@2@UXMMATRIX@2@@Z@4JA

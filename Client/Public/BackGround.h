@@ -39,11 +39,19 @@ private:
 	_float		m_fX, m_fY, m_fWidth, m_fHeight;
 	_float4x4	m_WorldMatrix, m_ViewMatrix, m_ProjMatrix;
 
+	_float		m_fRotX, m_fRotY, m_fRotWidth, m_fRotHeight;
+	_float4x4	m_RotMatrix;
+
 private:
 	CRenderer*		m_pRenderer = { nullptr };
 	CShader*		m_pShader = { nullptr };
 	CVIBuffer_Rect* m_pVIBuffer = { nullptr };
-	CTexture*		m_pTexture = { nullptr };
+
+	CTexture*		m_pTexture1 = { nullptr };
+	CTexture*		m_pTexture2 = { nullptr };
+	CTexture*		m_pRotationTexture = { nullptr };//·Îµù
+
+	_float m_fAngle = 0.f;
 };
 
 END

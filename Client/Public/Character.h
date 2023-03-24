@@ -124,6 +124,7 @@ public:
 		STOP, // Run End 같은데 확인해야함
 		STUN,
 		UI_STAND,
+		WIN,
 		CLIP_END
 
 
@@ -149,6 +150,7 @@ public:
 	virtual void RenderGUI() override;
 
 public:
+	void SetPosition(_float3 vPos);
 	_fmatrix GetTargetMatrix();
 	_float2 GetTargetWindowPos();
 	void SetPlayerCamera(class CPlayerCamera* pCamera) { m_pCamera = pCamera; };
@@ -161,10 +163,17 @@ public:
 	void ResetComboTime() { m_fCurComboTimer = 0.f; }
 	void AddCombo() { m_iComboCount++; }
 
+	void AddEvolutionGage(CSkillBase::SKILL_INFO);
+	_float GetCurEvolutionTime() const { return m_fCurEvolutionAcc; }
+	_float GetEvolutionTime() const { return m_fEvolutionTimeOut; }
+
+	_bool IsEvolutionReady() { return m_bEvolutionReady; }
+	_bool IsEvolution() { return m_bEvolution; }
 	_bool IsAttackalbe() { return m_bAttackable; }
 	_bool IsDashable() { return m_bDashable; }
 	_bool IsDashGageFull() { return m_fCurDash >= 20.f; }
 
+	void SetWinMotion(_bool value) { m_bWin = value; };
 private:
 	HRESULT AddWeapon();
 	HRESULT AddComponents();
@@ -196,6 +205,7 @@ private:
 	void SkillB(_double TimeDelta);
 	void SkillC(_double TimeDelta);
 	void SkillColliderControl(_double TimeDelta);
+
 
 public: // Enemy 관련 코드
 	void ClearEnemyCheckCollider() { mEnemyCheckCollider->HitColliderReset(); };
@@ -352,7 +362,7 @@ private: // Command
 	class CEnemyHealthBar* m_pEnemyHealthBar = nullptr;
 	_bool m_bEnemyHealthDraw = false;
 	_float m_fDrawEnemyHealthTimer = 0.f;
-	const _float m_fDrawEnemyHealthTimeOut = 15.f;
+	const _float m_fDrawEnemyHealthTimeOut = 8.f;
 
 	CSkillBase::SKILL_INFO m_SkillInfo;
 
@@ -370,6 +380,21 @@ private: // Command
 	_int m_iComboCount = 0;
 	_float m_fCurComboTimer = 0.f;
 	const _float m_fComboTimeOut = 3.5f;
+
+	//변신상태 10초 동안
+	_int m_EvolutionCount = 0;
+	_bool m_bGageDownStart = false;
+	_bool m_bEvolutionReady = false;
+	_float m_fCurEvolutionAcc = 0.f;
+	const _float m_fEvolutionTimeOut = 25.f;
+
+	//분노 게이지 온 상태일떄 스킬 힐
+	_bool m_bRedAddGageReady = false;
+	_bool m_bYellowAddGageReady = false;
+	_bool m_bBlueAddGageReady = false;
+
+	_bool m_bWin = false;
+	_bool m_bOneAction = false;
 };
 
 END

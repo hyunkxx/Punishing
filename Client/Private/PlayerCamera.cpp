@@ -7,6 +7,9 @@
 #include "Enemy.h"
 #include "Bone.h"
 
+#include "ApplicationManager.h"
+#include "SkillBallSystem.h"
+
 CPlayerCamera::CPlayerCamera(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
 	: CCamera(pDevice, pContext)
 {
@@ -40,18 +43,53 @@ HRESULT CPlayerCamera::Initialize(void * pArg)
 	m_CameraDesc.fFovy = XMConvertToRadians(45.f);
 	m_CameraDesc.fAspect = g_iWinSizeX / (_float)g_iWinSizeY;
 	m_CameraDesc.fNear = 0.1f;
-	m_CameraDesc.fFar = 1000.f;
+	m_CameraDesc.fFar = 1500.f;
 
 	m_pTransform->Set_State(CTransform::STATE_POSITION, m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
 	XMStoreFloat4(&vLookTarget, m_pTransform->Get_State(CTransform::STATE_POSITION));
 	
+	CApplicationManager::GetInstance()->SetWinMotion(false);
+	if (CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+	{
+		m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
+		m_pTransform->LookAt(m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
+	}
+	else
+	{
+		//m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
+		//m_pTransform->LookAt(m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
+	}
+
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
-	collDesc.vExtents = _float3(2.5f, 3.f, 6.f);
+	collDesc.vExtents = _float3(2.5f, 3.f, 7.5f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"), TEXT("com_collider"), (CComponent**)&m_pCollider, &collDesc));
+
+	//Fade in out
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"),
+		TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		TEXT("com_buffer"), (CComponent**)&m_pVIBuffer)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_black"),
+		TEXT("com_texture"), (CComponent**)&m_pTexture)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_ui"),
+		TEXT("com_shader"), (CComponent**)&m_pShader)))
+		return E_FAIL;
+
+	m_fWidth = g_iWinSizeX;
+	m_fHeight = g_iWinSizeY;
+	m_fX = g_iWinSizeX >> 1;
+	m_fY = g_iWinSizeY >> 1;
+
+	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_ViewMatrix, XMMatrixIdentity());
+	XMStoreFloat4x4(&m_ProjMatrix, XMMatrixOrthographicLH((_float)g_iWinSizeX, (_float)g_iWinSizeY, 0.f, 1.f));
 
 	return S_OK;
 }
@@ -60,8 +98,142 @@ void CPlayerCamera::Tick(_double TimeDelta)
 {
 	__super::Tick(TimeDelta);
 
+	if (m_bFinish && m_fAlpha >= 1.f)
+	{
+		m_fAlpha = 1.f;
+		m_bFinish = false;
+		if(!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+			CApplicationManager::GetInstance()->SetLevelFinish(CApplicationManager::LEVEL::GAMEPLAY);
+		else
+			CApplicationManager::GetInstance()->SetLevelFinish(CApplicationManager::LEVEL::BOSS);
+	}
+
+	if (m_bFadeIn)
+	{
+		m_fAlpha += TimeDelta;
+
+		if (m_fAlpha >= 1.f)
+			m_bFadeIn = false;
+	}
+
+	if (m_bFadeOut)
+	{
+		m_fAlpha -= TimeDelta;
+
+		if (m_fAlpha < 0.f)
+		{
+			m_bFadeOut = false;
+		}
+	}
+
+	if (!m_bWinAction)
+		DefaultCameraMovement(TimeDelta);
+	else
+		WinActionMovement(TimeDelta);
+}
+
+void CPlayerCamera::LateTick(_double TimeDelta)
+{
+	__super::LateTick(TimeDelta);
+
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
+	if (pGameInstance->Input_KeyState_Custom(DIK_8) == KEY_STATE::TAP)
+	{
+		m_bFadeIn = true;
+		m_bFadeInStart = true;
+	}
+
+	if (m_bFadeInStart)
+	{
+		CSkillBallSystem* pSkillSystem = CSkillBallSystem::GetInstance();
+		pSkillSystem->Clear();
+
+		m_fFadeInWaitAcc += TimeDelta;
+		if (m_fFadeInWaitAcc >= 1.f)
+		{
+			m_bFadeIn = false;
+			m_bFadeInStart = false;
+			m_bFadeOut = true;
+			m_fFadeInWaitAcc = 0.f;
+			static_cast<CCharacter*>(m_pTarget)->SetWinMotion(true);
+			m_bWinAction = !m_bWinAction;
+		}
+	}
+
+	if (m_bFadeOutStart)
+	{
+		m_fFadeOutWaitAcc += TimeDelta;
+		if (m_fFadeOutWaitAcc >= 1.f)
+		{
+			m_bFadeOut = false;
+			m_bFadeOutStart = false;
+			m_fFadeOutWaitAcc = 0.f;
+
+		}
+	}
+
+	//이거하면 풀면 콜리전 보임
+	//if (!m_bFadeIn && !m_bFadeOut)
+	//	return;
+
+	if (nullptr != m_pRenderer)
+		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_ENDING, this);
+}
+
+HRESULT CPlayerCamera::Render()
+{
+	if (FAILED(__super::Render()))
+		return E_FAIL;
+
+	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_WorldMatrix)))
+		return E_FAIL;
+	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &m_ViewMatrix)))
+		return E_FAIL;
+	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &m_ProjMatrix)))
+		return E_FAIL;
+
+	_float fValue = 1.f;
+	_float fDiscardValue = 0.f;
+
+	//버튼 백그라운드 이미지
+	if (FAILED(m_pTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+		return E_FAIL;
+
+	if (FAILED(m_pShader->SetRawValue("g_FillAmount", &fValue, sizeof(_float))))
+		return E_FAIL;
+
+	if (FAILED(m_pShader->SetRawValue("g_Alpha", &m_fAlpha, sizeof(_float))))
+		return E_FAIL;
+
+	if (FAILED(m_pShader->SetRawValue("g_DiscardValue", &fDiscardValue, sizeof(_float))))
+		return E_FAIL;
+
+	m_pShader->Begin(0);
+	m_pVIBuffer->Render();
+
+	return S_OK;
+}
+
+void CPlayerCamera::AttackShake()
+{
+	ShakeReset();
+	StartShake(4.f, 2.5f);
+}
+
+HRESULT CPlayerCamera::Add_Components()
+{
+	return S_OK;
+}
+
+HRESULT CPlayerCamera::Setup_ShaderResources()
+{
+	return S_OK;
+}
+
+void CPlayerCamera::DefaultCameraMovement(_double TimeDelta)
+{
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	_vector vTargetPos = m_pTargetTransform->Get_State(CTransform::STATE_POSITION);
 	_vector vTargetLook = XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_LOOK));
 	vTargetPos = XMVectorSetY(vTargetPos, 1.5f);
@@ -87,7 +259,6 @@ void CPlayerCamera::Tick(_double TimeDelta)
 
 	//if (MouseMove = pGameInstance->Input_MouseMove(DIMM_Y))
 	//	m_pTransform->Rotate(m_pTransform->Get_State(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 0.1f);
-
 
 	//카메라가 락온 되었을때
 	if (static_cast<CCharacter*>(m_pTarget)->IsCameraLockOn())
@@ -144,34 +315,34 @@ void CPlayerCamera::Tick(_double TimeDelta)
 	m_pCollider->Update(pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TS_VIEW));
 }
 
-void CPlayerCamera::LateTick(_double TimeDelta)
+void CPlayerCamera::WinActionMovement(_double TimeDelta)
 {
-	__super::LateTick(TimeDelta);
+	if (m_isGoal)
+		return;
+
+	m_fWinActionAcc += TimeDelta * 1.5f;
+
+	if (m_fWinActionAcc >= 6.f)
+	{
+		m_isGoal = true;
+		m_bFadeIn = true;
+		m_bFinish = true;
+		//m_bWinAction = false;
+		m_fWinActionAcc = 0.f;
+	}
 
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	_vector vTargetPos = m_pTargetTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vTargetLook = XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_LOOK));
 
+	vTargetPos = XMVectorSetY(vTargetPos, 1.5f);
+	_vector vCurCamPos = vTargetPos + vTargetLook * 1.2f;
 
-}
+	vCurCamPos = XMVectorSetY(vCurCamPos, XMVectorGetY(vCurCamPos) + 0.05f * cos(m_fWinActionAcc));
 
-HRESULT CPlayerCamera::Render()
-{
-	return S_OK;
-}
+	m_pTransform->Set_State(CTransform::STATE_POSITION, vCurCamPos);
+	m_pTransform->LookAt(vTargetPos);
 
-void CPlayerCamera::AttackShake()
-{
-	ShakeReset();
-	StartShake(4.f, 2.5f);
-}
-
-HRESULT CPlayerCamera::Add_Components()
-{
-	return S_OK;
-}
-
-HRESULT CPlayerCamera::Setup_ShaderResources()
-{
-	return S_OK;
 }
 
 CPlayerCamera * CPlayerCamera::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
@@ -203,4 +374,9 @@ void CPlayerCamera::Free()
 	__super::Free();
 
 	Safe_Release(m_pTransform);
+
+	Safe_Release(m_pRenderer);
+	Safe_Release(m_pShader);
+	Safe_Release(m_pVIBuffer);
+	Safe_Release(m_pTexture);
 }

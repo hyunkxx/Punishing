@@ -1,6 +1,7 @@
 #include "..\Public\GameObject.h"
 
 #include "GameInstance.h"
+#include "IAlphaSortable.h"
 
 CGameObject::CGameObject(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: m_pDevice(pDevice)

@@ -234,6 +234,9 @@
     <ClCompile Include="..\private\CustomFont.cpp">
       <Filter>utility\06. Font</Filter>
     </ClCompile>
+    <ClCompile Include="..\private\IAlphaSortable.cpp">
+      <Filter>utility\03. Components\02. Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\public\Base.h">
@@ -364,6 +367,9 @@
     </ClInclude>
     <ClInclude Include="..\public\CustomFont.h">
       <Filter>utility\06. Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\IAlphaSortable.h">
+      <Filter>utility\03. Components\02. Renderer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
