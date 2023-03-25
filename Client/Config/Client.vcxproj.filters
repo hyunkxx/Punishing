@@ -211,6 +211,9 @@
     <ClInclude Include="..\public\DamageFont.h">
       <Filter>src\02. GameObjects\06. UI</Filter>
     </ClInclude>
+    <ClInclude Include="..\public\Thorn.h">
+      <Filter>src\02. GameObjects\04. Character\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -326,6 +329,9 @@
     </ClCompile>
     <ClCompile Include="..\private\DamageFont.cpp">
       <Filter>src\02. GameObjects\06. UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Thorn.cpp">
+      <Filter>src\02. GameObjects\04. Character\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

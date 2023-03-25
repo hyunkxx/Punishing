@@ -19,6 +19,7 @@
 #include "PlayerHealthBar.h"
 #include "EnemyHealthBar.h"
 
+#include "Thorn.h"
 #include "FreezeArea.h"
 
 CLoader::CLoader(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
@@ -268,6 +269,10 @@ HRESULT CLoader::Load_Level_BossRoom()
 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Enemy/Boss/Boss.fbx", LocalMatrix, CCharacter::CLIP_END))))
 		return E_FAIL;
 
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, L"proto_com_model_thorn",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Enemy/Boss/Thorn.fbx", XMMatrixIdentity()))))
+		return E_FAIL;
+
 	m_szLoadingStateText = L"Shader..";
 
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, TEXT("proto_com_shader_vtxnortex"),
@@ -284,6 +289,9 @@ HRESULT CLoader::Load_Level_BossRoom()
 	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_bossroom"), CBossRoom::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
+	if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_thorn"), CThorn::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
 	//if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_sky"), CSkybox::Create(m_pDevice, m_pContext))))
 	//	return E_FAIL;
 
@@ -298,7 +306,6 @@ HRESULT CLoader::Load_Level_BossRoom()
 
 	//if (FAILED(pGameInstance->Add_Prototype(TEXT("proto_obj_player_camera"), CPlayerCamera::Create(m_pDevice, m_pContext))))
 	//	return E_FAIL;
-
 #pragma endregion
 
 	m_szLoadingStateText = L"Load Completed";

@@ -31,6 +31,8 @@ HRESULT CWeapon::Initialize(void * pArg)
 
 	m_descOwner = *(OWNER_DESC*)pArg;
 
+
+
 	return S_OK;
 }
 

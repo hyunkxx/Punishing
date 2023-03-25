@@ -227,9 +227,9 @@ HRESULT CModel::Setup_Animation(_uint AnimationIndex , CAnimation::TYPE eType, _
 	return S_OK;
 }
 
-HRESULT CModel::Play_Animation(_double TimeDelta, CTransform * pTransform, const _double RatioValue, _bool bRootMotion)
+HRESULT CModel::Play_Animation(_double TimeDelta, CTransform * pTransform, const _double RatioValue, _bool bRootMotion, char* pRootBoneName)
 {
-	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta, pTransform, m_eAnimationType, m_bLerp, m_PrevData, RatioValue, bRootMotion);
+	m_Animations[m_iCurrentAnimation]->PlayAnimation(TimeDelta, pTransform, m_eAnimationType, m_bLerp, m_PrevData, RatioValue, bRootMotion, pRootBoneName);
 
 	for (auto& pBone : m_Bones)
 		pBone->InvalidateCombinedMatrix();

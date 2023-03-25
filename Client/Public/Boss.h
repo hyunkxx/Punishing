@@ -22,6 +22,39 @@ class CCharacter;
 class CBoss final : public CEnemy
 {
 public:
+	enum BOSS_CLIP
+	{
+		ATK_FOWARD,
+		ATK_BACK,
+		ATK3,
+		ATK4,
+		ATK5,//변신
+		ATK11,
+		ATK12,//ㅌ
+		ATK13,
+		UNKNOWN1,
+		UNKNOWN2,
+		UNKNOWN3,
+		UNKNOWN4,
+		UNKNOWN5,
+		UNKNOWN6,
+		BORN,
+		DEATH,
+		RECORDED,
+		STAND1,//2페이즈
+		STAND2,//1페이즈
+		UISTAND,
+		MOTION_END
+	};
+
+	typedef struct tagAnimState
+	{
+		BOSS_CLIP eCurAnimationClip;
+		CAnimation::TYPE eAnimType;
+		_bool bLerp;
+	}ANIM_STATE;
+
+public:
 	explicit CBoss(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	explicit CBoss(const CBoss& rhs);
 	virtual ~CBoss() = default;
@@ -37,6 +70,36 @@ public:
 private:
 	HRESULT AddComponents();
 	HRESULT SetupShaderResources();
+
+public://엑세스
+	_bool IsBurrow() const { return m_bBrrow; }
+	_bool IsSpawned() const { return m_bSpawn; }
+
+public://스킬
+	void Spawn();
+	void MoveForward(_double TimeDelta);
+	void MoveBackword(_double TimeDelta);
+	void LineSkill(_double TimeDelta, _int iIndex);
+	void Missile1(_double TimeDelta);
+
+public: //플레이어 관련
+	_float GetLengthFromPlayer() const;
+	_bool CloseToPlayer() { return GetLengthFromPlayer() <= m_fNearCheckRange; };
+	_bool LookTarget(_double TimeDelta, _float fRotationSpeed);
+
+private://애니메이션 관련
+	void SetupState(BOSS_CLIP eClip, CAnimation::TYPE eAnimType, _bool bLerp) 
+	{ 
+		m_eAnimState.eCurAnimationClip = eClip;
+		m_eAnimState.eAnimType = eAnimType;
+		m_eAnimState.bLerp = bLerp;
+	}
+
+
+	void AnimationController(_double TimeDelta);
+
+private://콜라이더 관련
+	void SetupColliders();
 
 public:
 	virtual _float4 GetPosition() override;
@@ -56,6 +119,70 @@ public:
 	virtual CGameObject* Clone(void* pArg) override;
 	virtual void Free() override;
 
+private:
+	ANIM_STATE m_eAnimState;
+	
+	_bool m_bRotationFinish = false;
+	_bool m_bAttackable = false;
+	_int m_iAttackCount = 0;
+
+	_bool m_bSpawn = false;
+	const _float m_fNearCheckRange = 10.f;	 // 플레이어와 가까운지 체크 10
+
+	_bool m_bBrrow = false;
+
+	//라인 3타 공격
+	_bool m_bLineAttack = false;
+
+	class CThorn* m_pThorn1[25][3];
+	class CThorn* m_pThorn2[25][3];
+
+	_float3 vThornSpawnPos = { 0.f, 0.f, 0.f };
+
+	_int m_iCurrentOneIndex[3] = {0, 0, 0};
+	_int m_iCurrentTwoIndex[3] = {0, 0, 0};
+
+	_int m_iEraseIndex[3] = { 0, 0, 0 };
+
+	_bool m_bUseLineSkill = false;
+	_bool m_bLineSkillStart[3] = { false, false, false };
+	_bool m_bLineSkillErase[3] = { false, false, false };
+	
+	float m_fEraseAcc[3] = { 0.f, 0.f, 0.f };
+	const float m_fEraseTime = 0.05f;
+
+	_bool m_bCheckDir[3] = { false, false, false };
+	_float3 m_vLineOneDir[3];
+
+	_bool m_bEvolution = false;
+
+	//라인 3타 공격 - 총 3회중 몇번쨰 라인인지
+	_int m_iCurrentLine = 0;
+	_float m_fLineUpAcc = 0.f;
+	const _float m_fLineUpTime = 0.5f;
+	
+	//보스 몸체 위로 올리기위한 트렌스폼
+	CTransform* m_pBodyTransform = nullptr;
+
+	_bool m_bMoveForward= false;
+	_bool m_bMoveBackward= false;
+
+	//뒤로 이동 ATK_BACK
+	_bool m_bBack = false;
+	_float3 m_vPrevPos = { 0.f,0.f,0.f };
+	_float3 m_vPrevLook = { 0.f, 0.f, 0.f };
+
+	_float m_fAttackAcc = 2.f;
+	const _float m_fAttackAccTime = 2.f;
+
+
+	//미사일 9개 \ | / 방향으로 날리기
+	class CThorn* m_pThornMissileLeft[3];
+	class CThorn* m_pThornMissileMiddle[3];
+	class CThorn* m_pThornMissileRight[3];
+
+	_bool m_bUseMissile1 = false;
+	_bool m_bMissileStart = false;
 };
 
 END

@@ -1,13 +1,8 @@
-﻿  Character.cpp
-c:\users\arcco\documents\github\framework\client\public\skillballsystem.h(22): warning C4267: 'return': 'size_t'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\public\playerhealthbar.h(79): warning C4244: '초기화 중': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h(73): warning C4244: '초기화 중': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\character.cpp(109): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\character.cpp(121): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\character.cpp(129): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\character.cpp(135): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\character.cpp(1601): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\character.cpp(1606): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\character.cpp(1620): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  Thorn.cpp
+c:\users\arcco\documents\github\framework\client\private\thorn.cpp(169): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\thorn.cpp(176): warning C4244: '=': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\thorn.cpp(177): warning C4244: '=': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\thorn.cpp(178): warning C4244: '=': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\thorn.cpp(198): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Client.vcxproj -> C:\Users\arcco\Documents\GitHub\Framework\Client\Config\../Bin/Client.exe
   Client.vcxproj -> ../Bin/Client.pdb (Full PDB)

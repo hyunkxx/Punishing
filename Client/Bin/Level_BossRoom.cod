@@ -2388,6 +2388,7 @@ PUBLIC	?Ready_Layer_Wall@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ; Client::CLevel_B
 PUBLIC	?Ready_Layer_Camera@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ; Client::CLevel_BossRoom::Ready_Layer_Camera
 PUBLIC	?Ready_Layer_Player@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ; Client::CLevel_BossRoom::Ready_Layer_Player
 PUBLIC	?Ready_Layer_Enemy@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ; Client::CLevel_BossRoom::Ready_Layer_Enemy
+PUBLIC	?Ready_Layer_Effect@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ; Client::CLevel_BossRoom::Ready_Layer_Effect
 PUBLIC	?Ready_Layer_UI@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ; Client::CLevel_BossRoom::Ready_Layer_UI
 PUBLIC	?Create@CLevel_BossRoom@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CLevel_BossRoom::Create
 PUBLIC	?Free@CLevel_BossRoom@Client@@UEAAXXZ		; Client::CLevel_BossRoom::Free
@@ -3299,6 +3300,12 @@ pdata	SEGMENT
 $pdata$?Ready_Layer_Enemy@CLevel_BossRoom@Client@@AEAAJPEB_W@Z DD imagerel $LN5
 	DD	imagerel $LN5+212
 	DD	imagerel $unwind$?Ready_Layer_Enemy@CLevel_BossRoom@Client@@AEAAJPEB_W@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?Ready_Layer_Effect@CLevel_BossRoom@Client@@AEAAJPEB_W@Z DD imagerel $LN3
+	DD	imagerel $LN3+60
+	DD	imagerel $unwind$?Ready_Layer_Effect@CLevel_BossRoom@Client@@AEAAJPEB_W@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -4430,7 +4437,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CLevel_BossRoom@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CLevel_BossRoom@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0c9H ; `Client::CLevel_BossRoom::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CLevel_BossRoom@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0ceH ; `Client::CLevel_BossRoom::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1CE@NDNBHLHL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@
 CONST	SEGMENT
@@ -6177,6 +6184,13 @@ xdata	SEGMENT
 $unwind$?Ready_Layer_UI@CLevel_BossRoom@Client@@AEAAJPEB_W@Z DD 035052f01H
 	DD	01133318H
 	DD	0700c0033H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?Ready_Layer_Effect@CLevel_BossRoom@Client@@AEAAJPEB_W@Z DD 05052d01H
+	DD	01130316H
+	DD	0700c0019H
 	DD	0500bH
 xdata	ENDS
 ;	COMDAT xdata
@@ -14217,7 +14231,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CLevel_BossRoom@Client@@UEAAXXZ PROC		; Client::CLevel_BossRoom::Free, COMDAT
 
-; 215  : {
+; 220  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -14233,14 +14247,14 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 216  : 	__super::Free();
+; 221  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CLevel@Engine@@UEAAXXZ
 
-; 217  : }
+; 222  : }
 
   00037	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -14264,7 +14278,7 @@ pDevice$ = 432
 pContext$ = 440
 ?Create@CLevel_BossRoom@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CLevel_BossRoom::Create, COMDAT
 
-; 201  : {
+; 206  : {
 
 $LN8:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -14289,7 +14303,7 @@ $LN8:
   00044	48 89 85 80 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 202  : 	CLevel_BossRoom* pInstance = new CLevel_BossRoom(pDevice, pContext);
+; 207  : 	CLevel_BossRoom* pInstance = new CLevel_BossRoom(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CLevel_BossRoom@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -14328,16 +14342,16 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T6[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 203  : 
-; 204  : 	if (FAILED(pInstance->Initialize()))
+; 208  : 
+; 209  : 	if (FAILED(pInstance->Initialize()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize@CLevel_BossRoom@Client@@UEAAJXZ ; Client::CLevel_BossRoom::Initialize
   000cd	85 c0		 test	 eax, eax
   000cf	7d 42		 jge	 SHORT $LN2@Create
 
-; 205  : 	{
-; 206  : 		wstring message = L"Failed to Create : CLevel_BossRoom";
+; 210  : 	{
+; 211  : 		wstring message = L"Failed to Create : CLevel_BossRoom";
 
   000d1	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1EG@LGMOCJCB@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAe?$AAv?$AAe?$AAl?$AA_?$AAB?$AAo?$AAs?$AAs?$AAR?$AAo@
@@ -14345,7 +14359,7 @@ $LN5@Create:
   000dc	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   000e1	90		 npad	 1
 
-; 207  : 		MESSAGE(message);
+; 212  : 		MESSAGE(message);
 
   000e2	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000e6	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -14357,24 +14371,24 @@ $LN5@Create:
   000fa	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 208  : 		Safe_Release(pInstance);
+; 213  : 		Safe_Release(pInstance);
 
   00100	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   00104	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCLevel_BossRoom@Client@@@Engine@@YAKAEAPEAVCLevel_BossRoom@Client@@@Z ; Engine::Safe_Release<Client::CLevel_BossRoom * __ptr64>
   00109	90		 npad	 1
 
-; 209  : 	}
+; 214  : 	}
 
   0010a	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   0010e	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN2@Create:
 
-; 210  : 
-; 211  : 	return pInstance;
+; 215  : 
+; 216  : 	return pInstance;
 
   00113	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 212  : }
+; 217  : }
 
   00117	48 8b f8	 mov	 rdi, rax
   0011a	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -14523,7 +14537,7 @@ this$ = 384
 pLayerTag$ = 392
 ?Ready_Layer_UI@CLevel_BossRoom@Client@@AEAAJPEB_W@Z PROC ; Client::CLevel_BossRoom::Ready_Layer_UI, COMDAT
 
-; 189  : {
+; 194  : {
 
 $LN5:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -14540,19 +14554,19 @@ $LN5:
   00027	48 8b 8c 24 b8
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+440]
 
-; 190  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 195  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   0002f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00035	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 191  : 	CGameObject* pGameObject = nullptr;
+; 196  : 	CGameObject* pGameObject = nullptr;
 
   00039	48 c7 45 28 00
 	00 00 00	 mov	 QWORD PTR pGameObject$[rbp], 0
 
-; 192  : 
-; 193  : 	m_pHealthBar = pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_enemyhp", pLayerTag, L"enemyhp");
+; 197  : 
+; 198  : 	m_pHealthBar = pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_enemyhp", pLayerTag, L"enemyhp");
 
   00041	48 8d 85 08 01
 	00 00		 lea	 rax, QWORD PTR $T1[rbp]
@@ -14582,26 +14596,26 @@ $LN5:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   000a2	48 89 41 28	 mov	 QWORD PTR [rcx+40], rax
 
-; 194  : 	if (m_pHealthBar == nullptr)
+; 199  : 	if (m_pHealthBar == nullptr)
 
   000a6	48 8b 85 80 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000ad	48 83 78 28 00	 cmp	 QWORD PTR [rax+40], 0
   000b2	75 07		 jne	 SHORT $LN2@Ready_Laye
 
-; 195  : 		return E_FAIL;
+; 200  : 		return E_FAIL;
 
   000b4	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000b9	eb 02		 jmp	 SHORT $LN1@Ready_Laye
 $LN2@Ready_Laye:
 
-; 196  : 
-; 197  : 	return S_OK;
+; 201  : 
+; 202  : 	return S_OK;
 
   000bb	33 c0		 xor	 eax, eax
 $LN1@Ready_Laye:
 
-; 198  : }
+; 203  : }
 
   000bd	48 8d a5 68 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+360]
@@ -14609,6 +14623,44 @@ $LN1@Ready_Laye:
   000c5	5d		 pop	 rbp
   000c6	c3		 ret	 0
 ?Ready_Layer_UI@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_BossRoom::Ready_Layer_UI
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+;	COMDAT ?Ready_Layer_Effect@CLevel_BossRoom@Client@@AEAAJPEB_W@Z
+_TEXT	SEGMENT
+this$ = 224
+pLayerTag$ = 232
+?Ready_Layer_Effect@CLevel_BossRoom@Client@@AEAAJPEB_W@Z PROC ; Client::CLevel_BossRoom::Ready_Layer_Effect, COMDAT
+
+; 189  : {
+
+$LN3:
+  00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
+  00005	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  0000a	55		 push	 rbp
+  0000b	57		 push	 rdi
+  0000c	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  00013	48 8b ec	 mov	 rbp, rsp
+  00016	48 8b fc	 mov	 rdi, rsp
+  00019	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  0001e	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00023	f3 ab		 rep stosd
+  00025	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+
+; 190  : 	return E_NOTIMPL;
+
+  0002d	b8 01 40 00 80	 mov	 eax, -2147467263	; ffffffff80004001H
+
+; 191  : }
+
+  00032	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  00039	5f		 pop	 rdi
+  0003a	5d		 pop	 rbp
+  0003b	c3		 ret	 0
+?Ready_Layer_Effect@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_BossRoom::Ready_Layer_Effect
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
@@ -16246,21 +16298,21 @@ $LN4:
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
 ; File c:\users\arcco\documents\github\framework\client\public\level_bossroom.h
 
-; 34   : 	CGameObject* mPlayer = nullptr;
+; 35   : 	CGameObject* mPlayer = nullptr;
 
   00060	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00067	48 c7 40 20 00
 	00 00 00	 mov	 QWORD PTR [rax+32], 0
 
-; 35   : 	CGameObject* m_pHealthBar = nullptr;
+; 36   : 	CGameObject* m_pHealthBar = nullptr;
 
   0006f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00076	48 c7 40 28 00
 	00 00 00	 mov	 QWORD PTR [rax+40], 0
 
-; 36   : 	class CPlayerCamera* mCamera = nullptr;
+; 37   : 	class CPlayerCamera* mCamera = nullptr;
 
   0007e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]

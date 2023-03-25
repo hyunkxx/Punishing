@@ -175,7 +175,7 @@ void CCharacter::Tick(_double TimeDelta)
 		else
 		{
 			//두번쨰 맵 엔딩위치 및 각도
-			_vector vEndPosition = XMVectorSet(0.f, 0.f, 20.f, 1.f);
+			_vector vEndPosition = XMVectorSet(0.f, 0.f, 17.f, 1.f);
 			mTransform->Set_State(CTransform::STATE_POSITION, vEndPosition);
 			mTransform->SetRotation(VECTOR_UP, XMConvertToRadians(180.f));
 			//mTransform->SetRotation(VECTOR_UP, XMConvertToRadians(225.f)); // 엔딩 위치
@@ -404,7 +404,7 @@ HRESULT CCharacter::AddComponents()
 	ZeroMemory(&collDesc, sizeof(collDesc));
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
-	collDesc.vExtents = _float3(20.f, 20.f, 20.f);
+	collDesc.vExtents = _float3(30.f, 30.f, 30.f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider_check"), (CComponent**)&mEnemyCheckCollider, &collDesc)))

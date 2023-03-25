@@ -185,6 +185,11 @@ HRESULT CLevel_BossRoom::Ready_Layer_Enemy(const _tchar * pLayerTag)
 	return S_OK;
 }
 
+HRESULT CLevel_BossRoom::Ready_Layer_Effect(const _tchar * pLayerTag)
+{
+	return E_NOTIMPL;
+}
+
 HRESULT CLevel_BossRoom::Ready_Layer_UI(const _tchar * pLayerTag)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();

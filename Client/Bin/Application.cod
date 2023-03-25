@@ -8523,7 +8523,7 @@ $LN3:
   00082	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Engine_Release@CGameInstance@Engine@@SAXXZ
 
-; 459  : }
+; 459  :  }
 
   00088	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -18066,7 +18066,7 @@ _TEXT	SEGMENT
 __formal$ = 224
 ?__empty_global_delete@@YAXPEAX@Z PROC			; __empty_global_delete, COMDAT
 
-; 460  : }
+; 460  :  }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx

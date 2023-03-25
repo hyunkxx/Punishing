@@ -2846,9 +2846,11 @@ PUBLIC	__real@40c00000
 PUBLIC	__real@40e00000
 PUBLIC	__real@41000000
 PUBLIC	__real@41400000
+PUBLIC	__real@41880000
 PUBLIC	__real@419c0000
 PUBLIC	__real@41a00000
 PUBLIC	__real@41c80000
+PUBLIC	__real@41f00000
 PUBLIC	__real@41f80000
 PUBLIC	__real@41fc0000
 PUBLIC	__real@42200000
@@ -2917,7 +2919,7 @@ EXTRN	??_ECCharacter@Client@@EEAAPEAXI@Z:PROC		; Client::CCharacter::`vector del
 EXTRN	__imp_?Setup_ShaderMaterialResource@CModel@Engine@@QEAAJPEAVCShader@2@PEBDIW4aiTextureType@@@Z:PROC
 EXTRN	__imp_?Setup_BoneMatrices@CModel@Engine@@QEAAJPEAVCShader@2@PEBDI@Z:PROC
 EXTRN	__imp_?Setup_Animation@CModel@Engine@@QEAAJIW4TYPE@CAnimation@2@_N@Z:PROC
-EXTRN	__imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@N_N@Z:PROC
+EXTRN	__imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@N_NPEAD@Z:PROC
 EXTRN	__imp_?Render@CModel@Engine@@QEAAJI@Z:PROC
 EXTRN	__imp_?GetMeshName@CModel@Engine@@QEAAPEBDI@Z:PROC
 EXTRN	__imp_?Get_MeshCount@CModel@Engine@@QEAAIXZ:PROC
@@ -3950,7 +3952,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?AnimationControl@CCharacter@Client@@AEAAXN@Z DD imagerel $LN12
-	DD	imagerel $LN12+956
+	DD	imagerel $LN12+1004
 	DD	imagerel $unwind$?AnimationControl@CCharacter@Client@@AEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -5592,6 +5594,10 @@ CONST	ENDS
 CONST	SEGMENT
 __real@41f80000 DD 041f80000r			; 31
 CONST	ENDS
+;	COMDAT __real@41f00000
+CONST	SEGMENT
+__real@41f00000 DD 041f00000r			; 30
+CONST	ENDS
 ;	COMDAT __real@41c80000
 CONST	SEGMENT
 __real@41c80000 DD 041c80000r			; 25
@@ -5603,6 +5609,10 @@ CONST	ENDS
 ;	COMDAT __real@419c0000
 CONST	SEGMENT
 __real@419c0000 DD 0419c0000r			; 19.5
+CONST	ENDS
+;	COMDAT __real@41880000
+CONST	SEGMENT
+__real@41880000 DD 041880000r			; 17
 CONST	ENDS
 ;	COMDAT __real@41400000
 CONST	SEGMENT
@@ -22665,7 +22675,7 @@ $LN10:
   0008b	48 8b 45 08	 mov	 rax, QWORD PTR pEnemy$1[rbp]
   0008f	48 8b 00	 mov	 rax, QWORD PTR [rax]
   00092	48 8b 4d 08	 mov	 rcx, QWORD PTR pEnemy$1[rbp]
-  00096	ff 50 60	 call	 QWORD PTR [rax+96]
+  00096	ff 50 68	 call	 QWORD PTR [rax+104]
   00099	48 8b d0	 mov	 rdx, rax
   0009c	48 8b 8d 50 01
 	00 00		 mov	 rcx, QWORD PTR dest$[rbp]
@@ -23286,7 +23296,7 @@ $LN2@OnCollisio:
   00457	48 8b 00	 mov	 rax, QWORD PTR [rax]
   0045a	48 8b 8d 18 02
 	00 00		 mov	 rcx, QWORD PTR pEnemy$17[rbp]
-  00461	ff 50 60	 call	 QWORD PTR [rax+96]
+  00461	ff 50 68	 call	 QWORD PTR [rax+104]
   00464	48 8b d0	 mov	 rdx, rax
   00467	48 8b 8d d0 07
 	00 00		 mov	 rcx, QWORD PTR dest$[rbp]
@@ -23543,7 +23553,7 @@ $LN20:
   000a0	48 8b 45 08	 mov	 rax, QWORD PTR pEnemy$4[rbp]
   000a4	48 8b 00	 mov	 rax, QWORD PTR [rax]
   000a7	48 8b 4d 08	 mov	 rcx, QWORD PTR pEnemy$4[rbp]
-  000ab	ff 50 70	 call	 QWORD PTR [rax+112]
+  000ab	ff 50 78	 call	 QWORD PTR [rax+120]
   000ae	48 8b d0	 mov	 rdx, rax
   000b1	48 8b 8d b0 01
 	00 00		 mov	 rcx, QWORD PTR dest$[rbp]
@@ -23630,7 +23640,7 @@ $LN2@OnCollisio:
   00169	48 8b 45 48	 mov	 rax, QWORD PTR pEnemy$6[rbp]
   0016d	48 8b 00	 mov	 rax, QWORD PTR [rax]
   00170	48 8b 4d 48	 mov	 rcx, QWORD PTR pEnemy$6[rbp]
-  00174	ff 50 68	 call	 QWORD PTR [rax+104]
+  00174	ff 50 70	 call	 QWORD PTR [rax+112]
   00177	48 8b d0	 mov	 rdx, rax
   0017a	48 8b 8d b0 01
 	00 00		 mov	 rcx, QWORD PTR dest$[rbp]
@@ -23714,7 +23724,7 @@ $LN5@OnCollisio:
   00225	48 8b 45 68	 mov	 rax, QWORD PTR pEnemy$7[rbp]
   00229	48 8b 00	 mov	 rax, QWORD PTR [rax]
   0022c	48 8b 4d 68	 mov	 rcx, QWORD PTR pEnemy$7[rbp]
-  00230	ff 50 60	 call	 QWORD PTR [rax+96]
+  00230	ff 50 68	 call	 QWORD PTR [rax+104]
   00233	48 8b d0	 mov	 rdx, rax
   00236	48 8b 8d b0 01
 	00 00		 mov	 rcx, QWORD PTR dest$[rbp]
@@ -23799,7 +23809,7 @@ $LN8@OnCollisio:
   002e9	48 8b 00	 mov	 rax, QWORD PTR [rax]
   002ec	48 8b 8d 88 00
 	00 00		 mov	 rcx, QWORD PTR pEnemy$8[rbp]
-  002f3	ff 50 70	 call	 QWORD PTR [rax+112]
+  002f3	ff 50 78	 call	 QWORD PTR [rax+120]
   002f6	48 8b d0	 mov	 rdx, rax
   002f9	48 8b 8d b0 01
 	00 00		 mov	 rcx, QWORD PTR dest$[rbp]
@@ -23954,7 +23964,7 @@ $LN11@OnCollisio:
   00445	48 8b 00	 mov	 rax, QWORD PTR [rax]
   00448	48 8b 8d a8 00
 	00 00		 mov	 rcx, QWORD PTR pEnemy$9[rbp]
-  0044f	ff 50 60	 call	 QWORD PTR [rax+96]
+  0044f	ff 50 68	 call	 QWORD PTR [rax+104]
   00452	48 8b d0	 mov	 rdx, rax
   00455	48 8b 8d b0 01
 	00 00		 mov	 rcx, QWORD PTR dest$[rbp]
@@ -35438,37 +35448,40 @@ $LN12:
   00160	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
   00165	0f b6 c0	 movzx	 eax, al
   00168	85 c0		 test	 eax, eax
-  0016a	74 49		 je	 SHORT $LN2@AnimationC
+  0016a	74 55		 je	 SHORT $LN2@AnimationC
 $LN4@AnimationC:
 
 ; 1660 : 		AnimationCompare(CLIP::ATTACK45))
 ; 1661 : 	{
 ; 1662 : 		mModel->Play_Animation(TimeDelta, mTransform, 0.03f, m_bRootMotion);
 
-  0016c	48 8b 85 00 01
+  0016c	48 8d 05 00 00
+	00 00		 lea	 rax, OFFSET FLAT:??_C@_06HFDDOAAP@Bip001?$AA@
+  00173	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
+  00178	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00173	0f b6 80 66 02
+  0017f	0f b6 80 66 02
 	00 00		 movzx	 eax, BYTE PTR [rax+614]
-  0017a	88 44 24 20	 mov	 BYTE PTR [rsp+32], al
-  0017e	f2 0f 10 1d 00
+  00186	88 44 24 20	 mov	 BYTE PTR [rsp+32], al
+  0018a	f2 0f 10 1d 00
 	00 00 00	 movsd	 xmm3, QWORD PTR __real@3f9eb851e0000000
-  00186	48 8b 85 00 01
+  00192	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0018d	4c 8b 80 98 00
+  00199	4c 8b 80 98 00
 	00 00		 mov	 r8, QWORD PTR [rax+152]
-  00194	f2 0f 10 8d 08
+  001a0	f2 0f 10 8d 08
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  0019c	48 8b 85 00 01
+  001a8	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001a3	48 8b 88 a0 00
+  001af	48 8b 88 a0 00
 	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  001aa	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@N_N@Z
+  001b6	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@N_NPEAD@Z
 
 ; 1663 : 	}
 ; 1664 : 	else if (AnimationCompare(CLIP::ATTACK1) || 
 
-  001b0	e9 fd 01 00 00	 jmp	 $LN3@AnimationC
+  001bc	e9 21 02 00 00	 jmp	 $LN3@AnimationC
 $LN2@AnimationC:
 
 ; 1665 : 		AnimationCompare(CLIP::ATTACK41) ||
@@ -35478,64 +35491,64 @@ $LN2@AnimationC:
 ; 1669 : 		AnimationCompare(CLIP::ATTACK12) ||
 ; 1670 : 		AnimationCompare(CLIP::ATTACK22) ||
 
-  001b5	33 d2		 xor	 edx, edx
-  001b7	48 8b 8d 00 01
+  001c1	33 d2		 xor	 edx, edx
+  001c3	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  001be	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
-  001c3	0f b6 c0	 movzx	 eax, al
-  001c6	85 c0		 test	 eax, eax
-  001c8	0f 85 b0 00 00
+  001ca	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
+  001cf	0f b6 c0	 movzx	 eax, al
+  001d2	85 c0		 test	 eax, eax
+  001d4	0f 85 b0 00 00
 	00		 jne	 $LN7@AnimationC
-  001ce	ba 0b 00 00 00	 mov	 edx, 11
-  001d3	48 8b 8d 00 01
+  001da	ba 0b 00 00 00	 mov	 edx, 11
+  001df	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  001da	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
-  001df	0f b6 c0	 movzx	 eax, al
-  001e2	85 c0		 test	 eax, eax
-  001e4	0f 85 94 00 00
+  001e6	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
+  001eb	0f b6 c0	 movzx	 eax, al
+  001ee	85 c0		 test	 eax, eax
+  001f0	0f 85 94 00 00
 	00		 jne	 $LN7@AnimationC
-  001ea	ba 05 00 00 00	 mov	 edx, 5
-  001ef	48 8b 8d 00 01
+  001f6	ba 05 00 00 00	 mov	 edx, 5
+  001fb	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  001f6	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
-  001fb	0f b6 c0	 movzx	 eax, al
-  001fe	85 c0		 test	 eax, eax
-  00200	75 7c		 jne	 SHORT $LN7@AnimationC
-  00202	ba 07 00 00 00	 mov	 edx, 7
-  00207	48 8b 8d 00 01
+  00202	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
+  00207	0f b6 c0	 movzx	 eax, al
+  0020a	85 c0		 test	 eax, eax
+  0020c	75 7c		 jne	 SHORT $LN7@AnimationC
+  0020e	ba 07 00 00 00	 mov	 edx, 7
+  00213	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0020e	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
-  00213	0f b6 c0	 movzx	 eax, al
-  00216	85 c0		 test	 eax, eax
-  00218	75 64		 jne	 SHORT $LN7@AnimationC
-  0021a	ba 09 00 00 00	 mov	 edx, 9
-  0021f	48 8b 8d 00 01
+  0021a	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
+  0021f	0f b6 c0	 movzx	 eax, al
+  00222	85 c0		 test	 eax, eax
+  00224	75 64		 jne	 SHORT $LN7@AnimationC
+  00226	ba 09 00 00 00	 mov	 edx, 9
+  0022b	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00226	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
-  0022b	0f b6 c0	 movzx	 eax, al
-  0022e	85 c0		 test	 eax, eax
-  00230	75 4c		 jne	 SHORT $LN7@AnimationC
-  00232	ba 06 00 00 00	 mov	 edx, 6
-  00237	48 8b 8d 00 01
+  00232	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
+  00237	0f b6 c0	 movzx	 eax, al
+  0023a	85 c0		 test	 eax, eax
+  0023c	75 4c		 jne	 SHORT $LN7@AnimationC
+  0023e	ba 06 00 00 00	 mov	 edx, 6
+  00243	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0023e	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
-  00243	0f b6 c0	 movzx	 eax, al
-  00246	85 c0		 test	 eax, eax
-  00248	75 34		 jne	 SHORT $LN7@AnimationC
-  0024a	ba 08 00 00 00	 mov	 edx, 8
-  0024f	48 8b 8d 00 01
+  0024a	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
+  0024f	0f b6 c0	 movzx	 eax, al
+  00252	85 c0		 test	 eax, eax
+  00254	75 34		 jne	 SHORT $LN7@AnimationC
+  00256	ba 08 00 00 00	 mov	 edx, 8
+  0025b	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00256	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
-  0025b	0f b6 c0	 movzx	 eax, al
-  0025e	85 c0		 test	 eax, eax
-  00260	75 1c		 jne	 SHORT $LN7@AnimationC
-  00262	ba 0a 00 00 00	 mov	 edx, 10
-  00267	48 8b 8d 00 01
+  00262	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
+  00267	0f b6 c0	 movzx	 eax, al
+  0026a	85 c0		 test	 eax, eax
+  0026c	75 1c		 jne	 SHORT $LN7@AnimationC
+  0026e	ba 0a 00 00 00	 mov	 edx, 10
+  00273	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0026e	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
-  00273	0f b6 c0	 movzx	 eax, al
-  00276	85 c0		 test	 eax, eax
-  00278	0f 84 fd 00 00
+  0027a	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
+  0027f	0f b6 c0	 movzx	 eax, al
+  00282	85 c0		 test	 eax, eax
+  00284	0f 84 15 01 00
 	00		 je	 $LN5@AnimationC
 $LN7@AnimationC:
 
@@ -35543,39 +35556,39 @@ $LN7@AnimationC:
 ; 1672 : 	{
 ; 1673 : 		if (m_bEnemyHolding && !m_bSkillYellowAttack)
 
-  0027e	48 8b 85 00 01
+  0028a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00285	0f b6 80 68 02
+  00291	0f b6 80 68 02
 	00 00		 movzx	 eax, BYTE PTR [rax+616]
-  0028c	85 c0		 test	 eax, eax
-  0028e	74 47		 je	 SHORT $LN8@AnimationC
-  00290	48 8b 85 00 01
+  00298	85 c0		 test	 eax, eax
+  0029a	74 47		 je	 SHORT $LN8@AnimationC
+  0029c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00297	0f b6 80 67 02
+  002a3	0f b6 80 67 02
 	00 00		 movzx	 eax, BYTE PTR [rax+615]
-  0029e	85 c0		 test	 eax, eax
-  002a0	75 35		 jne	 SHORT $LN8@AnimationC
+  002aa	85 c0		 test	 eax, eax
+  002ac	75 35		 jne	 SHORT $LN8@AnimationC
 
 ; 1674 : 		{
 ; 1675 : 			m_bRootMotion = false;
 
-  002a2	48 8b 85 00 01
+  002ae	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002a9	c6 80 66 02 00
+  002b5	c6 80 66 02 00
 	00 00		 mov	 BYTE PTR [rax+614], 0
 
 ; 1676 : 			mTransform->MoveForward(TimeDelta * 0.65f);
 
-  002b0	f2 0f 10 85 08
+  002bc	f2 0f 10 85 08
 	01 00 00	 movsd	 xmm0, QWORD PTR TimeDelta$[rbp]
-  002b8	f2 0f 59 05 00
+  002c4	f2 0f 59 05 00
 	00 00 00	 mulsd	 xmm0, QWORD PTR __real@3fe4ccccc0000000
-  002c0	0f 28 c8	 movaps	 xmm1, xmm0
-  002c3	48 8b 85 00 01
+  002cc	0f 28 c8	 movaps	 xmm1, xmm0
+  002cf	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002ca	48 8b 88 98 00
+  002d6	48 8b 88 98 00
 	00 00		 mov	 rcx, QWORD PTR [rax+152]
-  002d1	ff 15 00 00 00
+  002dd	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?MoveForward@CTransform@Engine@@QEAAXN@Z
 $LN8@AnimationC:
 
@@ -35583,97 +35596,106 @@ $LN8@AnimationC:
 ; 1678 : 
 ; 1679 : 		if (AnimationCompare(CLIP::STAND2))
 
-  002d7	ba 29 00 00 00	 mov	 edx, 41			; 00000029H
-  002dc	48 8b 8d 00 01
+  002e3	ba 29 00 00 00	 mov	 edx, 41			; 00000029H
+  002e8	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  002e3	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
-  002e8	0f b6 c0	 movzx	 eax, al
-  002eb	85 c0		 test	 eax, eax
-  002ed	74 46		 je	 SHORT $LN9@AnimationC
+  002ef	e8 00 00 00 00	 call	 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ; Client::CCharacter::AnimationCompare
+  002f4	0f b6 c0	 movzx	 eax, al
+  002f7	85 c0		 test	 eax, eax
+  002f9	74 52		 je	 SHORT $LN9@AnimationC
 
 ; 1680 : 			mModel->Play_Animation(TimeDelta, mTransform, 0.01f, m_bRootMotion);
 
-  002ef	48 8b 85 00 01
+  002fb	48 8d 05 00 00
+	00 00		 lea	 rax, OFFSET FLAT:??_C@_06HFDDOAAP@Bip001?$AA@
+  00302	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
+  00307	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002f6	0f b6 80 66 02
+  0030e	0f b6 80 66 02
 	00 00		 movzx	 eax, BYTE PTR [rax+614]
-  002fd	88 44 24 20	 mov	 BYTE PTR [rsp+32], al
-  00301	f2 0f 10 1d 00
+  00315	88 44 24 20	 mov	 BYTE PTR [rsp+32], al
+  00319	f2 0f 10 1d 00
 	00 00 00	 movsd	 xmm3, QWORD PTR __real@3f847ae140000000
-  00309	48 8b 85 00 01
+  00321	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00310	4c 8b 80 98 00
+  00328	4c 8b 80 98 00
 	00 00		 mov	 r8, QWORD PTR [rax+152]
-  00317	f2 0f 10 8d 08
+  0032f	f2 0f 10 8d 08
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  0031f	48 8b 85 00 01
+  00337	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00326	48 8b 88 a0 00
+  0033e	48 8b 88 a0 00
 	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  0032d	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@N_N@Z
+  00345	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@N_NPEAD@Z
 
 ; 1681 : 		else
 
-  00333	eb 44		 jmp	 SHORT $LN10@AnimationC
+  0034b	eb 50		 jmp	 SHORT $LN10@AnimationC
 $LN9@AnimationC:
 
 ; 1682 : 			mModel->Play_Animation(TimeDelta, mTransform, 0.1f, m_bRootMotion);
 
-  00335	48 8b 85 00 01
+  0034d	48 8d 05 00 00
+	00 00		 lea	 rax, OFFSET FLAT:??_C@_06HFDDOAAP@Bip001?$AA@
+  00354	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
+  00359	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0033c	0f b6 80 66 02
+  00360	0f b6 80 66 02
 	00 00		 movzx	 eax, BYTE PTR [rax+614]
-  00343	88 44 24 20	 mov	 BYTE PTR [rsp+32], al
-  00347	f2 0f 10 1d 00
+  00367	88 44 24 20	 mov	 BYTE PTR [rsp+32], al
+  0036b	f2 0f 10 1d 00
 	00 00 00	 movsd	 xmm3, QWORD PTR __real@3fb99999a0000000
-  0034f	48 8b 85 00 01
+  00373	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00356	4c 8b 80 98 00
+  0037a	4c 8b 80 98 00
 	00 00		 mov	 r8, QWORD PTR [rax+152]
-  0035d	f2 0f 10 8d 08
+  00381	f2 0f 10 8d 08
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  00365	48 8b 85 00 01
+  00389	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0036c	48 8b 88 a0 00
+  00390	48 8b 88 a0 00
 	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  00373	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@N_N@Z
+  00397	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@N_NPEAD@Z
 $LN10@AnimationC:
 
 ; 1683 : 	}
 ; 1684 : 	else
 
-  00379	eb 37		 jmp	 SHORT $LN6@AnimationC
+  0039d	eb 43		 jmp	 SHORT $LN6@AnimationC
 $LN5@AnimationC:
 
 ; 1685 : 		mModel->Play_Animation(TimeDelta, mTransform);
 
-  0037b	c6 44 24 20 01	 mov	 BYTE PTR [rsp+32], 1
-  00380	f2 0f 10 1d 00
+  0039f	48 8d 05 00 00
+	00 00		 lea	 rax, OFFSET FLAT:??_C@_06HFDDOAAP@Bip001?$AA@
+  003a6	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
+  003ab	c6 44 24 20 01	 mov	 BYTE PTR [rsp+32], 1
+  003b0	f2 0f 10 1d 00
 	00 00 00	 movsd	 xmm3, QWORD PTR __real@3fc999999999999a
-  00388	48 8b 85 00 01
+  003b8	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0038f	4c 8b 80 98 00
+  003bf	4c 8b 80 98 00
 	00 00		 mov	 r8, QWORD PTR [rax+152]
-  00396	f2 0f 10 8d 08
+  003c6	f2 0f 10 8d 08
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  0039e	48 8b 85 00 01
+  003ce	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003a5	48 8b 88 a0 00
+  003d5	48 8b 88 a0 00
 	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  003ac	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@N_N@Z
+  003dc	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@N_NPEAD@Z
 $LN6@AnimationC:
 $LN3@AnimationC:
 
 ; 1686 : }
 
-  003b2	48 8d a5 e8 00
+  003e2	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
-  003b9	5f		 pop	 rdi
-  003ba	5d		 pop	 rbp
-  003bb	c3		 ret	 0
+  003e9	5f		 pop	 rdi
+  003ea	5d		 pop	 rbp
+  003eb	c3		 ret	 0
 ?AnimationControl@CCharacter@Client@@AEAAXN@Z ENDP	; Client::CCharacter::AnimationControl
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -36866,14 +36888,14 @@ $LN10@AddCompone:
   006ea	48 8d 4d 50	 lea	 rcx, QWORD PTR collDesc$[rbp+8]
   006ee	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
 
-; 407  : 	collDesc.vExtents = _float3(20.f, 20.f, 20.f);
+; 407  : 	collDesc.vExtents = _float3(30.f, 30.f, 30.f);
 
   006f3	f3 0f 10 1d 00
-	00 00 00	 movss	 xmm3, DWORD PTR __real@41a00000
+	00 00 00	 movss	 xmm3, DWORD PTR __real@41f00000
   006fb	f3 0f 10 15 00
-	00 00 00	 movss	 xmm2, DWORD PTR __real@41a00000
+	00 00 00	 movss	 xmm2, DWORD PTR __real@41f00000
   00703	f3 0f 10 0d 00
-	00 00 00	 movss	 xmm1, DWORD PTR __real@41a00000
+	00 00 00	 movss	 xmm1, DWORD PTR __real@41f00000
   0070b	48 8d 8d 04 05
 	00 00		 lea	 rcx, QWORD PTR $T21[rbp]
   00712	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
@@ -39549,12 +39571,12 @@ $LN14@Tick:
 
 ; 176  : 		{
 ; 177  : 			//두번쨰 맵 엔딩위치 및 각도
-; 178  : 			_vector vEndPosition = XMVectorSet(0.f, 0.f, 20.f, 1.f);
+; 178  : 			_vector vEndPosition = XMVectorSet(0.f, 0.f, 17.f, 1.f);
 
   004bb	f3 0f 10 1d 00
 	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
   004c3	f3 0f 10 15 00
-	00 00 00	 movss	 xmm2, DWORD PTR __real@41a00000
+	00 00 00	 movss	 xmm2, DWORD PTR __real@41880000
   004cb	0f 57 c9	 xorps	 xmm1, xmm1
   004ce	0f 57 c0	 xorps	 xmm0, xmm0
   004d1	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet

@@ -134,7 +134,7 @@ protected:
 
 protected:
 	void OverlapProcess(_double TimeDelta);
-	void LookPlayer(_double TimeDelta);
+	virtual void LookPlayer(_double TimeDelta);
 	void Trace(_double TimeDelta);
 	void Attack(_double TimeDelta);
 	void DisableAttackCollision(_double TimeDelta);
@@ -263,6 +263,7 @@ protected:
 	_bool m_bSpawnWait = true;
 	_float m_fSpawnWaitAcc = 0.f;
 	_float m_fSpawnWaitTimeOut = 2.f;
+
 };
 
 END

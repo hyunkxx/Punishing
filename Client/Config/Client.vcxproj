@@ -209,6 +209,7 @@
     <ClInclude Include="..\public\SkillBase.h" />
     <ClInclude Include="..\public\Skybox.h" />
     <ClInclude Include="..\public\StageCollisionManager.h" />
+    <ClInclude Include="..\public\Thorn.h" />
     <ClInclude Include="..\public\Wall.h" />
     <ClInclude Include="..\public\Weapon.h" />
     <ClInclude Include="..\public\Terrain.h" />
@@ -272,6 +273,7 @@
     <ClCompile Include="..\private\SkillBase.cpp" />
     <ClCompile Include="..\private\Skybox.cpp" />
     <ClCompile Include="..\private\StageCollisionManager.cpp" />
+    <ClCompile Include="..\private\Thorn.cpp" />
     <ClCompile Include="..\private\Wall.cpp" />
     <ClCompile Include="..\private\Weapon.cpp" />
     <ClCompile Include="..\private\Terrain.cpp" />

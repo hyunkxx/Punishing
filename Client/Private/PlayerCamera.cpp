@@ -174,8 +174,8 @@ void CPlayerCamera::LateTick(_double TimeDelta)
 	}
 
 	//이거하면 풀면 콜리전 보임
-	//if (!m_bFadeIn && !m_bFadeOut)
-	//	return;
+	if (!m_bFadeIn && !m_bFadeOut)
+		return;
 
 	if (nullptr != m_pRenderer)
 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_ENDING, this);

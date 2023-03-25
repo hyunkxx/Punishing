@@ -2775,8 +2775,8 @@ $pdata$?Tick@CPlayerCamera@Client@@UEAAXN@Z DD imagerel $LN12
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?LateTick@CPlayerCamera@Client@@UEAAXN@Z DD imagerel $LN11
-	DD	imagerel $LN11+567
+$pdata$?LateTick@CPlayerCamera@Client@@UEAAXN@Z DD imagerel $LN12
+	DD	imagerel $LN12+605
 	DD	imagerel $unwind$?LateTick@CPlayerCamera@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -7030,7 +7030,7 @@ TimeDelta$ = 296
 
 ; 136  : {
 
-$LN11:
+$LN12:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7183,14 +7183,14 @@ $LN2@LateTick:
   00145	0f b6 80 a0 01
 	00 00		 movzx	 eax, BYTE PTR [rax+416]
   0014c	85 c0		 test	 eax, eax
-  0014e	75 0c		 jne	 SHORT $LN9@LateTick
+  0014e	75 0c		 jne	 SHORT $LN10@LateTick
   00150	c7 85 f4 00 00
 	00 01 00 00 00	 mov	 DWORD PTR tv136[rbp], 1
-  0015a	eb 0a		 jmp	 SHORT $LN10@LateTick
-$LN9@LateTick:
+  0015a	eb 0a		 jmp	 SHORT $LN11@LateTick
+$LN10@LateTick:
   0015c	c7 85 f4 00 00
 	00 00 00 00 00	 mov	 DWORD PTR tv136[rbp], 0
-$LN10@LateTick:
+$LN11@LateTick:
   00166	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0016d	0f b6 8d f4 00
@@ -7267,37 +7267,56 @@ $LN5@LateTick:
 ; 174  : 	}
 ; 175  : 
 ; 176  : 	//이거하면 풀면 콜리전 보임
-; 177  : 	//if (!m_bFadeIn && !m_bFadeOut)
-; 178  : 	//	return;
-; 179  : 
-; 180  : 	if (nullptr != m_pRenderer)
+; 177  : 	if (!m_bFadeIn && !m_bFadeOut)
 
   001fc	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00203	48 83 b8 a8 02
+  00203	0f b6 80 c1 01
+	00 00		 movzx	 eax, BYTE PTR [rax+449]
+  0020a	85 c0		 test	 eax, eax
+  0020c	75 14		 jne	 SHORT $LN7@LateTick
+  0020e	48 8b 85 20 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00215	0f b6 80 c2 01
+	00 00		 movzx	 eax, BYTE PTR [rax+450]
+  0021c	85 c0		 test	 eax, eax
+  0021e	75 02		 jne	 SHORT $LN7@LateTick
+
+; 178  : 		return;
+
+  00220	eb 31		 jmp	 SHORT $LN1@LateTick
+$LN7@LateTick:
+
+; 179  : 
+; 180  : 	if (nullptr != m_pRenderer)
+
+  00222	48 8b 85 20 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00229	48 83 b8 a8 02
 	00 00 00	 cmp	 QWORD PTR [rax+680], 0
-  0020b	74 20		 je	 SHORT $LN7@LateTick
+  00231	74 20		 je	 SHORT $LN8@LateTick
 
 ; 181  : 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_ENDING, this);
 
-  0020d	4c 8b 85 20 01
+  00233	4c 8b 85 20 01
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
-  00214	ba 05 00 00 00	 mov	 edx, 5
-  00219	48 8b 85 20 01
+  0023a	ba 05 00 00 00	 mov	 edx, 5
+  0023f	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00220	48 8b 88 a8 02
+  00246	48 8b 88 a8 02
 	00 00		 mov	 rcx, QWORD PTR [rax+680]
-  00227	ff 15 00 00 00
+  0024d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z
-$LN7@LateTick:
+$LN8@LateTick:
+$LN1@LateTick:
 
 ; 182  : }
 
-  0022d	48 8d a5 08 01
+  00253	48 8d a5 08 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+264]
-  00234	5f		 pop	 rdi
-  00235	5d		 pop	 rbp
-  00236	c3		 ret	 0
+  0025a	5f		 pop	 rdi
+  0025b	5d		 pop	 rbp
+  0025c	c3		 ret	 0
 ?LateTick@CPlayerCamera@Client@@UEAAXN@Z ENDP		; Client::CPlayerCamera::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI

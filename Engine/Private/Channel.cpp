@@ -23,7 +23,7 @@ HRESULT CChannel::Initialize(aiNodeAnim* pAIChannel, CModel* pModel)
 
 	m_iKeyFrameCount = max(pAIChannel->mNumScalingKeys, pAIChannel->mNumRotationKeys);
 	m_iKeyFrameCount = max(m_iKeyFrameCount, pAIChannel->mNumPositionKeys);
-
+	
 	_float3 vScale;
 	_float4 vRotation;
 	_float3 vPosition;
@@ -108,8 +108,14 @@ _bool CChannel::AlignPositionY(_double TimeDelta, CTransform* pTransform)
 	return ret;
 }
 
-void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform, _bool bRootMotion)
+void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform, _bool bRootMotion, char* pRootBoneName)
 {
+	//if (!bRootMotion)
+	//{
+	//	InvalidateRootTransform(TrackPosition, pTransform, bRootMotion);
+	//	return;
+	//}
+
 	if (0.0 == TrackPosition)
 		m_iCurrentIndex = 0;
 
@@ -126,11 +132,18 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 		vPosition = XMLoadFloat3(&LastKeyFrame.vPosition);
 
 		//최종 프레임일때 피봇 포지션 초기화
-		if (!strcmp(m_pBone->GetName(), "Bip001"))
+		if (!strcmp(m_pBone->GetName(), pRootBoneName))
 		{
-			vPosition = XMVectorSetY(vPosition, LastKeyFrame.vPosition.y);
-			XMStoreFloat3(&m_vPrevBonePos, vPosition);
-			vPosition = XMVectorSet(m_vIdleOriginPos.x, LastKeyFrame.vPosition.y, m_vIdleOriginPos. z, 1.f);
+			if (bRootMotion)
+			{
+				vPosition = XMVectorSetY(vPosition, LastKeyFrame.vPosition.y);
+				XMStoreFloat3(&m_vPrevBonePos, vPosition);
+				vPosition = XMVectorSet(m_vIdleOriginPos.x, LastKeyFrame.vPosition.y, m_vIdleOriginPos.z, 1.f);
+			}
+			else
+			{
+				vPosition = XMVectorSet(0.f, LastKeyFrame.vPosition.y, 0.f, 1.f);
+			}
 		}
 	}
 	else
@@ -165,7 +178,7 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 		XMStoreFloat3(&m_CurrentKeyFrame.vPosition, vPosition);
 
 		//해당 본이 기준 뼈라면 루트를 000고정
-		if (!strcmp(m_pBone->GetName(), "Bip001"))
+		if (!strcmp(m_pBone->GetName(), pRootBoneName))
 		{
 			_vector vMoveValue = vPosition - XMLoadFloat3(&m_vPrevBonePos);
 			_vector vFixMoveValue; // 180도 회전 (X,Y축 * -1) & 플레이어의 룩방향 기준축 생성
@@ -216,6 +229,83 @@ void CChannel::InvalidateTransform(_double TrackPosition, CTransform* pTransform
 	_matrix TransformationMatrix = XMMatrixAffineTransformation(vScale, XMVectorSet(0.f, 0.f, 0.f, 1.f), vRotation, vPosition);
 	m_pBone->SetTransformationMatrix(TransformationMatrix);
 }
+
+//void CChannel::InvalidateRootTransform(_double TrackPosition, CTransform* pTransform, _bool bRootMotion)
+//{
+//	if (0.0 == TrackPosition)
+//		m_iCurrentIndex = 0;
+//
+//	_vector vScale;
+//	_vector vRotation;
+//	_vector vPosition;
+//
+//	KEY_FRAME LastKeyFrame = m_KeyFrames.back();
+//	if (TrackPosition >= LastKeyFrame.Time)
+//	{
+//		//애니메이션이 종료됬다면 최종 프레임의 상태를 유지
+//		vScale = XMLoadFloat3(&LastKeyFrame.vScale);
+//		vRotation = XMLoadFloat4(&LastKeyFrame.vRotation);
+//		vPosition = XMLoadFloat3(&LastKeyFrame.vPosition);
+//
+//		//최종 프레임일때 피봇 포지션 초기화
+//		if (!strcmp(m_pBone->GetName(), "Bip001"))
+//		{
+//			if (bRootMotion)
+//			{
+//				vPosition = XMVectorSetY(vPosition, LastKeyFrame.vPosition.y);
+//				XMStoreFloat3(&m_vPrevBonePos, vPosition);
+//				vPosition = XMVectorSet(m_vIdleOriginPos.x, LastKeyFrame.vPosition.y, m_vIdleOriginPos.z, 1.f);
+//			}
+//			else
+//			{
+//				vPosition = XMVectorSet(0.f, LastKeyFrame.vPosition.y, 0.f, 1.f);
+//			}
+//		}
+//	}
+//	else
+//	{
+//		//애니메이션이 종료되지 않았고 트렉의 위치가 다음프레임의 시간에 도달했을 경우 현재프레임 증가
+//		while (TrackPosition >= m_KeyFrames[m_iCurrentIndex + 1].Time)
+//			++m_iCurrentIndex;
+//
+//		//현재 트렉의 진행도를 (이전프레임)0.f ~ 1.f(다음프레임)로 만듦
+//		_double Ratio = (TrackPosition - m_KeyFrames[m_iCurrentIndex].Time) /
+//			(m_KeyFrames[m_iCurrentIndex + 1].Time - m_KeyFrames[m_iCurrentIndex].Time);
+//
+//		_vector vSourScale, vDestScale;
+//		_vector vSourRotation, vDestRotation;
+//		_vector vSourPosition, vDestPosition;
+//
+//		vSourScale = XMLoadFloat3(&m_KeyFrames[m_iCurrentIndex].vScale);
+//		vSourRotation = XMLoadFloat4(&m_KeyFrames[m_iCurrentIndex].vRotation);
+//		vSourPosition = XMLoadFloat3(&m_KeyFrames[m_iCurrentIndex].vPosition);
+//
+//		vDestScale = XMLoadFloat3(&m_KeyFrames[m_iCurrentIndex + 1].vScale);
+//		vDestRotation = XMLoadFloat4(&m_KeyFrames[m_iCurrentIndex + 1].vRotation);
+//		vDestPosition = XMLoadFloat3(&m_KeyFrames[m_iCurrentIndex + 1].vPosition);
+//
+//		vScale = XMVectorLerp(vSourScale, vDestScale, (_float)Ratio);
+//		vRotation = XMQuaternionSlerp(vSourRotation, vDestRotation, (_float)Ratio);
+//		vPosition = XMVectorLerp(vSourPosition, vDestPosition, (_float)Ratio);
+//
+//		//현재 키프레임 저장
+//		XMStoreFloat3(&m_CurrentKeyFrame.vScale, vScale);
+//		XMStoreFloat4(&m_CurrentKeyFrame.vRotation, vRotation);
+//		XMStoreFloat3(&m_CurrentKeyFrame.vPosition, vPosition);
+//
+//		//해당 본이 기준 뼈라면 루트를 000고정
+//		if (!strcmp(m_pBone->GetName(), "Bip001"))
+//		{
+//			//현재 키프레임의 본 위치 저장
+//			XMStoreFloat3(&m_vPrevBonePos, vPosition);
+//			vPosition = XMVectorSet(0.f, XMVectorGetY(vPosition), 0.f, 1.0f);
+//		}
+//	}
+//
+//	// 키프레임의 상태를 보간후 SRT를 적용하여 뼈 행렬 업데이트
+//	_matrix TransformationMatrix = XMMatrixAffineTransformation(vScale, XMVectorSet(0.f, 0.f, 0.f, 1.f), vRotation, vPosition);
+//	m_pBone->SetTransformationMatrix(TransformationMatrix);
+//}
 
 void CChannel::InvalidateTransformLerp(_double Ratio, CTransform * pTransform, PREV_DATA PrevData)
 {

@@ -14,7 +14,8 @@ private:
 public:
 	HRESULT Initialize(aiNodeAnim* pAIChannel, class CModel* pModel);
 	_bool AlignPositionY(_double TimeDelta, class CTransform* pTransform);
-	void InvalidateTransform(_double TrackPosition, class CTransform* pTransform, _bool bRootMotion);
+	void InvalidateTransform(_double TrackPosition, class CTransform* pTransform, _bool bRootMotion, char* pRootBoneName = "Bip001");
+	//void InvalidateRootTransform(_double TrackPosition, class CTransform* pTransform, _bool bRootMotion);
 	void InvalidateTransformLerp(_double Ratio, class CTransform* pTransform, PREV_DATA PrevData);
 
 	const char* GetName() const { return m_szName; }

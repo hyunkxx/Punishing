@@ -2721,7 +2721,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CWeapon@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CWeapon@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 09aH ; `Client::CWeapon::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CWeapon@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 09cH ; `Client::CWeapon::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1DG@ONIAIANA@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAW?$AAe?$AAa?$AAp?$AAo?$AAn?$AA?$AA@
 CONST	SEGMENT
@@ -2745,7 +2745,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CWeapon@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CWeapon@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 08eH ; `Client::CWeapon::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CWeapon@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 090H ; `Client::CWeapon::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@
 CONST	SEGMENT
@@ -2879,7 +2879,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??LateTick@CWeapon@Client@@UEAAXN@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??LateTick@CWeapon@Client@@UEAAXN@Z@4JA DD 02bH ; `Client::CWeapon::LateTick'::`1'::__LINE__Var
+?__LINE__Var@?0??LateTick@CWeapon@Client@@UEAAXN@Z@4JA DD 02dH ; `Client::CWeapon::LateTick'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_7CWeapon@Client@@6B@
 CONST	SEGMENT
@@ -3988,7 +3988,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CWeapon@Client@@UEAAXXZ PROC			; Client::CWeapon::Free, COMDAT
 
-; 166  : {
+; 168  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4004,15 +4004,15 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 167  : 	__super::Free();
+; 169  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CGameObject@Engine@@UEAAXXZ
 
-; 168  : 
-; 169  : 	Safe_Release(mRenderer);
+; 170  : 
+; 171  : 	Safe_Release(mRenderer);
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4020,7 +4020,7 @@ $LN3:
   00042	48 8b c8	 mov	 rcx, rax
   00045	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
-; 170  : 	Safe_Release(mTransform);
+; 172  : 	Safe_Release(mTransform);
 
   0004a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4029,7 +4029,7 @@ $LN3:
   00057	48 8b c8	 mov	 rcx, rax
   0005a	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 171  : 	Safe_Release(mModel);
+; 173  : 	Safe_Release(mModel);
 
   0005f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4038,7 +4038,7 @@ $LN3:
   0006c	48 8b c8	 mov	 rcx, rax
   0006f	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ; Engine::Safe_Release<Engine::CModel * __ptr64>
 
-; 172  : 	Safe_Release(mShader);
+; 174  : 	Safe_Release(mShader);
 
   00074	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4047,8 +4047,8 @@ $LN3:
   00081	48 8b c8	 mov	 rcx, rax
   00084	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ; Engine::Safe_Release<Engine::CShader * __ptr64>
 
-; 173  : 
-; 174  : }
+; 175  : 
+; 176  : }
 
   00089	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4071,7 +4071,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CWeapon@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CWeapon::Clone, COMDAT
 
-; 154  : {
+; 156  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4096,7 +4096,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 155  : 	CWeapon* pInstance = new CWeapon(*this);
+; 157  : 	CWeapon* pInstance = new CWeapon(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CWeapon@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
@@ -4133,7 +4133,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 156  : 	if (FAILED(pInstance->Initialize(pArg)))
+; 158  : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 78 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -4142,8 +4142,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Clone
 
-; 157  : 	{
-; 158  : 		MSG_BOX("Failed to Clone : CWeapon");
+; 159  : 	{
+; 160  : 		MSG_BOX("Failed to Clone : CWeapon");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -4154,19 +4154,19 @@ $LN5@Clone:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 159  : 		Safe_Release(pInstance);
+; 161  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCWeapon@Client@@@Engine@@YAKAEAPEAVCWeapon@Client@@@Z ; Engine::Safe_Release<Client::CWeapon * __ptr64>
 $LN2@Clone:
 
-; 160  : 	}
-; 161  : 
-; 162  : 	return pInstance;
+; 162  : 	}
+; 163  : 
+; 164  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 163  : }
+; 165  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -4264,7 +4264,7 @@ pDevice$ = 368
 pContext$ = 376
 ?Create@CWeapon@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CWeapon::Create, COMDAT
 
-; 142  : {
+; 144  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4289,7 +4289,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 143  : 	CWeapon*	pInstance = new CWeapon(pDevice, pContext);
+; 145  : 	CWeapon*	pInstance = new CWeapon(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CWeapon@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -4328,15 +4328,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 144  : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 146  : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CWeapon@Client@@UEAAJXZ ; Client::CWeapon::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Create
 
-; 145  : 	{
-; 146  : 		MSG_BOX("Failed to Create : CWeapon");
+; 147  : 	{
+; 148  : 		MSG_BOX("Failed to Create : CWeapon");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -4347,19 +4347,19 @@ $LN5@Create:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 147  : 		Safe_Release(pInstance);
+; 149  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCWeapon@Client@@@Engine@@YAKAEAPEAVCWeapon@Client@@@Z ; Engine::Safe_Release<Client::CWeapon * __ptr64>
 $LN2@Create:
 
-; 148  : 	}
-; 149  : 
-; 150  : 	return pInstance;
+; 150  : 	}
+; 151  : 
+; 152  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 151  : }
+; 153  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -4455,7 +4455,7 @@ $T3 = 452
 this$ = 528
 ?SetupShaderResources@CWeapon@Client@@AEAAJXZ PROC	; Client::CWeapon::SetupShaderResources, COMDAT
 
-; 106  : {
+; 108  : {
 
 $LN13:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4471,7 +4471,7 @@ $LN13:
   00022	48 8b 8c 24 38
 	02 00 00	 mov	 rcx, QWORD PTR [rsp+568]
 
-; 107  : 	if (nullptr == mShader)
+; 109  : 	if (nullptr == mShader)
 
   0002a	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4479,21 +4479,21 @@ $LN13:
 	00 00 00	 cmp	 QWORD PTR [rax+144], 0
   00039	75 0a		 jne	 SHORT $LN2@SetupShade
 
-; 108  : 		return E_FAIL;
+; 110  : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00040	e9 09 02 00 00	 jmp	 $LN1@SetupShade
 $LN2@SetupShade:
 
-; 109  : 
-; 110  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
+; 111  : 
+; 112  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
 
   00045	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0004b	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 111  : 
-; 112  : 	if (FAILED(mTransform->Setup_ShaderResource(mShader, "g_WorldMatrix")))
+; 113  : 
+; 114  : 	if (FAILED(mTransform->Setup_ShaderResource(mShader, "g_WorldMatrix")))
 
   0004f	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
@@ -4510,14 +4510,14 @@ $LN2@SetupShade:
   00078	85 c0		 test	 eax, eax
   0007a	7d 0a		 jge	 SHORT $LN3@SetupShade
 
-; 113  : 		return E_FAIL;
+; 115  : 		return E_FAIL;
 
   0007c	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00081	e9 c8 01 00 00	 jmp	 $LN1@SetupShade
 $LN3@SetupShade:
 
-; 114  : 
-; 115  : 	if (FAILED(mShader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
+; 116  : 
+; 117  : 	if (FAILED(mShader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
 
   00086	45 33 c0	 xor	 r8d, r8d
   00089	48 8d 95 04 01
@@ -4537,14 +4537,14 @@ $LN3@SetupShade:
   000b8	85 c0		 test	 eax, eax
   000ba	7d 0a		 jge	 SHORT $LN4@SetupShade
 
-; 116  : 		return E_FAIL;
+; 118  : 		return E_FAIL;
 
   000bc	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000c1	e9 88 01 00 00	 jmp	 $LN1@SetupShade
 $LN4@SetupShade:
 
-; 117  : 
-; 118  : 	if (FAILED(mShader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
+; 119  : 
+; 120  : 	if (FAILED(mShader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
 
   000c6	41 b8 01 00 00
 	00		 mov	 r8d, 1
@@ -4565,14 +4565,14 @@ $LN4@SetupShade:
   000fb	85 c0		 test	 eax, eax
   000fd	7d 0a		 jge	 SHORT $LN5@SetupShade
 
-; 119  : 		return E_FAIL;
+; 121  : 		return E_FAIL;
 
   000ff	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00104	e9 45 01 00 00	 jmp	 $LN1@SetupShade
 $LN5@SetupShade:
 
-; 120  : 
-; 121  : 	if (FAILED(mShader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
+; 122  : 
+; 123  : 	if (FAILED(mShader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
 
   00109	48 8d 95 c4 01
 	00 00		 lea	 rdx, QWORD PTR $T3[rbp]
@@ -4593,14 +4593,14 @@ $LN5@SetupShade:
   0013e	85 c0		 test	 eax, eax
   00140	7d 0a		 jge	 SHORT $LN6@SetupShade
 
-; 122  : 		return E_FAIL;
+; 124  : 		return E_FAIL;
 
   00142	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00147	e9 02 01 00 00	 jmp	 $LN1@SetupShade
 $LN6@SetupShade:
 
-; 123  : 
-; 124  : 	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
+; 125  : 
+; 126  : 	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
 
   0014c	33 d2		 xor	 edx, edx
   0014e	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
@@ -4608,19 +4608,19 @@ $LN6@SetupShade:
 	00		 call	 QWORD PTR __imp_?GetLightDesc@CGameInstance@Engine@@QEAAPEBUtagLight_Desc@2@I@Z
   00158	48 89 45 28	 mov	 QWORD PTR LightDesc$[rbp], rax
 
-; 125  : 	if (nullptr == LightDesc)
+; 127  : 	if (nullptr == LightDesc)
 
   0015c	48 83 7d 28 00	 cmp	 QWORD PTR LightDesc$[rbp], 0
   00161	75 0a		 jne	 SHORT $LN7@SetupShade
 
-; 126  : 		return E_FAIL;
+; 128  : 		return E_FAIL;
 
   00163	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00168	e9 e1 00 00 00	 jmp	 $LN1@SetupShade
 $LN7@SetupShade:
 
-; 127  : 
-; 128  : 	if (FAILED(mShader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
+; 129  : 
+; 130  : 	if (FAILED(mShader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
 
   0016d	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   00171	48 83 c0 04	 add	 rax, 4
@@ -4638,13 +4638,13 @@ $LN7@SetupShade:
   00199	85 c0		 test	 eax, eax
   0019b	7d 0a		 jge	 SHORT $LN8@SetupShade
 
-; 129  : 		return E_FAIL;
+; 131  : 		return E_FAIL;
 
   0019d	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001a2	e9 a7 00 00 00	 jmp	 $LN1@SetupShade
 $LN8@SetupShade:
 
-; 130  : 	if (FAILED(mShader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
+; 132  : 	if (FAILED(mShader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
 
   001a7	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   001ab	48 83 c0 28	 add	 rax, 40			; 00000028H
@@ -4662,13 +4662,13 @@ $LN8@SetupShade:
   001d3	85 c0		 test	 eax, eax
   001d5	7d 07		 jge	 SHORT $LN9@SetupShade
 
-; 131  : 		return E_FAIL;
+; 133  : 		return E_FAIL;
 
   001d7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001dc	eb 70		 jmp	 SHORT $LN1@SetupShade
 $LN9@SetupShade:
 
-; 132  : 	if (FAILED(mShader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
+; 134  : 	if (FAILED(mShader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
 
   001de	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   001e2	48 83 c0 48	 add	 rax, 72			; 00000048H
@@ -4686,13 +4686,13 @@ $LN9@SetupShade:
   0020a	85 c0		 test	 eax, eax
   0020c	7d 07		 jge	 SHORT $LN10@SetupShade
 
-; 133  : 		return E_FAIL;
+; 135  : 		return E_FAIL;
 
   0020e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00213	eb 39		 jmp	 SHORT $LN1@SetupShade
 $LN10@SetupShade:
 
-; 134  : 	if (FAILED(mShader->SetRawValue("g_vLightAmbient", &LightDesc->vAmbient, sizeof(_float4))))
+; 136  : 	if (FAILED(mShader->SetRawValue("g_vLightAmbient", &LightDesc->vAmbient, sizeof(_float4))))
 
   00215	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   00219	48 83 c0 38	 add	 rax, 56			; 00000038H
@@ -4710,20 +4710,20 @@ $LN10@SetupShade:
   00241	85 c0		 test	 eax, eax
   00243	7d 07		 jge	 SHORT $LN11@SetupShade
 
-; 135  : 		return E_FAIL;
+; 137  : 		return E_FAIL;
 
   00245	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0024a	eb 02		 jmp	 SHORT $LN1@SetupShade
 $LN11@SetupShade:
 
-; 136  : 
-; 137  : 	return S_OK;
+; 138  : 
+; 139  : 	return S_OK;
 
   0024c	33 c0		 xor	 eax, eax
 $LN1@SetupShade:
 
-; 138  : 
-; 139  : }
+; 140  : 
+; 141  : }
 
   0024e	48 8d a5 f8 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+504]
@@ -4739,7 +4739,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?AddComponents@CWeapon@Client@@AEAAJXZ PROC		; Client::CWeapon::AddComponents, COMDAT
 
-; 89   : {
+; 91   : {
 
 $LN7:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4755,7 +4755,7 @@ $LN7:
   00022	48 8b 8c 24 18
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+280]
 
-; 90   : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&mRenderer)))
+; 92   : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&mRenderer)))
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4775,14 +4775,14 @@ $LN7:
   00060	85 c0		 test	 eax, eax
   00062	7d 0a		 jge	 SHORT $LN2@AddCompone
 
-; 91   : 		return E_FAIL;
+; 93   : 		return E_FAIL;
 
   00064	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00069	e9 d1 00 00 00	 jmp	 $LN1@AddCompone
 $LN2@AddCompone:
 
-; 92   : 
-; 93   : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&mTransform)))
+; 94   : 
+; 95   : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&mTransform)))
 
   0006e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4803,14 +4803,14 @@ $LN2@AddCompone:
   000a6	85 c0		 test	 eax, eax
   000a8	7d 0a		 jge	 SHORT $LN3@AddCompone
 
-; 94   : 		return E_FAIL;
+; 96   : 		return E_FAIL;
 
   000aa	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000af	e9 8b 00 00 00	 jmp	 $LN1@AddCompone
 $LN3@AddCompone:
 
-; 95   : 
-; 96   : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"), TEXT("com_shader"), (CComponent**)&mShader)))
+; 97   : 
+; 98   : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"), TEXT("com_shader"), (CComponent**)&mShader)))
 
   000b4	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4831,14 +4831,14 @@ $LN3@AddCompone:
   000ec	85 c0		 test	 eax, eax
   000ee	7d 07		 jge	 SHORT $LN4@AddCompone
 
-; 97   : 		return E_FAIL;
+; 99   : 		return E_FAIL;
 
   000f0	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000f5	eb 48		 jmp	 SHORT $LN1@AddCompone
 $LN4@AddCompone:
 
-; 98   : 
-; 99   : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kamui_weapon"), TEXT("com_model"), (CComponent**)&mModel)))
+; 100  : 
+; 101  : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kamui_weapon"), TEXT("com_model"), (CComponent**)&mModel)))
 
   000f7	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4859,19 +4859,19 @@ $LN4@AddCompone:
   00132	85 c0		 test	 eax, eax
   00134	7d 07		 jge	 SHORT $LN5@AddCompone
 
-; 100  : 		return E_FAIL;
+; 102  : 		return E_FAIL;
 
   00136	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0013b	eb 02		 jmp	 SHORT $LN1@AddCompone
 $LN5@AddCompone:
 
-; 101  : 
-; 102  : 	return S_OK;
+; 103  : 
+; 104  : 	return S_OK;
 
   0013d	33 c0		 xor	 eax, eax
 $LN1@AddCompone:
 
-; 103  : }
+; 105  : }
 
   0013f	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4887,7 +4887,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?RenderGUI@CWeapon@Client@@UEAAXXZ PROC			; Client::CWeapon::RenderGUI, COMDAT
 
-; 85   : {
+; 87   : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4903,7 +4903,7 @@ $LN3:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 86   : }
+; 88   : }
 
   00028	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4921,7 +4921,7 @@ i$1 = 36
 this$ = 288
 ?Render@CWeapon@Client@@UEAAJXZ PROC			; Client::CWeapon::Render, COMDAT
 
-; 65   : {
+; 67   : {
 
 $LN8:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4937,7 +4937,7 @@ $LN8:
   00022	48 8b 8c 24 58
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+344]
 
-; 66   : 	if (FAILED(__super::Render()))
+; 68   : 	if (FAILED(__super::Render()))
 
   0002a	48 8b 8d 20 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -4946,14 +4946,14 @@ $LN8:
   00037	85 c0		 test	 eax, eax
   00039	7d 0a		 jge	 SHORT $LN5@Render
 
-; 67   : 		return E_FAIL;
+; 69   : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00040	e9 b0 00 00 00	 jmp	 $LN1@Render
 $LN5@Render:
 
-; 68   : 
-; 69   : 	if (FAILED(SetupShaderResources()))
+; 70   : 
+; 71   : 	if (FAILED(SetupShaderResources()))
 
   00045	48 8b 8d 20 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -4961,14 +4961,14 @@ $LN5@Render:
   00051	85 c0		 test	 eax, eax
   00053	7d 0a		 jge	 SHORT $LN6@Render
 
-; 70   : 		return E_FAIL;
+; 72   : 		return E_FAIL;
 
   00055	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0005a	e9 96 00 00 00	 jmp	 $LN1@Render
 $LN6@Render:
 
-; 71   : 
-; 72   : 	_uint MeshCount = mModel->Get_MeshCount();
+; 73   : 
+; 74   : 	_uint MeshCount = mModel->Get_MeshCount();
 
   0005f	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4978,7 +4978,7 @@ $LN6@Render:
 	00		 call	 QWORD PTR __imp_?Get_MeshCount@CModel@Engine@@QEAAIXZ
   00073	89 45 04	 mov	 DWORD PTR MeshCount$[rbp], eax
 
-; 73   : 	for (_uint i = 0; i < MeshCount; ++i)
+; 75   : 	for (_uint i = 0; i < MeshCount; ++i)
 
   00076	c7 45 24 00 00
 	00 00		 mov	 DWORD PTR i$1[rbp], 0
@@ -4992,8 +4992,8 @@ $LN4@Render:
   0008a	39 45 24	 cmp	 DWORD PTR i$1[rbp], eax
   0008d	73 64		 jae	 SHORT $LN3@Render
 
-; 74   : 	{
-; 75   : 		mModel->Setup_ShaderMaterialResource(mShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+; 76   : 	{
+; 77   : 		mModel->Setup_ShaderMaterialResource(mShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
 
   0008f	c7 44 24 20 01
 	00 00 00	 mov	 DWORD PTR [rsp+32], 1
@@ -5011,8 +5011,8 @@ $LN4@Render:
   000be	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderMaterialResource@CModel@Engine@@QEAAJPEAVCShader@2@PEBDIW4aiTextureType@@@Z
 
-; 76   : 		
-; 77   : 		mShader->Begin(0);
+; 78   : 		
+; 79   : 		mShader->Begin(0);
 
   000c4	33 d2		 xor	 edx, edx
   000c6	48 8b 85 20 01
@@ -5022,7 +5022,7 @@ $LN4@Render:
   000d4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
-; 78   : 		mModel->Render(i);
+; 80   : 		mModel->Render(i);
 
   000da	8b 55 24	 mov	 edx, DWORD PTR i$1[rbp]
   000dd	48 8b 85 20 01
@@ -5032,18 +5032,18 @@ $LN4@Render:
   000eb	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CModel@Engine@@QEAAJI@Z
 
-; 79   : 	}
+; 81   : 	}
 
   000f1	eb 8c		 jmp	 SHORT $LN2@Render
 $LN3@Render:
 
-; 80   : 
-; 81   : 	return S_OK;
+; 82   : 
+; 83   : 	return S_OK;
 
   000f3	33 c0		 xor	 eax, eax
 $LN1@Render:
 
-; 82   : }
+; 84   : }
 
   000f5	48 8d a5 08 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+264]
@@ -5081,7 +5081,7 @@ this$ = 2720
 TimeDelta$ = 2728
 ?LateTick@CWeapon@Client@@UEAAXN@Z PROC			; Client::CWeapon::LateTick, COMDAT
 
-; 43   : {
+; 45   : {
 
 $LN7:
   00000	f2 0f 11 4c 24
@@ -5105,7 +5105,7 @@ $LN7:
   0003b	48 89 85 78 0a
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 44   : 	__super::LateTick(TimeDelta);
+; 46   : 	__super::LateTick(TimeDelta);
 
   00042	f2 0f 10 8d a8
 	0a 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -5114,8 +5114,8 @@ $LN7:
   00051	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?LateTick@CGameObject@Engine@@UEAAXN@Z
 
-; 45   : 
-; 46   : 	_float4x4 playerWorldMatrix = m_descOwner.pTransform->Get_WorldMatrix();
+; 47   : 
+; 48   : 	_float4x4 playerWorldMatrix = m_descOwner.pTransform->Get_WorldMatrix();
 
   00057	48 8d 55 10	 lea	 rdx, QWORD PTR playerWorldMatrix$[rbp]
   0005b	48 8b 85 a0 0a
@@ -5125,8 +5125,8 @@ $LN7:
   00069	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_WorldMatrix@CTransform@Engine@@QEAA?AUXMFLOAT4X4@DirectX@@XZ
 
-; 47   : 	
-; 48   : 	assert(m_descOwner.pModel);
+; 49   : 	
+; 50   : 	assert(m_descOwner.pModel);
 
   0006f	48 8b 85 a0 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5146,7 +5146,7 @@ $LN7:
   000a0	33 c0		 xor	 eax, eax
 $LN4@LateTick:
 
-; 49   : 	assert(m_descOwner.pTransform);
+; 51   : 	assert(m_descOwner.pTransform);
 
   000a2	48 8b 85 a0 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5166,7 +5166,7 @@ $LN4@LateTick:
   000d3	33 c0		 xor	 eax, eax
 $LN5@LateTick:
 
-; 50   : 	assert(m_descOwner.pWeaponCase);
+; 52   : 	assert(m_descOwner.pWeaponCase);
 
   000d5	48 8b 85 a0 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5186,14 +5186,14 @@ $LN5@LateTick:
   00106	33 c0		 xor	 eax, eax
 $LN6@LateTick:
 
-; 51   : 
-; 52   : 	//무기 본 위치
-; 53   : 	_float4x4 WeaponBoneMatrix;
+; 53   : 
+; 54   : 	//무기 본 위치
+; 55   : 	_float4x4 WeaponBoneMatrix;
 
   00108	48 8d 4d 70	 lea	 rcx, QWORD PTR WeaponBoneMatrix$[rbp]
   0010c	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
 
-; 54   : 	XMStoreFloat4x4(&WeaponBoneMatrix, 
+; 56   : 	XMStoreFloat4x4(&WeaponBoneMatrix, 
 
   00111	48 8d 4d 10	 lea	 rcx, QWORD PTR playerWorldMatrix$[rbp]
   00115	e8 00 00 00 00	 call	 ?XMLoadFloat4x4@DirectX@@YQ?AUXMMATRIX@1@PEBUXMFLOAT4X4@1@@Z ; DirectX::XMLoadFloat4x4
@@ -5381,10 +5381,10 @@ $LN6@LateTick:
   00396	48 8d 4d 70	 lea	 rcx, QWORD PTR WeaponBoneMatrix$[rbp]
   0039a	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
 
-; 55   : 		XMLoadFloat4x4(&m_descOwner.pWeaponCase->GetOffSetMatrix()) * XMLoadFloat4x4(&m_descOwner.pWeaponCase->GetCombinedMatrix())
-; 56   : 		* XMLoadFloat4x4(&m_descOwner.pModel->GetLocalMatrix()) * XMLoadFloat4x4(&playerWorldMatrix));
-; 57   : 
-; 58   : 	mTransform->Set_WorldMatrix(WeaponBoneMatrix);
+; 57   : 		XMLoadFloat4x4(&m_descOwner.pWeaponCase->GetOffSetMatrix()) * XMLoadFloat4x4(&m_descOwner.pWeaponCase->GetCombinedMatrix())
+; 58   : 		* XMLoadFloat4x4(&m_descOwner.pModel->GetLocalMatrix()) * XMLoadFloat4x4(&playerWorldMatrix));
+; 59   : 
+; 60   : 	mTransform->Set_WorldMatrix(WeaponBoneMatrix);
 
   0039f	48 8d 85 90 07
 	00 00		 lea	 rax, QWORD PTR $T15[rbp]
@@ -5402,15 +5402,15 @@ $LN6@LateTick:
   003cc	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_WorldMatrix@CTransform@Engine@@QEAAXUXMFLOAT4X4@DirectX@@@Z
 
-; 59   : 
-; 60   : 	if (nullptr != mRenderer)
+; 61   : 
+; 62   : 	if (nullptr != mRenderer)
 
   003d2	48 8b 85 a0 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003d9	48 83 78 78 00	 cmp	 QWORD PTR [rax+120], 0
   003de	74 1d		 je	 SHORT $LN2@LateTick
 
-; 61   : 		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+; 63   : 		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 
   003e0	4c 8b 85 a0 0a
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
@@ -5422,7 +5422,7 @@ $LN6@LateTick:
 	00		 call	 QWORD PTR __imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z
 $LN2@LateTick:
 
-; 62   : }
+; 64   : }
 
   003fd	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
   00401	48 8d 15 00 00
@@ -5448,7 +5448,7 @@ this$ = 224
 TimeDelta$ = 232
 ?Tick@CWeapon@Client@@UEAAXN@Z PROC			; Client::CWeapon::Tick, COMDAT
 
-; 38   : {
+; 40   : {
 
 $LN3:
   00000	f2 0f 11 4c 24
@@ -5466,7 +5466,7 @@ $LN3:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 39   : 	__super::Tick(TimeDelta);
+; 41   : 	__super::Tick(TimeDelta);
 
   00030	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -5475,7 +5475,7 @@ $LN3:
   0003f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Tick@CGameObject@Engine@@UEAAXN@Z
 
-; 40   : }
+; 42   : }
 
   00045	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -5568,12 +5568,14 @@ $LN4@Initialize:
   00091	f3 a4		 rep movsb
 
 ; 33   : 
-; 34   : 	return S_OK;
+; 34   : 
+; 35   : 
+; 36   : 	return S_OK;
 
   00093	33 c0		 xor	 eax, eax
 $LN1@Initialize:
 
-; 35   : }
+; 37   : }
 
   00095	48 8d a5 c0 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+192]

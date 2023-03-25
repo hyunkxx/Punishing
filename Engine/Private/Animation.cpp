@@ -27,7 +27,7 @@ HRESULT CAnimation::Initialize(aiAnimation* pAIAnimation, CModel* pModel)
 	return S_OK;
 }
 
-void CAnimation::PlayAnimation(_double TimeDelta, CTransform* pTransform, TYPE eType, _bool bLerp, PREV_DATA PrevData, const _double RatioValue, _bool bRootMotion)
+void CAnimation::PlayAnimation(_double TimeDelta, CTransform* pTransform, TYPE eType, _bool bLerp, PREV_DATA PrevData, const _double RatioValue, _bool bRootMotion, char* pRootBoneName)
 {
 	if (bLerp)
 	{
@@ -38,10 +38,10 @@ void CAnimation::PlayAnimation(_double TimeDelta, CTransform* pTransform, TYPE e
 		switch (eType)
 		{
 		case ONE:
-			PlayOne(TimeDelta, pTransform, bRootMotion);
+			PlayOne(TimeDelta, pTransform, bRootMotion, pRootBoneName);
 			break;
 		case LOOP:
-			PlayLoop(TimeDelta, pTransform, bRootMotion);
+			PlayLoop(TimeDelta, pTransform, bRootMotion, pRootBoneName);
 			break;
 		}
 	}
@@ -88,7 +88,7 @@ void CAnimation::AnimationLerp(_double TimeDelta, CTransform * pTransform, PREV_
 
 }
 
-void CAnimation::PlayLoop(_double TimeDelta, CTransform * pTransform, _bool bRootMotion)
+void CAnimation::PlayLoop(_double TimeDelta, CTransform * pTransform, _bool bRootMotion, char* pRootBoneName)
 {
 	m_LocalTime += m_TickPerSecond * TimeDelta;
 	if (m_LocalTime >= m_Duration)
@@ -104,7 +104,7 @@ void CAnimation::PlayLoop(_double TimeDelta, CTransform * pTransform, _bool bRoo
 
 }
 
-void CAnimation::PlayOne(_double TimeDelta, CTransform * pTransform, _bool bRootMotion)
+void CAnimation::PlayOne(_double TimeDelta, CTransform * pTransform, _bool bRootMotion, char* pRootBoneName)
 {
 	m_LocalTime += m_TickPerSecond * TimeDelta;//³·Ãç¾ß ´À·ÁÁü
 	
@@ -124,7 +124,7 @@ void CAnimation::PlayOne(_double TimeDelta, CTransform * pTransform, _bool bRoot
 	
 	for (auto& pChannel : m_Channels)
 	{
-		pChannel->InvalidateTransform(m_LocalTime, pTransform, bRootMotion);
+		pChannel->InvalidateTransform(m_LocalTime, pTransform, bRootMotion, pRootBoneName);
 	}
 
 }

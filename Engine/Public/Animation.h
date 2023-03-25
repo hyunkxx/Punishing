@@ -24,7 +24,7 @@ private:
 
 public:
 	HRESULT Initialize(aiAnimation* pAIAnimation, class CModel* pModel);
-	void PlayAnimation(_double TimeDelta, class CTransform* pTransform, TYPE eType, _bool bLerp, PREV_DATA PrevAnimation, const _double RatioValue, _bool bHoldY = false);
+	void PlayAnimation(_double TimeDelta, class CTransform* pTransform, TYPE eType, _bool bLerp, PREV_DATA PrevAnimation, const _double RatioValue, _bool bHoldY = false, char* pRootBoneName = "Bip001");
 
 	const char* GetName() const { return m_szName; }
 	void SetFinish(bool valus) { m_isFinish = valus; }
@@ -46,8 +46,8 @@ public:
 private:
 	void AnimationLerp(_double TimeDelta, CTransform* pTransform, PREV_DATA PrevData, const _double RatioValue, _bool bHoldAxisY = false);
 
-	void PlayLoop(_double TimeDelta, CTransform* pTransform, _bool bRootMotion);
-	void PlayOne(_double TimeDelta, CTransform* pTransform, _bool bRootMotion);
+	void PlayLoop(_double TimeDelta, CTransform* pTransform, _bool bRootMotion, char* pRootBoneName = "Bip001");
+	void PlayOne(_double TimeDelta, CTransform* pTransform, _bool bRootMotion, char* pRootBoneName = "Bip001");
 
 public:
 	static CAnimation* Create(aiAnimation* pAIAnimation, class CModel* pModel);
