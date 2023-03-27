@@ -2602,7 +2602,6 @@ PUBLIC	??_R2CBase@Engine@@8				; Engine::CBase::`RTTI Base Class Array'
 PUBLIC	__real@3c8efa35
 PUBLIC	__real@3dcccccd
 PUBLIC	__real@3f800000
-PUBLIC	__real@41200000
 PUBLIC	__real@41a00000
 PUBLIC	__real@42340000
 PUBLIC	__real@42700000
@@ -4178,10 +4177,6 @@ CONST	ENDS
 ;	COMDAT __real@41a00000
 CONST	SEGMENT
 __real@41a00000 DD 041a00000r			; 20
-CONST	ENDS
-;	COMDAT __real@41200000
-CONST	SEGMENT
-__real@41200000 DD 041200000r			; 10
 CONST	ENDS
 ;	COMDAT __real@3f800000
 CONST	SEGMENT
@@ -14919,12 +14914,12 @@ $LN6:
   0007e	f3 0f 11 45 2c	 movss	 DWORD PTR CameraDesc$[rbp+4], xmm0
 
 ; 144  : 
-; 145  : 	CameraDesc.vEye = _float3(0.f, 10.f, -5.f);
+; 145  : 	CameraDesc.vEye = _float3(0.f, 1.f, -5.f);
 
   00083	f3 0f 10 1d 00
 	00 00 00	 movss	 xmm3, DWORD PTR __real@c0a00000
   0008b	f3 0f 10 15 00
-	00 00 00	 movss	 xmm2, DWORD PTR __real@41200000
+	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
   00093	0f 57 c9	 xorps	 xmm1, xmm1
   00096	48 8d 8d 44 01
 	00 00		 lea	 rcx, QWORD PTR $T4[rbp]

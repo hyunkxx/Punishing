@@ -210,7 +210,7 @@ private:
 public: // Enemy 관련 코드
 	void ClearEnemyCheckCollider() { mEnemyCheckCollider->HitColliderReset(); };
 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
-	_bool IsCameraLockOn() { return m_pNearEnemy != nullptr; };
+	_bool IsCameraLockOn();
 	void TargetListDeastroyCehck();
 	_bool FindTargetFromList(CGameObject* pObject);
 	void DeleteTargetFromList(CGameObject* pObject);

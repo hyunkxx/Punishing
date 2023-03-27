@@ -7,6 +7,7 @@
 #include "Weapon.h"
 #include "Bone.h"
 #include "Enemy.h"
+#include "Boss.h"
 #include "Wall.h"
 
 #include "SkillBallSystem.h"
@@ -299,7 +300,14 @@ _float2 CCharacter::GetTargetWindowPos()
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	_vector vPos = XMLoadFloat4(&m_pNearEnemy->GetPosition());
-	_vector vFixPos = XMVector3TransformCoord(XMVectorSetY(vPos, XMVectorGetY(vPos) + 1.f), pGameInstance->Get_Transform_Matrix(CPipeLine::TS_VIEW));
+	_vector vFixPos;
+
+	//老馆 各老版快 焊胶各老版快 困摹 备盒
+	if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+		vFixPos = XMVector3TransformCoord(XMVectorSetY(vPos, XMVectorGetY(vPos) + 1.f), pGameInstance->Get_Transform_Matrix(CPipeLine::TS_VIEW));
+	else
+		vFixPos = XMVector3TransformCoord(XMVectorSetY(vPos, XMVectorGetY(vPos) + 2.3f), pGameInstance->Get_Transform_Matrix(CPipeLine::TS_VIEW));
+
 	vFixPos = XMVector3TransformCoord(vFixPos, pGameInstance->Get_Transform_Matrix(CPipeLine::TS_PROJ));
 
 	return _float2(XMVectorGetX(vFixPos), XMVectorGetY(vFixPos) + 1.f);
@@ -404,7 +412,7 @@ HRESULT CCharacter::AddComponents()
 	ZeroMemory(&collDesc, sizeof(collDesc));
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
-	collDesc.vExtents = _float3(30.f, 30.f, 30.f);
+	collDesc.vExtents = _float3(70.f, 70.f, 70.f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider_check"), (CComponent**)&mEnemyCheckCollider, &collDesc)))
@@ -1307,6 +1315,15 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 		//m_bMoveable = true;
 		//m_bDashable = true;
 	}
+}
+
+_bool CCharacter::IsCameraLockOn()
+{
+	CBoss* pBoss = dynamic_cast<CBoss*>(m_pNearEnemy);
+	if (pBoss)
+		return pBoss->IsSpawned();
+
+	return m_pNearEnemy != nullptr;
 }
 
 void CCharacter::TargetListDeastroyCehck()

@@ -6,6 +6,7 @@
 #include "Model.h"
 #include "Enemy.h"
 #include "Bone.h"
+#include "Boss.h"
 
 #include "ApplicationManager.h"
 #include "SkillBallSystem.h"
@@ -256,7 +257,7 @@ void CPlayerCamera::DefaultCameraMovement(_double TimeDelta)
 	//		m_pTargetTransform->Rotate(VECTOR_UP, MouseMove * TimeDelta * 0.1f);
 	//	}
 	//}
-
+	
 	//if (MouseMove = pGameInstance->Input_MouseMove(DIMM_Y))
 	//	m_pTransform->Rotate(m_pTransform->Get_State(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 0.1f);
 
@@ -286,9 +287,21 @@ void CPlayerCamera::DefaultCameraMovement(_double TimeDelta)
 		//_vector q2 = XMQuaternionRotationMatrix(XMLoadFloat4x4(&pPlayerTransform->Get_WorldMatrix()));
 		//_vector vPosition = XMQuaternionSlerp(q1, q2, (_float)TimeDelta * 3.0f);
 		//테스트
-
-		_float4 vLockOnTargetPos = ((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition();
-		vLockOnTargetPos.y += 1.f;
+		
+		_float4 vLockOnTargetPos;
+		CBoss* pBossCheck = dynamic_cast<CBoss*>(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget());
+		if (pBossCheck)
+		{
+			//보스일경우
+			vLockOnTargetPos = ((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition();
+			vLockOnTargetPos.y += 2.f;
+		}
+		else
+		{
+			//일반몹
+			vLockOnTargetPos = ((CEnemy*)(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget()))->GetPosition();
+			vLockOnTargetPos.y += 1.f;
+		}
 
 		m_pTransform->Set_State(CTransform::STATE_POSITION, vPosition);
 

@@ -96,16 +96,26 @@ void CPlayerIcon::Tick(_double TimeDelta)
 	{
 		CGameInstance* pInstance = CGameInstance::GetInstance();
 
+		//보스쪽 타겟
 		if (CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
 		{
 			//보스가 스폰된 상태 혹은 버로우하지 않은상태일때만 락온
 			CBoss* pBoss = static_cast<CBoss*>(m_pPlayer->GetLockOnTarget());
-			if (pBoss && !pBoss->IsBurrow() && pBoss->IsSpawned())
+			_vector vBossPos = XMLoadFloat4(&pBoss->GetPosition());
+			_vector vPlayerPos = static_cast<CTransform*>(m_pPlayer->Find_Component(L"com_transform"))->Get_State(CTransform::STATE_POSITION);
+			_float fLength = XMVectorGetX(XMVector3Length(vBossPos - vPlayerPos));
+
+			if (pBoss && pBoss->IsSpawned())
 			{
-				m_bTargetImageRender = true;
-				m_fTargetX = (vTargetPos.x + 1) * g_iWinSizeX * 0.5f;
-				m_fTargetY = (1 - vTargetPos.y) * g_iWinSizeY * 0.5f + g_iWinSizeY * 0.5f;
-				XMStoreFloat4x4(&m_TargetMatrix, XMMatrixScaling(m_fTargetWidth, m_fTargetHeight, 1.f) * XMMatrixTranslation(m_fTargetX - g_iWinSizeX * 0.5f, -m_fTargetY + g_iWinSizeY * 0.5f, 0.0f));
+				if (fLength >= 20.f)
+					m_bTargetImageRender = false;
+				else
+				{
+					m_bTargetImageRender = true;
+					m_fTargetX = (vTargetPos.x + 1) * g_iWinSizeX * 0.5f;
+					m_fTargetY = (1 - vTargetPos.y) * g_iWinSizeY * 0.5f + g_iWinSizeY * 0.5f;
+					XMStoreFloat4x4(&m_TargetMatrix, XMMatrixScaling(m_fTargetWidth, m_fTargetHeight, 1.f) * XMMatrixTranslation(m_fTargetX - g_iWinSizeX * 0.5f, -m_fTargetY + g_iWinSizeY * 0.5f, 0.0f));
+				}
 			}
 		}
 		else

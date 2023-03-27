@@ -48,7 +48,12 @@ public://초기화, 스케일, 회전
 	void SetRotationToTarget(_fvector vPlayerPos);
 	void SetMoveStart() { m_bMove = true; };
 	void SetupScaleUpStart(_float fLength);
+	void SetupScaleSmoothUpStart(_float fLength);
+	void SetupScaleSmoothDownStart();
 	_bool ScaleUpProcess(_double TimeDelta);
+	_bool ScaleUpSmoothProcess(_double TimeDelta);
+	_bool ScaleDownSmoothProcess(_double TimeDelta);
+
 	_bool MoveProcess(_double TimeDelta);
 
 	void SetRender(_bool value) { m_bRender = value; }
@@ -76,14 +81,18 @@ private:
 	_bool m_bRender = false;
 	_bool m_bScaleFinish = false;
 	_bool m_bScaleUp = false;
+	_bool m_bScaleSmoothUp = false;
+
+	_bool m_bScaleDownFinish = false;
+	_bool m_bScaleSmoothDown = false;
 	_float m_fScaleAcc = 0.f;
-	_float m_fLength = 1.f;		//커져야할 길이
+	_float m_fLength = 1.f;		//커져야할 디폴트 길이
 	const _float3 m_fPrevScale = { 0.f, 0.f, 0.f};
 
 	_float m_fWaitAcc = 0.f;
 	const _float m_fWaitTime = 2.f;
 
-	//모델의 Up방향으로 움직임
+	//모델의 Up방향으로 움직임 라이프 타임 5초
 	_bool m_bMove = false;
 	_float m_fMoveAcc = 0.f;
 };

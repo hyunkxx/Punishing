@@ -2324,7 +2324,11 @@ PUBLIC	?SetPosition@CThorn@Client@@QEAAXT__m128@@@Z	; Client::CThorn::SetPositio
 PUBLIC	?SetRotationXYZ@CThorn@Client@@QEAAXUXMFLOAT3@DirectX@@@Z ; Client::CThorn::SetRotationXYZ
 PUBLIC	?SetRotationToTarget@CThorn@Client@@QEAAXT__m128@@@Z ; Client::CThorn::SetRotationToTarget
 PUBLIC	?SetupScaleUpStart@CThorn@Client@@QEAAXM@Z	; Client::CThorn::SetupScaleUpStart
+PUBLIC	?SetupScaleSmoothUpStart@CThorn@Client@@QEAAXM@Z ; Client::CThorn::SetupScaleSmoothUpStart
+PUBLIC	?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
 PUBLIC	?ScaleUpProcess@CThorn@Client@@QEAA_NN@Z	; Client::CThorn::ScaleUpProcess
+PUBLIC	?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z	; Client::CThorn::ScaleUpSmoothProcess
+PUBLIC	?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z ; Client::CThorn::ScaleDownSmoothProcess
 PUBLIC	?MoveProcess@CThorn@Client@@QEAA_NN@Z		; Client::CThorn::MoveProcess
 PUBLIC	?AddComponents@CThorn@Client@@AEAAJXZ		; Client::CThorn::AddComponents
 PUBLIC	?SetupShaderResources@CThorn@Client@@AEAAJXZ	; Client::CThorn::SetupShaderResources
@@ -2381,7 +2385,10 @@ PUBLIC	??_R2CBase@Engine@@8				; Engine::CBase::`RTTI Base Class Array'
 PUBLIC	__real@3f800000
 PUBLIC	__real@40000000
 PUBLIC	__real@4000000000000000
+PUBLIC	__real@40400000
+PUBLIC	__real@40800000
 PUBLIC	__real@40a00000
+PUBLIC	__real@44610000
 EXTRN	??3@YAXPEAX_K@Z:PROC				; operator delete
 EXTRN	__imp_MessageBoxW:PROC
 EXTRN	__imp__wassert:PROC
@@ -2557,7 +2564,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CThorn@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z DD imagerel $LN4
-	DD	imagerel $LN4+411
+	DD	imagerel $LN4+453
 	DD	imagerel $unwind$??0CThorn@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2586,8 +2593,8 @@ $pdata$?Initialize@CThorn@Client@@UEAAJPEAX@Z DD imagerel $LN5
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Tick@CThorn@Client@@UEAAXN@Z DD imagerel $LN5
-	DD	imagerel $LN5+155
+$pdata$?Tick@CThorn@Client@@UEAAXN@Z DD imagerel $LN7
+	DD	imagerel $LN7+231
 	DD	imagerel $unwind$?Tick@CThorn@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2617,7 +2624,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Reset@CThorn@Client@@QEAAXXZ DD imagerel $LN3
-	DD	imagerel $LN3+261
+	DD	imagerel $LN3+378
 	DD	imagerel $unwind$?Reset@CThorn@Client@@QEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -2646,14 +2653,38 @@ $pdata$?SetupScaleUpStart@CThorn@Client@@QEAAXM@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$?SetupScaleSmoothUpStart@CThorn@Client@@QEAAXM@Z DD imagerel $LN3
+	DD	imagerel $LN3+107
+	DD	imagerel $unwind$?SetupScaleSmoothUpStart@CThorn@Client@@QEAAXM@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ DD imagerel $LN3
+	DD	imagerel $LN3+64
+	DD	imagerel $unwind$?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$?ScaleUpProcess@CThorn@Client@@QEAA_NN@Z DD imagerel $LN8
-	DD	imagerel $LN8+728
+	DD	imagerel $LN8+761
 	DD	imagerel $unwind$?ScaleUpProcess@CThorn@Client@@QEAA_NN@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?MoveProcess@CThorn@Client@@QEAA_NN@Z DD imagerel $LN3
-	DD	imagerel $LN3+307
+$pdata$?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z DD imagerel $LN8
+	DD	imagerel $LN8+761
+	DD	imagerel $unwind$?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z DD imagerel $LN6
+	DD	imagerel $LN6+670
+	DD	imagerel $unwind$?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?MoveProcess@CThorn@Client@@QEAA_NN@Z DD imagerel $LN4
+	DD	imagerel $LN4+424
 	DD	imagerel $unwind$?MoveProcess@CThorn@Client@@QEAA_NN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2701,7 +2732,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CThorn@Client@@QEAA@AEBV01@@Z DD imagerel $LN4
-	DD	imagerel $LN4+555
+	DD	imagerel $LN4+636
 	DD	imagerel $unwind$??0CThorn@Client@@QEAA@AEBV01@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2740,9 +2771,21 @@ $pdata$??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z DD im
 	DD	imagerel $LN5+114
 	DD	imagerel $unwind$??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 pdata	ENDS
+;	COMDAT __real@44610000
+CONST	SEGMENT
+__real@44610000 DD 044610000r			; 900
+CONST	ENDS
 ;	COMDAT __real@40a00000
 CONST	SEGMENT
 __real@40a00000 DD 040a00000r			; 5
+CONST	ENDS
+;	COMDAT __real@40800000
+CONST	SEGMENT
+__real@40800000 DD 040800000r			; 4
+CONST	ENDS
+;	COMDAT __real@40400000
+CONST	SEGMENT
+__real@40400000 DD 040400000r			; 3
 CONST	ENDS
 ;	COMDAT __real@4000000000000000
 CONST	SEGMENT
@@ -2870,7 +2913,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CThorn@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CThorn@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0115H ; `Client::CThorn::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CThorn@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 017cH ; `Client::CThorn::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1DE@ECNCIPJH@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAT?$AAh?$AAo?$AAr?$AAn?$AA?$AA@
 CONST	SEGMENT
@@ -2893,7 +2936,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CThorn@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CThorn@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0109H ; `Client::CThorn::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CThorn@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0170H ; `Client::CThorn::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@
 CONST	SEGMENT
@@ -3245,6 +3288,62 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
+$unwind$?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z DD 025064219H
+	DD	0115231aH
+	DD	0700e0058H
+	DD	0500c600dH
+	DD	imagerel __GSHandlerCheck
+	DD	02b8H
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z$rtcName$0 DB 076H ; Client::CThorn::ScaleDownSmoothProcess
+	DB	04cH
+	DB	065H
+	DB	06eH
+	DB	067H
+	DB	074H
+	DB	068H
+	DB	00H
+	ORG $+8
+?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z$rtcVarDesc DD 088H ; Client::CThorn::ScaleDownSmoothProcess
+	DD	0cH
+	DQ	FLAT:?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z$rtcName$0
+	ORG $+48
+?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z$rtcFrameData DD 01H ; Client::CThorn::ScaleDownSmoothProcess
+	DD	00H
+	DQ	FLAT:?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z$rtcVarDesc
+CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z DD 025064219H
+	DD	0115231aH
+	DD	0700e0058H
+	DD	0500c600dH
+	DD	imagerel __GSHandlerCheck
+	DD	02b8H
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z$rtcName$0 DB 076H ; Client::CThorn::ScaleUpSmoothProcess
+	DB	04cH
+	DB	065H
+	DB	06eH
+	DB	067H
+	DB	074H
+	DB	068H
+	DB	00H
+	ORG $+8
+?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z$rtcVarDesc DD 088H ; Client::CThorn::ScaleUpSmoothProcess
+	DD	0cH
+	DQ	FLAT:?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z$rtcName$0
+	ORG $+48
+?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z$rtcFrameData DD 01H ; Client::CThorn::ScaleUpSmoothProcess
+	DD	00H
+	DQ	FLAT:?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z$rtcVarDesc
+CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
 $unwind$?ScaleUpProcess@CThorn@Client@@QEAA_NN@Z DD 025064219H
 	DD	0115231aH
 	DD	0700e0058H
@@ -3271,6 +3370,20 @@ CONST	SEGMENT
 	DD	00H
 	DQ	FLAT:?ScaleUpProcess@CThorn@Client@@QEAA_NN@Z$rtcVarDesc
 CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ DD 05052801H
+	DD	010e0311H
+	DD	070070019H
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?SetupScaleSmoothUpStart@CThorn@Client@@QEAAXM@Z DD 05052e01H
+	DD	01140317H
+	DD	0700d0019H
+	DD	0500cH
+xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$?SetupScaleUpStart@CThorn@Client@@QEAAXM@Z DD 05052e01H
@@ -3303,10 +3416,10 @@ xdata	ENDS
 xdata	SEGMENT
 $unwind$?Reset@CThorn@Client@@QEAAXXZ DD 025063c19H
 	DD	010f2314H
-	DD	070080028H
+	DD	070080034H
 	DD	050066007H
 	DD	imagerel __GSHandlerCheck
-	DD	0138H
+	DD	0198H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -3412,7 +3525,7 @@ $ip2state$??0CThorn@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z D
 	DD	0ffffffffH
 	DD	imagerel ??0CThorn@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z+91
 	DD	00H
-	DD	imagerel ??0CThorn@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z+394
+	DD	imagerel ??0CThorn@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z+436
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -4012,7 +4125,7 @@ $LN4:
   00040	83 e0 01	 and	 eax, 1
   00043	85 c0		 test	 eax, eax
   00045	74 11		 je	 SHORT $LN2@scalar
-  00047	ba c8 00 00 00	 mov	 edx, 200		; 000000c8H
+  00047	ba d0 00 00 00	 mov	 edx, 208		; 000000d0H
   0004c	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ??3@YAXPEAX_K@Z		; operator delete
@@ -4132,68 +4245,92 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0014c	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
-  00153	f3 0f 10 81 a4
-	00 00 00	 movss	 xmm0, DWORD PTR [rcx+164]
-  0015b	f3 0f 11 80 a4
-	00 00 00	 movss	 DWORD PTR [rax+164], xmm0
-  00163	48 8b 85 e0 00
+  00153	0f b6 89 a4 00
+	00 00		 movzx	 ecx, BYTE PTR [rcx+164]
+  0015a	88 88 a4 00 00
+	00		 mov	 BYTE PTR [rax+164], cl
+  00160	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0016a	48 8b 8d e8 00
+  00167	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
-  00171	f3 0f 10 81 a8
+  0016e	0f b6 89 a5 00
+	00 00		 movzx	 ecx, BYTE PTR [rcx+165]
+  00175	88 88 a5 00 00
+	00		 mov	 BYTE PTR [rax+165], cl
+  0017b	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00182	48 8b 8d e8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  00189	0f b6 89 a6 00
+	00 00		 movzx	 ecx, BYTE PTR [rcx+166]
+  00190	88 88 a6 00 00
+	00		 mov	 BYTE PTR [rax+166], cl
+  00196	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0019d	48 8b 8d e8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  001a4	f3 0f 10 81 a8
 	00 00 00	 movss	 xmm0, DWORD PTR [rcx+168]
-  00179	f3 0f 11 80 a8
+  001ac	f3 0f 11 80 a8
 	00 00 00	 movss	 DWORD PTR [rax+168], xmm0
-  00181	48 8b 85 e0 00
+  001b4	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00188	48 8b 8d e8 00
+  001bb	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
-  0018f	48 8d b8 ac 00
-	00 00		 lea	 rdi, QWORD PTR [rax+172]
-  00196	48 8d b1 ac 00
-	00 00		 lea	 rsi, QWORD PTR [rcx+172]
-  0019d	b9 0c 00 00 00	 mov	 ecx, 12
-  001a2	f3 a4		 rep movsb
-  001a4	48 8b 85 e0 00
+  001c2	f3 0f 10 81 ac
+	00 00 00	 movss	 xmm0, DWORD PTR [rcx+172]
+  001ca	f3 0f 11 80 ac
+	00 00 00	 movss	 DWORD PTR [rax+172], xmm0
+  001d2	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001ab	48 8b 8d e8 00
+  001d9	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
-  001b2	f3 0f 10 81 b8
-	00 00 00	 movss	 xmm0, DWORD PTR [rcx+184]
-  001ba	f3 0f 11 80 b8
-	00 00 00	 movss	 DWORD PTR [rax+184], xmm0
-  001c2	48 8b 85 e0 00
+  001e0	48 8d b8 b0 00
+	00 00		 lea	 rdi, QWORD PTR [rax+176]
+  001e7	48 8d b1 b0 00
+	00 00		 lea	 rsi, QWORD PTR [rcx+176]
+  001ee	b9 0c 00 00 00	 mov	 ecx, 12
+  001f3	f3 a4		 rep movsb
+  001f5	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001c9	48 8b 8d e8 00
+  001fc	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
-  001d0	f3 0f 10 81 bc
+  00203	f3 0f 10 81 bc
 	00 00 00	 movss	 xmm0, DWORD PTR [rcx+188]
-  001d8	f3 0f 11 80 bc
+  0020b	f3 0f 11 80 bc
 	00 00 00	 movss	 DWORD PTR [rax+188], xmm0
-  001e0	48 8b 85 e0 00
+  00213	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001e7	48 8b 8d e8 00
+  0021a	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
-  001ee	0f b6 89 c0 00
-	00 00		 movzx	 ecx, BYTE PTR [rcx+192]
-  001f5	88 88 c0 00 00
-	00		 mov	 BYTE PTR [rax+192], cl
-  001fb	48 8b 85 e0 00
+  00221	f3 0f 10 81 c0
+	00 00 00	 movss	 xmm0, DWORD PTR [rcx+192]
+  00229	f3 0f 11 80 c0
+	00 00 00	 movss	 DWORD PTR [rax+192], xmm0
+  00231	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00202	48 8b 8d e8 00
+  00238	48 8b 8d e8 00
 	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
-  00209	f3 0f 10 81 c4
-	00 00 00	 movss	 xmm0, DWORD PTR [rcx+196]
-  00211	f3 0f 11 80 c4
-	00 00 00	 movss	 DWORD PTR [rax+196], xmm0
-  00219	48 8b 85 e0 00
+  0023f	0f b6 89 c4 00
+	00 00		 movzx	 ecx, BYTE PTR [rcx+196]
+  00246	88 88 c4 00 00
+	00		 mov	 BYTE PTR [rax+196], cl
+  0024c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00220	48 8d a5 c0 00
+  00253	48 8b 8d e8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  0025a	f3 0f 10 81 c8
+	00 00 00	 movss	 xmm0, DWORD PTR [rcx+200]
+  00262	f3 0f 11 80 c8
+	00 00 00	 movss	 DWORD PTR [rax+200], xmm0
+  0026a	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00271	48 8d a5 c0 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+192]
-  00227	5f		 pop	 rdi
-  00228	5e		 pop	 rsi
-  00229	5d		 pop	 rbp
-  0022a	c3		 ret	 0
+  00278	5f		 pop	 rdi
+  00279	5e		 pop	 rsi
+  0027a	5d		 pop	 rbp
+  0027b	c3		 ret	 0
 ??0CThorn@Client@@QEAA@AEBV01@@Z ENDP			; Client::CThorn::CThorn
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -4203,7 +4340,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CThorn@Client@@UEAAXXZ PROC			; Client::CThorn::Free, COMDAT
 
-; 289  : {
+; 392  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4219,15 +4356,15 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 290  : 	__super::Free();
+; 393  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CGameObject@Engine@@UEAAXXZ
 
-; 291  : 
-; 292  : 	Safe_Release(m_pRenderer);
+; 394  : 
+; 395  : 	Safe_Release(m_pRenderer);
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4236,7 +4373,7 @@ $LN3:
   00044	48 8b c8	 mov	 rcx, rax
   00047	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
-; 293  : 	Safe_Release(m_pTransform);
+; 396  : 	Safe_Release(m_pTransform);
 
   0004c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4245,7 +4382,7 @@ $LN3:
   00059	48 8b c8	 mov	 rcx, rax
   0005c	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 294  : 	Safe_Release(m_pModel);
+; 397  : 	Safe_Release(m_pModel);
 
   00061	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4254,7 +4391,7 @@ $LN3:
   0006e	48 8b c8	 mov	 rcx, rax
   00071	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ; Engine::Safe_Release<Engine::CModel * __ptr64>
 
-; 295  : 	Safe_Release(m_pShader);
+; 398  : 	Safe_Release(m_pShader);
 
   00076	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4263,8 +4400,8 @@ $LN3:
   00083	48 8b c8	 mov	 rcx, rax
   00086	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ; Engine::Safe_Release<Engine::CShader * __ptr64>
 
-; 296  : 
-; 297  : }
+; 399  : 
+; 400  : }
 
   0008b	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4287,7 +4424,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CThorn@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CThorn::Clone, COMDAT
 
-; 277  : {
+; 380  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4312,7 +4449,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 278  : 	CThorn* pInstance = new CThorn(*this);
+; 381  : 	CThorn* pInstance = new CThorn(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CThorn@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
@@ -4321,7 +4458,7 @@ $LN7:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0ED@NMCGMBOD@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 c8 00 00 00	 mov	 ecx, 200		; 000000c8H
+  00062	b9 d0 00 00 00	 mov	 ecx, 208		; 000000d0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 08 01
 	00 00		 mov	 QWORD PTR $T5[rbp], rax
@@ -4349,7 +4486,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 279  : 	if (FAILED(pInstance->Initialize(pArg)))
+; 382  : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 78 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -4358,8 +4495,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Clone
 
-; 280  : 	{
-; 281  : 		MSG_BOX("Failed to Clone : CThorn");
+; 383  : 	{
+; 384  : 		MSG_BOX("Failed to Clone : CThorn");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -4370,19 +4507,19 @@ $LN5@Clone:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 282  : 		Safe_Release(pInstance);
+; 385  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 $LN2@Clone:
 
-; 283  : 	}
-; 284  : 
-; 285  : 	return pInstance;
+; 386  : 	}
+; 387  : 
+; 388  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 286  : }
+; 389  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -4480,7 +4617,7 @@ pDevice$ = 368
 pContext$ = 376
 ?Create@CThorn@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CThorn::Create, COMDAT
 
-; 265  : {
+; 368  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4505,7 +4642,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 266  : 	CThorn*	pInstance = new CThorn(pDevice, pContext);
+; 369  : 	CThorn*	pInstance = new CThorn(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CThorn@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -4514,7 +4651,7 @@ $LN7:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0ED@NMCGMBOD@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 c8 00 00 00	 mov	 ecx, 200		; 000000c8H
+  00062	b9 d0 00 00 00	 mov	 ecx, 208		; 000000d0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 08 01
 	00 00		 mov	 QWORD PTR $T5[rbp], rax
@@ -4544,15 +4681,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 267  : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 370  : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CThorn@Client@@UEAAJXZ ; Client::CThorn::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Create
 
-; 268  : 	{
-; 269  : 		MSG_BOX("Failed to Create : CThorn");
+; 371  : 	{
+; 372  : 		MSG_BOX("Failed to Create : CThorn");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -4563,19 +4700,19 @@ $LN5@Create:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 270  : 		Safe_Release(pInstance);
+; 373  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 $LN2@Create:
 
-; 271  : 	}
-; 272  : 
-; 273  : 	return pInstance;
+; 374  : 	}
+; 375  : 
+; 376  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 274  : }
+; 377  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -4671,7 +4808,7 @@ $T3 = 452
 this$ = 528
 ?SetupShaderResources@CThorn@Client@@AEAAJXZ PROC	; Client::CThorn::SetupShaderResources, COMDAT
 
-; 230  : {
+; 333  : {
 
 $LN13:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4687,7 +4824,7 @@ $LN13:
   00022	48 8b 8c 24 38
 	02 00 00	 mov	 rcx, QWORD PTR [rsp+568]
 
-; 231  : 	if (nullptr == m_pShader)
+; 334  : 	if (nullptr == m_pShader)
 
   0002a	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4695,21 +4832,21 @@ $LN13:
 	00 00 00	 cmp	 QWORD PTR [rax+152], 0
   00039	75 0a		 jne	 SHORT $LN2@SetupShade
 
-; 232  : 		return E_FAIL;
+; 335  : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00040	e9 09 02 00 00	 jmp	 $LN1@SetupShade
 $LN2@SetupShade:
 
-; 233  : 
-; 234  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
+; 336  : 
+; 337  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
 
   00045	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0004b	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 235  : 
-; 236  : 	if (FAILED(m_pTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
+; 338  : 
+; 339  : 	if (FAILED(m_pTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
 
   0004f	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
@@ -4726,14 +4863,14 @@ $LN2@SetupShade:
   00078	85 c0		 test	 eax, eax
   0007a	7d 0a		 jge	 SHORT $LN3@SetupShade
 
-; 237  : 		return E_FAIL;
+; 340  : 		return E_FAIL;
 
   0007c	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00081	e9 c8 01 00 00	 jmp	 $LN1@SetupShade
 $LN3@SetupShade:
 
-; 238  : 
-; 239  : 	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
+; 341  : 
+; 342  : 	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
 
   00086	45 33 c0	 xor	 r8d, r8d
   00089	48 8d 95 04 01
@@ -4753,14 +4890,14 @@ $LN3@SetupShade:
   000b8	85 c0		 test	 eax, eax
   000ba	7d 0a		 jge	 SHORT $LN4@SetupShade
 
-; 240  : 		return E_FAIL;
+; 343  : 		return E_FAIL;
 
   000bc	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000c1	e9 88 01 00 00	 jmp	 $LN1@SetupShade
 $LN4@SetupShade:
 
-; 241  : 
-; 242  : 	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
+; 344  : 
+; 345  : 	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
 
   000c6	41 b8 01 00 00
 	00		 mov	 r8d, 1
@@ -4781,14 +4918,14 @@ $LN4@SetupShade:
   000fb	85 c0		 test	 eax, eax
   000fd	7d 0a		 jge	 SHORT $LN5@SetupShade
 
-; 243  : 		return E_FAIL;
+; 346  : 		return E_FAIL;
 
   000ff	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00104	e9 45 01 00 00	 jmp	 $LN1@SetupShade
 $LN5@SetupShade:
 
-; 244  : 
-; 245  : 	if (FAILED(m_pShader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
+; 347  : 
+; 348  : 	if (FAILED(m_pShader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
 
   00109	48 8d 95 c4 01
 	00 00		 lea	 rdx, QWORD PTR $T3[rbp]
@@ -4809,14 +4946,14 @@ $LN5@SetupShade:
   0013e	85 c0		 test	 eax, eax
   00140	7d 0a		 jge	 SHORT $LN6@SetupShade
 
-; 246  : 		return E_FAIL;
+; 349  : 		return E_FAIL;
 
   00142	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00147	e9 02 01 00 00	 jmp	 $LN1@SetupShade
 $LN6@SetupShade:
 
-; 247  : 
-; 248  : 	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
+; 350  : 
+; 351  : 	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
 
   0014c	33 d2		 xor	 edx, edx
   0014e	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
@@ -4824,19 +4961,19 @@ $LN6@SetupShade:
 	00		 call	 QWORD PTR __imp_?GetLightDesc@CGameInstance@Engine@@QEAAPEBUtagLight_Desc@2@I@Z
   00158	48 89 45 28	 mov	 QWORD PTR LightDesc$[rbp], rax
 
-; 249  : 	if (nullptr == LightDesc)
+; 352  : 	if (nullptr == LightDesc)
 
   0015c	48 83 7d 28 00	 cmp	 QWORD PTR LightDesc$[rbp], 0
   00161	75 0a		 jne	 SHORT $LN7@SetupShade
 
-; 250  : 		return E_FAIL;
+; 353  : 		return E_FAIL;
 
   00163	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00168	e9 e1 00 00 00	 jmp	 $LN1@SetupShade
 $LN7@SetupShade:
 
-; 251  : 
-; 252  : 	if (FAILED(m_pShader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
+; 354  : 
+; 355  : 	if (FAILED(m_pShader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
 
   0016d	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   00171	48 83 c0 04	 add	 rax, 4
@@ -4854,13 +4991,13 @@ $LN7@SetupShade:
   00199	85 c0		 test	 eax, eax
   0019b	7d 0a		 jge	 SHORT $LN8@SetupShade
 
-; 253  : 		return E_FAIL;
+; 356  : 		return E_FAIL;
 
   0019d	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001a2	e9 a7 00 00 00	 jmp	 $LN1@SetupShade
 $LN8@SetupShade:
 
-; 254  : 	if (FAILED(m_pShader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
+; 357  : 	if (FAILED(m_pShader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
 
   001a7	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   001ab	48 83 c0 28	 add	 rax, 40			; 00000028H
@@ -4878,13 +5015,13 @@ $LN8@SetupShade:
   001d3	85 c0		 test	 eax, eax
   001d5	7d 07		 jge	 SHORT $LN9@SetupShade
 
-; 255  : 		return E_FAIL;
+; 358  : 		return E_FAIL;
 
   001d7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001dc	eb 70		 jmp	 SHORT $LN1@SetupShade
 $LN9@SetupShade:
 
-; 256  : 	if (FAILED(m_pShader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
+; 359  : 	if (FAILED(m_pShader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
 
   001de	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   001e2	48 83 c0 48	 add	 rax, 72			; 00000048H
@@ -4902,13 +5039,13 @@ $LN9@SetupShade:
   0020a	85 c0		 test	 eax, eax
   0020c	7d 07		 jge	 SHORT $LN10@SetupShade
 
-; 257  : 		return E_FAIL;
+; 360  : 		return E_FAIL;
 
   0020e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00213	eb 39		 jmp	 SHORT $LN1@SetupShade
 $LN10@SetupShade:
 
-; 258  : 	if (FAILED(m_pShader->SetRawValue("g_vLightAmbient", &LightDesc->vAmbient, sizeof(_float4))))
+; 361  : 	if (FAILED(m_pShader->SetRawValue("g_vLightAmbient", &LightDesc->vAmbient, sizeof(_float4))))
 
   00215	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   00219	48 83 c0 38	 add	 rax, 56			; 00000038H
@@ -4926,19 +5063,19 @@ $LN10@SetupShade:
   00241	85 c0		 test	 eax, eax
   00243	7d 07		 jge	 SHORT $LN11@SetupShade
 
-; 259  : 		return E_FAIL;
+; 362  : 		return E_FAIL;
 
   00245	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0024a	eb 02		 jmp	 SHORT $LN1@SetupShade
 $LN11@SetupShade:
 
-; 260  : 
-; 261  : 	return S_OK;
+; 363  : 
+; 364  : 	return S_OK;
 
   0024c	33 c0		 xor	 eax, eax
 $LN1@SetupShade:
 
-; 262  : }
+; 365  : }
 
   0024e	48 8d a5 f8 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+504]
@@ -4954,7 +5091,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?AddComponents@CThorn@Client@@AEAAJXZ PROC		; Client::CThorn::AddComponents, COMDAT
 
-; 213  : {
+; 316  : {
 
 $LN7:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4970,7 +5107,7 @@ $LN7:
   00022	48 8b 8c 24 18
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+280]
 
-; 214  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
+; 317  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4991,14 +5128,14 @@ $LN7:
   00062	85 c0		 test	 eax, eax
   00064	7d 0a		 jge	 SHORT $LN2@AddCompone
 
-; 215  : 		return E_FAIL;
+; 318  : 		return E_FAIL;
 
   00066	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0006b	e9 d1 00 00 00	 jmp	 $LN1@AddCompone
 $LN2@AddCompone:
 
-; 216  : 
-; 217  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&m_pTransform)))
+; 319  : 
+; 320  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&m_pTransform)))
 
   00070	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5019,14 +5156,14 @@ $LN2@AddCompone:
   000a8	85 c0		 test	 eax, eax
   000aa	7d 0a		 jge	 SHORT $LN3@AddCompone
 
-; 218  : 		return E_FAIL;
+; 321  : 		return E_FAIL;
 
   000ac	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000b1	e9 8b 00 00 00	 jmp	 $LN1@AddCompone
 $LN3@AddCompone:
 
-; 219  : 
-; 220  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"), TEXT("com_shader"), (CComponent**)&m_pShader)))
+; 322  : 
+; 323  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"), TEXT("com_shader"), (CComponent**)&m_pShader)))
 
   000b6	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5047,14 +5184,14 @@ $LN3@AddCompone:
   000ee	85 c0		 test	 eax, eax
   000f0	7d 07		 jge	 SHORT $LN4@AddCompone
 
-; 221  : 		return E_FAIL;
+; 324  : 		return E_FAIL;
 
   000f2	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000f7	eb 48		 jmp	 SHORT $LN1@AddCompone
 $LN4@AddCompone:
 
-; 222  : 
-; 223  : 	if (FAILED(CGameObject::Add_Component(LEVEL_BOSS, TEXT("proto_com_model_thorn"), TEXT("com_model"), (CComponent**)&m_pModel)))
+; 325  : 
+; 326  : 	if (FAILED(CGameObject::Add_Component(LEVEL_BOSS, TEXT("proto_com_model_thorn"), TEXT("com_model"), (CComponent**)&m_pModel)))
 
   000f9	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5075,19 +5212,19 @@ $LN4@AddCompone:
   00134	85 c0		 test	 eax, eax
   00136	7d 07		 jge	 SHORT $LN5@AddCompone
 
-; 224  : 		return E_FAIL;
+; 327  : 		return E_FAIL;
 
   00138	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0013d	eb 02		 jmp	 SHORT $LN1@AddCompone
 $LN5@AddCompone:
 
-; 225  : 
-; 226  : 	return S_OK;
+; 328  : 
+; 329  : 	return S_OK;
 
   0013f	33 c0		 xor	 eax, eax
 $LN1@AddCompone:
 
-; 227  : }
+; 330  : }
 
   00141	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -5112,9 +5249,9 @@ this$ = 560
 TimeDelta$ = 568
 ?MoveProcess@CThorn@Client@@QEAA_NN@Z PROC		; Client::CThorn::MoveProcess, COMDAT
 
-; 194  : {
+; 297  : {
 
-$LN3:
+$LN4:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -5135,8 +5272,8 @@ $LN3:
   0003a	48 89 85 08 02
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 195  : 	//Up방향으로 이동
-; 196  : 	_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
+; 298  : 	//Up방향으로 이동
+; 299  : 	_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
 
   00041	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -5148,7 +5285,7 @@ $LN3:
   00059	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 197  : 	_vector vUp = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_UP));
+; 300  : 	_vector vUp = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_UP));
 
   0005f	41 b8 01 00 00
 	00		 mov	 r8d, 1
@@ -5168,75 +5305,116 @@ $LN3:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T4[rbp]
   00096	0f 29 45 40	 movaps	 XMMWORD PTR vUp$[rbp], xmm0
 
-; 198  : 	vPos = vPos + vUp * TimeDelta;
+; 301  : 
+; 302  : 	m_fMoveAcc += TimeDelta;
 
-  0009a	f2 0f 5a 85 38
-	02 00 00	 cvtsd2ss xmm0, QWORD PTR TimeDelta$[rbp]
-  000a2	0f 28 c8	 movaps	 xmm1, xmm0
-  000a5	0f 28 45 40	 movaps	 xmm0, XMMWORD PTR vUp$[rbp]
-  000a9	e8 00 00 00 00	 call	 ??DDirectX@@YQ?AT__m128@@T1@M@Z ; DirectX::operator*
-  000ae	0f 29 85 c0 01
-	00 00		 movaps	 XMMWORD PTR $T7[rbp], xmm0
-  000b5	0f 28 8d c0 01
-	00 00		 movaps	 xmm1, XMMWORD PTR $T7[rbp]
-  000bc	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vPos$[rbp]
-  000c0	e8 00 00 00 00	 call	 ??HDirectX@@YQ?AT__m128@@T1@0@Z ; DirectX::operator+
-  000c5	0f 29 85 90 01
-	00 00		 movaps	 XMMWORD PTR $T6[rbp], xmm0
-  000cc	0f 28 85 90 01
-	00 00		 movaps	 xmm0, XMMWORD PTR $T6[rbp]
-  000d3	0f 29 45 10	 movaps	 XMMWORD PTR vPos$[rbp], xmm0
-
-; 199  : 	
-; 200  : 	m_pTransform->Set_State(CTransform::STATE_POSITION, vPos);
-
-  000d7	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vPos$[rbp]
-  000db	0f 29 85 f0 01
-	00 00		 movaps	 XMMWORD PTR $T8[rbp], xmm0
-  000e2	4c 8d 85 f0 01
-	00 00		 lea	 r8, QWORD PTR $T8[rbp]
-  000e9	ba 03 00 00 00	 mov	 edx, 3
-  000ee	48 8b 85 30 02
+  0009a	48 8b 85 30 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000f5	48 8b 88 88 00
+  000a1	f3 0f 5a 80 c8
+	00 00 00	 cvtss2sd xmm0, DWORD PTR [rax+200]
+  000a9	f2 0f 58 85 38
+	02 00 00	 addsd	 xmm0, QWORD PTR TimeDelta$[rbp]
+  000b1	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  000b5	48 8b 85 30 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000bc	f3 0f 11 80 c8
+	00 00 00	 movss	 DWORD PTR [rax+200], xmm0
+
+; 303  : 	vPos = vPos + vUp * powf(m_fMoveAcc, 2.f);
+
+  000c4	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40000000
+  000cc	48 8b 85 30 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000d3	f3 0f 10 80 c8
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+200]
+  000db	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_powf
+  000e1	0f 28 c8	 movaps	 xmm1, xmm0
+  000e4	0f 28 45 40	 movaps	 xmm0, XMMWORD PTR vUp$[rbp]
+  000e8	e8 00 00 00 00	 call	 ??DDirectX@@YQ?AT__m128@@T1@M@Z ; DirectX::operator*
+  000ed	0f 29 85 c0 01
+	00 00		 movaps	 XMMWORD PTR $T7[rbp], xmm0
+  000f4	0f 28 8d c0 01
+	00 00		 movaps	 xmm1, XMMWORD PTR $T7[rbp]
+  000fb	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vPos$[rbp]
+  000ff	e8 00 00 00 00	 call	 ??HDirectX@@YQ?AT__m128@@T1@0@Z ; DirectX::operator+
+  00104	0f 29 85 90 01
+	00 00		 movaps	 XMMWORD PTR $T6[rbp], xmm0
+  0010b	0f 28 85 90 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T6[rbp]
+  00112	0f 29 45 10	 movaps	 XMMWORD PTR vPos$[rbp], xmm0
+
+; 304  : 	
+; 305  : 	m_pTransform->Set_State(CTransform::STATE_POSITION, vPos);
+
+  00116	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vPos$[rbp]
+  0011a	0f 29 85 f0 01
+	00 00		 movaps	 XMMWORD PTR $T8[rbp], xmm0
+  00121	4c 8d 85 f0 01
+	00 00		 lea	 r8, QWORD PTR $T8[rbp]
+  00128	ba 03 00 00 00	 mov	 edx, 3
+  0012d	48 8b 85 30 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00134	48 8b 88 88 00
 	00 00		 mov	 rcx, QWORD PTR [rax+136]
-  000fc	ff 15 00 00 00
+  0013b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 201  : 
-; 202  : 	//m_fMoveAcc += TimeDelta;
-; 203  : 	/*if (m_fMoveAcc > 10.f);
-; 204  : 	{
-; 205  : 		m_fMoveAcc = 0.f;
-; 206  : 		Reset();
-; 207  : 	}*/
-; 208  : 
-; 209  : 	return true;
+; 306  : 	if (m_fMoveAcc >= 4.f)
 
-  00102	b0 01		 mov	 al, 1
+  00141	48 8b 85 30 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00148	f3 0f 10 80 c8
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+200]
+  00150	0f 2f 05 00 00
+	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
+  00157	72 1e		 jb	 SHORT $LN2@MoveProces
 
-; 210  : }
+; 307  : 	{
+; 308  : 		Reset();
 
-  00104	48 8b f8	 mov	 rdi, rax
-  00107	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  0010b	48 8d 15 00 00
+  00159	48 8b 8d 30 02
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  00160	e8 00 00 00 00	 call	 ?Reset@CThorn@Client@@QEAAXXZ ; Client::CThorn::Reset
+
+; 309  : 		m_fMoveAcc = 0.f;
+
+  00165	48 8b 85 30 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0016c	0f 57 c0	 xorps	 xmm0, xmm0
+  0016f	f3 0f 11 80 c8
+	00 00 00	 movss	 DWORD PTR [rax+200], xmm0
+$LN2@MoveProces:
+
+; 310  : 	}
+; 311  : 
+; 312  : 	return true;
+
+  00177	b0 01		 mov	 al, 1
+
+; 313  : }
+
+  00179	48 8b f8	 mov	 rdi, rax
+  0017c	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  00180	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?MoveProcess@CThorn@Client@@QEAA_NN@Z$rtcFrameData
-  00112	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  00117	48 8b c7	 mov	 rax, rdi
-  0011a	48 8b 8d 08 02
+  00187	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  0018c	48 8b c7	 mov	 rax, rdi
+  0018f	48 8b 8d 08 02
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  00121	48 33 cd	 xor	 rcx, rbp
-  00124	e8 00 00 00 00	 call	 __security_check_cookie
-  00129	48 8d a5 18 02
+  00196	48 33 cd	 xor	 rcx, rbp
+  00199	e8 00 00 00 00	 call	 __security_check_cookie
+  0019e	48 8d a5 18 02
 	00 00		 lea	 rsp, QWORD PTR [rbp+536]
-  00130	5f		 pop	 rdi
-  00131	5d		 pop	 rbp
-  00132	c3		 ret	 0
+  001a5	5f		 pop	 rdi
+  001a6	5d		 pop	 rbp
+  001a7	c3		 ret	 0
 ?MoveProcess@CThorn@Client@@QEAA_NN@Z ENDP		; Client::CThorn::MoveProcess
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\users\arcco\documents\github\framework\client\private\thorn.cpp
-;	COMDAT ?ScaleUpProcess@CThorn@Client@@QEAA_NN@Z
+;	COMDAT ?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z
 _TEXT	SEGMENT
 vRightLength$ = 4
 vUpLength$ = 36
@@ -5252,9 +5430,297 @@ $T10 = 640
 __$ArrayPad$ = 664
 this$ = 704
 TimeDelta$ = 712
-?ScaleUpProcess@CThorn@Client@@QEAA_NN@Z PROC		; Client::CThorn::ScaleUpProcess, COMDAT
+?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z PROC	; Client::CThorn::ScaleDownSmoothProcess, COMDAT
 
-; 161  : {
+; 262  : {
+
+$LN6:
+  00000	f2 0f 11 4c 24
+	10		 movsd	 QWORD PTR [rsp+16], xmm1
+  00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  0000b	55		 push	 rbp
+  0000c	56		 push	 rsi
+  0000d	57		 push	 rdi
+  0000e	48 81 ec c0 02
+	00 00		 sub	 rsp, 704		; 000002c0H
+  00015	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
+  0001a	48 8b fc	 mov	 rdi, rsp
+  0001d	b9 b0 00 00 00	 mov	 ecx, 176		; 000000b0H
+  00022	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00027	f3 ab		 rep stosd
+  00029	48 8b 8c 24 e8
+	02 00 00	 mov	 rcx, QWORD PTR [rsp+744]
+  00031	48 8b 05 00 00
+	00 00		 mov	 rax, QWORD PTR __security_cookie
+  00038	48 33 c5	 xor	 rax, rbp
+  0003b	48 89 85 98 02
+	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
+
+; 263  : 	_float vRightLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_RIGHT)));
+
+  00042	45 33 c0	 xor	 r8d, r8d
+  00045	48 8d 95 90 01
+	00 00		 lea	 rdx, QWORD PTR $T5[rbp]
+  0004c	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00053	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
+  0005a	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+  00060	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  00063	e8 00 00 00 00	 call	 ?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Length
+  00068	0f 29 85 60 01
+	00 00		 movaps	 XMMWORD PTR $T4[rbp], xmm0
+  0006f	0f 28 85 60 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T4[rbp]
+  00076	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
+  0007b	f3 0f 11 45 04	 movss	 DWORD PTR vRightLength$[rbp], xmm0
+
+; 264  : 	_float vUpLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_UP)));
+
+  00080	41 b8 01 00 00
+	00		 mov	 r8d, 1
+  00086	48 8d 95 f0 01
+	00 00		 lea	 rdx, QWORD PTR $T7[rbp]
+  0008d	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00094	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
+  0009b	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+  000a1	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  000a4	e8 00 00 00 00	 call	 ?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Length
+  000a9	0f 29 85 c0 01
+	00 00		 movaps	 XMMWORD PTR $T6[rbp], xmm0
+  000b0	0f 28 85 c0 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T6[rbp]
+  000b7	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
+  000bc	f3 0f 11 45 24	 movss	 DWORD PTR vUpLength$[rbp], xmm0
+
+; 265  : 	_float vLookLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_LOOK)));
+
+  000c1	41 b8 02 00 00
+	00		 mov	 r8d, 2
+  000c7	48 8d 95 50 02
+	00 00		 lea	 rdx, QWORD PTR $T9[rbp]
+  000ce	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000d5	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
+  000dc	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+  000e2	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  000e5	e8 00 00 00 00	 call	 ?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Length
+  000ea	0f 29 85 20 02
+	00 00		 movaps	 XMMWORD PTR $T8[rbp], xmm0
+  000f1	0f 28 85 20 02
+	00 00		 movaps	 xmm0, XMMWORD PTR $T8[rbp]
+  000f8	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
+  000fd	f3 0f 11 45 44	 movss	 DWORD PTR vLookLength$[rbp], xmm0
+
+; 266  : 
+; 267  : 	_float3 vLength;
+
+  00102	48 8d 4d 68	 lea	 rcx, QWORD PTR vLength$[rbp]
+  00106	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@XZ ; DirectX::XMFLOAT3::XMFLOAT3
+
+; 268  : 	if (m_eThornType == THORN)
+
+  0010b	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00112	83 78 78 00	 cmp	 DWORD PTR [rax+120], 0
+  00116	0f 85 cc 00 00
+	00		 jne	 $LN2@ScaleDownS
+
+; 269  : 	{
+; 270  : 		m_fScaleAcc += TimeDelta;
+
+  0011c	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00123	f3 0f 5a 80 a8
+	00 00 00	 cvtss2sd xmm0, DWORD PTR [rax+168]
+  0012b	f2 0f 58 85 c8
+	02 00 00	 addsd	 xmm0, QWORD PTR TimeDelta$[rbp]
+  00133	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  00137	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0013e	f3 0f 11 80 a8
+	00 00 00	 movss	 DWORD PTR [rax+168], xmm0
+
+; 271  : 		//vLength.x = vRightLength + powf(vRightLength, m_fScaleAcc);
+; 272  : 		//vLength.y = vUpLength + powf(vUpLength, m_fScaleAcc);
+; 273  : 		//vLength.z = vLookLength + powf(vLookLength, m_fScaleAcc);
+; 274  : 
+; 275  : 		vLength.x = vRightLength - powf(m_fScaleAcc, 2.f) * 3.f;
+
+  00146	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40000000
+  0014e	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00155	f3 0f 10 80 a8
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+168]
+  0015d	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_powf
+  00163	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40400000
+  0016b	f3 0f 10 4d 04	 movss	 xmm1, DWORD PTR vRightLength$[rbp]
+  00170	f3 0f 5c c8	 subss	 xmm1, xmm0
+  00174	0f 28 c1	 movaps	 xmm0, xmm1
+  00177	f3 0f 11 45 68	 movss	 DWORD PTR vLength$[rbp], xmm0
+
+; 276  : 		vLength.y = vUpLength - powf(m_fScaleAcc, 2.f) * 3.f;
+
+  0017c	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40000000
+  00184	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0018b	f3 0f 10 80 a8
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+168]
+  00193	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_powf
+  00199	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40400000
+  001a1	f3 0f 10 4d 24	 movss	 xmm1, DWORD PTR vUpLength$[rbp]
+  001a6	f3 0f 5c c8	 subss	 xmm1, xmm0
+  001aa	0f 28 c1	 movaps	 xmm0, xmm1
+  001ad	f3 0f 11 45 6c	 movss	 DWORD PTR vLength$[rbp+4], xmm0
+
+; 277  : 		vLength.z = vLookLength - powf(m_fScaleAcc, 2.f) * 3.f;
+
+  001b2	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40000000
+  001ba	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001c1	f3 0f 10 80 a8
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+168]
+  001c9	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_powf
+  001cf	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40400000
+  001d7	f3 0f 10 4d 44	 movss	 xmm1, DWORD PTR vLookLength$[rbp]
+  001dc	f3 0f 5c c8	 subss	 xmm1, xmm0
+  001e0	0f 28 c1	 movaps	 xmm0, xmm1
+  001e3	f3 0f 11 45 70	 movss	 DWORD PTR vLength$[rbp+8], xmm0
+$LN2@ScaleDownS:
+
+; 278  : 	}
+; 279  : 
+; 280  : 	m_pTransform->Set_Scale(vLength);
+
+  001e8	48 8d 85 80 02
+	00 00		 lea	 rax, QWORD PTR $T10[rbp]
+  001ef	48 8d 4d 68	 lea	 rcx, QWORD PTR vLength$[rbp]
+  001f3	48 8b f8	 mov	 rdi, rax
+  001f6	48 8b f1	 mov	 rsi, rcx
+  001f9	b9 0c 00 00 00	 mov	 ecx, 12
+  001fe	f3 a4		 rep movsb
+  00200	48 8d 95 80 02
+	00 00		 lea	 rdx, QWORD PTR $T10[rbp]
+  00207	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0020e	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
+  00215	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Set_Scale@CTransform@Engine@@QEAAXUXMFLOAT3@DirectX@@@Z
+
+; 281  : 
+; 282  : 	if (vLength.y <= m_fPrevScale.y)
+
+  0021b	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00222	f3 0f 10 80 b4
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+180]
+  0022a	0f 2f 45 6c	 comiss	 xmm0, DWORD PTR vLength$[rbp+4]
+  0022e	72 3c		 jb	 SHORT $LN3@ScaleDownS
+
+; 283  : 	{
+; 284  : 		m_bScaleSmoothDown = false;
+
+  00230	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00237	c6 80 a6 00 00
+	00 00		 mov	 BYTE PTR [rax+166], 0
+
+; 285  : 		m_bScaleDownFinish = true;
+
+  0023e	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00245	c6 80 a5 00 00
+	00 01		 mov	 BYTE PTR [rax+165], 1
+
+; 286  : 		m_bScaleFinish = true;
+
+  0024c	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00253	c6 80 a2 00 00
+	00 01		 mov	 BYTE PTR [rax+162], 1
+
+; 287  : 
+; 288  : 		Reset();
+
+  0025a	48 8b 8d c0 02
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  00261	e8 00 00 00 00	 call	 ?Reset@CThorn@Client@@QEAAXXZ ; Client::CThorn::Reset
+
+; 289  : 
+; 290  : 		return true;
+
+  00266	b0 01		 mov	 al, 1
+  00268	eb 04		 jmp	 SHORT $LN1@ScaleDownS
+
+; 291  : 	}
+; 292  : 	else
+
+  0026a	eb 02		 jmp	 SHORT $LN4@ScaleDownS
+$LN3@ScaleDownS:
+
+; 293  : 		return false;
+
+  0026c	32 c0		 xor	 al, al
+$LN4@ScaleDownS:
+$LN1@ScaleDownS:
+
+; 294  : }
+
+  0026e	48 8b f8	 mov	 rdi, rax
+  00271	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  00275	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z$rtcFrameData
+  0027c	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  00281	48 8b c7	 mov	 rax, rdi
+  00284	48 8b 8d 98 02
+	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
+  0028b	48 33 cd	 xor	 rcx, rbp
+  0028e	e8 00 00 00 00	 call	 __security_check_cookie
+  00293	48 8d a5 a0 02
+	00 00		 lea	 rsp, QWORD PTR [rbp+672]
+  0029a	5f		 pop	 rdi
+  0029b	5e		 pop	 rsi
+  0029c	5d		 pop	 rbp
+  0029d	c3		 ret	 0
+?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z ENDP	; Client::CThorn::ScaleDownSmoothProcess
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\users\arcco\documents\github\framework\client\private\thorn.cpp
+;	COMDAT ?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z
+_TEXT	SEGMENT
+vRightLength$ = 4
+vUpLength$ = 36
+vLookLength$ = 68
+vLength$ = 104
+$T4 = 352
+$T5 = 400
+$T6 = 448
+$T7 = 496
+$T8 = 544
+$T9 = 592
+$T10 = 640
+__$ArrayPad$ = 664
+this$ = 704
+TimeDelta$ = 712
+?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z PROC	; Client::CThorn::ScaleUpSmoothProcess, COMDAT
+
+; 225  : {
 
 $LN8:
   00000	f2 0f 11 4c 24
@@ -5278,7 +5744,7 @@ $LN8:
   0003b	48 89 85 98 02
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 162  : 	_float vRightLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_RIGHT)));
+; 226  : 	_float vRightLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_RIGHT)));
 
   00042	45 33 c0	 xor	 r8d, r8d
   00045	48 8d 95 90 01
@@ -5298,7 +5764,7 @@ $LN8:
   00076	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
   0007b	f3 0f 11 45 04	 movss	 DWORD PTR vRightLength$[rbp], xmm0
 
-; 163  : 	_float vUpLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_UP)));
+; 227  : 	_float vUpLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_UP)));
 
   00080	41 b8 01 00 00
 	00		 mov	 r8d, 1
@@ -5319,7 +5785,7 @@ $LN8:
   000b7	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
   000bc	f3 0f 11 45 24	 movss	 DWORD PTR vUpLength$[rbp], xmm0
 
-; 164  : 	_float vLookLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_LOOK)));
+; 228  : 	_float vLookLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_LOOK)));
 
   000c1	41 b8 02 00 00
 	00		 mov	 r8d, 2
@@ -5340,214 +5806,584 @@ $LN8:
   000f8	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
   000fd	f3 0f 11 45 44	 movss	 DWORD PTR vLookLength$[rbp], xmm0
 
-; 165  : 
-; 166  : 	_float3 vLength;
+; 229  : 
+; 230  : 	_float3 vLength;
 
   00102	48 8d 4d 68	 lea	 rcx, QWORD PTR vLength$[rbp]
   00106	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@XZ ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 167  : 	if (m_eThornType == THORN)
+; 231  : 	if (m_eThornType == THORN)
 
   0010b	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00112	83 78 78 00	 cmp	 DWORD PTR [rax+120], 0
-  00116	0f 85 ad 00 00
-	00		 jne	 $LN2@ScaleUpPro
+  00116	0f 85 ce 00 00
+	00		 jne	 $LN2@ScaleUpSmo
 
-; 168  : 	{
-; 169  : 		m_fScaleAcc += TimeDelta;
+; 232  : 	{
+; 233  : 		m_fScaleAcc += TimeDelta;
 
   0011c	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00123	f3 0f 5a 80 a4
-	00 00 00	 cvtss2sd xmm0, DWORD PTR [rax+164]
+  00123	f3 0f 5a 80 a8
+	00 00 00	 cvtss2sd xmm0, DWORD PTR [rax+168]
   0012b	f2 0f 58 85 c8
 	02 00 00	 addsd	 xmm0, QWORD PTR TimeDelta$[rbp]
   00133	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
   00137	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0013e	f3 0f 11 80 a4
-	00 00 00	 movss	 DWORD PTR [rax+164], xmm0
+  0013e	f3 0f 11 80 a8
+	00 00 00	 movss	 DWORD PTR [rax+168], xmm0
 
-; 170  : 		vLength.x = vRightLength + powf(vRightLength, m_fScaleAcc);
+; 234  : 		//vLength.x = vRightLength + powf(vRightLength, m_fScaleAcc);
+; 235  : 		//vLength.y = vUpLength + powf(vUpLength, m_fScaleAcc);
+; 236  : 		//vLength.z = vLookLength + powf(vLookLength, m_fScaleAcc);
+; 237  : 
+; 238  : 		vLength.x = vRightLength + powf(m_fScaleAcc, 2.f) * 3.f;
 
-  00146	48 8b 85 c0 02
+  00146	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40000000
+  0014e	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0014d	f3 0f 10 88 a4
-	00 00 00	 movss	 xmm1, DWORD PTR [rax+164]
-  00155	f3 0f 10 45 04	 movss	 xmm0, DWORD PTR vRightLength$[rbp]
-  0015a	ff 15 00 00 00
+  00155	f3 0f 10 80 a8
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+168]
+  0015d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_powf
-  00160	f3 0f 10 4d 04	 movss	 xmm1, DWORD PTR vRightLength$[rbp]
-  00165	f3 0f 58 c8	 addss	 xmm1, xmm0
-  00169	0f 28 c1	 movaps	 xmm0, xmm1
-  0016c	f3 0f 11 45 68	 movss	 DWORD PTR vLength$[rbp], xmm0
+  00163	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40400000
+  0016b	f3 0f 10 4d 04	 movss	 xmm1, DWORD PTR vRightLength$[rbp]
+  00170	f3 0f 58 c8	 addss	 xmm1, xmm0
+  00174	0f 28 c1	 movaps	 xmm0, xmm1
+  00177	f3 0f 11 45 68	 movss	 DWORD PTR vLength$[rbp], xmm0
 
-; 171  : 		vLength.y = vUpLength + powf(vUpLength, m_fScaleAcc);
+; 239  : 		vLength.y = vUpLength + powf(m_fScaleAcc, 2.f) * 3.f;
 
-  00171	48 8b 85 c0 02
+  0017c	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40000000
+  00184	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00178	f3 0f 10 88 a4
-	00 00 00	 movss	 xmm1, DWORD PTR [rax+164]
-  00180	f3 0f 10 45 24	 movss	 xmm0, DWORD PTR vUpLength$[rbp]
-  00185	ff 15 00 00 00
+  0018b	f3 0f 10 80 a8
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+168]
+  00193	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_powf
-  0018b	f3 0f 10 4d 24	 movss	 xmm1, DWORD PTR vUpLength$[rbp]
-  00190	f3 0f 58 c8	 addss	 xmm1, xmm0
-  00194	0f 28 c1	 movaps	 xmm0, xmm1
-  00197	f3 0f 11 45 6c	 movss	 DWORD PTR vLength$[rbp+4], xmm0
+  00199	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40400000
+  001a1	f3 0f 10 4d 24	 movss	 xmm1, DWORD PTR vUpLength$[rbp]
+  001a6	f3 0f 58 c8	 addss	 xmm1, xmm0
+  001aa	0f 28 c1	 movaps	 xmm0, xmm1
+  001ad	f3 0f 11 45 6c	 movss	 DWORD PTR vLength$[rbp+4], xmm0
 
-; 172  : 		vLength.z = vLookLength + powf(vLookLength, m_fScaleAcc);
+; 240  : 		vLength.z = vLookLength + powf(m_fScaleAcc, 2.f) * 3.f;
 
-  0019c	48 8b 85 c0 02
+  001b2	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40000000
+  001ba	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001a3	f3 0f 10 88 a4
-	00 00 00	 movss	 xmm1, DWORD PTR [rax+164]
-  001ab	f3 0f 10 45 44	 movss	 xmm0, DWORD PTR vLookLength$[rbp]
-  001b0	ff 15 00 00 00
+  001c1	f3 0f 10 80 a8
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+168]
+  001c9	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_powf
-  001b6	f3 0f 10 4d 44	 movss	 xmm1, DWORD PTR vLookLength$[rbp]
-  001bb	f3 0f 58 c8	 addss	 xmm1, xmm0
-  001bf	0f 28 c1	 movaps	 xmm0, xmm1
-  001c2	f3 0f 11 45 70	 movss	 DWORD PTR vLength$[rbp+8], xmm0
-  001c7	eb 73		 jmp	 SHORT $LN3@ScaleUpPro
+  001cf	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@40400000
+  001d7	f3 0f 10 4d 44	 movss	 xmm1, DWORD PTR vLookLength$[rbp]
+  001dc	f3 0f 58 c8	 addss	 xmm1, xmm0
+  001e0	0f 28 c1	 movaps	 xmm0, xmm1
+  001e3	f3 0f 11 45 70	 movss	 DWORD PTR vLength$[rbp+8], xmm0
+  001e8	eb 73		 jmp	 SHORT $LN3@ScaleUpSmo
+$LN2@ScaleUpSmo:
+
+; 241  : 	}
+; 242  : 	else if (m_eThornType == MISSILE)
+
+  001ea	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001f1	83 78 78 01	 cmp	 DWORD PTR [rax+120], 1
+  001f5	75 66		 jne	 SHORT $LN4@ScaleUpSmo
+
+; 243  : 	{
+; 244  : 		vLength.x = vRightLength + TimeDelta * 2.f;
+
+  001f7	f3 0f 5a 45 04	 cvtss2sd xmm0, DWORD PTR vRightLength$[rbp]
+  001fc	f2 0f 10 8d c8
+	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
+  00204	f2 0f 59 0d 00
+	00 00 00	 mulsd	 xmm1, QWORD PTR __real@4000000000000000
+  0020c	f2 0f 58 c1	 addsd	 xmm0, xmm1
+  00210	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  00214	f3 0f 11 45 68	 movss	 DWORD PTR vLength$[rbp], xmm0
+
+; 245  : 		vLength.y = vUpLength + TimeDelta * 2.f;
+
+  00219	f3 0f 5a 45 24	 cvtss2sd xmm0, DWORD PTR vUpLength$[rbp]
+  0021e	f2 0f 10 8d c8
+	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
+  00226	f2 0f 59 0d 00
+	00 00 00	 mulsd	 xmm1, QWORD PTR __real@4000000000000000
+  0022e	f2 0f 58 c1	 addsd	 xmm0, xmm1
+  00232	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  00236	f3 0f 11 45 6c	 movss	 DWORD PTR vLength$[rbp+4], xmm0
+
+; 246  : 		vLength.z = vLookLength + TimeDelta * 2.f;
+
+  0023b	f3 0f 5a 45 44	 cvtss2sd xmm0, DWORD PTR vLookLength$[rbp]
+  00240	f2 0f 10 8d c8
+	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
+  00248	f2 0f 59 0d 00
+	00 00 00	 mulsd	 xmm1, QWORD PTR __real@4000000000000000
+  00250	f2 0f 58 c1	 addsd	 xmm0, xmm1
+  00254	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  00258	f3 0f 11 45 70	 movss	 DWORD PTR vLength$[rbp+8], xmm0
+$LN4@ScaleUpSmo:
+$LN3@ScaleUpSmo:
+
+; 247  : 	}
+; 248  : 
+; 249  : 	m_pTransform->Set_Scale(vLength);
+
+  0025d	48 8d 85 80 02
+	00 00		 lea	 rax, QWORD PTR $T10[rbp]
+  00264	48 8d 4d 68	 lea	 rcx, QWORD PTR vLength$[rbp]
+  00268	48 8b f8	 mov	 rdi, rax
+  0026b	48 8b f1	 mov	 rsi, rcx
+  0026e	b9 0c 00 00 00	 mov	 ecx, 12
+  00273	f3 a4		 rep movsb
+  00275	48 8d 95 80 02
+	00 00		 lea	 rdx, QWORD PTR $T10[rbp]
+  0027c	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00283	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
+  0028a	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Set_Scale@CTransform@Engine@@QEAAXUXMFLOAT3@DirectX@@@Z
+
+; 250  : 
+; 251  : 	if (vLength.y >= m_fLength)
+
+  00290	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00297	f3 0f 10 45 6c	 movss	 xmm0, DWORD PTR vLength$[rbp+4]
+  0029c	0f 2f 80 ac 00
+	00 00		 comiss	 xmm0, DWORD PTR [rax+172]
+  002a3	72 22		 jb	 SHORT $LN5@ScaleUpSmo
+
+; 252  : 	{
+; 253  : 		m_bScaleSmoothUp = false;
+
+  002a5	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  002ac	c6 80 a4 00 00
+	00 00		 mov	 BYTE PTR [rax+164], 0
+
+; 254  : 		m_bScaleFinish = true;
+
+  002b3	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  002ba	c6 80 a2 00 00
+	00 01		 mov	 BYTE PTR [rax+162], 1
+
+; 255  : 		return true;
+
+  002c1	b0 01		 mov	 al, 1
+  002c3	eb 04		 jmp	 SHORT $LN1@ScaleUpSmo
+
+; 256  : 	}
+; 257  : 	else
+
+  002c5	eb 02		 jmp	 SHORT $LN6@ScaleUpSmo
+$LN5@ScaleUpSmo:
+
+; 258  : 		return false;
+
+  002c7	32 c0		 xor	 al, al
+$LN6@ScaleUpSmo:
+$LN1@ScaleUpSmo:
+
+; 259  : }
+
+  002c9	48 8b f8	 mov	 rdi, rax
+  002cc	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  002d0	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z$rtcFrameData
+  002d7	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  002dc	48 8b c7	 mov	 rax, rdi
+  002df	48 8b 8d 98 02
+	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
+  002e6	48 33 cd	 xor	 rcx, rbp
+  002e9	e8 00 00 00 00	 call	 __security_check_cookie
+  002ee	48 8d a5 a0 02
+	00 00		 lea	 rsp, QWORD PTR [rbp+672]
+  002f5	5f		 pop	 rdi
+  002f6	5e		 pop	 rsi
+  002f7	5d		 pop	 rbp
+  002f8	c3		 ret	 0
+?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z ENDP	; Client::CThorn::ScaleUpSmoothProcess
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\users\arcco\documents\github\framework\client\private\thorn.cpp
+;	COMDAT ?ScaleUpProcess@CThorn@Client@@QEAA_NN@Z
+_TEXT	SEGMENT
+vRightLength$ = 4
+vUpLength$ = 36
+vLookLength$ = 68
+vLength$ = 104
+$T4 = 352
+$T5 = 400
+$T6 = 448
+$T7 = 496
+$T8 = 544
+$T9 = 592
+$T10 = 640
+__$ArrayPad$ = 664
+this$ = 704
+TimeDelta$ = 712
+?ScaleUpProcess@CThorn@Client@@QEAA_NN@Z PROC		; Client::CThorn::ScaleUpProcess, COMDAT
+
+; 188  : {
+
+$LN8:
+  00000	f2 0f 11 4c 24
+	10		 movsd	 QWORD PTR [rsp+16], xmm1
+  00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  0000b	55		 push	 rbp
+  0000c	56		 push	 rsi
+  0000d	57		 push	 rdi
+  0000e	48 81 ec c0 02
+	00 00		 sub	 rsp, 704		; 000002c0H
+  00015	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
+  0001a	48 8b fc	 mov	 rdi, rsp
+  0001d	b9 b0 00 00 00	 mov	 ecx, 176		; 000000b0H
+  00022	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00027	f3 ab		 rep stosd
+  00029	48 8b 8c 24 e8
+	02 00 00	 mov	 rcx, QWORD PTR [rsp+744]
+  00031	48 8b 05 00 00
+	00 00		 mov	 rax, QWORD PTR __security_cookie
+  00038	48 33 c5	 xor	 rax, rbp
+  0003b	48 89 85 98 02
+	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
+
+; 189  : 	_float vRightLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_RIGHT)));
+
+  00042	45 33 c0	 xor	 r8d, r8d
+  00045	48 8d 95 90 01
+	00 00		 lea	 rdx, QWORD PTR $T5[rbp]
+  0004c	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00053	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
+  0005a	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+  00060	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  00063	e8 00 00 00 00	 call	 ?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Length
+  00068	0f 29 85 60 01
+	00 00		 movaps	 XMMWORD PTR $T4[rbp], xmm0
+  0006f	0f 28 85 60 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T4[rbp]
+  00076	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
+  0007b	f3 0f 11 45 04	 movss	 DWORD PTR vRightLength$[rbp], xmm0
+
+; 190  : 	_float vUpLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_UP)));
+
+  00080	41 b8 01 00 00
+	00		 mov	 r8d, 1
+  00086	48 8d 95 f0 01
+	00 00		 lea	 rdx, QWORD PTR $T7[rbp]
+  0008d	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00094	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
+  0009b	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+  000a1	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  000a4	e8 00 00 00 00	 call	 ?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Length
+  000a9	0f 29 85 c0 01
+	00 00		 movaps	 XMMWORD PTR $T6[rbp], xmm0
+  000b0	0f 28 85 c0 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T6[rbp]
+  000b7	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
+  000bc	f3 0f 11 45 24	 movss	 DWORD PTR vUpLength$[rbp], xmm0
+
+; 191  : 	_float vLookLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_LOOK)));
+
+  000c1	41 b8 02 00 00
+	00		 mov	 r8d, 2
+  000c7	48 8d 95 50 02
+	00 00		 lea	 rdx, QWORD PTR $T9[rbp]
+  000ce	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000d5	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
+  000dc	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+  000e2	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  000e5	e8 00 00 00 00	 call	 ?XMVector3Length@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Length
+  000ea	0f 29 85 20 02
+	00 00		 movaps	 XMMWORD PTR $T8[rbp], xmm0
+  000f1	0f 28 85 20 02
+	00 00		 movaps	 xmm0, XMMWORD PTR $T8[rbp]
+  000f8	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
+  000fd	f3 0f 11 45 44	 movss	 DWORD PTR vLookLength$[rbp], xmm0
+
+; 192  : 
+; 193  : 	_float3 vLength;
+
+  00102	48 8d 4d 68	 lea	 rcx, QWORD PTR vLength$[rbp]
+  00106	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@XZ ; DirectX::XMFLOAT3::XMFLOAT3
+
+; 194  : 	if (m_eThornType == THORN)
+
+  0010b	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00112	83 78 78 00	 cmp	 DWORD PTR [rax+120], 0
+  00116	0f 85 ce 00 00
+	00		 jne	 $LN2@ScaleUpPro
+
+; 195  : 	{
+; 196  : 		m_fScaleAcc += TimeDelta;
+
+  0011c	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00123	f3 0f 5a 80 a8
+	00 00 00	 cvtss2sd xmm0, DWORD PTR [rax+168]
+  0012b	f2 0f 58 85 c8
+	02 00 00	 addsd	 xmm0, QWORD PTR TimeDelta$[rbp]
+  00133	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  00137	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0013e	f3 0f 11 80 a8
+	00 00 00	 movss	 DWORD PTR [rax+168], xmm0
+
+; 197  : 		//vLength.x = vRightLength + powf(vRightLength, m_fScaleAcc);
+; 198  : 		//vLength.y = vUpLength + powf(vUpLength, m_fScaleAcc);
+; 199  : 		//vLength.z = vLookLength + powf(vLookLength, m_fScaleAcc);
+; 200  : 
+; 201  : 		vLength.x = vRightLength + powf(m_fScaleAcc, 2.f) * 900.f;
+
+  00146	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40000000
+  0014e	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00155	f3 0f 10 80 a8
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+168]
+  0015d	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_powf
+  00163	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@44610000
+  0016b	f3 0f 10 4d 04	 movss	 xmm1, DWORD PTR vRightLength$[rbp]
+  00170	f3 0f 58 c8	 addss	 xmm1, xmm0
+  00174	0f 28 c1	 movaps	 xmm0, xmm1
+  00177	f3 0f 11 45 68	 movss	 DWORD PTR vLength$[rbp], xmm0
+
+; 202  : 		vLength.y = vUpLength + powf(m_fScaleAcc, 2.f) * 900.f;
+
+  0017c	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40000000
+  00184	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0018b	f3 0f 10 80 a8
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+168]
+  00193	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_powf
+  00199	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@44610000
+  001a1	f3 0f 10 4d 24	 movss	 xmm1, DWORD PTR vUpLength$[rbp]
+  001a6	f3 0f 58 c8	 addss	 xmm1, xmm0
+  001aa	0f 28 c1	 movaps	 xmm0, xmm1
+  001ad	f3 0f 11 45 6c	 movss	 DWORD PTR vLength$[rbp+4], xmm0
+
+; 203  : 		vLength.z = vLookLength + powf(m_fScaleAcc, 2.f) * 900.f;
+
+  001b2	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40000000
+  001ba	48 8b 85 c0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001c1	f3 0f 10 80 a8
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+168]
+  001c9	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_powf
+  001cf	f3 0f 59 05 00
+	00 00 00	 mulss	 xmm0, DWORD PTR __real@44610000
+  001d7	f3 0f 10 4d 44	 movss	 xmm1, DWORD PTR vLookLength$[rbp]
+  001dc	f3 0f 58 c8	 addss	 xmm1, xmm0
+  001e0	0f 28 c1	 movaps	 xmm0, xmm1
+  001e3	f3 0f 11 45 70	 movss	 DWORD PTR vLength$[rbp+8], xmm0
+  001e8	eb 73		 jmp	 SHORT $LN3@ScaleUpPro
 $LN2@ScaleUpPro:
 
-; 173  : 	}
-; 174  : 	else if (m_eThornType == MISSILE)
+; 204  : 	}
+; 205  : 	else if (m_eThornType == MISSILE)
 
-  001c9	48 8b 85 c0 02
+  001ea	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001d0	83 78 78 01	 cmp	 DWORD PTR [rax+120], 1
-  001d4	75 66		 jne	 SHORT $LN4@ScaleUpPro
+  001f1	83 78 78 01	 cmp	 DWORD PTR [rax+120], 1
+  001f5	75 66		 jne	 SHORT $LN4@ScaleUpPro
 
-; 175  : 	{
-; 176  : 		vLength.x = vRightLength + TimeDelta * 2.f;
+; 206  : 	{
+; 207  : 		vLength.x = vRightLength + TimeDelta * 2.f;
 
-  001d6	f3 0f 5a 45 04	 cvtss2sd xmm0, DWORD PTR vRightLength$[rbp]
-  001db	f2 0f 10 8d c8
+  001f7	f3 0f 5a 45 04	 cvtss2sd xmm0, DWORD PTR vRightLength$[rbp]
+  001fc	f2 0f 10 8d c8
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  001e3	f2 0f 59 0d 00
+  00204	f2 0f 59 0d 00
 	00 00 00	 mulsd	 xmm1, QWORD PTR __real@4000000000000000
-  001eb	f2 0f 58 c1	 addsd	 xmm0, xmm1
-  001ef	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
-  001f3	f3 0f 11 45 68	 movss	 DWORD PTR vLength$[rbp], xmm0
+  0020c	f2 0f 58 c1	 addsd	 xmm0, xmm1
+  00210	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  00214	f3 0f 11 45 68	 movss	 DWORD PTR vLength$[rbp], xmm0
 
-; 177  : 		vLength.y = vUpLength + TimeDelta * 2.f;
+; 208  : 		vLength.y = vUpLength + TimeDelta * 2.f;
 
-  001f8	f3 0f 5a 45 24	 cvtss2sd xmm0, DWORD PTR vUpLength$[rbp]
-  001fd	f2 0f 10 8d c8
+  00219	f3 0f 5a 45 24	 cvtss2sd xmm0, DWORD PTR vUpLength$[rbp]
+  0021e	f2 0f 10 8d c8
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  00205	f2 0f 59 0d 00
+  00226	f2 0f 59 0d 00
 	00 00 00	 mulsd	 xmm1, QWORD PTR __real@4000000000000000
-  0020d	f2 0f 58 c1	 addsd	 xmm0, xmm1
-  00211	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
-  00215	f3 0f 11 45 6c	 movss	 DWORD PTR vLength$[rbp+4], xmm0
+  0022e	f2 0f 58 c1	 addsd	 xmm0, xmm1
+  00232	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  00236	f3 0f 11 45 6c	 movss	 DWORD PTR vLength$[rbp+4], xmm0
 
-; 178  : 		vLength.z = vLookLength + TimeDelta * 2.f;
+; 209  : 		vLength.z = vLookLength + TimeDelta * 2.f;
 
-  0021a	f3 0f 5a 45 44	 cvtss2sd xmm0, DWORD PTR vLookLength$[rbp]
-  0021f	f2 0f 10 8d c8
+  0023b	f3 0f 5a 45 44	 cvtss2sd xmm0, DWORD PTR vLookLength$[rbp]
+  00240	f2 0f 10 8d c8
 	02 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  00227	f2 0f 59 0d 00
+  00248	f2 0f 59 0d 00
 	00 00 00	 mulsd	 xmm1, QWORD PTR __real@4000000000000000
-  0022f	f2 0f 58 c1	 addsd	 xmm0, xmm1
-  00233	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
-  00237	f3 0f 11 45 70	 movss	 DWORD PTR vLength$[rbp+8], xmm0
+  00250	f2 0f 58 c1	 addsd	 xmm0, xmm1
+  00254	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  00258	f3 0f 11 45 70	 movss	 DWORD PTR vLength$[rbp+8], xmm0
 $LN4@ScaleUpPro:
 $LN3@ScaleUpPro:
 
-; 179  : 	}
-; 180  : 
-; 181  : 	m_pTransform->Set_Scale(vLength);
+; 210  : 	}
+; 211  : 
+; 212  : 	m_pTransform->Set_Scale(vLength);
 
-  0023c	48 8d 85 80 02
+  0025d	48 8d 85 80 02
 	00 00		 lea	 rax, QWORD PTR $T10[rbp]
-  00243	48 8d 4d 68	 lea	 rcx, QWORD PTR vLength$[rbp]
-  00247	48 8b f8	 mov	 rdi, rax
-  0024a	48 8b f1	 mov	 rsi, rcx
-  0024d	b9 0c 00 00 00	 mov	 ecx, 12
-  00252	f3 a4		 rep movsb
-  00254	48 8d 95 80 02
+  00264	48 8d 4d 68	 lea	 rcx, QWORD PTR vLength$[rbp]
+  00268	48 8b f8	 mov	 rdi, rax
+  0026b	48 8b f1	 mov	 rsi, rcx
+  0026e	b9 0c 00 00 00	 mov	 ecx, 12
+  00273	f3 a4		 rep movsb
+  00275	48 8d 95 80 02
 	00 00		 lea	 rdx, QWORD PTR $T10[rbp]
-  0025b	48 8b 85 c0 02
+  0027c	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00262	48 8b 88 88 00
+  00283	48 8b 88 88 00
 	00 00		 mov	 rcx, QWORD PTR [rax+136]
-  00269	ff 15 00 00 00
+  0028a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_Scale@CTransform@Engine@@QEAAXUXMFLOAT3@DirectX@@@Z
 
-; 182  : 
-; 183  : 	if (vLength.y >= m_fLength)
+; 213  : 
+; 214  : 	if (vLength.y >= m_fLength)
 
-  0026f	48 8b 85 c0 02
+  00290	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00276	f3 0f 10 45 6c	 movss	 xmm0, DWORD PTR vLength$[rbp+4]
-  0027b	0f 2f 80 a8 00
-	00 00		 comiss	 xmm0, DWORD PTR [rax+168]
-  00282	72 22		 jb	 SHORT $LN5@ScaleUpPro
+  00297	f3 0f 10 45 6c	 movss	 xmm0, DWORD PTR vLength$[rbp+4]
+  0029c	0f 2f 80 ac 00
+	00 00		 comiss	 xmm0, DWORD PTR [rax+172]
+  002a3	72 22		 jb	 SHORT $LN5@ScaleUpPro
 
-; 184  : 	{
-; 185  : 		m_bScaleUp = false;
+; 215  : 	{
+; 216  : 		m_bScaleUp = false;
 
-  00284	48 8b 85 c0 02
+  002a5	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0028b	c6 80 a3 00 00
+  002ac	c6 80 a3 00 00
 	00 00		 mov	 BYTE PTR [rax+163], 0
 
-; 186  : 		m_bScaleFinish = true;
+; 217  : 		m_bScaleFinish = true;
 
-  00292	48 8b 85 c0 02
+  002b3	48 8b 85 c0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00299	c6 80 a2 00 00
+  002ba	c6 80 a2 00 00
 	00 01		 mov	 BYTE PTR [rax+162], 1
 
-; 187  : 		return true;
+; 218  : 		return true;
 
-  002a0	b0 01		 mov	 al, 1
-  002a2	eb 04		 jmp	 SHORT $LN1@ScaleUpPro
+  002c1	b0 01		 mov	 al, 1
+  002c3	eb 04		 jmp	 SHORT $LN1@ScaleUpPro
 
-; 188  : 	}
-; 189  : 	else
+; 219  : 	}
+; 220  : 	else
 
-  002a4	eb 02		 jmp	 SHORT $LN6@ScaleUpPro
+  002c5	eb 02		 jmp	 SHORT $LN6@ScaleUpPro
 $LN5@ScaleUpPro:
 
-; 190  : 		return false;
+; 221  : 		return false;
 
-  002a6	32 c0		 xor	 al, al
+  002c7	32 c0		 xor	 al, al
 $LN6@ScaleUpPro:
 $LN1@ScaleUpPro:
 
-; 191  : }
+; 222  : }
 
-  002a8	48 8b f8	 mov	 rdi, rax
-  002ab	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  002af	48 8d 15 00 00
+  002c9	48 8b f8	 mov	 rdi, rax
+  002cc	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  002d0	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?ScaleUpProcess@CThorn@Client@@QEAA_NN@Z$rtcFrameData
-  002b6	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  002bb	48 8b c7	 mov	 rax, rdi
-  002be	48 8b 8d 98 02
+  002d7	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  002dc	48 8b c7	 mov	 rax, rdi
+  002df	48 8b 8d 98 02
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  002c5	48 33 cd	 xor	 rcx, rbp
-  002c8	e8 00 00 00 00	 call	 __security_check_cookie
-  002cd	48 8d a5 a0 02
+  002e6	48 33 cd	 xor	 rcx, rbp
+  002e9	e8 00 00 00 00	 call	 __security_check_cookie
+  002ee	48 8d a5 a0 02
 	00 00		 lea	 rsp, QWORD PTR [rbp+672]
-  002d4	5f		 pop	 rdi
-  002d5	5e		 pop	 rsi
-  002d6	5d		 pop	 rbp
-  002d7	c3		 ret	 0
+  002f5	5f		 pop	 rdi
+  002f6	5e		 pop	 rsi
+  002f7	5d		 pop	 rbp
+  002f8	c3		 ret	 0
 ?ScaleUpProcess@CThorn@Client@@QEAA_NN@Z ENDP		; Client::CThorn::ScaleUpProcess
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\users\arcco\documents\github\framework\client\private\thorn.cpp
-;	COMDAT ?SetupScaleUpStart@CThorn@Client@@QEAAXM@Z
+;	COMDAT ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ
+_TEXT	SEGMENT
+this$ = 224
+?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ PROC	; Client::CThorn::SetupScaleSmoothDownStart, COMDAT
+
+; 182  : {
+
+$LN3:
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	55		 push	 rbp
+  00006	57		 push	 rdi
+  00007	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  0000e	48 8b ec	 mov	 rbp, rsp
+  00011	48 8b fc	 mov	 rdi, rsp
+  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  0001e	f3 ab		 rep stosd
+  00020	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+
+; 183  : 	m_bScaleSmoothDown = true;
+
+  00028	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0002f	c6 80 a6 00 00
+	00 01		 mov	 BYTE PTR [rax+166], 1
+
+; 184  : }
+
+  00036	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  0003d	5f		 pop	 rdi
+  0003e	5d		 pop	 rbp
+  0003f	c3		 ret	 0
+?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ENDP	; Client::CThorn::SetupScaleSmoothDownStart
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\users\arcco\documents\github\framework\client\private\thorn.cpp
+;	COMDAT ?SetupScaleSmoothUpStart@CThorn@Client@@QEAAXM@Z
 _TEXT	SEGMENT
 this$ = 224
 fLength$ = 232
-?SetupScaleUpStart@CThorn@Client@@QEAAXM@Z PROC		; Client::CThorn::SetupScaleUpStart, COMDAT
+?SetupScaleSmoothUpStart@CThorn@Client@@QEAAXM@Z PROC	; Client::CThorn::SetupScaleSmoothUpStart, COMDAT
 
-; 154  : {
+; 175  : {
 
 $LN3:
   00000	f3 0f 11 4c 24
@@ -5565,30 +6401,88 @@ $LN3:
   00026	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 155  : 	m_bScaleUp = true;
+; 176  : 	m_bScaleSmoothUp = true;
 
   0002e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00035	c6 80 a3 00 00
-	00 01		 mov	 BYTE PTR [rax+163], 1
+  00035	c6 80 a4 00 00
+	00 01		 mov	 BYTE PTR [rax+164], 1
 
-; 156  : 	m_bRender = true;
+; 177  : 	m_bRender = true;
 
   0003c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00043	c6 80 a1 00 00
 	00 01		 mov	 BYTE PTR [rax+161], 1
 
-; 157  : 	m_fLength = fLength;
+; 178  : 	m_fLength = fLength;
 
   0004a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00051	f3 0f 10 85 e8
 	00 00 00	 movss	 xmm0, DWORD PTR fLength$[rbp]
-  00059	f3 0f 11 80 a8
-	00 00 00	 movss	 DWORD PTR [rax+168], xmm0
+  00059	f3 0f 11 80 ac
+	00 00 00	 movss	 DWORD PTR [rax+172], xmm0
 
-; 158  : }
+; 179  : }
+
+  00061	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  00068	5f		 pop	 rdi
+  00069	5d		 pop	 rbp
+  0006a	c3		 ret	 0
+?SetupScaleSmoothUpStart@CThorn@Client@@QEAAXM@Z ENDP	; Client::CThorn::SetupScaleSmoothUpStart
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\users\arcco\documents\github\framework\client\private\thorn.cpp
+;	COMDAT ?SetupScaleUpStart@CThorn@Client@@QEAAXM@Z
+_TEXT	SEGMENT
+this$ = 224
+fLength$ = 232
+?SetupScaleUpStart@CThorn@Client@@QEAAXM@Z PROC		; Client::CThorn::SetupScaleUpStart, COMDAT
+
+; 168  : {
+
+$LN3:
+  00000	f3 0f 11 4c 24
+	10		 movss	 DWORD PTR [rsp+16], xmm1
+  00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  0000b	55		 push	 rbp
+  0000c	57		 push	 rdi
+  0000d	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  00014	48 8b ec	 mov	 rbp, rsp
+  00017	48 8b fc	 mov	 rdi, rsp
+  0001a	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  0001f	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00024	f3 ab		 rep stosd
+  00026	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+
+; 169  : 	m_bScaleUp = true;
+
+  0002e	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00035	c6 80 a3 00 00
+	00 01		 mov	 BYTE PTR [rax+163], 1
+
+; 170  : 	m_bRender = true;
+
+  0003c	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00043	c6 80 a1 00 00
+	00 01		 mov	 BYTE PTR [rax+161], 1
+
+; 171  : 	m_fLength = fLength;
+
+  0004a	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00051	f3 0f 10 85 e8
+	00 00 00	 movss	 xmm0, DWORD PTR fLength$[rbp]
+  00059	f3 0f 11 80 ac
+	00 00 00	 movss	 DWORD PTR [rax+172], xmm0
+
+; 172  : }
 
   00061	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -5617,7 +6511,7 @@ this$ = 992
 vTargetDir$ = 1000
 ?SetRotationToTarget@CThorn@Client@@QEAAXT__m128@@@Z PROC ; Client::CThorn::SetRotationToTarget, COMDAT
 
-; 140  : {
+; 154  : {
 
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -5634,7 +6528,7 @@ $LN3:
   00027	48 8b 8c 24 08
 	04 00 00	 mov	 rcx, QWORD PTR [rsp+1032]
 
-; 141  : 	_vector vDir = XMVector3Normalize(vTargetDir);
+; 155  : 	_vector vDir = XMVector3Normalize(vTargetDir);
 
   0002f	48 8b 85 e8 03
 	00 00		 mov	 rax, QWORD PTR vTargetDir$[rbp]
@@ -5646,11 +6540,11 @@ $LN3:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T1[rbp]
   0004c	0f 29 45 10	 movaps	 XMMWORD PTR vDir$[rbp], xmm0
 
-; 142  : 	//_vector vUp = m_pTransform->Get_State(CTransform::STATE_UP);
-; 143  : 	//_vector vPos = XMVectorSetY(m_pTransform->Get_State(CTransform::STATE_POSITION), 0.f);
-; 144  : 	//_vector vDir = XMVector3Normalize(vTarget - vPos);
-; 145  : 
-; 146  : 	m_pTransform->Set_State(CTransform::STATE_UP, vDir);
+; 156  : 	//_vector vUp = m_pTransform->Get_State(CTransform::STATE_UP);
+; 157  : 	//_vector vPos = XMVectorSetY(m_pTransform->Get_State(CTransform::STATE_POSITION), 0.f);
+; 158  : 	//_vector vDir = XMVector3Normalize(vTarget - vPos);
+; 159  : 
+; 160  : 	m_pTransform->Set_State(CTransform::STATE_UP, vDir);
 
   00050	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vDir$[rbp]
   00054	0f 29 85 40 03
@@ -5665,7 +6559,7 @@ $LN3:
   00075	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 147  : 	m_pTransform->Set_State(CTransform::STATE_LOOK, -VECTOR_UP);
+; 161  : 	m_pTransform->Set_State(CTransform::STATE_LOOK, -VECTOR_UP);
 
   0007b	0f 57 db	 xorps	 xmm3, xmm3
   0007e	0f 57 d2	 xorps	 xmm2, xmm2
@@ -5694,8 +6588,8 @@ $LN3:
   000d3	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 148  : 
-; 149  : 	_vector vRight = XMVector3Cross(m_pTransform->Get_State(CTransform::STATE_UP), -VECTOR_UP);
+; 162  : 
+; 163  : 	_vector vRight = XMVector3Cross(m_pTransform->Get_State(CTransform::STATE_UP), -VECTOR_UP);
 
   000d9	0f 57 db	 xorps	 xmm3, xmm3
   000dc	0f 57 d2	 xorps	 xmm2, xmm2
@@ -5730,7 +6624,7 @@ $LN3:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T4[rbp]
   00147	0f 29 45 40	 movaps	 XMMWORD PTR vRight$[rbp], xmm0
 
-; 150  : 	m_pTransform->Set_State(CTransform::STATE_RIGHT, vRight);
+; 164  : 	m_pTransform->Set_State(CTransform::STATE_RIGHT, vRight);
 
   0014b	0f 28 45 40	 movaps	 xmm0, XMMWORD PTR vRight$[rbp]
   0014f	0f 29 85 a0 03
@@ -5745,7 +6639,7 @@ $LN3:
   0016d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 151  : }
+; 165  : }
 
   00173	48 8d a5 c8 03
 	00 00		 lea	 rsp, QWORD PTR [rbp+968]
@@ -5763,7 +6657,7 @@ this$ = 272
 vAngle$ = 280
 ?SetRotationXYZ@CThorn@Client@@QEAAXUXMFLOAT3@DirectX@@@Z PROC ; Client::CThorn::SetRotationXYZ, COMDAT
 
-; 134  : {
+; 148  : {
 
 $LN4:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -5781,7 +6675,7 @@ $LN4:
   00028	48 8b 8c 24 38
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+312]
 
-; 135  : 	if (m_pTransform)
+; 149  : 	if (m_pTransform)
 
   00030	48 8b 85 10 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5789,7 +6683,7 @@ $LN4:
 	00 00 00	 cmp	 QWORD PTR [rax+136], 0
   0003f	74 33		 je	 SHORT $LN2@SetRotatio
 
-; 136  : 		m_pTransform->SetRotationXYZ(vAngle);
+; 150  : 		m_pTransform->SetRotationXYZ(vAngle);
 
   00041	48 8d 85 d0 00
 	00 00		 lea	 rax, QWORD PTR $T1[rbp]
@@ -5808,7 +6702,7 @@ $LN4:
 	00		 call	 QWORD PTR __imp_?SetRotationXYZ@CTransform@Engine@@QEAAXUXMFLOAT3@DirectX@@@Z
 $LN2@SetRotatio:
 
-; 137  : }
+; 151  : }
 
   00074	48 8d a5 f0 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+240]
@@ -5827,7 +6721,7 @@ this$ = 272
 vPos$ = 280
 ?SetPosition@CThorn@Client@@QEAAXT__m128@@@Z PROC	; Client::CThorn::SetPosition, COMDAT
 
-; 128  : {
+; 142  : {
 
 $LN4:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -5844,7 +6738,7 @@ $LN4:
   00027	48 8b 8c 24 38
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+312]
 
-; 129  : 	if(m_pTransform)
+; 143  : 	if(m_pTransform)
 
   0002f	48 8b 85 10 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5852,7 +6746,7 @@ $LN4:
 	00 00 00	 cmp	 QWORD PTR [rax+136], 0
   0003e	74 31		 je	 SHORT $LN2@SetPositio
 
-; 130  : 		m_pTransform->Set_State(CTransform::STATE_POSITION, vPos);
+; 144  : 		m_pTransform->Set_State(CTransform::STATE_POSITION, vPos);
 
   00040	48 8b 85 18 01
 	00 00		 mov	 rax, QWORD PTR vPos$[rbp]
@@ -5870,7 +6764,7 @@ $LN4:
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 $LN2@SetPositio:
 
-; 131  : }
+; 145  : }
 
   00071	48 8d a5 f8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+248]
@@ -5885,115 +6779,166 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 vAngle$ = 8
 $T4 = 256
-__$ArrayPad$ = 280
-this$ = 320
+$T5 = 304
+$T6 = 352
+__$ArrayPad$ = 376
+this$ = 416
 ?Reset@CThorn@Client@@QEAAXXZ PROC			; Client::CThorn::Reset, COMDAT
 
-; 116  : {
+; 122  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	56		 push	 rsi
   00007	57		 push	 rdi
-  00008	48 81 ec 40 01
-	00 00		 sub	 rsp, 320		; 00000140H
+  00008	48 81 ec a0 01
+	00 00		 sub	 rsp, 416		; 000001a0H
   0000f	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
   00014	48 8b fc	 mov	 rdi, rsp
-  00017	b9 50 00 00 00	 mov	 ecx, 80			; 00000050H
+  00017	b9 68 00 00 00	 mov	 ecx, 104		; 00000068H
   0001c	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00021	f3 ab		 rep stosd
-  00023	48 8b 8c 24 68
-	01 00 00	 mov	 rcx, QWORD PTR [rsp+360]
+  00023	48 8b 8c 24 c8
+	01 00 00	 mov	 rcx, QWORD PTR [rsp+456]
   0002b	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR __security_cookie
   00032	48 33 c5	 xor	 rax, rbp
-  00035	48 89 85 18 01
+  00035	48 89 85 78 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 117  : 	m_bMove = false;
+; 123  : 	m_bRender = false;
 
-  0003c	48 8b 85 40 01
+  0003c	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00043	c6 80 c0 00 00
-	00 00		 mov	 BYTE PTR [rax+192], 0
+  00043	c6 80 a1 00 00
+	00 00		 mov	 BYTE PTR [rax+161], 0
 
-; 118  : 	m_bScaleUp = false;
+; 124  : 
+; 125  : 	m_bMove = false;
 
-  0004a	48 8b 85 40 01
+  0004a	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00051	c6 80 a3 00 00
+  00051	c6 80 c4 00 00
+	00 00		 mov	 BYTE PTR [rax+196], 0
+
+; 126  : 	m_bScaleUp = false;
+
+  00058	48 8b 85 a0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0005f	c6 80 a3 00 00
 	00 00		 mov	 BYTE PTR [rax+163], 0
 
-; 119  : 	m_bScaleFinish = false;
+; 127  : 
+; 128  : 	m_bScaleFinish = false;
 
-  00058	48 8b 85 40 01
+  00066	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0005f	c6 80 a2 00 00
+  0006d	c6 80 a2 00 00
 	00 00		 mov	 BYTE PTR [rax+162], 0
 
-; 120  : 	m_fLength = 1.f;
+; 129  : 
+; 130  : 	m_bScaleDownFinish = false;
 
-  00066	48 8b 85 40 01
+  00074	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0006d	f3 0f 10 05 00
+  0007b	c6 80 a5 00 00
+	00 00		 mov	 BYTE PTR [rax+165], 0
+
+; 131  : 	m_bScaleSmoothDown = false;
+
+  00082	48 8b 85 a0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00089	c6 80 a6 00 00
+	00 00		 mov	 BYTE PTR [rax+166], 0
+
+; 132  : 
+; 133  : 	m_fLength = 1.f;
+
+  00090	48 8b 85 a0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00097	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
-  00075	f3 0f 11 80 a8
+  0009f	f3 0f 11 80 ac
+	00 00 00	 movss	 DWORD PTR [rax+172], xmm0
+
+; 134  : 	m_fScaleAcc = 0.f;
+
+  000a7	48 8b 85 a0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000ae	0f 57 c0	 xorps	 xmm0, xmm0
+  000b1	f3 0f 11 80 a8
 	00 00 00	 movss	 DWORD PTR [rax+168], xmm0
 
-; 121  : 	m_fScaleAcc = 0.f;
+; 135  : 	_float3 vAngle = { 0.f, 0.f, 0.f };
 
-  0007d	48 8b 85 40 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00084	0f 57 c0	 xorps	 xmm0, xmm0
-  00087	f3 0f 11 80 a4
-	00 00 00	 movss	 DWORD PTR [rax+164], xmm0
+  000b9	0f 57 db	 xorps	 xmm3, xmm3
+  000bc	0f 57 d2	 xorps	 xmm2, xmm2
+  000bf	0f 57 c9	 xorps	 xmm1, xmm1
+  000c2	48 8d 4d 08	 lea	 rcx, QWORD PTR vAngle$[rbp]
+  000c6	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 122  : 	_float3 vAngle = { 0.f, 0.f, 0.f };
+; 136  : 	//m_pTransform->SetRotationXYZ(vAngle);
+; 137  : 	m_pTransform->Set_Scale(m_fPrevScale);
 
-  0008f	0f 57 db	 xorps	 xmm3, xmm3
-  00092	0f 57 d2	 xorps	 xmm2, xmm2
-  00095	0f 57 c9	 xorps	 xmm1, xmm1
-  00098	48 8d 4d 08	 lea	 rcx, QWORD PTR vAngle$[rbp]
-  0009c	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
-
-; 123  : 	//m_pTransform->SetRotationXYZ(vAngle);
-; 124  : 	m_pTransform->Set_Scale(m_fPrevScale);
-
-  000a1	48 8d 85 00 01
-	00 00		 lea	 rax, QWORD PTR $T4[rbp]
-  000a8	48 8b 8d 40 01
+  000cb	48 8d 85 30 01
+	00 00		 lea	 rax, QWORD PTR $T5[rbp]
+  000d2	48 8b 8d a0 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  000af	48 8b f8	 mov	 rdi, rax
-  000b2	48 8d b1 ac 00
-	00 00		 lea	 rsi, QWORD PTR [rcx+172]
-  000b9	b9 0c 00 00 00	 mov	 ecx, 12
-  000be	f3 a4		 rep movsb
-  000c0	48 8d 95 00 01
-	00 00		 lea	 rdx, QWORD PTR $T4[rbp]
-  000c7	48 8b 85 40 01
+  000d9	48 8b f8	 mov	 rdi, rax
+  000dc	48 8d b1 b0 00
+	00 00		 lea	 rsi, QWORD PTR [rcx+176]
+  000e3	b9 0c 00 00 00	 mov	 ecx, 12
+  000e8	f3 a4		 rep movsb
+  000ea	48 8d 95 30 01
+	00 00		 lea	 rdx, QWORD PTR $T5[rbp]
+  000f1	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000ce	48 8b 88 88 00
+  000f8	48 8b 88 88 00
 	00 00		 mov	 rcx, QWORD PTR [rax+136]
-  000d5	ff 15 00 00 00
+  000ff	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_Scale@CTransform@Engine@@QEAAXUXMFLOAT3@DirectX@@@Z
 
-; 125  : }
+; 138  : 	m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
 
-  000db	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  000df	48 8d 15 00 00
+  00105	f3 0f 10 1d 00
+	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
+  0010d	0f 57 d2	 xorps	 xmm2, xmm2
+  00110	0f 57 c9	 xorps	 xmm1, xmm1
+  00113	0f 57 c0	 xorps	 xmm0, xmm0
+  00116	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
+  0011b	0f 29 85 00 01
+	00 00		 movaps	 XMMWORD PTR $T4[rbp], xmm0
+  00122	0f 28 85 00 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T4[rbp]
+  00129	0f 29 85 60 01
+	00 00		 movaps	 XMMWORD PTR $T6[rbp], xmm0
+  00130	4c 8d 85 60 01
+	00 00		 lea	 r8, QWORD PTR $T6[rbp]
+  00137	ba 03 00 00 00	 mov	 edx, 3
+  0013c	48 8b 85 a0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00143	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
+  0014a	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
+
+; 139  : }
+
+  00150	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  00154	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?Reset@CThorn@Client@@QEAAXXZ$rtcFrameData
-  000e6	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  000eb	48 8b 8d 18 01
+  0015b	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  00160	48 8b 8d 78 01
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  000f2	48 33 cd	 xor	 rcx, rbp
-  000f5	e8 00 00 00 00	 call	 __security_check_cookie
-  000fa	48 8d a5 20 01
-	00 00		 lea	 rsp, QWORD PTR [rbp+288]
-  00101	5f		 pop	 rdi
-  00102	5e		 pop	 rsi
-  00103	5d		 pop	 rbp
-  00104	c3		 ret	 0
+  00167	48 33 cd	 xor	 rcx, rbp
+  0016a	e8 00 00 00 00	 call	 __security_check_cookie
+  0016f	48 8d a5 80 01
+	00 00		 lea	 rsp, QWORD PTR [rbp+384]
+  00176	5f		 pop	 rdi
+  00177	5e		 pop	 rsi
+  00178	5d		 pop	 rbp
+  00179	c3		 ret	 0
 ?Reset@CThorn@Client@@QEAAXXZ ENDP			; Client::CThorn::Reset
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -6012,7 +6957,7 @@ __$ArrayPad$ = 536
 this$ = 576
 ?GetLengthFromCamera@CThorn@Client@@UEAAMXZ PROC	; Client::CThorn::GetLengthFromCamera, COMDAT
 
-; 104  : {
+; 110  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -6033,14 +6978,14 @@ $LN3:
   00034	48 89 85 18 02
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 105  : 	CPipeLine* pPipeLine = CPipeLine::GetInstance();
+; 111  : 	CPipeLine* pPipeLine = CPipeLine::GetInstance();
 
   0003b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CPipeLine@Engine@@SAPEAV12@XZ
   00041	48 89 45 08	 mov	 QWORD PTR pPipeLine$[rbp], rax
 
-; 106  : 
-; 107  : 	_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
+; 112  : 
+; 113  : 	_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
 
   00045	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -6052,7 +6997,7 @@ $LN3:
   0005d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 108  : 	_vector vCamPos = XMLoadFloat4(&pPipeLine->Get_CamPosition());
+; 114  : 	_vector vCamPos = XMLoadFloat4(&pPipeLine->Get_CamPosition());
 
   00063	48 8d 95 94 01
 	00 00		 lea	 rdx, QWORD PTR $T5[rbp]
@@ -6067,8 +7012,8 @@ $LN3:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T4[rbp]
   0008a	0f 29 45 60	 movaps	 XMMWORD PTR vCamPos$[rbp], xmm0
 
-; 109  : 
-; 110  : 	_float fLength = XMVectorGetX(XMVector3Length(vPos - vCamPos));
+; 115  : 
+; 116  : 	_float fLength = XMVectorGetX(XMVector3Length(vPos - vCamPos));
 
   0008e	0f 28 4d 60	 movaps	 xmm1, XMMWORD PTR vCamPos$[rbp]
   00092	0f 28 45 30	 movaps	 xmm0, XMMWORD PTR vPos$[rbp]
@@ -6086,13 +7031,13 @@ $LN3:
   000c1	f3 0f 11 85 84
 	00 00 00	 movss	 DWORD PTR fLength$[rbp], xmm0
 
-; 111  : 	
-; 112  : 	return fLength;
+; 117  : 	
+; 118  : 	return fLength;
 
   000c9	f3 0f 10 85 84
 	00 00 00	 movss	 xmm0, DWORD PTR fLength$[rbp]
 
-; 113  : }
+; 119  : }
 
   000d1	f3 0f 7f 44 24
 	20		 movdqu	 XMMWORD PTR [rsp+32], xmm0
@@ -6120,7 +7065,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?RenderGUI@CThorn@Client@@UEAAXXZ PROC			; Client::CThorn::RenderGUI, COMDAT
 
-; 100  : {
+; 106  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -6136,7 +7081,7 @@ $LN3:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 101  : }
+; 107  : }
 
   00028	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -6154,7 +7099,7 @@ i$1 = 36
 this$ = 288
 ?Render@CThorn@Client@@UEAAJXZ PROC			; Client::CThorn::Render, COMDAT
 
-; 76   : {
+; 82   : {
 
 $LN10:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -6170,7 +7115,7 @@ $LN10:
   00022	48 8b 8c 24 58
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+344]
 
-; 77   : 	if (FAILED(__super::Render()))
+; 83   : 	if (FAILED(__super::Render()))
 
   0002a	48 8b 8d 20 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -6179,14 +7124,14 @@ $LN10:
   00037	85 c0		 test	 eax, eax
   00039	7d 0a		 jge	 SHORT $LN5@Render
 
-; 78   : 		return E_FAIL;
+; 84   : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00040	e9 e7 00 00 00	 jmp	 $LN1@Render
 $LN5@Render:
 
-; 79   : 
-; 80   : 	if (FAILED(SetupShaderResources()))
+; 85   : 
+; 86   : 	if (FAILED(SetupShaderResources()))
 
   00045	48 8b 8d 20 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -6194,14 +7139,14 @@ $LN5@Render:
   00051	85 c0		 test	 eax, eax
   00053	7d 0a		 jge	 SHORT $LN6@Render
 
-; 81   : 		return E_FAIL;
+; 87   : 		return E_FAIL;
 
   00055	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0005a	e9 cd 00 00 00	 jmp	 $LN1@Render
 $LN6@Render:
 
-; 82   : 
-; 83   : 	_uint MeshCount = m_pModel->Get_MeshCount();
+; 88   : 
+; 89   : 	_uint MeshCount = m_pModel->Get_MeshCount();
 
   0005f	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6211,7 +7156,7 @@ $LN6@Render:
 	00		 call	 QWORD PTR __imp_?Get_MeshCount@CModel@Engine@@QEAAIXZ
   00073	89 45 04	 mov	 DWORD PTR MeshCount$[rbp], eax
 
-; 84   : 	for (_uint i = 0; i < MeshCount; ++i)
+; 90   : 	for (_uint i = 0; i < MeshCount; ++i)
 
   00076	c7 45 24 00 00
 	00 00		 mov	 DWORD PTR i$1[rbp], 0
@@ -6226,8 +7171,8 @@ $LN4@Render:
   0008d	0f 83 97 00 00
 	00		 jae	 $LN3@Render
 
-; 85   : 	{
-; 86   : 		m_pModel->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+; 91   : 	{
+; 92   : 		m_pModel->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
 
   00093	c7 44 24 20 01
 	00 00 00	 mov	 DWORD PTR [rsp+32], 1
@@ -6245,8 +7190,8 @@ $LN4@Render:
   000c2	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderMaterialResource@CModel@Engine@@QEAAJPEAVCShader@2@PEBDIW4aiTextureType@@@Z
 
-; 87   : 
-; 88   : 		if(m_bAlpha)
+; 93   : 
+; 94   : 		if(m_bAlpha)
 
   000c8	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6255,7 +7200,7 @@ $LN4@Render:
   000d6	85 c0		 test	 eax, eax
   000d8	74 1b		 je	 SHORT $LN7@Render
 
-; 89   : 			m_pShader->Begin(3);
+; 95   : 			m_pShader->Begin(3);
 
   000da	ba 03 00 00 00	 mov	 edx, 3
   000df	48 8b 85 20 01
@@ -6265,12 +7210,12 @@ $LN4@Render:
   000ed	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
-; 90   : 		else
+; 96   : 		else
 
   000f3	eb 19		 jmp	 SHORT $LN8@Render
 $LN7@Render:
 
-; 91   : 			m_pShader->Begin(2);
+; 97   : 			m_pShader->Begin(2);
 
   000f5	ba 02 00 00 00	 mov	 edx, 2
   000fa	48 8b 85 20 01
@@ -6281,8 +7226,8 @@ $LN7@Render:
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 $LN8@Render:
 
-; 92   : 
-; 93   : 		m_pModel->Render(i);
+; 98   : 
+; 99   : 		m_pModel->Render(i);
 
   0010e	8b 55 24	 mov	 edx, DWORD PTR i$1[rbp]
   00111	48 8b 85 20 01
@@ -6292,18 +7237,18 @@ $LN8@Render:
   0011f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CModel@Engine@@QEAAJI@Z
 
-; 94   : 	}
+; 100  : 	}
 
   00125	e9 55 ff ff ff	 jmp	 $LN2@Render
 $LN3@Render:
 
-; 95   : 
-; 96   : 	return S_OK;
+; 101  : 
+; 102  : 	return S_OK;
 
   0012a	33 c0		 xor	 eax, eax
 $LN1@Render:
 
-; 97   : }
+; 103  : }
 
   0012c	48 8d a5 08 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+264]
@@ -6321,7 +7266,7 @@ this$ = 256
 TimeDelta$ = 264
 ?LateTick@CThorn@Client@@UEAAXN@Z PROC			; Client::CThorn::LateTick, COMDAT
 
-; 47   : {
+; 53   : {
 
 $LN10:
   00000	f2 0f 11 4c 24
@@ -6339,7 +7284,7 @@ $LN10:
   00028	48 8b 8c 24 28
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
 
-; 48   : 	__super::LateTick(TimeDelta);
+; 54   : 	__super::LateTick(TimeDelta);
 
   00030	f2 0f 10 8d 08
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -6348,16 +7293,16 @@ $LN10:
   0003f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?LateTick@CGameObject@Engine@@UEAAXN@Z
 
-; 49   : 
-; 50   : 	_float fLength = GetLengthFromCamera();
+; 55   : 
+; 56   : 	_float fLength = GetLengthFromCamera();
 
   00045	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0004c	e8 00 00 00 00	 call	 ?GetLengthFromCamera@CThorn@Client@@UEAAMXZ ; Client::CThorn::GetLengthFromCamera
   00051	f3 0f 11 45 04	 movss	 DWORD PTR fLength$[rbp], xmm0
 
-; 51   : 
-; 52   : 	if (m_eThornType == THORN)
+; 57   : 
+; 58   : 	if (m_eThornType == THORN)
 
   00056	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6365,23 +7310,23 @@ $LN10:
   00061	0f 85 b4 00 00
 	00		 jne	 $LN2@LateTick
 
-; 53   : 	{
-; 54   : 		if (fLength < 5.f)
+; 59   : 	{
+; 60   : 		if (fLength < 5.f)
 
   00067	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40a00000
   0006f	0f 2f 45 04	 comiss	 xmm0, DWORD PTR fLength$[rbp]
   00073	76 53		 jbe	 SHORT $LN4@LateTick
 
-; 55   : 		{
-; 56   : 			m_bAlpha = true;
+; 61   : 		{
+; 62   : 			m_bAlpha = true;
 
   00075	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0007c	c6 80 a0 00 00
 	00 01		 mov	 BYTE PTR [rax+160], 1
 
-; 57   : 			if (nullptr != m_pRenderer && m_bRender)
+; 63   : 			if (nullptr != m_pRenderer && m_bRender)
 
   00083	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6395,7 +7340,7 @@ $LN10:
   000a2	85 c0		 test	 eax, eax
   000a4	74 20		 je	 SHORT $LN6@LateTick
 
-; 58   : 				m_pRenderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
+; 64   : 				m_pRenderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
 
   000a6	4c 8b 85 00 01
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
@@ -6408,21 +7353,21 @@ $LN10:
 	00		 call	 QWORD PTR __imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z
 $LN6@LateTick:
 
-; 59   : 		}
-; 60   : 		else
+; 65   : 		}
+; 66   : 		else
 
   000c6	eb 51		 jmp	 SHORT $LN5@LateTick
 $LN4@LateTick:
 
-; 61   : 		{
-; 62   : 			m_bAlpha = false;
+; 67   : 		{
+; 68   : 			m_bAlpha = false;
 
   000c8	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000cf	c6 80 a0 00 00
 	00 00		 mov	 BYTE PTR [rax+160], 0
 
-; 63   : 			if (nullptr != m_pRenderer && m_bRender)
+; 69   : 			if (nullptr != m_pRenderer && m_bRender)
 
   000d6	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6436,7 +7381,7 @@ $LN4@LateTick:
   000f5	85 c0		 test	 eax, eax
   000f7	74 20		 je	 SHORT $LN7@LateTick
 
-; 64   : 				m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+; 70   : 				m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 
   000f9	4c 8b 85 00 01
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
@@ -6450,22 +7395,22 @@ $LN4@LateTick:
 $LN7@LateTick:
 $LN5@LateTick:
 
-; 65   : 		}
-; 66   : 	}
-; 67   : 	else
+; 71   : 		}
+; 72   : 	}
+; 73   : 	else
 
   00119	eb 51		 jmp	 SHORT $LN3@LateTick
 $LN2@LateTick:
 
-; 68   : 	{
-; 69   : 		m_bAlpha = false;
+; 74   : 	{
+; 75   : 		m_bAlpha = false;
 
   0011b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00122	c6 80 a0 00 00
 	00 00		 mov	 BYTE PTR [rax+160], 0
 
-; 70   : 		if (nullptr != m_pRenderer && m_bRender)
+; 76   : 		if (nullptr != m_pRenderer && m_bRender)
 
   00129	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6479,7 +7424,7 @@ $LN2@LateTick:
   00148	85 c0		 test	 eax, eax
   0014a	74 20		 je	 SHORT $LN8@LateTick
 
-; 71   : 			m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+; 77   : 			m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 
   0014c	4c 8b 85 00 01
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
@@ -6493,8 +7438,8 @@ $LN2@LateTick:
 $LN8@LateTick:
 $LN3@LateTick:
 
-; 72   : 	}
-; 73   : }
+; 78   : 	}
+; 79   : }
 
   0016c	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
@@ -6513,7 +7458,7 @@ TimeDelta$ = 232
 
 ; 36   : {
 
-$LN5:
+$LN7:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -6558,31 +7503,69 @@ $LN5:
 $LN2@Tick:
 
 ; 41   : 
-; 42   : 	if (m_bMove)
+; 42   : 	if (m_bScaleSmoothUp)
 
   0006b	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00072	0f b6 80 c0 00
-	00 00		 movzx	 eax, BYTE PTR [rax+192]
+  00072	0f b6 80 a4 00
+	00 00		 movzx	 eax, BYTE PTR [rax+164]
   00079	85 c0		 test	 eax, eax
   0007b	74 14		 je	 SHORT $LN3@Tick
 
-; 43   : 		MoveProcess(TimeDelta);
+; 43   : 		ScaleUpSmoothProcess(TimeDelta);
 
   0007d	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
   00085	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0008c	e8 00 00 00 00	 call	 ?MoveProcess@CThorn@Client@@QEAA_NN@Z ; Client::CThorn::MoveProcess
+  0008c	e8 00 00 00 00	 call	 ?ScaleUpSmoothProcess@CThorn@Client@@QEAA_NN@Z ; Client::CThorn::ScaleUpSmoothProcess
 $LN3@Tick:
 
-; 44   : }
+; 44   : 
+; 45   : 	if (m_bScaleSmoothDown)
 
-  00091	48 8d a5 c8 00
+  00091	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00098	0f b6 80 a6 00
+	00 00		 movzx	 eax, BYTE PTR [rax+166]
+  0009f	85 c0		 test	 eax, eax
+  000a1	74 14		 je	 SHORT $LN4@Tick
+
+; 46   : 		ScaleDownSmoothProcess(TimeDelta);
+
+  000a3	f2 0f 10 8d e8
+	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
+  000ab	48 8b 8d e0 00
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  000b2	e8 00 00 00 00	 call	 ?ScaleDownSmoothProcess@CThorn@Client@@QEAA_NN@Z ; Client::CThorn::ScaleDownSmoothProcess
+$LN4@Tick:
+
+; 47   : 
+; 48   : 	if (m_bMove)
+
+  000b7	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000be	0f b6 80 c4 00
+	00 00		 movzx	 eax, BYTE PTR [rax+196]
+  000c5	85 c0		 test	 eax, eax
+  000c7	74 14		 je	 SHORT $LN5@Tick
+
+; 49   : 		MoveProcess(TimeDelta);
+
+  000c9	f2 0f 10 8d e8
+	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
+  000d1	48 8b 8d e0 00
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  000d8	e8 00 00 00 00	 call	 ?MoveProcess@CThorn@Client@@QEAA_NN@Z ; Client::CThorn::MoveProcess
+$LN5@Tick:
+
+; 50   : }
+
+  000dd	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  00098	5f		 pop	 rdi
-  00099	5d		 pop	 rbp
-  0009a	c3		 ret	 0
+  000e4	5f		 pop	 rdi
+  000e5	5d		 pop	 rbp
+  000e6	c3		 ret	 0
 ?Tick@CThorn@Client@@UEAAXN@Z ENDP			; Client::CThorn::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -6824,14 +7807,14 @@ $LN4:
   00069	48 89 08	 mov	 QWORD PTR [rax], rcx
 ; File c:\users\arcco\documents\github\framework\client\public\thorn.h
 
-; 68   : 	TYPE m_eThornType = THORN;
+; 73   : 	TYPE m_eThornType = THORN;
 
   0006c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00073	c7 40 78 00 00
 	00 00		 mov	 DWORD PTR [rax+120], 0
 
-; 69   : 	CRenderer* m_pRenderer = nullptr;
+; 74   : 	CRenderer* m_pRenderer = nullptr;
 
   0007a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6839,7 +7822,7 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+128], 0
 
-; 70   : 	CTransform* m_pTransform = nullptr;
+; 75   : 	CTransform* m_pTransform = nullptr;
 
   0008c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6847,7 +7830,7 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+136], 0
 
-; 71   : 	CModel* m_pModel = nullptr;
+; 76   : 	CModel* m_pModel = nullptr;
 
   0009e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6855,7 +7838,7 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+144], 0
 
-; 72   : 	CShader* m_pShader = nullptr;
+; 77   : 	CShader* m_pShader = nullptr;
 
   000b0	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6863,110 +7846,132 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+152], 0
 
-; 73   : 
-; 74   : 	_bool m_bAlpha = false;
+; 78   : 
+; 79   : 	_bool m_bAlpha = false;
 
   000c2	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000c9	c6 80 a0 00 00
 	00 00		 mov	 BYTE PTR [rax+160], 0
 
-; 75   : 	//각도는 랜덤으로 길이는 보관
-; 76   : 	_bool m_bRender = false;
+; 80   : 	//각도는 랜덤으로 길이는 보관
+; 81   : 	_bool m_bRender = false;
 
   000d0	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000d7	c6 80 a1 00 00
 	00 00		 mov	 BYTE PTR [rax+161], 0
 
-; 77   : 	_bool m_bScaleFinish = false;
+; 82   : 	_bool m_bScaleFinish = false;
 
   000de	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000e5	c6 80 a2 00 00
 	00 00		 mov	 BYTE PTR [rax+162], 0
 
-; 78   : 	_bool m_bScaleUp = false;
+; 83   : 	_bool m_bScaleUp = false;
 
   000ec	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000f3	c6 80 a3 00 00
 	00 00		 mov	 BYTE PTR [rax+163], 0
 
-; 79   : 	_float m_fScaleAcc = 0.f;
+; 84   : 	_bool m_bScaleSmoothUp = false;
 
   000fa	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00101	0f 57 c0	 xorps	 xmm0, xmm0
-  00104	f3 0f 11 80 a4
-	00 00 00	 movss	 DWORD PTR [rax+164], xmm0
-
-; 80   : 	_float m_fLength = 1.f;		//커져야할 길이
-
-  0010c	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00113	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
-  0011b	f3 0f 11 80 a8
-	00 00 00	 movss	 DWORD PTR [rax+168], xmm0
-
-; 81   : 	const _float3 m_fPrevScale = { 0.f, 0.f, 0.f};
-
-  00123	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0012a	48 05 ac 00 00
-	00		 add	 rax, 172		; 000000acH
-  00130	0f 57 db	 xorps	 xmm3, xmm3
-  00133	0f 57 d2	 xorps	 xmm2, xmm2
-  00136	0f 57 c9	 xorps	 xmm1, xmm1
-  00139	48 8b c8	 mov	 rcx, rax
-  0013c	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
-
-; 82   : 
-; 83   : 	_float m_fWaitAcc = 0.f;
-
-  00141	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00148	0f 57 c0	 xorps	 xmm0, xmm0
-  0014b	f3 0f 11 80 b8
-	00 00 00	 movss	 DWORD PTR [rax+184], xmm0
-
-; 84   : 	const _float m_fWaitTime = 2.f;
-
-  00153	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0015a	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@40000000
-  00162	f3 0f 11 80 bc
-	00 00 00	 movss	 DWORD PTR [rax+188], xmm0
+  00101	c6 80 a4 00 00
+	00 00		 mov	 BYTE PTR [rax+164], 0
 
 ; 85   : 
-; 86   : 	//모델의 Up방향으로 움직임
-; 87   : 	_bool m_bMove = false;
+; 86   : 	_bool m_bScaleDownFinish = false;
 
-  0016a	48 8b 85 00 01
+  00108	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00171	c6 80 c0 00 00
-	00 00		 mov	 BYTE PTR [rax+192], 0
+  0010f	c6 80 a5 00 00
+	00 00		 mov	 BYTE PTR [rax+165], 0
 
-; 88   : 	_float m_fMoveAcc = 0.f;
+; 87   : 	_bool m_bScaleSmoothDown = false;
 
-  00178	48 8b 85 00 01
+  00116	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0017f	0f 57 c0	 xorps	 xmm0, xmm0
-  00182	f3 0f 11 80 c4
-	00 00 00	 movss	 DWORD PTR [rax+196], xmm0
+  0011d	c6 80 a6 00 00
+	00 00		 mov	 BYTE PTR [rax+166], 0
+
+; 88   : 	_float m_fScaleAcc = 0.f;
+
+  00124	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0012b	0f 57 c0	 xorps	 xmm0, xmm0
+  0012e	f3 0f 11 80 a8
+	00 00 00	 movss	 DWORD PTR [rax+168], xmm0
+
+; 89   : 	_float m_fLength = 1.f;		//커져야할 디폴트 길이
+
+  00136	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0013d	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
+  00145	f3 0f 11 80 ac
+	00 00 00	 movss	 DWORD PTR [rax+172], xmm0
+
+; 90   : 	const _float3 m_fPrevScale = { 0.f, 0.f, 0.f};
+
+  0014d	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00154	48 05 b0 00 00
+	00		 add	 rax, 176		; 000000b0H
+  0015a	0f 57 db	 xorps	 xmm3, xmm3
+  0015d	0f 57 d2	 xorps	 xmm2, xmm2
+  00160	0f 57 c9	 xorps	 xmm1, xmm1
+  00163	48 8b c8	 mov	 rcx, rax
+  00166	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
+
+; 91   : 
+; 92   : 	_float m_fWaitAcc = 0.f;
+
+  0016b	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00172	0f 57 c0	 xorps	 xmm0, xmm0
+  00175	f3 0f 11 80 bc
+	00 00 00	 movss	 DWORD PTR [rax+188], xmm0
+
+; 93   : 	const _float m_fWaitTime = 2.f;
+
+  0017d	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00184	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@40000000
+  0018c	f3 0f 11 80 c0
+	00 00 00	 movss	 DWORD PTR [rax+192], xmm0
+
+; 94   : 
+; 95   : 	//모델의 Up방향으로 움직임 라이프 타임 5초
+; 96   : 	_bool m_bMove = false;
+
+  00194	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0019b	c6 80 c4 00 00
+	00 00		 mov	 BYTE PTR [rax+196], 0
+
+; 97   : 	_float m_fMoveAcc = 0.f;
+
+  001a2	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001a9	0f 57 c0	 xorps	 xmm0, xmm0
+  001ac	f3 0f 11 80 c8
+	00 00 00	 movss	 DWORD PTR [rax+200], xmm0
 ; File c:\users\arcco\documents\github\framework\client\private\thorn.cpp
 
 ; 12   : }
 
-  0018a	48 8b 85 00 01
+  001b4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00191	48 8d a5 e8 00
+  001bb	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
-  00198	5f		 pop	 rdi
-  00199	5d		 pop	 rbp
-  0019a	c3		 ret	 0
+  001c2	5f		 pop	 rdi
+  001c3	5d		 pop	 rbp
+  001c4	c3		 ret	 0
 ??0CThorn@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ENDP ; Client::CThorn::CThorn
 _TEXT	ENDS
 ;	COMDAT text$x
@@ -8445,8 +9450,6 @@ _TEXT	SEGMENT
 __formal$ = 224
 __formal$ = 232
 ?__empty_global_delete@@YAXPEAX_K@Z PROC		; __empty_global_delete, COMDAT
-
-; 298  : }
 
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx

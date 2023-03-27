@@ -39,6 +39,12 @@ void CThorn::Tick(_double TimeDelta)
 	if (m_bScaleUp)
 		ScaleUpProcess(TimeDelta);
 
+	if (m_bScaleSmoothUp)
+		ScaleUpSmoothProcess(TimeDelta);
+
+	if (m_bScaleSmoothDown)
+		ScaleDownSmoothProcess(TimeDelta);
+
 	if (m_bMove)
 		MoveProcess(TimeDelta);
 }
@@ -114,14 +120,22 @@ _float CThorn::GetLengthFromCamera()
 
 void CThorn::Reset()
 {
+	m_bRender = false;
+
 	m_bMove = false;
 	m_bScaleUp = false;
+
 	m_bScaleFinish = false;
+
+	m_bScaleDownFinish = false;
+	m_bScaleSmoothDown = false;
+
 	m_fLength = 1.f;
 	m_fScaleAcc = 0.f;
 	_float3 vAngle = { 0.f, 0.f, 0.f };
 	//m_pTransform->SetRotationXYZ(vAngle);
 	m_pTransform->Set_Scale(m_fPrevScale);
+	m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
 }
 
 void CThorn::SetPosition(_fvector vPos)
@@ -157,6 +171,19 @@ void CThorn::SetupScaleUpStart(_float fLength)
 	m_fLength = fLength;
 }
 
+void CThorn::SetupScaleSmoothUpStart(_float fLength)
+{
+	m_bScaleSmoothUp = true;
+	m_bRender = true;
+	m_fLength = fLength;
+}
+
+void CThorn::SetupScaleSmoothDownStart()
+{
+	m_bScaleSmoothDown = true;
+}
+
+
 _bool CThorn::ScaleUpProcess(_double TimeDelta)
 {
 	_float vRightLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_RIGHT)));
@@ -167,9 +194,13 @@ _bool CThorn::ScaleUpProcess(_double TimeDelta)
 	if (m_eThornType == THORN)
 	{
 		m_fScaleAcc += TimeDelta;
-		vLength.x = vRightLength + powf(vRightLength, m_fScaleAcc);
-		vLength.y = vUpLength + powf(vUpLength, m_fScaleAcc);
-		vLength.z = vLookLength + powf(vLookLength, m_fScaleAcc);
+		//vLength.x = vRightLength + powf(vRightLength, m_fScaleAcc);
+		//vLength.y = vUpLength + powf(vUpLength, m_fScaleAcc);
+		//vLength.z = vLookLength + powf(vLookLength, m_fScaleAcc);
+
+		vLength.x = vRightLength + powf(m_fScaleAcc, 2.f) * 900.f;
+		vLength.y = vUpLength + powf(m_fScaleAcc, 2.f) * 900.f;
+		vLength.z = vLookLength + powf(m_fScaleAcc, 2.f) * 900.f;
 	}
 	else if (m_eThornType == MISSILE)
 	{
@@ -190,21 +221,93 @@ _bool CThorn::ScaleUpProcess(_double TimeDelta)
 		return false;
 }
 
+_bool CThorn::ScaleUpSmoothProcess(_double TimeDelta)
+{
+	_float vRightLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_RIGHT)));
+	_float vUpLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_UP)));
+	_float vLookLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_LOOK)));
+
+	_float3 vLength;
+	if (m_eThornType == THORN)
+	{
+		m_fScaleAcc += TimeDelta;
+		//vLength.x = vRightLength + powf(vRightLength, m_fScaleAcc);
+		//vLength.y = vUpLength + powf(vUpLength, m_fScaleAcc);
+		//vLength.z = vLookLength + powf(vLookLength, m_fScaleAcc);
+
+		vLength.x = vRightLength + powf(m_fScaleAcc, 2.f) * 3.f;
+		vLength.y = vUpLength + powf(m_fScaleAcc, 2.f) * 3.f;
+		vLength.z = vLookLength + powf(m_fScaleAcc, 2.f) * 3.f;
+	}
+	else if (m_eThornType == MISSILE)
+	{
+		vLength.x = vRightLength + TimeDelta * 2.f;
+		vLength.y = vUpLength + TimeDelta * 2.f;
+		vLength.z = vLookLength + TimeDelta * 2.f;
+	}
+
+	m_pTransform->Set_Scale(vLength);
+
+	if (vLength.y >= m_fLength)
+	{
+		m_bScaleSmoothUp = false;
+		m_bScaleFinish = true;
+		return true;
+	}
+	else
+		return false;
+}
+
+_bool CThorn::ScaleDownSmoothProcess(_double TimeDelta)
+{
+	_float vRightLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_RIGHT)));
+	_float vUpLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_UP)));
+	_float vLookLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_LOOK)));
+
+	_float3 vLength;
+	if (m_eThornType == THORN)
+	{
+		m_fScaleAcc += TimeDelta;
+		//vLength.x = vRightLength + powf(vRightLength, m_fScaleAcc);
+		//vLength.y = vUpLength + powf(vUpLength, m_fScaleAcc);
+		//vLength.z = vLookLength + powf(vLookLength, m_fScaleAcc);
+
+		vLength.x = vRightLength - powf(m_fScaleAcc, 2.f) * 3.f;
+		vLength.y = vUpLength - powf(m_fScaleAcc, 2.f) * 3.f;
+		vLength.z = vLookLength - powf(m_fScaleAcc, 2.f) * 3.f;
+	}
+
+	m_pTransform->Set_Scale(vLength);
+
+	if (vLength.y <= m_fPrevScale.y)
+	{
+		m_bScaleSmoothDown = false;
+		m_bScaleDownFinish = true;
+		m_bScaleFinish = true;
+
+		Reset();
+
+		return true;
+	}
+	else
+		return false;
+}
+
 _bool CThorn::MoveProcess(_double TimeDelta)
 {
 	//Up방향으로 이동
 	_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
 	_vector vUp = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_UP));
-	vPos = vPos + vUp * TimeDelta;
+
+	m_fMoveAcc += TimeDelta;
+	vPos = vPos + vUp * powf(m_fMoveAcc, 2.f);
 	
 	m_pTransform->Set_State(CTransform::STATE_POSITION, vPos);
-
-	//m_fMoveAcc += TimeDelta;
-	/*if (m_fMoveAcc > 10.f);
+	if (m_fMoveAcc >= 4.f)
 	{
-		m_fMoveAcc = 0.f;
 		Reset();
-	}*/
+		m_fMoveAcc = 0.f;
+	}
 
 	return true;
 }

@@ -142,7 +142,7 @@ HRESULT CLevel_BossRoom::Ready_Layer_Camera(const _tchar* pLayerTag)
 	CameraDesc.TransformDesc.fMoveSpeed = 20.f;
 	CameraDesc.TransformDesc.fRotationSpeed = XMConvertToRadians(60.f);
 
-	CameraDesc.vEye = _float3(0.f, 10.f, -5.f);
+	CameraDesc.vEye = _float3(0.f, 1.f, -5.f);
 	CameraDesc.vAt = _float3(0.f, 0.f, 0.f);
 	CameraDesc.vAxisY = _float3(0.f, 1.f, 0.f);
 

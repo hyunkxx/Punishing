@@ -40,9 +40,9 @@ public:
 		UNKNOWN6,
 		BORN,
 		DEATH,
-		RECORDED,
-		STAND1,//2페이즈
-		STAND2,//1페이즈
+		STANDEX,
+		STAND1,
+		STAND2,
 		UISTAND,
 		MOTION_END
 	};
@@ -81,6 +81,14 @@ public://스킬
 	void MoveBackword(_double TimeDelta);
 	void LineSkill(_double TimeDelta, _int iIndex);
 	void Missile1(_double TimeDelta);
+	void CloseAttack(_double TimeDelta);
+	void Burrow(_double TimeDelta);
+	void Evolution(_double TimeDelta);
+
+	//2페이즈 기본 근접공격
+	void ColseAttack2(_double TimeDelta);
+	void LineSkill2(_double TimeDelta);
+	void LastAttack(_double TimeDelta);
 
 public: //플레이어 관련
 	_float GetLengthFromPlayer() const;
@@ -95,7 +103,8 @@ private://애니메이션 관련
 		m_eAnimState.bLerp = bLerp;
 	}
 
-
+	void DefaultAnimation(_double TimeDelta);
+	void EvolutionAnimation(_double TimeDelta);
 	void AnimationController(_double TimeDelta);
 
 private://콜라이더 관련
@@ -120,6 +129,7 @@ public:
 	virtual void Free() override;
 
 private:
+	_int iAnim = 0;
 	ANIM_STATE m_eAnimState;
 	
 	_bool m_bRotationFinish = false;
@@ -127,15 +137,15 @@ private:
 	_int m_iAttackCount = 0;
 
 	_bool m_bSpawn = false;
-	const _float m_fNearCheckRange = 10.f;	 // 플레이어와 가까운지 체크 10
+	const _float m_fNearCheckRange = 18.f;	 // 플레이어와 가까운지 체크 10
 
 	_bool m_bBrrow = false;
 
 	//라인 3타 공격
 	_bool m_bLineAttack = false;
 
-	class CThorn* m_pThorn1[25][3];
-	class CThorn* m_pThorn2[25][3];
+	class CThorn* m_pThorn1[25][6];
+	class CThorn* m_pThorn2[25][6];
 
 	_float3 vThornSpawnPos = { 0.f, 0.f, 0.f };
 
@@ -145,8 +155,8 @@ private:
 	_int m_iEraseIndex[3] = { 0, 0, 0 };
 
 	_bool m_bUseLineSkill = false;
-	_bool m_bLineSkillStart[3] = { false, false, false };
-	_bool m_bLineSkillErase[3] = { false, false, false };
+	_bool m_bLineSkillStart[6] = { false, false, false };
+	_bool m_bLineSkillErase[6] = { false, false, false };
 	
 	float m_fEraseAcc[3] = { 0.f, 0.f, 0.f };
 	const float m_fEraseTime = 0.05f;
@@ -175,7 +185,6 @@ private:
 	_float m_fAttackAcc = 2.f;
 	const _float m_fAttackAccTime = 2.f;
 
-
 	//미사일 9개 \ | / 방향으로 날리기
 	class CThorn* m_pThornMissileLeft[3];
 	class CThorn* m_pThornMissileMiddle[3];
@@ -183,6 +192,63 @@ private:
 
 	_bool m_bUseMissile1 = false;
 	_bool m_bMissileStart = false;
+
+	//플레이어와 멀어졌을때
+	_bool m_bTooFar = false;
+	_float m_fFarAcc = 0.f;
+	const _float m_fFarTime = 2.f;
+
+	//버로우 기능 근접, 디폴트포스
+	_bool m_bBurrowable = true; //다른 공격중 버로우 불가
+	_bool m_bBurrowStart = false;
+	_float m_fBurrowAcc = 0.f;
+
+	//근접공격
+	_bool m_bCloseAttackStart = false;
+	_bool m_bCloseAttack = false;
+	_float m_fCloseAttackActiveAcc = 0.f;
+	const _float m_fCloseAttackActiveTime = 1.f;
+	class CThorn* m_pThornClose[9];
+
+	_bool m_bEvolutionFinish = false;
+	_bool m_bEvolutionStart = false;
+
+	//2페이즈 근접공격
+	class CThorn* m_pThornCloseRightFront[9];
+	class CThorn* m_pThornCloseLeftFront[9];
+	class CThorn* m_pThornCloseFront[9];
+	class CThorn* m_pThornCloseRight[9];
+	class CThorn* m_pThornCloseLeft[9];
+	
+	//프론트, 전방양옆, 양옆
+	_bool m_bCloseAttackExBegin = false;
+	_bool m_bCloseAttackExStart = false;
+
+	_int m_iColseAttackIndex = 0;
+	_bool m_bColseAttackExStart[2] = { false, false };
+	_bool m_bColseAttackEx[2] = { false, false };
+
+	_float m_fNextIndexAcc = 0.f;
+	const _float m_fNextIndexTime = 0.1f;
+
+	//라인공격 강화 제거
+	_bool m_bLineAttackEraseEx = false;
+	_float m_fEraseExAcc = 0.0f;
+	const _float m_fEraseExDelay = 0.05f;
+	_int m_iEraseIndexEx = 0;
+
+	_float3 m_vFrontDir = { 0.f, 0.f, 0.f };
+	_float3 m_vLeftDir = { 0.f, 0.f, 0.f };
+	_float3 m_vRightDir = { 0.f, 0.f, 0.f };
+
+	_float3 m_vBackDir = { 0.f, 0.f, 0.f };
+	_float3 m_vLeftBackDir = { 0.f, 0.f, 0.f };
+	_float3 m_vRightBackDir = { 0.f, 0.f, 0.f };
+
+	_bool m_bLastAttackBegin = false;
+	_bool m_bLastAttack = false;
+	_float m_fLastAttackEraseAcc = 0.f;
+	const _float m_fLastAttackEraseDelay = 0.01f;
 };
 
 END

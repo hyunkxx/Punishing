@@ -81,7 +81,7 @@ PS_OUT PS_MAIN(PS_IN In)
 
 	if (Out.vColor.a <= 0.1f)
 		discard;
-
+	
 	return Out;
 }
 
@@ -140,6 +140,9 @@ PS_OUT PS_BACKGROUND(PS_IN In)
 	if (Out.vColor.a <= 0.1f)
 		discard;
 
+	//Out.vColor *= Out.vColor * 3.f;
+	//Out.vColor *= Out.vColor * 2.5f;
+
 	return Out;
 }
 
@@ -169,7 +172,7 @@ PS_OUT PS_ALPHA(PS_IN In)
 	if (Out.vColor.a <= 0.1f)
 		discard;
 
-	Out.vColor.a = 0.4f;
+	Out.vColor.a = 0.5f;
 
 	return Out;
 }
