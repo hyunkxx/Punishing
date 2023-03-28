@@ -1431,7 +1431,15 @@ void CBoss::LastAttack(_double TimeDelta)
 			XMStoreFloat3(&m_vBackDir, vBackDir);
 			XMStoreFloat3(&m_vLeftBackDir, vLeftBackDir);
 			XMStoreFloat3(&m_vRightBackDir, vRightBackDir);
+		}
+		else
+			return;
+	}
 
+	if (model->AnimationCompare(BOSS_CLIP::ATK11))
+	{
+		if (model->AnimationIsPreFinishCustom(0.5))
+		{
 			m_bLineSkillStart[LEFT] = true;
 			m_bLineSkillStart[FRONT] = true;
 			m_bLineSkillStart[RIGHT] = true;
@@ -1440,8 +1448,6 @@ void CBoss::LastAttack(_double TimeDelta)
 			m_bLineSkillStart[LEFT_BACK] = true;
 			m_bLineSkillStart[RIGHT_BACK] = true;
 		}
-		else
-			return;
 	}
 
 	//왼쪽
@@ -1750,7 +1756,7 @@ void CBoss::LastAttack(_double TimeDelta)
 		}
 	}
 
-	/*if (m_bLineSkillErase[LEFT] && m_bLineSkillErase[FRONT] && m_bLineSkillErase[RIGHT] &&
+	if (m_bLineSkillErase[LEFT] && m_bLineSkillErase[FRONT] && m_bLineSkillErase[RIGHT] &&
 		m_bLineSkillErase[LEFT_BACK] && m_bLineSkillErase[BACK] && m_bLineSkillErase[RIGHT_BACK])
 	{
 		if (m_iEraseIndexEx < 25)
@@ -1798,49 +1804,8 @@ void CBoss::LastAttack(_double TimeDelta)
 				}
 			}
 		}
-	}*/
+	}
 	
-	//이거 다 렌더되면 돌리기
-	if (m_pThorn1[m_iEraseIndexEx][LEFT]->Is&& m_bLineSkillErase[FRONT] && m_bLineSkillErase[RIGHT] &&
-	m_bLineSkillErase[LEFT_BACK] && m_bLineSkillErase[BACK] && m_bLineSkillErase[RIGHT_BACK])
-	{
-		m_iEraseIndexEx++;
-		m_pThorn1[m_iEraseIndexEx][LEFT]->SetupScaleSmoothDownStart();
-		m_pThorn2[m_iEraseIndexEx][LEFT]->SetupScaleSmoothDownStart();
-
-		m_pThorn1[m_iEraseIndexEx][FRONT]->SetupScaleSmoothDownStart();
-		m_pThorn2[m_iEraseIndexEx][FRONT]->SetupScaleSmoothDownStart();
-
-		m_pThorn1[m_iEraseIndexEx][RIGHT]->SetupScaleSmoothDownStart();
-		m_pThorn2[m_iEraseIndexEx][RIGHT]->SetupScaleSmoothDownStart();
-
-		m_pThorn1[m_iEraseIndexEx][LEFT_BACK]->SetupScaleSmoothDownStart();
-		m_pThorn2[m_iEraseIndexEx][LEFT_BACK]->SetupScaleSmoothDownStart();
-
-		m_pThorn1[m_iEraseIndexEx][RIGHT_BACK]->SetupScaleSmoothDownStart();
-		m_pThorn2[m_iEraseIndexEx][RIGHT_BACK]->SetupScaleSmoothDownStart();
-
-		m_pThorn1[m_iEraseIndexEx][BACK]->SetupScaleSmoothDownStart();
-		m_pThorn2[m_iEraseIndexEx][BACK]->SetupScaleSmoothDownStart();
-	}
-
-	if (m_iEraseIndexEx == 24)
-	{
-		m_bLastAttack = false;
-		m_bAttackable = true;
-		m_iEraseIndexEx = 0;
-		m_bBurrowable = true;
-		m_bUseLineSkill = false;
-		m_bLineAttackEraseEx = false;
-
-		m_bLineSkillErase[LEFT] = false;
-		m_bLineSkillErase[FRONT] = false;
-		m_bLineSkillErase[RIGHT] = false;
-
-		m_bLineSkillErase[RIGHT_BACK] = false;
-		m_bLineSkillErase[LEFT_BACK] = false;
-		m_bLineSkillErase[BACK] = false;
-	}
 }
 
 _float CBoss::GetLengthFromPlayer() const

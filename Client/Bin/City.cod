@@ -2325,7 +2325,7 @@ PUBLIC	??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@		; `string'
 PUBLIC	??_C@_0N@ELIMCBLG@g_ViewMatrix?$AA@		; `string'
 PUBLIC	??_C@_0N@OOHDPIO@g_ProjMatrix?$AA@		; `string'
 PUBLIC	?__LINE__Var@?0??Create@CCity@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CCity::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EC@IEDBIPED@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0CM@GMJGIAOG@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DC@OLMDFFOA@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAC?$AAi?$AAt?$AAy?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CCity@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CCity::Clone'::`1'::__LINE__Var
@@ -2651,10 +2651,10 @@ CONST	SEGMENT
 	DB	'e', 00H, 's', 00H, 's', 00H, 'a', 00H, 'g', 00H, 'e', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EC@IEDBIPED@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0CM@GMJGIAOG@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EC@IEDBIPED@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\city.cpp', 00H ; `string'
+??_C@_0CM@GMJGIAOG@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\city.cpp', 00H	; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CCity@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -3008,7 +3008,7 @@ $unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z DD 025053901H
 	DD	05015H
 xdata	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3087,7 +3087,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ENDP ; Engine::Safe_Release<Engine::CModel * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3166,7 +3166,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ENDP ; Engine::Safe_Release<Engine::CShader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3245,7 +3245,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ENDP ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3324,7 +3324,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCCity@Client@@@Engine@@YAKAEAPEAVCCity@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3515,7 +3515,7 @@ $LN4:
 ??0CCity@Client@@QEAA@AEBV01@@Z ENDP			; Client::CCity::CCity
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ?Free@CCity@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -3590,7 +3590,7 @@ $LN3:
 ?Free@CCity@Client@@UEAAXXZ ENDP			; Client::CCity::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ?Clone@CCity@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -3635,7 +3635,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@IEDBIPED@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CM@GMJGIAOG@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 98 00 00 00	 mov	 ecx, 152		; 00000098H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -3738,7 +3738,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CCity@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@IEDBIPED@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CM@GMJGIAOG@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -3771,7 +3771,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CCity@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@IEDBIPED@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CM@GMJGIAOG@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -3783,7 +3783,7 @@ pArg$ = 376
 ?dtor$0@?0??Clone@CCity@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CCity::Clone'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ?Create@CCity@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -3828,7 +3828,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@IEDBIPED@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CM@GMJGIAOG@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 98 00 00 00	 mov	 ecx, 152		; 00000098H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -3931,7 +3931,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CCity@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@IEDBIPED@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CM@GMJGIAOG@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -3964,7 +3964,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CCity@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@IEDBIPED@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CM@GMJGIAOG@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -3976,7 +3976,7 @@ pContext$ = 376
 ?dtor$0@?0??Create@CCity@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CCity::Create'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ?Setup_ShaderResources@CCity@Client@@AEAAJXZ
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -4116,7 +4116,7 @@ $LN1@Setup_Shad:
 ?Setup_ShaderResources@CCity@Client@@AEAAJXZ ENDP	; Client::CCity::Setup_ShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ?Add_Components@CCity@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4267,7 +4267,7 @@ $LN1@Add_Compon:
 ?Add_Components@CCity@Client@@AEAAJXZ ENDP		; Client::CCity::Add_Components
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ?Render@CCity@Client@@UEAAJXZ
 _TEXT	SEGMENT
 iMeshCount$ = 4
@@ -4407,7 +4407,7 @@ $LN1@Render:
 ?Render@CCity@Client@@UEAAJXZ ENDP			; Client::CCity::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ?LateTick@CCity@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4474,7 +4474,7 @@ $LN2@LateTick:
 ?LateTick@CCity@Client@@UEAAXN@Z ENDP			; Client::CCity::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ?Tick@CCity@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4518,7 +4518,7 @@ $LN3:
 ?Tick@CCity@Client@@UEAAXN@Z ENDP			; Client::CCity::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ?Initialize@CCity@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4590,7 +4590,7 @@ $LN1@Initialize:
 ?Initialize@CCity@Client@@UEAAJPEAX@Z ENDP		; Client::CCity::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ?Initialize_Prototype@CCity@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4643,7 +4643,7 @@ $LN1@Initialize:
 ?Initialize_Prototype@CCity@Client@@UEAAJXZ ENDP	; Client::CCity::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ??1CCity@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4676,9 +4676,9 @@ $LN3:
 ??1CCity@Client@@EEAA@XZ ENDP				; Client::CCity::~CCity
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
-; File c:\users\arcco\documents\github\framework\client\public\city.h
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
+; File c:\github\framework\client\public\city.h
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ??0CCity@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4722,7 +4722,7 @@ $LN4:
   00056	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CCity@Client@@6B@
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\city.h
+; File c:\github\framework\client\public\city.h
 
 ; 37   : 	CTransform*	m_pTransform = { nullptr };
 
@@ -4754,7 +4754,7 @@ $LN4:
   0009a	48 c7 80 90 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+144], 0
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 
 ; 9    : }
 
@@ -4768,7 +4768,7 @@ $LN4:
 ??0CCity@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ENDP ; Client::CCity::CCity
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -4797,7 +4797,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\city.cpp
+; File c:\github\framework\client\private\city.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

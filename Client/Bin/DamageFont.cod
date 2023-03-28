@@ -2571,7 +2571,7 @@ PUBLIC	??_C@_1CI@OPHKNDAC@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AA
 PUBLIC	??_C@_0N@ELIMCBLG@g_ViewMatrix?$AA@		; `string'
 PUBLIC	??_C@_0N@OOHDPIO@g_ProjMatrix?$AA@		; `string'
 PUBLIC	?__LINE__Var@?0??Create@CDamageFont@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CDamageFont::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EI@DIMDLKBF@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DC@IEAPANDN@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1DO@MECMHHCM@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAD?$AAa?$AAm?$AAa?$AAg?$AAe?$AAF?$AAo?$AAn?$AAt?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CDamageFont@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CDamageFont::Clone'::`1'::__LINE__Var
@@ -4286,11 +4286,10 @@ CONST	SEGMENT
 	DB	'D', 00H, 'a', 00H, 'm', 00H, 'a', 00H, 'g', 00H, 'e', 00H, 'F'
 	DB	00H, 'o', 00H, 'n', 00H, 't', 00H, 00H, 00H	; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EI@DIMDLKBF@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DC@IEAPANDN@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EI@DIMDLKBF@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\damagefont.cpp'
-	DB	00H						; `string'
+??_C@_0DC@IEAPANDN@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\damagefont.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CDamageFont@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -10008,7 +10007,7 @@ $LN4:
 ??$?0$$V@?$_Compressed_pair@U?$_Wrap_alloc@V?$allocator@_W@std@@@std@@V?$_String_val@U?$_Simple_types@_W@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1>::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -10087,7 +10086,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ENDP ; Engine::Safe_Release<Engine::CShader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -10166,7 +10165,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -10245,7 +10244,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ENDP ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -10324,7 +10323,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ENDP ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCDamageFont@Client@@@Engine@@YAKAEAPEAVCDamageFont@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -10445,7 +10444,7 @@ $LN2@scalar:
 ??_GCDamageFont@Client@@MEAAPEAXI@Z ENDP		; Client::CDamageFont::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?Free@CDamageFont@Client@@UEAAXXZ
 _TEXT	SEGMENT
 i$1 = 4
@@ -10539,7 +10538,7 @@ $LN3@Free:
 ?Free@CDamageFont@Client@@UEAAXXZ ENDP			; Client::CDamageFont::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?Clone@CDamageFont@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -10585,7 +10584,7 @@ $LN8:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@DIMDLKBF@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@IEAPANDN@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 88 02 00 00	 mov	 ecx, 648		; 00000288H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -10703,7 +10702,7 @@ pArg$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CDamageFont@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@DIMDLKBF@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@IEAPANDN@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -10760,7 +10759,7 @@ pArg$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CDamageFont@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@DIMDLKBF@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@IEAPANDN@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -10799,7 +10798,7 @@ pArg$ = 440
 ?dtor$1@?0??Clone@CDamageFont@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CDamageFont::Clone'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?Create@CDamageFont@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -10845,7 +10844,7 @@ $LN8:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@DIMDLKBF@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@IEAPANDN@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 88 02 00 00	 mov	 ecx, 648		; 00000288H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -10963,7 +10962,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CDamageFont@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@DIMDLKBF@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@IEAPANDN@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -11020,7 +11019,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CDamageFont@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@DIMDLKBF@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DC@IEAPANDN@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -11059,7 +11058,7 @@ pContext$ = 440
 ?dtor$1@?0??Create@CDamageFont@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CDamageFont::Create'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?Setup_ShaderResources@CDamageFont@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -11159,7 +11158,7 @@ $LN1@Setup_Shad:
 ?Setup_ShaderResources@CDamageFont@Client@@AEAAJXZ ENDP	; Client::CDamageFont::Setup_ShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?Add_Components@CDamageFont@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -11587,7 +11586,7 @@ $LN1@Add_Compon:
 ?Add_Components@CDamageFont@Client@@AEAAJXZ ENDP	; Client::CDamageFont::Add_Components
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?ComputeComboToTexture@CDamageFont@Client@@QEAAPEAVCTexture@Engine@@H@Z
 _TEXT	SEGMENT
 strCombo$ = 8
@@ -11725,7 +11724,7 @@ iIndex$ = 392
 ?dtor$0@?0??ComputeComboToTexture@CDamageFont@Client@@QEAAPEAVCTexture@Engine@@H@Z@4HA ENDP ; `Client::CDamageFont::ComputeComboToTexture'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?RenderGUI@CDamageFont@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -11757,7 +11756,7 @@ $LN3:
 ?RenderGUI@CDamageFont@Client@@UEAAXXZ ENDP		; Client::CDamageFont::RenderGUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?Render@CDamageFont@Client@@UEAAJXZ
 _TEXT	SEGMENT
 fValue$ = 4
@@ -12020,7 +12019,7 @@ $LN1@Render:
 ?Render@CDamageFont@Client@@UEAAJXZ ENDP		; Client::CDamageFont::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?LateTick@CDamageFont@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -12100,7 +12099,7 @@ $LN2@LateTick:
 ?LateTick@CDamageFont@Client@@UEAAXN@Z ENDP		; Client::CDamageFont::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?Tick@CDamageFont@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -12152,7 +12151,7 @@ $LN3:
 ?Tick@CDamageFont@Client@@UEAAXN@Z ENDP			; Client::CDamageFont::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?Initialize@CDamageFont@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 i$1 = 4
@@ -12478,7 +12477,7 @@ $LN1@Initialize:
 ?Initialize@CDamageFont@Client@@UEAAJPEAX@Z ENDP	; Client::CDamageFont::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?Initialize_Prototype@CDamageFont@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -12531,7 +12530,7 @@ $LN1@Initialize:
 ?Initialize_Prototype@CDamageFont@Client@@UEAAJXZ ENDP	; Client::CDamageFont::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ??1CDamageFont@Client@@MEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -12564,9 +12563,9 @@ $LN3:
 ??1CDamageFont@Client@@MEAA@XZ ENDP			; Client::CDamageFont::~CDamageFont
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
-; File c:\users\arcco\documents\github\framework\client\public\damagefont.h
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\public\damagefont.h
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ??0CDamageFont@Client@@IEAA@AEBV01@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -12622,7 +12621,7 @@ $LN4:
 	00		 add	 rax, 184		; 000000b8H
   00080	48 8b c8	 mov	 rcx, rax
   00083	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
-; File c:\users\arcco\documents\github\framework\client\public\damagefont.h
+; File c:\github\framework\client\public\damagefont.h
 
 ; 47   : 	_float		m_fOriginDamageX = 150.f;
 
@@ -12705,7 +12704,7 @@ $LN4:
   0013c	48 c7 80 80 02
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+640], 0
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 
 ; 16   : }
 
@@ -12764,9 +12763,9 @@ rhs$ = 264
 ?dtor$0@?0???0CDamageFont@Client@@IEAA@AEBV01@@Z@4HA ENDP ; `Client::CDamageFont::CDamageFont'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
-; File c:\users\arcco\documents\github\framework\client\public\damagefont.h
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\public\damagefont.h
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ??0CDamageFont@Client@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -12826,7 +12825,7 @@ $LN4:
 	00		 add	 rax, 184		; 000000b8H
   0008c	48 8b c8	 mov	 rcx, rax
   0008f	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
-; File c:\users\arcco\documents\github\framework\client\public\damagefont.h
+; File c:\github\framework\client\public\damagefont.h
 
 ; 47   : 	_float		m_fOriginDamageX = 150.f;
 
@@ -12909,7 +12908,7 @@ $LN4:
   00148	48 c7 80 80 02
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+640], 0
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 
 ; 11   : }
 
@@ -24082,7 +24081,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -24111,7 +24110,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\damagefont.cpp
+; File c:\github\framework\client\private\damagefont.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

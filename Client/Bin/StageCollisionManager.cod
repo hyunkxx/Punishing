@@ -2733,7 +2733,7 @@ PUBLIC	??_C@_1HA@NAPGMHAO@?$AA?$CC?$AA2?$AA?5?$AA?$CK?$AA?5?$AAs?$AAi?$AAz?$AAe?
 PUBLIC	??_C@_0CN@BLHJCAL@_Ptr_user?5?9?5_Ptr_container?5?$DM?$DN?5_N@ ; `string'
 PUBLIC	??_C@_1GI@DHJGPFNI@?$AA?$CC?$AA_?$AAP?$AAt?$AAr?$AA_?$AAu?$AAs?$AAe?$AAr?$AA?5?$AA?9?$AA?5?$AA_?$AAP?$AAt?$AAr?$AA_?$AAc?$AAo?$AAn?$AAt?$AAa?$AAi?$AAn?$AAe?$AAr?$AA?5?$AA?$DM?$AA?$DN?$AA?5?$AA_@ ; `string'
 PUBLIC	??_7CStageCollisionManager@Client@@6B@		; Client::CStageCollisionManager::`vftable'
-PUBLIC	??_C@_0FD@CCHGBBHA@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DN@KNKJNMBG@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1BE@BMACBLPL@?$AAc?$AAo?$AAl?$AAl?$AAi?$AAs?$AAi?$AAo?$AAn?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CA@BJJHPBLD@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAs?$AAi?$AAo?$AAn?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BO@LDNAOHLB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAw?$AAa?$AAl?$AAl?$AA?$AA@ ; `string'
@@ -5821,11 +5821,10 @@ CONST	SEGMENT
 	DB	00H, 'o', 00H, 'l', 00H, 'l', 00H, 'i', 00H, 's', 00H, 'i', 00H
 	DB	'o', 00H, 'n', 00H, 00H, 00H			; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0FD@CCHGBBHA@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DN@KNKJNMBG@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0FD@CCHGBBHA@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\stagecollision'
-	DB	'manager.cpp', 00H				; `string'
+??_C@_0DN@KNKJNMBG@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\stagecollisionmanager.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ??_7CStageCollisionManager@Client@@6B@
 CONST	SEGMENT
@@ -23973,7 +23972,7 @@ $LN3:
 ??0?$allocator@PEAVCWall@Client@@@std@@QEAA@XZ ENDP	; std::allocator<Client::CWall * __ptr64>::allocator<Client::CWall * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?Free@CStageCollisionManager@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -24009,7 +24008,7 @@ $LN3:
 ?Free@CStageCollisionManager@Client@@UEAAXXZ ENDP	; Client::CStageCollisionManager::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?SaveCollisionData@CStageCollisionManager@Client@@QEAAJXZ
 _TEXT	SEGMENT
 ObjectCount$ = 4
@@ -24578,7 +24577,7 @@ this$ = 1728
 ?dtor$2@?0??SaveCollisionData@CStageCollisionManager@Client@@QEAAJXZ@4HA ENDP ; `Client::CStageCollisionManager::SaveCollisionData'::`1'::dtor$2
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?LoadCollisionData@CStageCollisionManager@Client@@SAJPEB_WPEAV?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@PEAI@Z
 _TEXT	SEGMENT
 filePathName$ = 16
@@ -24823,7 +24822,7 @@ $LN1@LoadCollis:
 ?LoadCollisionData@CStageCollisionManager@Client@@SAJPEB_WPEAV?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@PEAI@Z ENDP ; Client::CStageCollisionManager::LoadCollisionData
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?RenderGUI@CStageCollisionManager@Client@@QEAAXXZ
 _TEXT	SEGMENT
 strIndex$ = 8
@@ -25283,7 +25282,7 @@ this$ = 624
 ?dtor$1@?0??RenderGUI@CStageCollisionManager@Client@@QEAAXXZ@4HA ENDP ; `Client::CStageCollisionManager::RenderGUI'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?Tick@CStageCollisionManager@Client@@QEAAXN@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -25940,7 +25939,7 @@ TimeDelta$ = 1240
 ?dtor$1@?0??Tick@CStageCollisionManager@Client@@QEAAXN@Z@4HA ENDP ; `Client::CStageCollisionManager::Tick'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?DeleteObject@CStageCollisionManager@Client@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -25972,7 +25971,7 @@ $LN3:
 ?DeleteObject@CStageCollisionManager@Client@@QEAAXXZ ENDP ; Client::CStageCollisionManager::DeleteObject
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?AddWall@CStageCollisionManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -26268,7 +26267,7 @@ pContext$ = 576
 ?dtor$1@?0??AddWall@CStageCollisionManager@Client@@QEAAXPEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CStageCollisionManager::AddWall'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ??1CStageCollisionManager@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -26306,9 +26305,9 @@ $LN3:
 ??1CStageCollisionManager@Client@@EEAA@XZ ENDP		; Client::CStageCollisionManager::~CStageCollisionManager
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
-; File c:\users\arcco\documents\github\framework\client\public\stagecollisionmanager.h
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\public\stagecollisionmanager.h
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ??0CStageCollisionManager@Client@@AEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -26341,7 +26340,7 @@ $LN3:
   00048	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0004f	c6 40 10 01	 mov	 BYTE PTR [rax+16], 1
-; File c:\users\arcco\documents\github\framework\client\public\stagecollisionmanager.h
+; File c:\github\framework\client\public\stagecollisionmanager.h
 
 ; 35   : 	_uint m_iCurrentIndex = 0;
 
@@ -26349,7 +26348,7 @@ $LN3:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0005a	c7 40 14 00 00
 	00 00		 mov	 DWORD PTR [rax+20], 0
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 
 ; 6    : IMPLEMENT_SINGLETON(CStageCollisionManager)
 
@@ -26368,7 +26367,7 @@ $LN3:
 ??0CStageCollisionManager@Client@@AEAA@XZ ENDP		; Client::CStageCollisionManager::CStageCollisionManager
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?DestroyInstance@CStageCollisionManager@Client@@SAKXZ
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -26412,7 +26411,7 @@ $LN2@DestroyIns:
 ?DestroyInstance@CStageCollisionManager@Client@@SAKXZ ENDP ; Client::CStageCollisionManager::DestroyInstance
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?GetInstance@CStageCollisionManager@Client@@SAPEAV12@XZ
 _TEXT	SEGMENT
 $T1 = 200
@@ -26437,7 +26436,7 @@ $LN6:
   00028	41 b9 06 00 00
 	00		 mov	 r9d, 6
   0002e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0FD@CCHGBBHA@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DN@KNKJNMBG@c?3?2github?2framework?2client?2priva@
   00035	ba 01 00 00 00	 mov	 edx, 1
   0003a	b9 38 00 00 00	 mov	 ecx, 56			; 00000038H
   0003f	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -26472,7 +26471,7 @@ $LN2@GetInstanc:
 ?GetInstance@CStageCollisionManager@Client@@SAPEAV12@XZ ENDP ; Client::CStageCollisionManager::GetInstance
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\wall.h
+; File c:\github\framework\client\public\wall.h
 ;	COMDAT ?GetDesc@CWall@Client@@QEAAAEAUtagCubeDesc@12@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -38131,7 +38130,7 @@ $LN3:
 ??2@YAPEAX_KPEAX@Z ENDP					; operator new
 _TEXT	ENDS
 ; Function compile flags: /Odtp /ZI
-; File c:\users\arcco\documents\github\framework\tool\imgui\imgui.h
+; File c:\github\framework\tool\imgui\imgui.h
 ;	COMDAT ??0ImVec4@@QEAA@MMMM@Z
 _TEXT	SEGMENT
 this$ = 80
@@ -38276,7 +38275,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -38305,7 +38304,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\stagecollisionmanager.cpp
+; File c:\github\framework\client\private\stagecollisionmanager.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

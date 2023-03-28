@@ -2560,7 +2560,7 @@ PUBLIC	??_C@_1FM@OOHNEOFD@?$AA?4?$AA?4?$AA?1?$AA?4?$AA?4?$AA?1?$AAC?$AAo?$AAl?$A
 PUBLIC	??_C@_1O@PJHEGENI@?$AAw?$AAa?$AAl?$AAl?$AA_?$AA2?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BO@LDNAOHLB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAw?$AAa?$AAl?$AAl?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Ready_Layer_Camera@CLevel_BossRoom@Client@@AEAAJPEB_W@Z@4JA ; `Client::CLevel_BossRoom::Ready_Layer_Camera'::`1'::__LINE__Var
-PUBLIC	??_C@_1JI@FNOMJEAP@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@ ; `string'
+PUBLIC	??_C@_1GM@JPHMCOFB@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@ ; `string'
 PUBLIC	??_C@_1BA@DNCJICGL@?$AAm?$AAP?$AAl?$AAa?$AAy?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BM@KDGIOOAK@?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DA@CMIPDJDG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAp?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA?$AA@ ; `string'
@@ -2571,7 +2571,7 @@ PUBLIC	??_C@_1BO@JNCHEIKI@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AA
 PUBLIC	??_C@_1BA@LPHFANFK@?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CE@NDNBHLHL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AAh?$AAp?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Create@CLevel_BossRoom@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CLevel_BossRoom::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EM@DCJBKJII@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DG@DCJOKBCJ@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1EG@LGMOCJCB@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAe?$AAv?$AAe?$AAl?$AA_?$AAB?$AAo?$AAs?$AAs?$AAR?$AAo@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1IM@NCODKBJH@?$AAc?$AA?3?$AA?2?$AAp?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAf?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAm?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ ; `string'
@@ -4424,11 +4424,10 @@ CONST	SEGMENT
 	DB	00H, 'o', 00H, 's', 00H, 's', 00H, 'R', 00H, 'o', 00H, 'o', 00H
 	DB	'm', 00H, 00H, 00H				; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EM@DCJBKJII@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DG@DCJOKBCJ@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EM@DCJBKJII@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\level_bossroom'
-	DB	'.cpp', 00H					; `string'
+??_C@_0DG@DCJOKBCJ@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\level_bossroom.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CLevel_BossRoom@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -4492,21 +4491,18 @@ CONST	SEGMENT
 	DB	'P', 00H, 'l', 00H, 'a', 00H, 'y', 00H, 'e', 00H, 'r', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1JI@FNOMJEAP@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@
+;	COMDAT ??_C@_1GM@JPHMCOFB@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@
 CONST	SEGMENT
-??_C@_1JI@FNOMJEAP@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@ DB 'c'
-	DB	00H, ':', 00H, '\', 00H, 'u', 00H, 's', 00H, 'e', 00H, 'r', 00H
-	DB	's', 00H, '\', 00H, 'a', 00H, 'r', 00H, 'c', 00H, 'c', 00H, 'o'
-	DB	00H, '\', 00H, 'd', 00H, 'o', 00H, 'c', 00H, 'u', 00H, 'm', 00H
-	DB	'e', 00H, 'n', 00H, 't', 00H, 's', 00H, '\', 00H, 'g', 00H, 'i'
-	DB	00H, 't', 00H, 'h', 00H, 'u', 00H, 'b', 00H, '\', 00H, 'f', 00H
-	DB	'r', 00H, 'a', 00H, 'm', 00H, 'e', 00H, 'w', 00H, 'o', 00H, 'r'
-	DB	00H, 'k', 00H, '\', 00H, 'c', 00H, 'l', 00H, 'i', 00H, 'e', 00H
-	DB	'n', 00H, 't', 00H, '\', 00H, 'p', 00H, 'r', 00H, 'i', 00H, 'v'
-	DB	00H, 'a', 00H, 't', 00H, 'e', 00H, '\', 00H, 'l', 00H, 'e', 00H
-	DB	'v', 00H, 'e', 00H, 'l', 00H, '_', 00H, 'b', 00H, 'o', 00H, 's'
-	DB	00H, 's', 00H, 'r', 00H, 'o', 00H, 'o', 00H, 'm', 00H, '.', 00H
-	DB	'c', 00H, 'p', 00H, 'p', 00H, 00H, 00H	; `string'
+??_C@_1GM@JPHMCOFB@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@ DB 'c'
+	DB	00H, ':', 00H, '\', 00H, 'g', 00H, 'i', 00H, 't', 00H, 'h', 00H
+	DB	'u', 00H, 'b', 00H, '\', 00H, 'f', 00H, 'r', 00H, 'a', 00H, 'm'
+	DB	00H, 'e', 00H, 'w', 00H, 'o', 00H, 'r', 00H, 'k', 00H, '\', 00H
+	DB	'c', 00H, 'l', 00H, 'i', 00H, 'e', 00H, 'n', 00H, 't', 00H, '\'
+	DB	00H, 'p', 00H, 'r', 00H, 'i', 00H, 'v', 00H, 'a', 00H, 't', 00H
+	DB	'e', 00H, '\', 00H, 'l', 00H, 'e', 00H, 'v', 00H, 'e', 00H, 'l'
+	DB	00H, '_', 00H, 'b', 00H, 'o', 00H, 's', 00H, 's', 00H, 'r', 00H
+	DB	'o', 00H, 'o', 00H, 'm', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p'
+	DB	00H, 00H, 00H				; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Ready_Layer_Camera@CLevel_BossRoom@Client@@AEAAJPEB_W@Z@4JA
 _DATA	SEGMENT
@@ -10992,7 +10988,7 @@ $LN4:
 ??$?0$$V@?$_Compressed_pair@U?$_Wrap_alloc@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@V?$_Vector_val@U?$_Simple_types@UtagCubeDesc@CWall@Client@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::_Wrap_alloc<std::allocator<Client::CWall::tagCubeDesc> >,std::_Vector_val<std::_Simple_types<Client::CWall::tagCubeDesc> >,1>::_Compressed_pair<std::_Wrap_alloc<std::allocator<Client::CWall::tagCubeDesc> >,std::_Vector_val<std::_Simple_types<Client::CWall::tagCubeDesc> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCLevel_BossRoom@Client@@@Engine@@YAKAEAPEAVCLevel_BossRoom@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -13991,7 +13987,7 @@ $LN3:
 ?_Orphan_all@?$_Vector_alloc@U?$_Vec_base_types@PEAVCWall@Client@@V?$allocator@PEAVCWall@Client@@@std@@@std@@@std@@QEAAXXZ ENDP ; std::_Vector_alloc<std::_Vec_base_types<Client::CWall * __ptr64,std::allocator<Client::CWall * __ptr64> > >::_Orphan_all
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\stagecollisionmanager.h
+; File c:\github\framework\client\public\stagecollisionmanager.h
 ;	COMDAT ?Clear@CStageCollisionManager@Client@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -14025,7 +14021,7 @@ $LN3:
 ?Clear@CStageCollisionManager@Client@@QEAAXXZ ENDP	; Client::CStageCollisionManager::Clear
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 ;	COMDAT ?SetHealthUI@CCharacter@Client@@QEAAXPEAVCEnemyHealthBar@2@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -14062,7 +14058,7 @@ $LN3:
 ?SetHealthUI@CCharacter@Client@@QEAAXPEAVCEnemyHealthBar@2@@Z ENDP ; Client::CCharacter::SetHealthUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 ;	COMDAT ?SetPlayerCamera@CCharacter@Client@@QEAAXPEAVCPlayerCamera@2@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -14099,7 +14095,7 @@ $LN3:
 ?SetPlayerCamera@CCharacter@Client@@QEAAXPEAVCPlayerCamera@2@@Z ENDP ; Client::CCharacter::SetPlayerCamera
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\enemy.h
+; File c:\github\framework\client\public\enemy.h
 ;	COMDAT ?SetupCamera@CEnemy@Client@@QEAAXPEAVCPlayerCamera@2@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -14220,7 +14216,7 @@ $LN2@scalar:
 ??_GCLevel_BossRoom@Client@@EEAAPEAXI@Z ENDP		; Client::CLevel_BossRoom::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?Free@CLevel_BossRoom@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -14259,7 +14255,7 @@ $LN3:
 ?Free@CLevel_BossRoom@Client@@UEAAXXZ ENDP		; Client::CLevel_BossRoom::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?Create@CLevel_BossRoom@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -14305,7 +14301,7 @@ $LN8:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@DCJBKJII@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@DCJOKBCJ@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 38 00 00 00	 mov	 ecx, 56			; 00000038H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -14424,7 +14420,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CLevel_BossRoom@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@DCJBKJII@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@DCJOKBCJ@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -14481,7 +14477,7 @@ pContext$ = 440
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CLevel_BossRoom@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EM@DCJBKJII@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DG@DCJOKBCJ@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -14520,7 +14516,7 @@ pContext$ = 440
 ?dtor$1@?0??Create@CLevel_BossRoom@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CLevel_BossRoom::Create'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?Ready_Layer_UI@CLevel_BossRoom@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -14620,7 +14616,7 @@ $LN1@Ready_Laye:
 ?Ready_Layer_UI@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_BossRoom::Ready_Layer_UI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?Ready_Layer_Effect@CLevel_BossRoom@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -14658,7 +14654,7 @@ $LN3:
 ?Ready_Layer_Effect@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_BossRoom::Ready_Layer_Effect
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?Ready_Layer_Enemy@CLevel_BossRoom@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -14761,7 +14757,7 @@ $LN1@Ready_Laye:
 ?Ready_Layer_Enemy@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_BossRoom::Ready_Layer_Enemy
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?Ready_Layer_Player@CLevel_BossRoom@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -14841,7 +14837,7 @@ $LN4:
 ?Ready_Layer_Player@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_BossRoom::Ready_Layer_Player
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?Ready_Layer_Camera@CLevel_BossRoom@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -14996,7 +14992,7 @@ $LN6:
   0014a	83 c0 15	 add	 eax, 21
   0014d	44 8b c0	 mov	 r8d, eax
   00150	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1JI@FNOMJEAP@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1GM@JPHMCOFB@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@
   00157	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_C@_1BA@DNCJICGL@?$AAm?$AAP?$AAl?$AAa?$AAy?$AAe?$AAr?$AA?$AA@
   0015e	ff 15 00 00 00
@@ -15086,7 +15082,7 @@ $LN1@Ready_Laye:
 ?Ready_Layer_Camera@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_BossRoom::Ready_Layer_Camera
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?Ready_Layer_Wall@CLevel_BossRoom@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -15537,7 +15533,7 @@ pLayerTag$ = 952
 ?dtor$2@?0??Ready_Layer_Wall@CLevel_BossRoom@Client@@AEAAJPEB_W@Z@4HA ENDP ; `Client::CLevel_BossRoom::Ready_Layer_Wall'::`1'::dtor$2
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?Ready_Layer_BackGround@CLevel_BossRoom@Client@@AEAAJPEB_W@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -15662,7 +15658,7 @@ $LN1@Ready_Laye:
 ?Ready_Layer_BackGround@CLevel_BossRoom@Client@@AEAAJPEB_W@Z ENDP ; Client::CLevel_BossRoom::Ready_Layer_BackGround
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?Ready_Light@CLevel_BossRoom@Client@@AEAAJXZ
 _TEXT	SEGMENT
 GameInstance$ = 8
@@ -15864,7 +15860,7 @@ $LN1@Ready_Ligh:
 ?Ready_Light@CLevel_BossRoom@Client@@AEAAJXZ ENDP	; Client::CLevel_BossRoom::Ready_Light
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?Tick@CLevel_BossRoom@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -16047,7 +16043,7 @@ $LN3@Tick:
 ?Tick@CLevel_BossRoom@Client@@UEAAXN@Z ENDP		; Client::CLevel_BossRoom::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?Initialize@CLevel_BossRoom@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -16212,7 +16208,7 @@ $LN1@Initialize:
 ?Initialize@CLevel_BossRoom@Client@@UEAAJXZ ENDP	; Client::CLevel_BossRoom::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ??1CLevel_BossRoom@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -16245,9 +16241,9 @@ $LN3:
 ??1CLevel_BossRoom@Client@@EEAA@XZ ENDP			; Client::CLevel_BossRoom::~CLevel_BossRoom
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
-; File c:\users\arcco\documents\github\framework\client\public\level_bossroom.h
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\public\level_bossroom.h
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ??0CLevel_BossRoom@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -16291,7 +16287,7 @@ $LN4:
   00056	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CLevel_BossRoom@Client@@6B@
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\users\arcco\documents\github\framework\client\public\level_bossroom.h
+; File c:\github\framework\client\public\level_bossroom.h
 
 ; 35   : 	CGameObject* mPlayer = nullptr;
 
@@ -16313,7 +16309,7 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00085	48 c7 40 30 00
 	00 00 00	 mov	 QWORD PTR [rax+48], 0
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 
 ; 19   : }
 
@@ -22875,7 +22871,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -22904,7 +22900,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\level_bossroom.cpp
+; File c:\github\framework\client\private\level_bossroom.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

@@ -2496,7 +2496,7 @@ PUBLIC	??_C@_1CM@NLPIEOMO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AA
 PUBLIC	??_C@_1CG@PGOKGEOL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAb?$AAo?$AAs?$AAs?$AAr?$AAo?$AAo?$AAm?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CA@CEJBEGPA@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAt?$AAh?$AAo?$AAr?$AAn?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Create@CLoader@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA ; `Client::CLoader::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EE@JJLMJMD@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0CO@EKFEHEFJ@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1DG@GNJIJLKA@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAL?$AAo?$AAa?$AAd?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1IO@EADHKMNI@?$AAc?$AA?3?$AA?2?$AAp?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAf?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAm?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ ; `string'
@@ -3610,10 +3610,10 @@ CONST	SEGMENT
 	DB	'L', 00H, 'o', 00H, 'a', 00H, 'd', 00H, 'e', 00H, 'r', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EE@JJLMJMD@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0CO@EKFEHEFJ@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EE@JJLMJMD@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\ar'
-	DB	'cco\documents\github\framework\client\private\loader.cpp', 00H ; `string'
+??_C@_0CO@EKFEHEFJ@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\loader.cpp', 00H	; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CLoader@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA
 _DATA	SEGMENT
@@ -7050,7 +7050,7 @@ $LN4:
 ??$?0$$V@?$_Compressed_pair@U?$_Wrap_alloc@V?$allocator@_W@std@@@std@@V?$_String_val@U?$_Simple_types@_W@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1>::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7132,7 +7132,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z ENDP ; Engine::Safe_Release<ID3D11DeviceContext * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7214,7 +7214,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z ENDP ; Engine::Safe_Release<ID3D11Device * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCLoader@Client@@@Engine@@YAKAEAPEAVCLoader@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7293,7 +7293,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCLoader@Client@@@Engine@@YAKAEAPEAVCLoader@Client@@@Z ENDP ; Engine::Safe_Release<Client::CLoader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\private\loader.cpp
 ;	COMDAT ?ThreadEntry@@YAIPEAX@Z
 _TEXT	SEGMENT
 pLoader$ = 8
@@ -7406,7 +7406,7 @@ $LN2@ThreadEntr:
 ?ThreadEntry@@YAIPEAX@Z ENDP				; ThreadEntry
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_AddRef@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7469,7 +7469,7 @@ $LN2@Safe_AddRe:
 ??$Safe_AddRef@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z ENDP ; Engine::Safe_AddRef<ID3D11DeviceContext * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_AddRef@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7574,7 +7574,7 @@ $LN2@scalar:
 ??_GCLoader@Client@@EEAAPEAXI@Z ENDP			; Client::CLoader::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\loader.h
+; File c:\github\framework\client\public\loader.h
 ;	COMDAT ?Get_NextLevel@CLoader@Client@@QEBA?AW4LEVEL_ID@2@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -7606,7 +7606,7 @@ $LN3:
 ?Get_NextLevel@CLoader@Client@@QEBA?AW4LEVEL_ID@2@XZ ENDP ; Client::CLoader::Get_NextLevel
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\loader.h
+; File c:\github\framework\client\public\loader.h
 ;	COMDAT ?Get_CriticalSectionPtr@CLoader@Client@@QEAAPEAU_RTL_CRITICAL_SECTION@@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -7638,7 +7638,7 @@ $LN3:
 ?Get_CriticalSectionPtr@CLoader@Client@@QEAAPEAU_RTL_CRITICAL_SECTION@@XZ ENDP ; Client::CLoader::Get_CriticalSectionPtr
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\private\loader.cpp
 ;	COMDAT ?Free@CLoader@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -7714,7 +7714,7 @@ $LN3:
 ?Free@CLoader@Client@@UEAAXXZ ENDP			; Client::CLoader::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\private\loader.cpp
 ;	COMDAT ?Create@CLoader@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@2@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -7762,7 +7762,7 @@ $LN8:
   00056	ff c0		 inc	 eax
   00058	44 8b c8	 mov	 r9d, eax
   0005b	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EE@JJLMJMD@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CO@EKFEHEFJ@c?3?2github?2framework?2client?2priva@
   00062	ba 01 00 00 00	 mov	 edx, 1
   00067	b9 80 00 00 00	 mov	 ecx, 128		; 00000080H
   0006c	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -7884,7 +7884,7 @@ eNextLevel$ = 448
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CLoader@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EE@JJLMJMD@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CO@EKFEHEFJ@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7943,7 +7943,7 @@ eNextLevel$ = 448
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CLoader@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@3@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EE@JJLMJMD@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CO@EKFEHEFJ@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -7983,7 +7983,7 @@ eNextLevel$ = 448
 ?dtor$1@?0??Create@CLoader@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@W4LEVEL_ID@2@@Z@4HA ENDP ; `Client::CLoader::Create'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\private\loader.cpp
 ;	COMDAT ?Load_Level_BossRoom@CLoader@Client@@QEAAJXZ
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -8727,7 +8727,7 @@ $LN1@Load_Level:
 ?Load_Level_BossRoom@CLoader@Client@@QEAAJXZ ENDP	; Client::CLoader::Load_Level_BossRoom
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\private\loader.cpp
 ;	COMDAT ?Load_Level_GamePlay@CLoader@Client@@QEAAJXZ
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -9730,7 +9730,7 @@ $LN1@Load_Level:
 ?Load_Level_GamePlay@CLoader@Client@@QEAAJXZ ENDP	; Client::CLoader::Load_Level_GamePlay
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\private\loader.cpp
 ;	COMDAT ?Load_Level_Logo@CLoader@Client@@QEAAJXZ
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -9855,7 +9855,7 @@ $LN3:
 ?Load_Level_Logo@CLoader@Client@@QEAAJXZ ENDP		; Client::CLoader::Load_Level_Logo
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\private\loader.cpp
 ;	COMDAT ?Initialize@CLoader@Client@@QEAAJW4LEVEL_ID@2@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -9952,7 +9952,7 @@ $LN1@Initialize:
 ?Initialize@CLoader@Client@@QEAAJW4LEVEL_ID@2@@Z ENDP	; Client::CLoader::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\private\loader.cpp
 ;	COMDAT ??1CLoader@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -9990,9 +9990,9 @@ $LN3:
 ??1CLoader@Client@@EEAA@XZ ENDP				; Client::CLoader::~CLoader
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
-; File c:\users\arcco\documents\github\framework\client\public\loader.h
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\public\loader.h
+; File c:\github\framework\client\private\loader.cpp
 ;	COMDAT ??0CLoader@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -10047,14 +10047,14 @@ $LN5:
   00077	48 8b 8d 10 01
 	00 00		 mov	 rcx, QWORD PTR pContext$[rbp]
   0007e	48 89 48 18	 mov	 QWORD PTR [rax+24], rcx
-; File c:\users\arcco\documents\github\framework\client\public\loader.h
+; File c:\github\framework\client\public\loader.h
 
 ; 38   : 	_bool					m_isFinish = { false };
 
   00082	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00089	c6 40 54 00	 mov	 BYTE PTR [rax+84], 0
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\private\loader.cpp
 
 ; 28   : {
 
@@ -16056,7 +16056,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\private\loader.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -16085,7 +16085,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\loader.cpp
+; File c:\github\framework\client\private\loader.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

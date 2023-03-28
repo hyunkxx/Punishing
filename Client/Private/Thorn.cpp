@@ -21,6 +21,8 @@ HRESULT CThorn::Initialize_Prototype()
 
 HRESULT CThorn::Initialize(void * pArg)
 {
+	ObjectID = 2;
+
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
@@ -34,6 +36,8 @@ HRESULT CThorn::Initialize(void * pArg)
 
 void CThorn::Tick(_double TimeDelta)
 {
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
 	__super::Tick(TimeDelta);
 
 	if (m_bScaleUp)
@@ -47,10 +51,16 @@ void CThorn::Tick(_double TimeDelta)
 
 	if (m_bMove)
 		MoveProcess(TimeDelta);
+
+	if(IsScaleFinish())
+		pGameInstance->AddCollider(m_pCollider);
 }
 
 void CThorn::LateTick(_double TimeDelta)
 {
+	if (IsScaleFinish())
+		m_pCollider->Update(XMLoadFloat4x4(&m_pTransform->Get_WorldMatrix()));
+
 	__super::LateTick(TimeDelta);
 
 	_float fLength = GetLengthFromCamera();
@@ -325,6 +335,14 @@ HRESULT CThorn::AddComponents()
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_BOSS, TEXT("proto_com_model_thorn"), TEXT("com_model"), (CComponent**)&m_pModel)))
 		return E_FAIL;
+	CCollider::COLLIDER_DESC collDesc;
+	collDesc.owner = this;
+	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
+	collDesc.vExtents = _float3(2.f, 2.f, 2.f);
+	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
+
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&m_pCollider, &collDesc)))
+		return E_FAIL;
 
 	return S_OK;
 }
@@ -397,4 +415,8 @@ void CThorn::Free()
 	Safe_Release(m_pModel);
 	Safe_Release(m_pShader);
 
+}
+
+void CThorn::SameObjectNoDetection()
+{
 }

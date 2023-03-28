@@ -2760,7 +2760,7 @@ PUBLIC	??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@		; `string'
 PUBLIC	??_R0?AVCEnemy@Client@@@8			; Client::CEnemy `RTTI Type Descriptor'
 PUBLIC	??_R0?AVCBoss@Client@@@8			; Client::CBoss `RTTI Type Descriptor'
 PUBLIC	?__LINE__Var@?0??Create@CCharacter@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CCharacter::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EH@OHIAHGL@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DB@KEEMDFNK@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DM@POIPCDHF@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAC?$AAh?$AAa?$AAr?$AAa?$AAc?$AAt?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CCharacter@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CCharacter::Clone'::`1'::__LINE__Var
@@ -6250,10 +6250,10 @@ CONST	SEGMENT
 	DB	'e', 00H, 's', 00H, 's', 00H, 'a', 00H, 'g', 00H, 'e', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EH@OHIAHGL@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DB@KEEMDFNK@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EH@OHIAHGL@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\ar'
-	DB	'cco\documents\github\framework\client\private\character.cpp', 00H ; `string'
+??_C@_0DB@KEEMDFNK@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\character.cpp', 00H	; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CCharacter@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -14828,7 +14828,7 @@ $LN3:
 ??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@PEAVCEnemy@Client@@@std@@@std@@U_Iterator_base0@2@@std@@QEAA@PEAU?$_List_node@PEAVCEnemy@Client@@PEAX@1@PEBV?$_List_val@U?$_List_simple_types@PEAVCEnemy@Client@@@std@@@1@@Z ENDP ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<Client::CEnemy * __ptr64> >,std::_Iterator_base0>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<Client::CEnemy * __ptr64> >,std::_Iterator_base0>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -14907,7 +14907,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ENDP ; Engine::Safe_Release<Engine::CShader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -14986,7 +14986,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ENDP ; Engine::Safe_Release<Engine::CModel * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -15065,7 +15065,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ENDP ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -15144,7 +15144,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCCollider@Engine@@@Engine@@YAKAEAPEAVCCollider@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -15223,7 +15223,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCCollider@Engine@@@Engine@@YAKAEAPEAVCCollider@0@@Z ENDP ; Engine::Safe_Release<Engine::CCollider * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCPlayerIcon@Client@@@Engine@@YAKAEAPEAVCPlayerIcon@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -15302,7 +15302,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCPlayerIcon@Client@@@Engine@@YAKAEAPEAVCPlayerIcon@Client@@@Z ENDP ; Engine::Safe_Release<Client::CPlayerIcon * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCPlayerHealthBar@Client@@@Engine@@YAKAEAPEAVCPlayerHealthBar@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -15381,7 +15381,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCPlayerHealthBar@Client@@@Engine@@YAKAEAPEAVCPlayerHealthBar@Client@@@Z ENDP ; Engine::Safe_Release<Client::CPlayerHealthBar * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCCharacter@Client@@@Engine@@YAKAEAPEAVCCharacter@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -16999,7 +16999,7 @@ $LN4:
 ??0?$_Iterator012@Ubidirectional_iterator_tag@std@@PEAVCEnemy@Client@@_JPEBQEAV34@AEBQEAV34@U_Iterator_base12@2@@std@@QEAA@XZ ENDP ; std::_Iterator012<std::bidirectional_iterator_tag,Client::CEnemy * __ptr64,__int64,Client::CEnemy * __ptr64 const * __ptr64,Client::CEnemy * __ptr64 const & __ptr64,std::_Iterator_base12>::_Iterator012<std::bidirectional_iterator_tag,Client::CEnemy * __ptr64,__int64,Client::CEnemy * __ptr64 const * __ptr64,Client::CEnemy * __ptr64 const & __ptr64,std::_Iterator_base12>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h
+; File c:\github\framework\client\public\enemyhealthbar.h
 ;	COMDAT ?SetRender@CEnemyHealthBar@Client@@QEAAX_N@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -17036,7 +17036,7 @@ $LN3:
 ?SetRender@CEnemyHealthBar@Client@@QEAAX_N@Z ENDP	; Client::CEnemyHealthBar::SetRender
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h
+; File c:\github\framework\client\public\enemyhealthbar.h
 ;	COMDAT ?StartShake@CEnemyHealthBar@Client@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -17074,7 +17074,7 @@ $LN3:
 ?StartShake@CEnemyHealthBar@Client@@QEAAXXZ ENDP	; Client::CEnemyHealthBar::StartShake
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\playerhealthbar.h
+; File c:\github\framework\client\public\playerhealthbar.h
 ;	COMDAT ?SetRender@CPlayerHealthBar@Client@@QEAAX_N@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -17111,7 +17111,7 @@ $LN3:
 ?SetRender@CPlayerHealthBar@Client@@QEAAX_N@Z ENDP	; Client::CPlayerHealthBar::SetRender
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\playericon.h
+; File c:\github\framework\client\public\playericon.h
 ;	COMDAT ?SetupPlayer@CPlayerIcon@Client@@QEAAXPEAVCCharacter@2@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -17148,7 +17148,7 @@ $LN3:
 ?SetupPlayer@CPlayerIcon@Client@@QEAAXPEAVCCharacter@2@@Z ENDP ; Client::CPlayerIcon::SetupPlayer
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\playericon.h
+; File c:\github\framework\client\public\playericon.h
 ;	COMDAT ?SetRender@CPlayerIcon@Client@@QEAAX_N@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -17185,7 +17185,7 @@ $LN3:
 ?SetRender@CPlayerIcon@Client@@QEAAX_N@Z ENDP		; Client::CPlayerIcon::SetRender
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\playericon.h
+; File c:\github\framework\client\public\playericon.h
 ;	COMDAT ?SetCombo@CPlayerIcon@Client@@QEAAXH@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -17222,7 +17222,7 @@ $LN3:
 ?SetCombo@CPlayerIcon@Client@@QEAAXH@Z ENDP		; Client::CPlayerIcon::SetCombo
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\playericon.h
+; File c:\github\framework\client\public\playericon.h
 ;	COMDAT ?SetComboPerTime@CPlayerIcon@Client@@QEAAXM@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -17260,7 +17260,7 @@ $LN3:
 ?SetComboPerTime@CPlayerIcon@Client@@QEAAXM@Z ENDP	; Client::CPlayerIcon::SetComboPerTime
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\playericon.h
+; File c:\github\framework\client\public\playericon.h
 ;	COMDAT ?StartShake@CPlayerIcon@Client@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -17298,7 +17298,7 @@ $LN3:
 ?StartShake@CPlayerIcon@Client@@QEAAXXZ ENDP		; Client::CPlayerIcon::StartShake
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\boss.h
+; File c:\github\framework\client\public\boss.h
 ;	COMDAT ?IsSpawned@CBoss@Client@@QEBA_NXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -17331,7 +17331,7 @@ $LN3:
 ?IsSpawned@CBoss@Client@@QEBA_NXZ ENDP			; Client::CBoss::IsSpawned
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\enemy.h
+; File c:\github\framework\client\public\enemy.h
 ;	COMDAT ?GetHpState@CEnemy@Client@@QEBA?AUtagEnemyState@12@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -17371,7 +17371,7 @@ $LN3:
 ?GetHpState@CEnemy@Client@@QEBA?AUtagEnemyState@12@XZ ENDP ; Client::CEnemy::GetHpState
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\enemy.h
+; File c:\github\framework\client\public\enemy.h
 ;	COMDAT ?SetHold@CEnemy@Client@@QEAAX_N@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -17408,7 +17408,7 @@ $LN3:
 ?SetHold@CEnemy@Client@@QEAAX_N@Z ENDP			; Client::CEnemy::SetHold
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\bone.h
+; File c:\github\framework\reference\headers\bone.h
 ;	COMDAT ?GetCombinedMatrix@CBone@Engine@@QEBA?AUXMFLOAT4X4@DirectX@@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -17451,7 +17451,7 @@ $LN3:
 ?GetCombinedMatrix@CBone@Engine@@QEBA?AUXMFLOAT4X4@DirectX@@XZ ENDP ; Engine::CBone::GetCombinedMatrix
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\bone.h
+; File c:\github\framework\reference\headers\bone.h
 ;	COMDAT ?GetOffSetMatrix@CBone@Engine@@QEBA?AUXMFLOAT4X4@DirectX@@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -17494,7 +17494,7 @@ $LN3:
 ?GetOffSetMatrix@CBone@Engine@@QEBA?AUXMFLOAT4X4@DirectX@@XZ ENDP ; Engine::CBone::GetOffSetMatrix
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?SetWinMotion@CApplicationManager@Client@@QEAAX_N@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -17530,7 +17530,7 @@ $LN3:
 ?SetWinMotion@CApplicationManager@Client@@QEAAX_N@Z ENDP ; Client::CApplicationManager::SetWinMotion
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -17566,7 +17566,7 @@ $LN3:
 ?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z ENDP ; Client::CApplicationManager::IsLevelFinish
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?SetPlayerPrevPosition@CApplicationManager@Client@@QEAAXUXMFLOAT3@DirectX@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -17604,7 +17604,7 @@ $LN3:
 ?SetPlayerPrevPosition@CApplicationManager@Client@@QEAAXUXMFLOAT3@DirectX@@@Z ENDP ; Client::CApplicationManager::SetPlayerPrevPosition
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?IsFreeze@CApplicationManager@Client@@QEBA_NXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -17636,7 +17636,7 @@ $LN3:
 ?IsFreeze@CApplicationManager@Client@@QEBA_NXZ ENDP	; Client::CApplicationManager::IsFreeze
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?SetFreeze@CApplicationManager@Client@@QEAAX_N@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -17672,7 +17672,7 @@ $LN3:
 ?SetFreeze@CApplicationManager@Client@@QEAAX_N@Z ENDP	; Client::CApplicationManager::SetFreeze
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?SetFreezeReady@CApplicationManager@Client@@QEAAX_N@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -17708,7 +17708,7 @@ $LN3:
 ?SetFreezeReady@CApplicationManager@Client@@QEAAX_N@Z ENDP ; Client::CApplicationManager::SetFreezeReady
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+; File c:\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?IsFreezeReady@CApplicationManager@Client@@QEBA_NXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -22681,7 +22681,7 @@ $LN3:
 ??0?$allocator@U?$_List_node@PEAVCEnemy@Client@@PEAX@std@@@std@@QEAA@XZ ENDP ; std::allocator<std::_List_node<Client::CEnemy * __ptr64,void * __ptr64> >::allocator<std::_List_node<Client::CEnemy * __ptr64,void * __ptr64> >
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?OnCollisionExit@CCharacter@Client@@UEAAXPEAVCCollider@Engine@@0@Z
 _TEXT	SEGMENT
 pEnemy$1 = 8
@@ -22893,7 +22893,7 @@ $LN7@OnCollisio:
 ?OnCollisionExit@CCharacter@Client@@UEAAXPEAVCCollider@Engine@@0@Z ENDP ; Client::CCharacter::OnCollisionExit
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?OnCollisionStay@CCharacter@Client@@UEAAXPEAVCCollider@Engine@@0@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -23549,7 +23549,7 @@ $LN8@OnCollisio:
 ?OnCollisionStay@CCharacter@Client@@UEAAXPEAVCCollider@Engine@@0@Z ENDP ; Client::CCharacter::OnCollisionStay
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?OnCollisionEnter@CCharacter@Client@@UEAAXPEAVCCollider@Engine@@0@Z
 _TEXT	SEGMENT
 pEnemy$4 = 8
@@ -24177,7 +24177,7 @@ $LN15@OnCollisio:
 ?OnCollisionEnter@CCharacter@Client@@UEAAXPEAVCCollider@Engine@@0@Z ENDP ; Client::CCharacter::OnCollisionEnter
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Free@CCharacter@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -24335,7 +24335,7 @@ $LN3:
 ?Free@CCharacter@Client@@UEAAXXZ ENDP			; Client::CCharacter::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Clone@CCharacter@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -24380,7 +24380,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EH@OHIAHGL@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DB@KEEMDFNK@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 e8 02 00 00	 mov	 ecx, 744		; 000002e8H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -24483,7 +24483,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CCharacter@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EH@OHIAHGL@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DB@KEEMDFNK@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -24516,7 +24516,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CCharacter@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EH@OHIAHGL@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DB@KEEMDFNK@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -24528,7 +24528,7 @@ pArg$ = 376
 ?dtor$0@?0??Clone@CCharacter@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CCharacter::Clone'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Create@CCharacter@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -24573,7 +24573,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EH@OHIAHGL@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DB@KEEMDFNK@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 e8 02 00 00	 mov	 ecx, 744		; 000002e8H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -24676,7 +24676,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CCharacter@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EH@OHIAHGL@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DB@KEEMDFNK@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -24709,7 +24709,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CCharacter@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EH@OHIAHGL@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DB@KEEMDFNK@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -24721,7 +24721,7 @@ pContext$ = 376
 ?dtor$0@?0??Create@CCharacter@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CCharacter::Create'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?SavePrevPos@CCharacter@Client@@QEAAXXZ
 _TEXT	SEGMENT
 $T1 = 196
@@ -24815,7 +24815,7 @@ $LN2@SavePrevPo:
 ?SavePrevPos@CCharacter@Client@@QEAAXXZ ENDP		; Client::CCharacter::SavePrevPos
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?GetDamage@CCharacter@Client@@QEAAMXZ
 _TEXT	SEGMENT
 fDamage$ = 4
@@ -24999,7 +24999,7 @@ $LN5@GetDamage:
 ?GetDamage@CCharacter@Client@@QEAAMXZ ENDP		; Client::CCharacter::GetDamage
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?RenderEnemyHealth@CCharacter@Client@@QEAAXN@Z
 _TEXT	SEGMENT
 Health$4 = 8
@@ -25184,7 +25184,7 @@ $LN5@RenderEnem:
 ?RenderEnemyHealth@CCharacter@Client@@QEAAXN@Z ENDP	; Client::CCharacter::RenderEnemyHealth
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Freeze@CCharacter@Client@@QEAANN@Z
 _TEXT	SEGMENT
 CurTimeDelta$4 = 16
@@ -25522,7 +25522,7 @@ $LN1@Freeze:
 ?Freeze@CCharacter@Client@@QEAANN@Z ENDP		; Client::CCharacter::Freeze
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?RecvDamage@CCharacter@Client@@QEAAXM@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -25623,7 +25623,7 @@ $LN1@RecvDamage:
 ?RecvDamage@CCharacter@Client@@QEAAXM@Z ENDP		; Client::CCharacter::RecvDamage
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Hit@CCharacter@Client@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -25913,7 +25913,7 @@ $LN1@Hit:
 ?Hit@CCharacter@Client@@QEAAXXZ ENDP			; Client::CCharacter::Hit
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?HoldEnemy@CCharacter@Client@@QEAAXXZ
 _TEXT	SEGMENT
 pTargetTransform$ = 8
@@ -26108,7 +26108,7 @@ $LN1@HoldEnemy:
 ?HoldEnemy@CCharacter@Client@@QEAAXXZ ENDP		; Client::CCharacter::HoldEnemy
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?LockOnCameraPosition@CCharacter@Client@@QEAA?AUXMFLOAT3@DirectX@@XZ
 _TEXT	SEGMENT
 vLockPosition$ = 8
@@ -26310,7 +26310,7 @@ $LN1@LockOnCame:
 ?LockOnCameraPosition@CCharacter@Client@@QEAA?AUXMFLOAT3@DirectX@@XZ ENDP ; Client::CCharacter::LockOnCameraPosition
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?NearTargetChange@CCharacter@Client@@QEAAXXZ
 _TEXT	SEGMENT
 i$ = 4
@@ -26925,7 +26925,7 @@ this$ = 608
 ?dtor$2@?0??NearTargetChange@CCharacter@Client@@QEAAXXZ@4HA ENDP ; `Client::CCharacter::NearTargetChange'::`1'::dtor$2
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?FindNearTarget@CCharacter@Client@@QEAAXXZ
 _TEXT	SEGMENT
 fNear$ = 4
@@ -27295,7 +27295,7 @@ this$ = 704
 ?dtor$1@?0??FindNearTarget@CCharacter@Client@@QEAAXXZ@4HA ENDP ; `Client::CCharacter::FindNearTarget'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?DeleteTargetFromList@CCharacter@Client@@QEAAXPEAVCGameObject@Engine@@@Z
 _TEXT	SEGMENT
 iter$4 = 8
@@ -27693,7 +27693,7 @@ pObject$ = 552
 ?dtor$3@?0??DeleteTargetFromList@CCharacter@Client@@QEAAXPEAVCGameObject@Engine@@@Z@4HA ENDP ; `Client::CCharacter::DeleteTargetFromList'::`1'::dtor$3
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?FindTargetFromList@CCharacter@Client@@QEAA_NPEAVCGameObject@Engine@@@Z
 _TEXT	SEGMENT
 ret$ = 4
@@ -27941,7 +27941,7 @@ pObject$ = 488
 ?dtor$1@?0??FindTargetFromList@CCharacter@Client@@QEAA_NPEAVCGameObject@Engine@@@Z@4HA ENDP ; `Client::CCharacter::FindTargetFromList'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?TargetListDeastroyCehck@CCharacter@Client@@QEAAXXZ
 _TEXT	SEGMENT
 iter$4 = 8
@@ -28372,7 +28372,7 @@ this$ = 544
 ?dtor$3@?0??TargetListDeastroyCehck@CCharacter@Client@@QEAAXXZ@4HA ENDP ; `Client::CCharacter::TargetListDeastroyCehck'::`1'::dtor$3
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?IsCameraLockOn@CCharacter@Client@@QEAA_NXZ
 _TEXT	SEGMENT
 pBoss$ = 8
@@ -28453,7 +28453,7 @@ $LN1@IsCameraLo:
 ?IsCameraLockOn@CCharacter@Client@@QEAA_NXZ ENDP	; Client::CCharacter::IsCameraLockOn
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?SkillColliderControl@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -29014,7 +29014,7 @@ $LN17@SkillColli:
 ?SkillColliderControl@CCharacter@Client@@AEAAXN@Z ENDP	; Client::CCharacter::SkillColliderControl
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?SkillC@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 $T1 = 208
@@ -29163,7 +29163,7 @@ $LN1@SkillC:
 ?SkillC@CCharacter@Client@@AEAAXN@Z ENDP		; Client::CCharacter::SkillC
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?SkillB@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -29273,7 +29273,7 @@ $LN1@SkillB:
 ?SkillB@CCharacter@Client@@AEAAXN@Z ENDP		; Client::CCharacter::SkillB
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?SkillA@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -29382,7 +29382,7 @@ $LN1@SkillA:
 ?SkillA@CCharacter@Client@@AEAAXN@Z ENDP		; Client::CCharacter::SkillA
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?PositionHold@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -29439,7 +29439,7 @@ $LN3:
 ?PositionHold@CCharacter@Client@@AEAAXN@Z ENDP		; Client::CCharacter::PositionHold
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Attack@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -30265,7 +30265,7 @@ $LN1@Attack:
 ?Attack@CCharacter@Client@@AEAAXN@Z ENDP		; Client::CCharacter::Attack
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?MoveStop@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -30360,7 +30360,7 @@ $LN2@MoveStop:
 ?MoveStop@CCharacter@Client@@AEAAXN@Z ENDP		; Client::CCharacter::MoveStop
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?InputMove@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -30890,7 +30890,7 @@ $LN1@InputMove:
 ?InputMove@CCharacter@Client@@AEAAXN@Z ENDP		; Client::CCharacter::InputMove
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Idle@CCharacter@Client@@AEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -30931,7 +30931,7 @@ $LN3:
 ?Idle@CCharacter@Client@@AEAAXXZ ENDP			; Client::CCharacter::Idle
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Dash@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -32276,7 +32276,7 @@ $LN1@Dash:
 ?Dash@CCharacter@Client@@AEAAXN@Z ENDP			; Client::CCharacter::Dash
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?KeyInput@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -33969,7 +33969,7 @@ TimeDelta$ = 1256
 ?dtor$1@?0??KeyInput@CCharacter@Client@@AEAAXN@Z@4HA ENDP ; `Client::CCharacter::KeyInput'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Movement@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -34133,7 +34133,7 @@ $LN3@Movement:
 ?Movement@CCharacter@Client@@AEAAXN@Z ENDP		; Client::CCharacter::Movement
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?LeftRotation@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -34396,7 +34396,7 @@ $LN4@LeftRotati:
 ?LeftRotation@CCharacter@Client@@AEAAXN@Z ENDP		; Client::CCharacter::LeftRotation
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?RightRotation@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -34666,7 +34666,7 @@ $LN4@RightRotat:
 ?RightRotation@CCharacter@Client@@AEAAXN@Z ENDP		; Client::CCharacter::RightRotation
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?BackwardRotaion@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -34936,7 +34936,7 @@ $LN4@BackwardRo:
 ?BackwardRotaion@CCharacter@Client@@AEAAXN@Z ENDP	; Client::CCharacter::BackwardRotaion
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?ForwardRotaion@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -35202,7 +35202,7 @@ $LN4@ForwardRot:
 ?ForwardRotaion@CCharacter@Client@@AEAAXN@Z ENDP	; Client::CCharacter::ForwardRotaion
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?CameraSocketUpdate@CCharacter@Client@@AEAAXXZ
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -35467,7 +35467,7 @@ $LN3@CameraSock:
 ?CameraSocketUpdate@CCharacter@Client@@AEAAXXZ ENDP	; Client::CCharacter::CameraSocketUpdate
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?AnimationControl@CCharacter@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -35853,7 +35853,7 @@ $LN3@AnimationC:
 ?AnimationControl@CCharacter@Client@@AEAAXN@Z ENDP	; Client::CCharacter::AnimationControl
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?SetAnimation@CCharacter@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -35907,7 +35907,7 @@ $LN3:
 ?SetAnimation@CCharacter@Client@@AEAAXW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ENDP ; Client::CCharacter::SetAnimation
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?FinishCheckPlay@CCharacter@Client@@AEAA_NW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -35979,7 +35979,7 @@ $LN1@FinishChec:
 ?FinishCheckPlay@CCharacter@Client@@AEAA_NW4CLIP@12@W4TYPE@CAnimation@Engine@@@Z ENDP ; Client::CCharacter::FinishCheckPlay
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z
 _TEXT	SEGMENT
 tv67 = 192
@@ -36033,7 +36033,7 @@ $LN4@AnimationC:
 ?AnimationCompare@CCharacter@Client@@AEAA_NW4CLIP@12@@Z ENDP ; Client::CCharacter::AnimationCompare
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?SetupShaderResources@CCharacter@Client@@AEAAJXZ
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -36321,7 +36321,7 @@ $LN1@SetupShade:
 ?SetupShaderResources@CCharacter@Client@@AEAAJXZ ENDP	; Client::CCharacter::SetupShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?AddComponents@CCharacter@Client@@AEAAJXZ
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -37280,7 +37280,7 @@ $LN1@AddCompone:
 ?AddComponents@CCharacter@Client@@AEAAJXZ ENDP		; Client::CCharacter::AddComponents
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?AddWeapon@CCharacter@Client@@AEAAJXZ
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -37412,7 +37412,7 @@ $LN1@AddWeapon:
 ?AddWeapon@CCharacter@Client@@AEAAJXZ ENDP		; Client::CCharacter::AddWeapon
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?AddEvolutionGage@CCharacter@Client@@QEAAXUtagSkillInfo@CSkillBase@2@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -37719,7 +37719,7 @@ $LN1@AddEvoluti:
 ?AddEvolutionGage@CCharacter@Client@@QEAAXUtagSkillInfo@CSkillBase@2@@Z ENDP ; Client::CCharacter::AddEvolutionGage
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 ;	COMDAT ?AddCombo@CCharacter@Client@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -37757,7 +37757,7 @@ $LN3:
 ?AddCombo@CCharacter@Client@@QEAAXXZ ENDP		; Client::CCharacter::AddCombo
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 ;	COMDAT ?ResetComboTime@CCharacter@Client@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -37791,7 +37791,7 @@ $LN3:
 ?ResetComboTime@CCharacter@Client@@QEAAXXZ ENDP		; Client::CCharacter::ResetComboTime
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?LookPos@CCharacter@Client@@QEAAXT__m128@@@Z
 _TEXT	SEGMENT
 $T1 = 208
@@ -37880,7 +37880,7 @@ $LN2@LookPos:
 ?LookPos@CCharacter@Client@@QEAAXT__m128@@@Z ENDP	; Client::CCharacter::LookPos
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?GetBone@CCharacter@Client@@QEBAPEBVCBone@Engine@@PEBD@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -37925,7 +37925,7 @@ $LN3:
 ?GetBone@CCharacter@Client@@QEBAPEBVCBone@Engine@@PEBD@Z ENDP ; Client::CCharacter::GetBone
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?GetTargetWindowPos@CCharacter@Client@@QEAA?AUXMFLOAT2@DirectX@@XZ
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -38148,7 +38148,7 @@ $LN1@GetTargetW:
 ?GetTargetWindowPos@CCharacter@Client@@QEAA?AUXMFLOAT2@DirectX@@XZ ENDP ; Client::CCharacter::GetTargetWindowPos
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?GetTargetMatrix@CCharacter@Client@@QEAA?BUXMMATRIX@DirectX@@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -38218,7 +38218,7 @@ $LN1@GetTargetM:
 ?GetTargetMatrix@CCharacter@Client@@QEAA?BUXMMATRIX@DirectX@@XZ ENDP ; Client::CCharacter::GetTargetMatrix
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?SetPosition@CCharacter@Client@@QEAAXUXMFLOAT3@DirectX@@@Z
 _TEXT	SEGMENT
 $T1 = 208
@@ -38282,7 +38282,7 @@ $LN3:
 ?SetPosition@CCharacter@Client@@QEAAXUXMFLOAT3@DirectX@@@Z ENDP ; Client::CCharacter::SetPosition
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?RenderGUI@CCharacter@Client@@UEAAXXZ
 _TEXT	SEGMENT
 vPos$ = 8
@@ -38375,7 +38375,7 @@ $LN3:
 ?RenderGUI@CCharacter@Client@@UEAAXXZ ENDP		; Client::CCharacter::RenderGUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Render@CCharacter@Client@@UEAAJXZ
 _TEXT	SEGMENT
 MeshCount$ = 4
@@ -38569,7 +38569,7 @@ $LN1@Render:
 ?Render@CCharacter@Client@@UEAAJXZ ENDP			; Client::CCharacter::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?LateTick@CCharacter@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 transMatrix$ = 16
@@ -39227,7 +39227,7 @@ $LN2@LateTick:
 ?LateTick@CCharacter@Client@@UEAAXN@Z ENDP		; Client::CCharacter::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Tick@CCharacter@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -40058,7 +40058,7 @@ $LN13@Tick:
 ?Tick@CCharacter@Client@@UEAAXN@Z ENDP			; Client::CCharacter::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Initialize@CCharacter@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 SkillInfo$ = 8
@@ -40532,7 +40532,7 @@ $LN1@Initialize:
 ?Initialize@CCharacter@Client@@UEAAJPEAX@Z ENDP		; Client::CCharacter::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?Initialize_Prototype@CCharacter@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -40618,7 +40618,7 @@ $LN1@Initialize:
 ?Initialize_Prototype@CCharacter@Client@@UEAAJXZ ENDP	; Client::CCharacter::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ??1CCharacter@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -40663,19 +40663,19 @@ $LN3:
 ??1CCharacter@Client@@EEAA@XZ ENDP			; Client::CCharacter::~CCharacter
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
-; File c:\users\arcco\documents\github\framework\client\public\character.h
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
-; File c:\users\arcco\documents\github\framework\client\public\character.h
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
-; File c:\users\arcco\documents\github\framework\client\public\character.h
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
-; File c:\users\arcco\documents\github\framework\client\public\character.h
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
-; File c:\users\arcco\documents\github\framework\client\public\character.h
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
-; File c:\users\arcco\documents\github\framework\client\public\character.h
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
+; File c:\github\framework\client\public\character.h
+; File c:\github\framework\client\private\character.cpp
+; File c:\github\framework\client\public\character.h
+; File c:\github\framework\client\private\character.cpp
+; File c:\github\framework\client\public\character.h
+; File c:\github\framework\client\private\character.cpp
+; File c:\github\framework\client\public\character.h
+; File c:\github\framework\client\private\character.cpp
+; File c:\github\framework\client\public\character.h
+; File c:\github\framework\client\private\character.cpp
+; File c:\github\framework\client\public\character.h
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ??0CCharacter@Client@@AEAA@AEBV01@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -40757,7 +40757,7 @@ $LN6:
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CCharacter@Client@@6BIOnCollisionExit@Engine@@@
   000d5	48 89 88 88 00
 	00 00		 mov	 QWORD PTR [rax+136], rcx
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 
 ; 251  : 	CRenderer* mRenderer = nullptr;
 
@@ -40869,7 +40869,7 @@ $LN6:
   001bb	48 c7 80 f8 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+248], 0
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 
 ; 29   : 	, ANIM_DESC(rhs.ANIM_DESC)
 
@@ -40881,7 +40881,7 @@ $LN6:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   001db	48 89 81 00 01
 	00 00		 mov	 QWORD PTR [rcx+256], rax
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 
 ; 275  : 	CTransform* mCameraSocketTransform = nullptr;
 
@@ -41088,7 +41088,7 @@ $LN6:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00391	c7 80 70 01 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+368], 0
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 
 ; 30   : {
 
@@ -41099,7 +41099,7 @@ $LN6:
   003a8	48 8b c8	 mov	 rcx, rax
   003ab	e8 00 00 00 00	 call	 ??0?$list@PEAVCEnemy@Client@@V?$allocator@PEAVCEnemy@Client@@@std@@@std@@QEAA@XZ ; std::list<Client::CEnemy * __ptr64,std::allocator<Client::CEnemy * __ptr64> >::list<Client::CEnemy * __ptr64,std::allocator<Client::CEnemy * __ptr64> >
   003b0	90		 npad	 1
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 
 ; 311  : 	CEnemy* m_pNearEnemy = nullptr;
 
@@ -41157,7 +41157,7 @@ $LN6:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00420	c6 80 a8 01 00
 	00 00		 mov	 BYTE PTR [rax+424], 0
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 
 ; 30   : {
 
@@ -41168,7 +41168,7 @@ $LN6:
   00434	48 8b c8	 mov	 rcx, rax
   00437	e8 00 00 00 00	 call	 ??0?$vector@UtagOverlapInfo@CCharacter@Client@@V?$allocator@UtagOverlapInfo@CCharacter@Client@@@std@@@std@@QEAA@XZ ; std::vector<Client::CCharacter::tagOverlapInfo,std::allocator<Client::CCharacter::tagOverlapInfo> >::vector<Client::CCharacter::tagOverlapInfo,std::allocator<Client::CCharacter::tagOverlapInfo> >
   0043c	90		 npad	 1
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 
 ; 325  : 	CWall* m_pNearWall = nullptr;
 
@@ -41192,7 +41192,7 @@ $LN6:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00468	c6 80 dc 01 00
 	00 00		 mov	 BYTE PTR [rax+476], 0
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 
 ; 30   : {
 
@@ -41202,7 +41202,7 @@ $LN6:
 	00		 add	 rax, 480		; 000001e0H
   0047c	48 8b c8	 mov	 rcx, rax
   0047f	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@XZ ; DirectX::XMFLOAT3::XMFLOAT3
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 
 ; 331  : 	_bool m_bEvolution = false;
 
@@ -41226,7 +41226,7 @@ $LN6:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004a7	c6 80 ee 01 00
 	00 00		 mov	 BYTE PTR [rax+494], 0
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 
 ; 30   : {
 
@@ -41236,7 +41236,7 @@ $LN6:
 	00		 add	 rax, 496		; 000001f0H
   004bb	48 8b c8	 mov	 rcx, rax
   004be	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 
 ; 337  : 	_float m_fActiveDuration = 0.0f;
 
@@ -41578,7 +41578,7 @@ $LN6:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00794	c6 80 e0 02 00
 	00 00		 mov	 BYTE PTR [rax+736], 0
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 
 ; 31   : }
 
@@ -41725,17 +41725,17 @@ rhs$ = 264
 ?dtor$2@?0???0CCharacter@Client@@AEAA@AEBV01@@Z@4HA ENDP ; `Client::CCharacter::CCharacter'::`1'::dtor$2
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
-; File c:\users\arcco\documents\github\framework\client\public\character.h
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
-; File c:\users\arcco\documents\github\framework\client\public\character.h
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
-; File c:\users\arcco\documents\github\framework\client\public\character.h
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
-; File c:\users\arcco\documents\github\framework\client\public\character.h
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
-; File c:\users\arcco\documents\github\framework\client\public\character.h
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
+; File c:\github\framework\client\public\character.h
+; File c:\github\framework\client\private\character.cpp
+; File c:\github\framework\client\public\character.h
+; File c:\github\framework\client\private\character.cpp
+; File c:\github\framework\client\public\character.h
+; File c:\github\framework\client\private\character.cpp
+; File c:\github\framework\client\public\character.h
+; File c:\github\framework\client\private\character.cpp
+; File c:\github\framework\client\public\character.h
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ??0CCharacter@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -41821,7 +41821,7 @@ $LN6:
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CCharacter@Client@@6BIOnCollisionExit@Engine@@@
   000e1	48 89 88 88 00
 	00 00		 mov	 QWORD PTR [rax+136], rcx
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 
 ; 251  : 	CRenderer* mRenderer = nullptr;
 
@@ -42143,7 +42143,7 @@ $LN6:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00381	c7 80 70 01 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+368], 0
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 
 ; 24   : {
 
@@ -42154,7 +42154,7 @@ $LN6:
   00398	48 8b c8	 mov	 rcx, rax
   0039b	e8 00 00 00 00	 call	 ??0?$list@PEAVCEnemy@Client@@V?$allocator@PEAVCEnemy@Client@@@std@@@std@@QEAA@XZ ; std::list<Client::CEnemy * __ptr64,std::allocator<Client::CEnemy * __ptr64> >::list<Client::CEnemy * __ptr64,std::allocator<Client::CEnemy * __ptr64> >
   003a0	90		 npad	 1
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 
 ; 311  : 	CEnemy* m_pNearEnemy = nullptr;
 
@@ -42212,7 +42212,7 @@ $LN6:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00410	c6 80 a8 01 00
 	00 00		 mov	 BYTE PTR [rax+424], 0
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 
 ; 24   : {
 
@@ -42223,7 +42223,7 @@ $LN6:
   00424	48 8b c8	 mov	 rcx, rax
   00427	e8 00 00 00 00	 call	 ??0?$vector@UtagOverlapInfo@CCharacter@Client@@V?$allocator@UtagOverlapInfo@CCharacter@Client@@@std@@@std@@QEAA@XZ ; std::vector<Client::CCharacter::tagOverlapInfo,std::allocator<Client::CCharacter::tagOverlapInfo> >::vector<Client::CCharacter::tagOverlapInfo,std::allocator<Client::CCharacter::tagOverlapInfo> >
   0042c	90		 npad	 1
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 
 ; 325  : 	CWall* m_pNearWall = nullptr;
 
@@ -42247,7 +42247,7 @@ $LN6:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00458	c6 80 dc 01 00
 	00 00		 mov	 BYTE PTR [rax+476], 0
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 
 ; 24   : {
 
@@ -42257,7 +42257,7 @@ $LN6:
 	00		 add	 rax, 480		; 000001e0H
   0046c	48 8b c8	 mov	 rcx, rax
   0046f	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@XZ ; DirectX::XMFLOAT3::XMFLOAT3
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 
 ; 331  : 	_bool m_bEvolution = false;
 
@@ -42281,7 +42281,7 @@ $LN6:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00497	c6 80 ee 01 00
 	00 00		 mov	 BYTE PTR [rax+494], 0
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 
 ; 24   : {
 
@@ -42291,7 +42291,7 @@ $LN6:
 	00		 add	 rax, 496		; 000001f0H
   004ab	48 8b c8	 mov	 rcx, rax
   004ae	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 
 ; 337  : 	_float m_fActiveDuration = 0.0f;
 
@@ -42633,7 +42633,7 @@ $LN6:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00784	c6 80 e0 02 00
 	00 00		 mov	 BYTE PTR [rax+736], 0
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 
 ; 25   : }
 
@@ -52951,7 +52951,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -52980,7 +52980,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\character.cpp
+; File c:\github\framework\client\private\character.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

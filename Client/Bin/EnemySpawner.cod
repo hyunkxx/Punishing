@@ -2381,7 +2381,7 @@ PUBLIC	??_C@_1CI@MLEFGO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?
 PUBLIC	??_C@_1BK@BKCENIHA@?$AAc?$AAo?$AAm?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CO@HJBGOIAH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAo?$AAb?$AAb?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Create@CEnemySpawner@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CEnemySpawner::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0EK@NIKABINC@c?3?2users?2arcco?2documents?2github?2@ ; `string'
+PUBLIC	??_C@_0DE@NAPICMJL@c?3?2github?2framework?2client?2priva@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1EC@PAPCHKFE@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAE?$AAn?$AAe?$AAm?$AAy?$AAS?$AAp?$AAa?$AAw?$AAn?$AAe?$AAr@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CEnemySpawner@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CEnemySpawner::Clone'::`1'::__LINE__Var
@@ -3444,11 +3444,10 @@ CONST	SEGMENT
 	DB	'e', 00H, 's', 00H, 's', 00H, 'a', 00H, 'g', 00H, 'e', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0EK@NIKABINC@c?3?2users?2arcco?2documents?2github?2@
+;	COMDAT ??_C@_0DE@NAPICMJL@c?3?2github?2framework?2client?2priva@
 CONST	SEGMENT
-??_C@_0EK@NIKABINC@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
-	DB	'rcco\documents\github\framework\client\private\enemyspawner.c'
-	DB	'pp', 00H					; `string'
+??_C@_0DE@NAPICMJL@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
+	DB	'ramework\client\private\enemyspawner.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CEnemySpawner@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -4739,7 +4738,7 @@ $LN3:
 ?pointer_to@?$pointer_traits@PEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@SAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@2@AEAU32@@Z ENDP ; std::pointer_traits<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> * __ptr64>::pointer_to
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -4818,7 +4817,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ENDP ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCSphereCollider@Engine@@@Engine@@YAKAEAPEAVCSphereCollider@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -4897,7 +4896,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCSphereCollider@Engine@@@Engine@@YAKAEAPEAVCSphereCollider@0@@Z ENDP ; Engine::Safe_Release<Engine::CSphereCollider * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCGameObject@Engine@@@Engine@@YAKAEAPEAVCGameObject@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -4976,7 +4975,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCGameObject@Engine@@@Engine@@YAKAEAPEAVCGameObject@0@@Z ENDP ; Engine::Safe_Release<Engine::CGameObject * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
+; File c:\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCEnemySpawner@Client@@@Engine@@YAKAEAPEAVCEnemySpawner@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -6014,7 +6013,7 @@ $LN4:
 ??0?$_Iterator012@Ubidirectional_iterator_tag@std@@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@2@_JPEBU32@AEBU32@U_Iterator_base12@2@@std@@QEAA@XZ ENDP ; std::_Iterator012<std::bidirectional_iterator_tag,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64>,__int64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const * __ptr64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const & __ptr64,std::_Iterator_base12>::_Iterator012<std::bidirectional_iterator_tag,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64>,__int64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const * __ptr64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const & __ptr64,std::_Iterator_base12>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
+; File c:\github\framework\client\public\playercamera.h
 ;	COMDAT ?LevelEnd@CPlayerCamera@Client@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6051,7 +6050,7 @@ $LN3:
 ?LevelEnd@CPlayerCamera@Client@@QEAAXXZ ENDP		; Client::CPlayerCamera::LevelEnd
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\public\character.h
+; File c:\github\framework\client\public\character.h
 ;	COMDAT ?GetBodyCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6698,7 +6697,7 @@ $LN4@CEnemySpaw:
 ??0CEnemySpawner@Client@@QEAA@AEBV01@@Z ENDP		; Client::CEnemySpawner::CEnemySpawner
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?Free@CEnemySpawner@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6756,7 +6755,7 @@ $LN3:
 ?Free@CEnemySpawner@Client@@UEAAXXZ ENDP		; Client::CEnemySpawner::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?Clone@CEnemySpawner@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -6801,7 +6800,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@NIKABINC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@NAPICMJL@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 a8 00 00 00	 mov	 ecx, 168		; 000000a8H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -6906,7 +6905,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CEnemySpawner@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@NIKABINC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@NAPICMJL@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -6939,7 +6938,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CEnemySpawner@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@NIKABINC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@NAPICMJL@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -6951,7 +6950,7 @@ pArg$ = 376
 ?dtor$0@?0??Clone@CEnemySpawner@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CEnemySpawner::Clone'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?Create@CEnemySpawner@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -6996,7 +6995,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@NIKABINC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@NAPICMJL@c?3?2github?2framework?2client?2priva@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 a8 00 00 00	 mov	 ecx, 168		; 000000a8H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -7099,7 +7098,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CEnemySpawner@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@NIKABINC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@NAPICMJL@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -7132,7 +7131,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CEnemySpawner@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@NIKABINC@c?3?2users?2arcco?2documents?2github?2@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@NAPICMJL@c?3?2github?2framework?2client?2priva@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -7144,7 +7143,7 @@ pContext$ = 376
 ?dtor$0@?0??Create@CEnemySpawner@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CEnemySpawner::Create'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?OnCollisionEnter@CEnemySpawner@Client@@EEAAXPEAVCCollider@Engine@@0@Z
 _TEXT	SEGMENT
 pPlayer$ = 8
@@ -7632,7 +7631,7 @@ dest$ = 1184
 ?dtor$1@?0??OnCollisionEnter@CEnemySpawner@Client@@EEAAXPEAVCCollider@Engine@@0@Z@4HA ENDP ; `Client::CEnemySpawner::OnCollisionEnter'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?AddComponents@CEnemySpawner@Client@@AEAAJXZ
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -7844,7 +7843,7 @@ $LN1@AddCompone:
 ?AddComponents@CEnemySpawner@Client@@AEAAJXZ ENDP	; Client::CEnemySpawner::AddComponents
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?SetupSpawner@CEnemySpawner@Client@@QEAAXUXMFLOAT3@DirectX@@M@Z
 _TEXT	SEGMENT
 $T1 = 208
@@ -7904,7 +7903,7 @@ $LN3:
 ?SetupSpawner@CEnemySpawner@Client@@QEAAXUXMFLOAT3@DirectX@@M@Z ENDP ; Client::CEnemySpawner::SetupSpawner
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?RenderGUI@CEnemySpawner@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -7936,7 +7935,7 @@ $LN3:
 ?RenderGUI@CEnemySpawner@Client@@UEAAXXZ ENDP		; Client::CEnemySpawner::RenderGUI
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?Render@CEnemySpawner@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -7972,7 +7971,7 @@ $LN3:
 ?Render@CEnemySpawner@Client@@UEAAJXZ ENDP		; Client::CEnemySpawner::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?LateTick@CEnemySpawner@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -8077,7 +8076,7 @@ $LN3:
 ?LateTick@CEnemySpawner@Client@@UEAAXN@Z ENDP		; Client::CEnemySpawner::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?Tick@CEnemySpawner@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -9662,7 +9661,7 @@ TimeDelta$ = 2552
 ?dtor$5@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA ENDP ; `Client::CEnemySpawner::Tick'::`1'::dtor$5
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?Initialize@CEnemySpawner@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -9739,7 +9738,7 @@ $LN1@Initialize:
 ?Initialize@CEnemySpawner@Client@@UEAAJPEAX@Z ENDP	; Client::CEnemySpawner::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?Initialize_Prototype@CEnemySpawner@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -9775,7 +9774,7 @@ $LN3:
 ?Initialize_Prototype@CEnemySpawner@Client@@UEAAJXZ ENDP ; Client::CEnemySpawner::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ??1CEnemySpawner@Client@@MEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -9808,9 +9807,9 @@ $LN3:
 ??1CEnemySpawner@Client@@MEAA@XZ ENDP			; Client::CEnemySpawner::~CEnemySpawner
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
-; File c:\users\arcco\documents\github\framework\client\public\enemyspawner.h
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\public\enemyspawner.h
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ??0CEnemySpawner@Client@@IEAA@AEBVCGameObject@Engine@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -9861,7 +9860,7 @@ $LN4:
   0006f	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CEnemySpawner@Client@@6BIOnCollisionEnter@Engine@@@
   00076	48 89 48 78	 mov	 QWORD PTR [rax+120], rcx
-; File c:\users\arcco\documents\github\framework\client\public\enemyspawner.h
+; File c:\github\framework\client\public\enemyspawner.h
 
 ; 51   : 	CTransform* m_pTransform = nullptr;
 
@@ -9920,7 +9919,7 @@ $LN4:
   000ec	48 c7 80 a0 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+160], 0
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 
 ; 19   : }
 
@@ -9934,9 +9933,9 @@ $LN4:
 ??0CEnemySpawner@Client@@IEAA@AEBVCGameObject@Engine@@@Z ENDP ; Client::CEnemySpawner::CEnemySpawner
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
-; File c:\users\arcco\documents\github\framework\client\public\enemyspawner.h
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\public\enemyspawner.h
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ??0CEnemySpawner@Client@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -9991,7 +9990,7 @@ $LN4:
   0007b	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CEnemySpawner@Client@@6BIOnCollisionEnter@Engine@@@
   00082	48 89 48 78	 mov	 QWORD PTR [rax+120], rcx
-; File c:\users\arcco\documents\github\framework\client\public\enemyspawner.h
+; File c:\github\framework\client\public\enemyspawner.h
 
 ; 51   : 	CTransform* m_pTransform = nullptr;
 
@@ -10050,7 +10049,7 @@ $LN4:
   000f8	48 c7 80 a0 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+160], 0
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 
 ; 14   : }
 
@@ -11886,7 +11885,7 @@ $LN3:
 ??0_Iterator_base12@std@@QEAA@XZ ENDP			; std::_Iterator_base12::_Iterator_base12
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -11915,7 +11914,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
+; File c:\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

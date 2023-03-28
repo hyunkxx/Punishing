@@ -1,10 +1,12 @@
 #pragma once
 
 #include "GameObject.h"
+#include "Collider.h"
 
 BEGIN(Engine)
 class CRenderer;
 class CTransform;
+class CSphereCollider;
 class CModel;
 class CShader;
 class CBone;
@@ -13,7 +15,9 @@ END
 
 BEGIN(Client)
 
-class CThorn final : public CGameObject
+class CThorn final 
+	: public CGameObject
+	, public ISameObjectNoDetection
 {
 public:
 	//가시형태, 미사일형태
@@ -70,6 +74,8 @@ public:
 	virtual void Free() override;
 
 private:
+	CSphereCollider* m_pCollider = nullptr;
+
 	TYPE m_eThornType = THORN;
 	CRenderer* m_pRenderer = nullptr;
 	CTransform* m_pTransform = nullptr;
@@ -95,6 +101,9 @@ private:
 	//모델의 Up방향으로 움직임 라이프 타임 5초
 	_bool m_bMove = false;
 	_float m_fMoveAcc = 0.f;
+
+	// ISameObjectNoDetection을(를) 통해 상속됨
+	virtual void SameObjectNoDetection() override;
 };
 
 END

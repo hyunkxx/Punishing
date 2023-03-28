@@ -56,7 +56,7 @@ void CCollisionManager::PhysicsUpdate()
 			ISameObjectNoDetection* dest = dynamic_cast<ISameObjectNoDetection*>(destObject);
 			if (src && dest)
 			{
-				if (srcObject->GetID() && destObject->GetID())
+				if (srcObject->GetID() == destObject->GetID())
 					continue;
 			}
 

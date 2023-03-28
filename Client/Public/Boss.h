@@ -250,6 +250,8 @@ private:
 	_bool m_bLastAttack = false;
 	_float m_fLastAttackEraseAcc = 0.f;
 	const _float m_fLastAttackEraseDelay = 0.01f;
+
+	int m_iLastEraseIndex[12] = {0,};
 };
 
 END
