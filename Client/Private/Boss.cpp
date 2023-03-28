@@ -1750,7 +1750,7 @@ void CBoss::LastAttack(_double TimeDelta)
 		}
 	}
 
-	if (m_bLineSkillErase[LEFT] && m_bLineSkillErase[FRONT] && m_bLineSkillErase[RIGHT] &&
+	/*if (m_bLineSkillErase[LEFT] && m_bLineSkillErase[FRONT] && m_bLineSkillErase[RIGHT] &&
 		m_bLineSkillErase[LEFT_BACK] && m_bLineSkillErase[BACK] && m_bLineSkillErase[RIGHT_BACK])
 	{
 		if (m_iEraseIndexEx < 25)
@@ -1798,8 +1798,49 @@ void CBoss::LastAttack(_double TimeDelta)
 				}
 			}
 		}
-	}
+	}*/
 	
+	//이거 다 렌더되면 돌리기
+	if (m_pThorn1[m_iEraseIndexEx][LEFT]->Is&& m_bLineSkillErase[FRONT] && m_bLineSkillErase[RIGHT] &&
+	m_bLineSkillErase[LEFT_BACK] && m_bLineSkillErase[BACK] && m_bLineSkillErase[RIGHT_BACK])
+	{
+		m_iEraseIndexEx++;
+		m_pThorn1[m_iEraseIndexEx][LEFT]->SetupScaleSmoothDownStart();
+		m_pThorn2[m_iEraseIndexEx][LEFT]->SetupScaleSmoothDownStart();
+
+		m_pThorn1[m_iEraseIndexEx][FRONT]->SetupScaleSmoothDownStart();
+		m_pThorn2[m_iEraseIndexEx][FRONT]->SetupScaleSmoothDownStart();
+
+		m_pThorn1[m_iEraseIndexEx][RIGHT]->SetupScaleSmoothDownStart();
+		m_pThorn2[m_iEraseIndexEx][RIGHT]->SetupScaleSmoothDownStart();
+
+		m_pThorn1[m_iEraseIndexEx][LEFT_BACK]->SetupScaleSmoothDownStart();
+		m_pThorn2[m_iEraseIndexEx][LEFT_BACK]->SetupScaleSmoothDownStart();
+
+		m_pThorn1[m_iEraseIndexEx][RIGHT_BACK]->SetupScaleSmoothDownStart();
+		m_pThorn2[m_iEraseIndexEx][RIGHT_BACK]->SetupScaleSmoothDownStart();
+
+		m_pThorn1[m_iEraseIndexEx][BACK]->SetupScaleSmoothDownStart();
+		m_pThorn2[m_iEraseIndexEx][BACK]->SetupScaleSmoothDownStart();
+	}
+
+	if (m_iEraseIndexEx == 24)
+	{
+		m_bLastAttack = false;
+		m_bAttackable = true;
+		m_iEraseIndexEx = 0;
+		m_bBurrowable = true;
+		m_bUseLineSkill = false;
+		m_bLineAttackEraseEx = false;
+
+		m_bLineSkillErase[LEFT] = false;
+		m_bLineSkillErase[FRONT] = false;
+		m_bLineSkillErase[RIGHT] = false;
+
+		m_bLineSkillErase[RIGHT_BACK] = false;
+		m_bLineSkillErase[LEFT_BACK] = false;
+		m_bLineSkillErase[BACK] = false;
+	}
 }
 
 _float CBoss::GetLengthFromPlayer() const
@@ -1832,6 +1873,9 @@ _bool CBoss::LookTarget(_double TimeDelta, _float fRotationSpeed)
 
 void CBoss::DefaultAnimation(_double TimeDelta)
 {
+	if (m_bEvolution)
+		return;
+
 	Spawn();
 	if (m_bSpawn)
 	{
@@ -1847,7 +1891,7 @@ void CBoss::DefaultAnimation(_double TimeDelta)
 		CloseToPlayer())
 	{
 		m_bTooFar = false;
-		if (model->AnimationCompare(BOSS_CLIP::STANDEX) || model->AnimationCompare(BOSS_CLIP::STAND2))
+		if (model->AnimationCompare(BOSS_CLIP::STAND2))
 		{
 			m_fAttackAcc += TimeDelta;
 			if (m_fAttackAcc >= m_fAttackAccTime)
@@ -1929,7 +1973,7 @@ void CBoss::DefaultAnimation(_double TimeDelta)
 			if (model->AnimationIsFinishEx())
 				m_bMoveForward = true;
 		}
-		else if (model->AnimationCompare(BOSS_CLIP::STANDEX) || model->AnimationCompare(BOSS_CLIP::STAND2))
+		else if (model->AnimationCompare(BOSS_CLIP::STAND2))
 			m_bMoveForward = true;
 	}
 
@@ -1954,34 +1998,32 @@ void CBoss::EvolutionAnimation(_double TimeDelta)
 			m_bAttack = true;
 			m_fAttackAcc = 0.f;
 
-			m_iAttackCount++;
-			if (m_iAttackCount > 3)
-				m_iAttackCount = 0;
+			if (m_bAttack)
+			{
+				m_bAttack = false;
+				switch (m_iAttackCountEx)
+				{
+				case 0:
+					m_bCloseAttackExStart = true;
+					break;
+				case 1:
+					m_bUseLineSkill = true;
+					break;
+				case 2:
+					m_bUseMissile1 = true;
+					m_bMissileStart = true;
+					break;
+				case 3:
+					m_bLastAttackBegin = false;
+					m_bLastAttack = true;
+					break;
+				}
+			}
+			m_iAttackCountEx++;
+			if (m_iAttackCountEx > 3)
+				m_iAttackCountEx = 0;
 		}
 	}
-
-	if (m_bAttack)
-	{
-		m_bAttack = false;
-		switch (m_iAttackCount)
-		{
-		case 0:
-			m_bCloseAttackExStart = true;
-			break;
-		case 1:
-			m_bUseLineSkill = true;
-			break;
-		case 2:
-			m_bUseMissile1 = true;
-			m_bMissileStart = true;
-			break;
-		case 3:
-			m_bLastAttackBegin = false;
-			m_bLastAttack = true;
-			break;
-		}
-	}
-
 
 	if (m_bCloseAttackExStart)
 		ColseAttack2(TimeDelta);

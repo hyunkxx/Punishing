@@ -245,6 +245,7 @@ private:
 	_float3 m_vLeftBackDir = { 0.f, 0.f, 0.f };
 	_float3 m_vRightBackDir = { 0.f, 0.f, 0.f };
 
+	_int m_iAttackCountEx = 0;
 	_bool m_bLastAttackBegin = false;
 	_bool m_bLastAttack = false;
 	_float m_fLastAttackEraseAcc = 0.f;

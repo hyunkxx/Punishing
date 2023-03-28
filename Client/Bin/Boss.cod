@@ -3401,7 +3401,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CBoss@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z DD imagerel $LN4
-	DD	imagerel $LN4+1727
+	DD	imagerel $LN4+1744
 	DD	imagerel $unwind$??0CBoss@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -3413,7 +3413,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CBoss@Client@@QEAA@AEBV01@@Z DD imagerel $LN4
-	DD	imagerel $LN4+1715
+	DD	imagerel $LN4+1732
 	DD	imagerel $unwind$??0CBoss@Client@@QEAA@AEBV01@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -3538,8 +3538,8 @@ $pdata$?LineSkill2@CBoss@Client@@QEAAXN@Z DD imagerel $LN40
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?LastAttack@CBoss@Client@@QEAAXN@Z DD imagerel $LN70
-	DD	imagerel $LN70+13759
+$pdata$?LastAttack@CBoss@Client@@QEAAXN@Z DD imagerel $LN68
+	DD	imagerel $LN68+13514
 	DD	imagerel $unwind$?LastAttack@CBoss@Client@@QEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -3568,14 +3568,14 @@ $pdata$?SetupState@CBoss@Client@@AEAAXW4BOSS_CLIP@12@W4TYPE@CAnimation@Engine@@_
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?DefaultAnimation@CBoss@Client@@AEAAXN@Z DD imagerel $LN38
-	DD	imagerel $LN38+1360
+$pdata$?DefaultAnimation@CBoss@Client@@AEAAXN@Z DD imagerel $LN37
+	DD	imagerel $LN37+1316
 	DD	imagerel $unwind$?DefaultAnimation@CBoss@Client@@AEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?EvolutionAnimation@CBoss@Client@@AEAAXN@Z DD imagerel $LN17
-	DD	imagerel $LN17+574
+	DD	imagerel $LN17+578
 	DD	imagerel $unwind$?EvolutionAnimation@CBoss@Client@@AEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -4363,7 +4363,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CBoss@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CBoss@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0836H ; `Client::CBoss::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CBoss@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 085eH ; `Client::CBoss::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1DC@LANGOHIF@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAB?$AAo?$AAs?$AAs?$AA?$AA@
 CONST	SEGMENT
@@ -4386,7 +4386,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CBoss@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CBoss@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 082aH ; `Client::CBoss::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CBoss@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0852H ; `Client::CBoss::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_R0?AVCPlayerCamera@Client@@@8
 data$r	SEGMENT
@@ -6177,7 +6177,7 @@ $ip2state$??0CBoss@Client@@QEAA@AEBV01@@Z DD imagerel ??0CBoss@Client@@QEAA@AEBV
 	DD	0ffffffffH
 	DD	imagerel ??0CBoss@Client@@QEAA@AEBV01@@Z+78
 	DD	00H
-	DD	imagerel ??0CBoss@Client@@QEAA@AEBV01@@Z+1698
+	DD	imagerel ??0CBoss@Client@@QEAA@AEBV01@@Z+1715
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -6219,7 +6219,7 @@ $ip2state$??0CBoss@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z DD
 	DD	0ffffffffH
 	DD	imagerel ??0CBoss@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z+90
 	DD	00H
-	DD	imagerel ??0CBoss@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z+1710
+	DD	imagerel ??0CBoss@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z+1727
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -9274,7 +9274,7 @@ $LN4:
   00040	83 e0 01	 and	 eax, 1
   00043	85 c0		 test	 eax, eax
   00045	74 11		 je	 SHORT $LN2@scalar
-  00047	ba c8 0e 00 00	 mov	 edx, 3784		; 00000ec8H
+  00047	ba d0 0e 00 00	 mov	 edx, 3792		; 00000ed0H
   0004c	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ??3@YAXPEAX_K@Z		; operator delete
@@ -9299,7 +9299,7 @@ i$4 = 100
 this$ = 352
 ?Free@CBoss@Client@@UEAAXXZ PROC			; Client::CBoss::Free, COMDAT
 
-; 2114 : {
+; 2154 : {
 
 $LN15:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -9315,14 +9315,14 @@ $LN15:
   00022	48 8b 8c 24 88
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+392]
 
-; 2115 : 	__super::Free();
+; 2155 : 	__super::Free();
 
   0002a	48 8b 8d 60 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	e8 00 00 00 00	 call	 ?Free@CEnemy@Client@@UEAAXXZ ; Client::CEnemy::Free
 
-; 2116 : 
-; 2117 : 	for (int j = 0; j < 6; j++)
+; 2156 : 
+; 2157 : 	for (int j = 0; j < 6; j++)
 
   00036	c7 45 04 00 00
 	00 00		 mov	 DWORD PTR j$1[rbp], 0
@@ -9335,8 +9335,8 @@ $LN4@Free:
   00047	83 7d 04 06	 cmp	 DWORD PTR j$1[rbp], 6
   0004b	7d 69		 jge	 SHORT $LN3@Free
 
-; 2118 : 	{
-; 2119 : 		for (int i = 0; i < 25; ++i)
+; 2158 : 	{
+; 2159 : 		for (int i = 0; i < 25; ++i)
 
   0004d	c7 45 24 00 00
 	00 00		 mov	 DWORD PTR i$2[rbp], 0
@@ -9349,8 +9349,8 @@ $LN7@Free:
   0005e	83 7d 24 19	 cmp	 DWORD PTR i$2[rbp], 25
   00062	7d 50		 jge	 SHORT $LN6@Free
 
-; 2120 : 		{
-; 2121 : 			Safe_Release(m_pThorn1[i][j]);
+; 2160 : 		{
+; 2161 : 			Safe_Release(m_pThorn1[i][j]);
 
   00064	48 63 45 24	 movsxd	 rax, DWORD PTR i$2[rbp]
   00068	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
@@ -9363,7 +9363,7 @@ $LN7@Free:
   00083	48 8b c8	 mov	 rcx, rax
   00086	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 
-; 2122 : 			Safe_Release(m_pThorn2[i][j]);
+; 2162 : 			Safe_Release(m_pThorn2[i][j]);
 
   0008b	48 63 45 24	 movsxd	 rax, DWORD PTR i$2[rbp]
   0008f	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
@@ -9376,18 +9376,18 @@ $LN7@Free:
   000aa	48 8b c8	 mov	 rcx, rax
   000ad	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 
-; 2123 : 		}
+; 2163 : 		}
 
   000b2	eb a2		 jmp	 SHORT $LN5@Free
 $LN6@Free:
 
-; 2124 : 	}
+; 2164 : 	}
 
   000b4	eb 89		 jmp	 SHORT $LN2@Free
 $LN3@Free:
 
-; 2125 : 
-; 2126 : 	for (int i = 0; i < 3; ++i)
+; 2165 : 
+; 2166 : 	for (int i = 0; i < 3; ++i)
 
   000b6	c7 45 44 00 00
 	00 00		 mov	 DWORD PTR i$3[rbp], 0
@@ -9400,8 +9400,8 @@ $LN10@Free:
   000c7	83 7d 44 03	 cmp	 DWORD PTR i$3[rbp], 3
   000cb	7d 53		 jge	 SHORT $LN9@Free
 
-; 2127 : 	{
-; 2128 : 		Safe_Release(m_pThornMissileLeft[i]);
+; 2167 : 	{
+; 2168 : 		Safe_Release(m_pThornMissileLeft[i]);
 
   000cd	48 63 45 44	 movsxd	 rax, DWORD PTR i$3[rbp]
   000d1	48 8b 8d 60 01
@@ -9411,7 +9411,7 @@ $LN10@Free:
   000e0	48 8b c8	 mov	 rcx, rax
   000e3	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 
-; 2129 : 		Safe_Release(m_pThornMissileMiddle[i]);
+; 2169 : 		Safe_Release(m_pThornMissileMiddle[i]);
 
   000e8	48 63 45 44	 movsxd	 rax, DWORD PTR i$3[rbp]
   000ec	48 8b 8d 60 01
@@ -9421,7 +9421,7 @@ $LN10@Free:
   000fb	48 8b c8	 mov	 rcx, rax
   000fe	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 
-; 2130 : 		Safe_Release(m_pThornMissileRight[i]);
+; 2170 : 		Safe_Release(m_pThornMissileRight[i]);
 
   00103	48 63 45 44	 movsxd	 rax, DWORD PTR i$3[rbp]
   00107	48 8b 8d 60 01
@@ -9431,13 +9431,13 @@ $LN10@Free:
   00116	48 8b c8	 mov	 rcx, rax
   00119	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 
-; 2131 : 	}
+; 2171 : 	}
 
   0011e	eb 9f		 jmp	 SHORT $LN8@Free
 $LN9@Free:
 
-; 2132 : 
-; 2133 : 	for (int i = 0; i < 9; ++i)
+; 2172 : 
+; 2173 : 	for (int i = 0; i < 9; ++i)
 
   00120	c7 45 64 00 00
 	00 00		 mov	 DWORD PTR i$4[rbp], 0
@@ -9451,8 +9451,8 @@ $LN13@Free:
   00135	0f 8d a7 00 00
 	00		 jge	 $LN12@Free
 
-; 2134 : 	{
-; 2135 : 		Safe_Release(m_pThornClose[i]);
+; 2174 : 	{
+; 2175 : 		Safe_Release(m_pThornClose[i]);
 
   0013b	48 63 45 64	 movsxd	 rax, DWORD PTR i$4[rbp]
   0013f	48 8b 8d 60 01
@@ -9462,8 +9462,8 @@ $LN13@Free:
   0014e	48 8b c8	 mov	 rcx, rax
   00151	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 
-; 2136 : 
-; 2137 : 		Safe_Release(m_pThornCloseRightFront[i]);
+; 2176 : 
+; 2177 : 		Safe_Release(m_pThornCloseRightFront[i]);
 
   00156	48 63 45 64	 movsxd	 rax, DWORD PTR i$4[rbp]
   0015a	48 8b 8d 60 01
@@ -9473,7 +9473,7 @@ $LN13@Free:
   00169	48 8b c8	 mov	 rcx, rax
   0016c	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 
-; 2138 : 		Safe_Release(m_pThornCloseLeftFront[i]);
+; 2178 : 		Safe_Release(m_pThornCloseLeftFront[i]);
 
   00171	48 63 45 64	 movsxd	 rax, DWORD PTR i$4[rbp]
   00175	48 8b 8d 60 01
@@ -9483,7 +9483,7 @@ $LN13@Free:
   00184	48 8b c8	 mov	 rcx, rax
   00187	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 
-; 2139 : 		Safe_Release(m_pThornCloseFront[i]);
+; 2179 : 		Safe_Release(m_pThornCloseFront[i]);
 
   0018c	48 63 45 64	 movsxd	 rax, DWORD PTR i$4[rbp]
   00190	48 8b 8d 60 01
@@ -9493,7 +9493,7 @@ $LN13@Free:
   0019f	48 8b c8	 mov	 rcx, rax
   001a2	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 
-; 2140 : 		Safe_Release(m_pThornCloseRight[i]);
+; 2180 : 		Safe_Release(m_pThornCloseRight[i]);
 
   001a7	48 63 45 64	 movsxd	 rax, DWORD PTR i$4[rbp]
   001ab	48 8b 8d 60 01
@@ -9503,7 +9503,7 @@ $LN13@Free:
   001ba	48 8b c8	 mov	 rcx, rax
   001bd	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 
-; 2141 : 		Safe_Release(m_pThornCloseLeft[i]);
+; 2181 : 		Safe_Release(m_pThornCloseLeft[i]);
 
   001c2	48 63 45 64	 movsxd	 rax, DWORD PTR i$4[rbp]
   001c6	48 8b 8d 60 01
@@ -9513,14 +9513,14 @@ $LN13@Free:
   001d5	48 8b c8	 mov	 rcx, rax
   001d8	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCThorn@Client@@@Engine@@YAKAEAPEAVCThorn@Client@@@Z ; Engine::Safe_Release<Client::CThorn * __ptr64>
 
-; 2142 : 	}
+; 2182 : 	}
 
   001dd	e9 47 ff ff ff	 jmp	 $LN11@Free
 $LN12@Free:
 
-; 2143 : 
-; 2144 : 
-; 2145 : 	Safe_Release(m_pBodyTransform);
+; 2183 : 
+; 2184 : 
+; 2185 : 	Safe_Release(m_pBodyTransform);
 
   001e2	48 8b 85 60 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9529,7 +9529,7 @@ $LN12@Free:
   001ef	48 8b c8	 mov	 rcx, rax
   001f2	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 2146 : }
+; 2186 : }
 
   001f7	48 8d a5 48 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+328]
@@ -9552,7 +9552,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CBoss@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CBoss::Clone, COMDAT
 
-; 2102 : {
+; 2142 : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -9577,7 +9577,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 2103 : 	CBoss* pInstance = new CBoss(*this);
+; 2143 : 	CBoss* pInstance = new CBoss(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CBoss@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
@@ -9586,7 +9586,7 @@ $LN7:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@DBBJIPGP@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 c8 0e 00 00	 mov	 ecx, 3784		; 00000ec8H
+  00062	b9 d0 0e 00 00	 mov	 ecx, 3792		; 00000ed0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 08 01
 	00 00		 mov	 QWORD PTR $T5[rbp], rax
@@ -9614,7 +9614,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 2104 : 	if (FAILED(pInstance->Initialize(pArg)))
+; 2144 : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 78 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -9623,8 +9623,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Clone
 
-; 2105 : 	{
-; 2106 : 		MSG_BOX("Failed to Clone : CBoss");
+; 2145 : 	{
+; 2146 : 		MSG_BOX("Failed to Clone : CBoss");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -9635,19 +9635,19 @@ $LN5@Clone:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 2107 : 		Safe_Release(pInstance);
+; 2147 : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCBoss@Client@@@Engine@@YAKAEAPEAVCBoss@Client@@@Z ; Engine::Safe_Release<Client::CBoss * __ptr64>
 $LN2@Clone:
 
-; 2108 : 	}
-; 2109 : 
-; 2110 : 	return pInstance;
+; 2148 : 	}
+; 2149 : 
+; 2150 : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 2111 : }
+; 2151 : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -9745,7 +9745,7 @@ pDevice$ = 368
 pContext$ = 376
 ?Create@CBoss@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CBoss::Create, COMDAT
 
-; 2090 : {
+; 2130 : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -9770,7 +9770,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 2091 : 	CBoss*	pInstance = new CBoss(pDevice, pContext);
+; 2131 : 	CBoss*	pInstance = new CBoss(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CBoss@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -9779,7 +9779,7 @@ $LN7:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EC@DBBJIPGP@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 c8 0e 00 00	 mov	 ecx, 3784		; 00000ec8H
+  00062	b9 d0 0e 00 00	 mov	 ecx, 3792		; 00000ed0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 08 01
 	00 00		 mov	 QWORD PTR $T5[rbp], rax
@@ -9809,15 +9809,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 2092 : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 2132 : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CBoss@Client@@UEAAJXZ ; Client::CBoss::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Create
 
-; 2093 : 	{
-; 2094 : 		MSG_BOX("Failed to Create : CBoss");
+; 2133 : 	{
+; 2134 : 		MSG_BOX("Failed to Create : CBoss");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -9828,19 +9828,19 @@ $LN5@Create:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 2095 : 		Safe_Release(pInstance);
+; 2135 : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCBoss@Client@@@Engine@@YAKAEAPEAVCBoss@Client@@@Z ; Engine::Safe_Release<Client::CBoss * __ptr64>
 $LN2@Create:
 
-; 2096 : 	}
-; 2097 : 
-; 2098 : 	return pInstance;
+; 2136 : 	}
+; 2137 : 
+; 2138 : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 2099 : }
+; 2139 : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -9933,7 +9933,7 @@ src$ = 232
 dest$ = 240
 ?OnCollisionExit@CBoss@Client@@UEAAXPEAVCCollider@Engine@@0@Z PROC ; Client::CBoss::OnCollisionExit, COMDAT
 
-; 2085 : {
+; 2125 : {
 
 $LN3:
   00000	4c 89 44 24 18	 mov	 QWORD PTR [rsp+24], r8
@@ -9951,8 +9951,8 @@ $LN3:
   0002a	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 2086 : 
-; 2087 : }
+; 2126 : 
+; 2127 : }
 
   00032	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -9971,7 +9971,7 @@ src$ = 264
 dest$ = 272
 ?OnCollisionStay@CBoss@Client@@UEAAXPEAVCCollider@Engine@@0@Z PROC ; Client::CBoss::OnCollisionStay, COMDAT
 
-; 2076 : {
+; 2116 : {
 
 $LN4:
   00000	4c 89 44 24 18	 mov	 QWORD PTR [rsp+24], r8
@@ -9989,7 +9989,7 @@ $LN4:
   0002c	48 8b 8c 24 38
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+312]
 
-; 2077 : 	CPlayerCamera* pCamera = dynamic_cast<CPlayerCamera*>(dest->GetOwner());
+; 2117 : 	CPlayerCamera* pCamera = dynamic_cast<CPlayerCamera*>(dest->GetOwner());
 
   00034	48 8b 8d 10 01
 	00 00		 mov	 rcx, QWORD PTR dest$[rbp]
@@ -10006,7 +10006,7 @@ $LN4:
   0005c	e8 00 00 00 00	 call	 __RTDynamicCast
   00061	48 89 45 08	 mov	 QWORD PTR pCamera$[rbp], rax
 
-; 2078 : 	if (src->Compare(m_pOverlapCollider) && pCamera && dest->Compare(m_pCamera->GetCollider()))
+; 2118 : 	if (src->Compare(m_pOverlapCollider) && pCamera && dest->Compare(m_pCamera->GetCollider()))
 
   00065	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10034,8 +10034,8 @@ $LN4:
   000b1	85 c0		 test	 eax, eax
   000b3	74 0e		 je	 SHORT $LN2@OnCollisio
 
-; 2079 : 	{
-; 2080 : 		m_bAlpha = true;
+; 2119 : 	{
+; 2120 : 		m_bAlpha = true;
 
   000b5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10043,8 +10043,8 @@ $LN4:
 	00 01		 mov	 BYTE PTR [rax+328], 1
 $LN2@OnCollisio:
 
-; 2081 : 	}
-; 2082 : }
+; 2121 : 	}
+; 2122 : }
 
   000c3	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
@@ -10062,7 +10062,7 @@ src$ = 232
 dest$ = 240
 ?OnCollisionEnter@CBoss@Client@@UEAAXPEAVCCollider@Engine@@0@Z PROC ; Client::CBoss::OnCollisionEnter, COMDAT
 
-; 2072 : {
+; 2112 : {
 
 $LN3:
   00000	4c 89 44 24 18	 mov	 QWORD PTR [rsp+24], r8
@@ -10080,7 +10080,7 @@ $LN3:
   0002a	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 2073 : }
+; 2113 : }
 
   00032	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -10204,7 +10204,7 @@ __$ArrayPad$ = 536
 this$ = 576
 ?GetLengthFromCamera@CBoss@Client@@UEAAMXZ PROC		; Client::CBoss::GetLengthFromCamera, COMDAT
 
-; 2060 : {
+; 2100 : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -10225,14 +10225,14 @@ $LN3:
   00034	48 89 85 18 02
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 2061 : 	CPipeLine* pPipeLine = CPipeLine::GetInstance();
+; 2101 : 	CPipeLine* pPipeLine = CPipeLine::GetInstance();
 
   0003b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CPipeLine@Engine@@SAPEAV12@XZ
   00041	48 89 45 08	 mov	 QWORD PTR pPipeLine$[rbp], rax
 
-; 2062 : 
-; 2063 : 	_vector vPos = transform->Get_State(CTransform::STATE_POSITION);
+; 2102 : 
+; 2103 : 	_vector vPos = transform->Get_State(CTransform::STATE_POSITION);
 
   00045	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -10244,7 +10244,7 @@ $LN3:
   0005d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 2064 : 	_vector vCamPos = XMLoadFloat4(&pPipeLine->Get_CamPosition());
+; 2104 : 	_vector vCamPos = XMLoadFloat4(&pPipeLine->Get_CamPosition());
 
   00063	48 8d 95 94 01
 	00 00		 lea	 rdx, QWORD PTR $T5[rbp]
@@ -10259,8 +10259,8 @@ $LN3:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T4[rbp]
   0008a	0f 29 45 60	 movaps	 XMMWORD PTR vCamPos$[rbp], xmm0
 
-; 2065 : 
-; 2066 : 	_float fLength = XMVectorGetX(XMVector3Length(vPos - vCamPos));
+; 2105 : 
+; 2106 : 	_float fLength = XMVectorGetX(XMVector3Length(vPos - vCamPos));
 
   0008e	0f 28 4d 60	 movaps	 xmm1, XMMWORD PTR vCamPos$[rbp]
   00092	0f 28 45 30	 movaps	 xmm0, XMMWORD PTR vPos$[rbp]
@@ -10278,13 +10278,13 @@ $LN3:
   000c1	f3 0f 11 85 84
 	00 00 00	 movss	 DWORD PTR fLength$[rbp], xmm0
 
-; 2067 : 
-; 2068 : 	return fLength;
+; 2107 : 
+; 2108 : 	return fLength;
 
   000c9	f3 0f 10 85 84
 	00 00 00	 movss	 xmm0, DWORD PTR fLength$[rbp]
 
-; 2069 : }
+; 2109 : }
 
   000d1	f3 0f 7f 44 24
 	20		 movdqu	 XMMWORD PTR [rsp+32], xmm0
@@ -10316,7 +10316,7 @@ this$ = 320
 __$ReturnUdt$ = 328
 ?GetPosition@CBoss@Client@@UEAA?AUXMFLOAT4@DirectX@@XZ PROC ; Client::CBoss::GetPosition, COMDAT
 
-; 2046 : {
+; 2086 : {
 
 $LN5:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -10339,7 +10339,7 @@ $LN5:
   0003a	48 89 85 18 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 2047 : 	if (transform == nullptr)
+; 2087 : 	if (transform == nullptr)
 
   00041	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10347,7 +10347,7 @@ $LN5:
 	00 00 00	 cmp	 QWORD PTR [rax+152], 0
   00050	75 15		 jne	 SHORT $LN2@GetPositio
 
-; 2048 : 		return _float4();
+; 2088 : 		return _float4();
 
   00052	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR __$ReturnUdt$[rbp]
@@ -10357,8 +10357,8 @@ $LN5:
   00065	eb 7b		 jmp	 SHORT $LN1@GetPositio
 $LN2@GetPositio:
 
-; 2049 : 
-; 2050 : 	if (IsDestroy())
+; 2089 : 
+; 2090 : 	if (IsDestroy())
 
   00067	48 8b 8d 40 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -10368,7 +10368,7 @@ $LN2@GetPositio:
   00077	85 c0		 test	 eax, eax
   00079	74 15		 je	 SHORT $LN3@GetPositio
 
-; 2051 : 		return _float4();
+; 2091 : 		return _float4();
 
   0007b	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR __$ReturnUdt$[rbp]
@@ -10378,13 +10378,13 @@ $LN2@GetPositio:
   0008e	eb 52		 jmp	 SHORT $LN1@GetPositio
 $LN3@GetPositio:
 
-; 2052 : 
-; 2053 : 	_float4 vPos;
+; 2092 : 
+; 2093 : 	_float4 vPos;
 
   00090	48 8d 4d 08	 lea	 rcx, QWORD PTR vPos$[rbp]
   00094	e8 00 00 00 00	 call	 ??0XMFLOAT4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4::XMFLOAT4
 
-; 2054 : 	XMStoreFloat4(&vPos, transform->Get_State(CTransform::STATE_POSITION));
+; 2094 : 	XMStoreFloat4(&vPos, transform->Get_State(CTransform::STATE_POSITION));
 
   00099	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -10400,8 +10400,8 @@ $LN3@GetPositio:
   000bd	48 8d 4d 08	 lea	 rcx, QWORD PTR vPos$[rbp]
   000c1	e8 00 00 00 00	 call	 ?XMStoreFloat4@DirectX@@YQXPEAUXMFLOAT4@1@T__m128@@@Z ; DirectX::XMStoreFloat4
 
-; 2055 : 
-; 2056 : 	return vPos;
+; 2095 : 
+; 2096 : 	return vPos;
 
   000c6	48 8d 45 08	 lea	 rax, QWORD PTR vPos$[rbp]
   000ca	48 8b bd 48 01
@@ -10413,7 +10413,7 @@ $LN3@GetPositio:
 	00 00		 mov	 rax, QWORD PTR __$ReturnUdt$[rbp]
 $LN1@GetPositio:
 
-; 2057 : }
+; 2097 : }
 
   000e2	48 8b f8	 mov	 rdi, rax
   000e5	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -10449,7 +10449,7 @@ __$ArrayPad$ = 1144
 this$ = 1184
 ?SetupColliders@CBoss@Client@@AEAAXXZ PROC		; Client::CBoss::SetupColliders, COMDAT
 
-; 2038 : {
+; 2078 : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -10471,7 +10471,7 @@ $LN3:
   00035	48 89 85 78 04
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 2039 : 	collider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));
+; 2079 : 	collider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));
 
   0003c	48 8d 95 44 02
 	00 00		 lea	 rdx, QWORD PTR $T5[rbp]
@@ -10520,7 +10520,7 @@ $LN3:
 	00 00		 lea	 rdx, QWORD PTR $T7[rbp]
   000d7	ff 50 30	 call	 QWORD PTR [rax+48]
 
-; 2040 : 	_float4x4 CollMatrix = transform->Get_WorldMatrix();
+; 2080 : 	_float4x4 CollMatrix = transform->Get_WorldMatrix();
 
   000da	48 8d 55 10	 lea	 rdx, QWORD PTR CollMatrix$[rbp]
   000de	48 8b 85 a0 04
@@ -10530,14 +10530,14 @@ $LN3:
   000ec	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_WorldMatrix@CTransform@Engine@@QEAA?AUXMFLOAT4X4@DirectX@@XZ
 
-; 2041 : 	CollMatrix._42 = CollMatrix._42 - 0.5f;
+; 2081 : 	CollMatrix._42 = CollMatrix._42 - 0.5f;
 
   000f2	f3 0f 10 45 44	 movss	 xmm0, DWORD PTR CollMatrix$[rbp+52]
   000f7	f3 0f 5c 05 00
 	00 00 00	 subss	 xmm0, DWORD PTR __real@3f000000
   000ff	f3 0f 11 45 44	 movss	 DWORD PTR CollMatrix$[rbp+52], xmm0
 
-; 2042 : 	m_pOverlapCollider->Update(XMLoadFloat4x4(&CollMatrix));
+; 2082 : 	m_pOverlapCollider->Update(XMLoadFloat4x4(&CollMatrix));
 
   00104	48 8d 4d 10	 lea	 rcx, QWORD PTR CollMatrix$[rbp]
   00108	e8 00 00 00 00	 call	 ?XMLoadFloat4x4@DirectX@@YQ?AUXMMATRIX@1@PEBUXMFLOAT4X4@1@@Z ; DirectX::XMLoadFloat4x4
@@ -10578,7 +10578,7 @@ $LN3:
 	00 00		 lea	 rdx, QWORD PTR $T8[rbp]
   00185	ff 50 30	 call	 QWORD PTR [rax+48]
 
-; 2043 : }
+; 2083 : }
 
   00188	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
   0018c	48 8d 15 00 00
@@ -10607,7 +10607,7 @@ this$ = 416
 TimeDelta$ = 424
 ?AnimationController@CBoss@Client@@AEAAXN@Z PROC	; Client::CBoss::AnimationController, COMDAT
 
-; 2001 : {
+; 2041 : {
 
 $LN12:
   00000	f2 0f 11 4c 24
@@ -10631,7 +10631,7 @@ $LN12:
   0003b	48 89 85 78 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 2002 : 	if (!m_bEvolution)
+; 2042 : 	if (!m_bEvolution)
 
   00042	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10640,7 +10640,7 @@ $LN12:
   00050	85 c0		 test	 eax, eax
   00052	75 16		 jne	 SHORT $LN2@AnimationC
 
-; 2003 : 		DefaultAnimation(TimeDelta);
+; 2043 : 		DefaultAnimation(TimeDelta);
 
   00054	f2 0f 10 8d a8
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -10648,12 +10648,12 @@ $LN12:
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00063	e8 00 00 00 00	 call	 ?DefaultAnimation@CBoss@Client@@AEAAXN@Z ; Client::CBoss::DefaultAnimation
 
-; 2004 : 	else
+; 2044 : 	else
 
   00068	eb 14		 jmp	 SHORT $LN3@AnimationC
 $LN2@AnimationC:
 
-; 2005 : 		EvolutionAnimation(TimeDelta);
+; 2045 : 		EvolutionAnimation(TimeDelta);
 
   0006a	f2 0f 10 8d a8
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -10662,9 +10662,9 @@ $LN2@AnimationC:
   00079	e8 00 00 00 00	 call	 ?EvolutionAnimation@CBoss@Client@@AEAAXN@Z ; Client::CBoss::EvolutionAnimation
 $LN3@AnimationC:
 
-; 2006 : 
-; 2007 : 	//모션이 끝났다면 아이들 모션
-; 2008 : 	if (!m_bBrrow)
+; 2046 : 
+; 2047 : 	//모션이 끝났다면 아이들 모션
+; 2048 : 	if (!m_bBrrow)
 
   0007e	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10674,8 +10674,8 @@ $LN3@AnimationC:
   0008e	0f 85 be 00 00
 	00		 jne	 $LN4@AnimationC
 
-; 2009 : 	{
-; 2010 : 		if (m_bEvolution)
+; 2049 : 	{
+; 2050 : 		if (m_bEvolution)
 
   00094	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10684,8 +10684,8 @@ $LN3@AnimationC:
   000a2	85 c0		 test	 eax, eax
   000a4	74 57		 je	 SHORT $LN5@AnimationC
 
-; 2011 : 		{
-; 2012 : 			if (!model->AnimationCompare(BOSS_CLIP::STANDEX))
+; 2051 : 		{
+; 2052 : 			if (!model->AnimationCompare(BOSS_CLIP::STANDEX))
 
   000a6	ba 10 00 00 00	 mov	 edx, 16
   000ab	48 8b 85 a0 01
@@ -10698,8 +10698,8 @@ $LN3@AnimationC:
   000c2	85 c0		 test	 eax, eax
   000c4	75 35		 jne	 SHORT $LN7@AnimationC
 
-; 2013 : 			{
-; 2014 : 				if (model->AnimationIsFinishEx())
+; 2053 : 			{
+; 2054 : 				if (model->AnimationIsFinishEx())
 
   000c6	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10711,7 +10711,7 @@ $LN3@AnimationC:
   000dd	85 c0		 test	 eax, eax
   000df	74 1a		 je	 SHORT $LN8@AnimationC
 
-; 2015 : 					SetupState(BOSS_CLIP::STANDEX, CAnimation::TYPE::LOOP, false);
+; 2055 : 					SetupState(BOSS_CLIP::STANDEX, CAnimation::TYPE::LOOP, false);
 
   000e1	45 33 c9	 xor	 r9d, r9d
   000e4	41 b8 01 00 00
@@ -10723,15 +10723,15 @@ $LN3@AnimationC:
 $LN8@AnimationC:
 $LN7@AnimationC:
 
-; 2016 : 			}
-; 2017 : 		}
-; 2018 : 		else
+; 2056 : 			}
+; 2057 : 		}
+; 2058 : 		else
 
   000fb	eb 55		 jmp	 SHORT $LN6@AnimationC
 $LN5@AnimationC:
 
-; 2019 : 		{
-; 2020 : 			if (!model->AnimationCompare(BOSS_CLIP::STAND2))
+; 2059 : 		{
+; 2060 : 			if (!model->AnimationCompare(BOSS_CLIP::STAND2))
 
   000fd	ba 12 00 00 00	 mov	 edx, 18
   00102	48 8b 85 a0 01
@@ -10744,8 +10744,8 @@ $LN5@AnimationC:
   00119	85 c0		 test	 eax, eax
   0011b	75 35		 jne	 SHORT $LN9@AnimationC
 
-; 2021 : 			{
-; 2022 : 				if (model->AnimationIsFinishEx())
+; 2061 : 			{
+; 2062 : 				if (model->AnimationIsFinishEx())
 
   0011d	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10757,7 +10757,7 @@ $LN5@AnimationC:
   00134	85 c0		 test	 eax, eax
   00136	74 1a		 je	 SHORT $LN10@AnimationC
 
-; 2023 : 					SetupState(BOSS_CLIP::STAND2, CAnimation::TYPE::LOOP, false);
+; 2063 : 					SetupState(BOSS_CLIP::STAND2, CAnimation::TYPE::LOOP, false);
 
   00138	45 33 c9	 xor	 r9d, r9d
   0013b	41 b8 01 00 00
@@ -10771,12 +10771,12 @@ $LN9@AnimationC:
 $LN6@AnimationC:
 $LN4@AnimationC:
 
-; 2024 : 			}
-; 2025 : 		}
-; 2026 : 	}
-; 2027 : 	
-; 2028 : 	//바디 올리기
-; 2029 : 	_float4x4 vBossWorld = transform->Get_WorldMatrix();
+; 2064 : 			}
+; 2065 : 		}
+; 2066 : 	}
+; 2067 : 	
+; 2068 : 	//바디 올리기
+; 2069 : 	_float4x4 vBossWorld = transform->Get_WorldMatrix();
 
   00152	48 8d 55 10	 lea	 rdx, QWORD PTR vBossWorld$[rbp]
   00156	48 8b 85 a0 01
@@ -10786,14 +10786,14 @@ $LN4@AnimationC:
   00164	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_WorldMatrix@CTransform@Engine@@QEAA?AUXMFLOAT4X4@DirectX@@XZ
 
-; 2030 : 	vBossWorld._42 = vBossWorld._42 + 0.43f;
+; 2070 : 	vBossWorld._42 = vBossWorld._42 + 0.43f;
 
   0016a	f3 0f 10 45 44	 movss	 xmm0, DWORD PTR vBossWorld$[rbp+52]
   0016f	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@3edc28f6
   00177	f3 0f 11 45 44	 movss	 DWORD PTR vBossWorld$[rbp+52], xmm0
 
-; 2031 : 	m_pBodyTransform->Set_WorldMatrix(vBossWorld);
+; 2071 : 	m_pBodyTransform->Set_WorldMatrix(vBossWorld);
 
   0017c	48 8d 85 30 01
 	00 00		 lea	 rax, QWORD PTR $T4[rbp]
@@ -10811,8 +10811,8 @@ $LN4@AnimationC:
   001a9	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_WorldMatrix@CTransform@Engine@@QEAAXUXMFLOAT4X4@DirectX@@@Z
 
-; 2032 : 
-; 2033 : 	model->Setup_Animation(m_eAnimState.eCurAnimationClip, m_eAnimState.eAnimType, m_eAnimState.bLerp);
+; 2072 : 
+; 2073 : 	model->Setup_Animation(m_eAnimState.eCurAnimationClip, m_eAnimState.eAnimType, m_eAnimState.bLerp);
 
   001af	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10833,7 +10833,7 @@ $LN4@AnimationC:
   001e7	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_Animation@CModel@Engine@@QEAAJIW4TYPE@CAnimation@2@_N@Z
 
-; 2034 : 	model->Play_Animation(TimeDelta, transform, 0.2, false, "BoneHip");
+; 2074 : 	model->Play_Animation(TimeDelta, transform, 0.2, false, "BoneHip");
 
   001ed	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_C@_07NJCOLGJG@BoneHip?$AA@
@@ -10854,7 +10854,7 @@ $LN4@AnimationC:
   0022a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Play_Animation@CModel@Engine@@QEAAJNPEAVCTransform@2@N_NPEAD@Z
 
-; 2035 : }
+; 2075 : }
 
   00230	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
   00234	48 8d 15 00 00
@@ -10876,12 +10876,12 @@ _TEXT	ENDS
 ; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
 ;	COMDAT ?EvolutionAnimation@CBoss@Client@@AEAAXN@Z
 _TEXT	SEGMENT
-tv132 = 192
+tv93 = 192
 this$ = 240
 TimeDelta$ = 248
 ?EvolutionAnimation@CBoss@Client@@AEAAXN@Z PROC		; Client::CBoss::EvolutionAnimation, COMDAT
 
-; 1948 : {
+; 1990 : {
 
 $LN17:
   00000	f2 0f 11 4c 24
@@ -10899,18 +10899,18 @@ $LN17:
   00028	48 8b 8c 24 18
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+280]
 
-; 1949 : 	if (m_bAttackable)
+; 1991 : 	if (m_bAttackable)
 
   00030	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00037	0f b6 80 01 02
 	00 00		 movzx	 eax, BYTE PTR [rax+513]
   0003e	85 c0		 test	 eax, eax
-  00040	0f 84 9f 00 00
+  00040	0f 84 5a 01 00
 	00		 je	 $LN4@EvolutionA
 
-; 1950 : 	{
-; 1951 : 		m_fAttackAcc += TimeDelta;
+; 1992 : 	{
+; 1993 : 		m_fAttackAcc += TimeDelta;
 
   00046	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10924,7 +10924,7 @@ $LN17:
   00068	f3 0f 11 80 24
 	0c 00 00	 movss	 DWORD PTR [rax+3108], xmm0
 
-; 1952 : 		if (m_fAttackAcc >= 2.5f)
+; 1994 : 		if (m_fAttackAcc >= 2.5f)
 
   00070	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10932,265 +10932,264 @@ $LN17:
 	0c 00 00	 movss	 xmm0, DWORD PTR [rax+3108]
   0007f	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40200000
-  00086	72 5d		 jb	 SHORT $LN5@EvolutionA
+  00086	0f 82 14 01 00
+	00		 jb	 $LN5@EvolutionA
 
-; 1953 : 		{
-; 1954 : 			m_bAttack = true;
+; 1995 : 		{
+; 1996 : 			m_bAttack = true;
 
-  00088	48 8b 85 f0 00
+  0008c	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0008f	c6 80 50 01 00
+  00093	c6 80 50 01 00
 	00 01		 mov	 BYTE PTR [rax+336], 1
 
-; 1955 : 			m_fAttackAcc = 0.f;
+; 1997 : 			m_fAttackAcc = 0.f;
 
-  00096	48 8b 85 f0 00
+  0009a	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0009d	0f 57 c0	 xorps	 xmm0, xmm0
-  000a0	f3 0f 11 80 24
+  000a1	0f 57 c0	 xorps	 xmm0, xmm0
+  000a4	f3 0f 11 80 24
 	0c 00 00	 movss	 DWORD PTR [rax+3108], xmm0
 
-; 1956 : 
-; 1957 : 			m_iAttackCount++;
+; 1998 : 
+; 1999 : 			if (m_bAttack)
 
-  000a8	48 8b 85 f0 00
+  000ac	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000af	8b 80 04 02 00
-	00		 mov	 eax, DWORD PTR [rax+516]
-  000b5	ff c0		 inc	 eax
-  000b7	48 8b 8d f0 00
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  000be	89 81 04 02 00
-	00		 mov	 DWORD PTR [rcx+516], eax
-
-; 1958 : 			if (m_iAttackCount > 3)
-
-  000c4	48 8b 85 f0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000cb	83 b8 04 02 00
-	00 03		 cmp	 DWORD PTR [rax+516], 3
-  000d2	7e 11		 jle	 SHORT $LN6@EvolutionA
-
-; 1959 : 				m_iAttackCount = 0;
-
-  000d4	48 8b 85 f0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000db	c7 80 04 02 00
-	00 00 00 00 00	 mov	 DWORD PTR [rax+516], 0
-$LN6@EvolutionA:
-$LN5@EvolutionA:
-$LN4@EvolutionA:
-
-; 1960 : 		}
-; 1961 : 	}
-; 1962 : 
-; 1963 : 	if (m_bAttack)
-
-  000e5	48 8b 85 f0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000ec	0f b6 80 50 01
+  000b3	0f b6 80 50 01
 	00 00		 movzx	 eax, BYTE PTR [rax+336]
-  000f3	85 c0		 test	 eax, eax
-  000f5	0f 84 a1 00 00
-	00		 je	 $LN7@EvolutionA
+  000ba	85 c0		 test	 eax, eax
+  000bc	0f 84 a1 00 00
+	00		 je	 $LN6@EvolutionA
 
-; 1964 : 	{
-; 1965 : 		m_bAttack = false;
+; 2000 : 			{
+; 2001 : 				m_bAttack = false;
 
-  000fb	48 8b 85 f0 00
+  000c2	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00102	c6 80 50 01 00
+  000c9	c6 80 50 01 00
 	00 00		 mov	 BYTE PTR [rax+336], 0
 
-; 1966 : 		switch (m_iAttackCount)
+; 2002 : 				switch (m_iAttackCountEx)
+
+  000d0	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000d7	8b 80 bc 0e 00
+	00		 mov	 eax, DWORD PTR [rax+3772]
+  000dd	89 85 c0 00 00
+	00		 mov	 DWORD PTR tv93[rbp], eax
+  000e3	83 bd c0 00 00
+	00 00		 cmp	 DWORD PTR tv93[rbp], 0
+  000ea	74 1d		 je	 SHORT $LN7@EvolutionA
+  000ec	83 bd c0 00 00
+	00 01		 cmp	 DWORD PTR tv93[rbp], 1
+  000f3	74 24		 je	 SHORT $LN8@EvolutionA
+  000f5	83 bd c0 00 00
+	00 02		 cmp	 DWORD PTR tv93[rbp], 2
+  000fc	74 2b		 je	 SHORT $LN9@EvolutionA
+  000fe	83 bd c0 00 00
+	00 03		 cmp	 DWORD PTR tv93[rbp], 3
+  00105	74 40		 je	 SHORT $LN10@EvolutionA
+  00107	eb 5a		 jmp	 SHORT $LN2@EvolutionA
+$LN7@EvolutionA:
+
+; 2003 : 				{
+; 2004 : 				case 0:
+; 2005 : 					m_bCloseAttackExStart = true;
 
   00109	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00110	8b 80 04 02 00
-	00		 mov	 eax, DWORD PTR [rax+516]
-  00116	89 85 c0 00 00
-	00		 mov	 DWORD PTR tv132[rbp], eax
-  0011c	83 bd c0 00 00
-	00 00		 cmp	 DWORD PTR tv132[rbp], 0
-  00123	74 1d		 je	 SHORT $LN8@EvolutionA
-  00125	83 bd c0 00 00
-	00 01		 cmp	 DWORD PTR tv132[rbp], 1
-  0012c	74 24		 je	 SHORT $LN9@EvolutionA
-  0012e	83 bd c0 00 00
-	00 02		 cmp	 DWORD PTR tv132[rbp], 2
-  00135	74 2b		 je	 SHORT $LN10@EvolutionA
-  00137	83 bd c0 00 00
-	00 03		 cmp	 DWORD PTR tv132[rbp], 3
-  0013e	74 40		 je	 SHORT $LN11@EvolutionA
-  00140	eb 5a		 jmp	 SHORT $LN2@EvolutionA
-$LN8@EvolutionA:
-
-; 1967 : 		{
-; 1968 : 		case 0:
-; 1969 : 			m_bCloseAttackExStart = true;
-
-  00142	48 8b 85 f0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00149	c6 80 51 0e 00
+  00110	c6 80 51 0e 00
 	00 01		 mov	 BYTE PTR [rax+3665], 1
 
-; 1970 : 			break;
+; 2006 : 					break;
 
-  00150	eb 4a		 jmp	 SHORT $LN2@EvolutionA
-$LN9@EvolutionA:
+  00117	eb 4a		 jmp	 SHORT $LN2@EvolutionA
+$LN8@EvolutionA:
 
-; 1971 : 		case 1:
-; 1972 : 			m_bUseLineSkill = true;
+; 2007 : 				case 1:
+; 2008 : 					m_bUseLineSkill = true;
 
-  00152	48 8b 85 f0 00
+  00119	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00159	c6 80 a8 0b 00
+  00120	c6 80 a8 0b 00
 	00 01		 mov	 BYTE PTR [rax+2984], 1
 
-; 1973 : 			break;
+; 2009 : 					break;
 
-  00160	eb 3a		 jmp	 SHORT $LN2@EvolutionA
-$LN10@EvolutionA:
+  00127	eb 3a		 jmp	 SHORT $LN2@EvolutionA
+$LN9@EvolutionA:
 
-; 1974 : 		case 2:
-; 1975 : 			m_bUseMissile1 = true;
+; 2010 : 				case 2:
+; 2011 : 					m_bUseMissile1 = true;
 
-  00162	48 8b 85 f0 00
+  00129	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00169	c6 80 78 0c 00
+  00130	c6 80 78 0c 00
 	00 01		 mov	 BYTE PTR [rax+3192], 1
 
-; 1976 : 			m_bMissileStart = true;
+; 2012 : 					m_bMissileStart = true;
 
-  00170	48 8b 85 f0 00
+  00137	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00177	c6 80 79 0c 00
+  0013e	c6 80 79 0c 00
 	00 01		 mov	 BYTE PTR [rax+3193], 1
 
-; 1977 : 			break;
+; 2013 : 					break;
 
-  0017e	eb 1c		 jmp	 SHORT $LN2@EvolutionA
-$LN11@EvolutionA:
+  00145	eb 1c		 jmp	 SHORT $LN2@EvolutionA
+$LN10@EvolutionA:
 
-; 1978 : 		case 3:
-; 1979 : 			m_bLastAttackBegin = false;
+; 2014 : 				case 3:
+; 2015 : 					m_bLastAttackBegin = false;
 
-  00180	48 8b 85 f0 00
+  00147	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00187	c6 80 bc 0e 00
-	00 00		 mov	 BYTE PTR [rax+3772], 0
+  0014e	c6 80 c0 0e 00
+	00 00		 mov	 BYTE PTR [rax+3776], 0
 
-; 1980 : 			m_bLastAttack = true;
+; 2016 : 					m_bLastAttack = true;
 
-  0018e	48 8b 85 f0 00
+  00155	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00195	c6 80 bd 0e 00
-	00 01		 mov	 BYTE PTR [rax+3773], 1
+  0015c	c6 80 c1 0e 00
+	00 01		 mov	 BYTE PTR [rax+3777], 1
 $LN2@EvolutionA:
-$LN7@EvolutionA:
+$LN6@EvolutionA:
 
-; 1981 : 			break;
-; 1982 : 		}
-; 1983 : 	}
-; 1984 : 
-; 1985 : 
-; 1986 : 	if (m_bCloseAttackExStart)
+; 2017 : 					break;
+; 2018 : 				}
+; 2019 : 			}
+; 2020 : 			m_iAttackCountEx++;
 
-  0019c	48 8b 85 f0 00
+  00163	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001a3	0f b6 80 51 0e
-	00 00		 movzx	 eax, BYTE PTR [rax+3665]
-  001aa	85 c0		 test	 eax, eax
-  001ac	74 14		 je	 SHORT $LN12@EvolutionA
-
-; 1987 : 		ColseAttack2(TimeDelta);
-
-  001ae	f2 0f 10 8d f8
-	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  001b6	48 8b 8d f0 00
+  0016a	8b 80 bc 0e 00
+	00		 mov	 eax, DWORD PTR [rax+3772]
+  00170	ff c0		 inc	 eax
+  00172	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  001bd	e8 00 00 00 00	 call	 ?ColseAttack2@CBoss@Client@@QEAAXN@Z ; Client::CBoss::ColseAttack2
+  00179	89 81 bc 0e 00
+	00		 mov	 DWORD PTR [rcx+3772], eax
+
+; 2021 : 			if (m_iAttackCountEx > 3)
+
+  0017f	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00186	83 b8 bc 0e 00
+	00 03		 cmp	 DWORD PTR [rax+3772], 3
+  0018d	7e 11		 jle	 SHORT $LN11@EvolutionA
+
+; 2022 : 				m_iAttackCountEx = 0;
+
+  0018f	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00196	c7 80 bc 0e 00
+	00 00 00 00 00	 mov	 DWORD PTR [rax+3772], 0
+$LN11@EvolutionA:
+$LN5@EvolutionA:
+$LN4@EvolutionA:
+
+; 2023 : 		}
+; 2024 : 	}
+; 2025 : 
+; 2026 : 	if (m_bCloseAttackExStart)
+
+  001a0	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001a7	0f b6 80 51 0e
+	00 00		 movzx	 eax, BYTE PTR [rax+3665]
+  001ae	85 c0		 test	 eax, eax
+  001b0	74 14		 je	 SHORT $LN12@EvolutionA
+
+; 2027 : 		ColseAttack2(TimeDelta);
+
+  001b2	f2 0f 10 8d f8
+	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
+  001ba	48 8b 8d f0 00
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  001c1	e8 00 00 00 00	 call	 ?ColseAttack2@CBoss@Client@@QEAAXN@Z ; Client::CBoss::ColseAttack2
 $LN12@EvolutionA:
 
-; 1988 : 
-; 1989 : 	if(m_bUseLineSkill)
+; 2028 : 
+; 2029 : 	if(m_bUseLineSkill)
 
-  001c2	48 8b 85 f0 00
+  001c6	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001c9	0f b6 80 a8 0b
+  001cd	0f b6 80 a8 0b
 	00 00		 movzx	 eax, BYTE PTR [rax+2984]
-  001d0	85 c0		 test	 eax, eax
-  001d2	74 14		 je	 SHORT $LN13@EvolutionA
+  001d4	85 c0		 test	 eax, eax
+  001d6	74 14		 je	 SHORT $LN13@EvolutionA
 
-; 1990 : 		LineSkill2(TimeDelta);
+; 2030 : 		LineSkill2(TimeDelta);
 
-  001d4	f2 0f 10 8d f8
+  001d8	f2 0f 10 8d f8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  001dc	48 8b 8d f0 00
+  001e0	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  001e3	e8 00 00 00 00	 call	 ?LineSkill2@CBoss@Client@@QEAAXN@Z ; Client::CBoss::LineSkill2
+  001e7	e8 00 00 00 00	 call	 ?LineSkill2@CBoss@Client@@QEAAXN@Z ; Client::CBoss::LineSkill2
 $LN13@EvolutionA:
 
-; 1991 : 
-; 1992 : 	if (m_bUseMissile1)
+; 2031 : 
+; 2032 : 	if (m_bUseMissile1)
 
-  001e8	48 8b 85 f0 00
+  001ec	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001ef	0f b6 80 78 0c
+  001f3	0f b6 80 78 0c
 	00 00		 movzx	 eax, BYTE PTR [rax+3192]
-  001f6	85 c0		 test	 eax, eax
-  001f8	74 14		 je	 SHORT $LN14@EvolutionA
+  001fa	85 c0		 test	 eax, eax
+  001fc	74 14		 je	 SHORT $LN14@EvolutionA
 
-; 1993 : 		Missile1(TimeDelta);
+; 2033 : 		Missile1(TimeDelta);
 
-  001fa	f2 0f 10 8d f8
+  001fe	f2 0f 10 8d f8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  00202	48 8b 8d f0 00
+  00206	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00209	e8 00 00 00 00	 call	 ?Missile1@CBoss@Client@@QEAAXN@Z ; Client::CBoss::Missile1
+  0020d	e8 00 00 00 00	 call	 ?Missile1@CBoss@Client@@QEAAXN@Z ; Client::CBoss::Missile1
 $LN14@EvolutionA:
 
-; 1994 : 
-; 1995 : 	if (m_bLastAttack)
+; 2034 : 
+; 2035 : 	if (m_bLastAttack)
 
-  0020e	48 8b 85 f0 00
+  00212	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00215	0f b6 80 bd 0e
-	00 00		 movzx	 eax, BYTE PTR [rax+3773]
-  0021c	85 c0		 test	 eax, eax
-  0021e	74 14		 je	 SHORT $LN15@EvolutionA
+  00219	0f b6 80 c1 0e
+	00 00		 movzx	 eax, BYTE PTR [rax+3777]
+  00220	85 c0		 test	 eax, eax
+  00222	74 14		 je	 SHORT $LN15@EvolutionA
 
-; 1996 : 		LastAttack(TimeDelta);
+; 2036 : 		LastAttack(TimeDelta);
 
-  00220	f2 0f 10 8d f8
+  00224	f2 0f 10 8d f8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  00228	48 8b 8d f0 00
+  0022c	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0022f	e8 00 00 00 00	 call	 ?LastAttack@CBoss@Client@@QEAAXN@Z ; Client::CBoss::LastAttack
+  00233	e8 00 00 00 00	 call	 ?LastAttack@CBoss@Client@@QEAAXN@Z ; Client::CBoss::LastAttack
 $LN15@EvolutionA:
 
-; 1997 : 
-; 1998 : }
+; 2037 : 
+; 2038 : }
 
-  00234	48 8d a5 d8 00
+  00238	48 8d a5 d8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+216]
-  0023b	5f		 pop	 rdi
-  0023c	5d		 pop	 rbp
-  0023d	c3		 ret	 0
+  0023f	5f		 pop	 rdi
+  00240	5d		 pop	 rbp
+  00241	c3		 ret	 0
 ?EvolutionAnimation@CBoss@Client@@AEAAXN@Z ENDP		; Client::CBoss::EvolutionAnimation
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
 ;	COMDAT ?DefaultAnimation@CBoss@Client@@AEAAXN@Z
 _TEXT	SEGMENT
-tv162 = 192
+tv155 = 192
 this$ = 240
 TimeDelta$ = 248
 ?DefaultAnimation@CBoss@Client@@AEAAXN@Z PROC		; Client::CBoss::DefaultAnimation, COMDAT
 
-; 1834 : {
+; 1873 : {
 
-$LN38:
+$LN37:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -11206,666 +11205,659 @@ $LN38:
   00028	48 8b 8c 24 18
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+280]
 
-; 1835 : 	Spawn();
+; 1874 : 	if (m_bEvolution)
 
-  00030	48 8b 8d f0 00
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00037	e8 00 00 00 00	 call	 ?Spawn@CBoss@Client@@QEAAXXZ ; Client::CBoss::Spawn
-
-; 1836 : 	if (m_bSpawn)
-
-  0003c	48 8b 85 f0 00
+  00030	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00043	0f b6 80 08 02
-	00 00		 movzx	 eax, BYTE PTR [rax+520]
-  0004a	85 c0		 test	 eax, eax
-  0004c	74 49		 je	 SHORT $LN4@DefaultAni
+  00037	0f b6 80 f0 0b
+	00 00		 movzx	 eax, BYTE PTR [rax+3056]
+  0003e	85 c0		 test	 eax, eax
+  00040	74 05		 je	 SHORT $LN4@DefaultAni
 
-; 1837 : 	{
-; 1838 : 		if (model->AnimationCompare(BOSS_CLIP::BORN))
+; 1875 : 		return;
 
-  0004e	ba 0e 00 00 00	 mov	 edx, 14
-  00053	48 8b 85 f0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0005a	48 8b 88 a0 00
-	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  00061	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?AnimationCompare@CModel@Engine@@QEBA_NI@Z
-  00067	0f b6 c0	 movzx	 eax, al
-  0006a	85 c0		 test	 eax, eax
-  0006c	74 29		 je	 SHORT $LN5@DefaultAni
-
-; 1839 : 		{
-; 1840 : 			if (model->AnimationIsFinishEx())
-
-  0006e	48 8b 85 f0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00075	48 8b 88 a0 00
-	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  0007c	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?AnimationIsFinishEx@CModel@Engine@@QEAA_NXZ
-  00082	0f b6 c0	 movzx	 eax, al
-  00085	85 c0		 test	 eax, eax
-  00087	74 0e		 je	 SHORT $LN6@DefaultAni
-
-; 1841 : 				m_bBrrow = false;
-
-  00089	48 8b 85 f0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00090	c6 80 10 02 00
-	00 00		 mov	 BYTE PTR [rax+528], 0
-$LN6@DefaultAni:
-$LN5@DefaultAni:
+  00042	e9 b1 04 00 00	 jmp	 $LN1@DefaultAni
 $LN4@DefaultAni:
 
-; 1842 : 		}
-; 1843 : 	}
-; 1844 : 
-; 1845 : 	//플레이어와 가깝고 다른용무가 없다
-; 1846 : 	if (m_bSpawn && !m_bBrrow &&
+; 1876 : 
+; 1877 : 	Spawn();
 
-  00097	48 8b 85 f0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0009e	0f b6 80 08 02
-	00 00		 movzx	 eax, BYTE PTR [rax+520]
-  000a5	85 c0		 test	 eax, eax
-  000a7	0f 84 46 02 00
-	00		 je	 $LN7@DefaultAni
-  000ad	48 8b 85 f0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000b4	0f b6 80 10 02
-	00 00		 movzx	 eax, BYTE PTR [rax+528]
-  000bb	85 c0		 test	 eax, eax
-  000bd	0f 85 30 02 00
-	00		 jne	 $LN7@DefaultAni
-  000c3	48 8b 8d f0 00
+  00047	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  000ca	e8 00 00 00 00	 call	 ?CloseToPlayer@CBoss@Client@@QEAA_NXZ ; Client::CBoss::CloseToPlayer
-  000cf	0f b6 c0	 movzx	 eax, al
-  000d2	85 c0		 test	 eax, eax
-  000d4	0f 84 19 02 00
-	00		 je	 $LN7@DefaultAni
+  0004e	e8 00 00 00 00	 call	 ?Spawn@CBoss@Client@@QEAAXXZ ; Client::CBoss::Spawn
 
-; 1847 : 		CloseToPlayer())
-; 1848 : 	{
-; 1849 : 		m_bTooFar = false;
+; 1878 : 	if (m_bSpawn)
 
-  000da	48 8b 85 f0 00
+  00053	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000e1	c6 80 7a 0c 00
+  0005a	0f b6 80 08 02
+	00 00		 movzx	 eax, BYTE PTR [rax+520]
+  00061	85 c0		 test	 eax, eax
+  00063	74 49		 je	 SHORT $LN5@DefaultAni
+
+; 1879 : 	{
+; 1880 : 		if (model->AnimationCompare(BOSS_CLIP::BORN))
+
+  00065	ba 0e 00 00 00	 mov	 edx, 14
+  0006a	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00071	48 8b 88 a0 00
+	00 00		 mov	 rcx, QWORD PTR [rax+160]
+  00078	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?AnimationCompare@CModel@Engine@@QEBA_NI@Z
+  0007e	0f b6 c0	 movzx	 eax, al
+  00081	85 c0		 test	 eax, eax
+  00083	74 29		 je	 SHORT $LN6@DefaultAni
+
+; 1881 : 		{
+; 1882 : 			if (model->AnimationIsFinishEx())
+
+  00085	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0008c	48 8b 88 a0 00
+	00 00		 mov	 rcx, QWORD PTR [rax+160]
+  00093	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?AnimationIsFinishEx@CModel@Engine@@QEAA_NXZ
+  00099	0f b6 c0	 movzx	 eax, al
+  0009c	85 c0		 test	 eax, eax
+  0009e	74 0e		 je	 SHORT $LN7@DefaultAni
+
+; 1883 : 				m_bBrrow = false;
+
+  000a0	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000a7	c6 80 10 02 00
+	00 00		 mov	 BYTE PTR [rax+528], 0
+$LN7@DefaultAni:
+$LN6@DefaultAni:
+$LN5@DefaultAni:
+
+; 1884 : 		}
+; 1885 : 	}
+; 1886 : 
+; 1887 : 	//플레이어와 가깝고 다른용무가 없다
+; 1888 : 	if (m_bSpawn && !m_bBrrow &&
+
+  000ae	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000b5	0f b6 80 08 02
+	00 00		 movzx	 eax, BYTE PTR [rax+520]
+  000bc	85 c0		 test	 eax, eax
+  000be	0f 84 26 02 00
+	00		 je	 $LN8@DefaultAni
+  000c4	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000cb	0f b6 80 10 02
+	00 00		 movzx	 eax, BYTE PTR [rax+528]
+  000d2	85 c0		 test	 eax, eax
+  000d4	0f 85 10 02 00
+	00		 jne	 $LN8@DefaultAni
+  000da	48 8b 8d f0 00
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  000e1	e8 00 00 00 00	 call	 ?CloseToPlayer@CBoss@Client@@QEAA_NXZ ; Client::CBoss::CloseToPlayer
+  000e6	0f b6 c0	 movzx	 eax, al
+  000e9	85 c0		 test	 eax, eax
+  000eb	0f 84 f9 01 00
+	00		 je	 $LN8@DefaultAni
+
+; 1889 : 		CloseToPlayer())
+; 1890 : 	{
+; 1891 : 		m_bTooFar = false;
+
+  000f1	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000f8	c6 80 7a 0c 00
 	00 00		 mov	 BYTE PTR [rax+3194], 0
 
-; 1850 : 		if (model->AnimationCompare(BOSS_CLIP::STANDEX) || model->AnimationCompare(BOSS_CLIP::STAND2))
+; 1892 : 		if (model->AnimationCompare(BOSS_CLIP::STAND2))
 
-  000e8	ba 10 00 00 00	 mov	 edx, 16
-  000ed	48 8b 85 f0 00
+  000ff	ba 12 00 00 00	 mov	 edx, 18
+  00104	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000f4	48 8b 88 a0 00
+  0010b	48 8b 88 a0 00
 	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  000fb	ff 15 00 00 00
+  00112	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?AnimationCompare@CModel@Engine@@QEBA_NI@Z
-  00101	0f b6 c0	 movzx	 eax, al
-  00104	85 c0		 test	 eax, eax
-  00106	75 24		 jne	 SHORT $LN9@DefaultAni
-  00108	ba 12 00 00 00	 mov	 edx, 18
-  0010d	48 8b 85 f0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00114	48 8b 88 a0 00
-	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  0011b	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?AnimationCompare@CModel@Engine@@QEBA_NI@Z
-  00121	0f b6 c0	 movzx	 eax, al
-  00124	85 c0		 test	 eax, eax
-  00126	0f 84 c7 01 00
-	00		 je	 $LN8@DefaultAni
-$LN9@DefaultAni:
+  00118	0f b6 c0	 movzx	 eax, al
+  0011b	85 c0		 test	 eax, eax
+  0011d	0f 84 c7 01 00
+	00		 je	 $LN9@DefaultAni
 
-; 1851 : 		{
-; 1852 : 			m_fAttackAcc += TimeDelta;
+; 1893 : 		{
+; 1894 : 			m_fAttackAcc += TimeDelta;
 
-  0012c	48 8b 85 f0 00
+  00123	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00133	f3 0f 5a 80 24
+  0012a	f3 0f 5a 80 24
 	0c 00 00	 cvtss2sd xmm0, DWORD PTR [rax+3108]
-  0013b	f2 0f 58 85 f8
+  00132	f2 0f 58 85 f8
 	00 00 00	 addsd	 xmm0, QWORD PTR TimeDelta$[rbp]
-  00143	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
-  00147	48 8b 85 f0 00
+  0013a	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  0013e	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0014e	f3 0f 11 80 24
+  00145	f3 0f 11 80 24
 	0c 00 00	 movss	 DWORD PTR [rax+3108], xmm0
 
-; 1853 : 			if (m_fAttackAcc >= m_fAttackAccTime)
+; 1895 : 			if (m_fAttackAcc >= m_fAttackAccTime)
 
-  00156	48 8b 85 f0 00
+  0014d	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0015d	48 8b 8d f0 00
+  00154	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00164	f3 0f 10 80 24
+  0015b	f3 0f 10 80 24
 	0c 00 00	 movss	 xmm0, DWORD PTR [rax+3108]
-  0016c	0f 2f 81 28 0c
+  00163	0f 2f 81 28 0c
 	00 00		 comiss	 xmm0, DWORD PTR [rcx+3112]
-  00173	0f 82 7a 01 00
+  0016a	0f 82 7a 01 00
 	00		 jb	 $LN10@DefaultAni
 
-; 1854 : 			{
-; 1855 : 				m_fAttackAcc = 0.f;
+; 1896 : 			{
+; 1897 : 				m_fAttackAcc = 0.f;
 
-  00179	48 8b 85 f0 00
+  00170	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00180	0f 57 c0	 xorps	 xmm0, xmm0
-  00183	f3 0f 11 80 24
+  00177	0f 57 c0	 xorps	 xmm0, xmm0
+  0017a	f3 0f 11 80 24
 	0c 00 00	 movss	 DWORD PTR [rax+3108], xmm0
 
-; 1856 : 				m_bAttackable = true;
+; 1898 : 				m_bAttackable = true;
 
-  0018b	48 8b 85 f0 00
+  00182	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00192	c6 80 01 02 00
+  00189	c6 80 01 02 00
 	00 01		 mov	 BYTE PTR [rax+513], 1
 
-; 1857 : 
-; 1858 : 				switch (m_iAttackCount)
+; 1899 : 
+; 1900 : 				switch (m_iAttackCount)
 
-  00199	48 8b 85 f0 00
+  00190	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001a0	8b 80 04 02 00
+  00197	8b 80 04 02 00
 	00		 mov	 eax, DWORD PTR [rax+516]
-  001a6	89 85 c0 00 00
-	00		 mov	 DWORD PTR tv162[rbp], eax
-  001ac	83 bd c0 00 00
-	00 07		 cmp	 DWORD PTR tv162[rbp], 7
-  001b3	0f 87 fb 00 00
+  0019d	89 85 c0 00 00
+	00		 mov	 DWORD PTR tv155[rbp], eax
+  001a3	83 bd c0 00 00
+	00 07		 cmp	 DWORD PTR tv155[rbp], 7
+  001aa	0f 87 fb 00 00
 	00		 ja	 $LN21@DefaultAni
-  001b9	48 63 85 c0 00
-	00 00		 movsxd	 rax, DWORD PTR tv162[rbp]
-  001c0	48 8d 0d 00 00
+  001b0	48 63 85 c0 00
+	00 00		 movsxd	 rax, DWORD PTR tv155[rbp]
+  001b7	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:__ImageBase
-  001c7	8b 84 81 00 00
-	00 00		 mov	 eax, DWORD PTR $LN37@DefaultAni[rcx+rax*4]
-  001ce	48 03 c1	 add	 rax, rcx
-  001d1	ff e0		 jmp	 rax
+  001be	8b 84 81 00 00
+	00 00		 mov	 eax, DWORD PTR $LN36@DefaultAni[rcx+rax*4]
+  001c5	48 03 c1	 add	 rax, rcx
+  001c8	ff e0		 jmp	 rax
 $LN11@DefaultAni:
 
-; 1859 : 				{
-; 1860 : 				case 0:
-; 1861 : 					m_bUseLineSkill = true;
+; 1901 : 				{
+; 1902 : 				case 0:
+; 1903 : 					m_bUseLineSkill = true;
 
-  001d3	48 8b 85 f0 00
+  001ca	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001da	c6 80 a8 0b 00
+  001d1	c6 80 a8 0b 00
 	00 01		 mov	 BYTE PTR [rax+2984], 1
 
-; 1862 : 					break;
+; 1904 : 					break;
 
-  001e1	e9 ce 00 00 00	 jmp	 $LN2@DefaultAni
+  001d8	e9 ce 00 00 00	 jmp	 $LN2@DefaultAni
 $LN12@DefaultAni:
 
-; 1863 : 				case 1:
-; 1864 : 					m_bUseMissile1 = true;
+; 1905 : 				case 1:
+; 1906 : 					m_bUseMissile1 = true;
 
-  001e6	48 8b 85 f0 00
+  001dd	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001ed	c6 80 78 0c 00
+  001e4	c6 80 78 0c 00
 	00 01		 mov	 BYTE PTR [rax+3192], 1
 
-; 1865 : 					m_bMissileStart = true;
+; 1907 : 					m_bMissileStart = true;
 
-  001f4	48 8b 85 f0 00
+  001eb	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001fb	c6 80 79 0c 00
+  001f2	c6 80 79 0c 00
 	00 01		 mov	 BYTE PTR [rax+3193], 1
 
-; 1866 : 					break;
+; 1908 : 					break;
 
-  00202	e9 ad 00 00 00	 jmp	 $LN2@DefaultAni
+  001f9	e9 ad 00 00 00	 jmp	 $LN2@DefaultAni
 $LN13@DefaultAni:
 
-; 1867 : 				case 2:
-; 1868 : 					if (GetLengthFromPlayer() >= 6.f)
+; 1909 : 				case 2:
+; 1910 : 					if (GetLengthFromPlayer() >= 6.f)
 
-  00207	48 8b 8d f0 00
+  001fe	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0020e	e8 00 00 00 00	 call	 ?GetLengthFromPlayer@CBoss@Client@@QEBAMXZ ; Client::CBoss::GetLengthFromPlayer
-  00213	0f 2f 05 00 00
+  00205	e8 00 00 00 00	 call	 ?GetLengthFromPlayer@CBoss@Client@@QEBAMXZ ; Client::CBoss::GetLengthFromPlayer
+  0020a	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40c00000
-  0021a	72 10		 jb	 SHORT $LN14@DefaultAni
+  00211	72 10		 jb	 SHORT $LN14@DefaultAni
 
-; 1869 : 						m_bMoveForward = true;
+; 1911 : 						m_bMoveForward = true;
 
-  0021c	48 8b 85 f0 00
+  00213	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00223	c6 80 08 0c 00
+  0021a	c6 80 08 0c 00
 	00 01		 mov	 BYTE PTR [rax+3080], 1
 
-; 1870 : 					else
+; 1912 : 					else
 
-  0022a	eb 0e		 jmp	 SHORT $LN15@DefaultAni
+  00221	eb 0e		 jmp	 SHORT $LN15@DefaultAni
 $LN14@DefaultAni:
 
-; 1871 : 						m_bMoveBackward = true;
+; 1913 : 						m_bMoveBackward = true;
 
-  0022c	48 8b 85 f0 00
+  00223	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00233	c6 80 09 0c 00
+  0022a	c6 80 09 0c 00
 	00 01		 mov	 BYTE PTR [rax+3081], 1
 $LN15@DefaultAni:
 
-; 1872 : 					break;
+; 1914 : 					break;
 
-  0023a	eb 78		 jmp	 SHORT $LN2@DefaultAni
+  00231	eb 78		 jmp	 SHORT $LN2@DefaultAni
 $LN16@DefaultAni:
 
-; 1873 : 				case 3:
-; 1874 : 					m_bUseMissile1 = true;
+; 1915 : 				case 3:
+; 1916 : 					m_bUseMissile1 = true;
 
-  0023c	48 8b 85 f0 00
+  00233	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00243	c6 80 78 0c 00
+  0023a	c6 80 78 0c 00
 	00 01		 mov	 BYTE PTR [rax+3192], 1
 
-; 1875 : 					m_bMissileStart = true;
+; 1917 : 					m_bMissileStart = true;
 
-  0024a	48 8b 85 f0 00
+  00241	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00251	c6 80 79 0c 00
+  00248	c6 80 79 0c 00
 	00 01		 mov	 BYTE PTR [rax+3193], 1
 
-; 1876 : 					break;
+; 1918 : 					break;
 
-  00258	eb 5a		 jmp	 SHORT $LN2@DefaultAni
+  0024f	eb 5a		 jmp	 SHORT $LN2@DefaultAni
 $LN17@DefaultAni:
 
-; 1877 : 				case 4:
-; 1878 : 					m_bUseLineSkill = true;
+; 1919 : 				case 4:
+; 1920 : 					m_bUseLineSkill = true;
 
-  0025a	48 8b 85 f0 00
+  00251	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00261	c6 80 a8 0b 00
+  00258	c6 80 a8 0b 00
 	00 01		 mov	 BYTE PTR [rax+2984], 1
 
-; 1879 : 					break;
+; 1921 : 					break;
 
-  00268	eb 4a		 jmp	 SHORT $LN2@DefaultAni
+  0025f	eb 4a		 jmp	 SHORT $LN2@DefaultAni
 $LN18@DefaultAni:
 
-; 1880 : 				case 5:
-; 1881 : 					m_bUseMissile1 = true;
+; 1922 : 				case 5:
+; 1923 : 					m_bUseMissile1 = true;
 
-  0026a	48 8b 85 f0 00
+  00261	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00271	c6 80 78 0c 00
+  00268	c6 80 78 0c 00
 	00 01		 mov	 BYTE PTR [rax+3192], 1
 
-; 1882 : 					m_bMissileStart = true;
+; 1924 : 					m_bMissileStart = true;
 
-  00278	48 8b 85 f0 00
+  0026f	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0027f	c6 80 79 0c 00
+  00276	c6 80 79 0c 00
 	00 01		 mov	 BYTE PTR [rax+3193], 1
 
-; 1883 : 					break;
+; 1925 : 					break;
 
-  00286	eb 2c		 jmp	 SHORT $LN2@DefaultAni
+  0027d	eb 2c		 jmp	 SHORT $LN2@DefaultAni
 $LN19@DefaultAni:
 
-; 1884 : 				case 6:
-; 1885 : 					m_bBurrowStart = true;
+; 1926 : 				case 6:
+; 1927 : 					m_bBurrowStart = true;
 
-  00288	48 8b 85 f0 00
+  0027f	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0028f	c6 80 85 0c 00
+  00286	c6 80 85 0c 00
 	00 01		 mov	 BYTE PTR [rax+3205], 1
 
-; 1886 : 					break;
+; 1928 : 					break;
 
-  00296	eb 1c		 jmp	 SHORT $LN2@DefaultAni
+  0028d	eb 1c		 jmp	 SHORT $LN2@DefaultAni
 $LN20@DefaultAni:
 
-; 1887 : 				case 7:
-; 1888 : 					m_bUseMissile1 = true;
+; 1929 : 				case 7:
+; 1930 : 					m_bUseMissile1 = true;
 
-  00298	48 8b 85 f0 00
+  0028f	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0029f	c6 80 78 0c 00
+  00296	c6 80 78 0c 00
 	00 01		 mov	 BYTE PTR [rax+3192], 1
 
-; 1889 : 					m_bMissileStart = true;
+; 1931 : 					m_bMissileStart = true;
 
-  002a6	48 8b 85 f0 00
+  0029d	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002ad	c6 80 79 0c 00
+  002a4	c6 80 79 0c 00
 	00 01		 mov	 BYTE PTR [rax+3193], 1
 $LN21@DefaultAni:
 $LN2@DefaultAni:
 
-; 1890 : 					break;
-; 1891 : 				default:
-; 1892 : 					break;
-; 1893 : 				}
-; 1894 : 
-; 1895 : 				if (m_iAttackCount > 7)
+; 1932 : 					break;
+; 1933 : 				default:
+; 1934 : 					break;
+; 1935 : 				}
+; 1936 : 
+; 1937 : 				if (m_iAttackCount > 7)
 
-  002b4	48 8b 85 f0 00
+  002ab	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002bb	83 b8 04 02 00
+  002b2	83 b8 04 02 00
 	00 07		 cmp	 DWORD PTR [rax+516], 7
-  002c2	7e 13		 jle	 SHORT $LN22@DefaultAni
+  002b9	7e 13		 jle	 SHORT $LN22@DefaultAni
 
-; 1896 : 				{
-; 1897 : 					m_iAttackCount = 0;
+; 1938 : 				{
+; 1939 : 					m_iAttackCount = 0;
 
-  002c4	48 8b 85 f0 00
+  002bb	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002cb	c7 80 04 02 00
+  002c2	c7 80 04 02 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+516], 0
 
-; 1898 : 				}
-; 1899 : 				else
+; 1940 : 				}
+; 1941 : 				else
 
-  002d5	eb 1c		 jmp	 SHORT $LN23@DefaultAni
+  002cc	eb 1c		 jmp	 SHORT $LN23@DefaultAni
 $LN22@DefaultAni:
 
-; 1900 : 					m_iAttackCount++;
+; 1942 : 					m_iAttackCount++;
 
-  002d7	48 8b 85 f0 00
+  002ce	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002de	8b 80 04 02 00
+  002d5	8b 80 04 02 00
 	00		 mov	 eax, DWORD PTR [rax+516]
-  002e4	ff c0		 inc	 eax
-  002e6	48 8b 8d f0 00
+  002db	ff c0		 inc	 eax
+  002dd	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  002ed	89 81 04 02 00
+  002e4	89 81 04 02 00
 	00		 mov	 DWORD PTR [rcx+516], eax
 $LN23@DefaultAni:
 $LN10@DefaultAni:
+$LN9@DefaultAni:
 $LN8@DefaultAni:
-$LN7@DefaultAni:
 
-; 1901 : 			}
-; 1902 : 		}
-; 1903 : 	}
-; 1904 : 
-; 1905 : 	if (m_bSpawn && !m_bBrrow &&
+; 1943 : 			}
+; 1944 : 		}
+; 1945 : 	}
+; 1946 : 
+; 1947 : 	if (m_bSpawn && !m_bBrrow &&
 
-  002f3	48 8b 85 f0 00
+  002ea	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002fa	0f b6 80 08 02
+  002f1	0f b6 80 08 02
 	00 00		 movzx	 eax, BYTE PTR [rax+520]
-  00301	85 c0		 test	 eax, eax
-  00303	0f 84 e8 00 00
+  002f8	85 c0		 test	 eax, eax
+  002fa	0f 84 e8 00 00
 	00		 je	 $LN24@DefaultAni
-  00309	48 8b 85 f0 00
+  00300	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00310	0f b6 80 10 02
+  00307	0f b6 80 10 02
 	00 00		 movzx	 eax, BYTE PTR [rax+528]
-  00317	85 c0		 test	 eax, eax
-  00319	0f 85 d2 00 00
+  0030e	85 c0		 test	 eax, eax
+  00310	0f 85 d2 00 00
 	00		 jne	 $LN24@DefaultAni
-  0031f	48 8b 8d f0 00
+  00316	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00326	e8 00 00 00 00	 call	 ?CloseToPlayer@CBoss@Client@@QEAA_NXZ ; Client::CBoss::CloseToPlayer
-  0032b	0f b6 c0	 movzx	 eax, al
-  0032e	85 c0		 test	 eax, eax
-  00330	0f 85 bb 00 00
+  0031d	e8 00 00 00 00	 call	 ?CloseToPlayer@CBoss@Client@@QEAA_NXZ ; Client::CBoss::CloseToPlayer
+  00322	0f b6 c0	 movzx	 eax, al
+  00325	85 c0		 test	 eax, eax
+  00327	0f 85 bb 00 00
 	00		 jne	 $LN24@DefaultAni
 
-; 1906 : 		!CloseToPlayer())
-; 1907 : 	{
-; 1908 : 		m_fFarAcc += TimeDelta;
+; 1948 : 		!CloseToPlayer())
+; 1949 : 	{
+; 1950 : 		m_fFarAcc += TimeDelta;
 
-  00336	48 8b 85 f0 00
+  0032d	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0033d	f3 0f 5a 80 7c
+  00334	f3 0f 5a 80 7c
 	0c 00 00	 cvtss2sd xmm0, DWORD PTR [rax+3196]
-  00345	f2 0f 58 85 f8
+  0033c	f2 0f 58 85 f8
 	00 00 00	 addsd	 xmm0, QWORD PTR TimeDelta$[rbp]
-  0034d	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
-  00351	48 8b 85 f0 00
+  00344	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  00348	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00358	f3 0f 11 80 7c
+  0034f	f3 0f 11 80 7c
 	0c 00 00	 movss	 DWORD PTR [rax+3196], xmm0
 
-; 1909 : 		if (m_fFarAcc >= m_fFarTime)
+; 1951 : 		if (m_fFarAcc >= m_fFarTime)
 
-  00360	48 8b 85 f0 00
+  00357	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00367	48 8b 8d f0 00
+  0035e	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0036e	f3 0f 10 80 7c
+  00365	f3 0f 10 80 7c
 	0c 00 00	 movss	 xmm0, DWORD PTR [rax+3196]
-  00376	0f 2f 81 80 0c
+  0036d	0f 2f 81 80 0c
 	00 00		 comiss	 xmm0, DWORD PTR [rcx+3200]
-  0037d	72 72		 jb	 SHORT $LN25@DefaultAni
+  00374	72 72		 jb	 SHORT $LN25@DefaultAni
 
-; 1910 : 		{
-; 1911 : 			m_fFarAcc = 0.f;
+; 1952 : 		{
+; 1953 : 			m_fFarAcc = 0.f;
 
-  0037f	48 8b 85 f0 00
+  00376	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00386	0f 57 c0	 xorps	 xmm0, xmm0
-  00389	f3 0f 11 80 7c
+  0037d	0f 57 c0	 xorps	 xmm0, xmm0
+  00380	f3 0f 11 80 7c
 	0c 00 00	 movss	 DWORD PTR [rax+3196], xmm0
 
-; 1912 : 			m_bTooFar = true;
+; 1954 : 			m_bTooFar = true;
 
-  00391	48 8b 85 f0 00
+  00388	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00398	c6 80 7a 0c 00
+  0038f	c6 80 7a 0c 00
 	00 01		 mov	 BYTE PTR [rax+3194], 1
 
-; 1913 : 
-; 1914 : 			if (GetLengthFromPlayer() >= 18.f)
+; 1955 : 
+; 1956 : 			if (GetLengthFromPlayer() >= 18.f)
 
-  0039f	48 8b 8d f0 00
+  00396	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  003a6	e8 00 00 00 00	 call	 ?GetLengthFromPlayer@CBoss@Client@@QEBAMXZ ; Client::CBoss::GetLengthFromPlayer
-  003ab	0f 2f 05 00 00
+  0039d	e8 00 00 00 00	 call	 ?GetLengthFromPlayer@CBoss@Client@@QEBAMXZ ; Client::CBoss::GetLengthFromPlayer
+  003a2	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@41900000
-  003b2	72 0e		 jb	 SHORT $LN26@DefaultAni
+  003a9	72 0e		 jb	 SHORT $LN26@DefaultAni
 
-; 1915 : 			{
-; 1916 : 				m_bBurrowStart = true;
+; 1957 : 			{
+; 1958 : 				m_bBurrowStart = true;
 
-  003b4	48 8b 85 f0 00
+  003ab	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003bb	c6 80 85 0c 00
+  003b2	c6 80 85 0c 00
 	00 01		 mov	 BYTE PTR [rax+3205], 1
 $LN26@DefaultAni:
 
-; 1917 : 			}
-; 1918 : 
-; 1919 : 			//어택 초기화
-; 1920 : 			m_iAttackCount = 0;
+; 1959 : 			}
+; 1960 : 
+; 1961 : 			//어택 초기화
+; 1962 : 			m_iAttackCount = 0;
 
-  003c2	48 8b 85 f0 00
+  003b9	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003c9	c7 80 04 02 00
+  003c0	c7 80 04 02 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+516], 0
 
-; 1921 : 			m_fAttackAcc = m_fAttackAccTime;
+; 1963 : 			m_fAttackAcc = m_fAttackAccTime;
 
-  003d3	48 8b 85 f0 00
+  003ca	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003da	48 8b 8d f0 00
+  003d1	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  003e1	f3 0f 10 81 28
+  003d8	f3 0f 10 81 28
 	0c 00 00	 movss	 xmm0, DWORD PTR [rcx+3112]
-  003e9	f3 0f 11 80 24
+  003e0	f3 0f 11 80 24
 	0c 00 00	 movss	 DWORD PTR [rax+3108], xmm0
 $LN25@DefaultAni:
 $LN24@DefaultAni:
 
-; 1922 : 		}
-; 1923 : 	}
-; 1924 : 
-; 1925 : 	if (m_bTooFar && !m_bBurrowStart)
+; 1964 : 		}
+; 1965 : 	}
+; 1966 : 
+; 1967 : 	if (m_bTooFar && !m_bBurrowStart)
 
-  003f1	48 8b 85 f0 00
+  003e8	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003f8	0f b6 80 7a 0c
+  003ef	0f b6 80 7a 0c
 	00 00		 movzx	 eax, BYTE PTR [rax+3194]
-  003ff	85 c0		 test	 eax, eax
-  00401	0f 84 ac 00 00
+  003f6	85 c0		 test	 eax, eax
+  003f8	0f 84 88 00 00
 	00		 je	 $LN27@DefaultAni
-  00407	48 8b 85 f0 00
+  003fe	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0040e	0f b6 80 85 0c
+  00405	0f b6 80 85 0c
 	00 00		 movzx	 eax, BYTE PTR [rax+3205]
-  00415	85 c0		 test	 eax, eax
-  00417	0f 85 96 00 00
-	00		 jne	 $LN27@DefaultAni
+  0040c	85 c0		 test	 eax, eax
+  0040e	75 76		 jne	 SHORT $LN27@DefaultAni
 
-; 1926 : 	{
-; 1927 : 		if (!model->AnimationCompare(BOSS_CLIP::ATK_FOWARD))
+; 1968 : 	{
+; 1969 : 		if (!model->AnimationCompare(BOSS_CLIP::ATK_FOWARD))
 
-  0041d	33 d2		 xor	 edx, edx
-  0041f	48 8b 85 f0 00
+  00410	33 d2		 xor	 edx, edx
+  00412	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00426	48 8b 88 a0 00
+  00419	48 8b 88 a0 00
 	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  0042d	ff 15 00 00 00
+  00420	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?AnimationCompare@CModel@Engine@@QEBA_NI@Z
-  00433	0f b6 c0	 movzx	 eax, al
-  00436	85 c0		 test	 eax, eax
-  00438	75 2b		 jne	 SHORT $LN28@DefaultAni
+  00426	0f b6 c0	 movzx	 eax, al
+  00429	85 c0		 test	 eax, eax
+  0042b	75 2b		 jne	 SHORT $LN28@DefaultAni
 
-; 1928 : 		{
-; 1929 : 			if (model->AnimationIsFinishEx())
+; 1970 : 		{
+; 1971 : 			if (model->AnimationIsFinishEx())
 
-  0043a	48 8b 85 f0 00
+  0042d	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00441	48 8b 88 a0 00
+  00434	48 8b 88 a0 00
 	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  00448	ff 15 00 00 00
+  0043b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?AnimationIsFinishEx@CModel@Engine@@QEAA_NXZ
-  0044e	0f b6 c0	 movzx	 eax, al
-  00451	85 c0		 test	 eax, eax
-  00453	74 0e		 je	 SHORT $LN30@DefaultAni
+  00441	0f b6 c0	 movzx	 eax, al
+  00444	85 c0		 test	 eax, eax
+  00446	74 0e		 je	 SHORT $LN30@DefaultAni
 
-; 1930 : 				m_bMoveForward = true;
+; 1972 : 				m_bMoveForward = true;
 
-  00455	48 8b 85 f0 00
+  00448	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0045c	c6 80 08 0c 00
+  0044f	c6 80 08 0c 00
 	00 01		 mov	 BYTE PTR [rax+3080], 1
 $LN30@DefaultAni:
 
-; 1931 : 		}
+; 1973 : 		}
 
-  00463	eb 4e		 jmp	 SHORT $LN29@DefaultAni
+  00456	eb 2e		 jmp	 SHORT $LN29@DefaultAni
 $LN28@DefaultAni:
 
-; 1932 : 		else if (model->AnimationCompare(BOSS_CLIP::STANDEX) || model->AnimationCompare(BOSS_CLIP::STAND2))
+; 1974 : 		else if (model->AnimationCompare(BOSS_CLIP::STAND2))
 
-  00465	ba 10 00 00 00	 mov	 edx, 16
-  0046a	48 8b 85 f0 00
+  00458	ba 12 00 00 00	 mov	 edx, 18
+  0045d	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00471	48 8b 88 a0 00
+  00464	48 8b 88 a0 00
 	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  00478	ff 15 00 00 00
+  0046b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?AnimationCompare@CModel@Engine@@QEBA_NI@Z
-  0047e	0f b6 c0	 movzx	 eax, al
-  00481	85 c0		 test	 eax, eax
-  00483	75 20		 jne	 SHORT $LN32@DefaultAni
-  00485	ba 12 00 00 00	 mov	 edx, 18
-  0048a	48 8b 85 f0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00491	48 8b 88 a0 00
-	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  00498	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?AnimationCompare@CModel@Engine@@QEBA_NI@Z
-  0049e	0f b6 c0	 movzx	 eax, al
-  004a1	85 c0		 test	 eax, eax
-  004a3	74 0e		 je	 SHORT $LN31@DefaultAni
-$LN32@DefaultAni:
+  00471	0f b6 c0	 movzx	 eax, al
+  00474	85 c0		 test	 eax, eax
+  00476	74 0e		 je	 SHORT $LN31@DefaultAni
 
-; 1933 : 			m_bMoveForward = true;
+; 1975 : 			m_bMoveForward = true;
 
-  004a5	48 8b 85 f0 00
+  00478	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004ac	c6 80 08 0c 00
+  0047f	c6 80 08 0c 00
 	00 01		 mov	 BYTE PTR [rax+3080], 1
 $LN31@DefaultAni:
 $LN29@DefaultAni:
 $LN27@DefaultAni:
 
-; 1934 : 	}
-; 1935 : 
-; 1936 : 	if (m_bMoveBackward)
+; 1976 : 	}
+; 1977 : 
+; 1978 : 	if (m_bMoveBackward)
 
-  004b3	48 8b 85 f0 00
+  00486	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004ba	0f b6 80 09 0c
+  0048d	0f b6 80 09 0c
 	00 00		 movzx	 eax, BYTE PTR [rax+3081]
-  004c1	85 c0		 test	 eax, eax
-  004c3	74 14		 je	 SHORT $LN33@DefaultAni
+  00494	85 c0		 test	 eax, eax
+  00496	74 14		 je	 SHORT $LN32@DefaultAni
 
-; 1937 : 		MoveBackword(TimeDelta);
+; 1979 : 		MoveBackword(TimeDelta);
 
-  004c5	f2 0f 10 8d f8
+  00498	f2 0f 10 8d f8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  004cd	48 8b 8d f0 00
+  004a0	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  004d4	e8 00 00 00 00	 call	 ?MoveBackword@CBoss@Client@@QEAAXN@Z ; Client::CBoss::MoveBackword
+  004a7	e8 00 00 00 00	 call	 ?MoveBackword@CBoss@Client@@QEAAXN@Z ; Client::CBoss::MoveBackword
+$LN32@DefaultAni:
+
+; 1980 : 
+; 1981 : 	if (m_bMoveForward)
+
+  004ac	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  004b3	0f b6 80 08 0c
+	00 00		 movzx	 eax, BYTE PTR [rax+3080]
+  004ba	85 c0		 test	 eax, eax
+  004bc	74 14		 je	 SHORT $LN33@DefaultAni
+
+; 1982 : 		MoveForward(TimeDelta);
+
+  004be	f2 0f 10 8d f8
+	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
+  004c6	48 8b 8d f0 00
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  004cd	e8 00 00 00 00	 call	 ?MoveForward@CBoss@Client@@QEAAXN@Z ; Client::CBoss::MoveForward
 $LN33@DefaultAni:
 
-; 1938 : 
-; 1939 : 	if (m_bMoveForward)
+; 1983 : 
+; 1984 : 	if (m_bUseMissile1)
 
-  004d9	48 8b 85 f0 00
+  004d2	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004e0	0f b6 80 08 0c
-	00 00		 movzx	 eax, BYTE PTR [rax+3080]
-  004e7	85 c0		 test	 eax, eax
-  004e9	74 14		 je	 SHORT $LN34@DefaultAni
-
-; 1940 : 		MoveForward(TimeDelta);
-
-  004eb	f2 0f 10 8d f8
-	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  004f3	48 8b 8d f0 00
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  004fa	e8 00 00 00 00	 call	 ?MoveForward@CBoss@Client@@QEAAXN@Z ; Client::CBoss::MoveForward
-$LN34@DefaultAni:
-
-; 1941 : 
-; 1942 : 	if (m_bUseMissile1)
-
-  004ff	48 8b 85 f0 00
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00506	0f b6 80 78 0c
+  004d9	0f b6 80 78 0c
 	00 00		 movzx	 eax, BYTE PTR [rax+3192]
-  0050d	85 c0		 test	 eax, eax
-  0050f	74 14		 je	 SHORT $LN35@DefaultAni
+  004e0	85 c0		 test	 eax, eax
+  004e2	74 14		 je	 SHORT $LN34@DefaultAni
 
-; 1943 : 		Missile1(TimeDelta);
+; 1985 : 		Missile1(TimeDelta);
 
-  00511	f2 0f 10 8d f8
+  004e4	f2 0f 10 8d f8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  00519	48 8b 8d f0 00
+  004ec	48 8b 8d f0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00520	e8 00 00 00 00	 call	 ?Missile1@CBoss@Client@@QEAAXN@Z ; Client::CBoss::Missile1
-$LN35@DefaultAni:
+  004f3	e8 00 00 00 00	 call	 ?Missile1@CBoss@Client@@QEAAXN@Z ; Client::CBoss::Missile1
+$LN34@DefaultAni:
+$LN1@DefaultAni:
 
-; 1944 : 
-; 1945 : }
+; 1986 : 
+; 1987 : }
 
-  00525	48 8d a5 d8 00
+  004f8	48 8d a5 d8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+216]
-  0052c	5f		 pop	 rdi
-  0052d	5d		 pop	 rbp
-  0052e	c3		 ret	 0
-  0052f	90		 npad	 1
-$LN37@DefaultAni:
-  00530	00 00 00 00	 DD	 $LN11@DefaultAni
-  00534	00 00 00 00	 DD	 $LN12@DefaultAni
-  00538	00 00 00 00	 DD	 $LN13@DefaultAni
-  0053c	00 00 00 00	 DD	 $LN16@DefaultAni
-  00540	00 00 00 00	 DD	 $LN17@DefaultAni
-  00544	00 00 00 00	 DD	 $LN18@DefaultAni
-  00548	00 00 00 00	 DD	 $LN19@DefaultAni
-  0054c	00 00 00 00	 DD	 $LN20@DefaultAni
+  004ff	5f		 pop	 rdi
+  00500	5d		 pop	 rbp
+  00501	c3		 ret	 0
+  00502	66 90		 npad	 2
+$LN36@DefaultAni:
+  00504	00 00 00 00	 DD	 $LN11@DefaultAni
+  00508	00 00 00 00	 DD	 $LN12@DefaultAni
+  0050c	00 00 00 00	 DD	 $LN13@DefaultAni
+  00510	00 00 00 00	 DD	 $LN16@DefaultAni
+  00514	00 00 00 00	 DD	 $LN17@DefaultAni
+  00518	00 00 00 00	 DD	 $LN18@DefaultAni
+  0051c	00 00 00 00	 DD	 $LN19@DefaultAni
+  00520	00 00 00 00	 DD	 $LN20@DefaultAni
 ?DefaultAnimation@CBoss@Client@@AEAAXN@Z ENDP		; Client::CBoss::DefaultAnimation
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -11958,7 +11950,7 @@ TimeDelta$ = 1112
 fRotationSpeed$ = 1120
 ?LookTarget@CBoss@Client@@QEAA_NNM@Z PROC		; Client::CBoss::LookTarget, COMDAT
 
-; 1812 : {
+; 1851 : {
 
 $LN8:
   00000	f3 0f 11 54 24
@@ -11978,7 +11970,7 @@ $LN8:
   0002e	48 8b 8c 24 78
 	04 00 00	 mov	 rcx, QWORD PTR [rsp+1144]
 
-; 1813 : 	_vector vRight = XMVector3Normalize(transform->Get_State(CTransform::STATE_RIGHT));
+; 1852 : 	_vector vRight = XMVector3Normalize(transform->Get_State(CTransform::STATE_RIGHT));
 
   00036	45 33 c0	 xor	 r8d, r8d
   00039	48 8d 95 60 02
@@ -11997,7 +11989,7 @@ $LN8:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T1[rbp]
   0006a	0f 29 45 10	 movaps	 XMMWORD PTR vRight$[rbp], xmm0
 
-; 1814 : 	_vector vDir = XMVector3Normalize(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION));
+; 1853 : 	_vector vDir = XMVector3Normalize(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION));
 
   0006e	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -12037,8 +12029,8 @@ $LN8:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T3[rbp]
   000ea	0f 29 45 40	 movaps	 XMMWORD PTR vDir$[rbp], xmm0
 
-; 1815 : 
-; 1816 : 	_float fRadianAngle = XMVectorGetX(XMVector3Dot(vRight, vDir));
+; 1854 : 
+; 1855 : 	_float fRadianAngle = XMVectorGetX(XMVector3Dot(vRight, vDir));
 
   000ee	0f 28 4d 40	 movaps	 xmm1, XMMWORD PTR vDir$[rbp]
   000f2	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vRight$[rbp]
@@ -12050,7 +12042,7 @@ $LN8:
   00109	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
   0010e	f3 0f 11 45 64	 movss	 DWORD PTR fRadianAngle$[rbp], xmm0
 
-; 1817 : 	if (isnan(fRadianAngle))
+; 1856 : 	if (isnan(fRadianAngle))
 
   00113	f3 0f 10 45 64	 movss	 xmm0, DWORD PTR fRadianAngle$[rbp]
   00118	e8 00 00 00 00	 call	 ??$isnan@M@@YA_NM@Z	; isnan<float>
@@ -12058,22 +12050,22 @@ $LN8:
   00120	85 c0		 test	 eax, eax
   00122	74 08		 je	 SHORT $LN2@LookTarget
 
-; 1818 : 		fRadianAngle = 0.f;
+; 1857 : 		fRadianAngle = 0.f;
 
   00124	0f 57 c0	 xorps	 xmm0, xmm0
   00127	f3 0f 11 45 64	 movss	 DWORD PTR fRadianAngle$[rbp], xmm0
 $LN2@LookTarget:
 
-; 1819 : 
-; 1820 : 	_float fDirCheck = XMVectorGetY((vRight, vDir));
+; 1858 : 
+; 1859 : 	_float fDirCheck = XMVectorGetY((vRight, vDir));
 
   0012c	0f 28 45 40	 movaps	 xmm0, XMMWORD PTR vDir$[rbp]
   00130	e8 00 00 00 00	 call	 ?XMVectorGetY@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetY
   00135	f3 0f 11 85 84
 	00 00 00	 movss	 DWORD PTR fDirCheck$[rbp], xmm0
 
-; 1821 : 
-; 1822 : 	if(fDirCheck >= 0.f)
+; 1860 : 
+; 1861 : 	if(fDirCheck >= 0.f)
 
   0013d	f3 0f 10 85 84
 	00 00 00	 movss	 xmm0, DWORD PTR fDirCheck$[rbp]
@@ -12081,7 +12073,7 @@ $LN2@LookTarget:
 	00 00		 comiss	 xmm0, DWORD PTR __real@00000000
   0014c	72 6b		 jb	 SHORT $LN3@LookTarget
 
-; 1823 : 		transform->Rotate(VECTOR_UP, fRadianAngle * (TimeDelta * fRotationSpeed));
+; 1862 : 		transform->Rotate(VECTOR_UP, fRadianAngle * (TimeDelta * fRotationSpeed));
 
   0014e	0f 57 db	 xorps	 xmm3, xmm3
   00151	0f 57 d2	 xorps	 xmm2, xmm2
@@ -12113,12 +12105,12 @@ $LN2@LookTarget:
   001b1	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
 
-; 1824 : 	else
+; 1863 : 	else
 
   001b7	eb 74		 jmp	 SHORT $LN4@LookTarget
 $LN3@LookTarget:
 
-; 1825 : 		transform->Rotate(VECTOR_UP, -fRadianAngle * (TimeDelta * fRotationSpeed));
+; 1864 : 		transform->Rotate(VECTOR_UP, -fRadianAngle * (TimeDelta * fRotationSpeed));
 
   001b9	0f 57 db	 xorps	 xmm3, xmm3
   001bc	0f 57 d2	 xorps	 xmm2, xmm2
@@ -12154,31 +12146,31 @@ $LN3@LookTarget:
 	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
 $LN4@LookTarget:
 
-; 1826 : 	
-; 1827 : 	if (fRadianAngle < 0.05f)
+; 1865 : 	
+; 1866 : 	if (fRadianAngle < 0.05f)
 
   0022d	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3d4ccccd
   00235	0f 2f 45 64	 comiss	 xmm0, DWORD PTR fRadianAngle$[rbp]
   00239	76 06		 jbe	 SHORT $LN5@LookTarget
 
-; 1828 : 		return true;
+; 1867 : 		return true;
 
   0023b	b0 01		 mov	 al, 1
   0023d	eb 04		 jmp	 SHORT $LN1@LookTarget
 
-; 1829 : 	else
+; 1868 : 	else
 
   0023f	eb 02		 jmp	 SHORT $LN6@LookTarget
 $LN5@LookTarget:
 
-; 1830 : 		return false;
+; 1869 : 		return false;
 
   00241	32 c0		 xor	 al, al
 $LN6@LookTarget:
 $LN1@LookTarget:
 
-; 1831 : }
+; 1870 : }
 
   00243	48 8d a5 38 04
 	00 00		 lea	 rsp, QWORD PTR [rbp+1080]
@@ -12248,7 +12240,7 @@ tv73 = 408
 this$ = 448
 ?GetLengthFromPlayer@CBoss@Client@@QEBAMXZ PROC		; Client::CBoss::GetLengthFromPlayer, COMDAT
 
-; 1806 : {
+; 1845 : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -12264,7 +12256,7 @@ $LN3:
   00022	48 8b 8c 24 f8
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+504]
 
-; 1807 : 	_float fLength = XMVectorGetX(XMVector3Length(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION)));
+; 1846 : 	_float fLength = XMVectorGetX(XMVector3Length(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION)));
 
   0002a	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -12305,11 +12297,11 @@ $LN3:
   000a6	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
   000ab	f3 0f 11 45 04	 movss	 DWORD PTR fLength$[rbp], xmm0
 
-; 1808 : 	return fLength;
+; 1847 : 	return fLength;
 
   000b0	f3 0f 10 45 04	 movss	 xmm0, DWORD PTR fLength$[rbp]
 
-; 1809 : }
+; 1848 : }
 
   000b5	48 8d a5 a8 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+424]
@@ -12511,7 +12503,7 @@ TimeDelta$ = 8760
 
 ; 1399 : {
 
-$LN70:
+$LN68:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -12567,8 +12559,8 @@ $LN70:
 
   00085	48 8b 85 30 22
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0008c	0f b6 80 bc 0e
-	00 00		 movzx	 eax, BYTE PTR [rax+3772]
+  0008c	0f b6 80 c0 0e
+	00 00		 movzx	 eax, BYTE PTR [rax+3776]
   00093	85 c0		 test	 eax, eax
   00095	0f 85 7c 03 00
 	00		 jne	 $LN2@LastAttack
@@ -12593,8 +12585,8 @@ $LN70:
 
   000b5	48 8b 85 30 22
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000bc	c6 80 bc 0e 00
-	00 01		 mov	 BYTE PTR [rax+3772], 1
+  000bc	c6 80 c0 0e 00
+	00 01		 mov	 BYTE PTR [rax+3776], 1
 
 ; 1414 : 
 ; 1415 : 			SetupState(BOSS_CLIP::ATK11, CAnimation::TYPE::ONE, false);
@@ -12902,7 +12894,7 @@ $LN3@LastAttack:
 
 ; 1444 : 			return;
 
-  00412	e9 7e 31 00 00	 jmp	 $LN1@LastAttack
+  00412	e9 89 30 00 00	 jmp	 $LN1@LastAttack
 $LN4@LastAttack:
 $LN2@LastAttack:
 
@@ -13113,7 +13105,7 @@ $LN2@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   00665	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
-  0066c	76 37		 jbe	 SHORT $LN46@LastAttack
+  0066c	76 37		 jbe	 SHORT $LN44@LastAttack
   0066e	b8 04 00 00 00	 mov	 eax, 4
   00673	48 6b c0 00	 imul	 rax, rax, 0
   00677	48 8b 8d 30 22
@@ -13129,13 +13121,13 @@ $LN2@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   0069b	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv347[rbp], xmm0
-  006a3	eb 10		 jmp	 SHORT $LN47@LastAttack
-$LN46@LastAttack:
+  006a3	eb 10		 jmp	 SHORT $LN45@LastAttack
+$LN44@LastAttack:
   006a5	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40800000
   006ad	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv347[rbp], xmm0
-$LN47@LastAttack:
+$LN45@LastAttack:
   006b5	b8 04 00 00 00	 mov	 eax, 4
   006ba	48 6b c0 00	 imul	 rax, rax, 0
   006be	48 8b 8d 30 22
@@ -13348,7 +13340,7 @@ $LN6@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   00928	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
-  0092f	76 37		 jbe	 SHORT $LN48@LastAttack
+  0092f	76 37		 jbe	 SHORT $LN46@LastAttack
   00931	b8 04 00 00 00	 mov	 eax, 4
   00936	48 6b c0 00	 imul	 rax, rax, 0
   0093a	48 8b 8d 30 22
@@ -13364,13 +13356,13 @@ $LN6@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   0095e	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv446[rbp], xmm0
-  00966	eb 10		 jmp	 SHORT $LN49@LastAttack
-$LN48@LastAttack:
+  00966	eb 10		 jmp	 SHORT $LN47@LastAttack
+$LN46@LastAttack:
   00968	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40800000
   00970	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv446[rbp], xmm0
-$LN49@LastAttack:
+$LN47@LastAttack:
   00978	b8 04 00 00 00	 mov	 eax, 4
   0097d	48 6b c0 00	 imul	 rax, rax, 0
   00981	48 8b 8d 30 22
@@ -13760,7 +13752,7 @@ $LN5@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   00ddd	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
-  00de4	76 37		 jbe	 SHORT $LN50@LastAttack
+  00de4	76 37		 jbe	 SHORT $LN48@LastAttack
   00de6	b8 04 00 00 00	 mov	 eax, 4
   00deb	48 6b c0 01	 imul	 rax, rax, 1
   00def	48 8b 8d 30 22
@@ -13776,13 +13768,13 @@ $LN5@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   00e13	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv629[rbp], xmm0
-  00e1b	eb 10		 jmp	 SHORT $LN51@LastAttack
-$LN50@LastAttack:
+  00e1b	eb 10		 jmp	 SHORT $LN49@LastAttack
+$LN48@LastAttack:
   00e1d	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40800000
   00e25	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv629[rbp], xmm0
-$LN51@LastAttack:
+$LN49@LastAttack:
   00e2d	b8 04 00 00 00	 mov	 eax, 4
   00e32	48 6b c0 01	 imul	 rax, rax, 1
   00e36	48 8b 8d 30 22
@@ -13995,7 +13987,7 @@ $LN12@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   010a0	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
-  010a7	76 37		 jbe	 SHORT $LN52@LastAttack
+  010a7	76 37		 jbe	 SHORT $LN50@LastAttack
   010a9	b8 04 00 00 00	 mov	 eax, 4
   010ae	48 6b c0 01	 imul	 rax, rax, 1
   010b2	48 8b 8d 30 22
@@ -14011,13 +14003,13 @@ $LN12@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   010d6	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv760[rbp], xmm0
-  010de	eb 10		 jmp	 SHORT $LN53@LastAttack
-$LN52@LastAttack:
+  010de	eb 10		 jmp	 SHORT $LN51@LastAttack
+$LN50@LastAttack:
   010e0	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40800000
   010e8	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv760[rbp], xmm0
-$LN53@LastAttack:
+$LN51@LastAttack:
   010f0	b8 04 00 00 00	 mov	 eax, 4
   010f5	48 6b c0 01	 imul	 rax, rax, 1
   010f9	48 8b 8d 30 22
@@ -14407,7 +14399,7 @@ $LN11@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   01555	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
-  0155c	76 37		 jbe	 SHORT $LN54@LastAttack
+  0155c	76 37		 jbe	 SHORT $LN52@LastAttack
   0155e	b8 04 00 00 00	 mov	 eax, 4
   01563	48 6b c0 02	 imul	 rax, rax, 2
   01567	48 8b 8d 30 22
@@ -14423,13 +14415,13 @@ $LN11@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   0158b	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv943[rbp], xmm0
-  01593	eb 10		 jmp	 SHORT $LN55@LastAttack
-$LN54@LastAttack:
+  01593	eb 10		 jmp	 SHORT $LN53@LastAttack
+$LN52@LastAttack:
   01595	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40800000
   0159d	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv943[rbp], xmm0
-$LN55@LastAttack:
+$LN53@LastAttack:
   015a5	b8 04 00 00 00	 mov	 eax, 4
   015aa	48 6b c0 02	 imul	 rax, rax, 2
   015ae	48 8b 8d 30 22
@@ -14642,7 +14634,7 @@ $LN18@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   01818	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
-  0181f	76 37		 jbe	 SHORT $LN56@LastAttack
+  0181f	76 37		 jbe	 SHORT $LN54@LastAttack
   01821	b8 04 00 00 00	 mov	 eax, 4
   01826	48 6b c0 02	 imul	 rax, rax, 2
   0182a	48 8b 8d 30 22
@@ -14658,13 +14650,13 @@ $LN18@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   0184e	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1042[rbp], xmm0
-  01856	eb 10		 jmp	 SHORT $LN57@LastAttack
-$LN56@LastAttack:
+  01856	eb 10		 jmp	 SHORT $LN55@LastAttack
+$LN54@LastAttack:
   01858	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40800000
   01860	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1042[rbp], xmm0
-$LN57@LastAttack:
+$LN55@LastAttack:
   01868	b8 04 00 00 00	 mov	 eax, 4
   0186d	48 6b c0 02	 imul	 rax, rax, 2
   01871	48 8b 8d 30 22
@@ -15054,7 +15046,7 @@ $LN17@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   01ccd	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
-  01cd4	76 37		 jbe	 SHORT $LN58@LastAttack
+  01cd4	76 37		 jbe	 SHORT $LN56@LastAttack
   01cd6	b8 04 00 00 00	 mov	 eax, 4
   01cdb	48 6b c0 04	 imul	 rax, rax, 4
   01cdf	48 8b 8d 30 22
@@ -15070,13 +15062,13 @@ $LN17@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   01d03	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1257[rbp], xmm0
-  01d0b	eb 10		 jmp	 SHORT $LN59@LastAttack
-$LN58@LastAttack:
+  01d0b	eb 10		 jmp	 SHORT $LN57@LastAttack
+$LN56@LastAttack:
   01d0d	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40800000
   01d15	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1257[rbp], xmm0
-$LN59@LastAttack:
+$LN57@LastAttack:
   01d1d	b8 04 00 00 00	 mov	 eax, 4
   01d22	48 6b c0 04	 imul	 rax, rax, 4
   01d26	48 8b 8d 30 22
@@ -15289,7 +15281,7 @@ $LN24@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   01f90	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
-  01f97	76 37		 jbe	 SHORT $LN60@LastAttack
+  01f97	76 37		 jbe	 SHORT $LN58@LastAttack
   01f99	b8 04 00 00 00	 mov	 eax, 4
   01f9e	48 6b c0 04	 imul	 rax, rax, 4
   01fa2	48 8b 8d 30 22
@@ -15305,13 +15297,13 @@ $LN24@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   01fc6	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1356[rbp], xmm0
-  01fce	eb 10		 jmp	 SHORT $LN61@LastAttack
-$LN60@LastAttack:
+  01fce	eb 10		 jmp	 SHORT $LN59@LastAttack
+$LN58@LastAttack:
   01fd0	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40800000
   01fd8	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1356[rbp], xmm0
-$LN61@LastAttack:
+$LN59@LastAttack:
   01fe0	b8 04 00 00 00	 mov	 eax, 4
   01fe5	48 6b c0 04	 imul	 rax, rax, 4
   01fe9	48 8b 8d 30 22
@@ -15701,7 +15693,7 @@ $LN23@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   02445	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
-  0244c	76 37		 jbe	 SHORT $LN62@LastAttack
+  0244c	76 37		 jbe	 SHORT $LN60@LastAttack
   0244e	b8 04 00 00 00	 mov	 eax, 4
   02453	48 6b c0 03	 imul	 rax, rax, 3
   02457	48 8b 8d 30 22
@@ -15717,13 +15709,13 @@ $LN23@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   0247b	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1539[rbp], xmm0
-  02483	eb 10		 jmp	 SHORT $LN63@LastAttack
-$LN62@LastAttack:
+  02483	eb 10		 jmp	 SHORT $LN61@LastAttack
+$LN60@LastAttack:
   02485	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40800000
   0248d	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1539[rbp], xmm0
-$LN63@LastAttack:
+$LN61@LastAttack:
   02495	b8 04 00 00 00	 mov	 eax, 4
   0249a	48 6b c0 03	 imul	 rax, rax, 3
   0249e	48 8b 8d 30 22
@@ -15936,7 +15928,7 @@ $LN30@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   02708	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
-  0270f	76 37		 jbe	 SHORT $LN64@LastAttack
+  0270f	76 37		 jbe	 SHORT $LN62@LastAttack
   02711	b8 04 00 00 00	 mov	 eax, 4
   02716	48 6b c0 03	 imul	 rax, rax, 3
   0271a	48 8b 8d 30 22
@@ -15952,13 +15944,13 @@ $LN30@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   0273e	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1670[rbp], xmm0
-  02746	eb 10		 jmp	 SHORT $LN65@LastAttack
-$LN64@LastAttack:
+  02746	eb 10		 jmp	 SHORT $LN63@LastAttack
+$LN62@LastAttack:
   02748	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40800000
   02750	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1670[rbp], xmm0
-$LN65@LastAttack:
+$LN63@LastAttack:
   02758	b8 04 00 00 00	 mov	 eax, 4
   0275d	48 6b c0 03	 imul	 rax, rax, 3
   02761	48 8b 8d 30 22
@@ -16348,7 +16340,7 @@ $LN29@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   02bbd	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
-  02bc4	76 37		 jbe	 SHORT $LN66@LastAttack
+  02bc4	76 37		 jbe	 SHORT $LN64@LastAttack
   02bc6	b8 04 00 00 00	 mov	 eax, 4
   02bcb	48 6b c0 05	 imul	 rax, rax, 5
   02bcf	48 8b 8d 30 22
@@ -16364,13 +16356,13 @@ $LN29@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   02bf3	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1853[rbp], xmm0
-  02bfb	eb 10		 jmp	 SHORT $LN67@LastAttack
-$LN66@LastAttack:
+  02bfb	eb 10		 jmp	 SHORT $LN65@LastAttack
+$LN64@LastAttack:
   02bfd	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40800000
   02c05	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1853[rbp], xmm0
-$LN67@LastAttack:
+$LN65@LastAttack:
   02c0d	b8 04 00 00 00	 mov	 eax, 4
   02c12	48 6b c0 05	 imul	 rax, rax, 5
   02c16	48 8b 8d 30 22
@@ -16583,7 +16575,7 @@ $LN36@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   02e80	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@40800000
-  02e87	76 37		 jbe	 SHORT $LN68@LastAttack
+  02e87	76 37		 jbe	 SHORT $LN66@LastAttack
   02e89	b8 04 00 00 00	 mov	 eax, 4
   02e8e	48 6b c0 05	 imul	 rax, rax, 5
   02e92	48 8b 8d 30 22
@@ -16599,13 +16591,13 @@ $LN36@LastAttack:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3ecccccd
   02eb6	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1952[rbp], xmm0
-  02ebe	eb 10		 jmp	 SHORT $LN69@LastAttack
-$LN68@LastAttack:
+  02ebe	eb 10		 jmp	 SHORT $LN67@LastAttack
+$LN66@LastAttack:
   02ec0	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40800000
   02ec8	f3 0f 11 85 04
 	22 00 00	 movss	 DWORD PTR tv1952[rbp], xmm0
-$LN69@LastAttack:
+$LN67@LastAttack:
   02ed0	b8 04 00 00 00	 mov	 eax, 4
   02ed5	48 6b c0 05	 imul	 rax, rax, 5
   02ed9	48 8b 8d 30 22
@@ -16790,456 +16782,416 @@ $LN35@LastAttack:
 ; 1750 : 		}
 ; 1751 : 	}
 ; 1752 : 
-; 1753 : 	if (m_bLineSkillErase[LEFT] && m_bLineSkillErase[FRONT] && m_bLineSkillErase[RIGHT] &&
+; 1753 : 	/*if (m_bLineSkillErase[LEFT] && m_bLineSkillErase[FRONT] && m_bLineSkillErase[RIGHT] &&
 ; 1754 : 		m_bLineSkillErase[LEFT_BACK] && m_bLineSkillErase[BACK] && m_bLineSkillErase[RIGHT_BACK])
-
-  030e7	b8 01 00 00 00	 mov	 eax, 1
-  030ec	48 6b c0 00	 imul	 rax, rax, 0
-  030f0	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  030f7	0f b6 84 01 af
-	0b 00 00	 movzx	 eax, BYTE PTR [rcx+rax+2991]
-  030ff	85 c0		 test	 eax, eax
-  03101	0f 84 8e 04 00
-	00		 je	 $LN41@LastAttack
-  03107	b8 01 00 00 00	 mov	 eax, 1
-  0310c	48 6b c0 01	 imul	 rax, rax, 1
-  03110	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03117	0f b6 84 01 af
-	0b 00 00	 movzx	 eax, BYTE PTR [rcx+rax+2991]
-  0311f	85 c0		 test	 eax, eax
-  03121	0f 84 6e 04 00
-	00		 je	 $LN41@LastAttack
-  03127	b8 01 00 00 00	 mov	 eax, 1
-  0312c	48 6b c0 02	 imul	 rax, rax, 2
-  03130	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03137	0f b6 84 01 af
-	0b 00 00	 movzx	 eax, BYTE PTR [rcx+rax+2991]
-  0313f	85 c0		 test	 eax, eax
-  03141	0f 84 4e 04 00
-	00		 je	 $LN41@LastAttack
-  03147	b8 01 00 00 00	 mov	 eax, 1
-  0314c	48 6b c0 04	 imul	 rax, rax, 4
-  03150	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03157	0f b6 84 01 af
-	0b 00 00	 movzx	 eax, BYTE PTR [rcx+rax+2991]
-  0315f	85 c0		 test	 eax, eax
-  03161	0f 84 2e 04 00
-	00		 je	 $LN41@LastAttack
-  03167	b8 01 00 00 00	 mov	 eax, 1
-  0316c	48 6b c0 03	 imul	 rax, rax, 3
-  03170	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03177	0f b6 84 01 af
-	0b 00 00	 movzx	 eax, BYTE PTR [rcx+rax+2991]
-  0317f	85 c0		 test	 eax, eax
-  03181	0f 84 0e 04 00
-	00		 je	 $LN41@LastAttack
-  03187	b8 01 00 00 00	 mov	 eax, 1
-  0318c	48 6b c0 05	 imul	 rax, rax, 5
-  03190	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03197	0f b6 84 01 af
-	0b 00 00	 movzx	 eax, BYTE PTR [rcx+rax+2991]
-  0319f	85 c0		 test	 eax, eax
-  031a1	0f 84 ee 03 00
-	00		 je	 $LN41@LastAttack
-
 ; 1755 : 	{
 ; 1756 : 		if (m_iEraseIndexEx < 25)
-
-  031a7	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  031ae	83 b8 70 0e 00
-	00 19		 cmp	 DWORD PTR [rax+3696], 25
-  031b5	0f 8d da 03 00
-	00		 jge	 $LN42@LastAttack
-
 ; 1757 : 		{
 ; 1758 : 			m_fLastAttackEraseAcc += TimeDelta;
-
-  031bb	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  031c2	f3 0f 5a 80 c0
-	0e 00 00	 cvtss2sd xmm0, DWORD PTR [rax+3776]
-  031ca	f2 0f 58 85 38
-	22 00 00	 addsd	 xmm0, QWORD PTR TimeDelta$[rbp]
-  031d2	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
-  031d6	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  031dd	f3 0f 11 80 c0
-	0e 00 00	 movss	 DWORD PTR [rax+3776], xmm0
-
 ; 1759 : 			if (m_fLastAttackEraseAcc >= m_fLastAttackEraseDelay)
-
-  031e5	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  031ec	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  031f3	f3 0f 10 80 c0
-	0e 00 00	 movss	 xmm0, DWORD PTR [rax+3776]
-  031fb	0f 2f 81 c4 0e
-	00 00		 comiss	 xmm0, DWORD PTR [rcx+3780]
-  03202	0f 82 8d 03 00
-	00		 jb	 $LN43@LastAttack
-
 ; 1760 : 			{
 ; 1761 : 				m_fLastAttackEraseAcc = 0.f;
-
-  03208	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0320f	0f 57 c0	 xorps	 xmm0, xmm0
-  03212	f3 0f 11 80 c0
-	0e 00 00	 movss	 DWORD PTR [rax+3776], xmm0
-
 ; 1762 : 
 ; 1763 : 				m_pThorn1[m_iEraseIndexEx][LEFT]->SetupScaleSmoothDownStart();
-
-  0321a	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  03221	48 63 80 70 0e
-	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
-  03228	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
-  0322c	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03233	48 8d 84 01 18
-	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
-  0323b	b9 08 00 00 00	 mov	 ecx, 8
-  03240	48 6b c9 00	 imul	 rcx, rcx, 0
-  03244	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
-  03248	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
-
 ; 1764 : 				m_pThorn2[m_iEraseIndexEx][LEFT]->SetupScaleSmoothDownStart();
-
-  0324d	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  03254	48 63 80 70 0e
-	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
-  0325b	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
-  0325f	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03266	48 8d 84 01 c8
-	06 00 00	 lea	 rax, QWORD PTR [rcx+rax+1736]
-  0326e	b9 08 00 00 00	 mov	 ecx, 8
-  03273	48 6b c9 00	 imul	 rcx, rcx, 0
-  03277	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
-  0327b	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
-
 ; 1765 : 
 ; 1766 : 				m_pThorn1[m_iEraseIndexEx][FRONT]->SetupScaleSmoothDownStart();
-
-  03280	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  03287	48 63 80 70 0e
-	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
-  0328e	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
-  03292	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03299	48 8d 84 01 18
-	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
-  032a1	b9 08 00 00 00	 mov	 ecx, 8
-  032a6	48 6b c9 01	 imul	 rcx, rcx, 1
-  032aa	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
-  032ae	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
-
 ; 1767 : 				m_pThorn2[m_iEraseIndexEx][FRONT]->SetupScaleSmoothDownStart();
-
-  032b3	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  032ba	48 63 80 70 0e
-	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
-  032c1	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
-  032c5	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  032cc	48 8d 84 01 c8
-	06 00 00	 lea	 rax, QWORD PTR [rcx+rax+1736]
-  032d4	b9 08 00 00 00	 mov	 ecx, 8
-  032d9	48 6b c9 01	 imul	 rcx, rcx, 1
-  032dd	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
-  032e1	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
-
 ; 1768 : 
 ; 1769 : 				m_pThorn1[m_iEraseIndexEx][RIGHT]->SetupScaleSmoothDownStart();
-
-  032e6	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  032ed	48 63 80 70 0e
-	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
-  032f4	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
-  032f8	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  032ff	48 8d 84 01 18
-	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
-  03307	b9 08 00 00 00	 mov	 ecx, 8
-  0330c	48 6b c9 02	 imul	 rcx, rcx, 2
-  03310	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
-  03314	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
-
 ; 1770 : 				m_pThorn2[m_iEraseIndexEx][RIGHT]->SetupScaleSmoothDownStart();
-
-  03319	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  03320	48 63 80 70 0e
-	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
-  03327	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
-  0332b	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03332	48 8d 84 01 c8
-	06 00 00	 lea	 rax, QWORD PTR [rcx+rax+1736]
-  0333a	b9 08 00 00 00	 mov	 ecx, 8
-  0333f	48 6b c9 02	 imul	 rcx, rcx, 2
-  03343	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
-  03347	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
-
 ; 1771 : 
 ; 1772 : 				m_pThorn1[m_iEraseIndexEx][LEFT_BACK]->SetupScaleSmoothDownStart();
-
-  0334c	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  03353	48 63 80 70 0e
-	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
-  0335a	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
-  0335e	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03365	48 8d 84 01 18
-	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
-  0336d	b9 08 00 00 00	 mov	 ecx, 8
-  03372	48 6b c9 04	 imul	 rcx, rcx, 4
-  03376	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
-  0337a	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
-
 ; 1773 : 				m_pThorn2[m_iEraseIndexEx][LEFT_BACK]->SetupScaleSmoothDownStart();
-
-  0337f	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  03386	48 63 80 70 0e
-	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
-  0338d	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
-  03391	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03398	48 8d 84 01 c8
-	06 00 00	 lea	 rax, QWORD PTR [rcx+rax+1736]
-  033a0	b9 08 00 00 00	 mov	 ecx, 8
-  033a5	48 6b c9 04	 imul	 rcx, rcx, 4
-  033a9	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
-  033ad	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
-
 ; 1774 : 
 ; 1775 : 				m_pThorn1[m_iEraseIndexEx][RIGHT_BACK]->SetupScaleSmoothDownStart();
-
-  033b2	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  033b9	48 63 80 70 0e
-	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
-  033c0	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
-  033c4	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  033cb	48 8d 84 01 18
-	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
-  033d3	b9 08 00 00 00	 mov	 ecx, 8
-  033d8	48 6b c9 05	 imul	 rcx, rcx, 5
-  033dc	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
-  033e0	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
-
 ; 1776 : 				m_pThorn2[m_iEraseIndexEx][RIGHT_BACK]->SetupScaleSmoothDownStart();
-
-  033e5	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  033ec	48 63 80 70 0e
-	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
-  033f3	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
-  033f7	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  033fe	48 8d 84 01 c8
-	06 00 00	 lea	 rax, QWORD PTR [rcx+rax+1736]
-  03406	b9 08 00 00 00	 mov	 ecx, 8
-  0340b	48 6b c9 05	 imul	 rcx, rcx, 5
-  0340f	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
-  03413	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
-
 ; 1777 : 
 ; 1778 : 				m_pThorn1[m_iEraseIndexEx][BACK]->SetupScaleSmoothDownStart();
-
-  03418	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0341f	48 63 80 70 0e
-	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
-  03426	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
-  0342a	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03431	48 8d 84 01 18
-	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
-  03439	b9 08 00 00 00	 mov	 ecx, 8
-  0343e	48 6b c9 03	 imul	 rcx, rcx, 3
-  03442	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
-  03446	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
-
 ; 1779 : 				m_pThorn2[m_iEraseIndexEx][BACK]->SetupScaleSmoothDownStart();
-
-  0344b	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  03452	48 63 80 70 0e
-	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
-  03459	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
-  0345d	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03464	48 8d 84 01 c8
-	06 00 00	 lea	 rax, QWORD PTR [rcx+rax+1736]
-  0346c	b9 08 00 00 00	 mov	 ecx, 8
-  03471	48 6b c9 03	 imul	 rcx, rcx, 3
-  03475	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
-  03479	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
-
 ; 1780 : 
 ; 1781 : 				m_iEraseIndexEx++;
-
-  0347e	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  03485	8b 80 70 0e 00
-	00		 mov	 eax, DWORD PTR [rax+3696]
-  0348b	ff c0		 inc	 eax
-  0348d	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03494	89 81 70 0e 00
-	00		 mov	 DWORD PTR [rcx+3696], eax
-
 ; 1782 : 				if (m_iEraseIndexEx == 25)
-
-  0349a	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  034a1	83 b8 70 0e 00
-	00 19		 cmp	 DWORD PTR [rax+3696], 25
-  034a8	0f 85 e7 00 00
-	00		 jne	 $LN44@LastAttack
-
 ; 1783 : 				{
 ; 1784 : 					m_bLastAttack = false;
-
-  034ae	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  034b5	c6 80 bd 0e 00
-	00 00		 mov	 BYTE PTR [rax+3773], 0
-
 ; 1785 : 					m_bAttackable = true;
-
-  034bc	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  034c3	c6 80 01 02 00
-	00 01		 mov	 BYTE PTR [rax+513], 1
-
 ; 1786 : 					m_iEraseIndexEx = 0;
-
-  034ca	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  034d1	c7 80 70 0e 00
-	00 00 00 00 00	 mov	 DWORD PTR [rax+3696], 0
-
 ; 1787 : 					m_bBurrowable = true;
-
-  034db	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  034e2	c6 80 84 0c 00
-	00 01		 mov	 BYTE PTR [rax+3204], 1
-
 ; 1788 : 					m_bUseLineSkill = false;
-
-  034e9	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  034f0	c6 80 a8 0b 00
-	00 00		 mov	 BYTE PTR [rax+2984], 0
-
 ; 1789 : 					m_bLineAttackEraseEx = false;
-
-  034f7	48 8b 85 30 22
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  034fe	c6 80 64 0e 00
-	00 00		 mov	 BYTE PTR [rax+3684], 0
-
 ; 1790 : 
 ; 1791 : 					m_bLineSkillErase[LEFT] = false;
-
-  03505	b8 01 00 00 00	 mov	 eax, 1
-  0350a	48 6b c0 00	 imul	 rax, rax, 0
-  0350e	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03515	c6 84 01 af 0b
-	00 00 00	 mov	 BYTE PTR [rcx+rax+2991], 0
-
 ; 1792 : 					m_bLineSkillErase[FRONT] = false;
-
-  0351d	b8 01 00 00 00	 mov	 eax, 1
-  03522	48 6b c0 01	 imul	 rax, rax, 1
-  03526	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0352d	c6 84 01 af 0b
-	00 00 00	 mov	 BYTE PTR [rcx+rax+2991], 0
-
 ; 1793 : 					m_bLineSkillErase[RIGHT] = false;
-
-  03535	b8 01 00 00 00	 mov	 eax, 1
-  0353a	48 6b c0 02	 imul	 rax, rax, 2
-  0353e	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03545	c6 84 01 af 0b
-	00 00 00	 mov	 BYTE PTR [rcx+rax+2991], 0
-
 ; 1794 : 
 ; 1795 : 					m_bLineSkillErase[RIGHT_BACK] = false;
-
-  0354d	b8 01 00 00 00	 mov	 eax, 1
-  03552	48 6b c0 05	 imul	 rax, rax, 5
-  03556	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0355d	c6 84 01 af 0b
-	00 00 00	 mov	 BYTE PTR [rcx+rax+2991], 0
-
 ; 1796 : 					m_bLineSkillErase[LEFT_BACK] = false;
-
-  03565	b8 01 00 00 00	 mov	 eax, 1
-  0356a	48 6b c0 04	 imul	 rax, rax, 4
-  0356e	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  03575	c6 84 01 af 0b
-	00 00 00	 mov	 BYTE PTR [rcx+rax+2991], 0
-
 ; 1797 : 					m_bLineSkillErase[BACK] = false;
-
-  0357d	b8 01 00 00 00	 mov	 eax, 1
-  03582	48 6b c0 03	 imul	 rax, rax, 3
-  03586	48 8b 8d 30 22
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0358d	c6 84 01 af 0b
-	00 00 00	 mov	 BYTE PTR [rcx+rax+2991], 0
-$LN44@LastAttack:
-$LN43@LastAttack:
-$LN42@LastAttack:
-$LN41@LastAttack:
-$LN1@LastAttack:
-
 ; 1798 : 				}
 ; 1799 : 			}
 ; 1800 : 		}
-; 1801 : 	}
+; 1801 : 	}*/
 ; 1802 : 	
-; 1803 : }
+; 1803 : 	if (m_pThorn1[m_iEraseIndexEx][LEFT]->IsScaleFinish())
 
-  03595	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  03599	48 8d 15 00 00
+  030e7	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  030ee	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  030f5	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  030f9	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  03100	48 8d 84 01 18
+	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
+  03108	b9 08 00 00 00	 mov	 ecx, 8
+  0310d	48 6b c9 00	 imul	 rcx, rcx, 0
+  03111	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  03115	e8 00 00 00 00	 call	 ?IsScaleFinish@CThorn@Client@@QEAA_NXZ ; Client::CThorn::IsScaleFinish
+  0311a	0f b6 c0	 movzx	 eax, al
+  0311d	85 c0		 test	 eax, eax
+  0311f	0f 84 80 02 00
+	00		 je	 $LN41@LastAttack
+
+; 1804 : 	{
+; 1805 : 		m_iEraseIndexEx++;
+
+  03125	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0312c	8b 80 70 0e 00
+	00		 mov	 eax, DWORD PTR [rax+3696]
+  03132	ff c0		 inc	 eax
+  03134	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  0313b	89 81 70 0e 00
+	00		 mov	 DWORD PTR [rcx+3696], eax
+
+; 1806 : 		m_pThorn1[m_iEraseIndexEx][LEFT]->SetupScaleSmoothDownStart();
+
+  03141	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  03148	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  0314f	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  03153	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  0315a	48 8d 84 01 18
+	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
+  03162	b9 08 00 00 00	 mov	 ecx, 8
+  03167	48 6b c9 00	 imul	 rcx, rcx, 0
+  0316b	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  0316f	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
+
+; 1807 : 		m_pThorn2[m_iEraseIndexEx][LEFT]->SetupScaleSmoothDownStart();
+
+  03174	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0317b	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  03182	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  03186	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  0318d	48 8d 84 01 c8
+	06 00 00	 lea	 rax, QWORD PTR [rcx+rax+1736]
+  03195	b9 08 00 00 00	 mov	 ecx, 8
+  0319a	48 6b c9 00	 imul	 rcx, rcx, 0
+  0319e	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  031a2	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
+
+; 1808 : 
+; 1809 : 		m_pThorn1[m_iEraseIndexEx][FRONT]->SetupScaleSmoothDownStart();
+
+  031a7	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  031ae	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  031b5	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  031b9	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  031c0	48 8d 84 01 18
+	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
+  031c8	b9 08 00 00 00	 mov	 ecx, 8
+  031cd	48 6b c9 01	 imul	 rcx, rcx, 1
+  031d1	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  031d5	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
+
+; 1810 : 		m_pThorn2[m_iEraseIndexEx][FRONT]->SetupScaleSmoothDownStart();
+
+  031da	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  031e1	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  031e8	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  031ec	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  031f3	48 8d 84 01 c8
+	06 00 00	 lea	 rax, QWORD PTR [rcx+rax+1736]
+  031fb	b9 08 00 00 00	 mov	 ecx, 8
+  03200	48 6b c9 01	 imul	 rcx, rcx, 1
+  03204	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  03208	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
+
+; 1811 : 
+; 1812 : 		m_pThorn1[m_iEraseIndexEx][RIGHT]->SetupScaleSmoothDownStart();
+
+  0320d	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  03214	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  0321b	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  0321f	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  03226	48 8d 84 01 18
+	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
+  0322e	b9 08 00 00 00	 mov	 ecx, 8
+  03233	48 6b c9 02	 imul	 rcx, rcx, 2
+  03237	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  0323b	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
+
+; 1813 : 		m_pThorn2[m_iEraseIndexEx][RIGHT]->SetupScaleSmoothDownStart();
+
+  03240	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  03247	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  0324e	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  03252	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  03259	48 8d 84 01 c8
+	06 00 00	 lea	 rax, QWORD PTR [rcx+rax+1736]
+  03261	b9 08 00 00 00	 mov	 ecx, 8
+  03266	48 6b c9 02	 imul	 rcx, rcx, 2
+  0326a	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  0326e	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
+
+; 1814 : 
+; 1815 : 		m_pThorn1[m_iEraseIndexEx][LEFT_BACK]->SetupScaleSmoothDownStart();
+
+  03273	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0327a	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  03281	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  03285	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  0328c	48 8d 84 01 18
+	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
+  03294	b9 08 00 00 00	 mov	 ecx, 8
+  03299	48 6b c9 04	 imul	 rcx, rcx, 4
+  0329d	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  032a1	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
+
+; 1816 : 		m_pThorn2[m_iEraseIndexEx][LEFT_BACK]->SetupScaleSmoothDownStart();
+
+  032a6	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  032ad	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  032b4	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  032b8	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  032bf	48 8d 84 01 c8
+	06 00 00	 lea	 rax, QWORD PTR [rcx+rax+1736]
+  032c7	b9 08 00 00 00	 mov	 ecx, 8
+  032cc	48 6b c9 04	 imul	 rcx, rcx, 4
+  032d0	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  032d4	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
+
+; 1817 : 
+; 1818 : 		m_pThorn1[m_iEraseIndexEx][RIGHT_BACK]->SetupScaleSmoothDownStart();
+
+  032d9	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  032e0	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  032e7	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  032eb	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  032f2	48 8d 84 01 18
+	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
+  032fa	b9 08 00 00 00	 mov	 ecx, 8
+  032ff	48 6b c9 05	 imul	 rcx, rcx, 5
+  03303	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  03307	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
+
+; 1819 : 		m_pThorn2[m_iEraseIndexEx][RIGHT_BACK]->SetupScaleSmoothDownStart();
+
+  0330c	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  03313	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  0331a	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  0331e	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  03325	48 8d 84 01 c8
+	06 00 00	 lea	 rax, QWORD PTR [rcx+rax+1736]
+  0332d	b9 08 00 00 00	 mov	 ecx, 8
+  03332	48 6b c9 05	 imul	 rcx, rcx, 5
+  03336	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  0333a	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
+
+; 1820 : 
+; 1821 : 		m_pThorn1[m_iEraseIndexEx][BACK]->SetupScaleSmoothDownStart();
+
+  0333f	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  03346	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  0334d	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  03351	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  03358	48 8d 84 01 18
+	02 00 00	 lea	 rax, QWORD PTR [rcx+rax+536]
+  03360	b9 08 00 00 00	 mov	 ecx, 8
+  03365	48 6b c9 03	 imul	 rcx, rcx, 3
+  03369	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  0336d	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
+
+; 1822 : 		m_pThorn2[m_iEraseIndexEx][BACK]->SetupScaleSmoothDownStart();
+
+  03372	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  03379	48 63 80 70 0e
+	00 00		 movsxd	 rax, DWORD PTR [rax+3696]
+  03380	48 6b c0 30	 imul	 rax, rax, 48		; 00000030H
+  03384	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  0338b	48 8d 84 01 c8
+	06 00 00	 lea	 rax, QWORD PTR [rcx+rax+1736]
+  03393	b9 08 00 00 00	 mov	 ecx, 8
+  03398	48 6b c9 03	 imul	 rcx, rcx, 3
+  0339c	48 8b 0c 08	 mov	 rcx, QWORD PTR [rax+rcx]
+  033a0	e8 00 00 00 00	 call	 ?SetupScaleSmoothDownStart@CThorn@Client@@QEAAXXZ ; Client::CThorn::SetupScaleSmoothDownStart
+$LN41@LastAttack:
+
+; 1823 : 	}
+; 1824 : 
+; 1825 : 	if (m_iEraseIndexEx == 24)
+
+  033a5	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  033ac	83 b8 70 0e 00
+	00 18		 cmp	 DWORD PTR [rax+3696], 24
+  033b3	0f 85 e7 00 00
+	00		 jne	 $LN42@LastAttack
+
+; 1826 : 	{
+; 1827 : 		m_bLastAttack = false;
+
+  033b9	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  033c0	c6 80 c1 0e 00
+	00 00		 mov	 BYTE PTR [rax+3777], 0
+
+; 1828 : 		m_bAttackable = true;
+
+  033c7	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  033ce	c6 80 01 02 00
+	00 01		 mov	 BYTE PTR [rax+513], 1
+
+; 1829 : 		m_iEraseIndexEx = 0;
+
+  033d5	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  033dc	c7 80 70 0e 00
+	00 00 00 00 00	 mov	 DWORD PTR [rax+3696], 0
+
+; 1830 : 		m_bBurrowable = true;
+
+  033e6	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  033ed	c6 80 84 0c 00
+	00 01		 mov	 BYTE PTR [rax+3204], 1
+
+; 1831 : 		m_bUseLineSkill = false;
+
+  033f4	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  033fb	c6 80 a8 0b 00
+	00 00		 mov	 BYTE PTR [rax+2984], 0
+
+; 1832 : 		m_bLineAttackEraseEx = false;
+
+  03402	48 8b 85 30 22
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  03409	c6 80 64 0e 00
+	00 00		 mov	 BYTE PTR [rax+3684], 0
+
+; 1833 : 
+; 1834 : 		m_bLineSkillErase[LEFT] = false;
+
+  03410	b8 01 00 00 00	 mov	 eax, 1
+  03415	48 6b c0 00	 imul	 rax, rax, 0
+  03419	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  03420	c6 84 01 af 0b
+	00 00 00	 mov	 BYTE PTR [rcx+rax+2991], 0
+
+; 1835 : 		m_bLineSkillErase[FRONT] = false;
+
+  03428	b8 01 00 00 00	 mov	 eax, 1
+  0342d	48 6b c0 01	 imul	 rax, rax, 1
+  03431	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  03438	c6 84 01 af 0b
+	00 00 00	 mov	 BYTE PTR [rcx+rax+2991], 0
+
+; 1836 : 		m_bLineSkillErase[RIGHT] = false;
+
+  03440	b8 01 00 00 00	 mov	 eax, 1
+  03445	48 6b c0 02	 imul	 rax, rax, 2
+  03449	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  03450	c6 84 01 af 0b
+	00 00 00	 mov	 BYTE PTR [rcx+rax+2991], 0
+
+; 1837 : 
+; 1838 : 		m_bLineSkillErase[RIGHT_BACK] = false;
+
+  03458	b8 01 00 00 00	 mov	 eax, 1
+  0345d	48 6b c0 05	 imul	 rax, rax, 5
+  03461	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  03468	c6 84 01 af 0b
+	00 00 00	 mov	 BYTE PTR [rcx+rax+2991], 0
+
+; 1839 : 		m_bLineSkillErase[LEFT_BACK] = false;
+
+  03470	b8 01 00 00 00	 mov	 eax, 1
+  03475	48 6b c0 04	 imul	 rax, rax, 4
+  03479	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  03480	c6 84 01 af 0b
+	00 00 00	 mov	 BYTE PTR [rcx+rax+2991], 0
+
+; 1840 : 		m_bLineSkillErase[BACK] = false;
+
+  03488	b8 01 00 00 00	 mov	 eax, 1
+  0348d	48 6b c0 03	 imul	 rax, rax, 3
+  03491	48 8b 8d 30 22
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  03498	c6 84 01 af 0b
+	00 00 00	 mov	 BYTE PTR [rcx+rax+2991], 0
+$LN42@LastAttack:
+$LN1@LastAttack:
+
+; 1841 : 	}
+; 1842 : }
+
+  034a0	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
+  034a4	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?LastAttack@CBoss@Client@@QEAAXN@Z$rtcFrameData
-  035a0	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  035a5	48 8b 8d 08 22
+  034ab	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  034b0	48 8b 8d 08 22
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  035ac	48 33 cd	 xor	 rcx, rbp
-  035af	e8 00 00 00 00	 call	 __security_check_cookie
-  035b4	48 8d a5 10 22
+  034b7	48 33 cd	 xor	 rcx, rbp
+  034ba	e8 00 00 00 00	 call	 __security_check_cookie
+  034bf	48 8d a5 10 22
 	00 00		 lea	 rsp, QWORD PTR [rbp+8720]
-  035bb	5f		 pop	 rdi
-  035bc	5e		 pop	 rsi
-  035bd	5d		 pop	 rbp
-  035be	c3		 ret	 0
+  034c6	5f		 pop	 rdi
+  034c7	5e		 pop	 rsi
+  034c8	5d		 pop	 rbp
+  034c9	c3		 ret	 0
 ?LastAttack@CBoss@Client@@QEAAXN@Z ENDP			; Client::CBoss::LastAttack
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -31538,47 +31490,54 @@ $LN4:
   00658	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
 ; 247  : 
-; 248  : 	_bool m_bLastAttackBegin = false;
+; 248  : 	_int m_iAttackCountEx = 0;
 
   0065d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00664	c6 80 bc 0e 00
-	00 00		 mov	 BYTE PTR [rax+3772], 0
+  00664	c7 80 bc 0e 00
+	00 00 00 00 00	 mov	 DWORD PTR [rax+3772], 0
 
-; 249  : 	_bool m_bLastAttack = false;
+; 249  : 	_bool m_bLastAttackBegin = false;
 
-  0066b	48 8b 85 00 01
+  0066e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00672	c6 80 bd 0e 00
-	00 00		 mov	 BYTE PTR [rax+3773], 0
+  00675	c6 80 c0 0e 00
+	00 00		 mov	 BYTE PTR [rax+3776], 0
 
-; 250  : 	_float m_fLastAttackEraseAcc = 0.f;
+; 250  : 	_bool m_bLastAttack = false;
 
-  00679	48 8b 85 00 01
+  0067c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00680	0f 57 c0	 xorps	 xmm0, xmm0
-  00683	f3 0f 11 80 c0
-	0e 00 00	 movss	 DWORD PTR [rax+3776], xmm0
+  00683	c6 80 c1 0e 00
+	00 00		 mov	 BYTE PTR [rax+3777], 0
 
-; 251  : 	const _float m_fLastAttackEraseDelay = 0.01f;
+; 251  : 	_float m_fLastAttackEraseAcc = 0.f;
 
-  0068b	48 8b 85 00 01
+  0068a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00692	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@3c23d70a
-  0069a	f3 0f 11 80 c4
+  00691	0f 57 c0	 xorps	 xmm0, xmm0
+  00694	f3 0f 11 80 c4
 	0e 00 00	 movss	 DWORD PTR [rax+3780], xmm0
+
+; 252  : 	const _float m_fLastAttackEraseDelay = 0.01f;
+
+  0069c	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  006a3	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3c23d70a
+  006ab	f3 0f 11 80 c8
+	0e 00 00	 movss	 DWORD PTR [rax+3784], xmm0
 ; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
 
 ; 27   : }
 
-  006a2	48 8b 85 00 01
+  006b3	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  006a9	48 8d a5 e8 00
+  006ba	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
-  006b0	5f		 pop	 rdi
-  006b1	5d		 pop	 rbp
-  006b2	c3		 ret	 0
+  006c1	5f		 pop	 rdi
+  006c2	5d		 pop	 rbp
+  006c3	c3		 ret	 0
 ??0CBoss@Client@@QEAA@AEBV01@@Z ENDP			; Client::CBoss::CBoss
 _TEXT	ENDS
 ;	COMDAT text$x
@@ -32340,47 +32299,54 @@ $LN4:
   00664	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
 ; 247  : 
-; 248  : 	_bool m_bLastAttackBegin = false;
+; 248  : 	_int m_iAttackCountEx = 0;
 
   00669	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00670	c6 80 bc 0e 00
-	00 00		 mov	 BYTE PTR [rax+3772], 0
+  00670	c7 80 bc 0e 00
+	00 00 00 00 00	 mov	 DWORD PTR [rax+3772], 0
 
-; 249  : 	_bool m_bLastAttack = false;
+; 249  : 	_bool m_bLastAttackBegin = false;
 
-  00677	48 8b 85 00 01
+  0067a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0067e	c6 80 bd 0e 00
-	00 00		 mov	 BYTE PTR [rax+3773], 0
+  00681	c6 80 c0 0e 00
+	00 00		 mov	 BYTE PTR [rax+3776], 0
 
-; 250  : 	_float m_fLastAttackEraseAcc = 0.f;
+; 250  : 	_bool m_bLastAttack = false;
 
-  00685	48 8b 85 00 01
+  00688	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0068c	0f 57 c0	 xorps	 xmm0, xmm0
-  0068f	f3 0f 11 80 c0
-	0e 00 00	 movss	 DWORD PTR [rax+3776], xmm0
+  0068f	c6 80 c1 0e 00
+	00 00		 mov	 BYTE PTR [rax+3777], 0
 
-; 251  : 	const _float m_fLastAttackEraseDelay = 0.01f;
+; 251  : 	_float m_fLastAttackEraseAcc = 0.f;
 
-  00697	48 8b 85 00 01
+  00696	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0069e	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@3c23d70a
-  006a6	f3 0f 11 80 c4
+  0069d	0f 57 c0	 xorps	 xmm0, xmm0
+  006a0	f3 0f 11 80 c4
 	0e 00 00	 movss	 DWORD PTR [rax+3780], xmm0
+
+; 252  : 	const _float m_fLastAttackEraseDelay = 0.01f;
+
+  006a8	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  006af	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3c23d70a
+  006b7	f3 0f 11 80 c8
+	0e 00 00	 movss	 DWORD PTR [rax+3784], xmm0
 ; File c:\users\arcco\documents\github\framework\client\private\boss.cpp
 
 ; 22   : }
 
-  006ae	48 8b 85 00 01
+  006bf	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  006b5	48 8d a5 e8 00
+  006c6	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
-  006bc	5f		 pop	 rdi
-  006bd	5d		 pop	 rbp
-  006be	c3		 ret	 0
+  006cd	5f		 pop	 rdi
+  006ce	5d		 pop	 rbp
+  006cf	c3		 ret	 0
 ??0CBoss@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ENDP ; Client::CBoss::CBoss
 _TEXT	ENDS
 ;	COMDAT text$x
