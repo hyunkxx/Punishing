@@ -2372,7 +2372,7 @@ PUBLIC	??_C@_1FE@IMEJOJAH@?$AA?$CB?$AAX?$AAM?$AAS?$AAc?$AAa?$AAl?$AAa?$AAr?$AAN?
 PUBLIC	?__LINE__Var@?0??XMMatrixOrthographicLH@DirectX@@YQ?AUXMMATRIX@2@MMMM@Z@4JA ; `DirectX::XMMatrixOrthographicLH'::`1'::__LINE__Var
 PUBLIC	??_7CPlayerCamera@Client@@6B@			; Client::CPlayerCamera::`vftable'
 PUBLIC	?__LINE__Var@?0??Initialize@CPlayerCamera@Client@@UEAAJPEAX@Z@4JA ; `Client::CPlayerCamera::Initialize'::`1'::__LINE__Var
-PUBLIC	??_C@_1GI@EBAFNAFL@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@ ; `string'
+PUBLIC	??_C@_1JE@LOBGNKN@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@ ; `string'
 PUBLIC	??_C@_19OPBALDBC@?$AAp?$AAA?$AAr?$AAg?$AA?$AA@	; `string'
 PUBLIC	??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DI@OLGFHDLM@?$AAc?$AAo?$AAm?$AA_?$AAc?$AAa?$AAm?$AAe?$AAr?$AAa?$AA_?$AAs?$AAo?$AAc?$AAk?$AAe?$AAt?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@ ; `string'
@@ -2396,7 +2396,7 @@ PUBLIC	??_C@_0P@IKACEMKG@g_DiscardValue?$AA@		; `string'
 PUBLIC	??_R0?AVCGameObject@Engine@@@8			; Engine::CGameObject `RTTI Type Descriptor'
 PUBLIC	??_R0?AVCBoss@Client@@@8			; Client::CBoss `RTTI Type Descriptor'
 PUBLIC	?__LINE__Var@?0??Create@CPlayerCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CPlayerCamera::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0DE@IAHGFNFF@c?3?2github?2framework?2client?2priva@ ; `string'
+PUBLIC	??_C@_0EK@IICOGJBM@c?3?2users?2arcco?2documents?2github?2@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1EE@CMOMLOPH@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AAd?$AA?5?$AA?3?$AA?5?$AAC?$AAP?$AAl?$AAa?$AAy?$AAe?$AAr?$AAC?$AAa?$AAm?$AAe?$AAr@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CPlayerCamera::Clone'::`1'::__LINE__Var
@@ -2421,6 +2421,7 @@ PUBLIC	__real@3727c5ac
 PUBLIC	__real@3c8efa35
 PUBLIC	__real@3d4ccccd
 PUBLIC	__real@3dcccccd
+PUBLIC	__real@3e4ccccd
 PUBLIC	__real@3f000000
 PUBLIC	__real@3f800000
 PUBLIC	__real@3f99999a
@@ -2462,7 +2463,7 @@ EXTRN	__imp_?Initialize_Prototype@CCamera@Engine@@UEAAJXZ:PROC
 EXTRN	__imp_?Tick@CCamera@Engine@@UEAAXN@Z:PROC
 EXTRN	__imp_?LateTick@CCamera@Engine@@UEAAXN@Z:PROC
 EXTRN	__imp_?Render@CCamera@Engine@@UEAAJXZ:PROC
-EXTRN	__imp_?StartShake@CCamera@Engine@@QEAAXMM@Z:PROC
+EXTRN	__imp_?StartShake@CCamera@Engine@@QEAAXMMM@Z:PROC
 EXTRN	__imp_?ShakeReset@CCamera@Engine@@QEAAXXZ:PROC
 EXTRN	__imp_?Free@CCamera@Engine@@UEAAXXZ:PROC
 EXTRN	??_ECPlayerCamera@Client@@EEAAPEAXI@Z:PROC	; Client::CPlayerCamera::`vector deleting destructor'
@@ -2784,8 +2785,8 @@ $pdata$?Tick@CPlayerCamera@Client@@UEAAXN@Z DD imagerel $LN12
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?LateTick@CPlayerCamera@Client@@UEAAXN@Z DD imagerel $LN12
-	DD	imagerel $LN12+605
+$pdata$?LateTick@CPlayerCamera@Client@@UEAAXN@Z DD imagerel $LN11
+	DD	imagerel $LN11+567
 	DD	imagerel $unwind$?LateTick@CPlayerCamera@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2797,7 +2798,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?AttackShake@CPlayerCamera@Client@@QEAAXXZ DD imagerel $LN3
-	DD	imagerel $LN3+94
+	DD	imagerel $LN3+102
 	DD	imagerel $unwind$?AttackShake@CPlayerCamera@Client@@QEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -3014,6 +3015,10 @@ CONST	ENDS
 CONST	SEGMENT
 __real@3f000000 DD 03f000000r			; 0.5
 CONST	ENDS
+;	COMDAT __real@3e4ccccd
+CONST	SEGMENT
+__real@3e4ccccd DD 03e4ccccdr			; 0.2
+CONST	ENDS
 ;	COMDAT __real@3dcccccd
 CONST	SEGMENT
 __real@3dcccccd DD 03dcccccdr			; 0.1
@@ -3188,10 +3193,11 @@ CONST	SEGMENT
 	DB	'e', 00H, 's', 00H, 's', 00H, 'a', 00H, 'g', 00H, 'e', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0DE@IAHGFNFF@c?3?2github?2framework?2client?2priva@
+;	COMDAT ??_C@_0EK@IICOGJBM@c?3?2users?2arcco?2documents?2github?2@
 CONST	SEGMENT
-??_C@_0DE@IAHGFNFF@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
-	DB	'ramework\client\private\playercamera.cpp', 00H ; `string'
+??_C@_0EK@IICOGJBM@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
+	DB	'rcco\documents\github\framework\client\private\playercamera.c'
+	DB	'pp', 00H					; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CPlayerCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -3326,17 +3332,21 @@ CONST	SEGMENT
 ??_C@_19OPBALDBC@?$AAp?$AAA?$AAr?$AAg?$AA?$AA@ DB 'p', 00H, 'A', 00H, 'r', 00H
 	DB	'g', 00H, 00H, 00H				; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1GI@EBAFNAFL@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@
+;	COMDAT ??_C@_1JE@LOBGNKN@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@
 CONST	SEGMENT
-??_C@_1GI@EBAFNAFL@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@ DB 'c'
-	DB	00H, ':', 00H, '\', 00H, 'g', 00H, 'i', 00H, 't', 00H, 'h', 00H
-	DB	'u', 00H, 'b', 00H, '\', 00H, 'f', 00H, 'r', 00H, 'a', 00H, 'm'
-	DB	00H, 'e', 00H, 'w', 00H, 'o', 00H, 'r', 00H, 'k', 00H, '\', 00H
-	DB	'c', 00H, 'l', 00H, 'i', 00H, 'e', 00H, 'n', 00H, 't', 00H, '\'
-	DB	00H, 'p', 00H, 'r', 00H, 'i', 00H, 'v', 00H, 'a', 00H, 't', 00H
-	DB	'e', 00H, '\', 00H, 'p', 00H, 'l', 00H, 'a', 00H, 'y', 00H, 'e'
-	DB	00H, 'r', 00H, 'c', 00H, 'a', 00H, 'm', 00H, 'e', 00H, 'r', 00H
-	DB	'a', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p', 00H, 00H, 00H ; `string'
+??_C@_1JE@LOBGNKN@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@ DB 'c'
+	DB	00H, ':', 00H, '\', 00H, 'u', 00H, 's', 00H, 'e', 00H, 'r', 00H
+	DB	's', 00H, '\', 00H, 'a', 00H, 'r', 00H, 'c', 00H, 'c', 00H, 'o'
+	DB	00H, '\', 00H, 'd', 00H, 'o', 00H, 'c', 00H, 'u', 00H, 'm', 00H
+	DB	'e', 00H, 'n', 00H, 't', 00H, 's', 00H, '\', 00H, 'g', 00H, 'i'
+	DB	00H, 't', 00H, 'h', 00H, 'u', 00H, 'b', 00H, '\', 00H, 'f', 00H
+	DB	'r', 00H, 'a', 00H, 'm', 00H, 'e', 00H, 'w', 00H, 'o', 00H, 'r'
+	DB	00H, 'k', 00H, '\', 00H, 'c', 00H, 'l', 00H, 'i', 00H, 'e', 00H
+	DB	'n', 00H, 't', 00H, '\', 00H, 'p', 00H, 'r', 00H, 'i', 00H, 'v'
+	DB	00H, 'a', 00H, 't', 00H, 'e', 00H, '\', 00H, 'p', 00H, 'l', 00H
+	DB	'a', 00H, 'y', 00H, 'e', 00H, 'r', 00H, 'c', 00H, 'a', 00H, 'm'
+	DB	00H, 'e', 00H, 'r', 00H, 'a', 00H, '.', 00H, 'c', 00H, 'p', 00H
+	DB	'p', 00H, 00H, 00H				; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Initialize@CPlayerCamera@Client@@UEAAJPEAX@Z@4JA
 _DATA	SEGMENT
@@ -4392,7 +4402,7 @@ $unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z DD 025053901H
 	DD	05015H
 xdata	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -4471,7 +4481,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ENDP ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -4550,7 +4560,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ENDP ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -4629,7 +4639,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ENDP ; Engine::Safe_Release<Engine::CShader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -4708,7 +4718,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -4787,7 +4797,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ENDP ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCPlayerCamera@Client@@@Engine@@YAKAEAPEAVCPlayerCamera@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -4866,7 +4876,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCPlayerCamera@Client@@@Engine@@YAKAEAPEAVCPlayerCamera@Client@@@Z ENDP ; Engine::Safe_Release<Client::CPlayerCamera * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\public\applicationmanager.h
+; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?SetWinMotion@CApplicationManager@Client@@QEAAX_N@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4902,7 +4912,7 @@ $LN3:
 ?SetWinMotion@CApplicationManager@Client@@QEAAX_N@Z ENDP ; Client::CApplicationManager::SetWinMotion
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\public\applicationmanager.h
+; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4938,7 +4948,7 @@ $LN3:
 ?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z ENDP ; Client::CApplicationManager::IsLevelFinish
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\public\applicationmanager.h
+; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?SetLevelFinish@CApplicationManager@Client@@QEAAXW4LEVEL@12@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4974,7 +4984,7 @@ $LN3:
 ?SetLevelFinish@CApplicationManager@Client@@QEAAXW4LEVEL@12@@Z ENDP ; Client::CApplicationManager::SetLevelFinish
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\public\character.h
+; File c:\users\arcco\documents\github\framework\client\public\character.h
 ;	COMDAT ?GetLockOnTarget@CCharacter@Client@@QEAAPEAVCGameObject@Engine@@XZ
 _TEXT	SEGMENT
 tv67 = 192
@@ -5023,7 +5033,7 @@ $LN4@GetLockOnT:
 ?GetLockOnTarget@CCharacter@Client@@QEAAPEAVCGameObject@Engine@@XZ ENDP ; Client::CCharacter::GetLockOnTarget
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\public\character.h
+; File c:\users\arcco\documents\github\framework\client\public\character.h
 ;	COMDAT ?SetWinMotion@CCharacter@Client@@QEAAX_N@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -5144,7 +5154,7 @@ $LN2@scalar:
 ??_GCPlayerCamera@Client@@EEAAPEAXI@Z ENDP		; Client::CPlayerCamera::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?Free@CPlayerCamera@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -5229,7 +5239,7 @@ $LN3:
 ?Free@CPlayerCamera@Client@@UEAAXXZ ENDP		; Client::CPlayerCamera::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -5274,7 +5284,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@IAHGFNFF@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@IICOGJBM@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 c8 02 00 00	 mov	 ecx, 712		; 000002c8H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -5377,7 +5387,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@IAHGFNFF@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@IICOGJBM@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -5410,7 +5420,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@IAHGFNFF@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@IICOGJBM@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -5422,7 +5432,7 @@ pArg$ = 376
 ?dtor$0@?0??Clone@CPlayerCamera@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CPlayerCamera::Clone'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?Create@CPlayerCamera@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -5467,7 +5477,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@IAHGFNFF@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@IICOGJBM@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 c8 02 00 00	 mov	 ecx, 712		; 000002c8H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -5570,7 +5580,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CPlayerCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@IAHGFNFF@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@IICOGJBM@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -5603,7 +5613,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CPlayerCamera@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DE@IAHGFNFF@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@IICOGJBM@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -5615,7 +5625,7 @@ pContext$ = 376
 ?dtor$0@?0??Create@CPlayerCamera@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CPlayerCamera::Create'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?WinActionMovement@CPlayerCamera@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -5888,7 +5898,7 @@ $LN1@WinActionM:
 ?WinActionMovement@CPlayerCamera@Client@@AEAAXN@Z ENDP	; Client::CPlayerCamera::WinActionMovement
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?DefaultCameraMovement@CPlayerCamera@Client@@AEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -6663,7 +6673,7 @@ $LN3@DefaultCam:
 ?DefaultCameraMovement@CPlayerCamera@Client@@AEAAXN@Z ENDP ; Client::CPlayerCamera::DefaultCameraMovement
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?Setup_ShaderResources@CPlayerCamera@Client@@QEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6699,7 +6709,7 @@ $LN3:
 ?Setup_ShaderResources@CPlayerCamera@Client@@QEAAJXZ ENDP ; Client::CPlayerCamera::Setup_ShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?Add_Components@CPlayerCamera@Client@@QEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6735,7 +6745,7 @@ $LN3:
 ?Add_Components@CPlayerCamera@Client@@QEAAJXZ ENDP	; Client::CPlayerCamera::Add_Components
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?AttackShake@CPlayerCamera@Client@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -6766,26 +6776,28 @@ $LN3:
 
 ; 222  : 	StartShake(4.f, 2.5f);
 
-  00037	f3 0f 10 15 00
+  00037	f3 0f 10 1d 00
+	00 00 00	 movss	 xmm3, DWORD PTR __real@3e4ccccd
+  0003f	f3 0f 10 15 00
 	00 00 00	 movss	 xmm2, DWORD PTR __real@40200000
-  0003f	f3 0f 10 0d 00
+  00047	f3 0f 10 0d 00
 	00 00 00	 movss	 xmm1, DWORD PTR __real@40800000
-  00047	48 8b 8d e0 00
+  0004f	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0004e	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?StartShake@CCamera@Engine@@QEAAXMM@Z
+  00056	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?StartShake@CCamera@Engine@@QEAAXMMM@Z
 
 ; 223  : }
 
-  00054	48 8d a5 c8 00
+  0005c	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  0005b	5f		 pop	 rdi
-  0005c	5d		 pop	 rbp
-  0005d	c3		 ret	 0
+  00063	5f		 pop	 rdi
+  00064	5d		 pop	 rbp
+  00065	c3		 ret	 0
 ?AttackShake@CPlayerCamera@Client@@QEAAXXZ ENDP		; Client::CPlayerCamera::AttackShake
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?Render@CPlayerCamera@Client@@UEAAJXZ
 _TEXT	SEGMENT
 fValue$ = 4
@@ -7060,7 +7072,7 @@ $LN1@Render:
 ?Render@CPlayerCamera@Client@@UEAAJXZ ENDP		; Client::CPlayerCamera::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?LateTick@CPlayerCamera@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 pGameInstance$ = 8
@@ -7072,7 +7084,7 @@ TimeDelta$ = 296
 
 ; 137  : {
 
-$LN12:
+$LN11:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -7225,14 +7237,14 @@ $LN2@LateTick:
   00145	0f b6 80 a0 01
 	00 00		 movzx	 eax, BYTE PTR [rax+416]
   0014c	85 c0		 test	 eax, eax
-  0014e	75 0c		 jne	 SHORT $LN10@LateTick
+  0014e	75 0c		 jne	 SHORT $LN9@LateTick
   00150	c7 85 f4 00 00
 	00 01 00 00 00	 mov	 DWORD PTR tv136[rbp], 1
-  0015a	eb 0a		 jmp	 SHORT $LN11@LateTick
-$LN10@LateTick:
+  0015a	eb 0a		 jmp	 SHORT $LN10@LateTick
+$LN9@LateTick:
   0015c	c7 85 f4 00 00
 	00 00 00 00 00	 mov	 DWORD PTR tv136[rbp], 0
-$LN11@LateTick:
+$LN10@LateTick:
   00166	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0016d	0f b6 8d f4 00
@@ -7309,60 +7321,41 @@ $LN5@LateTick:
 ; 175  : 	}
 ; 176  : 
 ; 177  : 	//이거하면 풀면 콜리전 보임
-; 178  : 	if (!m_bFadeIn && !m_bFadeOut)
-
-  001fc	48 8b 85 20 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00203	0f b6 80 c1 01
-	00 00		 movzx	 eax, BYTE PTR [rax+449]
-  0020a	85 c0		 test	 eax, eax
-  0020c	75 14		 jne	 SHORT $LN7@LateTick
-  0020e	48 8b 85 20 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00215	0f b6 80 c2 01
-	00 00		 movzx	 eax, BYTE PTR [rax+450]
-  0021c	85 c0		 test	 eax, eax
-  0021e	75 02		 jne	 SHORT $LN7@LateTick
-
-; 179  : 		return;
-
-  00220	eb 31		 jmp	 SHORT $LN1@LateTick
-$LN7@LateTick:
-
+; 178  : 	//if (!m_bFadeIn && !m_bFadeOut)
+; 179  : 	//	return;
 ; 180  : 
 ; 181  : 	if (nullptr != m_pRenderer)
 
-  00222	48 8b 85 20 01
+  001fc	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00229	48 83 b8 a8 02
+  00203	48 83 b8 a8 02
 	00 00 00	 cmp	 QWORD PTR [rax+680], 0
-  00231	74 20		 je	 SHORT $LN8@LateTick
+  0020b	74 20		 je	 SHORT $LN7@LateTick
 
 ; 182  : 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_ENDING, this);
 
-  00233	4c 8b 85 20 01
+  0020d	4c 8b 85 20 01
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
-  0023a	ba 05 00 00 00	 mov	 edx, 5
-  0023f	48 8b 85 20 01
+  00214	ba 05 00 00 00	 mov	 edx, 5
+  00219	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00246	48 8b 88 a8 02
+  00220	48 8b 88 a8 02
 	00 00		 mov	 rcx, QWORD PTR [rax+680]
-  0024d	ff 15 00 00 00
+  00227	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z
-$LN8@LateTick:
-$LN1@LateTick:
+$LN7@LateTick:
 
 ; 183  : }
 
-  00253	48 8d a5 08 01
+  0022d	48 8d a5 08 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+264]
-  0025a	5f		 pop	 rdi
-  0025b	5d		 pop	 rbp
-  0025c	c3		 ret	 0
+  00234	5f		 pop	 rdi
+  00235	5d		 pop	 rbp
+  00236	c3		 ret	 0
 ?LateTick@CPlayerCamera@Client@@UEAAXN@Z ENDP		; Client::CPlayerCamera::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?Tick@CPlayerCamera@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -7597,7 +7590,7 @@ $LN10@Tick:
 ?Tick@CPlayerCamera@Client@@UEAAXN@Z ENDP		; Client::CPlayerCamera::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?Initialize@CPlayerCamera@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 collDesc$ = 8
@@ -7688,7 +7681,7 @@ $LN2@Initialize:
   00090	83 c0 05	 add	 eax, 5
   00093	44 8b c0	 mov	 r8d, eax
   00096	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1GI@EBAFNAFL@?$AAc?$AA?3?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2?$AAf?$AAr?$AAa?$AAm?$AAe?$AAw?$AAo?$AAr?$AAk?$AA?2?$AAc?$AAl?$AAi?$AAe?$AAn?$AAt?$AA?2?$AAp?$AAr?$AAi?$AAv?$AAa@
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1JE@LOBGNKN@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAr?$AAc?$AAc?$AAo?$AA?2?$AAd?$AAo?$AAc?$AAu?$AAm?$AAe?$AAn?$AAt?$AAs?$AA?2?$AAg?$AAi?$AAt?$AAh?$AAu?$AAb?$AA?2@
   0009d	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_C@_19OPBALDBC@?$AAp?$AAA?$AAr?$AAg?$AA?$AA@
   000a4	ff 15 00 00 00
@@ -8325,7 +8318,7 @@ $LN1@Initialize:
 ?Initialize@CPlayerCamera@Client@@UEAAJPEAX@Z ENDP	; Client::CPlayerCamera::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?Initialize_Prototype@CPlayerCamera@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -8378,7 +8371,7 @@ $LN1@Initialize:
 ?Initialize_Prototype@CPlayerCamera@Client@@UEAAJXZ ENDP ; Client::CPlayerCamera::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ??1CPlayerCamera@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -8411,13 +8404,13 @@ $LN3:
 ??1CPlayerCamera@Client@@EEAA@XZ ENDP			; Client::CPlayerCamera::~CPlayerCamera
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
-; File c:\github\framework\client\public\playercamera.h
-; File c:\github\framework\client\private\playercamera.cpp
-; File c:\github\framework\client\public\playercamera.h
-; File c:\github\framework\client\private\playercamera.cpp
-; File c:\github\framework\client\public\playercamera.h
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ??0CPlayerCamera@Client@@AEAA@AEBV01@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -8462,7 +8455,7 @@ $LN4:
   00056	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CPlayerCamera@Client@@6B@
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\github\framework\client\public\playercamera.h
+; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
 
 ; 47   : 	CGameObject* m_pTarget = nullptr;
 
@@ -8512,7 +8505,7 @@ $LN4:
   000bd	48 c7 80 48 01
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+328], 0
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 
 ; 21   : {
 
@@ -8528,7 +8521,7 @@ $LN4:
 	00		 add	 rax, 400		; 00000190H
   000ea	48 8b c8	 mov	 rcx, rax
   000ed	e8 00 00 00 00	 call	 ??0XMFLOAT4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4::XMFLOAT4
-; File c:\github\framework\client\public\playercamera.h
+; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
 
 ; 59   : 	_bool m_bWinAction = false;
 
@@ -8654,7 +8647,7 @@ $LN4:
   001ef	0f 57 c0	 xorps	 xmm0, xmm0
   001f2	f3 0f 11 80 d4
 	01 00 00	 movss	 DWORD PTR [rax+468], xmm0
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 
 ; 21   : {
 
@@ -8676,7 +8669,7 @@ $LN4:
 	00		 add	 rax, 616		; 00000268H
   00231	48 8b c8	 mov	 rcx, rax
   00234	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
-; File c:\github\framework\client\public\playercamera.h
+; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
 
 ; 88   : 	CRenderer*		m_pRenderer = { nullptr };
 
@@ -8709,7 +8702,7 @@ $LN4:
   00276	48 c7 80 c0 02
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+704], 0
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 
 ; 22   : }
 
@@ -8768,13 +8761,13 @@ rhs$ = 264
 ?dtor$0@?0???0CPlayerCamera@Client@@AEAA@AEBV01@@Z@4HA ENDP ; `Client::CPlayerCamera::CPlayerCamera'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
-; File c:\github\framework\client\public\playercamera.h
-; File c:\github\framework\client\private\playercamera.cpp
-; File c:\github\framework\client\public\playercamera.h
-; File c:\github\framework\client\private\playercamera.cpp
-; File c:\github\framework\client\public\playercamera.h
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ??0CPlayerCamera@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -8823,7 +8816,7 @@ $LN4:
   00062	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CPlayerCamera@Client@@6B@
   00069	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\github\framework\client\public\playercamera.h
+; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
 
 ; 47   : 	CGameObject* m_pTarget = nullptr;
 
@@ -8873,7 +8866,7 @@ $LN4:
   000c9	48 c7 80 48 01
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+328], 0
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 
 ; 16   : {
 
@@ -8889,7 +8882,7 @@ $LN4:
 	00		 add	 rax, 400		; 00000190H
   000f6	48 8b c8	 mov	 rcx, rax
   000f9	e8 00 00 00 00	 call	 ??0XMFLOAT4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4::XMFLOAT4
-; File c:\github\framework\client\public\playercamera.h
+; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
 
 ; 59   : 	_bool m_bWinAction = false;
 
@@ -9015,7 +9008,7 @@ $LN4:
   001fb	0f 57 c0	 xorps	 xmm0, xmm0
   001fe	f3 0f 11 80 d4
 	01 00 00	 movss	 DWORD PTR [rax+468], xmm0
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 
 ; 16   : {
 
@@ -9037,7 +9030,7 @@ $LN4:
 	00		 add	 rax, 616		; 00000268H
   0023d	48 8b c8	 mov	 rcx, rax
   00240	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
-; File c:\github\framework\client\public\playercamera.h
+; File c:\users\arcco\documents\github\framework\client\public\playercamera.h
 
 ; 88   : 	CRenderer*		m_pRenderer = { nullptr };
 
@@ -9070,7 +9063,7 @@ $LN4:
   00282	48 c7 80 c0 02
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+704], 0
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 
 ; 17   : }
 
@@ -13042,7 +13035,7 @@ $LN3:
 fabsf	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -13071,7 +13064,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\playercamera.cpp
+; File c:\users\arcco\documents\github\framework\client\private\playercamera.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

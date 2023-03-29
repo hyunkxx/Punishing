@@ -67,6 +67,7 @@ public: //LightManager
 	const LIGHT_DESC* GetLightDesc(_uint Index);
 
 public: //CollisionManager
+	void SetCollisionDebugRender(_bool value);
 	HRESULT AddCollider(class CCollider* collider, _uint iLayerIndex = 0);
 	//void PhysicsUpdate();
 	void CollisionRender();

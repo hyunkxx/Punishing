@@ -11,6 +11,9 @@ class CModel;
 class CShader;
 class CBone;
 class CModel;
+class IOnCollisionEnter;
+class IOnCollisionStay;
+class IOnCollisionExit;
 END
 
 BEGIN(Client)
@@ -18,6 +21,9 @@ BEGIN(Client)
 class CThorn final 
 	: public CGameObject
 	, public ISameObjectNoDetection
+	, public IOnCollisionEnter
+	, public IOnCollisionStay
+	, public IOnCollisionExit
 {
 public:
 	//가시형태, 미사일형태
@@ -52,6 +58,7 @@ public://초기화, 스케일, 회전
 	void SetRotationToTarget(_fvector vPlayerPos);
 	void SetMoveStart() { m_bMove = true; };
 	void SetupScaleUpStart(_float fLength);
+	void SetupScaleUpDownStart(_float fLength);
 	void SetupScaleSmoothUpStart(_float fLength);
 	void SetupScaleSmoothDownStart();
 	_bool ScaleUpProcess(_double TimeDelta);
@@ -67,6 +74,12 @@ public://초기화, 스케일, 회전
 private:
 	HRESULT AddComponents();
 	HRESULT SetupShaderResources();
+
+private:
+	virtual void SameObjectNoDetection() override;
+	virtual void OnCollisionEnter(CCollider * src, CCollider * dest) override;
+	virtual void OnCollisionStay(CCollider * src, CCollider * dest) override;
+	virtual void OnCollisionExit(CCollider * src, CCollider * dest) override;
 
 public:
 	static CThorn* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
@@ -86,14 +99,16 @@ private:
 	//각도는 랜덤으로 길이는 보관
 	_bool m_bRender = false;
 	_bool m_bScaleFinish = false;
-	_bool m_bScaleUp = false;
-	_bool m_bScaleSmoothUp = false;
+
+	_bool m_bScaleUpDown = false;	//커지면 바로 작아짐
+	_bool m_bScaleUp = false;		//커지고 대기
+	_bool m_bScaleSmoothUp = false; //부드럽게 커짐
 
 	_bool m_bScaleDownFinish = false;
 	_bool m_bScaleSmoothDown = false;
 	_float m_fScaleAcc = 0.f;
 	_float m_fLength = 1.f;		//커져야할 디폴트 길이
-	const _float3 m_fPrevScale = { 0.f, 0.f, 0.f};
+	const _float3 m_fPrevScale = { 0.2f, 0.2f, 0.2f };
 
 	_float m_fWaitAcc = 0.f;
 	const _float m_fWaitTime = 2.f;
@@ -102,8 +117,6 @@ private:
 	_bool m_bMove = false;
 	_float m_fMoveAcc = 0.f;
 
-	// ISameObjectNoDetection을(를) 통해 상속됨
-	virtual void SameObjectNoDetection() override;
 };
 
 END

@@ -43,22 +43,27 @@ void CThorn::Tick(_double TimeDelta)
 	if (m_bScaleUp)
 		ScaleUpProcess(TimeDelta);
 
+	if (m_bScaleUpDown)
+		ScaleUpProcess(TimeDelta);
+
 	if (m_bScaleSmoothUp)
 		ScaleUpSmoothProcess(TimeDelta);
-
+	
 	if (m_bScaleSmoothDown)
 		ScaleDownSmoothProcess(TimeDelta);
 
 	if (m_bMove)
 		MoveProcess(TimeDelta);
 
-	if(IsScaleFinish())
-		pGameInstance->AddCollider(m_pCollider);
 }
 
 void CThorn::LateTick(_double TimeDelta)
 {
-	if (IsScaleFinish())
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	if (IsScaleFinish() && m_eThornType == MISSILE)
+		pGameInstance->AddCollider(m_pCollider);
+	if (IsScaleFinish() && m_eThornType == MISSILE)
 		m_pCollider->Update(XMLoadFloat4x4(&m_pTransform->Get_WorldMatrix()));
 
 	__super::LateTick(TimeDelta);
@@ -131,6 +136,7 @@ _float CThorn::GetLengthFromCamera()
 void CThorn::Reset()
 {
 	m_bRender = false;
+	m_bScaleUpDown = false;
 
 	m_bMove = false;
 	m_bScaleUp = false;
@@ -141,9 +147,8 @@ void CThorn::Reset()
 	m_bScaleSmoothDown = false;
 
 	m_fLength = 1.f;
-	m_fScaleAcc = 0.f;
-	_float3 vAngle = { 0.f, 0.f, 0.f };
-	//m_pTransform->SetRotationXYZ(vAngle);
+	m_fScaleAcc = 0.01f;
+
 	m_pTransform->Set_Scale(m_fPrevScale);
 	m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
 }
@@ -169,14 +174,22 @@ void CThorn::SetRotationToTarget(_fvector vTargetDir)
 
 	m_pTransform->Set_State(CTransform::STATE_UP, vDir);
 	m_pTransform->Set_State(CTransform::STATE_LOOK, -VECTOR_UP);
-
 	_vector vRight = XMVector3Cross(m_pTransform->Get_State(CTransform::STATE_UP), -VECTOR_UP);
+
+
 	m_pTransform->Set_State(CTransform::STATE_RIGHT, vRight);
 }
 
 void CThorn::SetupScaleUpStart(_float fLength)
 {
 	m_bScaleUp = true;
+	m_bRender = true;
+	m_fLength = fLength;
+}
+
+void CThorn::SetupScaleUpDownStart(_float fLength)
+{
+	m_bScaleUpDown = true;
 	m_bRender = true;
 	m_fLength = fLength;
 }
@@ -286,9 +299,7 @@ _bool CThorn::ScaleDownSmoothProcess(_double TimeDelta)
 		vLength.y = vUpLength - powf(m_fScaleAcc, 2.f) * 3.f;
 		vLength.z = vLookLength - powf(m_fScaleAcc, 2.f) * 3.f;
 	}
-
-	m_pTransform->Set_Scale(vLength);
-
+	
 	if (vLength.y <= m_fPrevScale.y)
 	{
 		m_bScaleSmoothDown = false;
@@ -296,11 +307,14 @@ _bool CThorn::ScaleDownSmoothProcess(_double TimeDelta)
 		m_bScaleFinish = true;
 
 		Reset();
-
+		m_pTransform->Set_Scale(m_fPrevScale);
 		return true;
 	}
 	else
+	{
+		m_pTransform->Set_Scale(vLength);
 		return false;
+	}
 }
 
 _bool CThorn::MoveProcess(_double TimeDelta)
@@ -313,7 +327,7 @@ _bool CThorn::MoveProcess(_double TimeDelta)
 	vPos = vPos + vUp * powf(m_fMoveAcc, 2.f);
 	
 	m_pTransform->Set_State(CTransform::STATE_POSITION, vPos);
-	if (m_fMoveAcc >= 4.f)
+	if (m_fMoveAcc >= 2.f)
 	{
 		Reset();
 		m_fMoveAcc = 0.f;
@@ -335,10 +349,11 @@ HRESULT CThorn::AddComponents()
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_BOSS, TEXT("proto_com_model_thorn"), TEXT("com_model"), (CComponent**)&m_pModel)))
 		return E_FAIL;
+
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
-	collDesc.vExtents = _float3(2.f, 2.f, 2.f);
+	collDesc.vExtents = _float3(0.5f, 0.5f, 0.5f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&m_pCollider, &collDesc)))
@@ -410,6 +425,7 @@ void CThorn::Free()
 {
 	__super::Free();
 
+	Safe_Release(m_pCollider);
 	Safe_Release(m_pRenderer);
 	Safe_Release(m_pTransform);
 	Safe_Release(m_pModel);
@@ -418,5 +434,37 @@ void CThorn::Free()
 }
 
 void CThorn::SameObjectNoDetection()
+{
+}
+
+void CThorn::OnCollisionEnter(CCollider * src, CCollider * dest)
+{
+	CCharacter* pPlayer = dynamic_cast<CCharacter*>(dest->GetOwner());
+	if (pPlayer)
+	{
+		CCollider* pPlayerColl = pPlayer->GetBodyCollider();
+		if (dest->Compare(pPlayerColl))
+		{
+			switch (m_eThornType)
+			{
+			case THORN:
+				pPlayer->RecvDamage(10.f);
+				break;
+			case MISSILE:
+				//pPlayer->Airbone();
+				pPlayer->Hit();
+				pPlayer->RecvDamage(25.f);
+				break;
+			}
+		}
+
+	}
+}
+
+void CThorn::OnCollisionStay(CCollider * src, CCollider * dest)
+{
+}
+
+void CThorn::OnCollisionExit(CCollider * src, CCollider * dest)
 {
 }

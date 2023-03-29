@@ -203,6 +203,12 @@ void CCollisionManager::PhysicsUpdate()
 
 void CCollisionManager::Render()
 {
+	if (!m_bDebugRender)
+	{
+		Clear();
+		return;
+	}
+
 #ifdef _DEBUG
 	for (auto& coll : m_BaseCollisions)
 	{
@@ -217,7 +223,6 @@ void CCollisionManager::Render()
 	}
 #endif
 
-	//Gameobject가 null인지 null이면 지움
 	Clear();
 }
 

@@ -23,6 +23,8 @@ private:
 	~CTransform() = default;
 	
 public:
+	_float Get_Speed() { return m_TransformDesc.fMoveSpeed; }
+	_float Get_RotationSpeed() { return m_TransformDesc.fRotationSpeed; }
 	_vector Get_State(STATE eState) { return XMLoadFloat4x4(&m_WorldMatrix).r[eState]; }
 	_matrix Get_WorldMatrixInverse() { return XMMatrixInverse(nullptr, XMLoadFloat4x4(&m_WorldMatrix)); }
 	_float4x4 Get_WorldMatrix() { return m_WorldMatrix; }

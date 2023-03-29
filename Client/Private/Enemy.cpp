@@ -7,6 +7,7 @@
 #include "PlayerCamera.h"
 #include "Character.h"
 #include "Bone.h"
+#include "Boss.h"
 
 _uint CEnemy::s_iCount = 0;
 
@@ -792,7 +793,10 @@ _double CEnemy::Freeze(_double TimeDelta)
 	if (m_pAppManager->IsFreeze())
 	{
 		m_bAttackCollision = false;
-		m_pWeaponCollider->SetActive(false);
+
+		if(!dynamic_cast<CBoss*>(this))
+			m_pWeaponCollider->SetActive(false);
+
 		_vector CurTimeDelta = XMVectorSet(m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale, m_fCurTimeScale);
 		m_fCurTimeScale = XMVectorGetX(XMVectorLerp(CurTimeDelta, XMVectorSet(0.1f, 0.1f, 0.1f, 0.1f), TimeDelta * 0.8));
 	}
@@ -1084,22 +1088,26 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 		CCollider* pWeaponCollider = pPlayer->GetWeaponCollider();
 		if (src->Compare(m_pOverlapCollider) && dest->Compare(pWeaponCollider))
 		{
-			m_iRandomHitAnim = rand() % 2;
-
-			if (m_bHit)
+			CBoss* pBoss = dynamic_cast<CBoss*>(this);
+			if (!pBoss)
 			{
-				if (model->AnimationCompare((_uint)CLIP::HIT1) ||
-					model->AnimationCompare((_uint)CLIP::HIT2) ||
-					model->AnimationCompare((_uint)CLIP_TWO::HIT1) ||
-					model->AnimationCompare((_uint)CLIP_TWO::HIT2))
+				m_iRandomHitAnim = rand() % 2;
+				if (m_bHit)
 				{
-					//탑승한애는 애니메이션 리셋시 너무 떨려서 이렇게 처리해놓음
-					if (m_eType == TYPE::ANIMAL)
-						model->Setup_Animation((_uint)CLIP_TWO::HIT2, CAnimation::TYPE::ONE, true);
-					else
-						model->AnimationReset();
+					if (model->AnimationCompare((_uint)CLIP::HIT1) ||
+						model->AnimationCompare((_uint)CLIP::HIT2) ||
+						model->AnimationCompare((_uint)CLIP_TWO::HIT1) ||
+						model->AnimationCompare((_uint)CLIP_TWO::HIT2))
+					{
+						//탑승한애는 애니메이션 리셋시 너무 떨려서 이렇게 처리해놓음
+						if (m_eType == TYPE::ANIMAL)
+							model->Setup_Animation((_uint)CLIP_TWO::HIT2, CAnimation::TYPE::ONE, true);
+						else
+							model->AnimationReset();
+					}
 				}
 			}
+
 
 			m_bHit = true;
 			RecvDamage(pPlayer->GetDamage());

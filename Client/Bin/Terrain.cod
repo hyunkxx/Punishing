@@ -2330,7 +2330,7 @@ PUBLIC	??_C@_0N@OOHDPIO@g_ProjMatrix?$AA@		; `string'
 PUBLIC	??_C@_0P@BDEIJKBM@g_vCamPosition?$AA@		; `string'
 PUBLIC	??_C@_0BB@FMIBAICL@g_DiffuseTexture?$AA@	; `string'
 PUBLIC	?__LINE__Var@?0??Create@CTerrain@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CTerrain::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0CP@MKDOKOGP@c?3?2github?2framework?2client?2priva@ ; `string'
+PUBLIC	??_C@_0EF@NKKHBLII@c?3?2users?2arcco?2documents?2github?2@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DK@HGJNEKEO@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AAd?$AA?5?$AA?3?$AA?5?$AAC?$AAT?$AAe?$AAr?$AAr?$AAa?$AAi?$AAn?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Clone@CTerrain@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA ; `Client::CTerrain::Clone'::`1'::__LINE__Var
@@ -2690,10 +2690,10 @@ CONST	SEGMENT
 	DB	'e', 00H, 's', 00H, 's', 00H, 'a', 00H, 'g', 00H, 'e', 00H, 00H
 	DB	00H						; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0CP@MKDOKOGP@c?3?2github?2framework?2client?2priva@
+;	COMDAT ??_C@_0EF@NKKHBLII@c?3?2users?2arcco?2documents?2github?2@
 CONST	SEGMENT
-??_C@_0CP@MKDOKOGP@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
-	DB	'ramework\client\private\terrain.cpp', 00H	; `string'
+??_C@_0EF@NKKHBLII@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
+	DB	'rcco\documents\github\framework\client\private\terrain.cpp', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CTerrain@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
@@ -3107,7 +3107,7 @@ $unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z DD 025053901H
 	DD	05015H
 xdata	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3186,7 +3186,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ENDP ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3265,7 +3265,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3344,7 +3344,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ENDP ; Engine::Safe_Release<Engine::CShader * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCVIBuffer_Terrain@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Terrain@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3423,7 +3423,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCVIBuffer_Terrain@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Terrain@0@@Z ENDP ; Engine::Safe_Release<Engine::CVIBuffer_Terrain * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3502,7 +3502,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ENDP ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCTerrain@Client@@@Engine@@YAKAEAPEAVCTerrain@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -3623,7 +3623,7 @@ $LN2@scalar:
 ??_GCTerrain@Client@@MEAAPEAXI@Z ENDP			; Client::CTerrain::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ?Free@CTerrain@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -3707,7 +3707,7 @@ $LN3:
 ?Free@CTerrain@Client@@UEAAXXZ ENDP			; Client::CTerrain::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ?Clone@CTerrain@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -3752,7 +3752,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CP@MKDOKOGP@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EF@NKKHBLII@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 a0 00 00 00	 mov	 ecx, 160		; 000000a0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -3856,7 +3856,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CTerrain@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CP@MKDOKOGP@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EF@NKKHBLII@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -3889,7 +3889,7 @@ pArg$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Clone@CTerrain@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CP@MKDOKOGP@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EF@NKKHBLII@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -3901,7 +3901,7 @@ pArg$ = 376
 ?dtor$0@?0??Clone@CTerrain@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4HA ENDP ; `Client::CTerrain::Clone'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ?Create@CTerrain@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -3946,7 +3946,7 @@ $LN7:
   00051	ff c0		 inc	 eax
   00053	44 8b c8	 mov	 r9d, eax
   00056	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CP@MKDOKOGP@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EF@NKKHBLII@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
   00062	b9 a0 00 00 00	 mov	 ecx, 160		; 000000a0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -4050,7 +4050,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CTerrain@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CP@MKDOKOGP@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EF@NKKHBLII@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4083,7 +4083,7 @@ pContext$ = 376
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CTerrain@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0CP@MKDOKOGP@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EF@NKKHBLII@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR $T5[rbp]
@@ -4095,7 +4095,7 @@ pContext$ = 376
 ?dtor$0@?0??Create@CTerrain@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4HA ENDP ; `Client::CTerrain::Create'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ?Setup_ShaderResources@CTerrain@Client@@AEAAJXZ
 _TEXT	SEGMENT
 pPipeline$ = 8
@@ -4291,7 +4291,7 @@ $LN1@Setup_Shad:
 ?Setup_ShaderResources@CTerrain@Client@@AEAAJXZ ENDP	; Client::CTerrain::Setup_ShaderResources
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ?Add_Components@CTerrain@Client@@AEAAJXZ
 _TEXT	SEGMENT
 TransformDesc$ = 8
@@ -4513,7 +4513,7 @@ $LN1@Add_Compon:
 ?Add_Components@CTerrain@Client@@AEAAJXZ ENDP		; Client::CTerrain::Add_Components
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ?Render@CTerrain@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4600,7 +4600,7 @@ $LN1@Render:
 ?Render@CTerrain@Client@@UEAAJXZ ENDP			; Client::CTerrain::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ?LateTick@CTerrain@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4666,7 +4666,7 @@ $LN2@LateTick:
 ?LateTick@CTerrain@Client@@UEAAXN@Z ENDP		; Client::CTerrain::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ?Tick@CTerrain@Client@@UEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4710,7 +4710,7 @@ $LN3:
 ?Tick@CTerrain@Client@@UEAAXN@Z ENDP			; Client::CTerrain::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ?Initialize@CTerrain@Client@@UEAAJPEAX@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4782,7 +4782,7 @@ $LN1@Initialize:
 ?Initialize@CTerrain@Client@@UEAAJPEAX@Z ENDP		; Client::CTerrain::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ?Initialize_Prototype@CTerrain@Client@@UEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4835,7 +4835,7 @@ $LN1@Initialize:
 ?Initialize_Prototype@CTerrain@Client@@UEAAJXZ ENDP	; Client::CTerrain::Initialize_Prototype
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ??1CTerrain@Client@@MEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -4868,9 +4868,9 @@ $LN3:
 ??1CTerrain@Client@@MEAA@XZ ENDP			; Client::CTerrain::~CTerrain
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
-; File c:\github\framework\client\public\terrain.h
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\public\terrain.h
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ??0CTerrain@Client@@IEAA@AEBV01@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -4910,7 +4910,7 @@ $LN4:
   0004a	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CTerrain@Client@@6B@
   00051	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\github\framework\client\public\terrain.h
+; File c:\users\arcco\documents\github\framework\client\public\terrain.h
 
 ; 39   : 	CShader*			m_pShader = { nullptr };
 
@@ -4950,7 +4950,7 @@ $LN4:
   000a0	48 c7 80 98 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+152], 0
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 
 ; 14   : }
 
@@ -4964,9 +4964,9 @@ $LN4:
 ??0CTerrain@Client@@IEAA@AEBV01@@Z ENDP			; Client::CTerrain::CTerrain
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
-; File c:\github\framework\client\public\terrain.h
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\public\terrain.h
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ??0CTerrain@Client@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -5010,7 +5010,7 @@ $LN4:
   00056	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CTerrain@Client@@6B@
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\github\framework\client\public\terrain.h
+; File c:\users\arcco\documents\github\framework\client\public\terrain.h
 
 ; 39   : 	CShader*			m_pShader = { nullptr };
 
@@ -5050,7 +5050,7 @@ $LN4:
   000ac	48 c7 80 98 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+152], 0
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 
 ; 9    : }
 
@@ -5096,7 +5096,7 @@ $LN3:
 ?XMConvertToRadians@DirectX@@YAMM@Z ENDP		; DirectX::XMConvertToRadians
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -5125,7 +5125,7 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\terrain.cpp
+; File c:\users\arcco\documents\github\framework\client\private\terrain.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224

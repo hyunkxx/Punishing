@@ -72,14 +72,14 @@ HRESULT CCamera::Render()
 	return S_OK;
 }
 
-void CCamera::StartShake(_float Time, _float fPower)
+void CCamera::StartShake(_float Time, _float fPower, _float fPowValue)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	m_bShake = true;
 	m_fShakeTimeOut = Time;
 	m_fPower = fPower;
-
+	m_fPowValue = fPowValue;
 	m_fPrevFOV = m_CameraDesc.fFovy;
 
 	XMStoreFloat4x4(&m_PrevCamPos, pGameInstance->Get_Transform_Matrix_Inverse(CPipeLine::TS_VIEW));
@@ -93,9 +93,9 @@ void CCamera::Shake(_double TimeDelta)
 	_vector vCamRight = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_RIGHT));
 
 	_vector vCameLook = XMLoadFloat3(&m_CameraDesc.vAt);
-	vCameLook = XMVectorSetY(vCameLook, XMVectorGetY(vCameLook) + sin(m_fPower * m_fShakeTimer) * powf(0.2f, m_fShakeTimer));
+	vCameLook = XMVectorSetY(vCameLook, XMVectorGetY(vCameLook) + sin(m_fPower * m_fShakeTimer) * powf(m_fPowValue, m_fShakeTimer));
 
-	vCamPos = XMVectorSetY(vCamPos, 1.8f + sin(m_fPower * m_fShakeTimer) * powf(0.2f, m_fShakeTimer));
+	vCamPos = XMVectorSetY(vCamPos, 1.8f + sin(m_fPower * m_fShakeTimer) * powf(m_fPowValue, m_fShakeTimer));
 	m_pTransform->Set_State(CTransform::STATE_POSITION, vCamPos);
 	m_pTransform->LookAt(vCameLook);
 	

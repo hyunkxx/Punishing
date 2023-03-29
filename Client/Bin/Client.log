@@ -1,3 +1,134 @@
-﻿  LINK : ../Bin/Client.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
-  Client.vcxproj -> C:\Github\Framework\Client\Config\../Bin/Client.exe
+﻿  PlayerCamera.cpp
+c:\users\arcco\documents\github\framework\client\public\skillballsystem.h(22): warning C4267: 'return': 'size_t'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\playercamera.cpp(114): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\playercamera.cpp(122): warning C4244: '-=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\playercamera.cpp(153): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\playercamera.cpp(167): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\playercamera.cpp(336): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Loader.cpp
+c:\users\arcco\documents\github\framework\client\public\playerhealthbar.h(79): warning C4244: '초기화 중': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h(73): warning C4244: '초기화 중': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  EnemySpawner.cpp
+c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp(50): warning C4244: '=': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Enemy.cpp
+c:\users\arcco\documents\github\framework\client\public\skillballsystem.h(22): warning C4267: 'return': 'size_t'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\enemy.cpp(62): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\enemy.cpp(194): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\enemy.cpp(195): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\enemy.cpp(663): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\enemy.cpp(801): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\enemy.cpp(831): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\enemy.cpp(922): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\enemy.cpp(949): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  DynamicCamera.cpp
+  Character.cpp
+c:\users\arcco\documents\github\framework\client\public\skillballsystem.h(22): warning C4267: 'return': 'size_t'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\public\playerhealthbar.h(79): warning C4244: '초기화 중': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h(73): warning C4244: '초기화 중': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\character.cpp(111): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\character.cpp(123): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\character.cpp(131): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\character.cpp(137): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\character.cpp(1769): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\character.cpp(1774): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\character.cpp(1788): warning C4244: '=': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Boss.cpp
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(313): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(516): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(556): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(597): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(603): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(609): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(639): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(654): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(699): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(714): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(761): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(776): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(801): warning C4244: '+=': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(824): warning C4244: '+=': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(845): warning C4244: '+=': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(997): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(998): warning C4244: '인수': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1002): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1041): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1175): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1191): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1192): warning C4244: '인수': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1200): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1220): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1236): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1237): warning C4244: '인수': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1249): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1254): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1255): warning C4244: '인수': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1273): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1288): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1289): warning C4244: '인수': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1300): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1305): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1306): warning C4244: '인수': 'int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1311): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1423): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1436): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1439): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1452): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1455): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1485): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1498): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1501): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1514): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1517): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1546): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1559): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1562): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1575): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1578): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1611): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1714): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1727): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1730): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1743): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1746): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1770): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1783): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1786): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1799): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1802): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1826): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1839): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1842): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1855): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1858): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1882): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1895): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1898): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1911): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1914): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1938): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1951): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1954): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1967): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1970): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(1995): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(2008): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(2011): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(2024): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(2027): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(2056): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(2155): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(2211): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\private\boss.cpp(2254): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Application.cpp
+c:\users\arcco\documents\github\framework\client\public\skillballsystem.h(22): warning C4267: 'return': 'size_t'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\public\playerhealthbar.h(79): warning C4244: '초기화 중': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h(73): warning C4244: '초기화 중': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Level_GamePlay.cpp
+c:\users\arcco\documents\github\framework\client\public\skillballsystem.h(22): warning C4267: 'return': 'size_t'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h(73): warning C4244: '초기화 중': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Level_BossRoom.cpp
+c:\users\arcco\documents\github\framework\client\public\skillballsystem.h(22): warning C4267: 'return': 'size_t'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\client\public\enemyhealthbar.h(73): warning C4244: '초기화 중': 'float'에서 'Engine::_int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  Client.vcxproj -> C:\Users\arcco\Documents\GitHub\Framework\Client\Config\../Bin/Client.exe
   Client.vcxproj -> ../Bin/Client.pdb (Full PDB)

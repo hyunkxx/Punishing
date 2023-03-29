@@ -12,6 +12,10 @@ public:
 	virtual ~CCollisionManager() = default;
 
 public:
+	_bool IsDebugRender() const { return m_bDebugRender; }
+	void SetDebugRender(_bool value) { m_bDebugRender = value; }
+
+public:
 	HRESULT AddCollider(class CCollider* collider, _uint iLayerIndex = 0);
 	void PhysicsUpdate();
 	void Render();
@@ -24,6 +28,7 @@ public:
 	virtual void Free() override;
 
 private:
+	_bool m_bDebugRender = true;
 	vector<class CCollider*> m_BaseCollisions;
 	vector<class CCollider*> m_BackgroundCollisions;
 

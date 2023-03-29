@@ -17,6 +17,7 @@
 #include "PlayerHealthBar.h"
 #include "EnemyHealthBar.h"
 #include "Layer.h"
+#include "Thorn.h"
 
 //Bip001?(리얼 루트본) Bip001Pelvis (척추) R3KalieninaMd010031 (000)
 CCharacter::CCharacter(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
@@ -147,6 +148,13 @@ void CCharacter::Tick(_double TimeDelta)
 
 	__super::Tick(TimeDelta);
 
+	CBoss* pBoss = dynamic_cast<CBoss*>(m_pNearEnemy);
+	if (pBoss)
+	{
+		if (pBoss->IsDie())
+			m_pEnemyHealthBar->SetRender(false);
+	}
+
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	pGameInstance->AddCollider(mCollider);
 	pGameInstance->AddCollider(mWallCheckCollider, 1);
@@ -188,14 +196,25 @@ void CCharacter::Tick(_double TimeDelta)
 	{
 		if (m_bHit)
 		{
-			if (mModel->AnimationIsPreFinishCustom(0.15))
+			if (mModel->AnimationIsPreFinishCustom(0.5))
+			{
+				//m_bHit = false;
+				//m_bMoveable = true;
+				m_bDashable = true;
+				//m_bAttackable = true;
+			}
+
+			if (mModel->AnimationIsFinishEx())
 			{
 				m_bHit = false;
 				m_bMoveable = true;
 				m_bDashable = true;
 				m_bAttackable = true;
 			}
+
 		}
+		/*if(m_bAirbone)
+			AirboneProcess(TimeDelta);*/
 
 		KeyInput(TimeDelta);
 		Dash(TimeDelta);
@@ -275,6 +294,12 @@ void CCharacter::RenderGUI()
 	_float3 vPos;
 	XMStoreFloat3(&vPos, mTransform->Get_State(CTransform::STATE_POSITION));
 	ImGui::InputFloat3("World Pos ", (_float*)&vPos);
+
+	XMStoreFloat3(&m_vPrevLook, mTransform->Get_State(CTransform::STATE_LOOK));
+	ImGui::InputFloat3("LOOK  ", (_float*)&m_vPrevLook);
+	
+	_float fSpeed = mTransform->Get_Speed();
+	ImGui::InputFloat3("Speed  ", (_float*)&fSpeed);
 
 	ImGui::End();
 }
@@ -976,6 +1001,9 @@ void CCharacter::Dash(_double TimeDelta)
 
 void CCharacter::Idle()
 {
+	m_bMoveable = true;
+	m_bDashable = true;
+	m_bAttackable = true;
 	SetAnimation(CLIP::STAND2, CAnimation::TYPE::LOOP);
 }
 
@@ -1216,8 +1244,8 @@ void CCharacter::SkillC(_double TimeDelta)
 	m_bAttackable = false;
 	m_bDashable = false;
 	m_bSkillReady = false;
-
 	SetAnimation(CLIP::ATTACK31, CAnimation::TYPE::ONE);
+	
 }
 
 void CCharacter::SkillColliderControl(_double TimeDelta)
@@ -1470,6 +1498,9 @@ void CCharacter::HoldEnemy()
 	if (m_pNearEnemy == nullptr)
 		return;
 
+	if (dynamic_cast<CBoss*>(m_pNearEnemy))
+		return;
+
 	CTransform* pTargetTransform = static_cast<CTransform*>(static_cast<CGameObject*>(m_pNearEnemy)->Find_Component(L"com_transform"));
 	CCollider* pTargetCollider = static_cast<CCollider*>(static_cast<CGameObject*>(m_pNearEnemy)->Find_Component(L"com_collider"));
 	
@@ -1517,10 +1548,130 @@ void CCharacter::Hit()
 	m_bAttackable = false;
 	mWeaponCollider->SetActive(false);
 
-	if (!mModel->AnimationCompare(CLIP::HIT1))
+	if (!mModel->AnimationCompare(CLIP::HIT3))
 	{
-		SetAnimation(CLIP::HIT1, CAnimation::TYPE::ONE);
+		SetAnimation(CLIP::HIT3, CAnimation::TYPE::ONE);
 	}
+}
+
+void CCharacter::Airbone()
+{
+	if (mModel->AnimationCompare(CLIP::MOVE1) || mModel->AnimationCompare(CLIP::MOVE2) || mModel->AnimationCompare(CLIP::ATTACK51))
+		return;
+
+	m_bAirbone = true;
+	m_iWASDCount = 0;
+	m_bMoveable = false;
+	m_bDashable = false;
+	m_bAttackable = false;
+	mWeaponCollider->SetActive(false);
+
+	_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vLook = mTransform->Get_State(CTransform::STATE_LOOK);
+	XMStoreFloat3(&m_vPrevLook, vLook);
+
+	if (!mModel->AnimationCompare(CLIP::HITDOWN))
+	{
+		XMStoreFloat3(&m_vPrevLook, vLook);
+		SetAnimation(CLIP::HITDOWN, CAnimation::TYPE::ONE);
+	}
+
+}
+
+void CCharacter::AirboneProcess(_double TimeDelta)
+{
+	if (mModel->AnimationCompare(CLIP::HITDOWN))
+	{
+		if (mModel->AnimationIsFinishEx())
+		{
+			m_bAirbone = false;
+			mTransform->Set_State(CTransform::STATE_LOOK, XMLoadFloat3(&m_vPrevLook));
+			SetAnimation(CLIP::STAND_UP, CAnimation::TYPE::ONE);
+			m_iWASDCount = 0;
+		}
+	}
+
+	//if (mModel->AnimationCompare(CLIP::STAND_UP))
+	//{
+	//	if (mModel->AnimationIsFinishEx())
+	//	{
+	//		mTransform->Set_State(CTransform::STATE_LOOK, XMLoadFloat3(&m_vPrevLook));
+	//		m_bAirbone = false;
+	//		m_iWASDCount = 0;
+	//	}
+	//}
+
+	//}
+	//else if (mModel->AnimationCompare(CLIP::STAND_UP))
+	//{
+	//	if (mModel->AnimationIsFinishEx())
+	//	{
+	//		mTransform->Set_State(CTransform::STATE_RIGHT, XMVector3Cross(VECTOR_UP, XMLoadFloat3(&m_vPrevLook)));
+	//		mTransform->Set_State(CTransform::STATE_UP, VECTOR_UP);
+	//		mTransform->Set_State(CTransform::STATE_LOOK, XMLoadFloat3(&m_vPrevLook));
+	//	}
+	//}
+
+	//if (mModel->AnimationCompare(CLIP::FALLDOWN) && !m_vDirUp)
+	//{
+	//	if (mModel->AnimationIsFinishEx())
+	//	{
+	//		m_bRootMotion = true;
+
+	//		SetAnimation(CLIP::STAND_UP, CAnimation::TYPE::ONE);
+	//		m_bAirbone = false;
+	//		m_bMoveable = true;
+	//		m_bDashable = true;
+	//		m_bAttackable = true;
+	//		m_vDirUp = true;
+
+	//		return;
+	//	}
+	//}
+
+	//if (mModel->AnimationCompare(CLIP::HIT_FLY) && !m_vDirUp)
+	//{
+	//	if (XMVectorGetY(vPos) <= m_fHeight)
+	//	{
+	//		m_fAirboneAcc = 0.f;
+	//		vPos = XMVectorSetY(vPos, m_fHeight);
+	//		mTransform->Set_State(CTransform::STATE_POSITION, vPos);
+	//		SetAnimation(CLIP::FALLDOWN, CAnimation::TYPE::ONE);
+
+	//		return;
+	//	}
+	//}
+
+	//_vector vCurrentPos;
+	//_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+	//m_fAirboneAcc += TimeDelta * 2.f;
+	//if (m_fAirboneAcc >= m_fAirboneTime)
+	//{
+	//	m_vDirUp = false;
+	//	m_bLanding = true;
+	//	m_fAirboneAcc = 0.f;
+	//}
+
+	//if (XMVectorGetY(vPos) <= 0.f && m_bLanding)
+	//{
+	//	m_bLanding = false;
+	//	m_bAirbone = false;
+
+	//	m_fAirboneAcc = 0.f;
+	//	vPos = XMVectorSetY(vPos, 0.f);
+	//	mTransform->Set_State(CTransform::STATE_POSITION, vPos);
+	//	SetAnimation(CLIP::STAND_UP, CAnimation::TYPE::ONE);
+
+	//	return;
+	//}
+
+	//if(m_vDirUp)
+	//	vCurrentPos = vPos + (VECTOR_UP * 2.f) * (1.f - m_fAirboneAcc) * TimeDelta;
+	//else
+	//	vCurrentPos = vPos + (-VECTOR_UP * 2.f) * (1.f - m_fAirboneAcc) * TimeDelta;
+	//mTransform->Set_State(CTransform::STATE_POSITION, vCurrentPos);
+
+	return;
 }
 
 void CCharacter::RecvDamage(_float fDamage)
@@ -1674,6 +1825,10 @@ void CCharacter::AnimationControl(_double TimeDelta)
 		AnimationCompare(CLIP::ATTACK42) ||
 		AnimationCompare(CLIP::ATTACK43) ||
 		AnimationCompare(CLIP::ATTACK44) ||
+		AnimationCompare(CLIP::HIT4) ||
+		AnimationCompare(CLIP::HIT_FLY) ||
+		AnimationCompare(CLIP::FALLDOWN) ||
+		AnimationCompare(CLIP::STAND_UP) ||
 		AnimationCompare(CLIP::ATTACK45))
 	{
 		mModel->Play_Animation(TimeDelta, mTransform, 0.03f, m_bRootMotion);
@@ -1687,10 +1842,14 @@ void CCharacter::AnimationControl(_double TimeDelta)
 		AnimationCompare(CLIP::ATTACK22) ||
 		AnimationCompare(CLIP::ATTACK32))
 	{
-		if (m_bEnemyHolding && !m_bSkillYellowAttack)
+		if (!dynamic_cast<CBoss*>(m_pNearEnemy))
 		{
-			m_bRootMotion = false;
-			mTransform->MoveForward(TimeDelta * 0.65f);
+			if (m_bEnemyHolding && !m_bSkillYellowAttack)
+			{
+				m_bRootMotion = false;
+				mTransform->MoveForward(TimeDelta * 0.65f);
+			}
+
 		}
 
 		if (AnimationCompare(CLIP::STAND2))
@@ -1840,7 +1999,7 @@ void CCharacter::LookPos(_fvector vLookPos)
 {	
 	if (!m_bHit && !m_bEvolution && !m_bUseSkill)
 	{
-		if(!mModel->AnimationCompare(CLIP::HIT1))
+		if(!mModel->AnimationCompare(CLIP::HIT3))
 			mTransform->LookAt(vLookPos);
 	}
 }
@@ -2062,6 +2221,24 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 			if(pAppManager->IsFreezeReady())
 				pAppManager->SetFreeze(true);
 		}
+
+		CThorn* pThorn = dynamic_cast<CThorn*>(dest->GetOwner());
+		if (pThorn)
+		{
+			if (pAppManager->IsFreezeReady())
+				pAppManager->SetFreeze(true);
+		}
+
+		CBoss* pBoss = dynamic_cast<CBoss*>(dest->GetOwner());
+		if (pBoss)
+		{
+			//바디와 오버랩 콜라이더가 아닐경우 무조건 다 공격용 콜라이더임
+			if (!dest->Compare(pEnemy->GetBodyCollider()) && !dest->Compare(pEnemy->GetOverlapCollider()))
+			{
+				if (pAppManager->IsFreezeReady())
+					pAppManager->SetFreeze(true);
+			}
+		}
 	}
 
 	if (src->Compare(mCollider))
@@ -2076,6 +2253,18 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 				AddCombo();
 			}
 		}
+
+		CBoss* pEnemy = dynamic_cast<CBoss*>(dest->GetOwner());
+		if (pEnemy)
+		{
+			//바디와 오버랩 콜라이더가 아닐경우 무조건 다 공격용 콜라이더임
+			if (!dest->Compare(pEnemy->GetBodyCollider()) && !dest->Compare(pEnemy->GetOverlapCollider()))
+			{
+				Hit();
+				RecvDamage(50.f);
+			}
+		}
+
 	}
 
 	if (src->Compare(mWeaponCollider))
@@ -2220,11 +2409,16 @@ void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 			if (mModel->AnimationCompare(CLIP::ATTACK31) && m_pNearEnemy == pEnemy ||
 				mModel->AnimationCompare(CLIP::ATTACK32) && m_pNearEnemy == pEnemy)
 			{
-				if (!m_bEnemyHolding)
+
+				CBoss* pBoss = dynamic_cast<CBoss*>(m_pNearEnemy);
+				if (!pBoss)
 				{
-					pEnemy->SetHold(true);
-					m_bEnemyHolding = true;
-					m_bRootMotion = true;
+					if (!m_bEnemyHolding)
+					{
+						pEnemy->SetHold(true);
+						m_bEnemyHolding = true;
+						m_bRootMotion = true;
+					}
 				}
 			}
 			

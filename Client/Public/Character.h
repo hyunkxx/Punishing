@@ -221,6 +221,8 @@ public: // Enemy 관련 코드
 	void HoldEnemy();
 
 	void Hit();
+	void Airbone();
+	void AirboneProcess(_double TimeDelta);
 	void RecvDamage(_float fDamage);
 	_double Freeze(_double TimeDelta);
 
@@ -395,6 +397,16 @@ private: // Command
 
 	_bool m_bWin = false;
 	_bool m_bOneAction = false;
+
+	//에어본
+	_bool m_bLanding = false;
+	_bool m_bAirbone = false;
+	_bool m_vDirUp = true;
+	_float m_fAirboneAcc = 0.f;
+	const _float m_fAirboneTime = 1.f;
+	_float3 m_vPrevLook = { 0.f, 0.f, 1.f };
+	_bool m_bStandUp = false;
+
 };
 
 END

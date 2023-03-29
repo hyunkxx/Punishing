@@ -73,6 +73,8 @@ HRESULT CApplication::Initialize()
 	m_pDevice->CreateRasterizerState(&RSDesc, &RasterizerState);
 	m_pContext->RSSetState(RasterizerState);
 	
+	m_pGameInstance->SetCollisionDebugRender(true);
+
 	return S_OK;
 }
 

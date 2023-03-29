@@ -36,7 +36,7 @@ public:
 	virtual HRESULT Render();
 
 public:
-	void StartShake(_float Time, _float fPower);
+	void StartShake(_float Time, _float fPower, _float fPowValue = 0.2f);
 	void ShakeReset() { m_fShakeTimer = 0.0f; }
 	void Shake(_double TimeDelta);
 
@@ -52,6 +52,7 @@ protected:
 	//카메라 쉐이킹
 	_bool m_bShake = false;
 	_float m_fPower = 3.f;
+	_float m_fPowValue = 0.2f;
 	_float m_fShakeTimer = 0.f;
 	_float m_fShakeTimeOut = 1.f;
 	_float4x4 m_PrevCamPos;

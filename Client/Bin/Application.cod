@@ -2564,7 +2564,7 @@ PUBLIC	??_C@_1BO@JNCHEIKI@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AA
 PUBLIC	??_C@_1BO@LDNAOHLB@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAw?$AAa?$AAl?$AAl?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CI@OEBPAOLP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AAb?$AAa?$AAl?$AAl?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA ; `Client::CApplication::Create'::`1'::__LINE__Var
-PUBLIC	??_C@_0DD@CJDBPOFC@c?3?2github?2framework?2client?2priva@ ; `string'
+PUBLIC	??_C@_0EJ@BMDIJKBP@c?3?2users?2arcco?2documents?2github?2@ ; `string'
 PUBLIC	??_C@_1EA@NHBKHCID@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAA?$AAp?$AAp?$AAl?$AAi?$AAc?$AAa?$AAt?$AAi?$AAo?$AAn?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1IO@EADHKMNI@?$AAc?$AA?3?$AA?2?$AAp?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAf?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAm?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ ; `string'
 PUBLIC	??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@	; `string'
@@ -2653,6 +2653,7 @@ EXTRN	__imp_?RenderLevelUI@CGameInstance@Engine@@QEAAXXZ:PROC
 EXTRN	__imp_?Add_Prototype@CGameInstance@Engine@@QEAAJPEB_WPEAVCGameObject@2@@Z:PROC
 EXTRN	__imp_?RenderGUI@CGameInstance@Engine@@QEAAXXZ:PROC
 EXTRN	__imp_?Add_Prototype@CGameInstance@Engine@@QEAAJIPEB_WPEAVCComponent@2@@Z:PROC
+EXTRN	__imp_?SetCollisionDebugRender@CGameInstance@Engine@@QEAAX_N@Z:PROC
 EXTRN	__imp_?CollisionRender@CGameInstance@Engine@@QEAAXXZ:PROC
 EXTRN	__imp_?Engine_Release@CGameInstance@Engine@@SAXXZ:PROC
 EXTRN	?GetInstance@CImGUIManager@Client@@SAPEAV12@XZ:PROC ; Client::CImGUIManager::GetInstance
@@ -3222,7 +3223,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Initialize@CApplication@Client@@QEAAJXZ DD imagerel $LN8
-	DD	imagerel $LN8+534
+	DD	imagerel $LN8+553
 	DD	imagerel $unwind$?Initialize@CApplication@Client@@QEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -3728,14 +3729,15 @@ CONST	SEGMENT
 	DB	'A', 00H, 'p', 00H, 'p', 00H, 'l', 00H, 'i', 00H, 'c', 00H, 'a'
 	DB	00H, 't', 00H, 'i', 00H, 'o', 00H, 'n', 00H, 00H, 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0DD@CJDBPOFC@c?3?2github?2framework?2client?2priva@
+;	COMDAT ??_C@_0EJ@BMDIJKBP@c?3?2users?2arcco?2documents?2github?2@
 CONST	SEGMENT
-??_C@_0DD@CJDBPOFC@c?3?2github?2framework?2client?2priva@ DB 'c:\github\f'
-	DB	'ramework\client\private\application.cpp', 00H ; `string'
+??_C@_0EJ@BMDIJKBP@c?3?2users?2arcco?2documents?2github?2@ DB 'c:\users\a'
+	DB	'rcco\documents\github\framework\client\private\application.cp'
+	DB	'p', 00H					; `string'
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA DD 01b3H ; `Client::CApplication::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA DD 01b5H ; `Client::CApplication::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1CI@OEBPAOLP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAs?$AAk?$AAi?$AAl?$AAl?$AAb?$AAa?$AAl?$AAl?$AA?$AA@
 CONST	SEGMENT
@@ -7891,7 +7893,7 @@ $LN4:
 ??$?0$$V@?$_Compressed_pair@U?$_Wrap_alloc@V?$allocator@_W@std@@@std@@V?$_String_val@U?$_Simple_types@_W@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1>::_Compressed_pair<std::_Wrap_alloc<std::allocator<wchar_t> >,std::_String_val<std::_Simple_types<wchar_t> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCGameInstance@Engine@@@Engine@@YAKAEAPEAVCGameInstance@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -7970,7 +7972,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCGameInstance@Engine@@@Engine@@YAKAEAPEAVCGameInstance@0@@Z ENDP ; Engine::Safe_Release<Engine::CGameInstance * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -8052,7 +8054,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z ENDP ; Engine::Safe_Release<ID3D11DeviceContext * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -8134,7 +8136,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z ENDP ; Engine::Safe_Release<ID3D11Device * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -8213,7 +8215,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_Release@PEAVCApplication@Client@@@Engine@@YAKAEAPEAVCApplication@Client@@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -8292,7 +8294,7 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCApplication@Client@@@Engine@@YAKAEAPEAVCApplication@Client@@@Z ENDP ; Engine::Safe_Release<Client::CApplication * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_AddRef@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -8352,7 +8354,7 @@ $LN2@Safe_AddRe:
 ??$Safe_AddRef@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ENDP ; Engine::Safe_AddRef<Engine::CRenderer * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\reference\headers\engine_template.h
+; File c:\users\arcco\documents\github\framework\reference\headers\engine_template.h
 ;	COMDAT ??$Safe_AddRef@PEAVCGameInstance@Engine@@@Engine@@YAKAEAPEAVCGameInstance@0@@Z
 _TEXT	SEGMENT
 dwRefCnt$ = 4
@@ -8454,13 +8456,13 @@ $LN2@scalar:
 ??_GCApplication@Client@@EEAAPEAXI@Z ENDP		; Client::CApplication::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ?Free@CApplication@Client@@UEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
 ?Free@CApplication@Client@@UEAAXXZ PROC			; Client::CApplication::Free, COMDAT
 
-; 449  : {
+; 451  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8476,14 +8478,14 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 450  : 	DestroyManager();
+; 452  : 	DestroyManager();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	e8 00 00 00 00	 call	 ?DestroyManager@CApplication@Client@@AEAAXXZ ; Client::CApplication::DestroyManager
 
-; 451  : 
-; 452  : 	Safe_Release(m_pRenderer);
+; 453  : 
+; 454  : 	Safe_Release(m_pRenderer);
 
   00036	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8491,8 +8493,8 @@ $LN3:
   00041	48 8b c8	 mov	 rcx, rax
   00044	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
-; 453  : 
-; 454  : 	Safe_Release(m_pDevice);
+; 455  : 
+; 456  : 	Safe_Release(m_pDevice);
 
   00049	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8500,7 +8502,7 @@ $LN3:
   00054	48 8b c8	 mov	 rcx, rax
   00057	e8 00 00 00 00	 call	 ??$Safe_Release@PEAUID3D11Device@@@Engine@@YAKAEAPEAUID3D11Device@@@Z ; Engine::Safe_Release<ID3D11Device * __ptr64>
 
-; 455  : 	Safe_Release(m_pContext);
+; 457  : 	Safe_Release(m_pContext);
 
   0005c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8508,8 +8510,8 @@ $LN3:
   00067	48 8b c8	 mov	 rcx, rax
   0006a	e8 00 00 00 00	 call	 ??$Safe_Release@PEAUID3D11DeviceContext@@@Engine@@YAKAEAPEAUID3D11DeviceContext@@@Z ; Engine::Safe_Release<ID3D11DeviceContext * __ptr64>
 
-; 456  : 
-; 457  : 	Safe_Release(m_pGameInstance);
+; 458  : 
+; 459  : 	Safe_Release(m_pGameInstance);
 
   0006f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8517,12 +8519,12 @@ $LN3:
   0007a	48 8b c8	 mov	 rcx, rax
   0007d	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCGameInstance@Engine@@@Engine@@YAKAEAPEAVCGameInstance@0@@Z ; Engine::Safe_Release<Engine::CGameInstance * __ptr64>
 
-; 458  : 	CGameInstance::Engine_Release();
+; 460  : 	CGameInstance::Engine_Release();
 
   00082	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Engine_Release@CGameInstance@Engine@@SAXXZ
 
-; 459  :  }
+; 461  :  }
 
   00088	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8532,7 +8534,7 @@ $LN3:
 ?Free@CApplication@Client@@UEAAXXZ ENDP			; Client::CApplication::Free
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ?Create@CApplication@Client@@SAPEAV12@XZ
 _TEXT	SEGMENT
 pInstance$ = 8
@@ -8544,7 +8546,7 @@ tv82 = 376
 __$ArrayPad$ = 384
 ?Create@CApplication@Client@@SAPEAV12@XZ PROC		; Client::CApplication::Create, COMDAT
 
-; 435  : {
+; 437  : {
 
 $LN8:
   00000	40 55		 push	 rbp
@@ -8565,14 +8567,14 @@ $LN8:
   00033	48 89 85 80 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 436  : 	CApplication* pInstance = new CApplication();
+; 438  : 	CApplication* pInstance = new CApplication();
 
   0003a	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA
   00040	ff c0		 inc	 eax
   00042	44 8b c8	 mov	 r9d, eax
   00045	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DD@CJDBPOFC@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EJ@BMDIJKBP@c?3?2users?2arcco?2documents?2github?2@
   0004c	ba 01 00 00 00	 mov	 edx, 1
   00051	b9 58 00 00 00	 mov	 ecx, 88			; 00000058H
   00056	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
@@ -8600,16 +8602,16 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T6[rbp]
   000a1	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 437  : 
-; 438  : 	if (FAILED(pInstance->Initialize()))
+; 439  : 
+; 440  : 	if (FAILED(pInstance->Initialize()))
 
   000a5	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000a9	e8 00 00 00 00	 call	 ?Initialize@CApplication@Client@@QEAAJXZ ; Client::CApplication::Initialize
   000ae	85 c0		 test	 eax, eax
   000b0	7d 42		 jge	 SHORT $LN2@Create
 
-; 439  : 	{
-; 440  : 		wstring message = L"Failed to Create : CApplication";
+; 441  : 	{
+; 442  : 		wstring message = L"Failed to Create : CApplication";
 
   000b2	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1EA@NHBKHCID@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAA?$AAp?$AAp?$AAl?$AAi?$AAc?$AAa?$AAt?$AAi?$AAo?$AAn?$AA?$AA@
@@ -8617,7 +8619,7 @@ $LN5@Create:
   000bd	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   000c2	90		 npad	 1
 
-; 441  : 		MESSAGE(message);
+; 443  : 		MESSAGE(message);
 
   000c3	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000c7	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -8629,24 +8631,24 @@ $LN5@Create:
   000db	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 442  : 		Safe_Release(pInstance);
+; 444  : 		Safe_Release(pInstance);
 
   000e1	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000e5	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCApplication@Client@@@Engine@@YAKAEAPEAVCApplication@Client@@@Z ; Engine::Safe_Release<Client::CApplication * __ptr64>
   000ea	90		 npad	 1
 
-; 443  : 	}
+; 445  : 	}
 
   000eb	48 8d 4d 28	 lea	 rcx, QWORD PTR message$5[rbp]
   000ef	e8 00 00 00 00	 call	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
 $LN2@Create:
 
-; 444  : 
-; 445  : 	return pInstance;
+; 446  : 
+; 447  : 	return pInstance;
 
   000f4	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 446  : }
+; 448  : }
 
   000f8	48 8b f8	 mov	 rdi, rax
   000fb	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -8685,7 +8687,7 @@ __$ArrayPad$ = 384
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DD@CJDBPOFC@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EJ@BMDIJKBP@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -8738,7 +8740,7 @@ __$ArrayPad$ = 384
 	00 00		 mov	 r9d, DWORD PTR ?__LINE__Var@?0??Create@CApplication@Client@@SAPEAV23@XZ@4JA
   0001b	41 ff c1	 inc	 r9d
   0001e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0DD@CJDBPOFC@c?3?2github?2framework?2client?2priva@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EJ@BMDIJKBP@c?3?2users?2arcco?2documents?2github?2@
   00025	ba 01 00 00 00	 mov	 edx, 1
   0002a	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR $T7[rbp]
@@ -8775,13 +8777,13 @@ __$ArrayPad$ = 384
 ?dtor$1@?0??Create@CApplication@Client@@SAPEAV12@XZ@4HA ENDP ; `Client::CApplication::Create'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ?DestroyManager@CApplication@Client@@AEAAXXZ
 _TEXT	SEGMENT
 this$ = 224
 ?DestroyManager@CApplication@Client@@AEAAXXZ PROC	; Client::CApplication::DestroyManager, COMDAT
 
-; 427  : {
+; 429  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8797,26 +8799,26 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 428  : 	m_pGUIManager->Shutdown();
+; 430  : 	m_pGUIManager->Shutdown();
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00031	48 8b 48 40	 mov	 rcx, QWORD PTR [rax+64]
   00035	e8 00 00 00 00	 call	 ?Shutdown@CImGUIManager@Client@@QEAAXXZ ; Client::CImGUIManager::Shutdown
 
-; 429  : 	CApplicationManager::DestroyInstance();
+; 431  : 	CApplicationManager::DestroyInstance();
 
   0003a	e8 00 00 00 00	 call	 ?DestroyInstance@CApplicationManager@Client@@SAKXZ ; Client::CApplicationManager::DestroyInstance
 
-; 430  : 	CStageCollisionManager::DestroyInstance();
+; 432  : 	CStageCollisionManager::DestroyInstance();
 
   0003f	e8 00 00 00 00	 call	 ?DestroyInstance@CStageCollisionManager@Client@@SAKXZ ; Client::CStageCollisionManager::DestroyInstance
 
-; 431  : 	CSkillBallSystem::DestroyInstance();
+; 433  : 	CSkillBallSystem::DestroyInstance();
 
   00044	e8 00 00 00 00	 call	 ?DestroyInstance@CSkillBallSystem@Client@@SAKXZ ; Client::CSkillBallSystem::DestroyInstance
 
-; 432  : }
+; 434  : }
 
   00049	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8826,13 +8828,13 @@ $LN3:
 ?DestroyManager@CApplication@Client@@AEAAXXZ ENDP	; Client::CApplication::DestroyManager
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ?InitializeManager@CApplication@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
 ?InitializeManager@CApplication@Client@@AEAAJXZ PROC	; Client::CApplication::InitializeManager, COMDAT
 
-; 419  : {
+; 421  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8848,20 +8850,20 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 420  : 	CApplicationManager::GetInstance();
+; 422  : 	CApplicationManager::GetInstance();
 
   0002a	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
 
-; 421  : 	CStageCollisionManager::GetInstance();
+; 423  : 	CStageCollisionManager::GetInstance();
 
   0002f	e8 00 00 00 00	 call	 ?GetInstance@CStageCollisionManager@Client@@SAPEAV12@XZ ; Client::CStageCollisionManager::GetInstance
 
-; 422  : 
-; 423  : 	return S_OK;
+; 424  : 
+; 425  : 	return S_OK;
 
   00034	33 c0		 xor	 eax, eax
 
-; 424  : }
+; 426  : }
 
   00036	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8871,13 +8873,13 @@ $LN3:
 ?InitializeManager@CApplication@Client@@AEAAJXZ ENDP	; Client::CApplication::InitializeManager
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ?Ready_Prototype_Static_GameObject@CApplication@Client@@AEAAJXZ
 _TEXT	SEGMENT
 this$ = 224
 ?Ready_Prototype_Static_GameObject@CApplication@Client@@AEAAJXZ PROC ; Client::CApplication::Ready_Prototype_Static_GameObject, COMDAT
 
-; 396  : {
+; 398  : {
 
 $LN8:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8893,7 +8895,7 @@ $LN8:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 397  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_dynamic_camera"),
+; 399  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_dynamic_camera"),
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8913,15 +8915,15 @@ $LN8:
   00060	85 c0		 test	 eax, eax
   00062	7d 0a		 jge	 SHORT $LN2@Ready_Prot
 
-; 398  : 		CDynamicCamera::Create(m_pDevice, m_pContext))))
-; 399  : 		return E_FAIL;
+; 400  : 		CDynamicCamera::Create(m_pDevice, m_pContext))))
+; 401  : 		return E_FAIL;
 
   00064	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00069	e9 0c 01 00 00	 jmp	 $LN1@Ready_Prot
 $LN2@Ready_Prot:
 
-; 400  : 
-; 401  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_background"),
+; 402  : 
+; 403  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_background"),
 
   0006e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8941,15 +8943,15 @@ $LN2@Ready_Prot:
   000a4	85 c0		 test	 eax, eax
   000a6	7d 0a		 jge	 SHORT $LN3@Ready_Prot
 
-; 402  : 		CBackGround::Create(m_pDevice, m_pContext))))
-; 403  : 		return E_FAIL;
+; 404  : 		CBackGround::Create(m_pDevice, m_pContext))))
+; 405  : 		return E_FAIL;
 
   000a8	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000ad	e9 c8 00 00 00	 jmp	 $LN1@Ready_Prot
 $LN3@Ready_Prot:
 
-; 404  : 
-; 405  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_boss"),
+; 406  : 
+; 407  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_boss"),
 
   000b2	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8969,15 +8971,15 @@ $LN3@Ready_Prot:
   000e8	85 c0		 test	 eax, eax
   000ea	7d 0a		 jge	 SHORT $LN4@Ready_Prot
 
-; 406  : 		CBoss::Create(m_pDevice, m_pContext))))
-; 407  : 		return E_FAIL;
+; 408  : 		CBoss::Create(m_pDevice, m_pContext))))
+; 409  : 		return E_FAIL;
 
   000ec	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000f1	e9 84 00 00 00	 jmp	 $LN1@Ready_Prot
 $LN4@Ready_Prot:
 
-; 408  : 
-; 409  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_wall"), CWall::Create(m_pDevice, m_pContext))))
+; 410  : 
+; 411  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_wall"), CWall::Create(m_pDevice, m_pContext))))
 
   000f6	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -8997,14 +8999,14 @@ $LN4@Ready_Prot:
   0012c	85 c0		 test	 eax, eax
   0012e	7d 07		 jge	 SHORT $LN5@Ready_Prot
 
-; 410  : 		return E_FAIL;
+; 412  : 		return E_FAIL;
 
   00130	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00135	eb 43		 jmp	 SHORT $LN1@Ready_Prot
 $LN5@Ready_Prot:
 
-; 411  : 
-; 412  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_skillball"), CSkillBase::Create(m_pDevice, m_pContext))))
+; 413  : 
+; 414  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_skillball"), CSkillBase::Create(m_pDevice, m_pContext))))
 
   00137	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9024,19 +9026,19 @@ $LN5@Ready_Prot:
   0016d	85 c0		 test	 eax, eax
   0016f	7d 07		 jge	 SHORT $LN6@Ready_Prot
 
-; 413  : 		return E_FAIL;
+; 415  : 		return E_FAIL;
 
   00171	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00176	eb 02		 jmp	 SHORT $LN1@Ready_Prot
 $LN6@Ready_Prot:
 
-; 414  : 
-; 415  : 	return S_OK;
+; 416  : 
+; 417  : 	return S_OK;
 
   00178	33 c0		 xor	 eax, eax
 $LN1@Ready_Prot:
 
-; 416  : }
+; 418  : }
 
   0017a	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -9046,7 +9048,7 @@ $LN1@Ready_Prot:
 ?Ready_Prototype_Static_GameObject@CApplication@Client@@AEAAJXZ ENDP ; Client::CApplication::Ready_Prototype_Static_GameObject
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ
 _TEXT	SEGMENT
 LocalMatrix$ = 16
@@ -9060,7 +9062,7 @@ __$ArrayPad$ = 960
 this$ = 1008
 ?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ PROC ; Client::CApplication::Ready_Prototype_Static_Component, COMDAT
 
-; 156  : {
+; 158  : {
 
 $LN59:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -9082,7 +9084,7 @@ $LN59:
   00035	48 89 85 c0 03
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 157  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_renderer"),
+; 159  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_renderer"),
 
   0003c	48 8b 85 f0 03
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9112,15 +9114,15 @@ $LN59:
   00092	85 c0		 test	 eax, eax
   00094	7d 0a		 jge	 SHORT $LN2@Ready_Prot
 
-; 158  : 		m_pRenderer = CRenderer::Create(m_pDevice, m_pContext))))
-; 159  : 		return E_FAIL;
+; 160  : 		m_pRenderer = CRenderer::Create(m_pDevice, m_pContext))))
+; 161  : 		return E_FAIL;
 
   00096	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0009b	e9 d9 12 00 00	 jmp	 $LN1@Ready_Prot
 $LN2@Ready_Prot:
 
-; 160  : 
-; 161  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_transform"),
+; 162  : 
+; 163  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_transform"),
 
   000a0	48 8b 85 f0 03
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9142,15 +9144,15 @@ $LN2@Ready_Prot:
   000d9	85 c0		 test	 eax, eax
   000db	7d 0a		 jge	 SHORT $LN3@Ready_Prot
 
-; 162  : 		CTransform::Create(m_pDevice, m_pContext))))
-; 163  : 		return E_FAIL;
+; 164  : 		CTransform::Create(m_pDevice, m_pContext))))
+; 165  : 		return E_FAIL;
 
   000dd	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000e2	e9 92 12 00 00	 jmp	 $LN1@Ready_Prot
 $LN3@Ready_Prot:
 
-; 164  : 
-; 165  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+; 166  : 
+; 167  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
 
   000e7	48 8b 85 f0 03
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9172,15 +9174,15 @@ $LN3@Ready_Prot:
   00120	85 c0		 test	 eax, eax
   00122	7d 0a		 jge	 SHORT $LN4@Ready_Prot
 
-; 166  : 		CVIBuffer_Rect::Create(m_pDevice, m_pContext))))
-; 167  : 		return E_FAIL;
+; 168  : 		CVIBuffer_Rect::Create(m_pDevice, m_pContext))))
+; 169  : 		return E_FAIL;
 
   00124	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00129	e9 4b 12 00 00	 jmp	 $LN1@Ready_Prot
 $LN4@Ready_Prot:
 
-; 168  : 
-; 169  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_vtxtex"),
+; 170  : 
+; 171  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_vtxtex"),
 
   0012e	c7 44 24 20 02
 	00 00 00	 mov	 DWORD PTR [rsp+32], 2
@@ -9208,15 +9210,15 @@ $LN4@Ready_Prot:
   0017d	85 c0		 test	 eax, eax
   0017f	7d 0a		 jge	 SHORT $LN5@Ready_Prot
 
-; 170  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXTEX.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
-; 171  : 		return E_FAIL;
+; 172  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXTEX.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
+; 173  : 		return E_FAIL;
 
   00181	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00186	e9 ee 11 00 00	 jmp	 $LN1@Ready_Prot
 $LN5@Ready_Prot:
 
-; 172  : 
-; 173  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_groud"),
+; 174  : 
+; 175  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_groud"),
 
   0018b	c7 44 24 20 03
 	00 00 00	 mov	 DWORD PTR [rsp+32], 3
@@ -9244,15 +9246,15 @@ $LN5@Ready_Prot:
   001da	85 c0		 test	 eax, eax
   001dc	7d 0a		 jge	 SHORT $LN6@Ready_Prot
 
-; 174  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_GROUD.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
-; 175  : 		return E_FAIL;
+; 176  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_GROUD.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
+; 177  : 		return E_FAIL;
 
   001de	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001e3	e9 91 11 00 00	 jmp	 $LN1@Ready_Prot
 $LN6@Ready_Prot:
 
-; 176  : 
-; 177  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_phong"),
+; 178  : 
+; 179  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_phong"),
 
   001e8	c7 44 24 20 03
 	00 00 00	 mov	 DWORD PTR [rsp+32], 3
@@ -9280,15 +9282,15 @@ $LN6@Ready_Prot:
   00237	85 c0		 test	 eax, eax
   00239	7d 0a		 jge	 SHORT $LN7@Ready_Prot
 
-; 178  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_PHONG.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
-; 179  : 		return E_FAIL;
+; 180  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_PHONG.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
+; 181  : 		return E_FAIL;
 
   0023b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00240	e9 34 11 00 00	 jmp	 $LN1@Ready_Prot
 $LN7@Ready_Prot:
 
-; 180  : 
-; 181  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"),
+; 182  : 
+; 183  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"),
 
   00245	c7 44 24 20 04
 	00 00 00	 mov	 DWORD PTR [rsp+32], 4
@@ -9316,15 +9318,15 @@ $LN7@Ready_Prot:
   00294	85 c0		 test	 eax, eax
   00296	7d 0a		 jge	 SHORT $LN8@Ready_Prot
 
-; 182  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXMODEL.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
-; 183  : 		return E_FAIL;
+; 184  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXMODEL.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
+; 185  : 		return E_FAIL;
 
   00298	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0029d	e9 d7 10 00 00	 jmp	 $LN1@Ready_Prot
 $LN8@Ready_Prot:
 
-; 184  : 
-; 185  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_alpha"),
+; 186  : 
+; 187  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_alpha"),
 
   002a2	c7 44 24 20 02
 	00 00 00	 mov	 DWORD PTR [rsp+32], 2
@@ -9352,15 +9354,15 @@ $LN8@Ready_Prot:
   002f1	85 c0		 test	 eax, eax
   002f3	7d 0a		 jge	 SHORT $LN9@Ready_Prot
 
-; 186  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_ALPHA.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
-; 187  : 		return E_FAIL;
+; 188  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_ALPHA.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
+; 189  : 		return E_FAIL;
 
   002f5	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   002fa	e9 7a 10 00 00	 jmp	 $LN1@Ready_Prot
 $LN9@Ready_Prot:
 
-; 188  : 
-; 189  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_ui"),
+; 190  : 
+; 191  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_ui"),
 
   002ff	c7 44 24 20 02
 	00 00 00	 mov	 DWORD PTR [rsp+32], 2
@@ -9388,15 +9390,15 @@ $LN9@Ready_Prot:
   0034e	85 c0		 test	 eax, eax
   00350	7d 0a		 jge	 SHORT $LN10@Ready_Prot
 
-; 190  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_UI.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
-; 191  : 		return E_FAIL;
+; 192  : 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_UI.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
+; 193  : 		return E_FAIL;
 
   00352	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00357	e9 1d 10 00 00	 jmp	 $LN1@Ready_Prot
 $LN10@Ready_Prot:
 
-; 192  : 
-; 193  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_black"),
+; 194  : 
+; 195  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_black"),
 
   0035c	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9422,15 +9424,15 @@ $LN10@Ready_Prot:
   003a2	85 c0		 test	 eax, eax
   003a4	7d 0a		 jge	 SHORT $LN11@Ready_Prot
 
-; 194  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Black.png")))))
-; 195  : 		return E_FAIL;
+; 196  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Black.png")))))
+; 197  : 		return E_FAIL;
 
   003a6	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   003ab	e9 c9 0f 00 00	 jmp	 $LN1@Ready_Prot
 $LN11@Ready_Prot:
 
-; 196  : 
-; 197  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_LOADING, TEXT("proto_com_texture_background"),
+; 198  : 
+; 199  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_LOADING, TEXT("proto_com_texture_background"),
 
   003b0	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9456,15 +9458,15 @@ $LN11@Ready_Prot:
   003f9	85 c0		 test	 eax, eax
   003fb	7d 0a		 jge	 SHORT $LN12@Ready_Prot
 
-; 198  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/background.jpg")))))
-; 199  : 		return E_FAIL;
+; 200  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/background.jpg")))))
+; 201  : 		return E_FAIL;
 
   003fd	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00402	e9 72 0f 00 00	 jmp	 $LN1@Ready_Prot
 $LN12@Ready_Prot:
 
-; 200  : 
-; 201  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_LOADING, TEXT("proto_com_texture_background2"),
+; 202  : 
+; 203  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_LOADING, TEXT("proto_com_texture_background2"),
 
   00407	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9490,15 +9492,15 @@ $LN12@Ready_Prot:
   00450	85 c0		 test	 eax, eax
   00452	7d 0a		 jge	 SHORT $LN13@Ready_Prot
 
-; 202  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/background2.jpg")))))
-; 203  : 		return E_FAIL;
+; 204  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/background2.jpg")))))
+; 205  : 		return E_FAIL;
 
   00454	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00459	e9 1b 0f 00 00	 jmp	 $LN1@Ready_Prot
 $LN13@Ready_Prot:
 
-; 204  : 
-; 205  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_LOADING, TEXT("proto_com_texture_loading"),
+; 206  : 
+; 207  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_LOADING, TEXT("proto_com_texture_loading"),
 
   0045e	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9524,15 +9526,15 @@ $LN13@Ready_Prot:
   004a7	85 c0		 test	 eax, eax
   004a9	7d 0a		 jge	 SHORT $LN14@Ready_Prot
 
-; 206  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Loading.png")))))
-; 207  : 		return E_FAIL;
+; 208  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Loading.png")))))
+; 209  : 		return E_FAIL;
 
   004ab	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   004b0	e9 c4 0e 00 00	 jmp	 $LN1@Ready_Prot
 $LN14@Ready_Prot:
 
-; 208  : 
-; 209  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_combo_gage"),
+; 210  : 
+; 211  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_combo_gage"),
 
   004b5	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9558,15 +9560,15 @@ $LN14@Ready_Prot:
   004fb	85 c0		 test	 eax, eax
   004fd	7d 0a		 jge	 SHORT $LN15@Ready_Prot
 
-; 210  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/ComboGage.png")))))
-; 211  : 		return E_FAIL;
+; 212  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/ComboGage.png")))))
+; 213  : 		return E_FAIL;
 
   004ff	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00504	e9 70 0e 00 00	 jmp	 $LN1@Ready_Prot
 $LN15@Ready_Prot:
 
-; 212  : 
-; 213  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_back"),
+; 214  : 
+; 215  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_back"),
 
   00509	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9592,15 +9594,15 @@ $LN15@Ready_Prot:
   0054f	85 c0		 test	 eax, eax
   00551	7d 0a		 jge	 SHORT $LN16@Ready_Prot
 
-; 214  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_back.png")))))
-; 215  : 		return E_FAIL;
+; 216  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_back.png")))))
+; 217  : 		return E_FAIL;
 
   00553	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00558	e9 1c 0e 00 00	 jmp	 $LN1@Ready_Prot
 $LN16@Ready_Prot:
 
-; 216  : 
-; 217  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_blood"),
+; 218  : 
+; 219  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_blood"),
 
   0055d	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9626,15 +9628,15 @@ $LN16@Ready_Prot:
   005a3	85 c0		 test	 eax, eax
   005a5	7d 0a		 jge	 SHORT $LN17@Ready_Prot
 
-; 218  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_blood.png")))))
-; 219  : 		return E_FAIL;
+; 220  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_blood.png")))))
+; 221  : 		return E_FAIL;
 
   005a7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   005ac	e9 c8 0d 00 00	 jmp	 $LN1@Ready_Prot
 $LN17@Ready_Prot:
 
-; 220  : 
-; 221  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_front"),
+; 222  : 
+; 223  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_healthbar_front"),
 
   005b1	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9660,15 +9662,15 @@ $LN17@Ready_Prot:
   005f7	85 c0		 test	 eax, eax
   005f9	7d 0a		 jge	 SHORT $LN18@Ready_Prot
 
-; 222  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_front.png")))))
-; 223  : 		return E_FAIL;
+; 224  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/HealthBar_front.png")))))
+; 225  : 		return E_FAIL;
 
   005fb	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00600	e9 74 0d 00 00	 jmp	 $LN1@Ready_Prot
 $LN18@Ready_Prot:
 
-; 224  : 
-; 225  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_player_back"),
+; 226  : 
+; 227  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_player_back"),
 
   00605	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9694,15 +9696,15 @@ $LN18@Ready_Prot:
   0064b	85 c0		 test	 eax, eax
   0064d	7d 0a		 jge	 SHORT $LN19@Ready_Prot
 
-; 226  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/PlayerBack.png")))))
-; 227  : 		return E_FAIL;
+; 228  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/PlayerBack.png")))))
+; 229  : 		return E_FAIL;
 
   0064f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00654	e9 20 0d 00 00	 jmp	 $LN1@Ready_Prot
 $LN19@Ready_Prot:
 
-; 228  : 
-; 229  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_dash"),
+; 230  : 
+; 231  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_dash"),
 
   00659	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9728,15 +9730,15 @@ $LN19@Ready_Prot:
   0069f	85 c0		 test	 eax, eax
   006a1	7d 0a		 jge	 SHORT $LN20@Ready_Prot
 
-; 230  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/dash.png")))))
-; 231  : 		return E_FAIL;
+; 232  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/HealthBar/dash.png")))))
+; 233  : 		return E_FAIL;
 
   006a3	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   006a8	e9 cc 0c 00 00	 jmp	 $LN1@Ready_Prot
 $LN20@Ready_Prot:
 
-; 232  : 
-; 233  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_red"),
+; 234  : 
+; 235  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_red"),
 
   006ad	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9762,15 +9764,15 @@ $LN20@Ready_Prot:
   006f3	85 c0		 test	 eax, eax
   006f5	7d 0a		 jge	 SHORT $LN21@Ready_Prot
 
-; 234  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Red.png")))))
-; 235  : 		return E_FAIL;
+; 236  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Red.png")))))
+; 237  : 		return E_FAIL;
 
   006f7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   006fc	e9 78 0c 00 00	 jmp	 $LN1@Ready_Prot
 $LN21@Ready_Prot:
 
-; 236  : 
-; 237  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_blue"),
+; 238  : 
+; 239  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_blue"),
 
   00701	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9796,15 +9798,15 @@ $LN21@Ready_Prot:
   00747	85 c0		 test	 eax, eax
   00749	7d 0a		 jge	 SHORT $LN22@Ready_Prot
 
-; 238  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Blue.png")))))
-; 239  : 		return E_FAIL;
+; 240  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Blue.png")))))
+; 241  : 		return E_FAIL;
 
   0074b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00750	e9 24 0c 00 00	 jmp	 $LN1@Ready_Prot
 $LN22@Ready_Prot:
 
-; 240  : 
-; 241  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_yellow"),
+; 242  : 
+; 243  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_yellow"),
 
   00755	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9830,16 +9832,16 @@ $LN22@Ready_Prot:
   0079b	85 c0		 test	 eax, eax
   0079d	7d 0a		 jge	 SHORT $LN23@Ready_Prot
 
-; 242  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Yellow.png")))))
-; 243  : 		return E_FAIL;
+; 244  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/Yellow.png")))))
+; 245  : 		return E_FAIL;
 
   0079f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   007a4	e9 d0 0b 00 00	 jmp	 $LN1@Ready_Prot
 $LN23@Ready_Prot:
 
-; 244  : 
-; 245  : 	//Key q w e r a s d f
-; 246  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_a"),
+; 246  : 
+; 247  : 	//Key q w e r a s d f
+; 248  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_a"),
 
   007a9	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9865,15 +9867,15 @@ $LN23@Ready_Prot:
   007ef	85 c0		 test	 eax, eax
   007f1	7d 0a		 jge	 SHORT $LN24@Ready_Prot
 
-; 247  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/A.png")))))
-; 248  : 		return E_FAIL;
+; 249  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/A.png")))))
+; 250  : 		return E_FAIL;
 
   007f3	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   007f8	e9 7c 0b 00 00	 jmp	 $LN1@Ready_Prot
 $LN24@Ready_Prot:
 
-; 249  : 
-; 250  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_s"),
+; 251  : 
+; 252  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_s"),
 
   007fd	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9899,15 +9901,15 @@ $LN24@Ready_Prot:
   00843	85 c0		 test	 eax, eax
   00845	7d 0a		 jge	 SHORT $LN25@Ready_Prot
 
-; 251  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/S.png")))))
-; 252  : 		return E_FAIL;
+; 253  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/S.png")))))
+; 254  : 		return E_FAIL;
 
   00847	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0084c	e9 28 0b 00 00	 jmp	 $LN1@Ready_Prot
 $LN25@Ready_Prot:
 
-; 253  : 
-; 254  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_d"),
+; 255  : 
+; 256  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_d"),
 
   00851	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9933,15 +9935,15 @@ $LN25@Ready_Prot:
   00897	85 c0		 test	 eax, eax
   00899	7d 0a		 jge	 SHORT $LN26@Ready_Prot
 
-; 255  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/D.png")))))
-; 256  : 		return E_FAIL;
+; 257  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/D.png")))))
+; 258  : 		return E_FAIL;
 
   0089b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   008a0	e9 d4 0a 00 00	 jmp	 $LN1@Ready_Prot
 $LN26@Ready_Prot:
 
-; 257  : 
-; 258  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_f"),
+; 259  : 
+; 260  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_f"),
 
   008a5	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -9967,15 +9969,15 @@ $LN26@Ready_Prot:
   008eb	85 c0		 test	 eax, eax
   008ed	7d 0a		 jge	 SHORT $LN27@Ready_Prot
 
-; 259  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/F.png")))))
-; 260  : 		return E_FAIL;
+; 261  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/F.png")))))
+; 262  : 		return E_FAIL;
 
   008ef	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   008f4	e9 80 0a 00 00	 jmp	 $LN1@Ready_Prot
 $LN27@Ready_Prot:
 
-; 261  : 
-; 262  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_q"),
+; 263  : 
+; 264  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_q"),
 
   008f9	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10001,15 +10003,15 @@ $LN27@Ready_Prot:
   0093f	85 c0		 test	 eax, eax
   00941	7d 0a		 jge	 SHORT $LN28@Ready_Prot
 
-; 263  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/Q.png")))))
-; 264  : 		return E_FAIL;
+; 265  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/Q.png")))))
+; 266  : 		return E_FAIL;
 
   00943	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00948	e9 2c 0a 00 00	 jmp	 $LN1@Ready_Prot
 $LN28@Ready_Prot:
 
-; 265  : 
-; 266  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_w"),
+; 267  : 
+; 268  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_w"),
 
   0094d	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10035,15 +10037,15 @@ $LN28@Ready_Prot:
   00993	85 c0		 test	 eax, eax
   00995	7d 0a		 jge	 SHORT $LN29@Ready_Prot
 
-; 267  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/W.png")))))
-; 268  : 		return E_FAIL;
+; 269  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/W.png")))))
+; 270  : 		return E_FAIL;
 
   00997	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0099c	e9 d8 09 00 00	 jmp	 $LN1@Ready_Prot
 $LN29@Ready_Prot:
 
-; 269  : 
-; 270  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_e"),
+; 271  : 
+; 272  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_e"),
 
   009a1	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10069,15 +10071,15 @@ $LN29@Ready_Prot:
   009e7	85 c0		 test	 eax, eax
   009e9	7d 0a		 jge	 SHORT $LN30@Ready_Prot
 
-; 271  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/E.png")))))
-; 272  : 		return E_FAIL;
+; 273  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/E.png")))))
+; 274  : 		return E_FAIL;
 
   009eb	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   009f0	e9 84 09 00 00	 jmp	 $LN1@Ready_Prot
 $LN30@Ready_Prot:
 
-; 273  : 
-; 274  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_r"),
+; 275  : 
+; 276  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_r"),
 
   009f5	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10103,15 +10105,15 @@ $LN30@Ready_Prot:
   00a3b	85 c0		 test	 eax, eax
   00a3d	7d 0a		 jge	 SHORT $LN31@Ready_Prot
 
-; 275  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/R.png")))))
-; 276  : 		return E_FAIL;
+; 277  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/R.png")))))
+; 278  : 		return E_FAIL;
 
   00a3f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00a44	e9 30 09 00 00	 jmp	 $LN1@Ready_Prot
 $LN31@Ready_Prot:
 
-; 277  : 
-; 278  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_0"),
+; 279  : 
+; 280  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_0"),
 
   00a49	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10137,15 +10139,15 @@ $LN31@Ready_Prot:
   00a8f	85 c0		 test	 eax, eax
   00a91	7d 0a		 jge	 SHORT $LN32@Ready_Prot
 
-; 279  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/0.png")))))
-; 280  : 		return E_FAIL;
+; 281  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/0.png")))))
+; 282  : 		return E_FAIL;
 
   00a93	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00a98	e9 dc 08 00 00	 jmp	 $LN1@Ready_Prot
 $LN32@Ready_Prot:
 
-; 281  : 
-; 282  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_1"),
+; 283  : 
+; 284  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_1"),
 
   00a9d	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10171,15 +10173,15 @@ $LN32@Ready_Prot:
   00ae3	85 c0		 test	 eax, eax
   00ae5	7d 0a		 jge	 SHORT $LN33@Ready_Prot
 
-; 283  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/1.png")))))
-; 284  : 		return E_FAIL;
+; 285  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/1.png")))))
+; 286  : 		return E_FAIL;
 
   00ae7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00aec	e9 88 08 00 00	 jmp	 $LN1@Ready_Prot
 $LN33@Ready_Prot:
 
-; 285  : 
-; 286  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_2"),
+; 287  : 
+; 288  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_2"),
 
   00af1	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10205,15 +10207,15 @@ $LN33@Ready_Prot:
   00b37	85 c0		 test	 eax, eax
   00b39	7d 0a		 jge	 SHORT $LN34@Ready_Prot
 
-; 287  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/2.png")))))
-; 288  : 		return E_FAIL;
+; 289  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/2.png")))))
+; 290  : 		return E_FAIL;
 
   00b3b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00b40	e9 34 08 00 00	 jmp	 $LN1@Ready_Prot
 $LN34@Ready_Prot:
 
-; 289  : 
-; 290  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_3"),
+; 291  : 
+; 292  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_3"),
 
   00b45	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10239,15 +10241,15 @@ $LN34@Ready_Prot:
   00b8b	85 c0		 test	 eax, eax
   00b8d	7d 0a		 jge	 SHORT $LN35@Ready_Prot
 
-; 291  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/3.png")))))
-; 292  : 		return E_FAIL;
+; 293  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/3.png")))))
+; 294  : 		return E_FAIL;
 
   00b8f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00b94	e9 e0 07 00 00	 jmp	 $LN1@Ready_Prot
 $LN35@Ready_Prot:
 
-; 293  : 
-; 294  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_4"),
+; 295  : 
+; 296  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_4"),
 
   00b99	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10273,15 +10275,15 @@ $LN35@Ready_Prot:
   00bdf	85 c0		 test	 eax, eax
   00be1	7d 0a		 jge	 SHORT $LN36@Ready_Prot
 
-; 295  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/4.png")))))
-; 296  : 		return E_FAIL;
+; 297  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/4.png")))))
+; 298  : 		return E_FAIL;
 
   00be3	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00be8	e9 8c 07 00 00	 jmp	 $LN1@Ready_Prot
 $LN36@Ready_Prot:
 
-; 297  : 
-; 298  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_5"),
+; 299  : 
+; 300  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_5"),
 
   00bed	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10307,15 +10309,15 @@ $LN36@Ready_Prot:
   00c33	85 c0		 test	 eax, eax
   00c35	7d 0a		 jge	 SHORT $LN37@Ready_Prot
 
-; 299  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/5.png")))))
-; 300  : 		return E_FAIL;
+; 301  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/5.png")))))
+; 302  : 		return E_FAIL;
 
   00c37	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00c3c	e9 38 07 00 00	 jmp	 $LN1@Ready_Prot
 $LN37@Ready_Prot:
 
-; 301  : 
-; 302  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_6"),
+; 303  : 
+; 304  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_6"),
 
   00c41	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10341,15 +10343,15 @@ $LN37@Ready_Prot:
   00c87	85 c0		 test	 eax, eax
   00c89	7d 0a		 jge	 SHORT $LN38@Ready_Prot
 
-; 303  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/6.png")))))
-; 304  : 		return E_FAIL;
+; 305  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/6.png")))))
+; 306  : 		return E_FAIL;
 
   00c8b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00c90	e9 e4 06 00 00	 jmp	 $LN1@Ready_Prot
 $LN38@Ready_Prot:
 
-; 305  : 
-; 306  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_7"),
+; 307  : 
+; 308  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_7"),
 
   00c95	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10375,15 +10377,15 @@ $LN38@Ready_Prot:
   00cdb	85 c0		 test	 eax, eax
   00cdd	7d 0a		 jge	 SHORT $LN39@Ready_Prot
 
-; 307  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/7.png")))))
-; 308  : 		return E_FAIL;
+; 309  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/7.png")))))
+; 310  : 		return E_FAIL;
 
   00cdf	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00ce4	e9 90 06 00 00	 jmp	 $LN1@Ready_Prot
 $LN39@Ready_Prot:
 
-; 309  : 
-; 310  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_8"),
+; 311  : 
+; 312  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_8"),
 
   00ce9	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10409,15 +10411,15 @@ $LN39@Ready_Prot:
   00d2f	85 c0		 test	 eax, eax
   00d31	7d 0a		 jge	 SHORT $LN40@Ready_Prot
 
-; 311  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/8.png")))))
-; 312  : 		return E_FAIL;
+; 313  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/8.png")))))
+; 314  : 		return E_FAIL;
 
   00d33	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00d38	e9 3c 06 00 00	 jmp	 $LN1@Ready_Prot
 $LN40@Ready_Prot:
 
-; 313  : 
-; 314  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_9"),
+; 315  : 
+; 316  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_9"),
 
   00d3d	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10443,15 +10445,15 @@ $LN40@Ready_Prot:
   00d83	85 c0		 test	 eax, eax
   00d85	7d 0a		 jge	 SHORT $LN41@Ready_Prot
 
-; 315  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/9.png")))))
-; 316  : 		return E_FAIL;
+; 317  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/9.png")))))
+; 318  : 		return E_FAIL;
 
   00d87	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00d8c	e9 e8 05 00 00	 jmp	 $LN1@Ready_Prot
 $LN41@Ready_Prot:
 
-; 317  : 
-; 318  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_x"),
+; 319  : 
+; 320  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_x"),
 
   00d91	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10477,15 +10479,15 @@ $LN41@Ready_Prot:
   00dd7	85 c0		 test	 eax, eax
   00dd9	7d 0a		 jge	 SHORT $LN42@Ready_Prot
 
-; 319  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/x.png")))))
-; 320  : 		return E_FAIL;
+; 321  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/x.png")))))
+; 322  : 		return E_FAIL;
 
   00ddb	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00de0	e9 94 05 00 00	 jmp	 $LN1@Ready_Prot
 $LN42@Ready_Prot:
 
-; 321  : 
-; 322  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_combo"),
+; 323  : 
+; 324  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_combo"),
 
   00de5	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10511,15 +10513,15 @@ $LN42@Ready_Prot:
   00e2b	85 c0		 test	 eax, eax
   00e2d	7d 0a		 jge	 SHORT $LN43@Ready_Prot
 
-; 323  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/Combo.png")))))
-; 324  : 		return E_FAIL;
+; 325  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/Combo.png")))))
+; 326  : 		return E_FAIL;
 
   00e2f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00e34	e9 40 05 00 00	 jmp	 $LN1@Ready_Prot
 $LN43@Ready_Prot:
 
-; 325  : 
-; 326  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_skill_white"),
+; 327  : 
+; 328  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_skill_white"),
 
   00e39	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10545,15 +10547,15 @@ $LN43@Ready_Prot:
   00e7f	85 c0		 test	 eax, eax
   00e81	7d 0a		 jge	 SHORT $LN44@Ready_Prot
 
-; 327  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/SkillWhite.png")))))
-; 328  : 		return E_FAIL;
+; 329  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/SkillWhite.png")))))
+; 330  : 		return E_FAIL;
 
   00e83	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00e88	e9 ec 04 00 00	 jmp	 $LN1@Ready_Prot
 $LN44@Ready_Prot:
 
-; 329  : 
-; 330  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_skill_use"),
+; 331  : 
+; 332  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_skill_use"),
 
   00e8d	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10579,17 +10581,17 @@ $LN44@Ready_Prot:
   00ed3	85 c0		 test	 eax, eax
   00ed5	7d 0a		 jge	 SHORT $LN45@Ready_Prot
 
-; 331  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/SkillUse.png")))))
-; 332  : 		return E_FAIL;
+; 333  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/SkillUse.png")))))
+; 334  : 		return E_FAIL;
 
   00ed7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00edc	e9 98 04 00 00	 jmp	 $LN1@Ready_Prot
 $LN45@Ready_Prot:
 
-; 333  : 
-; 334  : 
-; 335  : 	//버튼 아이콘들
-; 336  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_attack_icon"),
+; 335  : 
+; 336  : 
+; 337  : 	//버튼 아이콘들
+; 338  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_attack_icon"),
 
   00ee1	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10615,15 +10617,15 @@ $LN45@Ready_Prot:
   00f27	85 c0		 test	 eax, eax
   00f29	7d 0a		 jge	 SHORT $LN46@Ready_Prot
 
-; 337  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/AttackIcon.png")))))
-; 338  : 		return E_FAIL;
+; 339  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/AttackIcon.png")))))
+; 340  : 		return E_FAIL;
 
   00f2b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00f30	e9 44 04 00 00	 jmp	 $LN1@Ready_Prot
 $LN46@Ready_Prot:
 
-; 339  : 
-; 340  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_dash_icon"),
+; 341  : 
+; 342  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_dash_icon"),
 
   00f35	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10649,15 +10651,15 @@ $LN46@Ready_Prot:
   00f7b	85 c0		 test	 eax, eax
   00f7d	7d 0a		 jge	 SHORT $LN47@Ready_Prot
 
-; 341  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/DashIcon.png")))))
-; 342  : 		return E_FAIL;
+; 343  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/DashIcon.png")))))
+; 344  : 		return E_FAIL;
 
   00f7f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00f84	e9 f0 03 00 00	 jmp	 $LN1@Ready_Prot
 $LN47@Ready_Prot:
 
-; 343  : 
-; 344  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_back_icon"),
+; 345  : 
+; 346  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_back_icon"),
 
   00f89	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10683,15 +10685,15 @@ $LN47@Ready_Prot:
   00fcf	85 c0		 test	 eax, eax
   00fd1	7d 0a		 jge	 SHORT $LN48@Ready_Prot
 
-; 345  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/BackIcon.png")))))
-; 346  : 		return E_FAIL;
+; 347  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/BackIcon.png")))))
+; 348  : 		return E_FAIL;
 
   00fd3	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00fd8	e9 9c 03 00 00	 jmp	 $LN1@Ready_Prot
 $LN48@Ready_Prot:
 
-; 347  : 
-; 348  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_evolution_icon"),
+; 349  : 
+; 350  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_evolution_icon"),
 
   00fdd	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10717,16 +10719,16 @@ $LN48@Ready_Prot:
   01023	85 c0		 test	 eax, eax
   01025	7d 0a		 jge	 SHORT $LN49@Ready_Prot
 
-; 349  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/EvolutionIcon.png")))))
-; 350  : 		return E_FAIL;
+; 351  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/EvolutionIcon.png")))))
+; 352  : 		return E_FAIL;
 
   01027	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0102c	e9 48 03 00 00	 jmp	 $LN1@Ready_Prot
 $LN49@Ready_Prot:
 
-; 351  : 
-; 352  : 
-; 353  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_target"),
+; 353  : 
+; 354  : 
+; 355  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_target"),
 
   01031	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10752,16 +10754,16 @@ $LN49@Ready_Prot:
   01077	85 c0		 test	 eax, eax
   01079	7d 0a		 jge	 SHORT $LN50@Ready_Prot
 
-; 354  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/Target.png")))))
-; 355  : 		return E_FAIL;
+; 356  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Icon/Target.png")))))
+; 357  : 		return E_FAIL;
 
   0107b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   01080	e9 f4 02 00 00	 jmp	 $LN1@Ready_Prot
 $LN50@Ready_Prot:
 
-; 356  : 
-; 357  : 	//변신 게이지
-; 358  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_evolution_back"),
+; 358  : 
+; 359  : 	//변신 게이지
+; 360  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_evolution_back"),
 
   01085	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10787,14 +10789,14 @@ $LN50@Ready_Prot:
   010cb	85 c0		 test	 eax, eax
   010cd	7d 0a		 jge	 SHORT $LN51@Ready_Prot
 
-; 359  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/EvolutionGageBack.png")))))
-; 360  : 		return E_FAIL;
+; 361  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/EvolutionGageBack.png")))))
+; 362  : 		return E_FAIL;
 
   010cf	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   010d4	e9 a0 02 00 00	 jmp	 $LN1@Ready_Prot
 $LN51@Ready_Prot:
 
-; 361  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_evolution_front"),
+; 363  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_evolution_front"),
 
   010d9	41 b9 01 00 00
 	00		 mov	 r9d, 1
@@ -10820,21 +10822,21 @@ $LN51@Ready_Prot:
   0111f	85 c0		 test	 eax, eax
   01121	7d 0a		 jge	 SHORT $LN52@Ready_Prot
 
-; 362  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/EvolutionGageFront.png")))))
-; 363  : 		return E_FAIL;
+; 364  : 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/EvolutionGageFront.png")))))
+; 365  : 		return E_FAIL;
 
   01123	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   01128	e9 4c 02 00 00	 jmp	 $LN1@Ready_Prot
 $LN52@Ready_Prot:
 
-; 364  : 
-; 365  : 	//if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_evolution_front"),
-; 366  : 	//	CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/EvolutionGageFront.png")))))
-; 367  : 	//	return E_FAIL;
-; 368  : 
-; 369  : 	//
-; 370  : 	// 무기는 정방향
-; 371  : 	_matrix	LocalMatrix = XMMatrixIdentity();
+; 366  : 
+; 367  : 	//if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_evolution_front"),
+; 368  : 	//	CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/EvolutionGageFront.png")))))
+; 369  : 	//	return E_FAIL;
+; 370  : 
+; 371  : 	//
+; 372  : 	// 무기는 정방향
+; 373  : 	_matrix	LocalMatrix = XMMatrixIdentity();
 
   0112d	e8 00 00 00 00	 call	 ?XMMatrixIdentity@DirectX@@YQ?AUXMMATRIX@1@XZ ; DirectX::XMMatrixIdentity
   01132	0f 29 9d 40 03
@@ -10861,7 +10863,7 @@ $LN52@Ready_Prot:
   0117a	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
   0117f	f3 a4		 rep movsb
 
-; 372  : 	LocalMatrix = XMMatrixRotationY(XMConvertToRadians(180.0f));
+; 374  : 	LocalMatrix = XMMatrixRotationY(XMConvertToRadians(180.0f));
 
   01181	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@43340000
@@ -10888,8 +10890,8 @@ $LN52@Ready_Prot:
   011d1	48 8d 4d 10	 lea	 rcx, QWORD PTR LocalMatrix$[rbp]
   011d5	e8 00 00 00 00	 call	 ??4XMMATRIX@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMMATRIX::operator=
 
-; 373  : 
-; 374  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, L"proto_com_model_boss",
+; 375  : 
+; 376  : 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, L"proto_com_model_boss",
 
   011da	48 8d 85 b0 02
 	00 00		 lea	 rax, QWORD PTR $T6[rbp]
@@ -10927,15 +10929,15 @@ $LN52@Ready_Prot:
   0124c	85 c0		 test	 eax, eax
   0124e	7d 0a		 jge	 SHORT $LN53@Ready_Prot
 
-; 375  : 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Enemy/Boss/Boss.fbx", LocalMatrix, 20))))
-; 376  : 		return E_FAIL;
+; 377  : 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Enemy/Boss/Boss.fbx", LocalMatrix, 20))))
+; 378  : 		return E_FAIL;
 
   01250	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   01255	e9 1f 01 00 00	 jmp	 $LN1@Ready_Prot
 $LN53@Ready_Prot:
 
-; 377  : 
-; 378  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_enemyhp"), CEnemyHealthBar::Create(m_pDevice, m_pContext))))
+; 379  : 
+; 380  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_enemyhp"), CEnemyHealthBar::Create(m_pDevice, m_pContext))))
 
   0125a	48 8b 85 f0 03
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10955,14 +10957,14 @@ $LN53@Ready_Prot:
   01290	85 c0		 test	 eax, eax
   01292	7d 0a		 jge	 SHORT $LN54@Ready_Prot
 
-; 379  : 		return E_FAIL;
+; 381  : 		return E_FAIL;
 
   01294	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   01299	e9 db 00 00 00	 jmp	 $LN1@Ready_Prot
 $LN54@Ready_Prot:
 
-; 380  : 
-; 381  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_playerhp"), CPlayerHealthBar::Create(m_pDevice, m_pContext))))
+; 382  : 
+; 383  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_playerhp"), CPlayerHealthBar::Create(m_pDevice, m_pContext))))
 
   0129e	48 8b 85 f0 03
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10982,14 +10984,14 @@ $LN54@Ready_Prot:
   012d4	85 c0		 test	 eax, eax
   012d6	7d 0a		 jge	 SHORT $LN55@Ready_Prot
 
-; 382  : 		return E_FAIL;
+; 384  : 		return E_FAIL;
 
   012d8	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   012dd	e9 97 00 00 00	 jmp	 $LN1@Ready_Prot
 $LN55@Ready_Prot:
 
-; 383  : 
-; 384  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_playericon"), CPlayerIcon::Create(m_pDevice, m_pContext))))
+; 385  : 
+; 386  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_playericon"), CPlayerIcon::Create(m_pDevice, m_pContext))))
 
   012e2	48 8b 85 f0 03
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11009,14 +11011,14 @@ $LN55@Ready_Prot:
   01318	85 c0		 test	 eax, eax
   0131a	7d 07		 jge	 SHORT $LN56@Ready_Prot
 
-; 385  : 		return E_FAIL;
+; 387  : 		return E_FAIL;
 
   0131c	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   01321	eb 56		 jmp	 SHORT $LN1@Ready_Prot
 $LN56@Ready_Prot:
 
-; 386  : 
-; 387  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_damagefont"), CDamageFont::Create(m_pDevice, m_pContext))))
+; 388  : 
+; 389  : 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_damagefont"), CDamageFont::Create(m_pDevice, m_pContext))))
 
   01323	48 8b 85 f0 03
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11036,14 +11038,14 @@ $LN56@Ready_Prot:
   01359	85 c0		 test	 eax, eax
   0135b	7d 07		 jge	 SHORT $LN57@Ready_Prot
 
-; 388  : 		return E_FAIL;
+; 390  : 		return E_FAIL;
 
   0135d	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   01362	eb 15		 jmp	 SHORT $LN1@Ready_Prot
 $LN57@Ready_Prot:
 
-; 389  : 
-; 390  : 	Safe_AddRef(m_pRenderer);
+; 391  : 
+; 392  : 	Safe_AddRef(m_pRenderer);
 
   01364	48 8b 85 f0 03
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11051,13 +11053,13 @@ $LN57@Ready_Prot:
   0136f	48 8b c8	 mov	 rcx, rax
   01372	e8 00 00 00 00	 call	 ??$Safe_AddRef@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_AddRef<Engine::CRenderer * __ptr64>
 
-; 391  : 
-; 392  : 	return S_OK;
+; 393  : 
+; 394  : 	return S_OK;
 
   01377	33 c0		 xor	 eax, eax
 $LN1@Ready_Prot:
 
-; 393  : }
+; 395  : }
 
   01379	48 8b f8	 mov	 rdi, rax
   0137c	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
@@ -11078,7 +11080,7 @@ $LN1@Ready_Prot:
 ?Ready_Prototype_Static_Component@CApplication@Client@@AEAAJXZ ENDP ; Client::CApplication::Ready_Prototype_Static_Component
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ?Open_Level@CApplication@Client@@AEAAJW4LEVEL_ID@2@@Z
 _TEXT	SEGMENT
 hr$ = 4
@@ -11092,7 +11094,7 @@ this$ = 416
 eLevelID$ = 424
 ?Open_Level@CApplication@Client@@AEAAJW4LEVEL_ID@2@@Z PROC ; Client::CApplication::Open_Level, COMDAT
 
-; 131  : {
+; 133  : {
 
 $LN10:
   00000	89 54 24 10	 mov	 DWORD PTR [rsp+16], edx
@@ -11117,32 +11119,32 @@ $LN10:
   00043	48 89 85 78 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 132  : 	if (nullptr == m_pGameInstance)
+; 134  : 	if (nullptr == m_pGameInstance)
 
   0004a	48 8b 85 a0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00051	48 83 78 30 00	 cmp	 QWORD PTR [rax+48], 0
   00056	75 0a		 jne	 SHORT $LN4@Open_Level
 
-; 133  : 		return E_FAIL;
+; 135  : 		return E_FAIL;
 
   00058	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0005d	e9 d9 00 00 00	 jmp	 $LN1@Open_Level
 $LN4@Open_Level:
 
-; 134  : 
-; 135  : 	HRESULT hr = 0;
+; 136  : 
+; 137  : 	HRESULT hr = 0;
 
   00062	c7 45 04 00 00
 	00 00		 mov	 DWORD PTR hr$[rbp], 0
 
-; 136  : 	wstring message;
+; 138  : 	wstring message;
 
   00069	48 8d 4d 28	 lea	 rcx, QWORD PTR message$[rbp]
   0006d	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   00072	90		 npad	 1
 
-; 137  : 	switch (eLevelID)
+; 139  : 	switch (eLevelID)
 
   00073	8b 85 a8 01 00
 	00		 mov	 eax, DWORD PTR eLevelID$[rbp]
@@ -11157,17 +11159,17 @@ $LN4@Open_Level:
   00091	eb 30		 jmp	 SHORT $LN6@Open_Level
 $LN5@Open_Level:
 
-; 138  : 	{
-; 139  : 	case LEVEL_STATIC:
-; 140  : 	case LEVEL_LOADING:
-; 141  : 		message = L"CApplication::Open_Level : index check";
+; 140  : 	{
+; 141  : 	case LEVEL_STATIC:
+; 142  : 	case LEVEL_LOADING:
+; 143  : 		message = L"CApplication::Open_Level : index check";
 
   00093	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1EO@EGCHHAPA@?$AAC?$AAA?$AAp?$AAp?$AAl?$AAi?$AAc?$AAa?$AAt?$AAi?$AAo?$AAn?$AA?3?$AA?3?$AAO?$AAp?$AAe?$AAn?$AA_?$AAL?$AAe?$AAv?$AAe?$AAl?$AA?5?$AA?3?$AA?5?$AAi?$AAn?$AAd?$AAe?$AAx@
   0009a	48 8d 4d 28	 lea	 rcx, QWORD PTR message$[rbp]
   0009e	e8 00 00 00 00	 call	 ??4?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV01@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::operator=
 
-; 142  : 		MESSAGE(message);
+; 144  : 		MESSAGE(message);
 
   000a3	48 8d 4d 28	 lea	 rcx, QWORD PTR message$[rbp]
   000a7	e8 00 00 00 00	 call	 ?c_str@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::c_str
@@ -11179,13 +11181,13 @@ $LN5@Open_Level:
   000bb	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 143  : 		break;
+; 145  : 		break;
 
   000c1	eb 3e		 jmp	 SHORT $LN2@Open_Level
 $LN6@Open_Level:
 
-; 144  : 	default:
-; 145  : 		hr = m_pGameInstance->Open_Level(LEVEL_LOADING, CLevel_Loading::Create(m_pDevice, m_pContext, eLevelID));
+; 146  : 	default:
+; 147  : 		hr = m_pGameInstance->Open_Level(LEVEL_LOADING, CLevel_Loading::Create(m_pDevice, m_pContext, eLevelID));
 
   000c3	44 8b 85 a8 01
 	00 00		 mov	 r8d, DWORD PTR eLevelID$[rbp]
@@ -11206,15 +11208,15 @@ $LN6@Open_Level:
   000fe	89 45 04	 mov	 DWORD PTR hr$[rbp], eax
 $LN2@Open_Level:
 
-; 146  : 		break;
-; 147  : 	}
-; 148  : 
-; 149  : 	if (FAILED(hr))
+; 148  : 		break;
+; 149  : 	}
+; 150  : 
+; 151  : 	if (FAILED(hr))
 
   00101	83 7d 04 00	 cmp	 DWORD PTR hr$[rbp], 0
   00105	7d 1b		 jge	 SHORT $LN7@Open_Level
 
-; 150  : 		return E_FAIL;
+; 152  : 		return E_FAIL;
 
   00107	c7 85 24 01 00
 	00 05 40 00 80	 mov	 DWORD PTR $T4[rbp], -2147467259 ; ffffffff80004005H
@@ -11225,8 +11227,8 @@ $LN2@Open_Level:
   00120	eb 19		 jmp	 SHORT $LN1@Open_Level
 $LN7@Open_Level:
 
-; 151  : 
-; 152  : 	return S_OK;
+; 153  : 
+; 154  : 	return S_OK;
 
   00122	c7 85 44 01 00
 	00 00 00 00 00	 mov	 DWORD PTR $T5[rbp], 0
@@ -11236,7 +11238,7 @@ $LN7@Open_Level:
 	00		 mov	 eax, DWORD PTR $T5[rbp]
 $LN1@Open_Level:
 
-; 153  : }
+; 155  : }
 
   0013b	48 8b f8	 mov	 rdi, rax
   0013e	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -11309,7 +11311,7 @@ eLevelID$ = 424
 ?dtor$0@?0??Open_Level@CApplication@Client@@AEAAJW4LEVEL_ID@2@@Z@4HA ENDP ; `Client::CApplication::Open_Level'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ?Render@CApplication@Client@@QEAAJXZ
 _TEXT	SEGMENT
 $T1 = 196
@@ -11317,7 +11319,7 @@ $T2 = 256
 this$ = 320
 ?Render@CApplication@Client@@QEAAJXZ PROC		; Client::CApplication::Render, COMDAT
 
-; 107  : {
+; 109  : {
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -11334,7 +11336,7 @@ $LN5:
   00023	48 8b 8c 24 78
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+376]
 
-; 108  : 	if (!m_pGameInstance || !m_pRenderer)
+; 110  : 	if (!m_pGameInstance || !m_pRenderer)
 
   0002b	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11346,21 +11348,21 @@ $LN5:
   00045	75 0a		 jne	 SHORT $LN2@Render
 $LN3@Render:
 
-; 109  : 		return E_FAIL;
+; 111  : 		return E_FAIL;
 
   00047	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0004c	e9 ec 00 00 00	 jmp	 $LN1@Render
 $LN2@Render:
 
-; 110  : 
-; 111  : 	m_pGUIManager->NewFrame();
+; 112  : 
+; 113  : 	m_pGUIManager->NewFrame();
 
   00051	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00058	48 8b 48 40	 mov	 rcx, QWORD PTR [rax+64]
   0005c	e8 00 00 00 00	 call	 ?NewFrame@CImGUIManager@Client@@QEAAXXZ ; Client::CImGUIManager::NewFrame
 
-; 112  : 	m_pGameInstance->RenderLevelUI();
+; 114  : 	m_pGameInstance->RenderLevelUI();
 
   00061	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11368,7 +11370,7 @@ $LN2@Render:
   0006c	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?RenderLevelUI@CGameInstance@Engine@@QEAAXXZ
 
-; 113  : 	m_pGameInstance->RenderGUI();
+; 115  : 	m_pGameInstance->RenderGUI();
 
   00072	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11376,17 +11378,17 @@ $LN2@Render:
   0007d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?RenderGUI@CGameInstance@Engine@@QEAAXXZ
 
-; 114  : 	//m_pStageManager->RenderGUI();
-; 115  : 	
-; 116  : 	m_pGUIManager->Render();
+; 116  : 	//m_pStageManager->RenderGUI();
+; 117  : 	
+; 118  : 	m_pGUIManager->Render();
 
   00083	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0008a	48 8b 48 40	 mov	 rcx, QWORD PTR [rax+64]
   0008e	e8 00 00 00 00	 call	 ?Render@CImGUIManager@Client@@QEAAXXZ ; Client::CImGUIManager::Render
 
-; 117  : 
-; 118  : 	m_pGameInstance->Clear_RenderTargetView(_float4(0.f, 0.f, 1.f, 1.f));
+; 119  : 
+; 120  : 	m_pGameInstance->Clear_RenderTargetView(_float4(0.f, 0.f, 1.f, 1.f));
 
   00093	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
@@ -11413,7 +11415,7 @@ $LN2@Render:
   000e1	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Clear_RenderTargetView@CGameInstance@Engine@@QEAAJUXMFLOAT4@DirectX@@@Z
 
-; 119  : 	m_pGameInstance->Clear_DepthStencilView();
+; 121  : 	m_pGameInstance->Clear_DepthStencilView();
 
   000e7	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11421,8 +11423,8 @@ $LN2@Render:
   000f2	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Clear_DepthStencilView@CGameInstance@Engine@@QEAAJXZ
 
-; 120  : 
-; 121  : 	m_pRenderer->Draw();
+; 122  : 
+; 123  : 	m_pRenderer->Draw();
 
   000f8	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11430,7 +11432,7 @@ $LN2@Render:
   00103	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Draw@CRenderer@Engine@@QEAAXXZ
 
-; 122  : 	m_pGameInstance->CollisionRender();
+; 124  : 	m_pGameInstance->CollisionRender();
 
   00109	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11438,15 +11440,15 @@ $LN2@Render:
   00114	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?CollisionRender@CGameInstance@Engine@@QEAAXXZ
 
-; 123  : 	m_pGUIManager->RenderDrawData();
+; 125  : 	m_pGUIManager->RenderDrawData();
 
   0011a	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00121	48 8b 48 40	 mov	 rcx, QWORD PTR [rax+64]
   00125	e8 00 00 00 00	 call	 ?RenderDrawData@CImGUIManager@Client@@QEAAXXZ ; Client::CImGUIManager::RenderDrawData
 
-; 124  : 
-; 125  : 	m_pGameInstance->Present();
+; 126  : 
+; 127  : 	m_pGameInstance->Present();
 
   0012a	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -11454,13 +11456,13 @@ $LN2@Render:
   00135	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Present@CGameInstance@Engine@@QEAAJXZ
 
-; 126  : 
-; 127  : 	return S_OK;
+; 128  : 
+; 129  : 	return S_OK;
 
   0013b	33 c0		 xor	 eax, eax
 $LN1@Render:
 
-; 128  : }
+; 130  : }
 
   0013d	48 8d a5 20 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+288]
@@ -11471,14 +11473,14 @@ $LN1@Render:
 ?Render@CApplication@Client@@QEAAJXZ ENDP		; Client::CApplication::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ?Tick@CApplication@Client@@QEAAXN@Z
 _TEXT	SEGMENT
 this$ = 224
 TimeDelta$ = 232
 ?Tick@CApplication@Client@@QEAAXN@Z PROC		; Client::CApplication::Tick, COMDAT
 
-; 80   : {
+; 82   : {
 
 $LN5:
   00000	f2 0f 11 4c 24
@@ -11496,7 +11498,7 @@ $LN5:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 81   : 	s_TickCount++;
+; 83   : 	s_TickCount++;
 
   00030	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?s_TickCount@CApplication@Client@@0IA ; Client::CApplication::s_TickCount
@@ -11504,20 +11506,20 @@ $LN5:
   00038	89 05 00 00 00
 	00		 mov	 DWORD PTR ?s_TickCount@CApplication@Client@@0IA, eax ; Client::CApplication::s_TickCount
 
-; 82   : 	if (s_TickCount > 30)
+; 84   : 	if (s_TickCount > 30)
 
   0003e	83 3d 00 00 00
 	00 1e		 cmp	 DWORD PTR ?s_TickCount@CApplication@Client@@0IA, 30 ; Client::CApplication::s_TickCount
   00045	76 0a		 jbe	 SHORT $LN2@Tick
 
-; 83   : 		s_TickCount = 0;
+; 85   : 		s_TickCount = 0;
 
   00047	c7 05 00 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?s_TickCount@CApplication@Client@@0IA, 0 ; Client::CApplication::s_TickCount
 $LN2@Tick:
 
-; 84   : 
-; 85   : 	srand((unsigned int)time(nullptr) * s_TickCount);
+; 86   : 
+; 87   : 	srand((unsigned int)time(nullptr) * s_TickCount);
 
   00051	33 c9		 xor	 ecx, ecx
   00053	e8 00 00 00 00	 call	 time
@@ -11527,33 +11529,33 @@ $LN2@Tick:
   00061	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_srand
 
-; 86   : 
-; 87   : 	if (nullptr == m_pGameInstance)
+; 88   : 
+; 89   : 	if (nullptr == m_pGameInstance)
 
   00067	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0006e	48 83 78 30 00	 cmp	 QWORD PTR [rax+48], 0
   00073	75 02		 jne	 SHORT $LN3@Tick
 
-; 88   : 		return;
+; 90   : 		return;
 
   00075	eb 19		 jmp	 SHORT $LN1@Tick
 $LN3@Tick:
 
-; 89   : 
-; 90   : 	//if (CApplicationManager::GetInstance()->IsHitFreeze())
-; 91   : 	//{
-; 92   : 	//	m_bHitFreezeLocal += TimeDelta;
-; 93   : 	//	if (m_bHitFreezeLocal >= m_bHitFreezeTimeOut)
-; 94   : 	//	{
-; 95   : 	//		m_bHitFreezeLocal = 0.f;
-; 96   : 	//		CApplicationManager::GetInstance()->SetHitFreeze(false);
-; 97   : 	//	}
-; 98   : 
-; 99   : 	//	TimeDelta = TimeDelta * 0.5f;
-; 100  : 	//}
-; 101  : 
-; 102  : 	m_pGameInstance->Engine_Tick(TimeDelta);
+; 91   : 
+; 92   : 	//if (CApplicationManager::GetInstance()->IsHitFreeze())
+; 93   : 	//{
+; 94   : 	//	m_bHitFreezeLocal += TimeDelta;
+; 95   : 	//	if (m_bHitFreezeLocal >= m_bHitFreezeTimeOut)
+; 96   : 	//	{
+; 97   : 	//		m_bHitFreezeLocal = 0.f;
+; 98   : 	//		CApplicationManager::GetInstance()->SetHitFreeze(false);
+; 99   : 	//	}
+; 100  : 
+; 101  : 	//	TimeDelta = TimeDelta * 0.5f;
+; 102  : 	//}
+; 103  : 
+; 104  : 	m_pGameInstance->Engine_Tick(TimeDelta);
 
   00077	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -11564,8 +11566,8 @@ $LN3@Tick:
 	00		 call	 QWORD PTR __imp_?Engine_Tick@CGameInstance@Engine@@QEAAJN@Z
 $LN1@Tick:
 
-; 103  : 	//m_pStageManager->Tick(TimeDelta);
-; 104  : }
+; 105  : 	//m_pStageManager->Tick(TimeDelta);
+; 106  : }
 
   00090	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -11575,7 +11577,7 @@ $LN1@Tick:
 ?Tick@CApplication@Client@@QEAAXN@Z ENDP		; Client::CApplication::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ?Initialize@CApplication@Client@@QEAAJXZ
 _TEXT	SEGMENT
 GraphicDesc$ = 8
@@ -11667,7 +11669,7 @@ $LN8:
 ; 46   : 		return E_FAIL;
 
   000b4	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000b9	e9 29 01 00 00	 jmp	 $LN1@Initialize
+  000b9	e9 3c 01 00 00	 jmp	 $LN1@Initialize
 $LN2@Initialize:
 
 ; 47   : 
@@ -11696,7 +11698,7 @@ $LN2@Initialize:
 ; 51   : 		return E_FAIL;
 
   000f4	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000f9	e9 e9 00 00 00	 jmp	 $LN1@Initialize
+  000f9	e9 fc 00 00 00	 jmp	 $LN1@Initialize
 $LN3@Initialize:
 
 ; 52   : 
@@ -11711,7 +11713,7 @@ $LN3@Initialize:
 ; 54   : 		return E_FAIL;
 
   0010e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00113	e9 cf 00 00 00	 jmp	 $LN1@Initialize
+  00113	e9 e2 00 00 00	 jmp	 $LN1@Initialize
 $LN4@Initialize:
 
 ; 55   : 
@@ -11726,7 +11728,7 @@ $LN4@Initialize:
 ; 57   : 		return E_FAIL;
 
   00128	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0012d	e9 b5 00 00 00	 jmp	 $LN1@Initialize
+  0012d	e9 c8 00 00 00	 jmp	 $LN1@Initialize
 $LN5@Initialize:
 
 ; 58   : 
@@ -11742,7 +11744,7 @@ $LN5@Initialize:
 ; 60   : 		return E_FAIL;
 
   00147	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0014c	e9 96 00 00 00	 jmp	 $LN1@Initialize
+  0014c	e9 a9 00 00 00	 jmp	 $LN1@Initialize
 $LN6@Initialize:
 
 ; 61   : 
@@ -11821,32 +11823,42 @@ $LN6@Initialize:
 	00		 call	 QWORD PTR [rax+344]
 
 ; 75   : 	
-; 76   : 	return S_OK;
+; 76   : 	m_pGameInstance->SetCollisionDebugRender(true);
 
-  001e5	33 c0		 xor	 eax, eax
+  001e5	b2 01		 mov	 dl, 1
+  001e7	48 8b 85 80 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001ee	48 8b 48 30	 mov	 rcx, QWORD PTR [rax+48]
+  001f2	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetCollisionDebugRender@CGameInstance@Engine@@QEAAX_N@Z
+
+; 77   : 
+; 78   : 	return S_OK;
+
+  001f8	33 c0		 xor	 eax, eax
 $LN1@Initialize:
 
-; 77   : }
+; 79   : }
 
-  001e7	48 8b f8	 mov	 rdi, rax
-  001ea	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
-  001ee	48 8d 15 00 00
+  001fa	48 8b f8	 mov	 rdi, rax
+  001fd	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
+  00201	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?Initialize@CApplication@Client@@QEAAJXZ$rtcFrameData
-  001f5	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  001fa	48 8b c7	 mov	 rax, rdi
-  001fd	48 8b 8d 58 01
+  00208	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  0020d	48 8b c7	 mov	 rax, rdi
+  00210	48 8b 8d 58 01
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  00204	48 33 cd	 xor	 rcx, rbp
-  00207	e8 00 00 00 00	 call	 __security_check_cookie
-  0020c	48 8d a5 68 01
+  00217	48 33 cd	 xor	 rcx, rbp
+  0021a	e8 00 00 00 00	 call	 __security_check_cookie
+  0021f	48 8d a5 68 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+360]
-  00213	5f		 pop	 rdi
-  00214	5d		 pop	 rbp
-  00215	c3		 ret	 0
+  00226	5f		 pop	 rdi
+  00227	5d		 pop	 rbp
+  00228	c3		 ret	 0
 ?Initialize@CApplication@Client@@QEAAJXZ ENDP		; Client::CApplication::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ??1CApplication@Client@@EEAA@XZ
 _TEXT	SEGMENT
 this$ = 224
@@ -11879,11 +11891,11 @@ $LN3:
 ??1CApplication@Client@@EEAA@XZ ENDP			; Client::CApplication::~CApplication
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
-; File c:\github\framework\client\public\application.h
-; File c:\github\framework\client\private\application.cpp
-; File c:\github\framework\client\public\application.h
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\public\application.h
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\public\application.h
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ??0CApplication@Client@@AEAA@XZ
 _TEXT	SEGMENT
 $T1 = 200
@@ -11918,7 +11930,7 @@ $LN4:
   0004a	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_7CApplication@Client@@6B@
   00051	48 89 08	 mov	 QWORD PTR [rax], rcx
-; File c:\github\framework\client\public\application.h
+; File c:\users\arcco\documents\github\framework\client\public\application.h
 
 ; 37   : 	_bool m_bIsHitFreeze = false;
 
@@ -11956,7 +11968,7 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00098	48 c7 40 28 00
 	00 00 00	 mov	 QWORD PTR [rax+40], 0
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 
 ; 27   : 	: m_pGameInstance { CGameInstance::GetInstance() }
 
@@ -11965,7 +11977,7 @@ $LN4:
   000a6	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   000ad	48 89 41 30	 mov	 QWORD PTR [rcx+48], rax
-; File c:\github\framework\client\public\application.h
+; File c:\users\arcco\documents\github\framework\client\public\application.h
 
 ; 46   : 	CRenderer*		m_pRenderer = { nullptr };
 
@@ -11973,7 +11985,7 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000b8	48 c7 40 38 00
 	00 00 00	 mov	 QWORD PTR [rax+56], 0
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 
 ; 28   : 	, m_pGUIManager { CImGUIManager::GetInstance() }
 
@@ -18030,7 +18042,7 @@ $LN3:
 wmemcpy	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX_K@Z
 _TEXT	SEGMENT
 __formal$ = 224
@@ -18059,13 +18071,13 @@ $LN3:
 ?__empty_global_delete@@YAXPEAX_K@Z ENDP		; __empty_global_delete
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File c:\github\framework\client\private\application.cpp
+; File c:\users\arcco\documents\github\framework\client\private\application.cpp
 ;	COMDAT ?__empty_global_delete@@YAXPEAX@Z
 _TEXT	SEGMENT
 __formal$ = 224
 ?__empty_global_delete@@YAXPEAX@Z PROC			; __empty_global_delete, COMDAT
 
-; 460  :  }
+; 462  :  }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx

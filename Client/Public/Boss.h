@@ -13,13 +13,18 @@ class CBone;
 class CShader;
 class CTimer;
 class CCollider;
+class CSphereCollider;
 
+class IOnCollisionEnter;
+class IOnCollisionStay;
+class IOnCollisionExit;
 END
 
 BEGIN(Client)
 class CCharacter;
 
-class CBoss final : public CEnemy
+class CBoss final 
+	: public CEnemy
 {
 public:
 	enum BOSS_CLIP
@@ -67,6 +72,8 @@ public:
 	virtual HRESULT Render() override;
 	virtual void RenderGUI() override;
 
+public:
+
 private:
 	HRESULT AddComponents();
 	HRESULT SetupShaderResources();
@@ -77,6 +84,7 @@ public://엑세스
 
 public://스킬
 	void Spawn();
+	_bool IsDie() { return m_bDie; };
 	void MoveForward(_double TimeDelta);
 	void MoveBackword(_double TimeDelta);
 	void LineSkill(_double TimeDelta, _int iIndex);
@@ -119,9 +127,9 @@ public:
 	virtual class CCollider* GetWeaponCollider() override  { return m_pWeaponCollider; }
 	virtual class CCollider* GetOverlapCollider() override  { return m_pOverlapCollider; }
 
-	virtual void OnCollisionEnter(CCollider * src, CCollider * dest) override;
-	virtual void OnCollisionStay(CCollider * src, CCollider * dest) override;
-	virtual void OnCollisionExit(CCollider * src, CCollider * dest) override;
+	//virtual void OnCollisionEnter(CCollider * src, CCollider * dest) override;
+	//virtual void OnCollisionStay(CCollider * src, CCollider * dest) override;
+	//virtual void OnCollisionExit(CCollider * src, CCollider * dest) override;
 
 public:
 	static CBoss* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
@@ -207,7 +215,7 @@ private:
 	_bool m_bCloseAttackStart = false;
 	_bool m_bCloseAttack = false;
 	_float m_fCloseAttackActiveAcc = 0.f;
-	const _float m_fCloseAttackActiveTime = 1.f;
+	const _float m_fCloseAttackActiveTime = 3.f;
 	class CThorn* m_pThornClose[9];
 
 	_bool m_bEvolutionFinish = false;
@@ -221,6 +229,7 @@ private:
 	class CThorn* m_pThornCloseLeft[9];
 	
 	//프론트, 전방양옆, 양옆
+	_bool m_bCloseLockTarget = false;
 	_bool m_bCloseAttackExBegin = false;
 	_bool m_bCloseAttackExStart = false;
 
@@ -228,8 +237,10 @@ private:
 	_bool m_bColseAttackExStart[2] = { false, false };
 	_bool m_bColseAttackEx[2] = { false, false };
 
+	_float3 vPrevPlayerPos = { 0.f ,0.f, 0.f };
+
 	_float m_fNextIndexAcc = 0.f;
-	const _float m_fNextIndexTime = 0.1f;
+	const _float m_fNextIndexTime = 0.5f;
 
 	//라인공격 강화 제거
 	_bool m_bLineAttackEraseEx = false;
@@ -252,6 +263,34 @@ private:
 	const _float m_fLastAttackEraseDelay = 0.01f;
 
 	int m_iLastEraseIndex[12] = {0,};
+	_bool m_bLineExAnimStart = false;
+	_bool m_bLineExAnimSetup = false;
+	_bool m_bCloseExAnimStart = false;
+	_bool m_bCloseExAnimSetup = false;
+
+	enum { LEFT, RIGHT, FRONT, BACK, BACK_LEFT, BACK_RIGHT, COLLTRANS_END };
+	enum { LEFT_COLL, RIGHT_COLL, FRONT_COLL, BACK_COLL, BACK_LEFT_COLL, BACK_RIGHT_COLL, COLL_END };
+	enum { ONE, TWO, TRE };
+	CTransform* m_pColliderTransform[COLLTRANS_END];
+	CTransform* m_pColliderCloseTransform[3];
+
+public:
+	CCollider* GetCloseAttackCollider(_int iIndex) { return m_pCloseAttack[iIndex]; };
+	CCollider* GetLineAttackCollider(_int iIndex) { return m_pColliderLine[iIndex]; };
+
+private:
+	CCollider* m_pColliderLine[6];
+	CCollider* m_pCloseAttack[3];
+	_bool m_bLineAttackCollActive = false;
+	_bool m_bLineAttackExCollActive = false;
+	_bool m_bCloseAttackCollActive = false;
+	const _float m_fLineCollSpeed = 10.f;
+	//_bool m_bLineAttackCollStart[3] = { false, false, false };
+
+	_bool m_bDie = false;
+	_bool m_bRender = true;
+	_float m_fDieWaitAcc = 0.f;
+	const _float m_fDieWaitTime = 1.f;
 };
 
 END

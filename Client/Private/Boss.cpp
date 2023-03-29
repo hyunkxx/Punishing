@@ -56,6 +56,60 @@ HRESULT CBoss::Initialize(void * pArg)
 
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
+	CTransform::TRANSFORM_DESC TransformDesc;
+	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
+	//콜라이더 트렌스폼 설정
+	//LineAttack
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform_0"), (CComponent**)&m_pColliderTransform[0], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform_1"), (CComponent**)&m_pColliderTransform[1], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform_2"), (CComponent**)&m_pColliderTransform[2], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform_3"), (CComponent**)&m_pColliderTransform[3], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform_4"), (CComponent**)&m_pColliderTransform[4], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform_5"), (CComponent**)&m_pColliderTransform[5], &TransformDesc)))
+		return E_FAIL;
+
+	//CloseAttack
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform_6"), (CComponent**)&m_pColliderTransform[6], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform_7"), (CComponent**)&m_pColliderTransform[7], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform_8"), (CComponent**)&m_pColliderTransform[8], &TransformDesc)))
+		return E_FAIL;
+
+	//Colliders
+	CCollider::COLLIDER_DESC collDesc;
+	collDesc.owner = this;
+	collDesc.vCenter = _float3(0.f, 1.f, 0.f);
+	collDesc.vExtents = _float3(1.8f, 1.8f, 1.8f);
+	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider0"), (CComponent**)&m_pColliderLine[0], &collDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider1"), (CComponent**)&m_pColliderLine[1], &collDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider2"), (CComponent**)&m_pColliderLine[2], &collDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider3"), (CComponent**)&m_pColliderLine[3], &collDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider4"), (CComponent**)&m_pColliderLine[4], &collDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider5"), (CComponent**)&m_pColliderLine[5], &collDesc)))
+		return E_FAIL;
+
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider6"), (CComponent**)&m_pCloseAttack[0], &collDesc)))
+		return E_FAIL;
+	m_pCloseAttack[0]->SetActive(false);
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider7"), (CComponent**)&m_pCloseAttack[1], &collDesc)))
+		return E_FAIL;
+	m_pCloseAttack[1]->SetActive(false);
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider8"), (CComponent**)&m_pCloseAttack[2], &collDesc)))
+		return E_FAIL;
+	m_pCloseAttack[2]->SetActive(false);
+
 	for (int j = 0; j < 6; j++)
 	{
 		// 3방향 가시 라인
@@ -178,43 +232,93 @@ void CBoss::Tick(_double TimeDelta)
 	m_bAlpha = false;
 	TimeDelta = Freeze(TimeDelta);
 	
-	//LookTarget(TimeDelta, 0.1f);
-
-	//테스트용 코드
-	if (pGameInstance->Input_KeyState_Custom(DIK_T) == KEY_STATE::TAP)
-		m_State.fCurHp = 900;
-
-	if (pGameInstance->Input_KeyState_Custom(DIK_Y) == KEY_STATE::TAP)
-		m_bCloseAttackExStart = true;
-
-	if (pGameInstance->Input_KeyState_Custom(DIK_PGUP) == KEY_STATE::TAP)
-		iAnim++;
-	if (pGameInstance->Input_KeyState_Custom(DIK_PGDN) == KEY_STATE::TAP)
-		iAnim--;
-
-	//체력 절반이하일때 2페이즈 돌입
-	if(!m_bEvolutionStart)
+	if (!m_bDie)
 	{
-		if (m_State.fCurHp <= m_State.fMaxHp * 0.5f)
-			m_bEvolutionStart = true;
-	}
-	if(!m_bEvolutionFinish)
-		Evolution(TimeDelta);
+		if (m_State.fCurHp <= 0.f)
+		{
+			if (model->AnimationIsFinishEx())
+			{
+				m_bDie = true;
+			}
+		}
+		//LookTarget(TimeDelta, 0.1f);
 
-	//1페이즈 기본스킬들
-	if (!m_bEvolution)
+		//테스트용 코드
+		if (pGameInstance->Input_KeyState_Custom(DIK_T) == KEY_STATE::TAP)
+			m_State.fCurHp = 900;
+
+		if (pGameInstance->Input_KeyState_Custom(DIK_Y) == KEY_STATE::TAP)
+			m_bCloseAttackExStart = true;
+
+		if (pGameInstance->Input_KeyState_Custom(DIK_PGUP) == KEY_STATE::TAP)
+			iAnim++;
+		if (pGameInstance->Input_KeyState_Custom(DIK_PGDN) == KEY_STATE::TAP)
+			iAnim--;
+
+		//체력 절반이하일때 2페이즈 돌입
+		if (!m_bEvolutionStart)
+		{
+			if (m_State.fCurHp <= m_State.fMaxHp * 0.5f)
+			{
+				if (m_bBurrowable && !m_bBrrow)
+					m_bEvolutionStart = true;
+			}
+		}
+		if (!m_bEvolutionFinish)
+			Evolution(TimeDelta);
+
+		//1페이즈 기본스킬들
+		if (!m_bEvolution)
+		{
+			if (m_bCloseAttackStart)
+				CloseAttack(TimeDelta);
+
+			LineSkill(TimeDelta, m_iCurrentLine);
+			Burrow(TimeDelta);
+		}
+
+		//Add Collisions
+		pGameInstance->AddCollider(collider);
+		pGameInstance->AddCollider(m_pOverlapCollider);
+
+
+		if (m_bLineAttackExCollActive)
+		{
+			//LineAttackEx Coll
+			for (int i = 0; i < 6; ++i)
+				pGameInstance->AddCollider(m_pColliderLine[i]);
+		}
+		else if (m_bLineAttackCollActive)
+		{
+			//LineAttack Coll
+			for (int i = 0; i < 3; ++i)
+				pGameInstance->AddCollider(m_pColliderLine[i]);
+		}
+
+		//CloseAttack Coll
+		if (m_bCloseAttackCollActive)
+		{
+			for (int i = 0; i < 3; ++i)
+				pGameInstance->AddCollider(m_pCloseAttack[i]);
+		}
+	}
+	else
 	{
-		if (m_bCloseAttackStart)
-			CloseAttack(TimeDelta);
-
-		LineSkill(TimeDelta, m_iCurrentLine);
-		Burrow(TimeDelta);
+		//죽음
+		if (model->AnimationCompare(BOSS_CLIP::DEATH))
+		{
+			if (model->AnimationIsFinishEx())
+			{
+				m_fDieWaitAcc += TimeDelta;
+				if (m_fDieWaitAcc > m_fDieWaitTime)
+				{
+					m_bRender = false;
+				}
+			}
+		}
 
 	}
 
-
-	pGameInstance->AddCollider(collider);
-	pGameInstance->AddCollider(m_pOverlapCollider);
 }
 
 void CBoss::LateTick(_double TimeDelta)
@@ -224,11 +328,10 @@ void CBoss::LateTick(_double TimeDelta)
 
 	//각종 애니미에션 설정 및 제어
 	AnimationController(TimeDelta);
-
 	//콜라이더 피직스 업데이트에 전달
 	SetupColliders();
 
-	if (nullptr != renderer && m_bSpawn)
+	if (nullptr != renderer && m_bSpawn && m_bRender)
 		renderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
 }
 
@@ -375,7 +478,7 @@ HRESULT CBoss::SetupShaderResources()
 void CBoss::Spawn()
 {
 	//가까운지 체크하고 스폰
-	if (!m_bSpawn && GetLengthFromPlayer() <= m_fNearCheckRange)
+	if (!m_bSpawn && GetLengthFromPlayer() <= 5.f)
 	{
 		m_bSpawn = true;
 		m_bBrrow = true;
@@ -478,6 +581,7 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 				{
 					m_bLineAttack = true;
 					m_bLineSkillStart[0] = true;
+					m_bLineAttackCollActive = true;
 				}
 			}
 		}
@@ -487,13 +591,36 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 		m_bLineAttack = false;
 	}
 
+	if (m_pColliderLine[0]->IsActive())
+	{
+		_vector vCurPos = m_pColliderTransform[0]->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vLineOneDir[0]) * m_fLineCollSpeed * TimeDelta;
+		m_pColliderTransform[0]->Set_State(CTransform::STATE_POSITION, vCurPos);
+	}
+
+	if (m_pColliderLine[1]->IsActive())
+	{
+		_vector vCurPos = m_pColliderTransform[1]->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vLineOneDir[1]) * m_fLineCollSpeed * TimeDelta;
+		m_pColliderTransform[1]->Set_State(CTransform::STATE_POSITION, vCurPos);
+	}
+
+	if (m_pColliderLine[2]->IsActive())
+	{
+		_vector vCurPos = m_pColliderTransform[2]->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vLineOneDir[2]) * m_fLineCollSpeed * TimeDelta;
+		m_pColliderTransform[2]->Set_State(CTransform::STATE_POSITION, vCurPos);
+	}
+
+
 	if (m_bLineSkillStart[0])
 	{
 		_vector vBossPos = transform->Get_State(CTransform::STATE_POSITION);
+
 		if (!m_bCheckDir[0])
 		{
 			_vector vDir = XMVector3Normalize(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION));
 			XMStoreFloat3(&m_vLineOneDir[0], vDir);
+
+			m_pColliderTransform[0]->Set_State(CTransform::STATE_POSITION, vBossPos);
+			m_pColliderLine[0]->SetActive(true);
 			m_bCheckDir[0] = true;
 		}
 
@@ -502,8 +629,8 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vLineOneDir[0]) * (m_iCurrentOneIndex[0] * 0.5f);
@@ -517,8 +644,8 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vLineOneDir[0]) * (m_iCurrentTwoIndex[0] * 0.5f);
@@ -542,6 +669,7 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 			m_bCheckDir[0] = false;
 
 			m_bLineSkillStart[1] = true;
+			m_pColliderLine[0]->SetActive(false);
 		}
 	}
 	else if (m_bLineSkillStart[1])
@@ -551,6 +679,8 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 		{
 			_vector vDir = XMVector3Normalize(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION));
 			XMStoreFloat3(&m_vLineOneDir[1], vDir);
+			m_pColliderTransform[1]->Set_State(CTransform::STATE_POSITION, vBossPos);
+			m_pColliderLine[1]->SetActive(true);
 			m_bCheckDir[1] = true;
 		}
 
@@ -559,8 +689,8 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vLineOneDir[1]) * (m_iCurrentOneIndex[1] * 0.5f);
@@ -574,8 +704,8 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vLineOneDir[1]) * (m_iCurrentTwoIndex[1] * 0.5f);
@@ -599,6 +729,8 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 			m_bCheckDir[1] = false;
 
 			m_bLineSkillStart[2] = true;
+
+			m_pColliderLine[1]->SetActive(false);
 		}
 	}
 	else if (m_bLineSkillStart[2])
@@ -609,6 +741,8 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 		{
 			_vector vDir = XMVector3Normalize(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION));
 			XMStoreFloat3(&m_vLineOneDir[2], vDir);
+			m_pColliderTransform[2]->Set_State(CTransform::STATE_POSITION, vBossPos);
+			m_pColliderLine[2]->SetActive(true);
 			m_bCheckDir[2] = true;
 		}
 
@@ -617,8 +751,8 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vLineOneDir[2]) * (m_iCurrentOneIndex[2] * 0.5f);
@@ -632,8 +766,8 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vLineOneDir[2]) * (m_iCurrentTwoIndex[2] * 0.5f);
@@ -656,6 +790,7 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 			m_bLineSkillErase[2] = true;
 			m_bCheckDir[2] = false;
 
+			m_pColliderLine[2]->SetActive(false);
 		}
 	}
 
@@ -839,6 +974,9 @@ void CBoss::CloseAttack(_double TimeDelta)
 
 	if (!m_bCloseAttack)
 	{
+		m_pPlayer->Hit();
+		m_pPlayer->RecvDamage(50.f);
+
 		m_bCloseAttack = true;
 		for (int i = 0; i < 9; ++i)
 		{
@@ -948,6 +1086,9 @@ void CBoss::Burrow(_double TimeDelta)
 
 void CBoss::Evolution(_double TimeDelta)
 {
+	if (!m_bAttackable && !m_bBurrowable)
+		return;
+
 	if (m_bEvolutionStart)
 	{
 		if (!model->AnimationCompare(BOSS_CLIP::BORN))
@@ -982,6 +1123,8 @@ void CBoss::Evolution(_double TimeDelta)
 
 void CBoss::ColseAttack2(_double TimeDelta)
 {
+	m_bAttackable = false;
+
 	LookTarget(TimeDelta, 1.5f);
 
 	if (!model->AnimationCompare(BOSS_CLIP::ATK13))
@@ -996,21 +1139,43 @@ void CBoss::ColseAttack2(_double TimeDelta)
 			if (model->AnimationIsFinishEx())
 			{
 				SetupState(BOSS_CLIP::ATK13, CAnimation::TYPE::ONE, false);
-				m_bCloseAttackExBegin = true;
+				m_bCloseLockTarget = true;
 			}
 		}
 	}
 
+	if (m_bCloseLockTarget)
+	{
+		if (model->AnimationCompare(ATK13))
+		{
+			if (model->AnimationIsPreFinishCustom(0.5))
+			{
+				_vector vBossPos = transform->Get_State(CTransform::STATE_POSITION);
+				_vector vRight = XMVector3Normalize(transform->Get_State(CTransform::STATE_RIGHT));
+				_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+				_vector vDir = XMVector3Normalize(vPlayerPos - vBossPos);
+				
+				m_bCloseAttackExBegin = true;
+				XMStoreFloat3(&vPrevPlayerPos, vPlayerPos);
+			}
+		}
+	}
+	
 	if (m_bCloseAttackExBegin)
 	{
-		_vector vBossPos = transform->Get_State(CTransform::STATE_POSITION);
-		_vector vRight = XMVector3Normalize(transform->Get_State(CTransform::STATE_RIGHT));
-		_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
-		_vector vDir = XMVector3Normalize(vPlayerPos - vBossPos);
-
 		if (!m_bCloseAttack)
 		{
 			m_bCloseAttack = true;
+
+			int iDirRandom = rand() % 7;
+			_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+			_vector vDir = XMVector3Normalize(m_pPlayerTransform->Get_State(CTransform::STATE_LOOK));
+
+			_vector vThornPos = vPlayerPos + vDir * (iDirRandom);
+			m_pColliderCloseTransform[ONE]->Set_State(CTransform::STATE_POSITION, vThornPos);
+			m_pCloseAttack[ONE]->SetActive(true);
+			m_bCloseAttackCollActive = true;
+
 			for (int i = 0; i < 9; ++i)
 			{
 				int iRandomPos = rand() % 20 - 10;
@@ -1018,13 +1183,12 @@ void CBoss::ColseAttack2(_double TimeDelta)
 				int iRandomAngleX = rand() % 90 - 45;
 				int iRandomAngleZ = rand() % 90 - 45;
 
-				_vector vThornPos = vBossPos + vDir * 1.5f;
 				vThornPos = XMVectorSetX(vThornPos, XMVectorGetX(vThornPos) + iRandomPos * 0.1f);
 				vThornPos = XMVectorSetZ(vThornPos, XMVectorGetZ(vThornPos) + iRandomPos * 0.1f);
 
 				m_pThornCloseFront[i]->SetPosition(vThornPos);
 				m_pThornCloseFront[i]->SetRotationXYZ(_float3(iRandomAngleX, 0.f, iRandomAngleZ));
-				m_pThornCloseFront[i]->SetupScaleSmoothUpStart(iRandom);
+				m_pThornCloseFront[i]->SetupScaleUpStart(iRandom);
 			}
 		}
 
@@ -1047,8 +1211,14 @@ void CBoss::ColseAttack2(_double TimeDelta)
 		{
 			if (!m_bColseAttackEx[0])
 			{
+				int iDirRandom = rand() % 7;
 				m_bColseAttackEx[0] = true;
+				_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+				_vector vDir = XMVector3Normalize(m_pPlayerTransform->Get_State(CTransform::STATE_LOOK));
 
+				_vector vThornPos = vPlayerPos + vDir * (iDirRandom);
+				m_pColliderCloseTransform[TWO]->Set_State(CTransform::STATE_POSITION, vThornPos);
+				m_pCloseAttack[TWO]->SetActive(true);
 				//왼쪽 전방
 				for (int i = 0; i < 9; ++i)
 				{
@@ -1057,14 +1227,13 @@ void CBoss::ColseAttack2(_double TimeDelta)
 					int iRandomAngleX = rand() %  90 - 45;
 					int iRandomAngleZ = rand() %  90 - 45;
 
-					vDir = XMVector3Normalize(vDir + -vRight);
-					_vector vThornPos = vBossPos + vDir * 1.5f;
+					//vDir = XMVector3Normalize(vDir + -vRight);
 					vThornPos = XMVectorSetX(vThornPos, XMVectorGetX(vThornPos) + iRandomPos * 0.1f);
 					vThornPos = XMVectorSetZ(vThornPos, XMVectorGetZ(vThornPos) + iRandomPos * 0.1f);
 
 					m_pThornCloseLeftFront[i]->SetPosition(vThornPos);
 					m_pThornCloseLeftFront[i]->SetRotationXYZ(_float3(iRandomAngleX, 0.f, iRandomAngleZ));
-					m_pThornCloseLeftFront[i]->SetupScaleSmoothUpStart(iRandom);
+					m_pThornCloseLeftFront[i]->SetupScaleUpStart(iRandom);
 				}
 
 				//오른쪽 전방
@@ -1075,14 +1244,14 @@ void CBoss::ColseAttack2(_double TimeDelta)
 					int iRandomAngleX = rand() %  90 - 45;
 					int iRandomAngleZ = rand() %  90 - 45;
 
-					vDir = XMVector3Normalize(vDir + vRight);
-					_vector vThornPos = vBossPos + vDir * 1.5f;
+					//vDir = XMVector3Normalize(vDir + vRight);
+					_vector vThornPos = vPlayerPos + vDir * (iDirRandom);
 					vThornPos = XMVectorSetX(vThornPos, XMVectorGetX(vThornPos) + iRandomPos * 0.1f);
 					vThornPos = XMVectorSetZ(vThornPos, XMVectorGetZ(vThornPos) + iRandomPos * 0.1f);
 
 					m_pThornCloseRightFront[i]->SetPosition(vThornPos);
 					m_pThornCloseRightFront[i]->SetRotationXYZ(_float3(iRandomAngleX, 0.f, iRandomAngleZ));
-					m_pThornCloseRightFront[i]->SetupScaleSmoothUpStart(iRandom);
+					m_pThornCloseRightFront[i]->SetupScaleUpStart(iRandom);
 				}
 			}
 		}
@@ -1092,53 +1261,62 @@ void CBoss::ColseAttack2(_double TimeDelta)
 		{
 			if (!m_bColseAttackEx[1])
 			{
+				int iDirRandom = rand() % 7;
+				_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+				_vector vDir = XMVector3Normalize(m_pPlayerTransform->Get_State(CTransform::STATE_LOOK));
+
 				m_bColseAttackEx[1] = true;
 
 				m_bColseAttackEx[0] = true;
 
+				_vector vThornPos = vPlayerPos + vDir * (iDirRandom);
+				m_pColliderCloseTransform[TRE]->Set_State(CTransform::STATE_POSITION, vThornPos);
+				m_pCloseAttack[TRE]->SetActive(true);
 				//왼쪽
 				for (int i = 0; i < 9; ++i)
 				{
 					int iRandomPos = rand() % 20 - 10;
-					int iRandom = rand() % 7;
+					int iRandom = rand() % 9;
 					int iRandomAngleX = rand() %  90 - 45;
 					int iRandomAngleZ = rand() %  90 - 45;
 
-					_vector vThornPos = vBossPos + -vRight * 1.5f;
 					vThornPos = XMVectorSetX(vThornPos, XMVectorGetX(vThornPos) + iRandomPos * 0.1f);
 					vThornPos = XMVectorSetZ(vThornPos, XMVectorGetZ(vThornPos) + iRandomPos * 0.1f);
-
+					
 					m_pThornCloseLeft[i]->SetPosition(vThornPos);
 					m_pThornCloseLeft[i]->SetRotationXYZ(_float3(iRandomAngleX, 0.f, iRandomAngleZ));
-					m_pThornCloseLeft[i]->SetupScaleSmoothUpStart(iRandom);
+					m_pThornCloseLeft[i]->SetupScaleUpStart(iRandom);
 				}
 
 				//오른쪽
 				for (int i = 0; i < 9; ++i)
 				{
 					int iRandomPos = rand() % 20 - 10;
-					int iRandom = rand() % 7;
+					int iRandom = rand() % 9;
 					int iRandomAngleX = rand() %  90 - 45;
 					int iRandomAngleZ = rand() %  90 - 45;
 
-					_vector vThornPos = vBossPos + vRight * 1.5f;
+					_vector vThornPos = vPlayerPos + vDir * (iDirRandom);
 					vThornPos = XMVectorSetX(vThornPos, XMVectorGetX(vThornPos) + iRandomPos * 0.1f);
 					vThornPos = XMVectorSetZ(vThornPos, XMVectorGetZ(vThornPos) + iRandomPos * 0.1f);
 
 					m_pThornCloseRight[i]->SetPosition(vThornPos);
 					m_pThornCloseRight[i]->SetRotationXYZ(_float3(iRandomAngleX, 0.f, iRandomAngleZ));
-					m_pThornCloseRight[i]->SetupScaleSmoothUpStart(iRandom);
+					m_pThornCloseRight[i]->SetupScaleUpStart(iRandom);
 				}
 			}
 		}
-
 
 		m_fCloseAttackActiveAcc += TimeDelta;
 		if (m_fCloseAttackActiveAcc >= m_fCloseAttackActiveTime)
 		{
 			m_fNextIndexAcc = 0.f;
 			m_iColseAttackIndex = 0;
+			m_bCloseLockTarget = false;
 
+			m_bCloseAttackCollActive = false;
+
+			m_bAttackable = true;
 			m_bCloseAttack = false;
 			m_bCloseAttackExStart = false;
 			m_bCloseAttackStart = false;
@@ -1148,6 +1326,12 @@ void CBoss::ColseAttack2(_double TimeDelta)
 			m_bColseAttackEx[1] = false;
 			m_bColseAttackExStart[0] = false;
 			m_bColseAttackExStart[1] = false;
+
+			for (int i = 0; i < 3; ++i)
+			{
+				m_pCloseAttack[m_iColseAttackIndex]->SetActive(false);
+				m_pColliderCloseTransform[i]->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 10.f, 0.f, 1.f));
+			}
 
 			for (int i = 0; i < 9; ++i)
 			{
@@ -1167,49 +1351,85 @@ void CBoss::LineSkill2(_double TimeDelta)
 {
 	enum { LEFT, FRONT, RIGHT, LINE_END };
 
-	_vector vBossPos = transform->Get_State(CTransform::STATE_POSITION);
+	if (!m_bLineExAnimStart)
+	{
+		m_bLineExAnimStart = true;
+		SetupState(BOSS_CLIP::ATK13, CAnimation::TYPE::ONE, false);
+	}
 
+	_vector vBossPos = transform->Get_State(CTransform::STATE_POSITION);
+	_vector vPlayerPos;// = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vBossRight;// = transform->Get_State(CTransform::STATE_RIGHT);
+	_vector vDir;// = XMVector3Normalize(vPlayerPos - vBossPos);
+	_vector vLeftDir;// = XMVector3Normalize(vDir * 2.f - vBossRight);
+	_vector vRightDir;// = XMVector3Normalize(vDir * 2.f + vBossRight);
+	
 	//모두 다 생성하기전까지 회전
 	_bool bRotationFinish = LookTarget(TimeDelta, 2.f);
-	
-	//회전이 종료됬을떄 라인공격 실행
-	if (!m_bLineAttack)
+
+	if (model->AnimationCompare(BOSS_CLIP::ATK13))
 	{
-		if (bRotationFinish)
+		if (!m_bLineExAnimSetup)
 		{
-			m_bAttackable = false;
-			m_bLineAttack = true;
+			if (model->AnimationIsPreFinishCustom(0.4))
+			{
+				//회전이 종료됬을떄 라인공격 실행
+				if (!m_bLineAttack)
+				{
+					if (bRotationFinish)
+					{
+						m_bLineAttackCollActive = true;
 
-			SetupState(BOSS_CLIP::ATK13, CAnimation::TYPE::ONE, false);
+						m_bAttackable = false;
+						m_bLineAttack = true;
 
-			_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
-			_vector vBossRight = transform->Get_State(CTransform::STATE_RIGHT);
-			_vector vDir = XMVector3Normalize(vPlayerPos - vBossPos);
-			_vector vLeftDir = XMVector3Normalize(vDir * 2.f - vBossRight);
-			_vector vRightDir = XMVector3Normalize(vDir * 2.f + vBossRight);
+						vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+						vBossRight = transform->Get_State(CTransform::STATE_RIGHT);
+						vDir = XMVector3Normalize(vPlayerPos - vBossPos);
+						vLeftDir = XMVector3Normalize(vDir * 2.f - vBossRight);
+						vRightDir = XMVector3Normalize(vDir * 2.f + vBossRight);
 
-			XMStoreFloat3(&m_vFrontDir, vDir);
-			XMStoreFloat3(&m_vLeftDir, vLeftDir);
-			XMStoreFloat3(&m_vRightDir, vRightDir);
+						XMStoreFloat3(&m_vFrontDir, vDir);
+						XMStoreFloat3(&m_vLeftDir, vLeftDir);
+						XMStoreFloat3(&m_vRightDir, vRightDir);
 
-			m_bLineSkillStart[LEFT] = true;
-			m_bLineSkillStart[FRONT] = true;
-			m_bLineSkillStart[RIGHT] = true;
+						m_bLineSkillStart[LEFT] = true;
+						m_bLineSkillStart[FRONT] = true;
+						m_bLineSkillStart[RIGHT] = true;
+
+						//콜라이더 및 콜라이더 트렌스폼
+						for (int i = 0; i < 3; ++i)
+						{
+							m_pColliderTransform[i]->Set_State(CTransform::STATE_POSITION, transform->Get_State(CTransform::STATE_POSITION));
+							m_pColliderLine[i]->SetActive(true);
+						}
+
+					}
+					else
+						return;
+				}
+			}
 		}
-		else
-			return;
+
 	}
 	
+
 	//왼쪽
 	if (m_bLineSkillStart[LEFT])
 	{
+		//좌측 Coll
+		{
+			_vector vLeftCollPos = m_pColliderTransform[LEFT]->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vLeftDir) * m_fLineCollSpeed * TimeDelta;
+			m_pColliderTransform[LEFT]->Set_State(CTransform::STATE_POSITION, vLeftCollPos);
+		}
+
 		if (!m_pThorn1[m_iCurrentOneIndex[LEFT]][LEFT]->IsRender())
 		{
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vLeftDir) * m_iCurrentOneIndex[FRONT] * 0.5f;
@@ -1224,8 +1444,8 @@ void CBoss::LineSkill2(_double TimeDelta)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vLeftDir) * m_iCurrentTwoIndex[FRONT] * 0.5f;
@@ -1248,19 +1468,30 @@ void CBoss::LineSkill2(_double TimeDelta)
 			m_bLineSkillStart[LEFT] = false;
 			m_bLineSkillErase[LEFT] = true;
 			m_bCheckDir[LEFT] = false;
+
+			//콜라이더 및 콜라이더 트렌스폼
+			m_pColliderTransform[LEFT]->Set_State(CTransform::STATE_POSITION, transform->Get_State(CTransform::STATE_POSITION));
+			m_pColliderLine[LEFT]->SetActive(true);
+
 		}
 	}
 
 	//정면
 	if (m_bLineSkillStart[FRONT])
 	{
+		//정면 Coll
+		{
+			_vector vFrontCollPos = m_pColliderTransform[FRONT]->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vFrontDir) * m_fLineCollSpeed * TimeDelta;
+			m_pColliderTransform[FRONT]->Set_State(CTransform::STATE_POSITION, vFrontCollPos);
+		}
+
 		if (!m_pThorn1[m_iCurrentOneIndex[FRONT]][FRONT]->IsRender())
 		{
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vFrontDir) * m_iCurrentOneIndex[FRONT] * 0.5f;
@@ -1275,8 +1506,8 @@ void CBoss::LineSkill2(_double TimeDelta)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vFrontDir) * m_iCurrentTwoIndex[FRONT] * 0.5f;
@@ -1299,19 +1530,29 @@ void CBoss::LineSkill2(_double TimeDelta)
 			m_bLineSkillStart[FRONT] = false;
 			m_bLineSkillErase[FRONT] = true;
 			m_bCheckDir[FRONT] = false;
+
+			//콜라이더 및 콜라이더 트렌스폼
+			m_pColliderTransform[FRONT]->Set_State(CTransform::STATE_POSITION, transform->Get_State(CTransform::STATE_POSITION));
+			m_pColliderLine[FRONT]->SetActive(false);
 		}
 	}
 
 	//오른쪽
 	if (m_bLineSkillStart[RIGHT])
 	{
+		//우측 Coll
+		{
+			_vector vRightCollPos = m_pColliderTransform[RIGHT]->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vRightDir) * m_fLineCollSpeed * TimeDelta;
+			m_pColliderTransform[RIGHT]->Set_State(CTransform::STATE_POSITION, vRightCollPos);
+		}
+
 		if (!m_pThorn1[m_iCurrentOneIndex[RIGHT]][RIGHT]->IsRender())
 		{
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vRightDir) * m_iCurrentOneIndex[RIGHT] * 0.5f;
@@ -1326,8 +1567,8 @@ void CBoss::LineSkill2(_double TimeDelta)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vRightDir) * m_iCurrentTwoIndex[RIGHT] * 0.5f;
@@ -1350,12 +1591,17 @@ void CBoss::LineSkill2(_double TimeDelta)
 			m_bLineSkillStart[RIGHT] = false;
 			m_bLineSkillErase[RIGHT] = true;
 			m_bCheckDir[RIGHT] = false;
+
+			//콜라이더 및 콜라이더 트렌스폼
+			m_pColliderTransform[RIGHT]->Set_State(CTransform::STATE_POSITION, transform->Get_State(CTransform::STATE_POSITION));
+			m_pColliderLine[RIGHT]->SetActive(false);
 		}
 	}
 
 	//모두 다 지우기
 	if (m_bLineSkillErase[LEFT] && m_bLineSkillErase[FRONT] && m_bLineSkillErase[RIGHT])
 	{
+		m_bLineAttackCollActive = false;
 		m_bLineAttackEraseEx = true;
 	}
 
@@ -1397,6 +1643,10 @@ void CBoss::LineSkill2(_double TimeDelta)
 
 void CBoss::LastAttack(_double TimeDelta)
 {
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	m_bAttackable = false;
+
 	enum { LEFT, FRONT, RIGHT, BACK, LEFT_BACK, RIGHT_BACK, LINE_END };
 
 	_vector vBossPos = transform->Get_State(CTransform::STATE_POSITION);
@@ -1409,57 +1659,68 @@ void CBoss::LastAttack(_double TimeDelta)
 	{
 		if (bRotationFinish)
 		{
-			m_bAttackable = false;
-			m_bLastAttackBegin = true;
-
 			SetupState(BOSS_CLIP::ATK11, CAnimation::TYPE::ONE, false);
 
-			_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
-			_vector vBossRight = transform->Get_State(CTransform::STATE_RIGHT);
-			_vector vDir = XMVector3Normalize(vPlayerPos - vBossPos);
-			_vector vLeftDir = XMVector3Normalize(vDir * 2.f - vBossRight);
-			_vector vRightDir = XMVector3Normalize(vDir * 2.f + vBossRight);
+			if (model->AnimationCompare(BOSS_CLIP::ATK11))
+			{
+				if (model->AnimationIsPreFinishCustom(0.3))
+				{
+				
+					m_bLastAttackBegin = true;
+					m_bLineSkillStart[LEFT] = true;
+					m_bLineSkillStart[FRONT] = true;
+					m_bLineSkillStart[RIGHT] = true;
 
-			_vector vBackDir = XMVector3Normalize(vBossPos - vPlayerPos);
-			_vector vLeftBackDir = XMVector3Normalize(vBackDir * 2.f - vBossRight);
-			_vector vRightBackDir = XMVector3Normalize(vBackDir * 2.f + vBossRight);
+					m_bLineSkillStart[BACK] = true;
+					m_bLineSkillStart[LEFT_BACK] = true;
+					m_bLineSkillStart[RIGHT_BACK] = true;
 
-			XMStoreFloat3(&m_vFrontDir, vDir);
-			XMStoreFloat3(&m_vLeftDir, vLeftDir);
-			XMStoreFloat3(&m_vRightDir, vRightDir);
+					m_bLineAttackExCollActive = true;
 
-			XMStoreFloat3(&m_vBackDir, vBackDir);
-			XMStoreFloat3(&m_vLeftBackDir, vLeftBackDir);
-			XMStoreFloat3(&m_vRightBackDir, vRightBackDir);
+					_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+					_vector vBossRight = transform->Get_State(CTransform::STATE_RIGHT);
+					_vector vDir = XMVector3Normalize(vPlayerPos - vBossPos);
+					_vector vLeftDir = XMVector3Normalize(vDir * 2.f - vBossRight);
+					_vector vRightDir = XMVector3Normalize(vDir * 2.f + vBossRight);
+
+					_vector vBackDir = XMVector3Normalize(vBossPos - vPlayerPos);
+					_vector vLeftBackDir = XMVector3Normalize(vBackDir * 2.f - vBossRight);
+					_vector vRightBackDir = XMVector3Normalize(vBackDir * 2.f + vBossRight);
+
+					XMStoreFloat3(&m_vFrontDir, vDir);
+					XMStoreFloat3(&m_vLeftDir, vLeftDir);
+					XMStoreFloat3(&m_vRightDir, vRightDir);
+
+					XMStoreFloat3(&m_vBackDir, vBackDir);
+					XMStoreFloat3(&m_vLeftBackDir, vLeftBackDir);
+					XMStoreFloat3(&m_vRightBackDir, vRightBackDir);
+
+					//Coll Init
+					for (int i = 0; i < 6; ++i)
+					{
+						m_pColliderTransform[i]->Set_State(CTransform::STATE_POSITION, vBossPos);
+					}
+				}
+			}
 		}
 		else
 			return;
 	}
 
-	if (model->AnimationCompare(BOSS_CLIP::ATK11))
-	{
-		if (model->AnimationIsPreFinishCustom(0.5))
-		{
-			m_bLineSkillStart[LEFT] = true;
-			m_bLineSkillStart[FRONT] = true;
-			m_bLineSkillStart[RIGHT] = true;
-
-			m_bLineSkillStart[BACK] = true;
-			m_bLineSkillStart[LEFT_BACK] = true;
-			m_bLineSkillStart[RIGHT_BACK] = true;
-		}
-	}
-
 	//왼쪽
 	if (m_bLineSkillStart[LEFT])
 	{
+		_vector vLeftCollPos = m_pColliderTransform[LEFT]->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vLeftDir) * m_fLineCollSpeed * TimeDelta;
+		m_pColliderTransform[LEFT]->Set_State(CTransform::STATE_POSITION, vLeftCollPos);
+		m_pColliderLine[LEFT]->SetActive(true);
+
 		if (!m_pThorn1[m_iCurrentOneIndex[LEFT]][LEFT]->IsRender())
 		{
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vLeftDir) * m_iCurrentOneIndex[LEFT] * 0.5f;
@@ -1474,15 +1735,15 @@ void CBoss::LastAttack(_double TimeDelta)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vLeftDir) * m_iCurrentTwoIndex[LEFT] * 0.5f;
 
 			m_pThorn2[m_iCurrentTwoIndex[LEFT]][LEFT]->SetPosition(vThornPos);
 			m_pThorn2[m_iCurrentTwoIndex[LEFT]][LEFT]->SetRotationXYZ(_float3(iRandomAngleX, 0.f, iRandomAngleZ));
-			m_pThorn2[m_iCurrentTwoIndex[LEFT]][LEFT]->SetupScaleUpStart(max((iRandom + m_iCurrentOneIndex[LEFT]) * 0.4f, 4.f));
+			m_pThorn2[m_iCurrentTwoIndex[LEFT]][LEFT]->SetupScaleUpStart(max((iRandom + m_iCurrentTwoIndex[LEFT]) * 0.4f, 4.f));
 		}
 
 		if (m_iCurrentOneIndex[LEFT] < 24 && m_pThorn1[m_iCurrentOneIndex[LEFT]][LEFT]->IsScaleFinish())
@@ -1498,19 +1759,24 @@ void CBoss::LastAttack(_double TimeDelta)
 			m_bLineSkillStart[LEFT] = false;
 			m_bLineSkillErase[LEFT] = true;
 			m_bCheckDir[LEFT] = false;
+			m_pColliderLine[LEFT]->SetActive(false);
 		}
 	}
 
 	//정면
 	if (m_bLineSkillStart[FRONT])
 	{
+		_vector vFrontCollPos = m_pColliderTransform[FRONT]->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vFrontDir) * m_fLineCollSpeed * TimeDelta;
+		m_pColliderTransform[FRONT]->Set_State(CTransform::STATE_POSITION, vFrontCollPos);
+		m_pColliderLine[FRONT]->SetActive(true);
+
 		if (!m_pThorn1[m_iCurrentOneIndex[FRONT]][FRONT]->IsRender())
 		{
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vFrontDir) * m_iCurrentOneIndex[FRONT] * 0.5f;
@@ -1525,15 +1791,15 @@ void CBoss::LastAttack(_double TimeDelta)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vFrontDir) * m_iCurrentTwoIndex[FRONT] * 0.5f;
 
 			m_pThorn2[m_iCurrentTwoIndex[FRONT]][FRONT]->SetPosition(vThornPos);
 			m_pThorn2[m_iCurrentTwoIndex[FRONT]][FRONT]->SetRotationXYZ(_float3(iRandomAngleX, 0.f, iRandomAngleZ));
-			m_pThorn2[m_iCurrentTwoIndex[FRONT]][FRONT]->SetupScaleUpStart(max((iRandom + m_iCurrentOneIndex[FRONT]) * 0.4f, 4.f));
+			m_pThorn2[m_iCurrentTwoIndex[FRONT]][FRONT]->SetupScaleUpStart(max((iRandom + m_iCurrentTwoIndex[FRONT]) * 0.4f, 4.f));
 		}
 
 		if (m_iCurrentOneIndex[FRONT] < 24 && m_pThorn1[m_iCurrentOneIndex[FRONT]][FRONT]->IsScaleFinish())
@@ -1549,19 +1815,24 @@ void CBoss::LastAttack(_double TimeDelta)
 			m_bLineSkillStart[FRONT] = false;
 			m_bLineSkillErase[FRONT] = true;
 			m_bCheckDir[FRONT] = false;
+			m_pColliderLine[FRONT]->SetActive(false);
 		}
 	}
 
 	//오른쪽
 	if (m_bLineSkillStart[RIGHT])
 	{
+		_vector vRightCollPos = m_pColliderTransform[RIGHT]->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vRightDir) * m_fLineCollSpeed * TimeDelta;
+		m_pColliderTransform[RIGHT]->Set_State(CTransform::STATE_POSITION, vRightCollPos);
+		m_pColliderLine[RIGHT]->SetActive(true);
+
 		if (!m_pThorn1[m_iCurrentOneIndex[RIGHT]][RIGHT]->IsRender())
 		{
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vRightDir) * m_iCurrentOneIndex[RIGHT] * 0.5f;
@@ -1576,15 +1847,15 @@ void CBoss::LastAttack(_double TimeDelta)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vRightDir) * m_iCurrentTwoIndex[RIGHT] * 0.5f;
 
 			m_pThorn2[m_iCurrentTwoIndex[RIGHT]][RIGHT]->SetPosition(vThornPos);
 			m_pThorn2[m_iCurrentTwoIndex[RIGHT]][RIGHT]->SetRotationXYZ(_float3(iRandomAngleX, 0.f, iRandomAngleZ));
-			m_pThorn2[m_iCurrentTwoIndex[RIGHT]][RIGHT]->SetupScaleUpStart(max((iRandom + m_iCurrentOneIndex[RIGHT]) * 0.4f, 4.f));
+			m_pThorn2[m_iCurrentTwoIndex[RIGHT]][RIGHT]->SetupScaleUpStart(max((iRandom + m_iCurrentTwoIndex[RIGHT]) * 0.4f, 4.f));
 		}
 
 		if (m_iCurrentOneIndex[RIGHT] < 24 && m_pThorn1[m_iCurrentOneIndex[RIGHT]][RIGHT]->IsScaleFinish())
@@ -1600,19 +1871,24 @@ void CBoss::LastAttack(_double TimeDelta)
 			m_bLineSkillStart[RIGHT] = false;
 			m_bLineSkillErase[RIGHT] = true;
 			m_bCheckDir[RIGHT] = false;
+			m_pColliderLine[RIGHT]->SetActive(false);
 		}
 	}
 
 	//왼쪽 뒤
 	if (m_bLineSkillStart[LEFT_BACK])
 	{
+		_vector vBackCollPos = m_pColliderTransform[LEFT_BACK]->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vLeftBackDir) * m_fLineCollSpeed * TimeDelta;
+		m_pColliderTransform[LEFT_BACK]->Set_State(CTransform::STATE_POSITION, vBackCollPos);
+		m_pColliderLine[LEFT_BACK]->SetActive(true);
+
 		if (!m_pThorn1[m_iCurrentOneIndex[LEFT_BACK]][LEFT_BACK]->IsRender())
 		{
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vLeftBackDir) * m_iCurrentOneIndex[LEFT_BACK] * 0.5f;
@@ -1627,15 +1903,15 @@ void CBoss::LastAttack(_double TimeDelta)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vLeftBackDir) * m_iCurrentTwoIndex[FRONT] * 0.5f;
 
 			m_pThorn2[m_iCurrentTwoIndex[LEFT_BACK]][LEFT_BACK]->SetPosition(vThornPos);
 			m_pThorn2[m_iCurrentTwoIndex[LEFT_BACK]][LEFT_BACK]->SetRotationXYZ(_float3(iRandomAngleX, 0.f, iRandomAngleZ));
-			m_pThorn2[m_iCurrentTwoIndex[LEFT_BACK]][LEFT_BACK]->SetupScaleUpStart(max((iRandom + m_iCurrentOneIndex[LEFT_BACK]) * 0.4f, 4.f));
+			m_pThorn2[m_iCurrentTwoIndex[LEFT_BACK]][LEFT_BACK]->SetupScaleUpStart(max((iRandom + m_iCurrentTwoIndex[LEFT_BACK]) * 0.4f, 4.f));
 		}
 
 		if (m_iCurrentOneIndex[LEFT_BACK] < 24 && m_pThorn1[m_iCurrentOneIndex[LEFT_BACK]][LEFT_BACK]->IsScaleFinish())
@@ -1651,19 +1927,24 @@ void CBoss::LastAttack(_double TimeDelta)
 			m_bLineSkillStart[LEFT_BACK] = false;
 			m_bLineSkillErase[LEFT_BACK] = true;
 			m_bCheckDir[LEFT_BACK] = false;
+			m_pColliderLine[LEFT_BACK]->SetActive(false);
 		}
 	}
 
 	//뒤
 	if (m_bLineSkillStart[BACK])
 	{
+		_vector vBackCollPos = m_pColliderTransform[BACK]->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vBackDir) * m_fLineCollSpeed * TimeDelta;
+		m_pColliderTransform[BACK]->Set_State(CTransform::STATE_POSITION, vBackCollPos);
+		m_pColliderLine[BACK]->SetActive(true);
+
 		if (!m_pThorn1[m_iCurrentOneIndex[BACK]][BACK]->IsRender())
 		{
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vBackDir) * m_iCurrentOneIndex[BACK] * 0.5f;
@@ -1678,15 +1959,15 @@ void CBoss::LastAttack(_double TimeDelta)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vBackDir)* m_iCurrentTwoIndex[BACK] * 0.5f;
 
 			m_pThorn2[m_iCurrentTwoIndex[BACK]][BACK]->SetPosition(vThornPos);
 			m_pThorn2[m_iCurrentTwoIndex[BACK]][BACK]->SetRotationXYZ(_float3(iRandomAngleX, 0.f, iRandomAngleZ));
-			m_pThorn2[m_iCurrentTwoIndex[BACK]][BACK]->SetupScaleUpStart(max((iRandom + m_iCurrentOneIndex[BACK]) * 0.4f, 4.f));
+			m_pThorn2[m_iCurrentTwoIndex[BACK]][BACK]->SetupScaleUpStart(max((iRandom + m_iCurrentTwoIndex[BACK]) * 0.4f, 4.f));
 		}
 
 		if (m_iCurrentOneIndex[BACK] < 24 && m_pThorn1[m_iCurrentOneIndex[BACK]][BACK]->IsScaleFinish())
@@ -1702,19 +1983,25 @@ void CBoss::LastAttack(_double TimeDelta)
 			m_bLineSkillStart[BACK] = false;
 			m_bLineSkillErase[BACK] = true;
 			m_bCheckDir[BACK] = false;
+
+			m_pColliderLine[BACK]->SetActive(false);
 		}
 	}
 
 	//오른쪽 뒤
 	if (m_bLineSkillStart[RIGHT_BACK])
 	{
+		_vector vBackCollPos = m_pColliderTransform[RIGHT_BACK]->Get_State(CTransform::STATE_POSITION) + XMLoadFloat3(&m_vRightBackDir) * m_fLineCollSpeed * TimeDelta;
+		m_pColliderTransform[RIGHT_BACK]->Set_State(CTransform::STATE_POSITION, vBackCollPos);
+		m_pColliderLine[RIGHT_BACK]->SetActive(true);
+
 		if (!m_pThorn1[m_iCurrentOneIndex[RIGHT_BACK]][RIGHT_BACK]->IsRender())
 		{
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vRightBackDir) * m_iCurrentOneIndex[RIGHT_BACK] * 0.5f;
@@ -1729,15 +2016,15 @@ void CBoss::LastAttack(_double TimeDelta)
 			int iRandomPos = rand() % 3 - 1;
 
 			int iRandom = rand() % 3 + 1;
-			int iRandomAngleX = rand() % 120 - 60;
-			int iRandomAngleZ = rand() % 120 - 60;
+			int iRandomAngleX = rand() % 90 - 45;
+			int iRandomAngleZ = rand() % 90 - 45;
 
 			_vector vThornPos;
 			vThornPos = vBossPos + XMLoadFloat3(&m_vRightBackDir)* m_iCurrentTwoIndex[RIGHT_BACK] * 0.5f;
 
 			m_pThorn2[m_iCurrentTwoIndex[RIGHT_BACK]][RIGHT_BACK]->SetPosition(vThornPos);
 			m_pThorn2[m_iCurrentTwoIndex[RIGHT_BACK]][RIGHT_BACK]->SetRotationXYZ(_float3(iRandomAngleX, 0.f, iRandomAngleZ));
-			m_pThorn2[m_iCurrentTwoIndex[RIGHT_BACK]][RIGHT_BACK]->SetupScaleUpStart(max((iRandom + m_iCurrentOneIndex[RIGHT_BACK]) * 0.4f, 4.f));
+			m_pThorn2[m_iCurrentTwoIndex[RIGHT_BACK]][RIGHT_BACK]->SetupScaleUpStart(max((iRandom + m_iCurrentTwoIndex[RIGHT_BACK]) * 0.4f, 4.f));
 		}
 
 		if (m_iCurrentOneIndex[RIGHT_BACK] < 24 && m_pThorn1[m_iCurrentOneIndex[RIGHT_BACK]][RIGHT_BACK]->IsScaleFinish())
@@ -1753,12 +2040,16 @@ void CBoss::LastAttack(_double TimeDelta)
 			m_bLineSkillStart[RIGHT_BACK] = false;
 			m_bLineSkillErase[RIGHT_BACK] = true;
 			m_bCheckDir[RIGHT_BACK] = false;
+
+			m_pColliderLine[BACK_RIGHT]->SetActive(false);
 		}
 	}
 
 	if (m_bLineSkillErase[LEFT] && m_bLineSkillErase[FRONT] && m_bLineSkillErase[RIGHT] &&
 		m_bLineSkillErase[LEFT_BACK] && m_bLineSkillErase[BACK] && m_bLineSkillErase[RIGHT_BACK])
 	{
+		m_bLineAttackExCollActive = false;
+
 		if (m_iEraseIndexEx < 25)
 		{
 			m_fLastAttackEraseAcc += TimeDelta;
@@ -1787,6 +2078,8 @@ void CBoss::LastAttack(_double TimeDelta)
 				m_iEraseIndexEx++;
 				if (m_iEraseIndexEx == 25)
 				{
+					m_bLineExAnimStart = false;
+					m_bLineExAnimSetup = false;
 					m_bLastAttack = false;
 					m_bAttackable = true;
 					m_iEraseIndexEx = 0;
@@ -1958,42 +2251,46 @@ void CBoss::EvolutionAnimation(_double TimeDelta)
 	if (m_bAttackable)
 	{
 		m_fAttackAcc += TimeDelta;
-		if (m_fAttackAcc >= 2.5f)
+		if (m_fAttackAcc >= 3.0f)
 		{
 			m_bAttack = true;
 			m_fAttackAcc = 0.f;
 
-			if (m_bAttack)
-			{
-				m_bAttack = false;
-				switch (m_iAttackCountEx)
-				{
-				case 0:
-					m_bCloseAttackExStart = true;
-					break;
-				case 1:
-					m_bUseLineSkill = true;
-					break;
-				case 2:
-					m_bUseMissile1 = true;
-					m_bMissileStart = true;
-					break;
-				case 3:
-					m_bLastAttackBegin = false;
-					m_bLastAttack = true;
-					break;
-				}
-			}
 			m_iAttackCountEx++;
 			if (m_iAttackCountEx > 3)
 				m_iAttackCountEx = 0;
 		}
 	}
 
+	if (m_bAttack)
+	{
+		m_bAttack = false;
+		switch (m_iAttackCountEx)
+		{
+		case 0:
+			m_bUseLineSkill = true;
+			break;
+		case 1:
+			m_bCloseAttackExStart = true;
+			break;
+		case 2:
+			m_bUseMissile1 = true;
+			m_bMissileStart = true;
+			break;
+		case 3:
+			m_bLastAttackBegin = false;
+			m_bLastAttack = true;
+			break;
+		}
+	}
+}
+
+void CBoss::AnimationController(_double TimeDelta)
+{
 	if (m_bCloseAttackExStart)
 		ColseAttack2(TimeDelta);
 
-	if(m_bUseLineSkill)
+	if (m_bUseLineSkill)
 		LineSkill2(TimeDelta);
 
 	if (m_bUseMissile1)
@@ -2002,34 +2299,48 @@ void CBoss::EvolutionAnimation(_double TimeDelta)
 	if (m_bLastAttack)
 		LastAttack(TimeDelta);
 
-}
 
-void CBoss::AnimationController(_double TimeDelta)
-{
-	if (!m_bEvolution)
-		DefaultAnimation(TimeDelta);
-	else
-		EvolutionAnimation(TimeDelta);
-
-	//모션이 끝났다면 아이들 모션
-	if (!m_bBrrow)
+	if (m_bDie)
 	{
-		if (m_bEvolution)
+		if (model->AnimationCompare(BOSS_CLIP::DEATH))
 		{
-			if (!model->AnimationCompare(BOSS_CLIP::STANDEX))
-			{
-				if (model->AnimationIsFinishEx())
-					SetupState(BOSS_CLIP::STANDEX, CAnimation::TYPE::LOOP, false);
-			}
+			m_pCamera->StartShake(5.f, 80.f 0.8f);
 		}
+
+		if (model->AnimationIsFinishEx())
+		{
+			SetupState(BOSS_CLIP::DEATH, CAnimation::TYPE::ONE, false);
+		}
+
+	}
+	else
+	{
+		if (!m_bEvolution)
+			DefaultAnimation(TimeDelta);
 		else
+			EvolutionAnimation(TimeDelta);
+
+		//모션이 끝났다면 아이들 모션
+		if (!m_bBrrow)
 		{
-			if (!model->AnimationCompare(BOSS_CLIP::STAND2))
+			if (m_bEvolution)
 			{
-				if (model->AnimationIsFinishEx())
-					SetupState(BOSS_CLIP::STAND2, CAnimation::TYPE::LOOP, false);
+				if (!model->AnimationCompare(BOSS_CLIP::STANDEX))
+				{
+					if (model->AnimationIsFinishEx())
+						SetupState(BOSS_CLIP::STANDEX, CAnimation::TYPE::LOOP, false);
+				}
+			}
+			else
+			{
+				if (!model->AnimationCompare(BOSS_CLIP::STAND2))
+				{
+					if (model->AnimationIsFinishEx())
+						SetupState(BOSS_CLIP::STAND2, CAnimation::TYPE::LOOP, false);
+				}
 			}
 		}
+
 	}
 	
 	//바디 올리기
@@ -2047,6 +2358,32 @@ void CBoss::SetupColliders()
 	_float4x4 CollMatrix = transform->Get_WorldMatrix();
 	CollMatrix._42 = CollMatrix._42 - 0.5f;
 	m_pOverlapCollider->Update(XMLoadFloat4x4(&CollMatrix));
+
+	if (m_pAppManager->IsFreeze())
+	{
+		for (int i = 0; i < 6; ++i)
+			m_pColliderLine[i]->SetActive(false);
+	}
+
+	if (m_bLineAttackExCollActive)
+	{
+		//LineAttack 2 Coll
+		for (int i = 0; i < 6; ++i)
+			m_pColliderLine[i]->Update(XMLoadFloat4x4(&m_pColliderTransform[i]->Get_WorldMatrix()));
+	}
+	else if (m_bLineAttackCollActive)
+	{
+		//LineAttack 1 Coll
+		for (int i = 0; i < 3; ++i)
+			m_pColliderLine[i]->Update(XMLoadFloat4x4(&m_pColliderTransform[i]->Get_WorldMatrix()));
+	}
+
+	//CloseAttack 1 Coll
+	if (m_bCloseAttackCollActive)
+	{
+		for (int i = 0; i < 3; ++i)
+			m_pCloseAttack[i]->Update(XMLoadFloat4x4(&m_pColliderCloseTransform[i]->Get_WorldMatrix()));
+	}
 }
 
 _float4 CBoss::GetPosition()
@@ -2075,23 +2412,23 @@ _float CBoss::GetLengthFromCamera()
 	return fLength;
 }
 
-void CBoss::OnCollisionEnter(CCollider * src, CCollider * dest)
-{
-}
-
-void CBoss::OnCollisionStay(CCollider * src, CCollider * dest)
-{
-	CPlayerCamera* pCamera = dynamic_cast<CPlayerCamera*>(dest->GetOwner());
-	if (src->Compare(m_pOverlapCollider) && pCamera && dest->Compare(m_pCamera->GetCollider()))
-	{
-		m_bAlpha = true;
-	}
-}
-
-void CBoss::OnCollisionExit(CCollider * src, CCollider * dest)
-{
-
-}
+//void CBoss::OnCollisionEnter(CCollider * src, CCollider * dest)
+//{
+//}
+//
+//void CBoss::OnCollisionStay(CCollider * src, CCollider * dest)
+//{
+//	CPlayerCamera* pCamera = dynamic_cast<CPlayerCamera*>(dest->GetOwner());
+//	if (src->Compare(m_pOverlapCollider) && pCamera && dest->Compare(m_pCamera->GetCollider()))
+//	{
+//		m_bAlpha = true;
+//	}
+//}
+//
+//void CBoss::OnCollisionExit(CCollider * src, CCollider * dest)
+//{
+//
+//}
 
 CBoss * CBoss::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
 {
@@ -2148,6 +2485,15 @@ void CBoss::Free()
 		Safe_Release(m_pThornCloseLeft[i]);
 	}
 
+	for (int i = 0; i < 3; ++i)
+	{
+		Safe_Release(m_pCloseAttack[i]);
+	}
+
+	for (int i = 0; i < 6; ++i)
+	{
+		Safe_Release(m_pColliderLine[i]);
+	}
 
 	Safe_Release(m_pBodyTransform);
 }

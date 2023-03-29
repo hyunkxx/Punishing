@@ -337,6 +337,14 @@ const LIGHT_DESC* CGameInstance::GetLightDesc(_uint Index)
 	return m_LightManager->GetLightDesc(Index);
 }
 
+void CGameInstance::SetCollisionDebugRender(_bool value)
+{
+	if (m_pCollision_Manager == nullptr)
+		return;
+
+	return m_pCollision_Manager->SetDebugRender(value);
+}
+
 HRESULT CGameInstance::AddCollider(CCollider * collider, _uint iLayerIndex)
 {
 	if (m_pCollision_Manager == nullptr)
