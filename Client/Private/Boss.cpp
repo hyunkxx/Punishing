@@ -312,7 +312,34 @@ void CBoss::Tick(_double TimeDelta)
 				m_fDieWaitAcc += TimeDelta;
 				if (m_fDieWaitAcc > m_fDieWaitTime)
 				{
+					//죽었당
+					m_bSpawn = false;
 					m_bRender = false;
+
+					for (int j = 0; j < 6; ++j)
+					{
+						for (int i = 0; i < 25; ++i)
+						{
+							m_pThorn1[j][i]->ScaleDownSmoothProcess(TimeDelta);
+						}
+					}
+
+					for (int i = 0; i < 3; ++i)
+					{
+						m_pThornMissileLeft[i]->ScaleDownSmoothProcess(TimeDelta);
+						m_pThornMissileMiddle[i]->ScaleDownSmoothProcess(TimeDelta);
+						m_pThornMissileRight[i]->ScaleDownSmoothProcess(TimeDelta);
+					}
+
+					for (int i = 0; i < 9; ++i)
+					{
+						m_pThornClose[i]->ScaleDownSmoothProcess(TimeDelta);
+						m_pThornCloseRightFront[i]->ScaleDownSmoothProcess(TimeDelta);
+						m_pThornCloseLeftFront[i]->ScaleDownSmoothProcess(TimeDelta);
+						m_pThornCloseFront[i]->ScaleDownSmoothProcess(TimeDelta);
+						m_pThornCloseRight[i]->ScaleDownSmoothProcess(TimeDelta);
+						m_pThornCloseLeft[i]->ScaleDownSmoothProcess(TimeDelta);
+					}
 				}
 			}
 		}
@@ -492,6 +519,7 @@ void CBoss::MoveForward(_double TimeDelta)
 	{
 		m_bBack = false;
 		m_bMoveBackward = false;
+		m_pCamera->ThornShake();
 	}
 
 	//애니메이션 설정
@@ -616,6 +644,7 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 
 		if (!m_bCheckDir[0])
 		{
+			m_pCamera->ThornShake();
 			_vector vDir = XMVector3Normalize(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION));
 			XMStoreFloat3(&m_vLineOneDir[0], vDir);
 
@@ -655,7 +684,9 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 		}
 
 		if (m_iCurrentOneIndex[0] < 24 && m_pThorn1[m_iCurrentOneIndex[0]][LINE_ONE]->IsScaleFinish())
+		{
 			m_iCurrentOneIndex[0]++;
+		}
 
 		if (m_iCurrentTwoIndex[0] < 24 && m_pThorn2[m_iCurrentTwoIndex[0]][LINE_ONE]->IsScaleFinish())
 			m_iCurrentTwoIndex[0]++;
@@ -674,9 +705,11 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 	}
 	else if (m_bLineSkillStart[1])
 	{
+
 		_vector vBossPos = transform->Get_State(CTransform::STATE_POSITION);
 		if (!m_bCheckDir[1])
 		{
+			m_pCamera->ThornShake();
 			_vector vDir = XMVector3Normalize(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION));
 			XMStoreFloat3(&m_vLineOneDir[1], vDir);
 			m_pColliderTransform[1]->Set_State(CTransform::STATE_POSITION, vBossPos);
@@ -715,7 +748,9 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 		}
 
 		if (m_iCurrentOneIndex[1] < 24 && m_pThorn1[m_iCurrentOneIndex[1]][LINE_TWO]->IsScaleFinish())
+		{
 			m_iCurrentOneIndex[1]++;
+		}
 
 		if (m_iCurrentTwoIndex[1] < 24 && m_pThorn2[m_iCurrentTwoIndex[1]][LINE_TWO]->IsScaleFinish())
 			m_iCurrentTwoIndex[1]++;
@@ -735,10 +770,12 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 	}
 	else if (m_bLineSkillStart[2])
 	{
+
 		m_bUseLineSkill = false;
 		_vector vBossPos = transform->Get_State(CTransform::STATE_POSITION);
 		if (!m_bCheckDir[2])
 		{
+			m_pCamera->ThornShake();
 			_vector vDir = XMVector3Normalize(m_pPlayerTransform->Get_State(CTransform::STATE_POSITION) - transform->Get_State(CTransform::STATE_POSITION));
 			XMStoreFloat3(&m_vLineOneDir[2], vDir);
 			m_pColliderTransform[2]->Set_State(CTransform::STATE_POSITION, vBossPos);
@@ -777,7 +814,9 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 		}
 
 		if (m_iCurrentOneIndex[2] < 24 && m_pThorn1[m_iCurrentOneIndex[2]][LINE_TRE]->IsScaleFinish())
+		{
 			m_iCurrentOneIndex[2]++;
+		}
 
 		if (m_iCurrentTwoIndex[2] < 24 && m_pThorn2[m_iCurrentTwoIndex[2]][LINE_TRE]->IsScaleFinish())
 			m_iCurrentTwoIndex[2]++;
@@ -870,22 +909,30 @@ void CBoss::Missile1(_double TimeDelta)
 	_vector vRight = XMVector3Cross(VECTOR_UP, vPlayerDir);
 
 	LookTarget(TimeDelta, 1.5f);
-
 	if (m_bEvolution)
 	{
 		if (model->AnimationCompare(BOSS_CLIP::ATK12))
 		{
-			if (model->AnimationIsFinishEx())
-				m_bUseMissile1 = false;
-
 			if (model->AnimationIsPreFinishCustom(0.4))
 			{
+				if (!m_bMissileShake)
+				{
+					m_bMissileShake = true;
+					m_pCamera->ThornShake();
+				}
+
 				for (int i = 0; i < 3; ++i)
 				{
 					m_pThornMissileLeft[i]->SetMoveStart();
 					m_pThornMissileMiddle[i]->SetMoveStart();
 					m_pThornMissileRight[i]->SetMoveStart();
 				}
+			}
+
+			if (model->AnimationIsFinishEx())
+			{
+				m_bMissileShake = false;
+				m_bUseMissile1 = false;
 			}
 		}
 		else
@@ -918,11 +965,14 @@ void CBoss::Missile1(_double TimeDelta)
 	{
 		if (model->AnimationCompare(BOSS_CLIP::ATK3))
 		{
-			if (model->AnimationIsFinishEx())
-				m_bUseMissile1 = false;
-
 			if (model->AnimationIsPreFinishCustom(0.5))
 			{
+				if (!m_bMissileShake)
+				{
+					m_bMissileShake = true;
+					m_pCamera->ThornShake();
+				}
+
 				for (int i = 0; i < 3; ++i)
 				{
 					m_pThornMissileLeft[i]->SetMoveStart();
@@ -930,6 +980,13 @@ void CBoss::Missile1(_double TimeDelta)
 					m_pThornMissileRight[i]->SetMoveStart();
 				}
 			}
+
+			if (model->AnimationIsFinishEx())
+			{
+				m_bMissileShake = false;
+				m_bUseMissile1 = false;
+			}
+
 		}
 		else
 		{
@@ -963,7 +1020,6 @@ void CBoss::Missile1(_double TimeDelta)
 		SetupState(BOSS_CLIP::ATK12, CAnimation::TYPE::ONE, false);
 	else
 		SetupState(BOSS_CLIP::ATK3, CAnimation::TYPE::ONE, false);
-
 }
 
 void CBoss::CloseAttack(_double TimeDelta)
@@ -976,7 +1032,7 @@ void CBoss::CloseAttack(_double TimeDelta)
 	{
 		m_pPlayer->Hit();
 		m_pPlayer->RecvDamage(50.f);
-
+		m_pCamera->ThornShake();
 		m_bCloseAttack = true;
 		for (int i = 0; i < 9; ++i)
 		{
@@ -1165,6 +1221,7 @@ void CBoss::ColseAttack2(_double TimeDelta)
 	{
 		if (!m_bCloseAttack)
 		{
+			m_pCamera->ThornShake();
 			m_bCloseAttack = true;
 
 			int iDirRandom = rand() % 7;
@@ -1199,6 +1256,7 @@ void CBoss::ColseAttack2(_double TimeDelta)
 				m_fNextIndexAcc += TimeDelta;
 				if (m_fNextIndexAcc >= m_fNextIndexTime)
 				{
+					m_pCamera->ThornShake();
 					m_fNextIndexAcc = 0.f;
 					m_bColseAttackExStart[m_iColseAttackIndex] = true;
 					m_iColseAttackIndex++;
@@ -1353,6 +1411,7 @@ void CBoss::LineSkill2(_double TimeDelta)
 
 	if (!m_bLineExAnimStart)
 	{
+		m_pCamera->AttackShake();
 		m_bLineExAnimStart = true;
 		SetupState(BOSS_CLIP::ATK13, CAnimation::TYPE::ONE, false);
 	}
@@ -1665,7 +1724,8 @@ void CBoss::LastAttack(_double TimeDelta)
 			{
 				if (model->AnimationIsPreFinishCustom(0.3))
 				{
-				
+					m_pCamera->AttackShake();
+
 					m_bLastAttackBegin = true;
 					m_bLineSkillStart[LEFT] = true;
 					m_bLineSkillStart[FRONT] = true;
@@ -2283,10 +2343,7 @@ void CBoss::EvolutionAnimation(_double TimeDelta)
 			break;
 		}
 	}
-}
 
-void CBoss::AnimationController(_double TimeDelta)
-{
 	if (m_bCloseAttackExStart)
 		ColseAttack2(TimeDelta);
 
@@ -2298,13 +2355,15 @@ void CBoss::AnimationController(_double TimeDelta)
 
 	if (m_bLastAttack)
 		LastAttack(TimeDelta);
+}
 
-
+void CBoss::AnimationController(_double TimeDelta)
+{
 	if (m_bDie)
 	{
 		if (model->AnimationCompare(BOSS_CLIP::DEATH))
 		{
-			m_pCamera->StartShake(5.f, 80.f 0.8f);
+			//m_pCamera->StartShake(5.f, 80.f, 0.8f);
 		}
 
 		if (model->AnimationIsFinishEx())
@@ -2340,7 +2399,6 @@ void CBoss::AnimationController(_double TimeDelta)
 				}
 			}
 		}
-
 	}
 	
 	//바디 올리기

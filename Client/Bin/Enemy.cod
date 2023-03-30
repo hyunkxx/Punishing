@@ -5867,7 +5867,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetCollider@CPlayerCamera@Client@@QEAAPEAVCCollider@Engine@@XZ PROC ; Client::CPlayerCamera::GetCollider, COMDAT
 
-; 31   : 	CCollider* GetCollider() { return m_pCollider; }
+; 32   : 	CCollider* GetCollider() { return m_pCollider; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx

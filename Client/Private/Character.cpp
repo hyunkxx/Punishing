@@ -1209,7 +1209,20 @@ void CCharacter::SkillA(_double TimeDelta)
 	m_bSkillReady = false;
 
 	mWeaponCollider->SetActive(true);
-	SetAnimation(CLIP::ATTACK11, CAnimation::TYPE::ONE);
+
+	if(!m_bEvolution)
+		SetAnimation(CLIP::ATTACK11, CAnimation::TYPE::ONE);
+	else
+	{
+		if (m_pNearEnemy)
+		{
+			mTransform->LookAt(XMLoadFloat4(&m_pNearEnemy->GetPosition()));
+			m_pAttackTargetEnemy = m_pNearEnemy;
+		}
+
+		SetAnimation(CLIP::ATTACK12, CAnimation::TYPE::ONE);
+		
+	}
 }
 
 void CCharacter::SkillB(_double TimeDelta)
@@ -1226,7 +1239,12 @@ void CCharacter::SkillB(_double TimeDelta)
 
 	mSkillCollider->HitColliderReset();
 
-	SetAnimation(CLIP::ATTACK21, CAnimation::TYPE::ONE);
+	if(!m_bEvolution)
+		SetAnimation(CLIP::ATTACK21, CAnimation::TYPE::ONE);
+	else
+	{
+		SetAnimation(CLIP::ATTACK22, CAnimation::TYPE::ONE);
+	}
 
 }
 
@@ -1244,17 +1262,49 @@ void CCharacter::SkillC(_double TimeDelta)
 	m_bAttackable = false;
 	m_bDashable = false;
 	m_bSkillReady = false;
-	SetAnimation(CLIP::ATTACK31, CAnimation::TYPE::ONE);
+
+	if(m_pNearEnemy != nullptr)
+		m_pPrevHoldEnemy = m_pNearEnemy;
+
+	if(!m_bEvolution)
+		SetAnimation(CLIP::ATTACK31, CAnimation::TYPE::ONE);
+	else
+	{
+		mWeaponCollider->SetActive(true);
+		SetAnimation(CLIP::ATTACK32, CAnimation::TYPE::ONE);
+	}
 	
 }
 
 void CCharacter::SkillColliderControl(_double TimeDelta)
 {
-	if (mModel->AnimationCompare(CLIP::ATTACK11))
+	if (mModel->AnimationCompare(CLIP::ATTACK11) || mModel->AnimationCompare(CLIP::ATTACK12))
 	{
-		if (mModel->AnimationIsPreFinishCustom(0.5))
+		if (mModel->AnimationCompare(CLIP::ATTACK11))
 		{
-			mWeaponCollider->SetActive(false);
+			if (mModel->AnimationIsPreFinishCustom(0.5))
+			{
+				mWeaponCollider->SetActive(false);
+			}
+		}
+		else if (mModel->AnimationCompare(CLIP::ATTACK12))
+		{
+			if (mModel->AnimationIsPreFinishCustom(0.8))
+			{
+				mWeaponCollider->SetActive(false);
+			}
+
+			if (mModel->AnimationIsFinishEx())
+			{
+				if (m_pAttackTargetEnemy != nullptr)
+				{
+					m_pAttackTargetEnemy->RecvDamage(100.f);
+					m_pCamera->AttackShake();
+					m_pAttackTargetEnemy = nullptr;
+				}
+
+			}
+
 		}
 
 		if (mModel->AnimationIsFinishEx())
@@ -1266,16 +1316,33 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 			m_bDashable = true;
 		}
 	}
-	else if (mModel->AnimationCompare(CLIP::ATTACK21))
+	else if (mModel->AnimationCompare(CLIP::ATTACK21) || mModel->AnimationCompare(CLIP::ATTACK22))
 	{
-		if (mModel->AnimationIsPreFinishEx())
+
+		if (mModel->AnimationCompare(CLIP::ATTACK21))
 		{
-			mSkillCollider->SetActive(true);
+			if (mModel->AnimationIsPreFinishEx())
+			{
+				mSkillCollider->SetActive(true);
+			}
+
+			if (mModel->AnimationIsPreFinishCustom(0.5))
+			{
+				mSkillCollider->SetActive(false);
+			}
 		}
 
-		if (mModel->AnimationIsPreFinishCustom(0.5))
+		if (mModel->AnimationCompare(CLIP::ATTACK22))
 		{
-			mSkillCollider->SetActive(false);
+			if (mModel->AnimationIsPreFinishCustom(0.2))
+			{
+				mSkillCollider->SetActive(true);
+			}
+
+			if (mModel->AnimationIsPreFinish())
+			{
+				mSkillCollider->SetActive(false);
+			}
 		}
 
 		if (mModel->AnimationIsFinishEx())
@@ -1288,7 +1355,7 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 		}
 
 	}
-	else if (mModel->AnimationCompare(CLIP::ATTACK31))
+	else if (mModel->AnimationCompare(CLIP::ATTACK31) || mModel->AnimationCompare(CLIP::ATTACK32))
 	{
 		if (!m_bSkillYellowAttack && m_pNearEnemy)
 		{
@@ -1308,16 +1375,18 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 			}
 		}
 
-		//if (m_pNearEnemy && m_pNearEnemy->IsDeadWait())
-		//	m_bEnemyHolding = false;
+		if (m_pPrevHoldEnemy && m_pPrevHoldEnemy->IsDeadWait())
+		{
+			m_pPrevHoldEnemy = nullptr;
+			m_bEnemyHolding = false;
+		}
 
 		if (mModel->AnimationIsFinishEx())
 		{
-			if (m_pNearEnemy)
-			{
+			if (m_pNearEnemy && m_pNearEnemy == m_pPrevHoldEnemy)
 				m_pNearEnemy->SetHold(false);
-			}
 
+			m_pPrevHoldEnemy = nullptr;
 			m_bSkillYellowAttack = false;
 			m_bUseSkill = false;
 			m_bSkillReady = true;
@@ -1334,6 +1403,9 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 	if (!mModel->AnimationCompare(CLIP::ATTACK11) &&
 		!mModel->AnimationCompare(CLIP::ATTACK21) &&
 		!mModel->AnimationCompare(CLIP::ATTACK31) &&
+		!mModel->AnimationCompare(CLIP::ATTACK12) &&
+		!mModel->AnimationCompare(CLIP::ATTACK22) &&
+		!mModel->AnimationCompare(CLIP::ATTACK32) &&
 		!mModel->AnimationCompare(CLIP::MOVE1) &&
 		!mModel->AnimationCompare(CLIP::MOVE2))
 	{
@@ -1361,7 +1433,9 @@ void CCharacter::TargetListDeastroyCehck()
 		if ((*iter)->IsDisable())
 		{
 			if ((*iter) == m_pNearEnemy)
+			{
 				m_pNearEnemy = nullptr;
+			}
 
 			iter = m_Enemys.erase(iter);
 
@@ -1440,7 +1514,7 @@ void CCharacter::NearTargetChange()
 	if (m_bEnemyHolding)
 		return;
 
-	if (mModel->AnimationCompare(CLIP::ATTACK31))
+	if (mModel->AnimationCompare(CLIP::ATTACK31) || mModel->AnimationCompare(CLIP::ATTACK32))
 		return;
 
 	if(m_iEnemyIndex < m_Enemys.size())
@@ -1495,14 +1569,14 @@ _float3 CCharacter::LockOnCameraPosition()
 
 void CCharacter::HoldEnemy()
 {
-	if (m_pNearEnemy == nullptr)
+	if (m_pPrevHoldEnemy == nullptr)
+		return;
+	
+	if (dynamic_cast<CBoss*>(m_pPrevHoldEnemy))
 		return;
 
-	if (dynamic_cast<CBoss*>(m_pNearEnemy))
-		return;
-
-	CTransform* pTargetTransform = static_cast<CTransform*>(static_cast<CGameObject*>(m_pNearEnemy)->Find_Component(L"com_transform"));
-	CCollider* pTargetCollider = static_cast<CCollider*>(static_cast<CGameObject*>(m_pNearEnemy)->Find_Component(L"com_collider"));
+	CTransform* pTargetTransform = static_cast<CTransform*>(static_cast<CGameObject*>(m_pPrevHoldEnemy)->Find_Component(L"com_transform"));
+	CCollider* pTargetCollider = static_cast<CCollider*>(static_cast<CGameObject*>(m_pPrevHoldEnemy)->Find_Component(L"com_collider"));
 	
 	_float fTotalRadius = mCollider->GetExtents().x;// +pTargetCollider->GetExtents().x;
 	_vector pTargetPos = pTargetTransform->Get_State(CTransform::STATE_POSITION);
@@ -1523,6 +1597,9 @@ void CCharacter::Hit()
 		mModel->AnimationCompare(CLIP::ATTACK11) ||
 		mModel->AnimationCompare(CLIP::ATTACK21) ||
 		mModel->AnimationCompare(CLIP::ATTACK31) ||
+		mModel->AnimationCompare(CLIP::ATTACK12) ||
+		mModel->AnimationCompare(CLIP::ATTACK22) ||
+		mModel->AnimationCompare(CLIP::ATTACK32) ||
 		mModel->AnimationCompare(CLIP::ATTACK41) ||
 		mModel->AnimationCompare(CLIP::ATTACK42) ||
 		mModel->AnimationCompare(CLIP::ATTACK43) ||
@@ -1842,7 +1919,7 @@ void CCharacter::AnimationControl(_double TimeDelta)
 		AnimationCompare(CLIP::ATTACK22) ||
 		AnimationCompare(CLIP::ATTACK32))
 	{
-		if (!dynamic_cast<CBoss*>(m_pNearEnemy))
+		if (!dynamic_cast<CBoss*>(m_pPrevHoldEnemy))
 		{
 			if (m_bEnemyHolding && !m_bSkillYellowAttack)
 			{
@@ -2243,7 +2320,7 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 
 	if (src->Compare(mCollider))
 	{
-		if (mModel->AnimationCompare(CLIP::ATTACK31))
+		if (mModel->AnimationCompare(CLIP::ATTACK31) || mModel->AnimationCompare(CLIP::ATTACK32))
 		{
 			CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
 			if (pEnemy && dest->Compare(pEnemy->GetBodyCollider()))
@@ -2270,7 +2347,7 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 	if (src->Compare(mWeaponCollider))
 	{
 		CEnemy* pEnemy = dynamic_cast<CEnemy*>(dest->GetOwner());
-		if (pEnemy && dest->Compare(pEnemy->GetOverlapCollider()))
+		if (pEnemy && dest->Compare(pEnemy->GetBodyCollider()))
 		{
 			m_bEnemyHealthDraw = true;
 			m_fDrawEnemyHealthTimer = 0.0f;
@@ -2406,10 +2483,9 @@ void CCharacter::OnCollisionStay(CCollider * src, CCollider * dest)
 			//	mModel->AnimationCompare(CLIP::ATTACK22))
 			//	m_bRootMotion = false;
 
-			if (mModel->AnimationCompare(CLIP::ATTACK31) && m_pNearEnemy == pEnemy ||
-				mModel->AnimationCompare(CLIP::ATTACK32) && m_pNearEnemy == pEnemy)
+			if (mModel->AnimationCompare(CLIP::ATTACK31) && m_pPrevHoldEnemy == pEnemy ||
+				mModel->AnimationCompare(CLIP::ATTACK32) && m_pPrevHoldEnemy == pEnemy)
 			{
-
 				CBoss* pBoss = dynamic_cast<CBoss*>(m_pNearEnemy);
 				if (!pBoss)
 				{

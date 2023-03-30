@@ -174,9 +174,9 @@ void CPlayerCamera::LateTick(_double TimeDelta)
 		}
 	}
 
-	//이거하면 풀면 콜리전 보임
-	//if (!m_bFadeIn && !m_bFadeOut)
-	//	return;
+	//이거 풀면 콜리전 보임
+	if (!m_bFadeIn && !m_bFadeOut)
+		return;
 
 	if (nullptr != m_pRenderer)
 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_ENDING, this);
@@ -221,6 +221,13 @@ void CPlayerCamera::AttackShake()
 	ShakeReset();
 	StartShake(4.f, 2.5f);
 }
+
+void CPlayerCamera::ThornShake()
+{
+	ShakeReset();
+	StartShake(2.f, 1.5f);
+}
+
 
 HRESULT CPlayerCamera::Add_Components()
 {

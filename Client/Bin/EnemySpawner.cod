@@ -6020,7 +6020,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?LevelEnd@CPlayerCamera@Client@@QEAAXXZ PROC		; Client::CPlayerCamera::LevelEnd, COMDAT
 
-; 32   : 	void LevelEnd() { m_bFadeIn = true; m_bFadeInStart = true; }
+; 33   : 	void LevelEnd() { m_bFadeIn = true; m_bFadeInStart = true; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx

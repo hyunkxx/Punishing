@@ -28,6 +28,7 @@ public:
 
 public:
 	void AttackShake();
+	void ThornShake();
 	CCollider* GetCollider() { return m_pCollider; }
 	void LevelEnd() { m_bFadeIn = true; m_bFadeInStart = true; }
 public:

@@ -330,7 +330,7 @@ private: // Command
 	_float3 vPrevPosition;
 
 	//강화상태
-	_bool m_bEvolution = false;
+	_bool m_bEvolution = true;
 	_bool m_bEvolutionAttack = false;
 
 	//회피 (대쉬 콜리전)
@@ -407,6 +407,8 @@ private: // Command
 	_float3 m_vPrevLook = { 0.f, 0.f, 1.f };
 	_bool m_bStandUp = false;
 
+	CEnemy* m_pPrevHoldEnemy = nullptr;
+	CEnemy* m_pAttackTargetEnemy = nullptr;
 };
 
 END
