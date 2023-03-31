@@ -36,6 +36,10 @@ public:
 	void SetWinMotion(_bool value) { m_isWinMotionPlay = value; }
 	_bool IsWinMotionPlay() { return m_isWinMotionPlay; }
 	//이걸로 여기저기서 체크할래
+
+	//몬스터 스폰체크
+	void SetSpawned(_bool value) { m_bEnemySpawned = value; }
+	_bool IsSpawned() { return m_bEnemySpawned; }
 public:
 	virtual void Free() override;
 
@@ -52,6 +56,9 @@ private:
 	_bool m_bLevelEnd[(_uint)LEVEL::MAX] = { false, false };
 	//레벨 승리 모션중
 	_bool m_isWinMotionPlay = false;
+
+	//스폰되기전 이펙트 false
+	_bool m_bEnemySpawned = false;
 };
 
 END

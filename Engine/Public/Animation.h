@@ -34,6 +34,7 @@ public:
 	void SetCustomFinishTime(_double value) { m_CustomFinishTime = value; }
 	_bool IsPreFinishCustom(_double value);
 	_bool IsPreFinishEx() const { return m_isPreFinishEx; }
+	_double GetCurrentTimeAcc() const { return m_LocalTime; }
 	void LocalReset() { m_LocalTime = 0.0; }
 	void Reset();
 	void LerpFinish();

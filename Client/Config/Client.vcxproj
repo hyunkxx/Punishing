@@ -209,6 +209,7 @@
     <ClInclude Include="..\public\SkillBase.h" />
     <ClInclude Include="..\public\Skybox.h" />
     <ClInclude Include="..\public\StageCollisionManager.h" />
+    <ClInclude Include="..\Public\SwordTrail.h" />
     <ClInclude Include="..\public\Thorn.h" />
     <ClInclude Include="..\public\Wall.h" />
     <ClInclude Include="..\public\Weapon.h" />
@@ -273,6 +274,7 @@
     <ClCompile Include="..\private\SkillBase.cpp" />
     <ClCompile Include="..\private\Skybox.cpp" />
     <ClCompile Include="..\private\StageCollisionManager.cpp" />
+    <ClCompile Include="..\Private\SwordTrail.cpp" />
     <ClCompile Include="..\private\Thorn.cpp" />
     <ClCompile Include="..\private\Wall.cpp" />
     <ClCompile Include="..\private\Weapon.cpp" />
@@ -297,6 +299,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_SWORDTRAIL.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_UI.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXANIMMODEL.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXCUBE.hlsl" />

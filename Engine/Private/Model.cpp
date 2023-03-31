@@ -299,6 +299,11 @@ _bool CModel::AnimationIsPreFinishCustom(_double value)
 	return m_Animations[m_iCurrentAnimation]->IsPreFinishCustom(value);
 }
 
+_double CModel::GetCurrentTimeAcc() const
+{
+	return m_Animations[m_iCurrentAnimation]->GetCurrentTimeAcc();
+}
+
 void CModel::AnimationReset()
 {
 	m_Animations[m_iCurrentAnimation]->Reset();

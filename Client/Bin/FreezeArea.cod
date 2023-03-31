@@ -2316,6 +2316,7 @@ PUBLIC	??0CFreezeArea@Client@@QEAA@AEBV01@@Z		; Client::CFreezeArea::CFreezeArea
 PUBLIC	??_GCFreezeArea@Client@@EEAAPEAXI@Z		; Client::CFreezeArea::`scalar deleting destructor'
 PUBLIC	?IsFreeze@CApplicationManager@Client@@QEBA_NXZ	; Client::CApplicationManager::IsFreeze
 PUBLIC	?GetPlayerPrevPosition@CApplicationManager@Client@@QEAA?AT__m128@@XZ ; Client::CApplicationManager::GetPlayerPrevPosition
+PUBLIC	?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z ; Client::CApplicationManager::IsLevelFinish
 PUBLIC	??$Safe_Release@PEAVCFreezeArea@Client@@@Engine@@YAKAEAPEAVCFreezeArea@Client@@@Z ; Engine::Safe_Release<Client::CFreezeArea * __ptr64>
 PUBLIC	??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 PUBLIC	??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
@@ -2528,8 +2529,8 @@ $pdata$?SetPosition@CFreezeArea@Client@@QEAAXT__m128@@@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?AddComponents@CFreezeArea@Client@@AEAAJXZ DD imagerel $LN7
-	DD	imagerel $LN7+329
+$pdata$?AddComponents@CFreezeArea@Client@@AEAAJXZ DD imagerel $LN10
+	DD	imagerel $LN10+426
 	DD	imagerel $unwind$?AddComponents@CFreezeArea@Client@@AEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -2591,6 +2592,12 @@ pdata	SEGMENT
 $pdata$?GetPlayerPrevPosition@CApplicationManager@Client@@QEAA?AT__m128@@XZ DD imagerel $LN3
 	DD	imagerel $LN3+107
 	DD	imagerel $unwind$?GetPlayerPrevPosition@CApplicationManager@Client@@QEAA?AT__m128@@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z DD imagerel $LN3
+	DD	imagerel $LN3+72
+	DD	imagerel $unwind$?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -2753,7 +2760,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0c1H ; `Client::CFreezeArea::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0c9H ; `Client::CFreezeArea::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1DO@LPFJJOBC@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAF?$AAr?$AAe?$AAe?$AAz?$AAe?$AAA?$AAr?$AAe?$AAa?$AA?$AA@
 CONST	SEGMENT
@@ -2778,7 +2785,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CFreezeArea@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CFreezeArea@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0b5H ; `Client::CFreezeArea::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CFreezeArea@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0bdH ; `Client::CFreezeArea::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@
 CONST	SEGMENT
@@ -2956,6 +2963,13 @@ $unwind$??$Safe_Release@PEAVCFreezeArea@Client@@@Engine@@YAKAEAPEAVCFreezeArea@C
 	DD	010e2313H
 	DD	070070021H
 	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z DD 05052c01H
+	DD	01120315H
+	DD	0700b0019H
+	DD	0500aH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -3708,6 +3722,42 @@ $LN2@Safe_Relea:
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+;	COMDAT ?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z
+_TEXT	SEGMENT
+this$ = 224
+eLevel$ = 232
+?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z PROC ; Client::CApplicationManager::IsLevelFinish, COMDAT
+
+; 34   : 	_bool IsLevelFinish(LEVEL eLevel) { return m_bLevelEnd[(_uint)eLevel]; }
+
+$LN3:
+  00000	89 54 24 10	 mov	 DWORD PTR [rsp+16], edx
+  00004	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00009	55		 push	 rbp
+  0000a	57		 push	 rdi
+  0000b	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  00012	48 8b ec	 mov	 rbp, rsp
+  00015	48 8b fc	 mov	 rdi, rsp
+  00018	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  0001d	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00022	f3 ab		 rep stosd
+  00024	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+  0002c	8b 85 e8 00 00
+	00		 mov	 eax, DWORD PTR eLevel$[rbp]
+  00032	48 8b 8d e0 00
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  00039	0f b6 44 01 49	 movzx	 eax, BYTE PTR [rcx+rax+73]
+  0003e	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  00045	5f		 pop	 rdi
+  00046	5d		 pop	 rbp
+  00047	c3		 ret	 0
+?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z ENDP ; Client::CApplicationManager::IsLevelFinish
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
 ;	COMDAT ?GetPlayerPrevPosition@CApplicationManager@Client@@QEAA?AT__m128@@XZ
 _TEXT	SEGMENT
 $T1 = 208
@@ -3949,7 +3999,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CFreezeArea@Client@@UEAAXXZ PROC			; Client::CFreezeArea::Free, COMDAT
 
-; 205  : {
+; 213  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3965,15 +4015,15 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 206  : 	__super::Free();
+; 214  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CGameObject@Engine@@UEAAXXZ
 
-; 207  : 
-; 208  : 	Safe_Release(m_pRenderer);
+; 215  : 
+; 216  : 	Safe_Release(m_pRenderer);
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3981,7 +4031,7 @@ $LN3:
   00042	48 8b c8	 mov	 rcx, rax
   00045	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
-; 209  : 	Safe_Release(m_pTransform);
+; 217  : 	Safe_Release(m_pTransform);
 
   0004a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3990,7 +4040,7 @@ $LN3:
   00057	48 8b c8	 mov	 rcx, rax
   0005a	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 210  : 	Safe_Release(m_pModel);
+; 218  : 	Safe_Release(m_pModel);
 
   0005f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3999,7 +4049,7 @@ $LN3:
   0006c	48 8b c8	 mov	 rcx, rax
   0006f	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ; Engine::Safe_Release<Engine::CModel * __ptr64>
 
-; 211  : 	Safe_Release(m_pShader);
+; 219  : 	Safe_Release(m_pShader);
 
   00074	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4008,8 +4058,8 @@ $LN3:
   00081	48 8b c8	 mov	 rcx, rax
   00084	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ; Engine::Safe_Release<Engine::CShader * __ptr64>
 
-; 212  : 
-; 213  : }
+; 220  : 
+; 221  : }
 
   00089	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4032,7 +4082,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CFreezeArea::Clone, COMDAT
 
-; 193  : {
+; 201  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4057,7 +4107,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 194  : 	CFreezeArea* pInstance = new CFreezeArea(*this);
+; 202  : 	CFreezeArea* pInstance = new CFreezeArea(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CFreezeArea@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
@@ -4094,7 +4144,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 195  : 	if (FAILED(pInstance->Initialize(pArg)))
+; 203  : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 78 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -4103,8 +4153,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Clone
 
-; 196  : 	{
-; 197  : 		MSG_BOX("Failed to Clone : CFreezeArea");
+; 204  : 	{
+; 205  : 		MSG_BOX("Failed to Clone : CFreezeArea");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -4115,19 +4165,19 @@ $LN5@Clone:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 198  : 		Safe_Release(pInstance);
+; 206  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCFreezeArea@Client@@@Engine@@YAKAEAPEAVCFreezeArea@Client@@@Z ; Engine::Safe_Release<Client::CFreezeArea * __ptr64>
 $LN2@Clone:
 
-; 199  : 	}
-; 200  : 
-; 201  : 	return pInstance;
+; 207  : 	}
+; 208  : 
+; 209  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 202  : }
+; 210  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -4225,7 +4275,7 @@ pDevice$ = 368
 pContext$ = 376
 ?Create@CFreezeArea@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CFreezeArea::Create, COMDAT
 
-; 181  : {
+; 189  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4250,7 +4300,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 182  : 	CFreezeArea*	pInstance = new CFreezeArea(pDevice, pContext);
+; 190  : 	CFreezeArea*	pInstance = new CFreezeArea(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CFreezeArea@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -4289,15 +4339,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 183  : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 191  : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CFreezeArea@Client@@UEAAJXZ ; Client::CFreezeArea::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Create
 
-; 184  : 	{
-; 185  : 		MSG_BOX("Failed to Create : CFreezeArea");
+; 192  : 	{
+; 193  : 		MSG_BOX("Failed to Create : CFreezeArea");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -4308,19 +4358,19 @@ $LN5@Create:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 186  : 		Safe_Release(pInstance);
+; 194  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCFreezeArea@Client@@@Engine@@YAKAEAPEAVCFreezeArea@Client@@@Z ; Engine::Safe_Release<Client::CFreezeArea * __ptr64>
 $LN2@Create:
 
-; 187  : 	}
-; 188  : 
-; 189  : 	return pInstance;
+; 195  : 	}
+; 196  : 
+; 197  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 190  : }
+; 198  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -4416,7 +4466,7 @@ $T3 = 452
 this$ = 528
 ?SetupShaderResources@CFreezeArea@Client@@AEAAJXZ PROC	; Client::CFreezeArea::SetupShaderResources, COMDAT
 
-; 145  : {
+; 153  : {
 
 $LN13:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4432,7 +4482,7 @@ $LN13:
   00022	48 8b 8c 24 38
 	02 00 00	 mov	 rcx, QWORD PTR [rsp+568]
 
-; 146  : 	if (nullptr == m_pShader)
+; 154  : 	if (nullptr == m_pShader)
 
   0002a	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4440,21 +4490,21 @@ $LN13:
 	00 00 00	 cmp	 QWORD PTR [rax+144], 0
   00039	75 0a		 jne	 SHORT $LN2@SetupShade
 
-; 147  : 		return E_FAIL;
+; 155  : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00040	e9 09 02 00 00	 jmp	 $LN1@SetupShade
 $LN2@SetupShade:
 
-; 148  : 
-; 149  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
+; 156  : 
+; 157  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
 
   00045	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0004b	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 150  : 
-; 151  : 	if (FAILED(m_pTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
+; 158  : 
+; 159  : 	if (FAILED(m_pTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
 
   0004f	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
@@ -4471,14 +4521,14 @@ $LN2@SetupShade:
   00078	85 c0		 test	 eax, eax
   0007a	7d 0a		 jge	 SHORT $LN3@SetupShade
 
-; 152  : 		return E_FAIL;
+; 160  : 		return E_FAIL;
 
   0007c	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00081	e9 c8 01 00 00	 jmp	 $LN1@SetupShade
 $LN3@SetupShade:
 
-; 153  : 
-; 154  : 	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
+; 161  : 
+; 162  : 	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
 
   00086	45 33 c0	 xor	 r8d, r8d
   00089	48 8d 95 04 01
@@ -4498,14 +4548,14 @@ $LN3@SetupShade:
   000b8	85 c0		 test	 eax, eax
   000ba	7d 0a		 jge	 SHORT $LN4@SetupShade
 
-; 155  : 		return E_FAIL;
+; 163  : 		return E_FAIL;
 
   000bc	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000c1	e9 88 01 00 00	 jmp	 $LN1@SetupShade
 $LN4@SetupShade:
 
-; 156  : 
-; 157  : 	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
+; 164  : 
+; 165  : 	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
 
   000c6	41 b8 01 00 00
 	00		 mov	 r8d, 1
@@ -4526,14 +4576,14 @@ $LN4@SetupShade:
   000fb	85 c0		 test	 eax, eax
   000fd	7d 0a		 jge	 SHORT $LN5@SetupShade
 
-; 158  : 		return E_FAIL;
+; 166  : 		return E_FAIL;
 
   000ff	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00104	e9 45 01 00 00	 jmp	 $LN1@SetupShade
 $LN5@SetupShade:
 
-; 159  : 
-; 160  : 	if (FAILED(m_pShader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
+; 167  : 
+; 168  : 	if (FAILED(m_pShader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
 
   00109	48 8d 95 c4 01
 	00 00		 lea	 rdx, QWORD PTR $T3[rbp]
@@ -4554,14 +4604,14 @@ $LN5@SetupShade:
   0013e	85 c0		 test	 eax, eax
   00140	7d 0a		 jge	 SHORT $LN6@SetupShade
 
-; 161  : 		return E_FAIL;
+; 169  : 		return E_FAIL;
 
   00142	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00147	e9 02 01 00 00	 jmp	 $LN1@SetupShade
 $LN6@SetupShade:
 
-; 162  : 
-; 163  : 	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
+; 170  : 
+; 171  : 	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
 
   0014c	33 d2		 xor	 edx, edx
   0014e	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
@@ -4569,19 +4619,19 @@ $LN6@SetupShade:
 	00		 call	 QWORD PTR __imp_?GetLightDesc@CGameInstance@Engine@@QEAAPEBUtagLight_Desc@2@I@Z
   00158	48 89 45 28	 mov	 QWORD PTR LightDesc$[rbp], rax
 
-; 164  : 	if (nullptr == LightDesc)
+; 172  : 	if (nullptr == LightDesc)
 
   0015c	48 83 7d 28 00	 cmp	 QWORD PTR LightDesc$[rbp], 0
   00161	75 0a		 jne	 SHORT $LN7@SetupShade
 
-; 165  : 		return E_FAIL;
+; 173  : 		return E_FAIL;
 
   00163	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00168	e9 e1 00 00 00	 jmp	 $LN1@SetupShade
 $LN7@SetupShade:
 
-; 166  : 
-; 167  : 	if (FAILED(m_pShader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
+; 174  : 
+; 175  : 	if (FAILED(m_pShader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
 
   0016d	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   00171	48 83 c0 04	 add	 rax, 4
@@ -4599,13 +4649,13 @@ $LN7@SetupShade:
   00199	85 c0		 test	 eax, eax
   0019b	7d 0a		 jge	 SHORT $LN8@SetupShade
 
-; 168  : 		return E_FAIL;
+; 176  : 		return E_FAIL;
 
   0019d	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001a2	e9 a7 00 00 00	 jmp	 $LN1@SetupShade
 $LN8@SetupShade:
 
-; 169  : 	if (FAILED(m_pShader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
+; 177  : 	if (FAILED(m_pShader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
 
   001a7	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   001ab	48 83 c0 28	 add	 rax, 40			; 00000028H
@@ -4623,13 +4673,13 @@ $LN8@SetupShade:
   001d3	85 c0		 test	 eax, eax
   001d5	7d 07		 jge	 SHORT $LN9@SetupShade
 
-; 170  : 		return E_FAIL;
+; 178  : 		return E_FAIL;
 
   001d7	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001dc	eb 70		 jmp	 SHORT $LN1@SetupShade
 $LN9@SetupShade:
 
-; 171  : 	if (FAILED(m_pShader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
+; 179  : 	if (FAILED(m_pShader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
 
   001de	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   001e2	48 83 c0 48	 add	 rax, 72			; 00000048H
@@ -4647,13 +4697,13 @@ $LN9@SetupShade:
   0020a	85 c0		 test	 eax, eax
   0020c	7d 07		 jge	 SHORT $LN10@SetupShade
 
-; 172  : 		return E_FAIL;
+; 180  : 		return E_FAIL;
 
   0020e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00213	eb 39		 jmp	 SHORT $LN1@SetupShade
 $LN10@SetupShade:
 
-; 173  : 	if (FAILED(m_pShader->SetRawValue("g_vLightAmbient", &LightDesc->vAmbient, sizeof(_float4))))
+; 181  : 	if (FAILED(m_pShader->SetRawValue("g_vLightAmbient", &LightDesc->vAmbient, sizeof(_float4))))
 
   00215	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   00219	48 83 c0 38	 add	 rax, 56			; 00000038H
@@ -4671,20 +4721,20 @@ $LN10@SetupShade:
   00241	85 c0		 test	 eax, eax
   00243	7d 07		 jge	 SHORT $LN11@SetupShade
 
-; 174  : 		return E_FAIL;
+; 182  : 		return E_FAIL;
 
   00245	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0024a	eb 02		 jmp	 SHORT $LN1@SetupShade
 $LN11@SetupShade:
 
-; 175  : 
-; 176  : 	return S_OK;
+; 183  : 
+; 184  : 	return S_OK;
 
   0024c	33 c0		 xor	 eax, eax
 $LN1@SetupShade:
 
-; 177  : 
-; 178  : }
+; 185  : 
+; 186  : }
 
   0024e	48 8d a5 f8 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+504]
@@ -4702,7 +4752,7 @@ this$ = 224
 
 ; 128  : {
 
-$LN7:
+$LN10:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	57		 push	 rdi
@@ -4739,7 +4789,7 @@ $LN7:
 ; 130  : 		return E_FAIL;
 
   00064	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00069	e9 d1 00 00 00	 jmp	 $LN1@AddCompone
+  00069	e9 32 01 00 00	 jmp	 $LN1@AddCompone
 $LN2@AddCompone:
 
 ; 131  : 
@@ -4767,7 +4817,7 @@ $LN2@AddCompone:
 ; 133  : 		return E_FAIL;
 
   000aa	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000af	e9 8b 00 00 00	 jmp	 $LN1@AddCompone
+  000af	e9 ec 00 00 00	 jmp	 $LN1@AddCompone
 $LN3@AddCompone:
 
 ; 134  : 
@@ -4790,55 +4840,102 @@ $LN3@AddCompone:
   000e6	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
   000ec	85 c0		 test	 eax, eax
-  000ee	7d 07		 jge	 SHORT $LN4@AddCompone
+  000ee	7d 0a		 jge	 SHORT $LN4@AddCompone
 
 ; 136  : 		return E_FAIL;
 
   000f0	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000f5	eb 48		 jmp	 SHORT $LN1@AddCompone
+  000f5	e9 a6 00 00 00	 jmp	 $LN1@AddCompone
 $LN4@AddCompone:
 
 ; 137  : 
-; 138  : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_freeze_area"), TEXT("com_model"), (CComponent**)&m_pModel)))
+; 138  : 	if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
 
-  000f7	48 8b 85 e0 00
+  000fa	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
+  000ff	33 d2		 xor	 edx, edx
+  00101	48 8b c8	 mov	 rcx, rax
+  00104	e8 00 00 00 00	 call	 ?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z ; Client::CApplicationManager::IsLevelFinish
+  00109	0f b6 c0	 movzx	 eax, al
+  0010c	85 c0		 test	 eax, eax
+  0010e	75 48		 jne	 SHORT $LN5@AddCompone
+
+; 139  : 	{
+; 140  : 		if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_freeze_area"), TEXT("com_model"), (CComponent**)&m_pModel)))
+
+  00110	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000fe	48 05 88 00 00
+  00117	48 05 88 00 00
 	00		 add	 rax, 136		; 00000088H
-  00104	48 c7 44 24 28
+  0011d	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
-  0010d	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  00112	4c 8d 0d 00 00
+  00126	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  0012b	4c 8d 0d 00 00
 	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BE@MLNOEPCA@?$AAc?$AAo?$AAm?$AA_?$AAm?$AAo?$AAd?$AAe?$AAl?$AA?$AA@
-  00119	4c 8d 05 00 00
+  00132	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DI@NHDKGLND@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAm?$AAo?$AAd?$AAe?$AAl?$AA_?$AAf?$AAr?$AAe?$AAe?$AAz?$AAe?$AA_?$AAa?$AAr?$AAe?$AAa?$AA?$AA@
-  00120	ba 03 00 00 00	 mov	 edx, 3
-  00125	48 8b 8d e0 00
+  00139	ba 03 00 00 00	 mov	 edx, 3
+  0013e	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0012c	ff 15 00 00 00
+  00145	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
-  00132	85 c0		 test	 eax, eax
-  00134	7d 07		 jge	 SHORT $LN5@AddCompone
+  0014b	85 c0		 test	 eax, eax
+  0014d	7d 07		 jge	 SHORT $LN7@AddCompone
 
-; 139  : 		return E_FAIL;
+; 141  : 			return E_FAIL;
 
-  00136	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0013b	eb 02		 jmp	 SHORT $LN1@AddCompone
+  0014f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00154	eb 4a		 jmp	 SHORT $LN1@AddCompone
+$LN7@AddCompone:
+
+; 142  : 	}
+; 143  : 	else
+
+  00156	eb 46		 jmp	 SHORT $LN6@AddCompone
 $LN5@AddCompone:
 
-; 140  : 
-; 141  : 	return S_OK;
+; 144  : 	{
+; 145  : 		if (FAILED(CGameObject::Add_Component(LEVEL_BOSS, TEXT("proto_com_model_freeze_area"), TEXT("com_model"), (CComponent**)&m_pModel)))
 
-  0013d	33 c0		 xor	 eax, eax
+  00158	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0015f	48 05 88 00 00
+	00		 add	 rax, 136		; 00000088H
+  00165	48 c7 44 24 28
+	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
+  0016e	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  00173	4c 8d 0d 00 00
+	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BE@MLNOEPCA@?$AAc?$AAo?$AAm?$AA_?$AAm?$AAo?$AAd?$AAe?$AAl?$AA?$AA@
+  0017a	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DI@NHDKGLND@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAm?$AAo?$AAd?$AAe?$AAl?$AA_?$AAf?$AAr?$AAe?$AAe?$AAz?$AAe?$AA_?$AAa?$AAr?$AAe?$AAa?$AA?$AA@
+  00181	ba 04 00 00 00	 mov	 edx, 4
+  00186	48 8b 8d e0 00
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  0018d	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
+  00193	85 c0		 test	 eax, eax
+  00195	7d 07		 jge	 SHORT $LN8@AddCompone
+
+; 146  : 			return E_FAIL;
+
+  00197	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  0019c	eb 02		 jmp	 SHORT $LN1@AddCompone
+$LN8@AddCompone:
+$LN6@AddCompone:
+
+; 147  : 	}
+; 148  : 
+; 149  : 	return S_OK;
+
+  0019e	33 c0		 xor	 eax, eax
 $LN1@AddCompone:
 
-; 142  : }
+; 150  : }
 
-  0013f	48 8d a5 c8 00
+  001a0	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  00146	5f		 pop	 rdi
-  00147	5d		 pop	 rbp
-  00148	c3		 ret	 0
+  001a7	5f		 pop	 rdi
+  001a8	5d		 pop	 rbp
+  001a9	c3		 ret	 0
 ?AddComponents@CFreezeArea@Client@@AEAAJXZ ENDP		; Client::CFreezeArea::AddComponents
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -5115,11 +5212,11 @@ $LN5:
   0005e	48 83 78 78 00	 cmp	 QWORD PTR [rax+120], 0
   00063	74 1d		 je	 SHORT $LN3@LateTick
 
-; 91   : 			m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+; 91   : 			m_pRenderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
 
   00065	4c 8b 85 e0 00
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
-  0006c	ba 01 00 00 00	 mov	 edx, 1
+  0006c	ba 03 00 00 00	 mov	 edx, 3
   00071	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00078	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]

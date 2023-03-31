@@ -4672,7 +4672,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetBodyCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ PROC ; Client::CCharacter::GetBodyCollider, COMDAT
 
-; 237  : 	class CCollider* GetBodyCollider() const { return mCollider; };
+; 238  : 	class CCollider* GetBodyCollider() const { return mCollider; };
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx

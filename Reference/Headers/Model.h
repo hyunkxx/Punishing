@@ -43,6 +43,7 @@ public:
 	_bool AnimationIsPreFinish(); //공격 타이밍 0.5
 	_bool AnimationIsPreFinishEx(); //공격전 타이밍 0.3
 	_bool AnimationIsPreFinishCustom(_double value); //종료 타이밍 지정
+	_double GetCurrentTimeAcc() const;
 	void AnimationReset();
 	void SetFinish(_bool Value);
 

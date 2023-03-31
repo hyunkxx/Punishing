@@ -47,6 +47,7 @@ void CEnemySpawner::Tick(_double TimeDelta)
 	{
 		//스포너 리셋임
 		m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(31.f, 0.f, 60.f, 1.f));
+
 		m_iRespawnCount = 0.f;
 	}
 
@@ -95,11 +96,13 @@ void CEnemySpawner::Tick(_double TimeDelta)
 				if (m_iRespawnCount >= 0)
 				{
 					m_isEnter = false;
+					CApplicationManager::GetInstance()->SetSpawned(false);
+
 					m_iRespawnCount = 0;
 					m_iCurSpawnerIndex = SECOND_SPAWNER;
 
 					m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(28.f, 0.f, 60.f, 1.f));
-					m_pTransform->SetRotation(VECTOR_UP, XMConvertToRadians(45.f));
+					m_pTransform->SetRotation(VECTOR_UP, XMConvertToRadians(40.f));
 				}
 				break;
 			case SECOND_SPAWNER:
@@ -208,6 +211,7 @@ void CEnemySpawner::OnCollisionEnter(CCollider * src, CCollider * dest)
 		{
 			m_isEnter = true;
 
+			CApplicationManager::GetInstance()->SetSpawned(true);
 			CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 			CLayer* pLayer = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("layer_enemy"));
@@ -215,7 +219,11 @@ void CEnemySpawner::OnCollisionEnter(CCollider * src, CCollider * dest)
 			{
 				_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
 				_vector vLook = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_LOOK));
-				_vector vSpawnPos = vPos + vLook * 8.f;
+				_vector vSpawnPos;
+				if(m_iCurSpawnerIndex == FIRST_SPAWNER)
+					vSpawnPos = vPos + vLook * 8.f;
+				else
+					vSpawnPos = vPos + vLook * 17.f;
 
 				static_cast<CEnemy*>(iter->second)->Reset(_float3(XMVectorGetX(vSpawnPos), 0.f, XMVectorGetZ(vSpawnPos)), _float(8.f));
 				static_cast<CEnemy*>(iter->second)->LookPlayer();

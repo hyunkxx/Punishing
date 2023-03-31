@@ -12,6 +12,7 @@
 #include "Enemy.h"
 #include "Character.h"
 #include "EnemySpawner.h"
+#include "SwordTrail.h"
 
 
 #include "PlayerCamera.h"
@@ -185,7 +186,7 @@ HRESULT CLevel_GamePlay::Ready_Layer_Player(const _tchar* pLayerTag)
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	mPlayer = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_kamui"), pLayerTag, L"kamui");
-
+	
 	return S_OK;
 }
 

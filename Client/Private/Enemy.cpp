@@ -68,13 +68,13 @@ HRESULT CEnemy::Initialize(void * pArg)
 	switch (m_eType)
 	{
 	case TYPE::HUMANOID:
-		m_State.fMaxHp = 4000.f;
-		m_State.fCurHp = 4000.f;
+		m_State.fMaxHp = 1000.f;
+		m_State.fCurHp = 1000.f;
 		m_pWeaponBone = model->GetBonePtr("BulletCase");
 		break;
 	case TYPE::ANIMAL:
-		m_State.fMaxHp = 6000.f;
-		m_State.fCurHp = 6000.f;
+		m_State.fMaxHp = 1000.f;
+		m_State.fCurHp = 1000.f;
 		m_pWeaponBone = model->GetBonePtr("Bip001");
 		break;
 	}

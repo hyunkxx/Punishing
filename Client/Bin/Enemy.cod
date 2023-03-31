@@ -2498,8 +2498,8 @@ PUBLIC	__real@40800000
 PUBLIC	__real@40a00000
 PUBLIC	__real@41000000
 PUBLIC	__real@41c80000
+PUBLIC	__real@447a0000
 PUBLIC	__real@457a0000
-PUBLIC	__real@45bb8000
 PUBLIC	__real@bf4ccccd
 PUBLIC	__xmm@80000000800000008000000080000000
 EXTRN	??3@YAXPEAX_K@Z:PROC				; operator delete
@@ -3228,13 +3228,13 @@ CONST	ENDS
 CONST	SEGMENT
 __real@bf4ccccd DD 0bf4ccccdr			; -0.8
 CONST	ENDS
-;	COMDAT __real@45bb8000
-CONST	SEGMENT
-__real@45bb8000 DD 045bb8000r			; 6000
-CONST	ENDS
 ;	COMDAT __real@457a0000
 CONST	SEGMENT
 __real@457a0000 DD 0457a0000r			; 4000
+CONST	ENDS
+;	COMDAT __real@447a0000
+CONST	SEGMENT
+__real@447a0000 DD 0447a0000r			; 1000
 CONST	ENDS
 ;	COMDAT __real@41c80000
 CONST	SEGMENT
@@ -5768,7 +5768,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetEnemyCheckCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ PROC ; Client::CCharacter::GetEnemyCheckCollider, COMDAT
 
-; 240  : 	CCollider* GetEnemyCheckCollider() const { return mEnemyCheckCollider; }
+; 241  : 	CCollider* GetEnemyCheckCollider() const { return mEnemyCheckCollider; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -5801,7 +5801,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetWeaponCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ PROC ; Client::CCharacter::GetWeaponCollider, COMDAT
 
-; 238  : 	CCollider* GetWeaponCollider() const { return mWeaponCollider; }
+; 239  : 	CCollider* GetWeaponCollider() const { return mWeaponCollider; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -5834,7 +5834,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetBodyCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ PROC ; Client::CCharacter::GetBodyCollider, COMDAT
 
-; 237  : 	class CCollider* GetBodyCollider() const { return mCollider; };
+; 238  : 	class CCollider* GetBodyCollider() const { return mCollider; };
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -15043,21 +15043,21 @@ $LN6@Initialize:
 
 ; 69   : 	{
 ; 70   : 	case TYPE::HUMANOID:
-; 71   : 		m_State.fMaxHp = 4000.f;
+; 71   : 		m_State.fMaxHp = 1000.f;
 
   0044c	48 8b 85 b0 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00453	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@457a0000
+	00 00 00	 movss	 xmm0, DWORD PTR __real@447a0000
   0045b	f3 0f 11 80 30
 	01 00 00	 movss	 DWORD PTR [rax+304], xmm0
 
-; 72   : 		m_State.fCurHp = 4000.f;
+; 72   : 		m_State.fCurHp = 1000.f;
 
   00463	48 8b 85 b0 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0046a	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@457a0000
+	00 00 00	 movss	 xmm0, DWORD PTR __real@447a0000
   00472	f3 0f 11 80 2c
 	01 00 00	 movss	 DWORD PTR [rax+300], xmm0
 
@@ -15082,21 +15082,21 @@ $LN6@Initialize:
 $LN7@Initialize:
 
 ; 75   : 	case TYPE::ANIMAL:
-; 76   : 		m_State.fMaxHp = 6000.f;
+; 76   : 		m_State.fMaxHp = 1000.f;
 
   004a5	48 8b 85 b0 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004ac	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@45bb8000
+	00 00 00	 movss	 xmm0, DWORD PTR __real@447a0000
   004b4	f3 0f 11 80 30
 	01 00 00	 movss	 DWORD PTR [rax+304], xmm0
 
-; 77   : 		m_State.fCurHp = 6000.f;
+; 77   : 		m_State.fCurHp = 1000.f;
 
   004bc	48 8b 85 b0 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004c3	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@45bb8000
+	00 00 00	 movss	 xmm0, DWORD PTR __real@447a0000
   004cb	f3 0f 11 80 2c
 	01 00 00	 movss	 DWORD PTR [rax+300], xmm0
 

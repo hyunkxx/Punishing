@@ -88,7 +88,7 @@ void CFreezeArea::LateTick(_double TimeDelta)
 	if (m_bActive)
 	{
 		if (nullptr != m_pRenderer)
-			m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+			m_pRenderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
 	}
 }
 
@@ -135,8 +135,16 @@ HRESULT CFreezeArea::AddComponents()
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"), TEXT("com_shader"), (CComponent**)&m_pShader)))
 		return E_FAIL;
 
-	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_freeze_area"), TEXT("com_model"), (CComponent**)&m_pModel)))
-		return E_FAIL;
+	if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+	{
+		if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_freeze_area"), TEXT("com_model"), (CComponent**)&m_pModel)))
+			return E_FAIL;
+	}
+	else
+	{
+		if (FAILED(CGameObject::Add_Component(LEVEL_BOSS, TEXT("proto_com_model_freeze_area"), TEXT("com_model"), (CComponent**)&m_pModel)))
+			return E_FAIL;
+	}
 
 	return S_OK;
 }

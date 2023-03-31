@@ -214,6 +214,9 @@
     <ClInclude Include="..\public\Thorn.h">
       <Filter>src\02. GameObjects\04. Character\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\SwordTrail.h">
+      <Filter>src\02. GameObjects\04. Character\Skill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -333,6 +336,9 @@
     <ClCompile Include="..\private\Thorn.cpp">
       <Filter>src\02. GameObjects\04. Character\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="..\Private\SwordTrail.cpp">
+      <Filter>src\02. GameObjects\04. Character\Skill</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc">
@@ -381,6 +387,9 @@
       <Filter>src\99. Shader</Filter>
     </FxCompile>
     <FxCompile Include="..\..\Shader\SHADER_UI.hlsl">
+      <Filter>src\99. Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_SWORDTRAIL.hlsl">
       <Filter>src\99. Shader</Filter>
     </FxCompile>
   </ItemGroup>

@@ -2966,7 +2966,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CApplicationManager@Client@@AEAA@XZ DD imagerel $LN5
-	DD	imagerel $LN5+215
+	DD	imagerel $LN5+226
 	DD	imagerel $unwind$??0CApplicationManager@Client@@AEAA@XZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -3844,7 +3844,7 @@ $ip2state$??0CApplicationManager@Client@@AEAA@XZ DD imagerel ??0CApplicationMana
 	DD	00H
 	DD	imagerel ??0CApplicationManager@Client@@AEAA@XZ+104
 	DD	01H
-	DD	imagerel ??0CApplicationManager@Client@@AEAA@XZ+198
+	DD	imagerel ??0CApplicationManager@Client@@AEAA@XZ+209
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -6626,20 +6626,20 @@ $LN5:
   00067	90		 npad	 1
 ; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
 
-; 44   : 	_bool m_bFreeze = false;
+; 48   : 	_bool m_bFreeze = false;
 
   00068	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0006f	c6 40 38 00	 mov	 BYTE PTR [rax+56], 0
 
-; 45   : 	_bool m_bFreezeReady = true;
+; 49   : 	_bool m_bFreezeReady = true;
 
   00073	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0007a	c6 40 39 01	 mov	 BYTE PTR [rax+57], 1
 
-; 46   : 
-; 47   : 	_float3 m_vPrevPosition = { 0.f, 0.f, 0.f };
+; 50   : 
+; 51   : 	_float3 m_vPrevPosition = { 0.f, 0.f, 0.f };
 
   0007e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6650,16 +6650,16 @@ $LN5:
   00092	48 8b c8	 mov	 rcx, rax
   00095	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 48   : 
-; 49   : 	_bool m_bHitFreeze = false;
+; 52   : 
+; 53   : 	_bool m_bHitFreeze = false;
 
   0009a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000a1	c6 40 48 00	 mov	 BYTE PTR [rax+72], 0
 
-; 50   : 
-; 51   : 	//레벨 끝났다
-; 52   : 	_bool m_bLevelEnd[(_uint)LEVEL::MAX] = { false, false };
+; 54   : 
+; 55   : 	//레벨 끝났다
+; 56   : 	_bool m_bLevelEnd[(_uint)LEVEL::MAX] = { false, false };
 
   000a5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6668,23 +6668,31 @@ $LN5:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000b7	c6 40 4a 00	 mov	 BYTE PTR [rax+74], 0
 
-; 53   : 	//레벨 승리 모션중
-; 54   : 	_bool m_isWinMotionPlay = false;
+; 57   : 	//레벨 승리 모션중
+; 58   : 	_bool m_isWinMotionPlay = false;
 
   000bb	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000c2	c6 40 4b 00	 mov	 BYTE PTR [rax+75], 0
+
+; 59   : 
+; 60   : 	//스폰되기전 이펙트 false
+; 61   : 	_bool m_bEnemySpawned = false;
+
+  000c6	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000cd	c6 40 4c 00	 mov	 BYTE PTR [rax+76], 0
 ; File c:\users\arcco\documents\github\framework\client\private\applicationmanager.cpp
 
 ; 8    : }
 
-  000c6	48 8b 85 00 01
+  000d1	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000cd	48 8d a5 e8 00
+  000d8	48 8d a5 e8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+232]
-  000d4	5f		 pop	 rdi
-  000d5	5d		 pop	 rbp
-  000d6	c3		 ret	 0
+  000df	5f		 pop	 rdi
+  000e0	5d		 pop	 rbp
+  000e1	c3		 ret	 0
 ??0CApplicationManager@Client@@AEAA@XZ ENDP		; Client::CApplicationManager::CApplicationManager
 _TEXT	ENDS
 ;	COMDAT text$x

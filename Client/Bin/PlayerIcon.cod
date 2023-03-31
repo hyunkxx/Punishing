@@ -13011,7 +13011,7 @@ tv67 = 192
 this$ = 240
 ?GetLockOnTarget@CCharacter@Client@@QEAAPEAVCGameObject@Engine@@XZ PROC ; Client::CCharacter::GetLockOnTarget, COMDAT
 
-; 212  : 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
+; 213  : 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13060,7 +13060,7 @@ tv66 = 192
 this$ = 240
 ?IsDashGageFull@CCharacter@Client@@QEAA_NXZ PROC	; Client::CCharacter::IsDashGageFull, COMDAT
 
-; 174  : 	_bool IsDashGageFull() { return m_fCurDash >= 20.f; }
+; 175  : 	_bool IsDashGageFull() { return m_fCurDash >= 20.f; }
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13105,7 +13105,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?IsDashable@CCharacter@Client@@QEAA_NXZ PROC		; Client::CCharacter::IsDashable, COMDAT
 
-; 173  : 	_bool IsDashable() { return m_bDashable; }
+; 174  : 	_bool IsDashable() { return m_bDashable; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13138,7 +13138,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?IsAttackalbe@CCharacter@Client@@QEAA_NXZ PROC		; Client::CCharacter::IsAttackalbe, COMDAT
 
-; 172  : 	_bool IsAttackalbe() { return m_bAttackable; }
+; 173  : 	_bool IsAttackalbe() { return m_bAttackable; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13155,8 +13155,8 @@ $LN3:
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
   00028	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0002f	0f b6 80 1d 01
-	00 00		 movzx	 eax, BYTE PTR [rax+285]
+  0002f	0f b6 80 21 01
+	00 00		 movzx	 eax, BYTE PTR [rax+289]
   00036	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
   0003d	5f		 pop	 rdi
@@ -13171,7 +13171,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?IsEvolution@CCharacter@Client@@QEAA_NXZ PROC		; Client::CCharacter::IsEvolution, COMDAT
 
-; 171  : 	_bool IsEvolution() { return m_bEvolution; }
+; 172  : 	_bool IsEvolution() { return m_bEvolution; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13204,7 +13204,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?IsEvolutionReady@CCharacter@Client@@QEAA_NXZ PROC	; Client::CCharacter::IsEvolutionReady, COMDAT
 
-; 170  : 	_bool IsEvolutionReady() { return m_bEvolutionReady; }
+; 171  : 	_bool IsEvolutionReady() { return m_bEvolutionReady; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13237,7 +13237,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetEvolutionTime@CCharacter@Client@@QEBAMXZ PROC	; Client::CCharacter::GetEvolutionTime, COMDAT
 
-; 168  : 	_float GetEvolutionTime() const { return m_fEvolutionTimeOut; }
+; 169  : 	_float GetEvolutionTime() const { return m_fEvolutionTimeOut; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13270,7 +13270,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetCurEvolutionTime@CCharacter@Client@@QEBAMXZ PROC	; Client::CCharacter::GetCurEvolutionTime, COMDAT
 
-; 167  : 	_float GetCurEvolutionTime() const { return m_fCurEvolutionAcc; }
+; 168  : 	_float GetCurEvolutionTime() const { return m_fCurEvolutionAcc; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13303,7 +13303,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetComboCount@CCharacter@Client@@QEAAHXZ PROC		; Client::CCharacter::GetComboCount, COMDAT
 
-; 162  : 	_int GetComboCount() { return m_iComboCount; }
+; 163  : 	_int GetComboCount() { return m_iComboCount; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx

@@ -261,6 +261,10 @@ HRESULT CLoader::Load_Level_BossRoom()
 	// 플레이어 모델부터 로컬 메트릭스 설정 (Y축 회전 180도)
 	LocalMatrix = XMMatrixRotationY(XMConvertToRadians(180.0f));
 
+	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, L"proto_com_model_freeze_area",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/FreezeArea/FreezeArea.fbx", LocalMatrix, 1))))
+		return E_FAIL;
+
 	if (FAILED(pGameInstance->Add_Prototype(LEVEL_BOSS, L"proto_com_model_kamui",
 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::SKELETAL_MESH, "../../Resource/Mesh/Character/Kamui/Body/Kamui.fbx", LocalMatrix, CCharacter::CLIP_END))))
 		return E_FAIL;

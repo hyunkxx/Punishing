@@ -218,6 +218,9 @@ HRESULT CPlayerCamera::Render()
 
 void CPlayerCamera::AttackShake()
 {
+	if (!CApplicationManager::GetInstance()->IsSpawned())
+		return;
+
 	ShakeReset();
 	StartShake(4.f, 2.5f);
 }

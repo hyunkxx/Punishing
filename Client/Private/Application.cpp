@@ -8,6 +8,7 @@
 #include "ImGUIManager.h"
 
 #include "Level_Loading.h"
+#include "SwordTrail.h"
 
 #include "Boss.h"
 #include "BackGround.h"
@@ -73,7 +74,7 @@ HRESULT CApplication::Initialize()
 	m_pDevice->CreateRasterizerState(&RSDesc, &RasterizerState);
 	m_pContext->RSSetState(RasterizerState);
 	
-	m_pGameInstance->SetCollisionDebugRender(true);
+	m_pGameInstance->SetCollisionDebugRender(false);
 
 	return S_OK;
 }
@@ -184,6 +185,10 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXMODEL.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_swordtrail"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_SWORDTRAIL.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
+		return E_FAIL;
+
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_alpha"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_ALPHA.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
 		return E_FAIL;
@@ -195,6 +200,15 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_black"),
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Black.png")))))
 		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_sword_mask1"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Effect/SwordMask1.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_sword_mask2"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Effect/SwordMask2.png")))))
+		return E_FAIL;
+
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_LOADING, TEXT("proto_com_texture_background"),
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/background.jpg")))))
@@ -389,6 +403,13 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_damagefont"), CDamageFont::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
+	//소드 트레일 이펙트
+	_matrix SwordTrailMatrix = XMMatrixIdentity();
+	SwordTrailMatrix = XMMatrixRotationY(XMConvertToRadians(180.f));
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, L"proto_com_model_sword_trail",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Character/Kamui/Weapon/Effect/SwordTrail.fbx", SwordTrailMatrix))))
+		return E_FAIL;
+
 	Safe_AddRef(m_pRenderer);
 
 	return S_OK;
@@ -413,6 +434,10 @@ HRESULT CApplication::Ready_Prototype_Static_GameObject()
 
 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_skillball"), CSkillBase::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_sword_trail"), CSwordTrail::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
 
 	return S_OK;
 }

@@ -150,6 +150,7 @@ public:
 	virtual void RenderGUI() override;
 
 public:
+	CTransform* GetTransform() { return mTransform; }
 	void SetPosition(_float3 vPos);
 	_fmatrix GetTargetMatrix();
 	_float2 GetTargetWindowPos();
@@ -239,6 +240,11 @@ public: //충돌관련
 	CCollider* GetSkillCollider() const { return mSkillCollider; }
 	CCollider* GetEnemyCheckCollider() const { return mEnemyCheckCollider; }
 
+public://이펙트 관련
+	class CSwordTrail* GetNotUsedEffect();
+	void UseSwordEffect(_float3 vOffsetPos, _float3 fDegreeAngles);
+	void AttackEffectControl(_double TimeDelta);
+
 public:
 	static CCharacter* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	virtual CGameObject* Clone(void* pArg) override;
@@ -280,6 +286,7 @@ private: // camera
 private: // Command
 	_bool m_bCombatMode = false;
 
+	CLIP m_iPrevClip = CLIP::ACTION0;
 	const _uint m_iAttackCount = 5;
 	_uint m_iCurAttackCount = 0;
 	_bool m_bAttacking = false;
@@ -330,7 +337,7 @@ private: // Command
 	_float3 vPrevPosition;
 
 	//강화상태
-	_bool m_bEvolution = true;
+	_bool m_bEvolution = false;
 	_bool m_bEvolutionAttack = false;
 
 	//회피 (대쉬 콜리전)
@@ -409,6 +416,19 @@ private: // Command
 
 	CEnemy* m_pPrevHoldEnemy = nullptr;
 	CEnemy* m_pAttackTargetEnemy = nullptr;
+
+	//검기 이펙트
+	enum { SWORD_EFFECT_COUNT = 10 };
+	class CSwordTrail* m_pSwordTrail[10];
+	_bool m_bUseAttack1 = false;
+	_bool m_bUseAttack2 = false;
+	_bool m_bUseAttack3[3] = {false, false, false};
+	_bool m_bUseAttack4 = false;
+	_bool m_bUseAttack5[5] = { false, false, false, false, false };
+
+	_bool m_bUseSkillA[4] = { false, false, false, false };
+	_bool m_bUseSkillB = false;
+	_bool m_bUseSkillC[5] = { false, false, false, false, false };
 };
 
 END

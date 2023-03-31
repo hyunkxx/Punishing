@@ -38,6 +38,9 @@ HRESULT CLevel_BossRoom::Initialize()
 	if (FAILED(Ready_Layer_Enemy(TEXT("layer_enemy"))))
 		return E_FAIL;
 
+	if (FAILED(Ready_Layer_Effect(TEXT("layer_effect"))))
+		return E_FAIL;
+
 	if (FAILED(Ready_Layer_UI(TEXT("layer_ui"))))
 		return E_FAIL;
 
@@ -187,7 +190,13 @@ HRESULT CLevel_BossRoom::Ready_Layer_Enemy(const _tchar * pLayerTag)
 
 HRESULT CLevel_BossRoom::Ready_Layer_Effect(const _tchar * pLayerTag)
 {
-	return E_NOTIMPL;
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	CGameObject* pGameObject = nullptr;
+
+	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_freeze_area", pLayerTag, L"freeze", mPlayer))
+		return E_FAIL;
+
+	return S_OK;
 }
 
 HRESULT CLevel_BossRoom::Ready_Layer_UI(const _tchar * pLayerTag)

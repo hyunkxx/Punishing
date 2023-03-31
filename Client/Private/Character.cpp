@@ -19,6 +19,8 @@
 #include "Layer.h"
 #include "Thorn.h"
 
+#include "SwordTrail.h"
+
 //Bip001?(리얼 루트본) Bip001Pelvis (척추) R3KalieninaMd010031 (000)
 CCharacter::CCharacter(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CGameObject(pDevice, pContext)
@@ -88,6 +90,33 @@ HRESULT CCharacter::Initialize(void* pArg)
 	}
 
 	m_pPlayerIcon->SetupPlayer(this);
+
+	if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+	{
+		for (int i = 0; i < SWORD_EFFECT_COUNT; ++i)
+		{
+			_tchar szTag[MAX_PATH] = L"";
+			wsprintfW(szTag, L"sword_trail%d", i);
+			CGameObject* pGameObject = nullptr;
+			if (nullptr == (pGameObject = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_sword_trail"), L"layer_swordeffect", szTag, this)))
+				return E_FAIL;
+
+			m_pSwordTrail[i] = static_cast<CSwordTrail*>(pGameObject);
+		}
+	}
+	else
+	{
+		for (int i = 0; i < SWORD_EFFECT_COUNT; ++i)
+		{
+			_tchar szTag[MAX_PATH] = L"";
+			wsprintfW(szTag, L"sword_trail%d", i);
+			CGameObject* pGameObject = nullptr;
+			if (nullptr == (pGameObject = pGameInstance->Add_GameObject(LEVEL_BOSS, TEXT("proto_obj_sword_trail"), L"layer_swordeffect", szTag, this)))
+				return E_FAIL;
+
+			m_pSwordTrail[i] = static_cast<CSwordTrail*>(pGameObject);
+		}
+	}
 
 	return S_OK;
 }
@@ -230,6 +259,7 @@ void CCharacter::Tick(_double TimeDelta)
 	AnimationControl(TimeDelta);
 	SkillColliderControl(TimeDelta);
 	//PositionHold(TimeDelta);
+	AttackEffectControl(TimeDelta);
 
 	CameraSocketUpdate();
 	TargetListDeastroyCehck();
@@ -297,9 +327,6 @@ void CCharacter::RenderGUI()
 
 	XMStoreFloat3(&m_vPrevLook, mTransform->Get_State(CTransform::STATE_LOOK));
 	ImGui::InputFloat3("LOOK  ", (_float*)&m_vPrevLook);
-	
-	_float fSpeed = mTransform->Get_Speed();
-	ImGui::InputFloat3("Speed  ", (_float*)&fSpeed);
 
 	ImGui::End();
 }
@@ -1046,7 +1073,7 @@ void CCharacter::Attack(_double TimeDelta)
 	if (pGameInstance->Input_KeyState_Custom(DIK_LCONTROL) == KEY_STATE::TAP)
 	{
 		m_bHitColliderCheck = false;
-
+		
 		if (m_pNearEnemy)
 			mTransform->LookAt(XMLoadFloat4(&m_pNearEnemy->GetPosition()));
 
@@ -2232,6 +2259,356 @@ _bool CCharacter::FinishCheckPlay(CLIP eClip, CAnimation::TYPE eAnimationType)
 	return false;
 }
 
+CSwordTrail * CCharacter::GetNotUsedEffect()
+{
+	for (int i = 0; i < SWORD_EFFECT_COUNT; ++i)
+	{
+		if (!m_pSwordTrail[i]->IsUsed())
+			return m_pSwordTrail[i];
+	}
+
+	return nullptr;
+}
+
+void CCharacter::UseSwordEffect(_float3 vOffsetPos, _float3 fDegreeAngles)
+{
+	m_pCamera->AttackShake();
+	CSwordTrail* pEffect = GetNotUsedEffect();
+	if (nullptr != pEffect)
+		pEffect->EffectStart(vOffsetPos, fDegreeAngles);
+}
+
+void CCharacter::AttackEffectControl(_double TimeDelta)
+{
+	if (!m_bEvolution)
+	{
+		//강화상태X
+
+#pragma region 기본공격 강화X
+		if (mModel->AnimationCompare(ATTACK1))
+		{
+			if (!m_bUseAttack1 && mModel->GetCurrentTimeAcc() >= 0.25)
+			{
+				m_bUseAttack1 = true;
+				UseSwordEffect(_float3(0.f, 1.5f, 0.7f), _float3(0.f, 0.f, 170.f));
+			}
+		}
+		else
+			m_bUseAttack1 = false;
+
+		if (mModel->AnimationCompare(ATTACK2))
+		{
+			if (!m_bUseAttack2 && mModel->GetCurrentTimeAcc() >= 0.1)
+			{
+				m_bUseAttack2 = true;
+				UseSwordEffect(_float3(-0.5f, 1.3f, 0.7f), _float3(0.f, 0.f, 290.f));
+			}
+		}
+		else
+			m_bUseAttack2 = false;
+
+		if (mModel->AnimationCompare(ATTACK3))
+		{
+			if (!m_bUseAttack3[0] && mModel->GetCurrentTimeAcc() >= 0.2)
+			{
+				m_bUseAttack3[0] = true;
+				UseSwordEffect(_float3(0.0f, 1.3f, 0.7f), _float3(0.f, 0.f, 190.f));
+			}
+
+			if (!m_bUseAttack3[1] && mModel->GetCurrentTimeAcc() >= 0.4)
+			{
+				m_bUseAttack3[1] = true;
+				UseSwordEffect(_float3(0.2f, 1.3f, 0.7f), _float3(-90.f, 0.f, 90.f));
+			}
+		}
+		else
+		{
+			m_bUseAttack3[0] = false;
+			m_bUseAttack3[1] = false;
+			m_bUseAttack3[2] = false;
+		}
+
+		if (mModel->AnimationCompare(ATTACK4))
+		{
+			if (!m_bUseAttack4 && mModel->GetCurrentTimeAcc() >= 0.25)
+			{
+				m_bUseAttack4 = true;
+				UseSwordEffect(_float3(0.25f, 1.1f, 1.3f), _float3(0.f, 0.f, 30.f));
+			}
+		}
+		else
+		{
+			m_bUseAttack4 = false;
+		}
+
+		if (mModel->AnimationCompare(ATTACK5))
+		{
+			if (!m_bUseAttack5[0] && mModel->GetCurrentTimeAcc() >= 0.33)
+			{
+				m_bUseAttack5[0] = true;
+				UseSwordEffect(_float3(0.2f, 1.2f, 0.7f), _float3(0.f, 0.f, 170.f));
+			}
+		}
+		else
+		{
+			m_bUseAttack5[0] = false;
+			m_bUseAttack5[1] = false;
+			m_bUseAttack5[2] = false;
+			m_bUseAttack5[3] = false;
+			m_bUseAttack5[4] = false;
+		}
+
+#pragma endregion
+
+#pragma region 스킬 강화 X
+		if (mModel->AnimationCompare(ATTACK11))
+		{
+			if (!m_bUseSkillA[0] && mModel->GetCurrentTimeAcc() >= 0.30)
+			{
+				m_bUseSkillA[0] = true;
+				UseSwordEffect(_float3(0.f, 1.2f, 0.7f), _float3(0.f, 0.f, 180.f));
+			}
+
+			if (!m_bUseSkillA[1] && mModel->GetCurrentTimeAcc() >= 0.6)
+			{
+				m_bUseSkillA[1] = true;
+				UseSwordEffect(_float3(-0.3f, 1.2f, 0.7f), _float3(0.f, 0.f, 300.f));
+			}
+		}
+		else
+		{
+			m_bUseSkillA[0] = false;
+			m_bUseSkillA[1] = false;
+		}
+
+		if (mModel->AnimationCompare(ATTACK21))
+		{
+			if (!m_bUseSkillB && mModel->GetCurrentTimeAcc() >= 0.25)
+			{
+				m_bUseSkillB = true;
+				UseSwordEffect(_float3(0.f, 1.0f, 0.7f), _float3(0.f, 0.f, 310.f));
+			}
+		}
+		else
+		{
+			m_bUseSkillB = false;
+		}
+
+		if (mModel->AnimationCompare(ATTACK31))
+		{
+			if (!m_bUseSkillC[0] && mModel->GetCurrentTimeAcc() >= 0.75)
+			{
+				m_bUseSkillC[0] = true;
+				UseSwordEffect(_float3(0.f, 1.3f, 0.7f), _float3(10.f, 0.f, 195.f));
+			}
+		}
+		else
+		{
+			m_bUseSkillC[0] = false;
+		}
+
+#pragma endregion
+
+	}
+	else
+	{
+		//강화상태
+#pragma region 기본공격 강화
+
+		if (mModel->AnimationCompare(ATTACK41))
+		{
+			if (!m_bUseAttack1 && mModel->GetCurrentTimeAcc() >= 0.11)
+			{
+				m_bUseAttack1 = true;
+				UseSwordEffect(_float3(0.f, 1.3f, 0.7f), _float3(0.f, 0.f, 180.f));
+			}
+		}
+		else
+			m_bUseAttack1 = false;
+
+		if (mModel->AnimationCompare(ATTACK42))
+		{
+			if (!m_bUseAttack2 && mModel->GetCurrentTimeAcc() >= 0.11)
+			{
+				m_bUseAttack2 = true;
+				UseSwordEffect(_float3(0.2f, 1.8f, 0.7f), _float3(0.f, 0.f, 145.f));
+			}
+		}
+		else
+			m_bUseAttack2 = false;
+
+		if (mModel->AnimationCompare(ATTACK43))
+		{
+			if (!m_bUseAttack3[0] && mModel->GetCurrentTimeAcc() >= 0.1)
+			{
+				m_bUseAttack3[0] = true;
+				UseSwordEffect(_float3(-0.2f, 0.8f, 0.8f), _float3(0.f, 0.f, 290.f));
+			}
+
+			if (!m_bUseAttack3[1] && mModel->GetCurrentTimeAcc() >= 0.4)
+			{
+				m_bUseAttack3[1] = true;
+				UseSwordEffect(_float3(-0.2f, 0.8f, 0.7f), _float3(0.f, 0.f, 300.f));
+			}
+
+			if (!m_bUseAttack3[2] && mModel->GetCurrentTimeAcc() >= 0.8)
+			{
+				m_bUseAttack3[2] = true;
+				UseSwordEffect(_float3(-0.2f, 1.1f, 0.7f), _float3(0.f, 0.f, 230.f));
+			}
+
+		}
+		else
+		{
+			m_bUseAttack3[0] = false;
+			m_bUseAttack3[1] = false;
+			m_bUseAttack3[2] = false;
+		}
+
+		if (mModel->AnimationCompare(ATTACK44))
+		{
+			if (!m_bUseAttack4 && mModel->GetCurrentTimeAcc() >= 0.11)
+			{
+				m_bUseAttack4 = true;
+				UseSwordEffect(_float3(0.0f, 1.2f, 1.f), _float3(0.f, 0.f, 170.f));
+			}
+		}
+		else
+		{
+			m_bUseAttack4 = false;
+		}
+
+		if (mModel->AnimationCompare(ATTACK45))
+		{
+			//1타
+			if (!m_bUseAttack5[0] && mModel->GetCurrentTimeAcc() >= 0.08)
+			{
+				m_bUseAttack5[0] = true;
+				UseSwordEffect(_float3(0.25f, 1.6f, 1.f), _float3(-90.f, 0.f, 90.f));
+			}
+
+			//2타
+			if (!m_bUseAttack5[1] && mModel->GetCurrentTimeAcc() >= 0.14)
+			{
+				m_bUseAttack5[1] = true;
+				UseSwordEffect(_float3(0.25f, 2.f, 1.f), _float3(-90.f, 0.f, 90.f));
+			}
+
+			//3타
+			if (!m_bUseAttack5[2] && mModel->GetCurrentTimeAcc() >= 0.2)
+			{
+				m_bUseAttack5[2] = true;
+				UseSwordEffect(_float3(0.25f, 2.f, 1.f), _float3(-90.f, 0.f, 90.f));
+			}
+
+			//4타
+			if (!m_bUseAttack5[3] && mModel->GetCurrentTimeAcc() >= 0.26)
+			{
+				m_bUseAttack5[3] = true;
+				UseSwordEffect(_float3(0.25f, 2.f, 1.f), _float3(-90.f, 0.f, 90.f));
+			}
+
+			//5타
+			if (!m_bUseAttack5[4] && mModel->GetCurrentTimeAcc() >= 0.32)
+			{
+				m_bUseAttack5[4] = true;
+				UseSwordEffect(_float3(0.25f, 1.7f, 1.f), _float3(-90.f, 0.f, 90.f));
+			}
+
+		}
+		else
+		{
+			m_bUseAttack5[0] = false;
+			m_bUseAttack5[1] = false;
+			m_bUseAttack5[2] = false;
+			m_bUseAttack5[3] = false;
+			m_bUseAttack5[4] = false;
+		}
+
+#pragma endregion
+
+#pragma region 스킬공격 강화
+		if (mModel->AnimationCompare(ATTACK12))
+		{
+			if (!m_bUseSkillA[0] && mModel->GetCurrentTimeAcc() >= 0.3)
+			{
+				m_bUseSkillA[0] = true;
+				UseSwordEffect(_float3(0.4f, 1.0f, 0.7f), _float3(-90.f, 0.f, 90.f));
+			}
+
+			if (!m_bUseSkillA[1] && mModel->GetCurrentTimeAcc() >= 0.7f)
+			{
+				m_bUseSkillA[1] = true;
+				UseSwordEffect(_float3(0.35f, 1.0f, 0.7f), _float3(-90.f, 0.f, 95));
+			}
+
+			if (!m_bUseSkillA[2] && mModel->GetCurrentTimeAcc() >= 1.2)
+			{
+				m_bUseSkillA[2] = true;
+				UseSwordEffect(_float3(0.3f, 1.0f, 0.7f), _float3(-90.f, 0.f, 100.f));
+			}
+
+			if (!m_bUseSkillA[3] && mModel->GetCurrentTimeAcc() >= 1.7f)
+			{
+				m_bUseSkillA[3] = true;
+				UseSwordEffect(_float3(0.f, 1.3f, 0.7f), _float3(0.f, 0.f, 150.f));
+			}
+		}
+		else
+		{
+			m_bUseSkillA[0] = false;
+			m_bUseSkillA[1] = false;
+			m_bUseSkillA[2] = false;
+			m_bUseSkillA[3] = false;
+		}
+
+
+		if (mModel->AnimationCompare(ATTACK32))
+		{
+			if (!m_bUseSkillC[0] && mModel->GetCurrentTimeAcc() >= 0.2)
+			{
+				m_bUseSkillC[0] = true;
+				UseSwordEffect(_float3(0.f, 1.f, 0.7f), _float3(0.f, 0.f, 20.f));
+			}
+
+			if (!m_bUseSkillC[1] && mModel->GetCurrentTimeAcc() >= 0.45f)
+			{
+				m_bUseSkillC[1] = true;
+				UseSwordEffect(_float3(0.f, 1.f, 0.7f), _float3(0.f, 0.f, 160.f));
+			}
+
+			if (!m_bUseSkillC[2] && mModel->GetCurrentTimeAcc() >= 0.7f)
+			{
+				m_bUseSkillC[2] = true;
+				UseSwordEffect(_float3(0.f, 1.f, 0.7f), _float3(0.f, 0.f, 20.f));
+			}
+
+			if (!m_bUseSkillC[3] && mModel->GetCurrentTimeAcc() >= 0.95f)
+			{
+				m_bUseSkillC[3] = true;
+				UseSwordEffect(_float3(0.f, 1.f, 0.7f), _float3(0.f, 0.f, 160.f));
+			}
+
+			if (!m_bUseSkillC[4] && mModel->GetCurrentTimeAcc() >= 1.2f)
+			{
+				m_bUseSkillC[4] = true;
+				UseSwordEffect(_float3(0.f, 0.8f, 0.7f), _float3(-90.f, 55.f, 90.f));
+			}
+		}
+		else
+		{
+			m_bUseSkillC[0] = false;
+			m_bUseSkillC[1] = false;
+			m_bUseSkillC[2] = false;
+			m_bUseSkillC[3] = false;
+			m_bUseSkillC[4] = false;
+		}
+#pragma endregion
+
+	}
+
+}
+
 CCharacter* CCharacter::Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 {
 	CCharacter*	pInstance = new CCharacter(pDevice, pContext);
@@ -2274,6 +2651,9 @@ void CCharacter::Free()
 	Safe_Release(mCameraSocketTransform);
 	Safe_Release(mModel);
 	Safe_Release(mShader);
+
+	for (int i = 0; i < SWORD_EFFECT_COUNT; ++i)
+		Safe_Release(m_pSwordTrail[i]);
 }
 
 void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
@@ -2354,7 +2734,8 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 
 			if (pEnemy == m_pNearEnemy)
 			{
-				m_pCamera->AttackShake();
+				m_iPrevClip = (CLIP)ANIM_DESC.Clip;
+				//m_pCamera->AttackShake();
 				m_pEnemyHealthBar->StartShake();
 				m_pPlayerIcon->StartShake();
 
