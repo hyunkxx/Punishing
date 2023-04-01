@@ -101,8 +101,8 @@ HRESULT CGraphic_Device::Ready_SwapChain(HWND hWnd, GRAPHIC_DESC::WIN_MODE eWinM
 	/* 스왑하는 형태 */
 	SwapChain.BufferDesc.RefreshRate.Numerator = 60;
 	SwapChain.BufferDesc.RefreshRate.Denominator = 1;
-	SwapChain.SampleDesc.Quality = 0;
-	SwapChain.SampleDesc.Count = 1;
+	SwapChain.SampleDesc.Quality = 1;
+	SwapChain.SampleDesc.Count = 16;
 	SwapChain.OutputWindow = hWnd;
 	SwapChain.Windowed = eWinMode;
 	SwapChain.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;

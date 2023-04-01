@@ -4,6 +4,7 @@
 BEGIN(Engine)
 class CRenderer;
 class CTransform;
+class CTexture;
 class CModel;
 class CShader;
 class CBone;
@@ -44,14 +45,20 @@ private:
 	CTransform* m_pTransform = nullptr;
 	CModel* m_pModel = nullptr;
 	CShader* m_pShader = nullptr;
+	CTexture* m_pNoiseTexture = nullptr;
+	CTexture* m_pMaskTexture2 = nullptr;
+	CTexture* m_pMaskTexture = nullptr;
 
 private:
 	class CTransform* m_pPlayerTransform = nullptr;
 
 	_bool m_bActive = false;
 	_bool m_bFinish = false;
+	_bool m_bColorChange = false;
+
 	_float3 m_vPosition = { 0.f, 0.f, 0.f };
 	_float3 m_vScale = { 0.f, 0.f, 0.f };
+	_float m_fTimeAcc = 0.f;
 };
 
 END

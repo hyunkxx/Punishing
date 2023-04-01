@@ -96,8 +96,6 @@ void CEnemySpawner::Tick(_double TimeDelta)
 				if (m_iRespawnCount >= 0)
 				{
 					m_isEnter = false;
-					CApplicationManager::GetInstance()->SetSpawned(false);
-
 					m_iRespawnCount = 0;
 					m_iCurSpawnerIndex = SECOND_SPAWNER;
 
@@ -223,7 +221,7 @@ void CEnemySpawner::OnCollisionEnter(CCollider * src, CCollider * dest)
 				if(m_iCurSpawnerIndex == FIRST_SPAWNER)
 					vSpawnPos = vPos + vLook * 8.f;
 				else
-					vSpawnPos = vPos + vLook * 17.f;
+					vSpawnPos = vPos + vLook * 13.f;
 
 				static_cast<CEnemy*>(iter->second)->Reset(_float3(XMVectorGetX(vSpawnPos), 0.f, XMVectorGetZ(vSpawnPos)), _float(8.f));
 				static_cast<CEnemy*>(iter->second)->LookPlayer();

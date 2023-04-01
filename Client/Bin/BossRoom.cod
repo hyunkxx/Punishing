@@ -2306,12 +2306,14 @@ PUBLIC	?Clone@CBossRoom@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z ; Client::CBo
 PUBLIC	?Free@CBossRoom@Client@@UEAAXXZ			; Client::CBossRoom::Free
 PUBLIC	??0CBossRoom@Client@@QEAA@AEBV01@@Z		; Client::CBossRoom::CBossRoom
 PUBLIC	??_GCBossRoom@Client@@EEAAPEAXI@Z		; Client::CBossRoom::`scalar deleting destructor'
+PUBLIC	?IsFreeze@CApplicationManager@Client@@QEBA_NXZ	; Client::CApplicationManager::IsFreeze
 PUBLIC	??$Safe_Release@PEAVCBossRoom@Client@@@Engine@@YAKAEAPEAVCBossRoom@Client@@@Z ; Engine::Safe_Release<Client::CBossRoom * __ptr64>
 PUBLIC	??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 PUBLIC	??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 PUBLIC	??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ; Engine::Safe_Release<Engine::CShader * __ptr64>
 PUBLIC	??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ; Engine::Safe_Release<Engine::CModel * __ptr64>
 PUBLIC	??_7CBossRoom@Client@@6B@			; Client::CBossRoom::`vftable'
+PUBLIC	??_C@_0N@KNHOMFDO@g_LightPower?$AA@		; `string'
 PUBLIC	??_C@_0BB@FMIBAICL@g_DiffuseTexture?$AA@	; `string'
 PUBLIC	??_C@_1BK@GIOMOCNE@?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CG@COFFFCLL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ ; `string'
@@ -2343,6 +2345,9 @@ PUBLIC	??_R1A@?0A@EA@CBase@Engine@@8			; Engine::CBase::`RTTI Base Class Descrip
 PUBLIC	??_R0?AVCBase@Engine@@@8			; Engine::CBase `RTTI Type Descriptor'
 PUBLIC	??_R3CBase@Engine@@8				; Engine::CBase::`RTTI Class Hierarchy Descriptor'
 PUBLIC	??_R2CBase@Engine@@8				; Engine::CBase::`RTTI Base Class Array'
+PUBLIC	__real@3e4ccccd
+PUBLIC	__real@3f800000
+PUBLIC	__real@4000000000000000
 EXTRN	??3@YAXPEAX_K@Z:PROC				; operator delete
 EXTRN	__imp_MessageBoxW:PROC
 EXTRN	??2@YAPEAX_KHPEBDH@Z:PROC			; operator new
@@ -2365,8 +2370,10 @@ EXTRN	__imp_?Setup_ShaderResource@CTransform@Engine@@QEAAJPEAVCShader@2@PEBD@Z:P
 EXTRN	__imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z:PROC
 EXTRN	__imp_?Begin@CShader@Engine@@QEAAJI@Z:PROC
 EXTRN	__imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z:PROC
+EXTRN	__imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z:PROC
 EXTRN	__imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ:PROC
 EXTRN	__imp_?Get_Transform_float4x4@CGameInstance@Engine@@QEAA?AUXMFLOAT4X4@DirectX@@W4TRANSFORM_STATE@CPipeLine@2@@Z:PROC
+EXTRN	?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ:PROC ; Client::CApplicationManager::GetInstance
 EXTRN	?GetLengthFromCamera@CGameObject@Engine@@UEAAMXZ:PROC ; Engine::CGameObject::GetLengthFromCamera
 EXTRN	?RenderGUI@CGameObject@Engine@@UEAAXXZ:PROC	; Engine::CGameObject::RenderGUI
 EXTRN	_RTC_CheckStackVars:PROC
@@ -2398,7 +2405,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CBossRoom@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z DD imagerel $LN4
-	DD	imagerel $LN4+182
+	DD	imagerel $LN4+242
 	DD	imagerel $unwind$??0CBossRoom@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2421,8 +2428,8 @@ $pdata$?Initialize@CBossRoom@Client@@UEAAJPEAX@Z DD imagerel $LN5
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Tick@CBossRoom@Client@@UEAAXN@Z DD imagerel $LN3
-	DD	imagerel $LN3+79
+$pdata$?Tick@CBossRoom@Client@@UEAAXN@Z DD imagerel $LN7
+	DD	imagerel $LN7+327
 	DD	imagerel $unwind$?Tick@CBossRoom@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2434,7 +2441,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Render@CBossRoom@Client@@UEAAJXZ DD imagerel $LN8
-	DD	imagerel $LN8+255
+	DD	imagerel $LN8+307
 	DD	imagerel $unwind$?Render@CBossRoom@Client@@UEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -2482,7 +2489,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CBossRoom@Client@@QEAA@AEBV01@@Z DD imagerel $LN4
-	DD	imagerel $LN4+207
+	DD	imagerel $LN4+294
 	DD	imagerel $unwind$??0CBossRoom@Client@@QEAA@AEBV01@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2490,6 +2497,12 @@ pdata	SEGMENT
 $pdata$??_GCBossRoom@Client@@EEAAPEAXI@Z DD imagerel $LN4
 	DD	imagerel $LN4+105
 	DD	imagerel $unwind$??_GCBossRoom@Client@@EEAAPEAXI@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?IsFreeze@CApplicationManager@Client@@QEBA_NXZ DD imagerel $LN3
+	DD	imagerel $LN3+61
+	DD	imagerel $unwind$?IsFreeze@CApplicationManager@Client@@QEBA_NXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -2521,6 +2534,18 @@ $pdata$??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z DD imag
 	DD	imagerel $LN5+114
 	DD	imagerel $unwind$??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z
 pdata	ENDS
+;	COMDAT __real@4000000000000000
+CONST	SEGMENT
+__real@4000000000000000 DQ 04000000000000000r	; 2
+CONST	ENDS
+;	COMDAT __real@3f800000
+CONST	SEGMENT
+__real@3f800000 DD 03f800000r			; 1
+CONST	ENDS
+;	COMDAT __real@3e4ccccd
+CONST	SEGMENT
+__real@3e4ccccd DD 03e4ccccdr			; 0.2
+CONST	ENDS
 ;	COMDAT rtc$TMZ
 rtc$TMZ	SEGMENT
 _RTC_Shutdown.rtc$TMZ DQ FLAT:_RTC_Shutdown
@@ -2636,7 +2661,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CBossRoom@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CBossRoom@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 074H ; `Client::CBossRoom::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CBossRoom@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 088H ; `Client::CBossRoom::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1DK@INLIJCDC@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAB?$AAo?$AAs?$AAs?$AAR?$AAo?$AAo?$AAm?$AA?$AA@
 CONST	SEGMENT
@@ -2660,7 +2685,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CBossRoom@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CBossRoom@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 068H ; `Client::CBossRoom::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CBossRoom@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 07cH ; `Client::CBossRoom::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_0N@OOHDPIO@g_ProjMatrix?$AA@
 CONST	SEGMENT
@@ -2733,6 +2758,10 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_0BB@FMIBAICL@g_DiffuseTexture?$AA@ DB 'g_DiffuseTexture', 00H ; `string'
 CONST	ENDS
+;	COMDAT ??_C@_0N@KNHOMFDO@g_LightPower?$AA@
+CONST	SEGMENT
+??_C@_0N@KNHOMFDO@g_LightPower?$AA@ DB 'g_LightPower', 00H ; `string'
+CONST	ENDS
 ;	COMDAT ??_7CBossRoom@Client@@6B@
 CONST	SEGMENT
 ??_7CBossRoom@Client@@6B@ DQ FLAT:??_R4CBossRoom@Client@@6B@ ; Client::CBossRoom::`vftable'
@@ -2780,6 +2809,13 @@ xdata	SEGMENT
 $unwind$??$Safe_Release@PEAVCBossRoom@Client@@@Engine@@YAKAEAPEAVCBossRoom@Client@@@Z DD 025052a01H
 	DD	010e2313H
 	DD	070070021H
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?IsFreeze@CApplicationManager@Client@@QEBA_NXZ DD 05052801H
+	DD	010e0311H
+	DD	070070019H
 	DD	05006H
 xdata	ENDS
 ;	COMDAT xdata
@@ -2957,7 +2993,7 @@ xdata	ENDS
 xdata	SEGMENT
 $unwind$?Tick@CBossRoom@Client@@UEAAXN@Z DD 025053001H
 	DD	01142319H
-	DD	0700d001dH
+	DD	0700d0021H
 	DD	0500cH
 xdata	ENDS
 ;	COMDAT xdata
@@ -3405,6 +3441,38 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCBossRoom@Client@@@Engine@@YAKAEAPEAVCBossRoom@Client@@@Z ENDP ; Engine::Safe_Release<Client::CBossRoom * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
+;	COMDAT ?IsFreeze@CApplicationManager@Client@@QEBA_NXZ
+_TEXT	SEGMENT
+this$ = 224
+?IsFreeze@CApplicationManager@Client@@QEBA_NXZ PROC	; Client::CApplicationManager::IsFreeze, COMDAT
+
+; 25   : 	_bool IsFreeze() const { return m_bFreeze; }
+
+$LN3:
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	55		 push	 rbp
+  00006	57		 push	 rdi
+  00007	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  0000e	48 8b ec	 mov	 rbp, rsp
+  00011	48 8b fc	 mov	 rdi, rsp
+  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  0001e	f3 ab		 rep stosd
+  00020	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+  00028	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0002f	0f b6 40 38	 movzx	 eax, BYTE PTR [rax+56]
+  00033	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  0003a	5f		 pop	 rdi
+  0003b	5d		 pop	 rbp
+  0003c	c3		 ret	 0
+?IsFreeze@CApplicationManager@Client@@QEBA_NXZ ENDP	; Client::CApplicationManager::IsFreeze
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??_GCBossRoom@Client@@EEAAPEAXI@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -3432,7 +3500,7 @@ $LN4:
   00040	83 e0 01	 and	 eax, 1
   00043	85 c0		 test	 eax, eax
   00045	74 11		 je	 SHORT $LN2@scalar
-  00047	ba 98 00 00 00	 mov	 edx, 152		; 00000098H
+  00047	ba a8 00 00 00	 mov	 edx, 168		; 000000a8H
   0004c	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ??3@YAXPEAX_K@Z		; operator delete
@@ -3509,11 +3577,35 @@ $LN4:
 	00 00		 mov	 QWORD PTR [rax+144], rcx
   000be	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000c5	48 8d a5 c8 00
+  000c5	48 8b 8d e8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  000cc	0f b6 89 98 00
+	00 00		 movzx	 ecx, BYTE PTR [rcx+152]
+  000d3	88 88 98 00 00
+	00		 mov	 BYTE PTR [rax+152], cl
+  000d9	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000e0	48 8b 8d e8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  000e7	f3 0f 10 81 9c
+	00 00 00	 movss	 xmm0, DWORD PTR [rcx+156]
+  000ef	f3 0f 11 80 9c
+	00 00 00	 movss	 DWORD PTR [rax+156], xmm0
+  000f7	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000fe	48 8b 8d e8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  00105	f3 0f 10 81 a0
+	00 00 00	 movss	 xmm0, DWORD PTR [rcx+160]
+  0010d	f3 0f 11 80 a0
+	00 00 00	 movss	 DWORD PTR [rax+160], xmm0
+  00115	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0011c	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  000cc	5f		 pop	 rdi
-  000cd	5d		 pop	 rbp
-  000ce	c3		 ret	 0
+  00123	5f		 pop	 rdi
+  00124	5d		 pop	 rbp
+  00125	c3		 ret	 0
 ??0CBossRoom@Client@@QEAA@AEBV01@@Z ENDP		; Client::CBossRoom::CBossRoom
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -3523,7 +3615,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CBossRoom@Client@@UEAAXXZ PROC			; Client::CBossRoom::Free, COMDAT
 
-; 128  : {
+; 148  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3539,15 +3631,15 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 129  : 	__super::Free();
+; 149  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CGameObject@Engine@@UEAAXXZ
 
-; 130  : 
-; 131  : 	Safe_Release(m_pRenderer);
+; 150  : 
+; 151  : 	Safe_Release(m_pRenderer);
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3556,7 +3648,7 @@ $LN3:
   00044	48 8b c8	 mov	 rcx, rax
   00047	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
-; 132  : 	Safe_Release(m_pTransform);
+; 152  : 	Safe_Release(m_pTransform);
 
   0004c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3564,7 +3656,7 @@ $LN3:
   00057	48 8b c8	 mov	 rcx, rax
   0005a	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 133  : 	Safe_Release(m_pShader);
+; 153  : 	Safe_Release(m_pShader);
 
   0005f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3573,7 +3665,7 @@ $LN3:
   0006c	48 8b c8	 mov	 rcx, rax
   0006f	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ; Engine::Safe_Release<Engine::CShader * __ptr64>
 
-; 134  : 	Safe_Release(m_pModel);
+; 154  : 	Safe_Release(m_pModel);
 
   00074	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3582,7 +3674,7 @@ $LN3:
   00081	48 8b c8	 mov	 rcx, rax
   00084	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ; Engine::Safe_Release<Engine::CModel * __ptr64>
 
-; 135  : }
+; 155  : }
 
   00089	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -3605,7 +3697,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CBossRoom@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CBossRoom::Clone, COMDAT
 
-; 116  : {
+; 136  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -3630,7 +3722,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 117  : 	CBossRoom* pInstance = new CBossRoom(*this);
+; 137  : 	CBossRoom* pInstance = new CBossRoom(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CBossRoom@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
@@ -3639,7 +3731,7 @@ $LN7:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EG@ICEJJAKL@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 98 00 00 00	 mov	 ecx, 152		; 00000098H
+  00062	b9 a8 00 00 00	 mov	 ecx, 168		; 000000a8H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 08 01
 	00 00		 mov	 QWORD PTR $T5[rbp], rax
@@ -3667,7 +3759,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 118  : 	if (FAILED(pInstance->Initialize(pArg)))
+; 138  : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 78 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -3676,8 +3768,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Clone
 
-; 119  : 	{
-; 120  : 		MSG_BOX("Failed to Clone : CBossRoom");
+; 139  : 	{
+; 140  : 		MSG_BOX("Failed to Clone : CBossRoom");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -3688,19 +3780,19 @@ $LN5@Clone:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 121  : 		Safe_Release(pInstance);
+; 141  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCBossRoom@Client@@@Engine@@YAKAEAPEAVCBossRoom@Client@@@Z ; Engine::Safe_Release<Client::CBossRoom * __ptr64>
 $LN2@Clone:
 
-; 122  : 	}
-; 123  : 
-; 124  : 	return pInstance;
+; 142  : 	}
+; 143  : 
+; 144  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 125  : }
+; 145  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -3798,7 +3890,7 @@ pDevice$ = 368
 pContext$ = 376
 ?Create@CBossRoom@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CBossRoom::Create, COMDAT
 
-; 104  : {
+; 124  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -3823,7 +3915,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 105  : 	CBossRoom* pInstance = new CBossRoom(pDevice, pContext);
+; 125  : 	CBossRoom* pInstance = new CBossRoom(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CBossRoom@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -3832,7 +3924,7 @@ $LN7:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EG@ICEJJAKL@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 98 00 00 00	 mov	 ecx, 152		; 00000098H
+  00062	b9 a8 00 00 00	 mov	 ecx, 168		; 000000a8H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 08 01
 	00 00		 mov	 QWORD PTR $T5[rbp], rax
@@ -3862,15 +3954,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 106  : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 126  : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CBossRoom@Client@@UEAAJXZ ; Client::CBossRoom::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Create
 
-; 107  : 	{
-; 108  : 		MSG_BOX("Failed to Create : CBossRoom");
+; 127  : 	{
+; 128  : 		MSG_BOX("Failed to Create : CBossRoom");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -3881,19 +3973,19 @@ $LN5@Create:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 109  : 		Safe_Release(pInstance);
+; 129  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCBossRoom@Client@@@Engine@@YAKAEAPEAVCBossRoom@Client@@@Z ; Engine::Safe_Release<Client::CBossRoom * __ptr64>
 $LN2@Create:
 
-; 110  : 	}
-; 111  : 
-; 112  : 	return pInstance;
+; 130  : 	}
+; 131  : 
+; 132  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 113  : }
+; 133  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -3987,7 +4079,7 @@ $T2 = 324
 this$ = 448
 ?Setup_ShaderResources@CBossRoom@Client@@AEAAJXZ PROC	; Client::CBossRoom::Setup_ShaderResources, COMDAT
 
-; 85   : {
+; 105  : {
 
 $LN7:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4003,7 +4095,7 @@ $LN7:
   00022	48 8b 8c 24 e8
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+488]
 
-; 86   : 	if (nullptr == m_pShader)
+; 106  : 	if (nullptr == m_pShader)
 
   0002a	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4011,14 +4103,14 @@ $LN7:
 	00 00 00	 cmp	 QWORD PTR [rax+136], 0
   00039	75 0a		 jne	 SHORT $LN2@Setup_Shad
 
-; 87   : 		return E_FAIL;
+; 107  : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00040	e9 bd 00 00 00	 jmp	 $LN1@Setup_Shad
 $LN2@Setup_Shad:
 
-; 88   : 
-; 89   : 	if (FAILED(m_pTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
+; 108  : 
+; 109  : 	if (FAILED(m_pTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
 
   00045	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
@@ -4034,21 +4126,21 @@ $LN2@Setup_Shad:
   0006b	85 c0		 test	 eax, eax
   0006d	7d 0a		 jge	 SHORT $LN3@Setup_Shad
 
-; 90   : 		return E_FAIL;
+; 110  : 		return E_FAIL;
 
   0006f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00074	e9 89 00 00 00	 jmp	 $LN1@Setup_Shad
 $LN3@Setup_Shad:
 
-; 91   : 
-; 92   : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 111  : 
+; 112  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00079	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0007f	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 93   : 
-; 94   : 	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &pGameInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
+; 113  : 
+; 114  : 	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &pGameInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
 
   00083	45 33 c0	 xor	 r8d, r8d
   00086	48 8d 95 e4 00
@@ -4068,14 +4160,14 @@ $LN3@Setup_Shad:
   000b5	85 c0		 test	 eax, eax
   000b7	7d 07		 jge	 SHORT $LN4@Setup_Shad
 
-; 95   : 		return E_FAIL;
+; 115  : 		return E_FAIL;
 
   000b9	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000be	eb 42		 jmp	 SHORT $LN1@Setup_Shad
 $LN4@Setup_Shad:
 
-; 96   : 
-; 97   : 	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &pGameInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
+; 116  : 
+; 117  : 	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &pGameInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
 
   000c0	41 b8 01 00 00
 	00		 mov	 r8d, 1
@@ -4096,19 +4188,19 @@ $LN4@Setup_Shad:
   000f5	85 c0		 test	 eax, eax
   000f7	7d 07		 jge	 SHORT $LN5@Setup_Shad
 
-; 98   : 		return E_FAIL;
+; 118  : 		return E_FAIL;
 
   000f9	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000fe	eb 02		 jmp	 SHORT $LN1@Setup_Shad
 $LN5@Setup_Shad:
 
-; 99   : 
-; 100  : 	return S_OK;
+; 119  : 
+; 120  : 	return S_OK;
 
   00100	33 c0		 xor	 eax, eax
 $LN1@Setup_Shad:
 
-; 101  : }
+; 121  : }
 
   00102	48 8d a5 a8 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+424]
@@ -4124,7 +4216,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Add_Components@CBossRoom@Client@@AEAAJXZ PROC		; Client::CBossRoom::Add_Components, COMDAT
 
-; 65   : {
+; 85   : {
 
 $LN7:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4140,7 +4232,7 @@ $LN7:
   00022	48 8b 8c 24 18
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+280]
 
-; 66   : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"),
+; 86   : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"),
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4161,15 +4253,15 @@ $LN7:
   00062	85 c0		 test	 eax, eax
   00064	7d 0a		 jge	 SHORT $LN2@Add_Compon
 
-; 67   : 		TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
-; 68   : 		return E_FAIL;
+; 87   : 		TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
+; 88   : 		return E_FAIL;
 
   00066	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0006b	e9 cf 00 00 00	 jmp	 $LN1@Add_Compon
 $LN2@Add_Compon:
 
-; 69   : 
-; 70   : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"),
+; 89   : 
+; 90   : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"),
 
   00070	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4189,15 +4281,15 @@ $LN2@Add_Compon:
   000a6	85 c0		 test	 eax, eax
   000a8	7d 0a		 jge	 SHORT $LN3@Add_Compon
 
-; 71   : 		TEXT("com_transform"), (CComponent**)&m_pTransform)))
-; 72   : 		return E_FAIL;
+; 91   : 		TEXT("com_transform"), (CComponent**)&m_pTransform)))
+; 92   : 		return E_FAIL;
 
   000aa	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000af	e9 8b 00 00 00	 jmp	 $LN1@Add_Compon
 $LN3@Add_Compon:
 
-; 73   : 
-; 74   : 	if (FAILED(__super::Add_Component(LEVEL_BOSS, TEXT("proto_com_model_bossroom"),
+; 93   : 
+; 94   : 	if (FAILED(__super::Add_Component(LEVEL_BOSS, TEXT("proto_com_model_bossroom"),
 
   000b4	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4218,15 +4310,15 @@ $LN3@Add_Compon:
   000ef	85 c0		 test	 eax, eax
   000f1	7d 07		 jge	 SHORT $LN4@Add_Compon
 
-; 75   : 		TEXT("com_model"), (CComponent**)&m_pModel)))
-; 76   : 		return E_FAIL;
+; 95   : 		TEXT("com_model"), (CComponent**)&m_pModel)))
+; 96   : 		return E_FAIL;
 
   000f3	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000f8	eb 45		 jmp	 SHORT $LN1@Add_Compon
 $LN4@Add_Compon:
 
-; 77   : 
-; 78   : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"),
+; 97   : 
+; 98   : 	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"),
 
   000fa	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4247,19 +4339,19 @@ $LN4@Add_Compon:
   00132	85 c0		 test	 eax, eax
   00134	7d 07		 jge	 SHORT $LN5@Add_Compon
 
-; 79   : 		TEXT("com_shader"), (CComponent**)&m_pShader)))
-; 80   : 		return E_FAIL;
+; 99   : 		TEXT("com_shader"), (CComponent**)&m_pShader)))
+; 100  : 		return E_FAIL;
 
   00136	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0013b	eb 02		 jmp	 SHORT $LN1@Add_Compon
 $LN5@Add_Compon:
 
-; 81   : 	return S_OK;
+; 101  : 	return S_OK;
 
   0013d	33 c0		 xor	 eax, eax
 $LN1@Add_Compon:
 
-; 82   : }
+; 102  : }
 
   0013f	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4277,7 +4369,7 @@ i$1 = 36
 this$ = 288
 ?Render@CBossRoom@Client@@UEAAJXZ PROC			; Client::CBossRoom::Render, COMDAT
 
-; 45   : {
+; 63   : {
 
 $LN8:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4293,7 +4385,7 @@ $LN8:
   00022	48 8b 8c 24 58
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+344]
 
-; 46   : 	if (FAILED(__super::Render()))
+; 64   : 	if (FAILED(__super::Render()))
 
   0002a	48 8b 8d 20 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -4302,14 +4394,14 @@ $LN8:
   00037	85 c0		 test	 eax, eax
   00039	7d 0a		 jge	 SHORT $LN5@Render
 
-; 47   : 		return E_FAIL;
+; 65   : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00040	e9 b0 00 00 00	 jmp	 $LN1@Render
+  00040	e9 e4 00 00 00	 jmp	 $LN1@Render
 $LN5@Render:
 
-; 48   : 
-; 49   : 	if (FAILED(Setup_ShaderResources()))
+; 66   : 
+; 67   : 	if (FAILED(Setup_ShaderResources()))
 
   00045	48 8b 8d 20 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -4317,95 +4409,114 @@ $LN5@Render:
   00051	85 c0		 test	 eax, eax
   00053	7d 0a		 jge	 SHORT $LN6@Render
 
-; 50   : 		return E_FAIL;
+; 68   : 		return E_FAIL;
 
   00055	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0005a	e9 96 00 00 00	 jmp	 $LN1@Render
+  0005a	e9 ca 00 00 00	 jmp	 $LN1@Render
 $LN6@Render:
 
-; 51   : 
-; 52   : 	_uint iMeshCount = m_pModel->Get_MeshCount();
+; 69   : 
+; 70   : 	m_pShader->SetRawValue("g_LightPower", &m_fTimeAcc, sizeof(float));
 
   0005f	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00066	48 8b 88 90 00
+  00066	48 05 a0 00 00
+	00		 add	 rax, 160		; 000000a0H
+  0006c	41 b9 04 00 00
+	00		 mov	 r9d, 4
+  00072	4c 8b c0	 mov	 r8, rax
+  00075	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@KNHOMFDO@g_LightPower?$AA@
+  0007c	48 8b 85 20 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00083	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
+  0008a	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
+
+; 71   : 
+; 72   : 	_uint iMeshCount = m_pModel->Get_MeshCount();
+
+  00090	48 8b 85 20 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00097	48 8b 88 90 00
 	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  0006d	ff 15 00 00 00
+  0009e	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_MeshCount@CModel@Engine@@QEAAIXZ
-  00073	89 45 04	 mov	 DWORD PTR iMeshCount$[rbp], eax
+  000a4	89 45 04	 mov	 DWORD PTR iMeshCount$[rbp], eax
 
-; 53   : 	for(_uint i = 0 ; i < iMeshCount ; ++i)
+; 73   : 	for (_uint i = 0; i < iMeshCount; ++i)
 
-  00076	c7 45 24 00 00
+  000a7	c7 45 24 00 00
 	00 00		 mov	 DWORD PTR i$1[rbp], 0
-  0007d	eb 08		 jmp	 SHORT $LN4@Render
+  000ae	eb 08		 jmp	 SHORT $LN4@Render
 $LN2@Render:
-  0007f	8b 45 24	 mov	 eax, DWORD PTR i$1[rbp]
-  00082	ff c0		 inc	 eax
-  00084	89 45 24	 mov	 DWORD PTR i$1[rbp], eax
+  000b0	8b 45 24	 mov	 eax, DWORD PTR i$1[rbp]
+  000b3	ff c0		 inc	 eax
+  000b5	89 45 24	 mov	 DWORD PTR i$1[rbp], eax
 $LN4@Render:
-  00087	8b 45 04	 mov	 eax, DWORD PTR iMeshCount$[rbp]
-  0008a	39 45 24	 cmp	 DWORD PTR i$1[rbp], eax
-  0008d	73 64		 jae	 SHORT $LN3@Render
+  000b8	8b 45 04	 mov	 eax, DWORD PTR iMeshCount$[rbp]
+  000bb	39 45 24	 cmp	 DWORD PTR i$1[rbp], eax
+  000be	73 67		 jae	 SHORT $LN3@Render
 
-; 54   : 	{
-; 55   : 		m_pModel->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType_DIFFUSE);
+; 74   : 	{
+; 75   : 		m_pModel->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType_DIFFUSE);
 
-  0008f	c7 44 24 20 01
+  000c0	c7 44 24 20 01
 	00 00 00	 mov	 DWORD PTR [rsp+32], 1
-  00097	44 8b 4d 24	 mov	 r9d, DWORD PTR i$1[rbp]
-  0009b	4c 8d 05 00 00
+  000c8	44 8b 4d 24	 mov	 r9d, DWORD PTR i$1[rbp]
+  000cc	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0BB@FMIBAICL@g_DiffuseTexture?$AA@
-  000a2	48 8b 85 20 01
+  000d3	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000a9	48 8b 90 88 00
+  000da	48 8b 90 88 00
 	00 00		 mov	 rdx, QWORD PTR [rax+136]
-  000b0	48 8b 85 20 01
+  000e1	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000b7	48 8b 88 90 00
+  000e8	48 8b 88 90 00
 	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  000be	ff 15 00 00 00
+  000ef	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderMaterialResource@CModel@Engine@@QEAAJPEAVCShader@2@PEBDIW4aiTextureType@@@Z
 
-; 56   : 		
-; 57   : 		m_pShader->Begin(0);
+; 76   : 
+; 77   : 		m_pShader->Begin(4);
 
-  000c4	33 d2		 xor	 edx, edx
-  000c6	48 8b 85 20 01
+  000f5	ba 04 00 00 00	 mov	 edx, 4
+  000fa	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000cd	48 8b 88 88 00
+  00101	48 8b 88 88 00
 	00 00		 mov	 rcx, QWORD PTR [rax+136]
-  000d4	ff 15 00 00 00
+  00108	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
-; 58   : 		m_pModel->Render(i);
+; 78   : 		m_pModel->Render(i);
 
-  000da	8b 55 24	 mov	 edx, DWORD PTR i$1[rbp]
-  000dd	48 8b 85 20 01
+  0010e	8b 55 24	 mov	 edx, DWORD PTR i$1[rbp]
+  00111	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000e4	48 8b 88 90 00
+  00118	48 8b 88 90 00
 	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  000eb	ff 15 00 00 00
+  0011f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CModel@Engine@@QEAAJI@Z
 
-; 59   : 	}
+; 79   : 	}
 
-  000f1	eb 8c		 jmp	 SHORT $LN2@Render
+  00125	eb 89		 jmp	 SHORT $LN2@Render
 $LN3@Render:
 
-; 60   : 
-; 61   : 	return S_OK;
+; 80   : 
+; 81   : 	return S_OK;
 
-  000f3	33 c0		 xor	 eax, eax
+  00127	33 c0		 xor	 eax, eax
 $LN1@Render:
 
-; 62   : }
+; 82   : }
 
-  000f5	48 8d a5 08 01
+  00129	48 8d a5 08 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+264]
-  000fc	5f		 pop	 rdi
-  000fd	5d		 pop	 rbp
-  000fe	c3		 ret	 0
+  00130	5f		 pop	 rdi
+  00131	5d		 pop	 rbp
+  00132	c3		 ret	 0
 ?Render@CBossRoom@Client@@UEAAJXZ ENDP			; Client::CBossRoom::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -4416,7 +4527,7 @@ this$ = 224
 TimeDelta$ = 232
 ?LateTick@CBossRoom@Client@@UEAAXN@Z PROC		; Client::CBossRoom::LateTick, COMDAT
 
-; 36   : {
+; 54   : {
 
 $LN4:
   00000	f2 0f 11 4c 24
@@ -4434,7 +4545,7 @@ $LN4:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 37   : 	__super::Tick(TimeDelta);
+; 55   : 	__super::Tick(TimeDelta);
 
   00030	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -4443,8 +4554,8 @@ $LN4:
   0003f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Tick@CGameObject@Engine@@UEAAXN@Z
 
-; 38   : 
-; 39   : 	if (nullptr != m_pRenderer)
+; 56   : 
+; 57   : 	if (nullptr != m_pRenderer)
 
   00045	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4452,7 +4563,7 @@ $LN4:
 	00 00 00	 cmp	 QWORD PTR [rax+128], 0
   00054	74 20		 je	 SHORT $LN2@LateTick
 
-; 40   : 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+; 58   : 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 
   00056	4c 8b 85 e0 00
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
@@ -4465,8 +4576,8 @@ $LN4:
 	00		 call	 QWORD PTR __imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z
 $LN2@LateTick:
 
-; 41   : 
-; 42   : }
+; 59   : 
+; 60   : }
 
   00076	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4479,44 +4590,156 @@ _TEXT	ENDS
 ; File c:\users\arcco\documents\github\framework\client\private\bossroom.cpp
 ;	COMDAT ?Tick@CBossRoom@Client@@UEAAXN@Z
 _TEXT	SEGMENT
-this$ = 224
-TimeDelta$ = 232
+pAppManager$ = 8
+this$ = 256
+TimeDelta$ = 264
 ?Tick@CBossRoom@Client@@UEAAXN@Z PROC			; Client::CBossRoom::Tick, COMDAT
 
-; 31   : {
+; 32   : {
 
-$LN3:
+$LN7:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0000b	55		 push	 rbp
   0000c	57		 push	 rdi
-  0000d	48 81 ec e8 00
-	00 00		 sub	 rsp, 232		; 000000e8H
+  0000d	48 81 ec 08 01
+	00 00		 sub	 rsp, 264		; 00000108H
   00014	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
   00019	48 8b fc	 mov	 rdi, rsp
-  0001c	b9 3a 00 00 00	 mov	 ecx, 58			; 0000003aH
+  0001c	b9 42 00 00 00	 mov	 ecx, 66			; 00000042H
   00021	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00026	f3 ab		 rep stosd
-  00028	48 8b 8c 24 08
-	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
+  00028	48 8b 8c 24 28
+	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
 
-; 32   : 	__super::Tick(TimeDelta);
+; 33   : 	__super::Tick(TimeDelta);
 
-  00030	f2 0f 10 8d e8
-	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
-  00038	48 8b 8d e0 00
+  00030	f2 0f 10 8d 08
+	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
+  00038	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   0003f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Tick@CGameObject@Engine@@UEAAXN@Z
 
-; 33   : }
+; 34   : 
+; 35   : 	CApplicationManager* pAppManager = CApplicationManager::GetInstance();
 
-  00045	48 8d a5 c8 00
-	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  0004c	5f		 pop	 rdi
-  0004d	5d		 pop	 rbp
-  0004e	c3		 ret	 0
+  00045	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
+  0004a	48 89 45 08	 mov	 QWORD PTR pAppManager$[rbp], rax
+
+; 36   : 
+; 37   : 	if (pAppManager->IsFreeze())
+
+  0004e	48 8b 4d 08	 mov	 rcx, QWORD PTR pAppManager$[rbp]
+  00052	e8 00 00 00 00	 call	 ?IsFreeze@CApplicationManager@Client@@QEBA_NXZ ; Client::CApplicationManager::IsFreeze
+  00057	0f b6 c0	 movzx	 eax, al
+  0005a	85 c0		 test	 eax, eax
+  0005c	74 69		 je	 SHORT $LN2@Tick
+
+; 38   : 	{
+; 39   : 		m_bDarkness = true;
+
+  0005e	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00065	c6 80 98 00 00
+	00 01		 mov	 BYTE PTR [rax+152], 1
+
+; 40   : 		m_fTimeAcc -= TimeDelta;
+
+  0006c	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00073	f3 0f 5a 80 a0
+	00 00 00	 cvtss2sd xmm0, DWORD PTR [rax+160]
+  0007b	f2 0f 5c 85 08
+	01 00 00	 subsd	 xmm0, QWORD PTR TimeDelta$[rbp]
+  00083	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  00087	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0008e	f3 0f 11 80 a0
+	00 00 00	 movss	 DWORD PTR [rax+160], xmm0
+
+; 41   : 		if (m_fTimeAcc <= 0.2f)
+
+  00096	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0009d	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3e4ccccd
+  000a5	0f 2f 80 a0 00
+	00 00		 comiss	 xmm0, DWORD PTR [rax+160]
+  000ac	72 17		 jb	 SHORT $LN4@Tick
+
+; 42   : 			m_fTimeAcc = 0.2f;
+
+  000ae	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000b5	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3e4ccccd
+  000bd	f3 0f 11 80 a0
+	00 00 00	 movss	 DWORD PTR [rax+160], xmm0
+$LN4@Tick:
+
+; 43   : 	}
+; 44   : 	else
+
+  000c5	eb 76		 jmp	 SHORT $LN3@Tick
+$LN2@Tick:
+
+; 45   : 	{
+; 46   : 		m_bDarkness = false;
+
+  000c7	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000ce	c6 80 98 00 00
+	00 00		 mov	 BYTE PTR [rax+152], 0
+
+; 47   : 		m_fTimeAcc += TimeDelta * 2.f;
+
+  000d5	f2 0f 10 85 08
+	01 00 00	 movsd	 xmm0, QWORD PTR TimeDelta$[rbp]
+  000dd	f2 0f 59 05 00
+	00 00 00	 mulsd	 xmm0, QWORD PTR __real@4000000000000000
+  000e5	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000ec	f3 0f 5a 88 a0
+	00 00 00	 cvtss2sd xmm1, DWORD PTR [rax+160]
+  000f4	f2 0f 58 c8	 addsd	 xmm1, xmm0
+  000f8	0f 28 c1	 movaps	 xmm0, xmm1
+  000fb	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  000ff	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00106	f3 0f 11 80 a0
+	00 00 00	 movss	 DWORD PTR [rax+160], xmm0
+
+; 48   : 		if (m_fTimeAcc >= 1.f)
+
+  0010e	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00115	f3 0f 10 80 a0
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+160]
+  0011d	0f 2f 05 00 00
+	00 00		 comiss	 xmm0, DWORD PTR __real@3f800000
+  00124	72 17		 jb	 SHORT $LN5@Tick
+
+; 49   : 			m_fTimeAcc = 1.f;
+
+  00126	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0012d	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
+  00135	f3 0f 11 80 a0
+	00 00 00	 movss	 DWORD PTR [rax+160], xmm0
+$LN5@Tick:
+$LN3@Tick:
+
+; 50   : 	}
+; 51   : }
+
+  0013d	48 8d a5 e8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+232]
+  00144	5f		 pop	 rdi
+  00145	5d		 pop	 rbp
+  00146	c3		 ret	 0
 ?Tick@CBossRoom@Client@@UEAAXN@Z ENDP			; Client::CBossRoom::Tick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -4527,7 +4750,7 @@ this$ = 224
 pArg$ = 232
 ?Initialize@CBossRoom@Client@@UEAAJPEAX@Z PROC		; Client::CBossRoom::Initialize, COMDAT
 
-; 20   : {
+; 21   : {
 
 $LN5:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4544,7 +4767,7 @@ $LN5:
   00027	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 21   : 	if (FAILED(CGameObject::Initialize(pArg)))
+; 22   : 	if (FAILED(CGameObject::Initialize(pArg)))
 
   0002f	48 8b 95 e8 00
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -4555,14 +4778,14 @@ $LN5:
   00043	85 c0		 test	 eax, eax
   00045	7d 07		 jge	 SHORT $LN2@Initialize
 
-; 22   : 		return E_FAIL;
+; 23   : 		return E_FAIL;
 
   00047	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0004c	eb 19		 jmp	 SHORT $LN1@Initialize
 $LN2@Initialize:
 
-; 23   : 
-; 24   : 	if (FAILED(Add_Components()))
+; 24   : 
+; 25   : 	if (FAILED(Add_Components()))
 
   0004e	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -4570,19 +4793,19 @@ $LN2@Initialize:
   0005a	85 c0		 test	 eax, eax
   0005c	7d 07		 jge	 SHORT $LN3@Initialize
 
-; 25   : 		return E_FAIL;
+; 26   : 		return E_FAIL;
 
   0005e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00063	eb 02		 jmp	 SHORT $LN1@Initialize
 $LN3@Initialize:
 
-; 26   : 
-; 27   : 	return S_OK;
+; 27   : 
+; 28   : 	return S_OK;
 
   00065	33 c0		 xor	 eax, eax
 $LN1@Initialize:
 
-; 28   : }
+; 29   : }
 
   00067	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4598,7 +4821,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Initialize_Prototype@CBossRoom@Client@@UEAAJXZ PROC	; Client::CBossRoom::Initialize_Prototype, COMDAT
 
-; 12   : {
+; 13   : {
 
 $LN4:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4614,7 +4837,7 @@ $LN4:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 13   : 	if (FAILED(CGameObject::Initialize_Prototype()))
+; 14   : 	if (FAILED(CGameObject::Initialize_Prototype()))
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -4623,19 +4846,19 @@ $LN4:
   00037	85 c0		 test	 eax, eax
   00039	7d 07		 jge	 SHORT $LN2@Initialize
 
-; 14   : 		return E_FAIL;
+; 15   : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00040	eb 02		 jmp	 SHORT $LN1@Initialize
 $LN2@Initialize:
 
-; 15   : 
-; 16   : 	return S_OK;
+; 16   : 
+; 17   : 	return S_OK;
 
   00042	33 c0		 xor	 eax, eax
 $LN1@Initialize:
 
-; 17   : }
+; 18   : }
 
   00044	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4651,7 +4874,7 @@ _TEXT	SEGMENT
 this$ = 224
 ??1CBossRoom@Client@@EEAA@XZ PROC			; Client::CBossRoom::~CBossRoom, COMDAT
 
-; 9    : }
+; 10   : }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4688,7 +4911,7 @@ pDevice$ = 232
 pContext$ = 240
 ??0CBossRoom@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CBossRoom::CBossRoom, COMDAT
 
-; 8    : {
+; 9    : {
 
 $LN4:
   00000	4c 89 44 24 18	 mov	 QWORD PTR [rsp+24], r8
@@ -4706,7 +4929,7 @@ $LN4:
   0002c	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 7    : 	: CGameObject(pDevice, pContext)
+; 8    : 	: CGameObject(pDevice, pContext)
 
   00034	4c 8b 85 f0 00
 	00 00		 mov	 r8, QWORD PTR pContext$[rbp]
@@ -4717,7 +4940,7 @@ $LN4:
   00049	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_??0CGameObject@Engine@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 
-; 8    : {
+; 9    : {
 
   0004f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4756,17 +4979,44 @@ $LN4:
   0009a	48 c7 80 90 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+144], 0
-; File c:\users\arcco\documents\github\framework\client\private\bossroom.cpp
 
-; 9    : }
+; 41   : 
+; 42   : private:
+; 43   : 	_bool m_bDarkness = false;
 
   000a5	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000ac	48 8d a5 c8 00
+  000ac	c6 80 98 00 00
+	00 00		 mov	 BYTE PTR [rax+152], 0
+
+; 44   : 	_float m_fColor = 1.f;
+
+  000b3	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000ba	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
+  000c2	f3 0f 11 80 9c
+	00 00 00	 movss	 DWORD PTR [rax+156], xmm0
+
+; 45   : 	_float m_fTimeAcc = 1.f;
+
+  000ca	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000d1	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
+  000d9	f3 0f 11 80 a0
+	00 00 00	 movss	 DWORD PTR [rax+160], xmm0
+; File c:\users\arcco\documents\github\framework\client\private\bossroom.cpp
+
+; 10   : }
+
+  000e1	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000e8	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  000b3	5f		 pop	 rdi
-  000b4	5d		 pop	 rbp
-  000b5	c3		 ret	 0
+  000ef	5f		 pop	 rdi
+  000f0	5d		 pop	 rbp
+  000f1	c3		 ret	 0
 ??0CBossRoom@Client@@AEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ENDP ; Client::CBossRoom::CBossRoom
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI

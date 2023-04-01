@@ -12994,8 +12994,8 @@ $LN3:
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
   00028	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0002f	0f b6 80 08 02
-	00 00		 movzx	 eax, BYTE PTR [rax+520]
+  0002f	0f b6 80 10 02
+	00 00		 movzx	 eax, BYTE PTR [rax+528]
   00036	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
   0003d	5f		 pop	 rdi

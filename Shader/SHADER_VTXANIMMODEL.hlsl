@@ -10,10 +10,17 @@ vector g_vLightDiffuse;
 vector g_vLightAmbient;
 vector g_vLightSpecular;
 
-vector g_vMtrlAmbient = vector(0.4f, 0.4f, 0.4f, 1.f);
+vector g_vMtrlAmbient = vector(0.5f, 0.5f, 0.5f, 1.f);
 vector g_vMtrlSpecular = vector(1.f, 1.f, 1.f, 1.f);
 
 texture2D g_DiffuseTexture;
+
+//µðÁ¹ºê±â´É
+texture2D g_DissolveTexture;
+float g_fDissolveAmount = 1.f;
+float3 g_vGlowColor = { 1.f, 0.7f, 0.4f };
+float g_fGlowRange = 0.005f;
+float g_fGlowFalloff = 0.1f;
 
 struct VS_IN
 {
@@ -136,6 +143,79 @@ PS_OUT PS_ALPHA(PS_IN In)
 	return Out;
 }
 
+PS_OUT PS_RIMALLY(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+
+	vector vCamDir = normalize(In.vWorldPos - g_vCamPosition);
+	float rim = 0;
+	rim = 1 - saturate(dot(In.vNormal, -vCamDir));
+
+	rim = pow(rim, 30.0f);
+
+	float4 rimColor = float4(0.f, 0.f, 0.f, 1.f);
+	rimColor = rim * rimColor;
+
+	Out.vColor = rimColor;
+	return Out;
+}
+
+PS_OUT PS_RIMENEMY(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+
+	vector vCamDir = normalize(In.vWorldPos - g_vCamPosition);
+	float rim = 0;
+	rim = 1 - saturate(dot(In.vNormal, -vCamDir));
+
+	rim = pow(rim, 30.0f);
+
+	float4 rimColor = float4(1.f, 0.f, 0.f, 0.5f);
+	rimColor = rim * rimColor;
+
+	Out.vColor = rimColor;
+	return Out;
+}
+
+PS_OUT PS_DESSOLVE(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+
+	float dissolve = g_DissolveTexture.Sample(LinearSampler, In.vTexUV).r;
+	dissolve = dissolve * 0.999f;
+	float isVisible = dissolve - (g_fDissolveAmount * 0.3f);
+	clip(isVisible);
+
+	float isGlowing = smoothstep(g_fGlowRange + g_fGlowFalloff, g_fGlowRange, isVisible);
+	float3 vGlowColor = isGlowing * g_vGlowColor;
+
+	vector vMtrlDiffuse = g_DiffuseTexture.Sample(LinearSampler, In.vTexUV);
+
+	if (vMtrlDiffuse.a <= 0.1f)
+		discard;
+
+	float fShade = saturate(dot(normalize(g_vLightDir) * -1.f, In.vNormal));
+
+	if (fShade > 0.9f)
+		fShade = 1.f;
+	else if (fShade > 0.7f)
+		fShade = 0.7f;
+	else if (fShade > 0.2f)
+		fShade = 0.2f;
+	else if (fShade > 0.0f)
+		fShade = 0.0f;
+
+	vector vReflect = reflect(normalize(g_vLightDir), In.vNormal);
+	vector vLook = In.vWorldPos - g_vCamPosition;
+
+	float fSpecular = pow(saturate(dot(normalize(vReflect) * -1.f, normalize(vLook))), 30.f);
+
+	Out.vColor = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
+	Out.vColor.xyz += vGlowColor;
+
+	return Out;
+}
+
 
 technique11 DefaultTechnique
 {
@@ -163,5 +243,44 @@ technique11 DefaultTechnique
 		HullShader = NULL;
 		DomainShader = NULL;
 		PixelShader = compile ps_5_0 PS_ALPHA();
+	}
+
+	pass RimAlly
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_RIMALLY();
+	}
+
+	pass RimEnemy
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_RIMENEMY();
+	}
+
+	pass Dessolve
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_DESSOLVE();
 	}
 }

@@ -181,6 +181,10 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_PHONG.hlsl"), VTXNORTEX_DECLARATION::Elements, VTXNORTEX_DECLARATION::ElementCount))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_freeze"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_FREEZEAREA.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
+		return E_FAIL;
+
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXMODEL.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
 		return E_FAIL;
@@ -378,6 +382,27 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/EvolutionGageFront.png")))))
 		return E_FAIL;
 
+	//프리즈 에어리어
+	//무지개색 노이즈
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_freezemask0"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/MaskImage/Noise.dds")))))
+		return E_FAIL;
+
+	//테두리 연하게
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_freezemask1"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/MaskImage/Mask100.dds")))))
+		return E_FAIL;
+
+	//마스크 이미지 == 디졸브 이미지
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_freezemask2"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/MaskImage/Mask114.jpg")))))
+		return E_FAIL;
+
+	//이거 초산 마스크이미지
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_freezemask3"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/MaskImage/DarknessMask.jpg")))))
+		return E_FAIL;
+
 	//if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_evolution_front"),
 	//	CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/EvolutionGageFront.png")))))
 	//	return E_FAIL;
@@ -408,6 +433,10 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 	SwordTrailMatrix = XMMatrixRotationY(XMConvertToRadians(180.f));
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, L"proto_com_model_sword_trail",
 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Character/Kamui/Weapon/Effect/SwordTrail.fbx", SwordTrailMatrix))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, L"proto_com_model_sword_trail2",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Character/Kamui/Weapon/Effect/SwordEffect2.fbx", SwordTrailMatrix))))
 		return E_FAIL;
 
 	Safe_AddRef(m_pRenderer);

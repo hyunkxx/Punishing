@@ -290,9 +290,10 @@ private:
 	//_bool m_bLineAttackCollStart[3] = { false, false, false };
 
 	_bool m_bDie = false;
+	_bool m_bDead = false;
 	_bool m_bRender = true;
 	_float m_fDieWaitAcc = 0.f;
-	const _float m_fDieWaitTime = 3.f;
+	const _float m_fDieWaitTime = 4.f;
 
 	//Ω¶¿Ã≈©
 	_bool m_bMissileShake = false;

@@ -218,7 +218,7 @@ protected:
 	_bool m_bDead = false;
 	_bool m_bDeadWait = false;
 	_float m_fDeadWaitTimer = 0.0f;
-	const _float m_fDeadWaitTimeOut = 2.f;
+	const _float m_fDeadWaitTimeOut = 4.f;
 
 	//Hit
 	_bool m_bAttackOneCall = false;
@@ -263,6 +263,9 @@ protected:
 	_bool m_bSpawnWait = true;
 	_float m_fSpawnWaitAcc = 0.f;
 	_float m_fSpawnWaitTimeOut = 2.f;
+
+	_float m_fDissolveAcc = 0.f;
+	CTexture* m_pDissolveTexture = nullptr;
 
 };
 

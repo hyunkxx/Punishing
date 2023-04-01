@@ -85,9 +85,19 @@ PS_OUT PS_DEFAULT(PS_IN In)
 	return Out;
 }
 
+PS_OUT PS_PASS2(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+
+	Out.vColor = float4(1.f, 1.f, 1.f, 1.5f);
+	Out.vColor.a -= g_fTimeAcc * 5.f;
+
+	return Out;
+}
+
 technique11 DefaultTechnique
 {
-	pass SwordTrail
+	pass Pass0
 	{
 		SetRasterizerState(RS_Default);
 		SetDepthStencilState(DS_Default, 0);
@@ -98,6 +108,19 @@ technique11 DefaultTechnique
 		HullShader = NULL;
 		DomainShader = NULL;
 		PixelShader = compile ps_5_0 PS_DEFAULT();
+	}
+
+	pass Pass1
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_PASS2();
 	}
 
 }

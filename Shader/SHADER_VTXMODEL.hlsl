@@ -12,6 +12,8 @@ vector g_vLightPos = vector(5.f, 3.f, 5.f, 1.f);
 float g_fLength = 10.f;
 float g_fPower = 50.f;
 
+float g_LightPower = 1.f;
+
 /* 조명의 색상 */
 vector g_vLightDiffuse = vector(1.f, 1.f, 1.f, 1.f);
 vector g_vLightAmbient = vector(1.f, 1.f, 1.f, 1.f);
@@ -71,17 +73,16 @@ PS_OUT PS_MAIN(PS_IN In)
 
 	vector vWorldNormal = normalize(mul(float4(In.vNormal, 0.f), g_WorldMatrix));
 	float fShade = max(dot(normalize(g_vLightDir) * -1.f, vWorldNormal), 0.f);
-
 	vector vReflect = reflect(normalize(g_vLightDir), vWorldNormal);
 
 	float fSpecular = pow(max(dot(normalize(vReflect) * -1.f, normalize(In.vLook)), 0.f), g_fPower);
-	vector vMatDiffuse = g_DiffuseTexture.Sample(LinearSampler, In.vTexUV);
+	vector vMatDiffuse = g_DiffuseTexture.Sample(LinearSampler, In.vTexUV) * float4(g_LightPower, g_LightPower, g_LightPower, g_LightPower);
 
-	Out.vColor = (g_vLightDiffuse * vMatDiffuse) * saturate(fShade + (g_vLightAmbient * g_vMatAmbient)) + (g_vLightSpecular * g_vMatSpecular) * fSpecular;
+	Out.vColor = (g_vLightDiffuse * vMatDiffuse);
 
 	if (Out.vColor.a <= 0.1f)
 		discard;
-	
+
 	return Out;
 }
 
@@ -177,6 +178,26 @@ PS_OUT PS_ALPHA(PS_IN In)
 	return Out;
 }
 
+PS_OUT PS_FREEZEDARK(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+
+	vector vWorldNormal = normalize(mul(float4(In.vNormal, 0.f), g_WorldMatrix));
+	float fShade = max(dot(normalize(g_vLightDir) * -1.f, vWorldNormal), 0.f);
+	vector vReflect = reflect(normalize(g_vLightDir), vWorldNormal);
+
+	float fSpecular = pow(max(dot(normalize(vReflect) * -1.f, normalize(In.vLook)), 0.f), g_fPower);
+	vector vMatDiffuse = g_DiffuseTexture.Sample(LinearSampler, In.vTexUV) * float4(g_LightPower, g_LightPower, g_LightPower, 1.f);
+
+	Out.vColor = (g_vLightDiffuse * vMatDiffuse);
+
+	if (Out.vColor.a <= 0.1f)
+		discard;
+
+	return Out;
+}
+
+
 technique11 DefaultTechnique
 {
 	pass BackGround
@@ -229,6 +250,19 @@ technique11 DefaultTechnique
 		HullShader = NULL;
 		DomainShader = NULL;
 		PixelShader = compile ps_5_0 PS_ALPHA();
+	}
+
+	pass FreezeDark
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_FREEZEDARK();
 	}
 }
 

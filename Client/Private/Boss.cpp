@@ -81,6 +81,9 @@ HRESULT CBoss::Initialize(void * pArg)
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform_8"), (CComponent**)&m_pColliderTransform[8], &TransformDesc)))
 		return E_FAIL;
 
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_freezemask2"), TEXT("com_texture_dissolve"), (CComponent**)&m_pDissolveTexture)))
+		return E_FAIL;
+
 	//Colliders
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
@@ -239,6 +242,7 @@ void CBoss::Tick(_double TimeDelta)
 			if (model->AnimationIsFinishEx())
 			{
 				m_bDie = true;
+				CApplicationManager::GetInstance()->SetLevelFinish(CApplicationManager::LEVEL::BOSS);
 			}
 		}
 		//LookTarget(TimeDelta, 0.1f);
@@ -368,55 +372,117 @@ HRESULT CBoss::Render()
 		return E_FAIL;
 
 	_uint MeshCount = model->Get_MeshCount();
-	for (_uint i = 0; i < MeshCount; ++i)
+
+	if (!m_bDead)
 	{
-		//몸통 -> 얘 이상하게 아래로 내려가져있어서 강제로 올림 애니메이션마다 다름
-		if (i == 0)
+		for (_uint i = 0; i < MeshCount; ++i)
 		{
-			if (!m_bEvolution)
+			//몸통 -> 얘 이상하게 아래로 내려가져있어서 강제로 올림 애니메이션마다 다름
+			if (i == 0)
 			{
-				if (model->AnimationCompare(BOSS_CLIP::STAND2))
-					continue;
+				if (!m_bEvolution)
+				{
+					if (model->AnimationCompare(BOSS_CLIP::STAND2))
+						continue;
+					else
+					{
+						if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
+							return E_FAIL;
+					}
+				}
 				else
 				{
-					if(FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
-						return E_FAIL;
+					if (model->AnimationCompare(BOSS_CLIP::STANDEX))
+					{
+						if (FAILED(m_pBodyTransform->Setup_ShaderResource(shader, "g_WorldMatrix")))
+							return E_FAIL;
+					}
+					else
+					{
+						if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
+							return E_FAIL;
+					}
+
 				}
 			}
 			else
 			{
-				if (model->AnimationCompare(BOSS_CLIP::STANDEX))
+				if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
+					return E_FAIL;
+			}
+
+			if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
+				continue;
+
+			model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+			model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
+
+			if (m_bAlpha)
+				shader->Begin(1);
+			else
+				shader->Begin(0);
+
+			model->Render(i);
+
+			//Rim
+			shader->Begin(3);
+			model->Render(i);
+
+		}
+	}
+	else
+	{
+		for (_uint i = 0; i < MeshCount; ++i)
+		{
+			//몸통 -> 얘 이상하게 아래로 내려가져있어서 강제로 올림 애니메이션마다 다름
+			if (i == 0)
+			{
+				if (!m_bEvolution)
 				{
-					if (FAILED(m_pBodyTransform->Setup_ShaderResource(shader, "g_WorldMatrix")))
-						return E_FAIL;
+					if (model->AnimationCompare(BOSS_CLIP::STAND2))
+						continue;
+					else
+					{
+						if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
+							return E_FAIL;
+					}
 				}
 				else
 				{
-					if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
-						return E_FAIL;
+					if (model->AnimationCompare(BOSS_CLIP::STANDEX))
+					{
+						if (FAILED(m_pBodyTransform->Setup_ShaderResource(shader, "g_WorldMatrix")))
+							return E_FAIL;
+					}
+					else
+					{
+						if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
+							return E_FAIL;
+					}
+
 				}
-
 			}
+			else
+			{
+				if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
+					return E_FAIL;
+			}
+
+			if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
+				continue;
+
+			model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+			m_pDissolveTexture->Setup_ShaderResource(shader, "g_DissolveTexture", 0);
+			shader->SetRawValue("g_fDissolveAmount", &m_fDieWaitAcc, sizeof(float));
+
+			model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
+			shader->Begin(4);
+
+			model->Render(i);
+
 		}
-		else
-		{
-			if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
-				return E_FAIL;
-		}
-
-		if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
-			continue;
-
-		model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
-		model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
-
-		if (m_bAlpha)
-			shader->Begin(1);
-		else
-			shader->Begin(0);
-
-		model->Render(i);
 	}
+	
 
 	return S_OK;
 }
@@ -490,8 +556,19 @@ HRESULT CBoss::SetupShaderResources()
 	if (nullptr == LightDesc)
 		return E_FAIL;
 
-	if (FAILED(shader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
-		return E_FAIL;
+	if (!CApplicationManager::GetInstance()->IsFreeze())
+	{
+		if (FAILED(shader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
+			return E_FAIL;
+
+	}
+	else
+	{
+		_vector vDir = transform->Get_State(CTransform::STATE_POSITION) - m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+		if (FAILED(shader->SetRawValue("g_vLightDir", &vDir, sizeof(_float4))))
+			return E_FAIL;
+	}
+
 	if (FAILED(shader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
 		return E_FAIL;
 	if (FAILED(shader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
@@ -2401,6 +2478,13 @@ void CBoss::AnimationController(_double TimeDelta)
 		}
 	}
 	
+	if (model->AnimationCompare(BOSS_CLIP::DEATH))
+	{
+		if(model->AnimationIsFinishEx())
+			m_bDead = true;
+	}
+
+
 	//바디 올리기
 	_float4x4 vBossWorld = transform->Get_WorldMatrix();
 	vBossWorld._42 = vBossWorld._42 + 0.43f;

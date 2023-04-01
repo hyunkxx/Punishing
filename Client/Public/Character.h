@@ -429,6 +429,7 @@ private: // Command
 	_bool m_bUseSkillA[4] = { false, false, false, false };
 	_bool m_bUseSkillB = false;
 	_bool m_bUseSkillC[5] = { false, false, false, false, false };
+
 };
 
 END

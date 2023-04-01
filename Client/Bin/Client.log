@@ -1,3 +1,7 @@
-﻿  FreezeArea.cpp
+﻿FXC : warning X4717: Effects deprecated for D3DCompiler_47
+  
+  compilation object save succeeded; see C:\Users\arcco\Documents\GitHub\Framework\Client\Bin\SHADER_FREEZEAREA.cso
+  FreezeArea.cpp
+c:\users\arcco\documents\github\framework\client\private\freezearea.cpp(64): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Client.vcxproj -> C:\Users\arcco\Documents\GitHub\Framework\Client\Config\../Bin/Client.exe
   Client.vcxproj -> ../Bin/Client.pdb (Full PDB)

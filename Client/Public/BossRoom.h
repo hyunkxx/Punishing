@@ -39,6 +39,11 @@ private:
 	CShader*	m_pShader = { nullptr };
 	CModel*		m_pModel = { nullptr };
 
+private:
+	_bool m_bDarkness = false;
+	_float m_fColor = 1.f;
+	_float m_fTimeAcc = 1.f;
+
 };
 
 END

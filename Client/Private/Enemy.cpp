@@ -148,21 +148,44 @@ HRESULT CEnemy::Render()
 		return E_FAIL;
 
 	_uint MeshCount = model->Get_MeshCount();
-	for (_uint i = 0; i < MeshCount; ++i)
+	if (m_bDead)
 	{
-		if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
-			continue;
+		for (_uint i = 0; i < MeshCount; ++i)
+		{
+			if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
+				continue;
 
-		model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+			model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+			m_pDissolveTexture->Setup_ShaderResource(shader, "g_DissolveTexture", 0);
+			shader->SetRawValue("g_fDissolveAmount", &m_fDeadWaitTimer, sizeof(float));
 
-		model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
+			model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
+			shader->Begin(4);
 
-		if(m_bAlpha)
-			shader->Begin(1);
-		else
-			shader->Begin(0);
+			model->Render(i);
 
-		model->Render(i);
+		}
+	}
+	else
+	{
+		for (_uint i = 0; i < MeshCount; ++i)
+		{
+			if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
+				continue;
+
+			model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+			model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
+
+			if (m_bAlpha)
+				shader->Begin(1);
+			else
+				shader->Begin(0);
+
+			model->Render(i);
+
+			shader->Begin(3);
+			model->Render(i);
+		}
 	}
 
 	return S_OK;
@@ -298,6 +321,9 @@ HRESULT CEnemy::AddComponents()
 	(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collder_weapon"), (CComponent**)&m_pWeaponCollider, &collDesc));
 	m_pWeaponCollider->SetActive(false);
 
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_freezemask2"), TEXT("com_texture_dissolve"), (CComponent**)&m_pDissolveTexture)))
+		return E_FAIL;
+
 	return S_OK;
 }
 
@@ -330,8 +356,19 @@ HRESULT CEnemy::SetupShaderResources()
 	if (nullptr == LightDesc)
 		return E_FAIL;
 
-	if (FAILED(shader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
-		return E_FAIL;
+	if (!CApplicationManager::GetInstance()->IsFreeze())
+	{
+		if (FAILED(shader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
+			return E_FAIL;
+
+	}
+	else
+	{
+		_vector vDir = transform->Get_State(CTransform::STATE_POSITION) - m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
+		if (FAILED(shader->SetRawValue("g_vLightDir", &vDir, sizeof(_float4))))
+			return E_FAIL;
+	}
+
 	if (FAILED(shader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
 		return E_FAIL;
 	if (FAILED(shader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
@@ -1023,6 +1060,7 @@ void CEnemy::Free()
 
 	s_iCount--;
 
+	Safe_Release(m_pDissolveTexture);
 	Safe_Release(renderer);
 	Safe_Release(transform);
 	Safe_Release(model);

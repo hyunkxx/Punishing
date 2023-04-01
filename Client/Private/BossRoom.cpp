@@ -2,6 +2,7 @@
 #include "..\Public\BossRoom.h"
 
 #include "GameInstance.h"
+#include "ApplicationManager.h"
 
 CBossRoom::CBossRoom(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
 	: CGameObject(pDevice, pContext)
@@ -30,6 +31,23 @@ HRESULT CBossRoom::Initialize(void * pArg)
 void CBossRoom::Tick(_double TimeDelta)
 {
 	__super::Tick(TimeDelta);
+
+	CApplicationManager* pAppManager = CApplicationManager::GetInstance();
+
+	if (pAppManager->IsFreeze())
+	{
+		m_bDarkness = true;
+		m_fTimeAcc -= TimeDelta;
+		if (m_fTimeAcc <= 0.2f)
+			m_fTimeAcc = 0.2f;
+	}
+	else
+	{
+		m_bDarkness = false;
+		m_fTimeAcc += TimeDelta * 2.f;
+		if (m_fTimeAcc >= 1.f)
+			m_fTimeAcc = 1.f;
+	}
 }
 
 void CBossRoom::LateTick(_double TimeDelta)
@@ -49,12 +67,14 @@ HRESULT CBossRoom::Render()
 	if (FAILED(Setup_ShaderResources()))
 		return E_FAIL;
 
+	m_pShader->SetRawValue("g_LightPower", &m_fTimeAcc, sizeof(float));
+
 	_uint iMeshCount = m_pModel->Get_MeshCount();
-	for(_uint i = 0 ; i < iMeshCount ; ++i)
+	for (_uint i = 0; i < iMeshCount; ++i)
 	{
 		m_pModel->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType_DIFFUSE);
-		
-		m_pShader->Begin(0);
+
+		m_pShader->Begin(4);
 		m_pModel->Render(i);
 	}
 

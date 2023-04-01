@@ -213,7 +213,7 @@ void CCharacter::Tick(_double TimeDelta)
 		else
 		{
 			//두번쨰 맵 엔딩위치 및 각도
-			_vector vEndPosition = XMVectorSet(0.f, 0.f, 17.f, 1.f);
+			_vector vEndPosition = XMVectorSet(0.f, 0.f, 40.f, 1.f);
 			mTransform->Set_State(CTransform::STATE_POSITION, vEndPosition);
 			mTransform->SetRotation(VECTOR_UP, XMConvertToRadians(180.f));
 			//mTransform->SetRotation(VECTOR_UP, XMConvertToRadians(225.f)); // 엔딩 위치
@@ -289,7 +289,7 @@ void CCharacter::LateTick(_double TimeDelta)
 	mSkillCollider->Update(XMLoadFloat4x4(&mTransform->Get_WorldMatrix()));
 
 	if (nullptr != mRenderer)
-		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+		mRenderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
 }
 
 HRESULT CCharacter::Render()
@@ -308,9 +308,11 @@ HRESULT CCharacter::Render()
 
 		mModel->Setup_ShaderMaterialResource(mShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
 		//m_pModelCom->SetUp_ShaderMaterialResource(m_pShaderCom, "g_AmbientTexture", i, aiTextureType_AMBIENT);
-
 		mModel->Setup_BoneMatrices(mShader, "g_BoneMatrix", i);
 		mShader->Begin(0);
+		mModel->Render(i);
+
+		mShader->Begin(2);
 		mModel->Render(i);
 	}
 	
@@ -514,8 +516,18 @@ HRESULT CCharacter::SetupShaderResources()
 	if (nullptr == LightDesc)
 		return E_FAIL;
 
-	if (FAILED(mShader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
-		return E_FAIL;
+	if (CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::BOSS))
+	{
+		_float4 vDir = { -1.f, -1.f, 0.f, 0.f };
+		if (FAILED(mShader->SetRawValue("g_vLightDir", &vDir, sizeof(_float4))))
+			return E_FAIL;
+	}
+	else
+	{
+		if (FAILED(mShader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
+			return E_FAIL;
+	}
+
 	if (FAILED(mShader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
 		return E_FAIL;
 	if (FAILED(mShader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
@@ -2738,6 +2750,15 @@ void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)
 				//m_pCamera->AttackShake();
 				m_pEnemyHealthBar->StartShake();
 				m_pPlayerIcon->StartShake();
+
+				for (int i = 0; i < SWORD_EFFECT_COUNT; ++i)
+				{
+					if (m_pSwordTrail[i]->IsUsed())
+					{
+						m_pSwordTrail[i]->SetHit(true);
+						m_pSwordTrail[i]->SetHitPosition(XMLoadFloat4(&m_pNearEnemy->GetPosition()));
+					}
+				}
 
 				if (!m_bEvolution)
 					m_EvolutionCount++;

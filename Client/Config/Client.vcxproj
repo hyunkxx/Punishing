@@ -294,6 +294,7 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\..\Shader\SHADER_ALPHA.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_FREEZEAREA.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_GROUD.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_PHONG.hlsl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
