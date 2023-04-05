@@ -4289,7 +4289,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 145  : 	CWeapon*	pInstance = new CWeapon(pDevice, pContext);
+; 145  : 	CWeapon* pInstance = new CWeapon(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CWeapon@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -5410,11 +5410,11 @@ $LN6@LateTick:
   003d9	48 83 78 78 00	 cmp	 QWORD PTR [rax+120], 0
   003de	74 1d		 je	 SHORT $LN2@LateTick
 
-; 63   : 		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+; 63   : 		mRenderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
 
   003e0	4c 8b 85 a0 0a
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
-  003e7	ba 01 00 00 00	 mov	 edx, 1
+  003e7	ba 03 00 00 00	 mov	 edx, 3
   003ec	48 8b 85 a0 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003f3	48 8b 48 78	 mov	 rcx, QWORD PTR [rax+120]

@@ -34,7 +34,8 @@ struct PS_IN
 
 struct PS_OUT
 {
-	float4 vColor : SV_TARGET0;
+	float4 vMainColor : SV_TARGET0;
+	float4 vBloomColor : SV_TARGET1;
 };
 
 VS_OUT VS_MAIN(VS_IN In)
@@ -74,12 +75,13 @@ PS_OUT PS_DEFAULT(PS_IN In)
 	vDiffuse.g = vDiffuse.r;
 	vDiffuse.r = 0.f;
 
-	Out.vColor = vDiffuse;
+	Out.vMainColor = vDiffuse;
+	Out.vBloomColor = vDiffuse;
 
 	if (vMask.a < 0.1f)
 		discard;
 
-	if (Out.vColor.a < 0.1f)
+	if (Out.vMainColor.a < 0.1f)
 		discard;
 	
 	return Out;
@@ -89,9 +91,9 @@ PS_OUT PS_PASS2(PS_IN In)
 {
 	PS_OUT Out = (PS_OUT)0;
 
-	Out.vColor = float4(1.f, 1.f, 1.f, 1.5f);
-	Out.vColor.a -= g_fTimeAcc * 5.f;
-
+	Out.vMainColor = float4(1.f, 1.f, 1.f, 1.5f);
+	Out.vMainColor.a -= g_fTimeAcc * 5.f;
+	
 	return Out;
 }
 
@@ -113,7 +115,7 @@ technique11 DefaultTechnique
 	pass Pass1
 	{
 		SetRasterizerState(RS_Default);
-		SetDepthStencilState(DS_Default, 0);
+		SetDepthStencilState(DS_Not_ZTest_ZWrite, 0);
 		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
 
 		VertexShader = compile vs_5_0 VS_MAIN();

@@ -19,6 +19,7 @@ texture2D g_DiffuseTexture;
 texture2D g_DissolveTexture;
 float g_fDissolveAmount = 1.f;
 float3 g_vGlowColor = { 1.f, 0.7f, 0.4f };
+float3 g_vGlowColorRed = { 1.f, 0.f, 0.f };
 float g_fGlowRange = 0.005f;
 float g_fGlowFalloff = 0.1f;
 
@@ -80,6 +81,7 @@ struct PS_IN
 struct PS_OUT
 {
 	float4 vColor : SV_TARGET0;
+	float4 vColor1 : SV_TARGET1;
 };
 
 PS_OUT PS_MAIN(PS_IN In)
@@ -108,6 +110,7 @@ PS_OUT PS_MAIN(PS_IN In)
 	float fSpecular = pow(saturate(dot(normalize(vReflect) * -1.f, normalize(vLook))), 30.f);
 
 	Out.vColor = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
+	Out.vColor1 = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
 
 	return Out;
 }
@@ -139,7 +142,7 @@ PS_OUT PS_ALPHA(PS_IN In)
 
 	Out.vColor = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
 	Out.vColor.a = 0.4f;
-
+	
 	return Out;
 }
 
@@ -216,6 +219,44 @@ PS_OUT PS_DESSOLVE(PS_IN In)
 	return Out;
 }
 
+PS_OUT PS_DESSOLVE_COLOR_RED(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+
+	float dissolve = g_DissolveTexture.Sample(LinearSampler, In.vTexUV).r;
+	dissolve = dissolve * 0.999f;
+	float isVisible = dissolve - (g_fDissolveAmount * 0.5f);
+	clip(isVisible);
+
+	float isGlowing = smoothstep(g_fGlowRange + g_fGlowFalloff, g_fGlowRange, isVisible);
+	float3 vGlowColor = isGlowing * g_vGlowColorRed;
+
+	vector vMtrlDiffuse = g_DiffuseTexture.Sample(LinearSampler, In.vTexUV);
+
+	if (vMtrlDiffuse.a <= 0.1f)
+		discard;
+
+	float fShade = saturate(dot(normalize(g_vLightDir) * -1.f, In.vNormal));
+
+	if (fShade > 0.9f)
+		fShade = 1.f;
+	else if (fShade > 0.7f)
+		fShade = 0.7f;
+	else if (fShade > 0.2f)
+		fShade = 0.2f;
+	else if (fShade > 0.0f)
+		fShade = 0.0f;
+
+	vector vReflect = reflect(normalize(g_vLightDir), In.vNormal);
+	vector vLook = In.vWorldPos - g_vCamPosition;
+
+	float fSpecular = pow(saturate(dot(normalize(vReflect) * -1.f, normalize(vLook))), 30.f);
+
+	Out.vColor = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
+	Out.vColor.xyz += vGlowColor;
+
+	return Out;
+}
 
 technique11 DefaultTechnique
 {
@@ -282,5 +323,18 @@ technique11 DefaultTechnique
 		HullShader = NULL;
 		DomainShader = NULL;
 		PixelShader = compile ps_5_0 PS_DESSOLVE();
+	}
+
+	pass DessolveRed
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_DESSOLVE_COLOR_RED();
 	}
 }

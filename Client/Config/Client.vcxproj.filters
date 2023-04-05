@@ -23,12 +23,6 @@
     <Filter Include="src\01. Levels">
       <UniqueIdentifier>{c6e78f92-7038-4d76-92d9-fcd27e6cf583}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\01. Levels\00. Loading">
-      <UniqueIdentifier>{a6b0a0db-a03f-4c72-9c66-3dd22191fda8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\01. Levels\00. Loading\Loader">
-      <UniqueIdentifier>{b0e6ba28-d8ce-4b34-ae41-739490f8ed15}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\00. Application\Manager">
       <UniqueIdentifier>{340821c9-9f50-46c4-8493-a4160c0375eb}</UniqueIdentifier>
     </Filter>
@@ -80,6 +74,15 @@
     <Filter Include="src\02. GameObjects\04. Character\Skill">
       <UniqueIdentifier>{3b6f5ac3-292e-406d-ab20-7172fe85ab5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\01. Levels\02. GamePlay\00. Loading">
+      <UniqueIdentifier>{a6b0a0db-a03f-4c72-9c66-3dd22191fda8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\01. Levels\02. GamePlay\00. Loading\Loader">
+      <UniqueIdentifier>{b0e6ba28-d8ce-4b34-ae41-739490f8ed15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\02. GameObjects\Instance">
+      <UniqueIdentifier>{074c1a1e-fbd0-45e5-82ad-fd0066e771ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h">
@@ -101,7 +104,7 @@
       <Filter>config\res</Filter>
     </ClInclude>
     <ClInclude Include="..\public\Loader.h">
-      <Filter>src\01. Levels\00. Loading\Loader</Filter>
+      <Filter>src\01. Levels\02. GamePlay\00. Loading\Loader</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\Level_Logo.h">
       <Filter>src\01. Levels\01. Logo</Filter>
@@ -155,7 +158,7 @@
       <Filter>src\02. GameObjects\02. BackGround</Filter>
     </ClInclude>
     <ClInclude Include="..\public\Level_Loading.h">
-      <Filter>src\01. Levels\00. Loading</Filter>
+      <Filter>src\01. Levels\02. GamePlay\00. Loading</Filter>
     </ClInclude>
     <ClInclude Include="..\public\Weapon.h">
       <Filter>src\02. GameObjects\04. Character</Filter>
@@ -217,6 +220,13 @@
     <ClInclude Include="..\Public\SwordTrail.h">
       <Filter>src\02. GameObjects\04. Character\Skill</Filter>
     </ClInclude>
+    <ClInclude Include="..\Public\SpawnEffect.h">
+      <Filter>src\02. GameObjects\04. Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Flower.h">
+      <Filter>src\02. GameObjects\Instance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\FloorCircle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -229,10 +239,10 @@
       <Filter>src\00. Application</Filter>
     </ClCompile>
     <ClCompile Include="..\private\Level_Loading.cpp">
-      <Filter>src\01. Levels\00. Loading</Filter>
+      <Filter>src\01. Levels\02. GamePlay\00. Loading</Filter>
     </ClCompile>
     <ClCompile Include="..\private\Loader.cpp">
-      <Filter>src\01. Levels\00. Loading\Loader</Filter>
+      <Filter>src\01. Levels\02. GamePlay\00. Loading\Loader</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\Level_Logo.cpp">
       <Filter>src\01. Levels\01. Logo</Filter>
@@ -339,6 +349,13 @@
     <ClCompile Include="..\Private\SwordTrail.cpp">
       <Filter>src\02. GameObjects\04. Character\Skill</Filter>
     </ClCompile>
+    <ClCompile Include="..\Private\SpawnEffect.cpp">
+      <Filter>src\02. GameObjects\04. Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Flower.cpp">
+      <Filter>src\02. GameObjects\Instance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\FloorCircle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc">
@@ -393,6 +410,24 @@
       <Filter>src\99. Shader</Filter>
     </FxCompile>
     <FxCompile Include="..\..\Shader\SHADER_FREEZEAREA.hlsl">
+      <Filter>src\99. Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_POSTEFFECT.hlsl">
+      <Filter>src\99. Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_BLUR.hlsl">
+      <Filter>src\99. Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_DISTORTION.hlsl">
+      <Filter>src\99. Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_SPAWNEFFECT.hlsl">
+      <Filter>src\99. Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_THORNTRAIL.hlsl">
+      <Filter>src\99. Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_VTXINSTANCE_RECT.hlsl">
       <Filter>src\99. Shader</Filter>
     </FxCompile>
   </ItemGroup>

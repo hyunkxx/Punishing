@@ -150,11 +150,11 @@ PUBLIC	?Wheat@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Wheat
 PUBLIC	?White@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::White
 PUBLIC	?WhiteSmoke@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::WhiteSmoke
 PUBLIC	?Yellow@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Yellow
-PUBLIC	?m_pInstance@CImGUIManager@Client@@0PEAV12@EA	; Client::CImGUIManager::m_pInstance
 PUBLIC	?YellowGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::YellowGreen
 PUBLIC	?g_UnitVectorEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitVectorEpsilon
 PUBLIC	?g_UnitQuaternionEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitQuaternionEpsilon
 PUBLIC	?g_UnitPlaneEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitPlaneEpsilon
+PUBLIC	?m_pInstance@CImGUIManager@Client@@0PEAV12@EA	; Client::CImGUIManager::m_pInstance
 PUBLIC	?g_XMSinCoefficients0@DirectX@@3UXMVECTORF32@1@B ; DirectX::g_XMSinCoefficients0
 PUBLIC	?g_XMSinCoefficients1@DirectX@@3UXMVECTORF32@1@B ; DirectX::g_XMSinCoefficients1
 PUBLIC	?g_XMCosCoefficients0@DirectX@@3UXMVECTORF32@1@B ; DirectX::g_XMCosCoefficients0

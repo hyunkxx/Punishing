@@ -57,8 +57,8 @@ HRESULT CPlayerCamera::Initialize(void * pArg)
 	}
 	else
 	{
-		//m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
-		//m_pTransform->LookAt(m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
+		m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
+		m_pTransform->LookAt(m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
 	}
 
 	CCollider::COLLIDER_DESC collDesc;
@@ -127,10 +127,26 @@ void CPlayerCamera::Tick(_double TimeDelta)
 		}
 	}
 
-	if (!m_bWinAction)
-		DefaultCameraMovement(TimeDelta);
+	if (m_bStartAction)
+	{
+		StartMovement(TimeDelta);
+	}
 	else
-		WinActionMovement(TimeDelta);
+	{
+		if (m_bEvolution)
+		{
+			EvolutionMovement(TimeDelta);
+		}
+		else
+		{
+			if (!m_bWinAction)
+				DefaultCameraMovement(TimeDelta);
+			else
+				WinActionMovement(TimeDelta);
+		}
+
+	}
+
 }
 
 void CPlayerCamera::LateTick(_double TimeDelta)
@@ -170,13 +186,12 @@ void CPlayerCamera::LateTick(_double TimeDelta)
 			m_bFadeOut = false;
 			m_bFadeOutStart = false;
 			m_fFadeOutWaitAcc = 0.f;
-
 		}
 	}
 
 	//이거 풀면 콜리전 보임
-	if (!m_bFadeIn && !m_bFadeOut)
-		return;
+	//if (!m_bFadeIn && !m_bFadeOut)
+	//	return;
 
 	if (nullptr != m_pRenderer)
 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_ENDING, this);
@@ -249,28 +264,6 @@ void CPlayerCamera::DefaultCameraMovement(_double TimeDelta)
 	_vector vTargetLook = XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_LOOK));
 	vTargetPos = XMVectorSetY(vTargetPos, 1.5f);
 
-	//_vector vCameraPosition = vTargetPos - XMLoadFloat3(&vDistance);
-
-	//vCameraPosition = vTargetPos - (vTargetLook * vDistance.z);
-	//vCameraPosition = XMVectorSetY(vCameraPosition, vDistance.y);
-	//
-	//if (pGameInstance->Input_MouseState_Custom(DIMK_RB) == KEY_STATE::HOLD)
-	//	m_bMouseLock = false;
-	//else
-	//	m_bMouseLock = true;
-	//
-	//if (!m_bMouseLock)
-	//{
-	//	_long MouseMove = 0;
-	//	if (MouseMove = pGameInstance->Input_MouseMove(DIMM_X))
-	//	{
-	//		m_pTargetTransform->Rotate(VECTOR_UP, MouseMove * TimeDelta * 0.1f);
-	//	}
-	//}
-	
-	//if (MouseMove = pGameInstance->Input_MouseMove(DIMM_Y))
-	//	m_pTransform->Rotate(m_pTransform->Get_State(CTransform::STATE_RIGHT), MouseMove * TimeDelta * 0.1f);
-
 	//카메라가 락온 되었을때
 	if (static_cast<CCharacter*>(m_pTarget)->IsCameraLockOn())
 	{
@@ -291,12 +284,6 @@ void CPlayerCamera::DefaultCameraMovement(_double TimeDelta)
 
 		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
 		_vector vPosition = XMVectorLerp(vCurPosition, vCameraPos, (_float)TimeDelta * 4.0f);
-
-		//쿼터니온 테스트
-		//_vector q1 = XMQuaternionRotationMatrix(XMLoadFloat4x4(&m_pSocketTransform->Get_WorldMatrix()));
-		//_vector q2 = XMQuaternionRotationMatrix(XMLoadFloat4x4(&pPlayerTransform->Get_WorldMatrix()));
-		//_vector vPosition = XMQuaternionSlerp(q1, q2, (_float)TimeDelta * 3.0f);
-		//테스트
 		
 		_float4 vLockOnTargetPos;
 		CBoss* pBossCheck = dynamic_cast<CBoss*>(static_cast<CCharacter*>(m_pTarget)->GetLockOnTarget());
@@ -324,7 +311,6 @@ void CPlayerCamera::DefaultCameraMovement(_double TimeDelta)
 	{
 		_vector vCurPosition = m_pTransform->Get_State(CTransform::STATE_POSITION);
 		_vector vPosition = XMVectorLerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 4.0f);
-		//_vector vPosition = XMQuaternionSlerp(vCurPosition, m_pSocketTransform->Get_State(CTransform::STATE_POSITION), (_float)TimeDelta * 3.0f);
 
 		m_pTransform->Set_State(CTransform::STATE_POSITION, vPosition);
 
@@ -366,6 +352,77 @@ void CPlayerCamera::WinActionMovement(_double TimeDelta)
 	m_pTransform->Set_State(CTransform::STATE_POSITION, vCurCamPos);
 	m_pTransform->LookAt(vTargetPos);
 
+}
+
+void CPlayerCamera::StartMovement(_double TimeDelta)
+{
+	if (m_isGoal)
+		return;
+
+	m_fWinActionAcc += TimeDelta * 1.5f;
+
+	if (m_fWinActionAcc >= 7.f)
+	{
+		m_bStartAction = false;
+		m_fWinActionAcc = 0.f;
+	}
+
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	_vector vTargetPos = m_pTargetTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vTargetLook = XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_LOOK));
+	vTargetLook = XMVector3Normalize(vTargetLook + XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_RIGHT)));
+	
+	
+	_vector vCurCamPos;
+	if (m_fWinActionAcc <= 4.f)
+	{
+		vTargetPos = XMVectorSetY(vTargetPos, 0.5f * m_fWinActionAcc * 0.6f);
+		vCurCamPos = vTargetPos + vTargetLook * (1.f + (m_fWinActionAcc * 0.2f));
+	}
+	else
+	{
+		m_fLookAcc += TimeDelta;
+		vTargetPos = XMVectorSetY(vTargetPos, 1.3f);
+		vCurCamPos = m_pTransform->Get_State(CTransform::STATE_POSITION) - (vTargetLook + -VECTOR_UP) * 0.2f * TimeDelta;
+	}
+
+	//vCurCamPos = XMVectorSetY(vCurCamPos, XMVectorGetY(vCurCamPos) + 0.05f * cos(m_fWinActionAcc));
+	//vCurCamPos = XMVectorSetY(vCurCamPos, 0.5f * m_fWinActionAcc * 0.4f);
+
+	m_pTransform->Set_State(CTransform::STATE_POSITION, vCurCamPos);
+	m_pTransform->LookAt(vTargetPos);
+
+}
+
+void CPlayerCamera::EvolutionMovement(_double TimeDelta)
+{
+	m_fEvolutionAcc += TimeDelta;
+
+	if (m_fEvolutionAcc >= m_fEvolutionLimit)
+	{
+		m_bEvolution = false;
+		m_fEvolutionAcc = 0.f;
+	}
+
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	_vector vTargetPos = m_pTargetTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vTargetLook = XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_LOOK));
+	vTargetLook = XMVector3Normalize(vTargetLook * 3.f + -XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_RIGHT)));
+
+	_vector vCurCamPos;
+	if (m_fEvolutionAcc <= 0.8f)
+	{
+		vTargetPos = XMVectorSetY(vTargetPos, 0.8f);
+		vCurCamPos = vTargetPos + vTargetLook * (8.f - m_fEvolutionAcc);
+	}
+	else
+	{
+		vTargetPos = XMVectorSetY(vTargetPos, 0.8f);
+		vCurCamPos = vTargetPos + vTargetLook * (8.f - m_fEvolutionAcc * 2.f);
+	}
+
+	m_pTransform->Set_State(CTransform::STATE_POSITION, vCurCamPos);
+	m_pTransform->LookAt(vTargetPos);
 }
 
 CPlayerCamera * CPlayerCamera::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)

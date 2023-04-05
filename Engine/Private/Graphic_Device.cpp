@@ -21,6 +21,12 @@ HRESULT CGraphic_Device::Ready_Graphic_Device(HWND hWnd, GRAPHIC_DESC::WIN_MODE 
 	if (FAILED(Ready_RenderTargetView()))
 		return E_FAIL;
 
+	if (FAILED(Ready_PreRenderTargetViews()))
+		return E_FAIL;
+
+	if (FAILED(Ready_PostRenderTargetViews()))
+		return E_FAIL;
+
 	if (FAILED(Ready_DepthStencilView(iWinSizeX, iWinSizeY)))
 		return E_FAIL;
 
@@ -74,8 +80,57 @@ HRESULT CGraphic_Device::Present()
 	return m_pSwapChain->Present(0, 0);
 }
 
+HRESULT CGraphic_Device::SetPreRenderTargets()
+{
+	if (nullptr == m_pContext)
+		return E_FAIL;
+
+	m_pContext->OMSetRenderTargets(PRE_TARGET_MAX, m_pPreRenderTargetViews, m_pDepthStencilView);
+
+	return S_OK;
+}
+
+HRESULT CGraphic_Device::Clear_PreRenderTargetViews(_float4 vClearColor)
+{
+	if (nullptr == m_pContext)
+		return E_FAIL;
+
+	for (int i = 0; i < PRE_TARGET_MAX; ++i)
+		m_pContext->ClearRenderTargetView(m_pPreRenderTargetViews[i], (_float*)&vClearColor);
+
+	return S_OK;
+}
+
+HRESULT CGraphic_Device::Clear_RenderTargetView(POST_RENDERTARGET eTarget, _float4 vClearColor)
+{
+	if (nullptr == m_pContext)
+		return E_FAIL;
+
+	if (eTarget == POST_RENDERTARGET::BACK_BUFFER)
+		m_pContext->ClearRenderTargetView(m_pRenderTargetView, (_float*)&vClearColor);
+	else
+		m_pContext->ClearRenderTargetView(m_pRenderTargetViews[eTarget], (_float*)&vClearColor);
+	
+	return S_OK;
+}
+
+void CGraphic_Device::SetRenderTarget(POST_RENDERTARGET eTarget)
+{
+	if(eTarget == POST_RENDERTARGET::BACK_BUFFER)
+		m_pContext->OMSetRenderTargets(1, &m_pRenderTargetView, m_pDepthStencilView);
+	else
+		m_pContext->OMSetRenderTargets(1, &m_pRenderTargetViews[eTarget], m_pDepthStencilView);
+
+	return;
+}
+
 HRESULT CGraphic_Device::Ready_SwapChain(HWND hWnd, GRAPHIC_DESC::WIN_MODE eWinMode, _uint iWinSizeX, _uint iWinSizeY)
 {
+	m_hWnd = hWnd;
+	m_eMode = eWinMode;
+	m_iWinSizeX = iWinSizeX;
+	m_iWinSizeY = iWinSizeY;
+
 	IDXGIDevice*			pDevice = nullptr;
 	m_pDevice->QueryInterface(__uuidof(IDXGIDevice), (void**)&pDevice);
 
@@ -101,8 +156,8 @@ HRESULT CGraphic_Device::Ready_SwapChain(HWND hWnd, GRAPHIC_DESC::WIN_MODE eWinM
 	/* 스왑하는 형태 */
 	SwapChain.BufferDesc.RefreshRate.Numerator = 60;
 	SwapChain.BufferDesc.RefreshRate.Denominator = 1;
-	SwapChain.SampleDesc.Quality = 1;
-	SwapChain.SampleDesc.Count = 16;
+	SwapChain.SampleDesc.Quality = 0;
+	SwapChain.SampleDesc.Count = 1;
 	SwapChain.OutputWindow = hWnd;
 	SwapChain.Windowed = eWinMode;
 	SwapChain.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
@@ -131,6 +186,122 @@ HRESULT CGraphic_Device::Ready_RenderTargetView()
 		return E_FAIL;
 
 	Safe_Release(pBackBufferTexture);
+
+	return S_OK;
+}
+
+HRESULT CGraphic_Device::Ready_PreRenderTargetViews()
+{
+	if (nullptr == m_pDevice)
+		return E_FAIL;
+
+	for (int i = 0; i < PRE_TARGET_MAX; ++i)
+	{
+		ID3D11Texture2D* pBufferTexture = nullptr;
+
+		D3D11_TEXTURE2D_DESC textureDesc;
+		HRESULT result;
+		D3D11_RENDER_TARGET_VIEW_DESC renderTargetViewDesc;
+		D3D11_SHADER_RESOURCE_VIEW_DESC shaderResourceViewDesc;
+
+		// RTT 디스크립션을 초기화
+		ZeroMemory(&textureDesc, sizeof(textureDesc));
+
+		// RTT 디스크립션을 세팅.
+		textureDesc.Width = m_iWinSizeX;
+		textureDesc.Height = m_iWinSizeY;
+		textureDesc.MipLevels = 1;
+		textureDesc.ArraySize = 1;
+		textureDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
+		textureDesc.SampleDesc.Count = 1;
+		textureDesc.Usage = D3D11_USAGE_DEFAULT;
+		textureDesc.BindFlags = D3D11_BIND_RENDER_TARGET | D3D11_BIND_SHADER_RESOURCE;
+		textureDesc.CPUAccessFlags = 0;
+		textureDesc.MiscFlags = 0;
+
+		// 렌더 타겟 뷰에 대한 디스크립션을 설정
+		result = m_pDevice->CreateTexture2D(&textureDesc, NULL, &m_pPreBufferTextures[i]);
+		if (FAILED(result))
+			return E_FAIL;
+
+		renderTargetViewDesc.Format = textureDesc.Format;
+		renderTargetViewDesc.ViewDimension = D3D11_RTV_DIMENSION_TEXTURE2D;
+		renderTargetViewDesc.Texture2D.MipSlice = 0;
+
+		// 렌더 타겟 뷰를 생성
+		result = m_pDevice->CreateRenderTargetView(m_pPreBufferTextures[i], &renderTargetViewDesc, &m_pPreRenderTargetViews[i]);
+		if (FAILED(result))
+			return E_FAIL;
+
+		// 셰이더 리소스 뷰에 대한 디스크립션을 설정
+		shaderResourceViewDesc.Format = textureDesc.Format;
+		shaderResourceViewDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+		shaderResourceViewDesc.Texture2D.MostDetailedMip = 0;
+		shaderResourceViewDesc.Texture2D.MipLevels = 1;
+
+		// 셰이더 리소스 뷰를 생성
+		result = m_pDevice->CreateShaderResourceView(m_pPreBufferTextures[i], &shaderResourceViewDesc, &m_pPreShaderResourceViews[i]);
+		if (FAILED(result))
+			return E_FAIL;
+	}
+
+	return S_OK;
+}
+
+HRESULT CGraphic_Device::Ready_PostRenderTargetViews()
+{
+	if (nullptr == m_pDevice)
+		return E_FAIL;
+
+	for (int i = 0; i < POST_TARGET_MAX; ++i)
+	{
+		ID3D11Texture2D* pBufferTexture = nullptr;
+
+		D3D11_TEXTURE2D_DESC textureDesc;
+		HRESULT result;
+		D3D11_RENDER_TARGET_VIEW_DESC renderTargetViewDesc;
+		D3D11_SHADER_RESOURCE_VIEW_DESC shaderResourceViewDesc;
+
+		// RTT 디스크립션을 초기화
+		ZeroMemory(&textureDesc, sizeof(textureDesc));
+
+		// RTT 디스크립션을 세팅.
+		textureDesc.Width = m_iWinSizeX;
+		textureDesc.Height = m_iWinSizeY;
+		textureDesc.MipLevels = 1;
+		textureDesc.ArraySize = 1;
+		textureDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
+		textureDesc.SampleDesc.Count = 1;
+		textureDesc.Usage = D3D11_USAGE_DEFAULT;
+		textureDesc.BindFlags = D3D11_BIND_RENDER_TARGET | D3D11_BIND_SHADER_RESOURCE;
+		textureDesc.CPUAccessFlags = 0;
+		textureDesc.MiscFlags = 0;
+
+		// 렌더 타겟 뷰에 대한 디스크립션을 설정
+		result = m_pDevice->CreateTexture2D(&textureDesc, NULL, &m_pBufferTextures[i]);
+		if (FAILED(result))
+			return E_FAIL;
+
+		renderTargetViewDesc.Format = textureDesc.Format;
+		renderTargetViewDesc.ViewDimension = D3D11_RTV_DIMENSION_TEXTURE2D;
+		renderTargetViewDesc.Texture2D.MipSlice = 0;
+
+		// 렌더 타겟 뷰를 생성
+		result = m_pDevice->CreateRenderTargetView(m_pBufferTextures[i], &renderTargetViewDesc, &m_pRenderTargetViews[i]);
+		if (FAILED(result))
+			return E_FAIL;
+
+		// 셰이더 리소스 뷰에 대한 디스크립션을 설정
+		shaderResourceViewDesc.Format = textureDesc.Format;
+		shaderResourceViewDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+		shaderResourceViewDesc.Texture2D.MostDetailedMip = 0;
+		shaderResourceViewDesc.Texture2D.MipLevels = 1;
+
+		// 셰이더 리소스 뷰를 생성
+		result = m_pDevice->CreateShaderResourceView(m_pBufferTextures[i], &shaderResourceViewDesc, &m_pShaderResourceViews[i]);
+		if (FAILED(result))
+			return E_FAIL;
+	}
 
 	return S_OK;
 }

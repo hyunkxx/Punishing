@@ -287,10 +287,6 @@ PUBLIC	?g_XMLogEst6@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLogEst6
 PUBLIC	?g_XMLogEst7@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLogEst7
 PUBLIC	?g_XMLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLgE
 PUBLIC	?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMInvLgE
-CONST	SEGMENT
-?value@?1??Render@CPlayerHealthBar@Client@@UEAAJXZ@4MB DD 03f800000r ; 1 ; `Client::CPlayerHealthBar::Render'::`2'::value
-?discardValue@?1??Render@CPlayerHealthBar@Client@@UEAAJXZ@4MB DD 000000000r ; 0 ; `Client::CPlayerHealthBar::Render'::`2'::discardValue
-CONST	ENDS
 ;	COMDAT ?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B
 CONST	SEGMENT
 ?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B DD 03f317218r ; 0.693147 ; DirectX::g_XMInvLgE
@@ -1270,6 +1266,10 @@ CONST	SEGMENT
 	DD	03f800000r			; 1
 	DD	03f800000r			; 1
 	DD	03f800000r			; 1
+CONST	ENDS
+CONST	SEGMENT
+?value@?1??Render@CPlayerHealthBar@Client@@UEAAJXZ@4MB DD 03f800000r ; 1 ; `Client::CPlayerHealthBar::Render'::`2'::value
+?discardValue@?1??Render@CPlayerHealthBar@Client@@UEAAJXZ@4MB DD 000000000r ; 0 ; `Client::CPlayerHealthBar::Render'::`2'::discardValue
 CONST	ENDS
 ;	COMDAT ?Wheat@Colors@DirectX@@3UXMVECTORF32@2@B
 CONST	SEGMENT

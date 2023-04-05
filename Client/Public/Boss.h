@@ -199,6 +199,13 @@ private:
 	class CThorn* m_pThornMissileLeft[3];
 	class CThorn* m_pThornMissileMiddle[3];
 	class CThorn* m_pThornMissileRight[3];
+	//양옆
+	class CThorn* m_pThornMissileLLL[3];
+	class CThorn* m_pThornMissileRRR[3];
+	//뒤쪽방향
+	class CThorn* m_pThornMissileBackLeft[3];
+	class CThorn* m_pThornMissileBackMiddle[3];
+	class CThorn* m_pThornMissileBackRight[3];
 
 	_bool m_bUseMissile1 = false;
 	_bool m_bMissileStart = false;
@@ -297,6 +304,8 @@ private:
 
 	//쉐이크
 	_bool m_bMissileShake = false;
+	//상체 변신후 디졸브 변신이 완료되면 타임누적
+	_float m_fVisibleTime = 0.f;
 };
 
 END

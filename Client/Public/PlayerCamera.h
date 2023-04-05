@@ -31,6 +31,9 @@ public:
 	void ThornShake();
 	CCollider* GetCollider() { return m_pCollider; }
 	void LevelEnd() { m_bFadeIn = true; m_bFadeInStart = true; }
+
+	void EvolutionStart() { m_bEvolution = true; };
+
 public:
 	HRESULT Add_Components();
 	HRESULT Setup_ShaderResources();
@@ -38,6 +41,8 @@ public:
 private:
 	void DefaultCameraMovement(_double TimeDelta);
 	void WinActionMovement(_double TimeDelta);
+	void StartMovement(_double TimeDelta);
+	void EvolutionMovement(_double TimeDelta);
 
 public:
 	static CPlayerCamera* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
@@ -60,6 +65,8 @@ private:
 	_bool m_bWinAction = false;
 	_float m_fWinActionAcc = 0.f;
 
+	_bool m_bStartAction = true;
+
 	_bool m_isGoal = false;
 	_float m_vGoalPosY = 1.5f;
 	_float3 m_vCurPos = { 0.f, 0.f, 0.f };
@@ -78,7 +85,14 @@ private:
 	_float m_fFadeOutWaitAcc = 0.f;
 
 	_float m_fFadeInAcc = 0.f;
+	_float m_fLookAcc = 0.f;
 
+	//변신 무브
+	_bool m_bEvolution = false;
+	_float m_fEvolutionAcc = 0.f;
+	const _float m_fEvolutionLimit = 1.8f;
+	_float3 m_vCamStartPos = { 0.f, 0.f, 0.f };
+	_float3 m_vCurrentCamPos = { 0.f, 0.f, 0.f };
 private:
 	//Fade in&out
 	_float		m_fX, m_fY, m_fWidth, m_fHeight;

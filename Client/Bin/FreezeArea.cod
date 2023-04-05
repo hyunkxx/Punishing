@@ -2335,7 +2335,6 @@ PUBLIC	??_C@_0P@ENONNBIK@g_NoiseTexture?$AA@		; `string'
 PUBLIC	??_C@_0O@OFKPLLDO@g_MaskTexture?$AA@		; `string'
 PUBLIC	??_C@_0P@CMPEOGGB@g_MaskTexture2?$AA@		; `string'
 PUBLIC	??_C@_09IPLGGENB@g_TimeAcc?$AA@			; `string'
-PUBLIC	??_C@_0BA@LPEJMAHF@m_pMaskTexture2?$AA@		; `string'
 PUBLIC	??_C@_1BK@GIOMOCNE@?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CG@COFFFCLL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CI@MLEFGO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@ ; `string'
@@ -2949,10 +2948,6 @@ CONST	SEGMENT
 ??_C@_1BK@GIOMOCNE@?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ DB 'c'
 	DB	00H, 'o', 00H, 'm', 00H, '_', 00H, 'r', 00H, 'e', 00H, 'n', 00H
 	DB	'd', 00H, 'e', 00H, 'r', 00H, 'e', 00H, 'r', 00H, 00H, 00H ; `string'
-CONST	ENDS
-;	COMDAT ??_C@_0BA@LPEJMAHF@m_pMaskTexture2?$AA@
-CONST	SEGMENT
-??_C@_0BA@LPEJMAHF@m_pMaskTexture2?$AA@ DB 'm_pMaskTexture2', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_09IPLGGENB@g_TimeAcc?$AA@
 CONST	SEGMENT
@@ -5650,19 +5645,19 @@ $LN4@Render:
   0026d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
 
-; 157  : 			m_pMaskTexture->Setup_ShaderResource(m_pShader, "m_pMaskTexture2", 0);
+; 157  : 			m_pMaskTexture2->Setup_ShaderResource(m_pShader, "g_MaskTexture2", 0);
 
   00273	45 33 c9	 xor	 r9d, r9d
   00276	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0BA@LPEJMAHF@m_pMaskTexture2?$AA@
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0P@CMPEOGGB@g_MaskTexture2?$AA@
   0027d	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00284	48 8b 90 90 00
 	00 00		 mov	 rdx, QWORD PTR [rax+144]
   0028b	48 8b 85 40 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00292	48 8b 88 a8 00
-	00 00		 mov	 rcx, QWORD PTR [rax+168]
+  00292	48 8b 88 a0 00
+	00 00		 mov	 rcx, QWORD PTR [rax+160]
   00299	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
 

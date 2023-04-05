@@ -3814,7 +3814,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Initialize@CPlayerIcon@Client@@UEAAJPEAX@Z DD imagerel $LN8
-	DD	imagerel $LN8+3348
+	DD	imagerel $LN8+3363
 	DD	imagerel $unwind$?Initialize@CPlayerIcon@Client@@UEAAJPEAX@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -12994,8 +12994,8 @@ $LN3:
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
   00028	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0002f	0f b6 80 10 02
-	00 00		 movzx	 eax, BYTE PTR [rax+528]
+  0002f	0f b6 80 20 02
+	00 00		 movzx	 eax, BYTE PTR [rax+544]
   00036	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
   0003d	5f		 pop	 rdi
@@ -13011,7 +13011,7 @@ tv67 = 192
 this$ = 240
 ?GetLockOnTarget@CCharacter@Client@@QEAAPEAVCGameObject@Engine@@XZ PROC ; Client::CCharacter::GetLockOnTarget, COMDAT
 
-; 213  : 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
+; 214  : 	CGameObject* GetLockOnTarget() { return m_pNearEnemy != nullptr ? (CGameObject*)m_pNearEnemy : nullptr; }
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13060,7 +13060,7 @@ tv66 = 192
 this$ = 240
 ?IsDashGageFull@CCharacter@Client@@QEAA_NXZ PROC	; Client::CCharacter::IsDashGageFull, COMDAT
 
-; 175  : 	_bool IsDashGageFull() { return m_fCurDash >= 20.f; }
+; 176  : 	_bool IsDashGageFull() { return m_fCurDash >= 20.f; }
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13105,7 +13105,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?IsDashable@CCharacter@Client@@QEAA_NXZ PROC		; Client::CCharacter::IsDashable, COMDAT
 
-; 174  : 	_bool IsDashable() { return m_bDashable; }
+; 175  : 	_bool IsDashable() { return m_bDashable; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13138,7 +13138,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?IsAttackalbe@CCharacter@Client@@QEAA_NXZ PROC		; Client::CCharacter::IsAttackalbe, COMDAT
 
-; 173  : 	_bool IsAttackalbe() { return m_bAttackable; }
+; 174  : 	_bool IsAttackalbe() { return m_bAttackable; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13171,7 +13171,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?IsEvolution@CCharacter@Client@@QEAA_NXZ PROC		; Client::CCharacter::IsEvolution, COMDAT
 
-; 172  : 	_bool IsEvolution() { return m_bEvolution; }
+; 173  : 	_bool IsEvolution() { return m_bEvolution; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13204,7 +13204,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?IsEvolutionReady@CCharacter@Client@@QEAA_NXZ PROC	; Client::CCharacter::IsEvolutionReady, COMDAT
 
-; 171  : 	_bool IsEvolutionReady() { return m_bEvolutionReady; }
+; 172  : 	_bool IsEvolutionReady() { return m_bEvolutionReady; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13237,7 +13237,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetEvolutionTime@CCharacter@Client@@QEBAMXZ PROC	; Client::CCharacter::GetEvolutionTime, COMDAT
 
-; 169  : 	_float GetEvolutionTime() const { return m_fEvolutionTimeOut; }
+; 170  : 	_float GetEvolutionTime() const { return m_fEvolutionTimeOut; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13270,7 +13270,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetCurEvolutionTime@CCharacter@Client@@QEBAMXZ PROC	; Client::CCharacter::GetCurEvolutionTime, COMDAT
 
-; 168  : 	_float GetCurEvolutionTime() const { return m_fCurEvolutionAcc; }
+; 169  : 	_float GetCurEvolutionTime() const { return m_fCurEvolutionAcc; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13303,7 +13303,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetComboCount@CCharacter@Client@@QEAAHXZ PROC		; Client::CCharacter::GetComboCount, COMDAT
 
-; 163  : 	_int GetComboCount() { return m_iComboCount; }
+; 164  : 	_int GetComboCount() { return m_iComboCount; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -13393,7 +13393,7 @@ $LN4:
   00040	83 e0 01	 and	 eax, 1
   00043	85 c0		 test	 eax, eax
   00045	74 11		 je	 SHORT $LN2@scalar
-  00047	ba 88 05 00 00	 mov	 edx, 1416		; 00000588H
+  00047	ba 90 05 00 00	 mov	 edx, 1424		; 00000590H
   0004c	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ??3@YAXPEAX_K@Z		; operator delete
@@ -13443,8 +13443,8 @@ $LN6:
 
   00037	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0003e	48 05 08 05 00
-	00		 add	 rax, 1288		; 00000508H
+  0003e	48 05 10 05 00
+	00		 add	 rax, 1296		; 00000510H
   00044	48 8b c8	 mov	 rcx, rax
   00047	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
@@ -13452,8 +13452,8 @@ $LN6:
 
   0004c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00053	48 05 10 05 00
-	00		 add	 rax, 1296		; 00000510H
+  00053	48 05 18 05 00
+	00		 add	 rax, 1304		; 00000518H
   00059	48 8b c8	 mov	 rcx, rax
   0005c	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
@@ -13461,8 +13461,8 @@ $LN6:
 
   00061	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00068	48 05 a0 04 00
-	00		 add	 rax, 1184		; 000004a0H
+  00068	48 05 a8 04 00
+	00		 add	 rax, 1192		; 000004a8H
   0006e	48 8b c8	 mov	 rcx, rax
   00071	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
@@ -13484,8 +13484,8 @@ $LN4@Free:
   0008d	48 63 45 04	 movsxd	 rax, DWORD PTR i$1[rbp]
   00091	48 8b 8d 00 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00098	48 8d 84 c1 a8
-	04 00 00	 lea	 rax, QWORD PTR [rcx+rax*8+1192]
+  00098	48 8d 84 c1 b0
+	04 00 00	 lea	 rax, QWORD PTR [rcx+rax*8+1200]
   000a0	48 8b c8	 mov	 rcx, rax
   000a3	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
   000a8	eb d5		 jmp	 SHORT $LN2@Free
@@ -13496,8 +13496,8 @@ $LN3@Free:
 
   000aa	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000b1	48 05 f8 04 00
-	00		 add	 rax, 1272		; 000004f8H
+  000b1	48 05 00 05 00
+	00		 add	 rax, 1280		; 00000500H
   000b7	48 8b c8	 mov	 rcx, rax
   000ba	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
@@ -13505,8 +13505,8 @@ $LN3@Free:
 
   000bf	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000c6	48 05 00 05 00
-	00		 add	 rax, 1280		; 00000500H
+  000c6	48 05 08 05 00
+	00		 add	 rax, 1288		; 00000508H
   000cc	48 8b c8	 mov	 rcx, rax
   000cf	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
@@ -13514,8 +13514,8 @@ $LN3@Free:
 
   000d4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000db	48 05 48 04 00
-	00		 add	 rax, 1096		; 00000448H
+  000db	48 05 50 04 00
+	00		 add	 rax, 1104		; 00000450H
   000e1	48 8b c8	 mov	 rcx, rax
   000e4	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
@@ -13523,8 +13523,8 @@ $LN3@Free:
 
   000e9	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000f0	48 05 50 04 00
-	00		 add	 rax, 1104		; 00000450H
+  000f0	48 05 58 04 00
+	00		 add	 rax, 1112		; 00000458H
   000f6	48 8b c8	 mov	 rcx, rax
   000f9	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
@@ -13532,8 +13532,8 @@ $LN3@Free:
 
   000fe	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00105	48 05 58 04 00
-	00		 add	 rax, 1112		; 00000458H
+  00105	48 05 60 04 00
+	00		 add	 rax, 1120		; 00000460H
   0010b	48 8b c8	 mov	 rcx, rax
   0010e	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
@@ -13541,8 +13541,8 @@ $LN3@Free:
 
   00113	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0011a	48 05 60 04 00
-	00		 add	 rax, 1120		; 00000460H
+  0011a	48 05 68 04 00
+	00		 add	 rax, 1128		; 00000468H
   00120	48 8b c8	 mov	 rcx, rax
   00123	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
@@ -13550,8 +13550,8 @@ $LN3@Free:
 
   00128	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0012f	48 05 68 04 00
-	00		 add	 rax, 1128		; 00000468H
+  0012f	48 05 70 04 00
+	00		 add	 rax, 1136		; 00000470H
   00135	48 8b c8	 mov	 rcx, rax
   00138	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
@@ -13559,8 +13559,8 @@ $LN3@Free:
 
   0013d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00144	48 05 70 04 00
-	00		 add	 rax, 1136		; 00000470H
+  00144	48 05 78 04 00
+	00		 add	 rax, 1144		; 00000478H
   0014a	48 8b c8	 mov	 rcx, rax
   0014d	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
@@ -13568,8 +13568,8 @@ $LN3@Free:
 
   00152	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00159	48 05 78 04 00
-	00		 add	 rax, 1144		; 00000478H
+  00159	48 05 80 04 00
+	00		 add	 rax, 1152		; 00000480H
   0015f	48 8b c8	 mov	 rcx, rax
   00162	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
@@ -13577,8 +13577,8 @@ $LN3@Free:
 
   00167	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0016e	48 05 80 04 00
-	00		 add	 rax, 1152		; 00000480H
+  0016e	48 05 88 04 00
+	00		 add	 rax, 1160		; 00000488H
   00174	48 8b c8	 mov	 rcx, rax
   00177	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
@@ -13586,8 +13586,8 @@ $LN3@Free:
 
   0017c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00183	48 05 90 04 00
-	00		 add	 rax, 1168		; 00000490H
+  00183	48 05 98 04 00
+	00		 add	 rax, 1176		; 00000498H
   00189	48 8b c8	 mov	 rcx, rax
   0018c	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
@@ -13595,8 +13595,8 @@ $LN3@Free:
 
   00191	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00198	48 05 98 04 00
-	00		 add	 rax, 1176		; 00000498H
+  00198	48 05 a0 04 00
+	00		 add	 rax, 1184		; 000004a0H
   0019e	48 8b c8	 mov	 rcx, rax
   001a1	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
@@ -13605,8 +13605,8 @@ $LN3@Free:
 
   001a6	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001ad	48 05 18 05 00
-	00		 add	 rax, 1304		; 00000518H
+  001ad	48 05 20 05 00
+	00		 add	 rax, 1312		; 00000520H
   001b3	48 8b c8	 mov	 rcx, rax
   001b6	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
@@ -13614,8 +13614,8 @@ $LN3@Free:
 
   001bb	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001c2	48 05 20 05 00
-	00		 add	 rax, 1312		; 00000520H
+  001c2	48 05 28 05 00
+	00		 add	 rax, 1320		; 00000528H
   001c8	48 8b c8	 mov	 rcx, rax
   001cb	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
@@ -13623,8 +13623,8 @@ $LN3@Free:
 
   001d0	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001d7	48 05 28 05 00
-	00		 add	 rax, 1320		; 00000528H
+  001d7	48 05 30 05 00
+	00		 add	 rax, 1328		; 00000530H
   001dd	48 8b c8	 mov	 rcx, rax
   001e0	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
@@ -13633,8 +13633,8 @@ $LN3@Free:
 
   001e5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001ec	48 05 30 05 00
-	00		 add	 rax, 1328		; 00000530H
+  001ec	48 05 38 05 00
+	00		 add	 rax, 1336		; 00000538H
   001f2	48 8b c8	 mov	 rcx, rax
   001f5	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCVIBuffer_Rect@Engine@@@Engine@@YAKAEAPEAVCVIBuffer_Rect@0@@Z ; Engine::Safe_Release<Engine::CVIBuffer_Rect * __ptr64>
 
@@ -13642,8 +13642,8 @@ $LN3@Free:
 
   001fa	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00201	48 05 38 05 00
-	00		 add	 rax, 1336		; 00000538H
+  00201	48 05 40 05 00
+	00		 add	 rax, 1344		; 00000540H
   00207	48 8b c8	 mov	 rcx, rax
   0020a	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z ; Engine::Safe_Release<Engine::CTexture * __ptr64>
 
@@ -13652,8 +13652,8 @@ $LN3@Free:
 
   0020f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00216	48 05 38 04 00
-	00		 add	 rax, 1080		; 00000438H
+  00216	48 05 40 04 00
+	00		 add	 rax, 1088		; 00000440H
   0021c	48 8b c8	 mov	 rcx, rax
   0021f	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
@@ -13661,8 +13661,8 @@ $LN3@Free:
 
   00224	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0022b	48 05 40 04 00
-	00		 add	 rax, 1088		; 00000440H
+  0022b	48 05 48 04 00
+	00		 add	 rax, 1096		; 00000448H
   00231	48 8b c8	 mov	 rcx, rax
   00234	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ; Engine::Safe_Release<Engine::CShader * __ptr64>
 
@@ -13724,7 +13724,7 @@ $LN8:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@MALLMBBM@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 88 05 00 00	 mov	 ecx, 1416		; 00000588H
+  00062	b9 90 05 00 00	 mov	 ecx, 1424		; 00000590H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 48 01
 	00 00		 mov	 QWORD PTR $T7[rbp], rax
@@ -13984,7 +13984,7 @@ $LN8:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EI@MALLMBBM@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 88 05 00 00	 mov	 ecx, 1416		; 00000588H
+  00062	b9 90 05 00 00	 mov	 ecx, 1424		; 00000590H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 48 01
 	00 00		 mov	 QWORD PTR $T7[rbp], rax
@@ -14222,8 +14222,8 @@ $LN6:
 
   0002a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00031	48 83 b8 40 04
-	00 00 00	 cmp	 QWORD PTR [rax+1088], 0
+  00031	48 83 b8 48 04
+	00 00 00	 cmp	 QWORD PTR [rax+1096], 0
   00039	75 07		 jne	 SHORT $LN2@Setup_Shad
 
 ; 555  : 		return E_FAIL;
@@ -14237,15 +14237,15 @@ $LN2@Setup_Shad:
 
   00042	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00049	48 05 88 00 00
-	00		 add	 rax, 136		; 00000088H
+  00049	48 05 8c 00 00
+	00		 add	 rax, 140		; 0000008cH
   0004f	4c 8b c0	 mov	 r8, rax
   00052	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@ELIMCBLG@g_ViewMatrix?$AA@
   00059	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00060	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00060	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00067	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
   0006d	85 c0		 test	 eax, eax
@@ -14261,15 +14261,15 @@ $LN3@Setup_Shad:
 
   00078	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0007f	48 05 c8 00 00
-	00		 add	 rax, 200		; 000000c8H
+  0007f	48 05 cc 00 00
+	00		 add	 rax, 204		; 000000ccH
   00085	4c 8b c0	 mov	 r8, rax
   00088	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@OOHDPIO@g_ProjMatrix?$AA@
   0008f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00096	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00096	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   0009d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
   000a3	85 c0		 test	 eax, eax
@@ -14359,8 +14359,8 @@ $LN36:
 
   00046	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0004d	48 05 38 04 00
-	00		 add	 rax, 1080		; 00000438H
+  0004d	48 05 40 04 00
+	00		 add	 rax, 1088		; 00000440H
   00053	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   0005c	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14389,8 +14389,8 @@ $LN2@Add_Compon:
 
   0008c	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00093	48 05 48 04 00
-	00		 add	 rax, 1096		; 00000448H
+  00093	48 05 50 04 00
+	00		 add	 rax, 1104		; 00000450H
   00099	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   000a2	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14418,8 +14418,8 @@ $LN3@Add_Compon:
 
   000d2	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000d9	48 05 58 04 00
-	00		 add	 rax, 1112		; 00000458H
+  000d9	48 05 60 04 00
+	00		 add	 rax, 1120		; 00000460H
   000df	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   000e8	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14447,8 +14447,8 @@ $LN4@Add_Compon:
 
   00118	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0011f	48 05 68 04 00
-	00		 add	 rax, 1128		; 00000468H
+  0011f	48 05 70 04 00
+	00		 add	 rax, 1136		; 00000470H
   00125	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   0012e	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14476,8 +14476,8 @@ $LN5@Add_Compon:
 
   0015e	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00165	48 05 78 04 00
-	00		 add	 rax, 1144		; 00000478H
+  00165	48 05 80 04 00
+	00		 add	 rax, 1152		; 00000480H
   0016b	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   00174	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14505,8 +14505,8 @@ $LN6@Add_Compon:
 
   001a4	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001ab	48 05 90 04 00
-	00		 add	 rax, 1168		; 00000490H
+  001ab	48 05 98 04 00
+	00		 add	 rax, 1176		; 00000498H
   001b1	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   001ba	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14535,8 +14535,8 @@ $LN7@Add_Compon:
 
   001ea	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001f1	48 05 40 04 00
-	00		 add	 rax, 1088		; 00000440H
+  001f1	48 05 48 04 00
+	00		 add	 rax, 1096		; 00000448H
   001f7	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   00200	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14565,8 +14565,8 @@ $LN8@Add_Compon:
 
   00230	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00237	48 05 50 04 00
-	00		 add	 rax, 1104		; 00000450H
+  00237	48 05 58 04 00
+	00		 add	 rax, 1112		; 00000458H
   0023d	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   00246	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14594,8 +14594,8 @@ $LN9@Add_Compon:
 
   00276	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0027d	48 05 60 04 00
-	00		 add	 rax, 1120		; 00000460H
+  0027d	48 05 68 04 00
+	00		 add	 rax, 1128		; 00000468H
   00283	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   0028c	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14623,8 +14623,8 @@ $LN10@Add_Compon:
 
   002bc	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002c3	48 05 70 04 00
-	00		 add	 rax, 1136		; 00000470H
+  002c3	48 05 78 04 00
+	00		 add	 rax, 1144		; 00000478H
   002c9	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   002d2	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14652,8 +14652,8 @@ $LN11@Add_Compon:
 
   00302	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00309	48 05 98 04 00
-	00		 add	 rax, 1176		; 00000498H
+  00309	48 05 a0 04 00
+	00		 add	 rax, 1184		; 000004a0H
   0030f	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   00318	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14705,8 +14705,8 @@ $LN12@Add_Compon:
 
   0038f	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00396	48 05 a0 04 00
-	00		 add	 rax, 1184		; 000004a0H
+  00396	48 05 a8 04 00
+	00		 add	 rax, 1192		; 000004a8H
   0039c	48 89 85 b8 04
 	00 00		 mov	 QWORD PTR tv256[rbp], rax
   003a3	48 8d 4d 08	 lea	 rcx, QWORD PTR strComboNumBufferName$[rbp]
@@ -14746,8 +14746,8 @@ $LN13@Add_Compon:
   00401	48 6b c0 00	 imul	 rax, rax, 0
   00405	48 8b 8d f0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0040c	48 8d 84 01 a8
-	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1192]
+  0040c	48 8d 84 01 b0
+	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1200]
   00414	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   0041d	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14781,8 +14781,8 @@ $LN14@Add_Compon:
   00466	48 6b c0 01	 imul	 rax, rax, 1
   0046a	48 8b 8d f0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00471	48 8d 84 01 a8
-	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1192]
+  00471	48 8d 84 01 b0
+	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1200]
   00479	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   00482	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14816,8 +14816,8 @@ $LN15@Add_Compon:
   004cb	48 6b c0 02	 imul	 rax, rax, 2
   004cf	48 8b 8d f0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  004d6	48 8d 84 01 a8
-	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1192]
+  004d6	48 8d 84 01 b0
+	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1200]
   004de	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   004e7	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14851,8 +14851,8 @@ $LN16@Add_Compon:
   00530	48 6b c0 03	 imul	 rax, rax, 3
   00534	48 8b 8d f0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0053b	48 8d 84 01 a8
-	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1192]
+  0053b	48 8d 84 01 b0
+	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1200]
   00543	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   0054c	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14886,8 +14886,8 @@ $LN17@Add_Compon:
   00595	48 6b c0 04	 imul	 rax, rax, 4
   00599	48 8b 8d f0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  005a0	48 8d 84 01 a8
-	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1192]
+  005a0	48 8d 84 01 b0
+	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1200]
   005a8	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   005b1	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14921,8 +14921,8 @@ $LN18@Add_Compon:
   005fa	48 6b c0 05	 imul	 rax, rax, 5
   005fe	48 8b 8d f0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00605	48 8d 84 01 a8
-	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1192]
+  00605	48 8d 84 01 b0
+	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1200]
   0060d	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   00616	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14956,8 +14956,8 @@ $LN19@Add_Compon:
   0065f	48 6b c0 06	 imul	 rax, rax, 6
   00663	48 8b 8d f0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0066a	48 8d 84 01 a8
-	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1192]
+  0066a	48 8d 84 01 b0
+	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1200]
   00672	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   0067b	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -14991,8 +14991,8 @@ $LN20@Add_Compon:
   006c4	48 6b c0 07	 imul	 rax, rax, 7
   006c8	48 8b 8d f0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  006cf	48 8d 84 01 a8
-	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1192]
+  006cf	48 8d 84 01 b0
+	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1200]
   006d7	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   006e0	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -15026,8 +15026,8 @@ $LN21@Add_Compon:
   00729	48 6b c0 08	 imul	 rax, rax, 8
   0072d	48 8b 8d f0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00734	48 8d 84 01 a8
-	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1192]
+  00734	48 8d 84 01 b0
+	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1200]
   0073c	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   00745	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -15061,8 +15061,8 @@ $LN22@Add_Compon:
   0078e	48 6b c0 09	 imul	 rax, rax, 9
   00792	48 8b 8d f0 04
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00799	48 8d 84 01 a8
-	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1192]
+  00799	48 8d 84 01 b0
+	04 00 00	 lea	 rax, QWORD PTR [rcx+rax+1200]
   007a1	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   007aa	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -15096,8 +15096,8 @@ $LN23@Add_Compon:
 
   007ee	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  007f5	48 05 f8 04 00
-	00		 add	 rax, 1272		; 000004f8H
+  007f5	48 05 00 05 00
+	00		 add	 rax, 1280		; 00000500H
   007fb	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   00804	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -15129,8 +15129,8 @@ $LN24@Add_Compon:
 
   00848	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0084f	48 05 00 05 00
-	00		 add	 rax, 1280		; 00000500H
+  0084f	48 05 08 05 00
+	00		 add	 rax, 1288		; 00000508H
   00855	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   0085e	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -15164,8 +15164,8 @@ $LN25@Add_Compon:
 
   008a2	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  008a9	48 05 08 05 00
-	00		 add	 rax, 1288		; 00000508H
+  008a9	48 05 10 05 00
+	00		 add	 rax, 1296		; 00000510H
   008af	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   008b8	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -15197,8 +15197,8 @@ $LN26@Add_Compon:
 
   008fc	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00903	48 05 10 05 00
-	00		 add	 rax, 1296		; 00000510H
+  00903	48 05 18 05 00
+	00		 add	 rax, 1304		; 00000518H
   00909	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   00912	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -15232,8 +15232,8 @@ $LN27@Add_Compon:
 
   00956	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0095d	48 05 18 05 00
-	00		 add	 rax, 1304		; 00000518H
+  0095d	48 05 20 05 00
+	00		 add	 rax, 1312		; 00000520H
   00963	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   0096c	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -15265,8 +15265,8 @@ $LN28@Add_Compon:
 
   009b0	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  009b7	48 05 20 05 00
-	00		 add	 rax, 1312		; 00000520H
+  009b7	48 05 28 05 00
+	00		 add	 rax, 1320		; 00000528H
   009bd	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   009c6	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -15298,8 +15298,8 @@ $LN29@Add_Compon:
 
   00a0a	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00a11	48 05 28 05 00
-	00		 add	 rax, 1320		; 00000528H
+  00a11	48 05 30 05 00
+	00		 add	 rax, 1328		; 00000530H
   00a17	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   00a20	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -15333,8 +15333,8 @@ $LN30@Add_Compon:
 
   00a64	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00a6b	48 05 30 05 00
-	00		 add	 rax, 1328		; 00000530H
+  00a6b	48 05 38 05 00
+	00		 add	 rax, 1336		; 00000538H
   00a71	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   00a7a	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -15366,8 +15366,8 @@ $LN31@Add_Compon:
 
   00abb	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00ac2	48 05 38 05 00
-	00		 add	 rax, 1336		; 00000538H
+  00ac2	48 05 40 05 00
+	00		 add	 rax, 1344		; 00000540H
   00ac8	48 c7 44 24 28
 	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
   00ad1	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -15665,8 +15665,8 @@ $LN4:
 
   0004a	48 8b 85 80 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00051	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  00051	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   00058	e8 00 00 00 00	 call	 ?GetComboCount@CCharacter@Client@@QEAAHXZ ; Client::CCharacter::GetComboCount
   0005d	8b d0		 mov	 edx, eax
   0005f	48 8d 4d 08	 lea	 rcx, QWORD PTR strCombo$[rbp]
@@ -15689,8 +15689,8 @@ $LN4:
   00085	48 63 45 44	 movsxd	 rax, DWORD PTR index$[rbp]
   00089	48 8b 8d 80 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00090	48 8b 84 c1 a8
-	04 00 00	 mov	 rax, QWORD PTR [rcx+rax*8+1192]
+  00090	48 8b 84 c1 b0
+	04 00 00	 mov	 rax, QWORD PTR [rcx+rax*8+1200]
   00098	48 89 85 28 01
 	00 00		 mov	 QWORD PTR $T4[rbp], rax
   0009f	48 8d 4d 08	 lea	 rcx, QWORD PTR strCombo$[rbp]
@@ -15886,12 +15886,12 @@ $LN6@Render:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
   0008f	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00096	48 8b 90 40 04
-	00 00		 mov	 rdx, QWORD PTR [rax+1088]
+  00096	48 8b 90 48 04
+	00 00		 mov	 rdx, QWORD PTR [rax+1096]
   0009d	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000a4	48 8b 88 50 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1104]
+  000a4	48 8b 88 58 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1112]
   000ab	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
   000b1	85 c0		 test	 eax, eax
@@ -15908,15 +15908,15 @@ $LN7@Render:
 
   000bf	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000c6	48 05 08 01 00
-	00		 add	 rax, 264		; 00000108H
+  000c6	48 05 0c 01 00
+	00		 add	 rax, 268		; 0000010cH
   000cc	4c 8b c0	 mov	 r8, rax
   000cf	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
   000d6	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000dd	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  000dd	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
   000ea	85 c0		 test	 eax, eax
@@ -15938,8 +15938,8 @@ $LN8@Render:
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@PLHHBDPH@g_FillAmount?$AA@
   00109	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00110	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00110	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00117	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
   0011d	85 c0		 test	 eax, eax
@@ -15961,8 +15961,8 @@ $LN9@Render:
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_07FMLFDDAN@g_Alpha?$AA@
   0013c	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00143	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00143	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   0014a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
   00150	85 c0		 test	 eax, eax
@@ -15984,8 +15984,8 @@ $LN10@Render:
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0P@IKACEMKG@g_DiscardValue?$AA@
   0016f	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00176	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00176	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   0017d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
   00183	85 c0		 test	 eax, eax
@@ -16003,8 +16003,8 @@ $LN11@Render:
 
   00191	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00198	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  00198	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   0019f	e8 00 00 00 00	 call	 ?IsAttackalbe@CCharacter@Client@@QEAA_NXZ ; Client::CCharacter::IsAttackalbe
   001a4	0f b6 c0	 movzx	 eax, al
   001a7	85 c0		 test	 eax, eax
@@ -16015,8 +16015,8 @@ $LN11@Render:
   001ab	33 d2		 xor	 edx, edx
   001ad	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001b4	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  001b4	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   001bb	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
@@ -16030,8 +16030,8 @@ $LN12@Render:
   001c3	ba 02 00 00 00	 mov	 edx, 2
   001c8	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001cf	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  001cf	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   001d6	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 $LN13@Render:
@@ -16041,8 +16041,8 @@ $LN13@Render:
 
   001dc	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001e3	48 8b 88 48 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1096]
+  001e3	48 8b 88 50 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1104]
   001ea	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
 
@@ -16054,12 +16054,12 @@ $LN13@Render:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
   001fa	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00201	48 8b 90 40 04
-	00 00		 mov	 rdx, QWORD PTR [rax+1088]
+  00201	48 8b 90 48 04
+	00 00		 mov	 rdx, QWORD PTR [rax+1096]
   00208	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0020f	48 8b 88 60 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1120]
+  0020f	48 8b 88 68 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1128]
   00216	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
   0021c	85 c0		 test	 eax, eax
@@ -16076,8 +16076,8 @@ $LN14@Render:
 
   0022a	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00231	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  00231	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   00238	e8 00 00 00 00	 call	 ?IsAttackalbe@CCharacter@Client@@QEAA_NXZ ; Client::CCharacter::IsAttackalbe
   0023d	0f b6 c0	 movzx	 eax, al
   00240	85 c0		 test	 eax, eax
@@ -16088,8 +16088,8 @@ $LN14@Render:
   00244	33 d2		 xor	 edx, edx
   00246	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0024d	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  0024d	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00254	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
@@ -16103,8 +16103,8 @@ $LN15@Render:
   0025c	ba 02 00 00 00	 mov	 edx, 2
   00261	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00268	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00268	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   0026f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 $LN16@Render:
@@ -16113,8 +16113,8 @@ $LN16@Render:
 
   00275	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0027c	48 8b 88 58 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1112]
+  0027c	48 8b 88 60 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1120]
   00283	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
 
@@ -16124,15 +16124,15 @@ $LN16@Render:
 
   00289	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00290	48 05 48 01 00
-	00		 add	 rax, 328		; 00000148H
+  00290	48 05 4c 01 00
+	00		 add	 rax, 332		; 0000014cH
   00296	4c 8b c0	 mov	 r8, rax
   00299	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
   002a0	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002a7	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  002a7	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   002ae	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
   002b4	85 c0		 test	 eax, eax
@@ -16152,12 +16152,12 @@ $LN17@Render:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
   002cc	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002d3	48 8b 90 40 04
-	00 00		 mov	 rdx, QWORD PTR [rax+1088]
+  002d3	48 8b 90 48 04
+	00 00		 mov	 rdx, QWORD PTR [rax+1096]
   002da	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002e1	48 8b 88 50 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1104]
+  002e1	48 8b 88 58 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1112]
   002e8	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
   002ee	85 c0		 test	 eax, eax
@@ -16174,16 +16174,16 @@ $LN18@Render:
 
   002fc	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00303	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  00303	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   0030a	e8 00 00 00 00	 call	 ?IsDashable@CCharacter@Client@@QEAA_NXZ ; Client::CCharacter::IsDashable
   0030f	0f b6 c0	 movzx	 eax, al
   00312	85 c0		 test	 eax, eax
   00314	74 32		 je	 SHORT $LN19@Render
   00316	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0031d	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  0031d	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   00324	e8 00 00 00 00	 call	 ?IsDashGageFull@CCharacter@Client@@QEAA_NXZ ; Client::CCharacter::IsDashGageFull
   00329	0f b6 c0	 movzx	 eax, al
   0032c	85 c0		 test	 eax, eax
@@ -16194,8 +16194,8 @@ $LN18@Render:
   00330	33 d2		 xor	 edx, edx
   00332	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00339	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00339	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00340	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
@@ -16209,8 +16209,8 @@ $LN19@Render:
   00348	ba 02 00 00 00	 mov	 edx, 2
   0034d	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00354	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00354	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   0035b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 $LN20@Render:
@@ -16224,8 +16224,8 @@ $LN20@Render:
 
   00361	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00368	48 8b 88 48 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1096]
+  00368	48 8b 88 50 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1104]
   0036f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
 
@@ -16237,12 +16237,12 @@ $LN20@Render:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
   0037f	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00386	48 8b 90 40 04
-	00 00		 mov	 rdx, QWORD PTR [rax+1088]
+  00386	48 8b 90 48 04
+	00 00		 mov	 rdx, QWORD PTR [rax+1096]
   0038d	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00394	48 8b 88 70 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1136]
+  00394	48 8b 88 78 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1144]
   0039b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
   003a1	85 c0		 test	 eax, eax
@@ -16259,16 +16259,16 @@ $LN21@Render:
 
   003af	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003b6	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  003b6	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   003bd	e8 00 00 00 00	 call	 ?IsDashable@CCharacter@Client@@QEAA_NXZ ; Client::CCharacter::IsDashable
   003c2	0f b6 c0	 movzx	 eax, al
   003c5	85 c0		 test	 eax, eax
   003c7	74 32		 je	 SHORT $LN22@Render
   003c9	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003d0	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  003d0	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   003d7	e8 00 00 00 00	 call	 ?IsDashGageFull@CCharacter@Client@@QEAA_NXZ ; Client::CCharacter::IsDashGageFull
   003dc	0f b6 c0	 movzx	 eax, al
   003df	85 c0		 test	 eax, eax
@@ -16279,8 +16279,8 @@ $LN21@Render:
   003e3	33 d2		 xor	 edx, edx
   003e5	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003ec	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  003ec	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   003f3	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
@@ -16294,8 +16294,8 @@ $LN22@Render:
   003fb	ba 02 00 00 00	 mov	 edx, 2
   00400	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00407	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00407	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   0040e	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 $LN23@Render:
@@ -16305,8 +16305,8 @@ $LN23@Render:
 
   00414	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0041b	48 8b 88 68 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1128]
+  0041b	48 8b 88 70 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1136]
   00422	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
 
@@ -16316,8 +16316,8 @@ $LN23@Render:
 
   00428	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0042f	0f b6 80 88 04
-	00 00		 movzx	 eax, BYTE PTR [rax+1160]
+  0042f	0f b6 80 90 04
+	00 00		 movzx	 eax, BYTE PTR [rax+1168]
   00436	85 c0		 test	 eax, eax
   00438	0f 84 9d 00 00
 	00		 je	 $LN24@Render
@@ -16327,15 +16327,15 @@ $LN23@Render:
 
   0043e	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00445	48 05 88 01 00
-	00		 add	 rax, 392		; 00000188H
+  00445	48 05 8c 01 00
+	00		 add	 rax, 396		; 0000018cH
   0044b	4c 8b c0	 mov	 r8, rax
   0044e	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
   00455	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0045c	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  0045c	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00463	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
   00469	85 c0		 test	 eax, eax
@@ -16355,12 +16355,12 @@ $LN25@Render:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
   00481	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00488	48 8b 90 40 04
-	00 00		 mov	 rdx, QWORD PTR [rax+1088]
+  00488	48 8b 90 48 04
+	00 00		 mov	 rdx, QWORD PTR [rax+1096]
   0048f	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00496	48 8b 88 98 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1176]
+  00496	48 8b 88 a0 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1184]
   0049d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
   004a3	85 c0		 test	 eax, eax
@@ -16378,8 +16378,8 @@ $LN26@Render:
   004b1	33 d2		 xor	 edx, edx
   004b3	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004ba	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  004ba	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   004c1	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
@@ -16387,8 +16387,8 @@ $LN26@Render:
 
   004c7	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004ce	48 8b 88 90 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1168]
+  004ce	48 8b 88 98 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1176]
   004d5	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
 $LN24@Render:
@@ -16400,8 +16400,8 @@ $LN24@Render:
 
   004db	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004e2	0f b6 80 50 05
-	00 00		 movzx	 eax, BYTE PTR [rax+1360]
+  004e2	0f b6 80 58 05
+	00 00		 movzx	 eax, BYTE PTR [rax+1368]
   004e9	85 c0		 test	 eax, eax
   004eb	0f 84 c3 02 00
 	00		 je	 $LN27@Render
@@ -16422,8 +16422,8 @@ $LN4@Render:
 	00 00		 mov	 QWORD PTR tv282[rbp], rax
   0050d	48 8b 8d c0 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00514	48 8b 89 48 05
-	00 00		 mov	 rcx, QWORD PTR [rcx+1352]
+  00514	48 8b 89 50 05
+	00 00		 mov	 rcx, QWORD PTR [rcx+1360]
   0051b	e8 00 00 00 00	 call	 ?GetComboCount@CCharacter@Client@@QEAAHXZ ; Client::CCharacter::GetComboCount
   00520	8b d0		 mov	 edx, eax
   00522	48 8d 8d 48 01
@@ -16465,15 +16465,15 @@ $LN52@Render:
   0058f	48 6b c0 40	 imul	 rax, rax, 64		; 00000040H
   00593	48 8b 8d c0 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0059a	48 8d 84 01 dc
-	01 00 00	 lea	 rax, QWORD PTR [rcx+rax+476]
+  0059a	48 8d 84 01 e0
+	01 00 00	 lea	 rax, QWORD PTR [rcx+rax+480]
   005a2	4c 8b c0	 mov	 r8, rax
   005a5	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
   005ac	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  005b3	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  005b3	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   005ba	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
   005c0	85 c0		 test	 eax, eax
@@ -16497,8 +16497,8 @@ $LN28@Render:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
   005e7	48 8b 8d c0 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  005ee	48 8b 91 40 04
-	00 00		 mov	 rdx, QWORD PTR [rcx+1088]
+  005ee	48 8b 91 48 04
+	00 00		 mov	 rdx, QWORD PTR [rcx+1096]
   005f5	48 8b c8	 mov	 rcx, rax
   005f8	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
@@ -16517,8 +16517,8 @@ $LN29@Render:
   0060c	33 d2		 xor	 edx, edx
   0060e	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00615	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00615	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   0061c	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
@@ -16526,8 +16526,8 @@ $LN29@Render:
 
   00622	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00629	48 8b 88 a0 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1184]
+  00629	48 8b 88 a8 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1192]
   00630	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
 
@@ -16541,15 +16541,15 @@ $LN3@Render:
 
   0063b	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00642	48 05 e8 02 00
-	00		 add	 rax, 744		; 000002e8H
+  00642	48 05 ec 02 00
+	00		 add	 rax, 748		; 000002ecH
   00648	4c 8b c0	 mov	 r8, rax
   0064b	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
   00652	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00659	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00659	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00660	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
   00666	85 c0		 test	 eax, eax
@@ -16569,12 +16569,12 @@ $LN30@Render:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
   0067e	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00685	48 8b 90 40 04
-	00 00		 mov	 rdx, QWORD PTR [rax+1088]
+  00685	48 8b 90 48 04
+	00 00		 mov	 rdx, QWORD PTR [rax+1096]
   0068c	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00693	48 8b 88 00 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1280]
+  00693	48 8b 88 08 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1288]
   0069a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
   006a0	85 c0		 test	 eax, eax
@@ -16592,8 +16592,8 @@ $LN31@Render:
   006ae	33 d2		 xor	 edx, edx
   006b0	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  006b7	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  006b7	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   006be	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
@@ -16601,8 +16601,8 @@ $LN31@Render:
 
   006c4	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  006cb	48 8b 88 f8 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1272]
+  006cb	48 8b 88 00 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1280]
   006d2	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
 
@@ -16612,15 +16612,15 @@ $LN31@Render:
 
   006d8	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  006df	48 05 38 03 00
-	00		 add	 rax, 824		; 00000338H
+  006df	48 05 3c 03 00
+	00		 add	 rax, 828		; 0000033cH
   006e5	4c 8b c0	 mov	 r8, rax
   006e8	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
   006ef	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  006f6	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  006f6	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   006fd	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
   00703	85 c0		 test	 eax, eax
@@ -16640,12 +16640,12 @@ $LN32@Render:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
   0071b	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00722	48 8b 90 40 04
-	00 00		 mov	 rdx, QWORD PTR [rax+1088]
+  00722	48 8b 90 48 04
+	00 00		 mov	 rdx, QWORD PTR [rax+1096]
   00729	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00730	48 8b 88 10 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1296]
+  00730	48 8b 88 18 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1304]
   00737	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
   0073d	85 c0		 test	 eax, eax
@@ -16662,8 +16662,8 @@ $LN33@Render:
 
   0074b	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00752	48 05 58 05 00
-	00		 add	 rax, 1368		; 00000558H
+  00752	48 05 60 05 00
+	00		 add	 rax, 1376		; 00000560H
   00758	41 b9 04 00 00
 	00		 mov	 r9d, 4
   0075e	4c 8b c0	 mov	 r8, rax
@@ -16671,8 +16671,8 @@ $LN33@Render:
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@PLHHBDPH@g_FillAmount?$AA@
   00768	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0076f	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  0076f	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00776	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
   0077c	85 c0		 test	 eax, eax
@@ -16690,8 +16690,8 @@ $LN34@Render:
   0078a	33 d2		 xor	 edx, edx
   0078c	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00793	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00793	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   0079a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
@@ -16699,8 +16699,8 @@ $LN34@Render:
 
   007a0	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  007a7	48 8b 88 08 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1288]
+  007a7	48 8b 88 10 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1296]
   007ae	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
 $LN27@Render:
@@ -16712,8 +16712,8 @@ $LN27@Render:
 
   007b4	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  007bb	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  007bb	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   007c2	e8 00 00 00 00	 call	 ?IsEvolution@CCharacter@Client@@QEAA_NXZ ; Client::CCharacter::IsEvolution
   007c7	0f b6 c0	 movzx	 eax, al
   007ca	85 c0		 test	 eax, eax
@@ -16725,15 +16725,15 @@ $LN27@Render:
 
   007d2	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  007d9	48 05 a8 03 00
-	00		 add	 rax, 936		; 000003a8H
+  007d9	48 05 ac 03 00
+	00		 add	 rax, 940		; 000003acH
   007df	4c 8b c0	 mov	 r8, rax
   007e2	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
   007e9	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  007f0	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  007f0	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   007f7	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
   007fd	85 c0		 test	 eax, eax
@@ -16752,12 +16752,12 @@ $LN36@Render:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
   00815	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0081c	48 8b 90 40 04
-	00 00		 mov	 rdx, QWORD PTR [rax+1088]
+  0081c	48 8b 90 48 04
+	00 00		 mov	 rdx, QWORD PTR [rax+1096]
   00823	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0082a	48 8b 88 20 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1312]
+  0082a	48 8b 88 28 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1320]
   00831	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
   00837	85 c0		 test	 eax, eax
@@ -16778,8 +16778,8 @@ $LN37@Render:
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@PLHHBDPH@g_FillAmount?$AA@
   00856	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0085d	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  0085d	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00864	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
   0086a	85 c0		 test	 eax, eax
@@ -16797,8 +16797,8 @@ $LN38@Render:
   00878	33 d2		 xor	 edx, edx
   0087a	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00881	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00881	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00888	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
@@ -16806,8 +16806,8 @@ $LN38@Render:
 
   0088e	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00895	48 8b 88 18 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1304]
+  00895	48 8b 88 20 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1312]
   0089c	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
 
@@ -16816,15 +16816,15 @@ $LN38@Render:
 
   008a2	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  008a9	48 05 a8 03 00
-	00		 add	 rax, 936		; 000003a8H
+  008a9	48 05 ac 03 00
+	00		 add	 rax, 940		; 000003acH
   008af	4c 8b c0	 mov	 r8, rax
   008b2	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
   008b9	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  008c0	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  008c0	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   008c7	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
   008cd	85 c0		 test	 eax, eax
@@ -16843,12 +16843,12 @@ $LN39@Render:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
   008e5	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  008ec	48 8b 90 40 04
-	00 00		 mov	 rdx, QWORD PTR [rax+1088]
+  008ec	48 8b 90 48 04
+	00 00		 mov	 rdx, QWORD PTR [rax+1096]
   008f3	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  008fa	48 8b 88 28 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1320]
+  008fa	48 8b 88 30 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1328]
   00901	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
   00907	85 c0		 test	 eax, eax
@@ -16864,8 +16864,8 @@ $LN40@Render:
 
   00915	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0091c	48 05 64 05 00
-	00		 add	 rax, 1380		; 00000564H
+  0091c	48 05 6c 05 00
+	00		 add	 rax, 1388		; 0000056cH
   00922	41 b9 04 00 00
 	00		 mov	 r9d, 4
   00928	4c 8b c0	 mov	 r8, rax
@@ -16873,8 +16873,8 @@ $LN40@Render:
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@PLHHBDPH@g_FillAmount?$AA@
   00932	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00939	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00939	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00940	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
   00946	85 c0		 test	 eax, eax
@@ -16892,8 +16892,8 @@ $LN41@Render:
   00954	33 d2		 xor	 edx, edx
   00956	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0095d	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  0095d	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00964	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
@@ -16901,8 +16901,8 @@ $LN41@Render:
 
   0096a	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00971	48 8b 88 18 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1304]
+  00971	48 8b 88 20 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1312]
   00978	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
 $LN35@Render:
@@ -16913,8 +16913,8 @@ $LN35@Render:
 
   0097e	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00985	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  00985	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   0098c	e8 00 00 00 00	 call	 ?IsEvolutionReady@CCharacter@Client@@QEAA_NXZ ; Client::CCharacter::IsEvolutionReady
   00991	0f b6 c0	 movzx	 eax, al
   00994	85 c0		 test	 eax, eax
@@ -16926,15 +16926,15 @@ $LN35@Render:
 
   0099c	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  009a3	48 05 f8 03 00
-	00		 add	 rax, 1016		; 000003f8H
+  009a3	48 05 fc 03 00
+	00		 add	 rax, 1020		; 000003fcH
   009a9	4c 8b c0	 mov	 r8, rax
   009ac	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
   009b3	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  009ba	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  009ba	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   009c1	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
   009c7	85 c0		 test	 eax, eax
@@ -16953,12 +16953,12 @@ $LN43@Render:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
   009df	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  009e6	48 8b 90 40 04
-	00 00		 mov	 rdx, QWORD PTR [rax+1088]
+  009e6	48 8b 90 48 04
+	00 00		 mov	 rdx, QWORD PTR [rax+1096]
   009ed	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  009f4	48 8b 88 50 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1104]
+  009f4	48 8b 88 58 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1112]
   009fb	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
   00a01	85 c0		 test	 eax, eax
@@ -16979,8 +16979,8 @@ $LN44@Render:
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@PLHHBDPH@g_FillAmount?$AA@
   00a20	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00a27	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00a27	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00a2e	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
   00a34	85 c0		 test	 eax, eax
@@ -16998,8 +16998,8 @@ $LN45@Render:
   00a42	33 d2		 xor	 edx, edx
   00a44	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00a4b	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00a4b	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00a52	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
@@ -17007,8 +17007,8 @@ $LN45@Render:
 
   00a58	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00a5f	48 8b 88 30 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1328]
+  00a5f	48 8b 88 38 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1336]
   00a66	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
 
@@ -17017,15 +17017,15 @@ $LN45@Render:
 
   00a6c	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00a73	48 05 f8 03 00
-	00		 add	 rax, 1016		; 000003f8H
+  00a73	48 05 fc 03 00
+	00		 add	 rax, 1020		; 000003fcH
   00a79	4c 8b c0	 mov	 r8, rax
   00a7c	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
   00a83	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00a8a	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00a8a	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00a91	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetMatrix@CShader@Engine@@QEAAJPEBDPEBUXMFLOAT4X4@DirectX@@@Z
   00a97	85 c0		 test	 eax, eax
@@ -17044,12 +17044,12 @@ $LN46@Render:
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_09HCHKCCII@g_Texture?$AA@
   00aaf	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00ab6	48 8b 90 40 04
-	00 00		 mov	 rdx, QWORD PTR [rax+1088]
+  00ab6	48 8b 90 48 04
+	00 00		 mov	 rdx, QWORD PTR [rax+1096]
   00abd	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00ac4	48 8b 88 38 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1336]
+  00ac4	48 8b 88 40 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1344]
   00acb	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderResource@CTexture@Engine@@QEAAJPEAVCShader@2@PEBDI@Z
   00ad1	85 c0		 test	 eax, eax
@@ -17065,8 +17065,8 @@ $LN47@Render:
 
   00adf	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00ae6	48 05 64 05 00
-	00		 add	 rax, 1380		; 00000564H
+  00ae6	48 05 6c 05 00
+	00		 add	 rax, 1388		; 0000056cH
   00aec	41 b9 04 00 00
 	00		 mov	 r9d, 4
   00af2	4c 8b c0	 mov	 r8, rax
@@ -17074,8 +17074,8 @@ $LN47@Render:
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0N@PLHHBDPH@g_FillAmount?$AA@
   00afc	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00b03	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00b03	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00b0a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
   00b10	85 c0		 test	 eax, eax
@@ -17091,8 +17091,8 @@ $LN48@Render:
 
   00b1b	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00b22	48 05 80 05 00
-	00		 add	 rax, 1408		; 00000580H
+  00b22	48 05 88 05 00
+	00		 add	 rax, 1416		; 00000588H
   00b28	41 b9 04 00 00
 	00		 mov	 r9d, 4
   00b2e	4c 8b c0	 mov	 r8, rax
@@ -17100,8 +17100,8 @@ $LN48@Render:
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_07FMLFDDAN@g_Alpha?$AA@
   00b38	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00b3f	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00b3f	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00b46	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
   00b4c	85 c0		 test	 eax, eax
@@ -17119,8 +17119,8 @@ $LN49@Render:
   00b57	33 d2		 xor	 edx, edx
   00b59	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00b60	48 8b 88 40 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1088]
+  00b60	48 8b 88 48 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1096]
   00b67	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
@@ -17128,8 +17128,8 @@ $LN49@Render:
 
   00b6d	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00b74	48 8b 88 30 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1328]
+  00b74	48 8b 88 38 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1336]
   00b7b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CVIBuffer@Engine@@UEAAJXZ
 $LN42@Render:
@@ -17240,8 +17240,8 @@ $LN25:
 
   0006c	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00073	0f b6 80 70 05
-	00 00		 movzx	 eax, BYTE PTR [rax+1392]
+  00073	0f b6 80 78 05
+	00 00		 movzx	 eax, BYTE PTR [rax+1400]
   0007a	85 c0		 test	 eax, eax
   0007c	0f 84 78 01 00
 	00		 je	 $LN7@LateTick
@@ -17255,15 +17255,15 @@ $LN25:
 	00 00 00	 mulsd	 xmm0, QWORD PTR __real@4024000000000000
   00092	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00099	f3 0f 5a 88 74
-	05 00 00	 cvtss2sd xmm1, DWORD PTR [rax+1396]
+  00099	f3 0f 5a 88 7c
+	05 00 00	 cvtss2sd xmm1, DWORD PTR [rax+1404]
   000a1	f2 0f 58 c8	 addsd	 xmm1, xmm0
   000a5	0f 28 c1	 movaps	 xmm0, xmm1
   000a8	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
   000ac	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000b3	f3 0f 11 80 74
-	05 00 00	 movss	 DWORD PTR [rax+1396], xmm0
+  000b3	f3 0f 11 80 7c
+	05 00 00	 movss	 DWORD PTR [rax+1404], xmm0
 
 ; 145  : 
 ; 146  : 		if (m_fShakeAcc >= m_fShakeTimeOut)
@@ -17272,10 +17272,10 @@ $LN25:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000c2	48 8b 8d d0 07
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  000c9	f3 0f 10 80 74
-	05 00 00	 movss	 xmm0, DWORD PTR [rax+1396]
-  000d1	0f 2f 81 78 05
-	00 00		 comiss	 xmm0, DWORD PTR [rcx+1400]
+  000c9	f3 0f 10 80 7c
+	05 00 00	 movss	 xmm0, DWORD PTR [rax+1404]
+  000d1	0f 2f 81 80 05
+	00 00		 comiss	 xmm0, DWORD PTR [rcx+1408]
   000d8	72 44		 jb	 SHORT $LN8@LateTick
 
 ; 147  : 		{
@@ -17283,32 +17283,32 @@ $LN25:
 
   000da	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000e1	c6 80 70 05 00
-	00 00		 mov	 BYTE PTR [rax+1392], 0
+  000e1	c6 80 78 05 00
+	00 00		 mov	 BYTE PTR [rax+1400], 0
 
 ; 149  : 			m_fShakeAcc = 0.f;
 
   000e8	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000ef	0f 57 c0	 xorps	 xmm0, xmm0
-  000f2	f3 0f 11 80 74
-	05 00 00	 movss	 DWORD PTR [rax+1396], xmm0
+  000f2	f3 0f 11 80 7c
+	05 00 00	 movss	 DWORD PTR [rax+1404], xmm0
 
 ; 150  : 			m_fShakeX = 0.f;
 
   000fa	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00101	0f 57 c0	 xorps	 xmm0, xmm0
-  00104	f3 0f 11 80 68
-	05 00 00	 movss	 DWORD PTR [rax+1384], xmm0
+  00104	f3 0f 11 80 70
+	05 00 00	 movss	 DWORD PTR [rax+1392], xmm0
 
 ; 151  : 			m_fShakeY = 0.f;
 
   0010c	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00113	0f 57 c0	 xorps	 xmm0, xmm0
-  00116	f3 0f 11 80 6c
-	05 00 00	 movss	 DWORD PTR [rax+1388], xmm0
+  00116	f3 0f 11 80 74
+	05 00 00	 movss	 DWORD PTR [rax+1396], xmm0
 $LN8@LateTick:
 
 ; 152  : 		}
@@ -17317,8 +17317,8 @@ $LN8@LateTick:
 
   0011e	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00125	f3 0f 10 80 74
-	05 00 00	 movss	 xmm0, DWORD PTR [rax+1396]
+  00125	f3 0f 10 80 7c
+	05 00 00	 movss	 xmm0, DWORD PTR [rax+1404]
   0012d	f3 0f 59 05 00
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@41200000
   00135	e8 00 00 00 00	 call	 ?sin@@YAMM@Z		; sin
@@ -17330,8 +17330,8 @@ $LN8@LateTick:
 	07 00 00	 movss	 DWORD PTR tv92[rbp], xmm0
   00151	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00158	f3 0f 10 88 74
-	05 00 00	 movss	 xmm1, DWORD PTR [rax+1396]
+  00158	f3 0f 10 88 7c
+	05 00 00	 movss	 xmm1, DWORD PTR [rax+1404]
   00160	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f000000
   00168	ff 15 00 00 00
@@ -17342,15 +17342,15 @@ $LN8@LateTick:
   0017a	0f 28 c1	 movaps	 xmm0, xmm1
   0017d	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00184	f3 0f 11 80 68
-	05 00 00	 movss	 DWORD PTR [rax+1384], xmm0
+  00184	f3 0f 11 80 70
+	05 00 00	 movss	 DWORD PTR [rax+1392], xmm0
 
 ; 155  : 		m_fShakeY = 4.5f * sin(m_fShakeAcc * 10.f) * powf(0.5f, m_fShakeAcc);
 
   0018c	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00193	f3 0f 10 80 74
-	05 00 00	 movss	 xmm0, DWORD PTR [rax+1396]
+  00193	f3 0f 10 80 7c
+	05 00 00	 movss	 xmm0, DWORD PTR [rax+1404]
   0019b	f3 0f 59 05 00
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@41200000
   001a3	e8 00 00 00 00	 call	 ?sin@@YAMM@Z		; sin
@@ -17362,8 +17362,8 @@ $LN8@LateTick:
 	07 00 00	 movss	 DWORD PTR tv135[rbp], xmm0
   001bf	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001c6	f3 0f 10 88 74
-	05 00 00	 movss	 xmm1, DWORD PTR [rax+1396]
+  001c6	f3 0f 10 88 7c
+	05 00 00	 movss	 xmm1, DWORD PTR [rax+1404]
   001ce	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f000000
   001d6	ff 15 00 00 00
@@ -17374,8 +17374,8 @@ $LN8@LateTick:
   001e8	0f 28 c1	 movaps	 xmm0, xmm1
   001eb	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001f2	f3 0f 11 80 6c
-	05 00 00	 movss	 DWORD PTR [rax+1388], xmm0
+  001f2	f3 0f 11 80 74
+	05 00 00	 movss	 DWORD PTR [rax+1396], xmm0
 $LN7@LateTick:
 
 ; 156  : 	}
@@ -17384,8 +17384,8 @@ $LN7@LateTick:
 
   001fa	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00201	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  00201	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   00208	e8 00 00 00 00	 call	 ?GetComboCount@CCharacter@Client@@QEAAHXZ ; Client::CCharacter::GetComboCount
   0020d	8b d0		 mov	 edx, eax
   0020f	48 8d 4d 28	 lea	 rcx, QWORD PTR strCombo$[rbp]
@@ -17396,8 +17396,8 @@ $LN7@LateTick:
 
   00219	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00220	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  00220	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   00227	e8 00 00 00 00	 call	 ?GetComboCount@CCharacter@Client@@QEAAHXZ ; Client::CCharacter::GetComboCount
   0022c	85 c0		 test	 eax, eax
   0022e	75 2a		 jne	 SHORT $LN9@LateTick
@@ -17409,15 +17409,15 @@ $LN7@LateTick:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00237	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
-  0023f	f3 0f 11 80 58
-	05 00 00	 movss	 DWORD PTR [rax+1368], xmm0
+  0023f	f3 0f 11 80 60
+	05 00 00	 movss	 DWORD PTR [rax+1376], xmm0
 
 ; 162  : 		m_bComboRender = false;
 
   00247	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0024e	c6 80 50 05 00
-	00 00		 mov	 BYTE PTR [rax+1360], 0
+  0024e	c6 80 58 05 00
+	00 00		 mov	 BYTE PTR [rax+1368], 0
 
 ; 163  : 	}
 ; 164  : 	else
@@ -17430,8 +17430,8 @@ $LN9@LateTick:
 
   0025a	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00261	c6 80 50 05 00
-	00 01		 mov	 BYTE PTR [rax+1360], 1
+  00261	c6 80 58 05 00
+	00 01		 mov	 BYTE PTR [rax+1368], 1
 
 ; 167  : 		switch (strCombo.size())
 
@@ -17465,14 +17465,14 @@ $LN11@LateTick:
 
   002b7	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002be	f3 0f 10 80 d8
-	01 00 00	 movss	 xmm0, DWORD PTR [rax+472]
+  002be	f3 0f 10 80 dc
+	01 00 00	 movss	 xmm0, DWORD PTR [rax+476]
   002c6	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@434d0000
   002ce	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002d5	f3 0f 11 80 c8
-	01 00 00	 movss	 DWORD PTR [rax+456], xmm0
+  002d5	f3 0f 11 80 cc
+	01 00 00	 movss	 DWORD PTR [rax+460], xmm0
 
 ; 171  : 			break;
 
@@ -17484,16 +17484,16 @@ $LN12@LateTick:
 
   002e2	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002e9	f3 0f 10 80 d8
-	01 00 00	 movss	 xmm0, DWORD PTR [rax+472]
+  002e9	f3 0f 10 80 dc
+	01 00 00	 movss	 xmm0, DWORD PTR [rax+476]
   002f1	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@434d0000
   002f9	f3 0f 5c 05 00
 	00 00 00	 subss	 xmm0, DWORD PTR __real@42180000
   00301	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00308	f3 0f 11 80 c8
-	01 00 00	 movss	 DWORD PTR [rax+456], xmm0
+  00308	f3 0f 11 80 cc
+	01 00 00	 movss	 DWORD PTR [rax+460], xmm0
 
 ; 174  : 			break;
 
@@ -17505,16 +17505,16 @@ $LN13@LateTick:
 
   00315	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0031c	f3 0f 10 80 d8
-	01 00 00	 movss	 xmm0, DWORD PTR [rax+472]
+  0031c	f3 0f 10 80 dc
+	01 00 00	 movss	 xmm0, DWORD PTR [rax+476]
   00324	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@434d0000
   0032c	f3 0f 5c 05 00
 	00 00 00	 subss	 xmm0, DWORD PTR __real@42980000
   00334	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0033b	f3 0f 11 80 c8
-	01 00 00	 movss	 DWORD PTR [rax+456], xmm0
+  0033b	f3 0f 11 80 cc
+	01 00 00	 movss	 DWORD PTR [rax+460], xmm0
 
 ; 177  : 			break;
 
@@ -17526,16 +17526,16 @@ $LN14@LateTick:
 
   00345	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0034c	f3 0f 10 80 d8
-	01 00 00	 movss	 xmm0, DWORD PTR [rax+472]
+  0034c	f3 0f 10 80 dc
+	01 00 00	 movss	 xmm0, DWORD PTR [rax+476]
   00354	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@434d0000
   0035c	f3 0f 5c 05 00
 	00 00 00	 subss	 xmm0, DWORD PTR __real@42e40000
   00364	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0036b	f3 0f 11 80 c8
-	01 00 00	 movss	 DWORD PTR [rax+456], xmm0
+  0036b	f3 0f 11 80 cc
+	01 00 00	 movss	 DWORD PTR [rax+460], xmm0
 
 ; 180  : 			break;
 
@@ -17547,16 +17547,16 @@ $LN15@LateTick:
 
   00375	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0037c	f3 0f 10 80 d8
-	01 00 00	 movss	 xmm0, DWORD PTR [rax+472]
+  0037c	f3 0f 10 80 dc
+	01 00 00	 movss	 xmm0, DWORD PTR [rax+476]
   00384	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@434d0000
   0038c	f3 0f 5c 05 00
 	00 00 00	 subss	 xmm0, DWORD PTR __real@43180000
   00394	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0039b	f3 0f 11 80 c8
-	01 00 00	 movss	 DWORD PTR [rax+456], xmm0
+  0039b	f3 0f 11 80 cc
+	01 00 00	 movss	 DWORD PTR [rax+460], xmm0
 $LN2@LateTick:
 
 ; 183  : 			break;
@@ -17582,24 +17582,24 @@ $LN6@LateTick:
 
   003be	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003c5	f3 0f 10 80 cc
-	01 00 00	 movss	 xmm0, DWORD PTR [rax+460]
+  003c5	f3 0f 10 80 d0
+	01 00 00	 movss	 xmm0, DWORD PTR [rax+464]
   003cd	0f 57 05 00 00
 	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
   003d4	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003db	f3 0f 58 80 6c
-	05 00 00	 addss	 xmm0, DWORD PTR [rax+1388]
+  003db	f3 0f 58 80 74
+	05 00 00	 addss	 xmm0, DWORD PTR [rax+1396]
   003e3	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
   003eb	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003f2	48 8b 8d d0 07
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  003f9	f3 0f 10 88 c8
-	01 00 00	 movss	 xmm1, DWORD PTR [rax+456]
-  00401	f3 0f 58 89 68
-	05 00 00	 addss	 xmm1, DWORD PTR [rcx+1384]
+  003f9	f3 0f 10 88 cc
+	01 00 00	 movss	 xmm1, DWORD PTR [rax+460]
+  00401	f3 0f 58 89 70
+	05 00 00	 addss	 xmm1, DWORD PTR [rcx+1392]
   00409	6b 45 64 26	 imul	 eax, DWORD PTR i$4[rbp], 38 ; 00000026H
   0040d	f3 0f 2a d0	 cvtsi2ss xmm2, eax
   00411	f3 0f 58 ca	 addss	 xmm1, xmm2
@@ -17632,12 +17632,12 @@ $LN6@LateTick:
 	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
   00477	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0047e	f3 0f 10 88 d4
-	01 00 00	 movss	 xmm1, DWORD PTR [rax+468]
+  0047e	f3 0f 10 88 d8
+	01 00 00	 movss	 xmm1, DWORD PTR [rax+472]
   00486	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0048d	f3 0f 10 80 d0
-	01 00 00	 movss	 xmm0, DWORD PTR [rax+464]
+  0048d	f3 0f 10 80 d4
+	01 00 00	 movss	 xmm0, DWORD PTR [rax+468]
   00495	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
   0049a	0f 29 9d 80 05
 	00 00		 movaps	 XMMWORD PTR $T11[rbp+48], xmm3
@@ -17686,8 +17686,8 @@ $LN6@LateTick:
   00534	48 6b c0 40	 imul	 rax, rax, 64		; 00000040H
   00538	48 8b 8d d0 07
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0053f	48 8d 84 01 dc
-	01 00 00	 lea	 rax, QWORD PTR [rcx+rax+476]
+  0053f	48 8d 84 01 e0
+	01 00 00	 lea	 rax, QWORD PTR [rcx+rax+480]
   00547	0f 28 85 10 03
 	00 00		 movaps	 xmm0, XMMWORD PTR $T5[rbp]
   0054e	0f 28 8d 20 03
@@ -17706,29 +17706,29 @@ $LN5@LateTick:
 
   00570	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00577	f3 0f 10 80 d8
-	01 00 00	 movss	 xmm0, DWORD PTR [rax+472]
+  00577	f3 0f 10 80 dc
+	01 00 00	 movss	 xmm0, DWORD PTR [rax+476]
   0057f	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@434d0000
   00587	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@41f00000
   0058f	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00596	f3 0f 11 80 dc
-	02 00 00	 movss	 DWORD PTR [rax+732], xmm0
+  00596	f3 0f 11 80 e0
+	02 00 00	 movss	 DWORD PTR [rax+736], xmm0
 
 ; 192  : 		XMStoreFloat4x4(&m_ComboMatrix, XMMatrixScaling(m_fComboImageWidth, m_fComboImageHeight, 1.f) * XMMatrixTranslation(m_fComboImageX + m_fShakeX - g_iWinSizeX * 0.5f, -m_fComboNumY + m_fShakeY - 20.f + g_iWinSizeY * 0.5f, 0.f));
 
   0059e	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  005a5	f3 0f 10 80 cc
-	01 00 00	 movss	 xmm0, DWORD PTR [rax+460]
+  005a5	f3 0f 10 80 d0
+	01 00 00	 movss	 xmm0, DWORD PTR [rax+464]
   005ad	0f 57 05 00 00
 	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
   005b4	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  005bb	f3 0f 58 80 6c
-	05 00 00	 addss	 xmm0, DWORD PTR [rax+1388]
+  005bb	f3 0f 58 80 74
+	05 00 00	 addss	 xmm0, DWORD PTR [rax+1396]
   005c3	f3 0f 5c 05 00
 	00 00 00	 subss	 xmm0, DWORD PTR __real@41a00000
   005cb	f3 0f 58 05 00
@@ -17737,10 +17737,10 @@ $LN5@LateTick:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   005da	48 8b 8d d0 07
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  005e1	f3 0f 10 88 dc
-	02 00 00	 movss	 xmm1, DWORD PTR [rax+732]
-  005e9	f3 0f 58 89 68
-	05 00 00	 addss	 xmm1, DWORD PTR [rcx+1384]
+  005e1	f3 0f 10 88 e0
+	02 00 00	 movss	 xmm1, DWORD PTR [rax+736]
+  005e9	f3 0f 58 89 70
+	05 00 00	 addss	 xmm1, DWORD PTR [rcx+1392]
   005f1	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
   005f9	f3 0f 11 8d 94
@@ -17770,12 +17770,12 @@ $LN5@LateTick:
 	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
   00653	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0065a	f3 0f 10 88 e4
-	02 00 00	 movss	 xmm1, DWORD PTR [rax+740]
+  0065a	f3 0f 10 88 e8
+	02 00 00	 movss	 xmm1, DWORD PTR [rax+744]
   00662	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00669	f3 0f 10 80 e0
-	02 00 00	 movss	 xmm0, DWORD PTR [rax+736]
+  00669	f3 0f 10 80 e4
+	02 00 00	 movss	 xmm0, DWORD PTR [rax+740]
   00671	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
   00676	0f 29 9d a0 06
 	00 00		 movaps	 XMMWORD PTR $T14[rbp+48], xmm3
@@ -17822,8 +17822,8 @@ $LN5@LateTick:
   0070a	f3 a4		 rep movsb
   0070c	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00713	48 05 e8 02 00
-	00		 add	 rax, 744		; 000002e8H
+  00713	48 05 ec 02 00
+	00		 add	 rax, 748		; 000002ecH
   00719	0f 28 85 30 04
 	00 00		 movaps	 xmm0, XMMWORD PTR $T8[rbp]
   00720	0f 28 8d 40 04
@@ -17842,18 +17842,18 @@ $LN5@LateTick:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00744	48 8b 8d d0 07
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0074b	f3 0f 10 80 60
-	05 00 00	 movss	 xmm0, DWORD PTR [rax+1376]
-  00753	f3 0f 5c 81 5c
-	05 00 00	 subss	 xmm0, DWORD PTR [rcx+1372]
+  0074b	f3 0f 10 80 68
+	05 00 00	 movss	 xmm0, DWORD PTR [rax+1384]
+  00753	f3 0f 5c 81 64
+	05 00 00	 subss	 xmm0, DWORD PTR [rcx+1380]
   0075b	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00762	f3 0f 5e 80 60
-	05 00 00	 divss	 xmm0, DWORD PTR [rax+1376]
+  00762	f3 0f 5e 80 68
+	05 00 00	 divss	 xmm0, DWORD PTR [rax+1384]
   0076a	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00771	f3 0f 11 80 58
-	05 00 00	 movss	 DWORD PTR [rax+1368], xmm0
+  00771	f3 0f 11 80 60
+	05 00 00	 movss	 DWORD PTR [rax+1376], xmm0
 $LN10@LateTick:
 
 ; 195  : 	}
@@ -17862,8 +17862,8 @@ $LN10@LateTick:
 
   00779	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00780	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  00780	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   00787	e8 00 00 00 00	 call	 ?GetCurEvolutionTime@CCharacter@Client@@QEBAMXZ ; Client::CCharacter::GetCurEvolutionTime
   0078c	f3 0f 11 85 84
 	00 00 00	 movss	 DWORD PTR fCurEvolutionTimeAcc$[rbp], xmm0
@@ -17872,8 +17872,8 @@ $LN10@LateTick:
 
   00794	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0079b	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  0079b	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   007a2	e8 00 00 00 00	 call	 ?GetEvolutionTime@CCharacter@Client@@QEBAMXZ ; Client::CCharacter::GetEvolutionTime
   007a7	f3 0f 11 85 a4
 	00 00 00	 movss	 DWORD PTR fEvolutionTimeOut$[rbp], xmm0
@@ -17889,8 +17889,8 @@ $LN10@LateTick:
 	00 00 00	 divss	 xmm0, DWORD PTR fEvolutionTimeOut$[rbp]
   007c7	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  007ce	f3 0f 11 80 64
-	05 00 00	 movss	 DWORD PTR [rax+1380], xmm0
+  007ce	f3 0f 11 80 6c
+	05 00 00	 movss	 DWORD PTR [rax+1388], xmm0
 
 ; 201  : 	
 ; 202  : 	//깜빡깜빡
@@ -17898,8 +17898,8 @@ $LN10@LateTick:
 
   007d6	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  007dd	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  007dd	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   007e4	e8 00 00 00 00	 call	 ?IsEvolutionReady@CCharacter@Client@@QEAA_NXZ ; Client::CCharacter::IsEvolutionReady
   007e9	0f b6 c0	 movzx	 eax, al
   007ec	85 c0		 test	 eax, eax
@@ -17911,8 +17911,8 @@ $LN10@LateTick:
 
   007f4	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  007fb	0f b6 80 7c 05
-	00 00		 movzx	 eax, BYTE PTR [rax+1404]
+  007fb	0f b6 80 84 05
+	00 00		 movzx	 eax, BYTE PTR [rax+1412]
   00802	85 c0		 test	 eax, eax
   00804	74 6e		 je	 SHORT $LN18@LateTick
 
@@ -17925,23 +17925,23 @@ $LN10@LateTick:
 	00 00 00	 mulsd	 xmm0, QWORD PTR __real@4000000000000000
   00816	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0081d	f3 0f 5a 88 80
-	05 00 00	 cvtss2sd xmm1, DWORD PTR [rax+1408]
+  0081d	f3 0f 5a 88 88
+	05 00 00	 cvtss2sd xmm1, DWORD PTR [rax+1416]
   00825	f2 0f 5c c8	 subsd	 xmm1, xmm0
   00829	0f 28 c1	 movaps	 xmm0, xmm1
   0082c	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
   00830	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00837	f3 0f 11 80 80
-	05 00 00	 movss	 DWORD PTR [rax+1408], xmm0
+  00837	f3 0f 11 80 88
+	05 00 00	 movss	 DWORD PTR [rax+1416], xmm0
 
 ; 208  : 			if (m_fEvolutionAlpha <= 0.f)
 
   0083f	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00846	0f 57 c0	 xorps	 xmm0, xmm0
-  00849	0f 2f 80 80 05
-	00 00		 comiss	 xmm0, DWORD PTR [rax+1408]
+  00849	0f 2f 80 88 05
+	00 00		 comiss	 xmm0, DWORD PTR [rax+1416]
   00850	72 20		 jb	 SHORT $LN20@LateTick
 
 ; 209  : 			{
@@ -17949,16 +17949,16 @@ $LN10@LateTick:
 
   00852	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00859	c6 80 7c 05 00
-	00 00		 mov	 BYTE PTR [rax+1404], 0
+  00859	c6 80 84 05 00
+	00 00		 mov	 BYTE PTR [rax+1412], 0
 
 ; 211  : 				m_fEvolutionAlpha = 0.f;
 
   00860	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00867	0f 57 c0	 xorps	 xmm0, xmm0
-  0086a	f3 0f 11 80 80
-	05 00 00	 movss	 DWORD PTR [rax+1408], xmm0
+  0086a	f3 0f 11 80 88
+	05 00 00	 movss	 DWORD PTR [rax+1416], xmm0
 $LN20@LateTick:
 
 ; 212  : 			}
@@ -17977,22 +17977,22 @@ $LN18@LateTick:
 	00 00 00	 mulsd	 xmm0, QWORD PTR __real@4000000000000000
   00884	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0088b	f3 0f 5a 88 80
-	05 00 00	 cvtss2sd xmm1, DWORD PTR [rax+1408]
+  0088b	f3 0f 5a 88 88
+	05 00 00	 cvtss2sd xmm1, DWORD PTR [rax+1416]
   00893	f2 0f 58 c8	 addsd	 xmm1, xmm0
   00897	0f 28 c1	 movaps	 xmm0, xmm1
   0089a	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
   0089e	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  008a5	f3 0f 11 80 80
-	05 00 00	 movss	 DWORD PTR [rax+1408], xmm0
+  008a5	f3 0f 11 80 88
+	05 00 00	 movss	 DWORD PTR [rax+1416], xmm0
 
 ; 217  : 			if (m_fEvolutionAlpha >= 1.f)
 
   008ad	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  008b4	f3 0f 10 80 80
-	05 00 00	 movss	 xmm0, DWORD PTR [rax+1408]
+  008b4	f3 0f 10 80 88
+	05 00 00	 movss	 xmm0, DWORD PTR [rax+1416]
   008bc	0f 2f 05 00 00
 	00 00		 comiss	 xmm0, DWORD PTR __real@3f800000
   008c3	72 25		 jb	 SHORT $LN17@LateTick
@@ -18002,8 +18002,8 @@ $LN18@LateTick:
 
   008c5	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  008cc	c6 80 7c 05 00
-	00 01		 mov	 BYTE PTR [rax+1404], 1
+  008cc	c6 80 84 05 00
+	00 01		 mov	 BYTE PTR [rax+1412], 1
 
 ; 220  : 				m_fEvolutionAlpha = 1.f;
 
@@ -18011,8 +18011,8 @@ $LN18@LateTick:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   008da	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
-  008e2	f3 0f 11 80 80
-	05 00 00	 movss	 DWORD PTR [rax+1408], xmm0
+  008e2	f3 0f 11 80 88
+	05 00 00	 movss	 DWORD PTR [rax+1416], xmm0
 $LN17@LateTick:
 
 ; 221  : 			}
@@ -18023,13 +18023,13 @@ $LN17@LateTick:
 
   008ea	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  008f1	48 83 b8 38 04
-	00 00 00	 cmp	 QWORD PTR [rax+1080], 0
+  008f1	48 83 b8 40 04
+	00 00 00	 cmp	 QWORD PTR [rax+1088], 0
   008f9	74 33		 je	 SHORT $LN22@LateTick
   008fb	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00902	0f b6 80 40 05
-	00 00		 movzx	 eax, BYTE PTR [rax+1344]
+  00902	0f b6 80 48 05
+	00 00		 movzx	 eax, BYTE PTR [rax+1352]
   00909	85 c0		 test	 eax, eax
   0090b	74 21		 je	 SHORT $LN22@LateTick
 
@@ -18040,8 +18040,8 @@ $LN17@LateTick:
   00914	ba 04 00 00 00	 mov	 edx, 4
   00919	48 8b 85 d0 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00920	48 8b 88 38 04
-	00 00		 mov	 rcx, QWORD PTR [rax+1080]
+  00920	48 8b 88 40 04
+	00 00		 mov	 rcx, QWORD PTR [rax+1088]
   00927	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z
   0092d	90		 npad	 1
@@ -18227,8 +18227,8 @@ $LN12:
   00057	48 8d 55 08	 lea	 rdx, QWORD PTR vTargetPos$[rbp]
   0005b	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00062	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  00062	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   00069	e8 00 00 00 00	 call	 ?GetTargetWindowPos@CCharacter@Client@@QEAA?AUXMFLOAT2@DirectX@@XZ ; Client::CCharacter::GetTargetWindowPos
 
 ; 95   : 	if (vTargetPos.x != FLT_MAX && vTargetPos.y != FLT_MAX)
@@ -18274,8 +18274,8 @@ $LN10@Tick:
 
   000ba	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000c1	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  000c1	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   000c8	e8 00 00 00 00	 call	 ?GetLockOnTarget@CCharacter@Client@@QEAAPEAVCGameObject@Engine@@XZ ; Client::CCharacter::GetLockOnTarget
   000cd	48 89 45 48	 mov	 QWORD PTR pBoss$6[rbp], rax
 
@@ -18299,8 +18299,8 @@ $LN10@Tick:
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
   00102	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00109	48 8b 88 48 05
-	00 00		 mov	 rcx, QWORD PTR [rax+1352]
+  00109	48 8b 88 50 05
+	00 00		 mov	 rcx, QWORD PTR [rax+1360]
   00110	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Find_Component@CGameObject@Engine@@QEAAPEAVCComponent@2@PEB_W@Z
   00116	41 b8 03 00 00
@@ -18356,8 +18356,8 @@ $LN10@Tick:
 
   0019a	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001a1	c6 80 88 04 00
-	00 00		 mov	 BYTE PTR [rax+1160], 0
+  001a1	c6 80 90 04 00
+	00 00		 mov	 BYTE PTR [rax+1168], 0
 
 ; 112  : 				else
 
@@ -18369,8 +18369,8 @@ $LN7@Tick:
 
   001ad	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001b4	c6 80 88 04 00
-	00 01		 mov	 BYTE PTR [rax+1160], 1
+  001b4	c6 80 90 04 00
+	00 01		 mov	 BYTE PTR [rax+1168], 1
 
 ; 115  : 					m_fTargetX = (vTargetPos.x + 1) * g_iWinSizeX * 0.5f;
 
@@ -18383,8 +18383,8 @@ $LN7@Tick:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3f000000
   001d8	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001df	f3 0f 11 80 78
-	03 00 00	 movss	 DWORD PTR [rax+888], xmm0
+  001df	f3 0f 11 80 7c
+	03 00 00	 movss	 DWORD PTR [rax+892], xmm0
 
 ; 116  : 					m_fTargetY = (1 - vTargetPos.y) * g_iWinSizeY * 0.5f + g_iWinSizeY * 0.5f;
 
@@ -18399,23 +18399,23 @@ $LN7@Tick:
 	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
   0020c	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00213	f3 0f 11 80 7c
-	03 00 00	 movss	 DWORD PTR [rax+892], xmm0
+  00213	f3 0f 11 80 80
+	03 00 00	 movss	 DWORD PTR [rax+896], xmm0
 
 ; 117  : 					XMStoreFloat4x4(&m_TargetMatrix, XMMatrixScaling(m_fTargetWidth, m_fTargetHeight, 1.f) * XMMatrixTranslation(m_fTargetX - g_iWinSizeX * 0.5f, -m_fTargetY + g_iWinSizeY * 0.5f, 0.0f));
 
   0021b	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00222	f3 0f 10 80 7c
-	03 00 00	 movss	 xmm0, DWORD PTR [rax+892]
+  00222	f3 0f 10 80 80
+	03 00 00	 movss	 xmm0, DWORD PTR [rax+896]
   0022a	0f 57 05 00 00
 	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
   00231	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
   00239	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00240	f3 0f 10 88 78
-	03 00 00	 movss	 xmm1, DWORD PTR [rax+888]
+  00240	f3 0f 10 88 7c
+	03 00 00	 movss	 xmm1, DWORD PTR [rax+892]
   00248	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
   00250	f3 0f 11 8d 34
@@ -18445,12 +18445,12 @@ $LN7@Tick:
 	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
   002aa	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002b1	f3 0f 10 88 84
-	03 00 00	 movss	 xmm1, DWORD PTR [rax+900]
+  002b1	f3 0f 10 88 88
+	03 00 00	 movss	 xmm1, DWORD PTR [rax+904]
   002b9	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002c0	f3 0f 10 80 80
-	03 00 00	 movss	 xmm0, DWORD PTR [rax+896]
+  002c0	f3 0f 10 80 84
+	03 00 00	 movss	 xmm0, DWORD PTR [rax+900]
   002c8	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
   002cd	0f 29 9d 40 07
 	00 00		 movaps	 XMMWORD PTR $T20[rbp+48], xmm3
@@ -18497,8 +18497,8 @@ $LN7@Tick:
   00361	f3 a4		 rep movsb
   00363	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0036a	48 05 88 01 00
-	00		 add	 rax, 392		; 00000188H
+  0036a	48 05 8c 01 00
+	00		 add	 rax, 396		; 0000018cH
   00370	0f 28 85 d0 04
 	00 00		 movaps	 xmm0, XMMWORD PTR $T14[rbp]
   00377	0f 28 8d e0 04
@@ -18525,8 +18525,8 @@ $LN4@Tick:
 
   00399	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003a0	c6 80 88 04 00
-	00 01		 mov	 BYTE PTR [rax+1160], 1
+  003a0	c6 80 90 04 00
+	00 01		 mov	 BYTE PTR [rax+1168], 1
 
 ; 124  : 			m_fTargetX = (vTargetPos.x + 1) * g_iWinSizeX * 0.5f;
 
@@ -18539,8 +18539,8 @@ $LN4@Tick:
 	00 00 00	 mulss	 xmm0, DWORD PTR __real@3f000000
   003c4	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003cb	f3 0f 11 80 78
-	03 00 00	 movss	 DWORD PTR [rax+888], xmm0
+  003cb	f3 0f 11 80 7c
+	03 00 00	 movss	 DWORD PTR [rax+892], xmm0
 
 ; 125  : 			m_fTargetY = (1 - vTargetPos.y) * g_iWinSizeY * 0.5f + g_iWinSizeY * 0.5f;
 
@@ -18555,23 +18555,23 @@ $LN4@Tick:
 	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
   003f8	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003ff	f3 0f 11 80 7c
-	03 00 00	 movss	 DWORD PTR [rax+892], xmm0
+  003ff	f3 0f 11 80 80
+	03 00 00	 movss	 DWORD PTR [rax+896], xmm0
 
 ; 126  : 			XMStoreFloat4x4(&m_TargetMatrix, XMMatrixScaling(m_fTargetWidth, m_fTargetHeight, 1.f) * XMMatrixTranslation(m_fTargetX - g_iWinSizeX * 0.5f, -m_fTargetY + g_iWinSizeY * 0.5f, 0.0f));
 
   00407	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0040e	f3 0f 10 80 7c
-	03 00 00	 movss	 xmm0, DWORD PTR [rax+892]
+  0040e	f3 0f 10 80 80
+	03 00 00	 movss	 xmm0, DWORD PTR [rax+896]
   00416	0f 57 05 00 00
 	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
   0041d	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
   00425	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0042c	f3 0f 10 88 78
-	03 00 00	 movss	 xmm1, DWORD PTR [rax+888]
+  0042c	f3 0f 10 88 7c
+	03 00 00	 movss	 xmm1, DWORD PTR [rax+892]
   00434	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
   0043c	f3 0f 11 8d 34
@@ -18601,12 +18601,12 @@ $LN4@Tick:
 	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
   00496	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0049d	f3 0f 10 88 84
-	03 00 00	 movss	 xmm1, DWORD PTR [rax+900]
+  0049d	f3 0f 10 88 88
+	03 00 00	 movss	 xmm1, DWORD PTR [rax+904]
   004a5	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004ac	f3 0f 10 80 80
-	03 00 00	 movss	 xmm0, DWORD PTR [rax+896]
+  004ac	f3 0f 10 80 84
+	03 00 00	 movss	 xmm0, DWORD PTR [rax+900]
   004b4	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
   004b9	0f 29 9d 60 08
 	00 00		 movaps	 XMMWORD PTR $T23[rbp+48], xmm3
@@ -18653,8 +18653,8 @@ $LN4@Tick:
   0054d	f3 a4		 rep movsb
   0054f	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00556	48 05 88 01 00
-	00		 add	 rax, 392		; 00000188H
+  00556	48 05 8c 01 00
+	00		 add	 rax, 396		; 0000018cH
   0055c	0f 28 85 f0 05
 	00 00		 movaps	 xmm0, XMMWORD PTR $T17[rbp]
   00563	0f 28 8d 00 06
@@ -18679,8 +18679,8 @@ $LN2@Tick:
 
   00582	48 8b 85 60 09
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00589	c6 80 88 04 00
-	00 00		 mov	 BYTE PTR [rax+1160], 0
+  00589	c6 80 90 04 00
+	00 00		 mov	 BYTE PTR [rax+1168], 0
 $LN3@Tick:
 
 ; 132  : 
@@ -18799,7 +18799,7 @@ $LN8:
 ; 30   : 		return E_FAIL;
 
   0004e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00053	e9 b1 0c 00 00	 jmp	 $LN1@Initialize
+  00053	e9 c0 0c 00 00	 jmp	 $LN1@Initialize
 $LN5@Initialize:
 
 ; 31   : 
@@ -18814,7 +18814,7 @@ $LN5@Initialize:
 ; 33   : 		return E_FAIL;
 
   00068	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0006d	e9 97 0c 00 00	 jmp	 $LN1@Initialize
+  0006d	e9 a6 0c 00 00	 jmp	 $LN1@Initialize
 $LN6@Initialize:
 
 ; 34   : 
@@ -18825,8 +18825,8 @@ $LN6@Initialize:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00079	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42b40000
-  00081	f3 0f 11 80 80
-	00 00 00	 movss	 DWORD PTR [rax+128], xmm0
+  00081	f3 0f 11 80 84
+	00 00 00	 movss	 DWORD PTR [rax+132], xmm0
 
 ; 37   : 	m_fHeight = 90.f;
 
@@ -18834,8 +18834,8 @@ $LN6@Initialize:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00090	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42b40000
-  00098	f3 0f 11 80 84
-	00 00 00	 movss	 DWORD PTR [rax+132], xmm0
+  00098	f3 0f 11 80 88
+	00 00 00	 movss	 DWORD PTR [rax+136], xmm0
 
 ; 38   : 	m_fX = g_iWinSizeX - 60.f;
 
@@ -18843,7 +18843,7 @@ $LN6@Initialize:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000a7	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@44988000
-  000af	f3 0f 11 40 78	 movss	 DWORD PTR [rax+120], xmm0
+  000af	f3 0f 11 40 7c	 movss	 DWORD PTR [rax+124], xmm0
 
 ; 39   : 	m_fY = g_iWinSizeY - 120.f;
 
@@ -18851,991 +18851,996 @@ $LN6@Initialize:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000bb	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@44160000
-  000c3	f3 0f 11 40 7c	 movss	 DWORD PTR [rax+124], xmm0
+  000c3	f3 0f 11 80 80
+	00 00 00	 movss	 DWORD PTR [rax+128], xmm0
 
 ; 40   : 
 ; 41   : 	//변신 버튼
 ; 42   : 	m_fEvolutionButtonX = m_fX - 100.f;
 
-  000c8	48 8b 85 40 15
+  000cb	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000cf	f3 0f 10 40 78	 movss	 xmm0, DWORD PTR [rax+120]
-  000d4	f3 0f 5c 05 00
+  000d2	f3 0f 10 40 7c	 movss	 xmm0, DWORD PTR [rax+124]
+  000d7	f3 0f 5c 05 00
 	00 00 00	 subss	 xmm0, DWORD PTR __real@42c80000
-  000dc	48 8b 85 40 15
+  000df	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000e3	f3 0f 11 80 e8
-	03 00 00	 movss	 DWORD PTR [rax+1000], xmm0
+  000e6	f3 0f 11 80 ec
+	03 00 00	 movss	 DWORD PTR [rax+1004], xmm0
 
 ; 43   : 	m_fEvolutionButtonY = m_fY;
 
-  000eb	48 8b 85 40 15
+  000ee	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000f2	48 8b 8d 40 15
+  000f5	48 8b 8d 40 15
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  000f9	f3 0f 10 41 7c	 movss	 xmm0, DWORD PTR [rcx+124]
-  000fe	f3 0f 11 80 ec
-	03 00 00	 movss	 DWORD PTR [rax+1004], xmm0
+  000fc	f3 0f 10 81 80
+	00 00 00	 movss	 xmm0, DWORD PTR [rcx+128]
+  00104	f3 0f 11 80 f0
+	03 00 00	 movss	 DWORD PTR [rax+1008], xmm0
 
 ; 44   : 	m_fEvolutionButtonXWidth = 90.f;
 
-  00106	48 8b 85 40 15
+  0010c	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0010d	f3 0f 10 05 00
+  00113	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42b40000
-  00115	f3 0f 11 80 f0
-	03 00 00	 movss	 DWORD PTR [rax+1008], xmm0
+  0011b	f3 0f 11 80 f4
+	03 00 00	 movss	 DWORD PTR [rax+1012], xmm0
 
 ; 45   : 	m_fEvolutionButtonXHeight = 90.f;
 
-  0011d	48 8b 85 40 15
+  00123	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00124	f3 0f 10 05 00
+  0012a	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42b40000
-  0012c	f3 0f 11 80 f4
-	03 00 00	 movss	 DWORD PTR [rax+1012], xmm0
+  00132	f3 0f 11 80 f8
+	03 00 00	 movss	 DWORD PTR [rax+1016], xmm0
 
 ; 46   : 
 ; 47   : 	//락온 타겟
 ; 48   : 	m_fTargetWidth = 50.f;
 
-  00134	48 8b 85 40 15
+  0013a	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0013b	f3 0f 10 05 00
+  00141	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42480000
-  00143	f3 0f 11 80 80
-	03 00 00	 movss	 DWORD PTR [rax+896], xmm0
+  00149	f3 0f 11 80 84
+	03 00 00	 movss	 DWORD PTR [rax+900], xmm0
 
 ; 49   : 	m_fTargetHeight = 50.f;
 
-  0014b	48 8b 85 40 15
+  00151	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00152	f3 0f 10 05 00
+  00158	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42480000
-  0015a	f3 0f 11 80 84
-	03 00 00	 movss	 DWORD PTR [rax+900], xmm0
+  00160	f3 0f 11 80 88
+	03 00 00	 movss	 DWORD PTR [rax+904], xmm0
 
 ; 50   : 
 ; 51   : 	//콤보 숫자
 ; 52   : 	m_fComboNumX = m_fOriginComboNumX = 150.f;
 
-  00162	48 8b 85 40 15
+  00168	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00169	f3 0f 10 05 00
+  0016f	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@43160000
-  00171	f3 0f 11 80 d8
-	01 00 00	 movss	 DWORD PTR [rax+472], xmm0
-  00179	48 8b 85 40 15
+  00177	f3 0f 11 80 dc
+	01 00 00	 movss	 DWORD PTR [rax+476], xmm0
+  0017f	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00180	f3 0f 10 05 00
+  00186	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@43160000
-  00188	f3 0f 11 80 c8
-	01 00 00	 movss	 DWORD PTR [rax+456], xmm0
+  0018e	f3 0f 11 80 cc
+	01 00 00	 movss	 DWORD PTR [rax+460], xmm0
 
 ; 53   : 	m_fComboNumY = g_iWinSizeY >> 1;
 
-  00190	48 8b 85 40 15
+  00196	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00197	f3 0f 10 05 00
+  0019d	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@43b40000
-  0019f	f3 0f 11 80 cc
-	01 00 00	 movss	 DWORD PTR [rax+460], xmm0
+  001a5	f3 0f 11 80 d0
+	01 00 00	 movss	 DWORD PTR [rax+464], xmm0
 
 ; 54   : 	m_fComboNumWidth = NUM_SIZE_X;
 
-  001a7	48 8b 85 40 15
+  001ad	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001ae	f3 0f 10 05 00
+  001b4	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42180000
-  001b6	f3 0f 11 80 d0
-	01 00 00	 movss	 DWORD PTR [rax+464], xmm0
+  001bc	f3 0f 11 80 d4
+	01 00 00	 movss	 DWORD PTR [rax+468], xmm0
 
 ; 55   : 	m_fComboNumHeight = 62.f;
 
-  001be	48 8b 85 40 15
+  001c4	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001c5	f3 0f 10 05 00
+  001cb	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42780000
-  001cd	f3 0f 11 80 d4
-	01 00 00	 movss	 DWORD PTR [rax+468], xmm0
+  001d3	f3 0f 11 80 d8
+	01 00 00	 movss	 DWORD PTR [rax+472], xmm0
 
 ; 56   : 
 ; 57   : 	//콤보 이미지
 ; 58   : 	m_fComboImageWidth = 100.f;
 
-  001d5	48 8b 85 40 15
+  001db	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001dc	f3 0f 10 05 00
+  001e2	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42c80000
-  001e4	f3 0f 11 80 e0
-	02 00 00	 movss	 DWORD PTR [rax+736], xmm0
+  001ea	f3 0f 11 80 e4
+	02 00 00	 movss	 DWORD PTR [rax+740], xmm0
 
 ; 59   : 	m_fComboImageHeight = 30.f;
 
-  001ec	48 8b 85 40 15
+  001f2	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001f3	f3 0f 10 05 00
+  001f9	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@41f00000
-  001fb	f3 0f 11 80 e4
-	02 00 00	 movss	 DWORD PTR [rax+740], xmm0
+  00201	f3 0f 11 80 e8
+	02 00 00	 movss	 DWORD PTR [rax+744], xmm0
 
 ; 60   : 
 ; 61   : 	//콤보 게이지
 ; 62   : 	m_fComboGageX = 310.f;
 
-  00203	48 8b 85 40 15
+  00209	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0020a	f3 0f 10 05 00
+  00210	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@439b0000
-  00212	f3 0f 11 80 28
-	03 00 00	 movss	 DWORD PTR [rax+808], xmm0
+  00218	f3 0f 11 80 2c
+	03 00 00	 movss	 DWORD PTR [rax+812], xmm0
 
 ; 63   : 	m_fComboGageY = (g_iWinSizeY >> 1) + 40.f;
 
-  0021a	48 8b 85 40 15
+  00220	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00221	f3 0f 10 05 00
+  00227	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@43c80000
-  00229	f3 0f 11 80 2c
-	03 00 00	 movss	 DWORD PTR [rax+812], xmm0
+  0022f	f3 0f 11 80 30
+	03 00 00	 movss	 DWORD PTR [rax+816], xmm0
 
 ; 64   : 	m_fComboGageWidth = 250.f;
 
-  00231	48 8b 85 40 15
+  00237	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00238	f3 0f 10 05 00
+  0023e	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@437a0000
-  00240	f3 0f 11 80 30
-	03 00 00	 movss	 DWORD PTR [rax+816], xmm0
+  00246	f3 0f 11 80 34
+	03 00 00	 movss	 DWORD PTR [rax+820], xmm0
 
 ; 65   : 	m_fComboGageHeight = 3.f;
 
-  00248	48 8b 85 40 15
+  0024e	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0024f	f3 0f 10 05 00
+  00255	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40400000
-  00257	f3 0f 11 80 34
-	03 00 00	 movss	 DWORD PTR [rax+820], xmm0
+  0025d	f3 0f 11 80 38
+	03 00 00	 movss	 DWORD PTR [rax+824], xmm0
 
 ; 66   : 
 ; 67   : 	//변신 게이지
 ; 68   : 	m_fEvolutionGageWidth = 300.f;
 
-  0025f	48 8b 85 40 15
+  00265	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00266	f3 0f 10 05 00
+  0026c	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@43960000
-  0026e	f3 0f 11 80 a0
-	03 00 00	 movss	 DWORD PTR [rax+928], xmm0
+  00274	f3 0f 11 80 a4
+	03 00 00	 movss	 DWORD PTR [rax+932], xmm0
 
 ; 69   : 	m_fEvolutionGageHeight = 40.f;
 
-  00276	48 8b 85 40 15
+  0027c	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0027d	f3 0f 10 05 00
+  00283	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42200000
-  00285	f3 0f 11 80 a4
-	03 00 00	 movss	 DWORD PTR [rax+932], xmm0
+  0028b	f3 0f 11 80 a8
+	03 00 00	 movss	 DWORD PTR [rax+936], xmm0
 
 ; 70   : 	m_fEvolutionGageX = 300  >> 1;
 
-  0028d	48 8b 85 40 15
+  00293	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00294	f3 0f 10 05 00
+  0029a	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@43160000
-  0029c	f3 0f 11 80 98
-	03 00 00	 movss	 DWORD PTR [rax+920], xmm0
+  002a2	f3 0f 11 80 9c
+	03 00 00	 movss	 DWORD PTR [rax+924], xmm0
 
 ; 71   : 	m_fEvolutionGageY = 100.f;
 
-  002a4	48 8b 85 40 15
+  002aa	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002ab	f3 0f 10 05 00
+  002b1	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42c80000
-  002b3	f3 0f 11 80 9c
-	03 00 00	 movss	 DWORD PTR [rax+924], xmm0
+  002b9	f3 0f 11 80 a0
+	03 00 00	 movss	 DWORD PTR [rax+928], xmm0
 
 ; 72   : 
 ; 73   : 
 ; 74   : 	XMStoreFloat4x4(&m_EvolutionMatrix, XMMatrixScaling(m_fEvolutionGageWidth, m_fEvolutionGageHeight, 1.f) * XMMatrixTranslation(m_fEvolutionGageX - g_iWinSizeX * 0.5f, -m_fEvolutionGageY + g_iWinSizeY * 0.5f, 0.f));
 
-  002bb	48 8b 85 40 15
+  002c1	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002c2	f3 0f 10 80 9c
-	03 00 00	 movss	 xmm0, DWORD PTR [rax+924]
-  002ca	0f 57 05 00 00
-	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
-  002d1	f3 0f 58 05 00
-	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
-  002d9	48 8b 85 40 15
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002e0	f3 0f 10 88 98
-	03 00 00	 movss	 xmm1, DWORD PTR [rax+920]
-  002e8	f3 0f 5c 0d 00
-	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
-  002f0	f3 0f 11 8d 14
-	15 00 00	 movss	 DWORD PTR tv150[rbp], xmm1
-  002f8	0f 57 d2	 xorps	 xmm2, xmm2
-  002fb	0f 28 c8	 movaps	 xmm1, xmm0
-  002fe	f3 0f 10 85 14
-	15 00 00	 movss	 xmm0, DWORD PTR tv150[rbp]
-  00306	e8 00 00 00 00	 call	 ?XMMatrixTranslation@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixTranslation
-  0030b	0f 29 9d a0 0e
-	00 00		 movaps	 XMMWORD PTR $T24[rbp+48], xmm3
-  00312	0f 29 95 90 0e
-	00 00		 movaps	 XMMWORD PTR $T24[rbp+32], xmm2
-  00319	0f 29 8d 80 0e
-	00 00		 movaps	 XMMWORD PTR $T24[rbp+16], xmm1
-  00320	0f 29 85 70 0e
-	00 00		 movaps	 XMMWORD PTR $T24[rbp], xmm0
-  00327	48 8d 85 f0 06
-	00 00		 lea	 rax, QWORD PTR $T4[rbp]
-  0032e	48 8d 8d 70 0e
-	00 00		 lea	 rcx, QWORD PTR $T24[rbp]
-  00335	48 8b f8	 mov	 rdi, rax
-  00338	48 8b f1	 mov	 rsi, rcx
-  0033b	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  00340	f3 a4		 rep movsb
-  00342	f3 0f 10 15 00
-	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
-  0034a	48 8b 85 40 15
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00351	f3 0f 10 88 a4
-	03 00 00	 movss	 xmm1, DWORD PTR [rax+932]
-  00359	48 8b 85 40 15
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00360	f3 0f 10 80 a0
+  002c8	f3 0f 10 80 a0
 	03 00 00	 movss	 xmm0, DWORD PTR [rax+928]
-  00368	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
-  0036d	0f 29 9d e0 0d
-	00 00		 movaps	 XMMWORD PTR $T22[rbp+48], xmm3
-  00374	0f 29 95 d0 0d
-	00 00		 movaps	 XMMWORD PTR $T22[rbp+32], xmm2
-  0037b	0f 29 8d c0 0d
-	00 00		 movaps	 XMMWORD PTR $T22[rbp+16], xmm1
-  00382	0f 29 85 b0 0d
-	00 00		 movaps	 XMMWORD PTR $T22[rbp], xmm0
-  00389	48 8d 85 90 06
-	00 00		 lea	 rax, QWORD PTR $T3[rbp]
-  00390	48 8d 8d b0 0d
-	00 00		 lea	 rcx, QWORD PTR $T22[rbp]
-  00397	48 8b f8	 mov	 rdi, rax
-  0039a	48 8b f1	 mov	 rsi, rcx
-  0039d	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  003a2	f3 a4		 rep movsb
-  003a4	0f 28 85 f0 06
-	00 00		 movaps	 xmm0, XMMWORD PTR $T4[rbp]
-  003ab	0f 28 8d 00 07
-	00 00		 movaps	 xmm1, XMMWORD PTR $T4[rbp+16]
-  003b2	0f 28 95 10 07
-	00 00		 movaps	 xmm2, XMMWORD PTR $T4[rbp+32]
-  003b9	0f 28 9d 20 07
-	00 00		 movaps	 xmm3, XMMWORD PTR $T4[rbp+48]
-  003c0	48 8d 8d 90 06
-	00 00		 lea	 rcx, QWORD PTR $T3[rbp]
-  003c7	e8 00 00 00 00	 call	 ??DXMMATRIX@DirectX@@QEBQ?AU01@U01@@Z ; DirectX::XMMATRIX::operator*
-  003cc	0f 29 9d 40 0e
-	00 00		 movaps	 XMMWORD PTR $T23[rbp+48], xmm3
-  003d3	0f 29 95 30 0e
-	00 00		 movaps	 XMMWORD PTR $T23[rbp+32], xmm2
-  003da	0f 29 8d 20 0e
-	00 00		 movaps	 XMMWORD PTR $T23[rbp+16], xmm1
-  003e1	0f 29 85 10 0e
-	00 00		 movaps	 XMMWORD PTR $T23[rbp], xmm0
-  003e8	48 8d 85 30 06
-	00 00		 lea	 rax, QWORD PTR $T2[rbp]
-  003ef	48 8d 8d 10 0e
-	00 00		 lea	 rcx, QWORD PTR $T23[rbp]
-  003f6	48 8b f8	 mov	 rdi, rax
-  003f9	48 8b f1	 mov	 rsi, rcx
-  003fc	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  00401	f3 a4		 rep movsb
-  00403	48 8b 85 40 15
+  002d0	0f 57 05 00 00
+	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
+  002d7	f3 0f 58 05 00
+	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
+  002df	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0040a	48 05 a8 03 00
-	00		 add	 rax, 936		; 000003a8H
-  00410	0f 28 85 30 06
+  002e6	f3 0f 10 88 9c
+	03 00 00	 movss	 xmm1, DWORD PTR [rax+924]
+  002ee	f3 0f 5c 0d 00
+	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
+  002f6	f3 0f 11 8d 14
+	15 00 00	 movss	 DWORD PTR tv150[rbp], xmm1
+  002fe	0f 57 d2	 xorps	 xmm2, xmm2
+  00301	0f 28 c8	 movaps	 xmm1, xmm0
+  00304	f3 0f 10 85 14
+	15 00 00	 movss	 xmm0, DWORD PTR tv150[rbp]
+  0030c	e8 00 00 00 00	 call	 ?XMMatrixTranslation@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixTranslation
+  00311	0f 29 9d a0 0e
+	00 00		 movaps	 XMMWORD PTR $T24[rbp+48], xmm3
+  00318	0f 29 95 90 0e
+	00 00		 movaps	 XMMWORD PTR $T24[rbp+32], xmm2
+  0031f	0f 29 8d 80 0e
+	00 00		 movaps	 XMMWORD PTR $T24[rbp+16], xmm1
+  00326	0f 29 85 70 0e
+	00 00		 movaps	 XMMWORD PTR $T24[rbp], xmm0
+  0032d	48 8d 85 f0 06
+	00 00		 lea	 rax, QWORD PTR $T4[rbp]
+  00334	48 8d 8d 70 0e
+	00 00		 lea	 rcx, QWORD PTR $T24[rbp]
+  0033b	48 8b f8	 mov	 rdi, rax
+  0033e	48 8b f1	 mov	 rsi, rcx
+  00341	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  00346	f3 a4		 rep movsb
+  00348	f3 0f 10 15 00
+	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
+  00350	48 8b 85 40 15
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00357	f3 0f 10 88 a8
+	03 00 00	 movss	 xmm1, DWORD PTR [rax+936]
+  0035f	48 8b 85 40 15
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00366	f3 0f 10 80 a4
+	03 00 00	 movss	 xmm0, DWORD PTR [rax+932]
+  0036e	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
+  00373	0f 29 9d e0 0d
+	00 00		 movaps	 XMMWORD PTR $T22[rbp+48], xmm3
+  0037a	0f 29 95 d0 0d
+	00 00		 movaps	 XMMWORD PTR $T22[rbp+32], xmm2
+  00381	0f 29 8d c0 0d
+	00 00		 movaps	 XMMWORD PTR $T22[rbp+16], xmm1
+  00388	0f 29 85 b0 0d
+	00 00		 movaps	 XMMWORD PTR $T22[rbp], xmm0
+  0038f	48 8d 85 90 06
+	00 00		 lea	 rax, QWORD PTR $T3[rbp]
+  00396	48 8d 8d b0 0d
+	00 00		 lea	 rcx, QWORD PTR $T22[rbp]
+  0039d	48 8b f8	 mov	 rdi, rax
+  003a0	48 8b f1	 mov	 rsi, rcx
+  003a3	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  003a8	f3 a4		 rep movsb
+  003aa	0f 28 85 f0 06
+	00 00		 movaps	 xmm0, XMMWORD PTR $T4[rbp]
+  003b1	0f 28 8d 00 07
+	00 00		 movaps	 xmm1, XMMWORD PTR $T4[rbp+16]
+  003b8	0f 28 95 10 07
+	00 00		 movaps	 xmm2, XMMWORD PTR $T4[rbp+32]
+  003bf	0f 28 9d 20 07
+	00 00		 movaps	 xmm3, XMMWORD PTR $T4[rbp+48]
+  003c6	48 8d 8d 90 06
+	00 00		 lea	 rcx, QWORD PTR $T3[rbp]
+  003cd	e8 00 00 00 00	 call	 ??DXMMATRIX@DirectX@@QEBQ?AU01@U01@@Z ; DirectX::XMMATRIX::operator*
+  003d2	0f 29 9d 40 0e
+	00 00		 movaps	 XMMWORD PTR $T23[rbp+48], xmm3
+  003d9	0f 29 95 30 0e
+	00 00		 movaps	 XMMWORD PTR $T23[rbp+32], xmm2
+  003e0	0f 29 8d 20 0e
+	00 00		 movaps	 XMMWORD PTR $T23[rbp+16], xmm1
+  003e7	0f 29 85 10 0e
+	00 00		 movaps	 XMMWORD PTR $T23[rbp], xmm0
+  003ee	48 8d 85 30 06
+	00 00		 lea	 rax, QWORD PTR $T2[rbp]
+  003f5	48 8d 8d 10 0e
+	00 00		 lea	 rcx, QWORD PTR $T23[rbp]
+  003fc	48 8b f8	 mov	 rdi, rax
+  003ff	48 8b f1	 mov	 rsi, rcx
+  00402	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  00407	f3 a4		 rep movsb
+  00409	48 8b 85 40 15
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00410	48 05 ac 03 00
+	00		 add	 rax, 940		; 000003acH
+  00416	0f 28 85 30 06
 	00 00		 movaps	 xmm0, XMMWORD PTR $T2[rbp]
-  00417	0f 28 8d 40 06
+  0041d	0f 28 8d 40 06
 	00 00		 movaps	 xmm1, XMMWORD PTR $T2[rbp+16]
-  0041e	0f 28 95 50 06
+  00424	0f 28 95 50 06
 	00 00		 movaps	 xmm2, XMMWORD PTR $T2[rbp+32]
-  00425	0f 28 9d 60 06
+  0042b	0f 28 9d 60 06
 	00 00		 movaps	 xmm3, XMMWORD PTR $T2[rbp+48]
-  0042c	48 8b c8	 mov	 rcx, rax
-  0042f	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
+  00432	48 8b c8	 mov	 rcx, rax
+  00435	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
 
 ; 75   : 	XMStoreFloat4x4(&m_AttackMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 
-  00434	48 8b 85 40 15
+  0043a	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0043b	f3 0f 10 40 7c	 movss	 xmm0, DWORD PTR [rax+124]
-  00440	0f 57 05 00 00
-	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
-  00447	f3 0f 58 05 00
-	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
-  0044f	48 8b 85 40 15
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00456	f3 0f 10 48 78	 movss	 xmm1, DWORD PTR [rax+120]
-  0045b	f3 0f 5c 0d 00
-	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
-  00463	f3 0f 11 8d 14
-	15 00 00	 movss	 DWORD PTR tv171[rbp], xmm1
-  0046b	0f 57 d2	 xorps	 xmm2, xmm2
-  0046e	0f 28 c8	 movaps	 xmm1, xmm0
-  00471	f3 0f 10 85 14
-	15 00 00	 movss	 xmm0, DWORD PTR tv171[rbp]
-  00479	e8 00 00 00 00	 call	 ?XMMatrixTranslation@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixTranslation
-  0047e	0f 29 9d c0 0f
-	00 00		 movaps	 XMMWORD PTR $T27[rbp+48], xmm3
-  00485	0f 29 95 b0 0f
-	00 00		 movaps	 XMMWORD PTR $T27[rbp+32], xmm2
-  0048c	0f 29 8d a0 0f
-	00 00		 movaps	 XMMWORD PTR $T27[rbp+16], xmm1
-  00493	0f 29 85 90 0f
-	00 00		 movaps	 XMMWORD PTR $T27[rbp], xmm0
-  0049a	48 8d 85 10 08
-	00 00		 lea	 rax, QWORD PTR $T7[rbp]
-  004a1	48 8d 8d 90 0f
-	00 00		 lea	 rcx, QWORD PTR $T27[rbp]
-  004a8	48 8b f8	 mov	 rdi, rax
-  004ab	48 8b f1	 mov	 rsi, rcx
-  004ae	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  004b3	f3 a4		 rep movsb
-  004b5	f3 0f 10 15 00
-	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
-  004bd	48 8b 85 40 15
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004c4	f3 0f 10 88 84
-	00 00 00	 movss	 xmm1, DWORD PTR [rax+132]
-  004cc	48 8b 85 40 15
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004d3	f3 0f 10 80 80
+  00441	f3 0f 10 80 80
 	00 00 00	 movss	 xmm0, DWORD PTR [rax+128]
-  004db	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
-  004e0	0f 29 9d 00 0f
-	00 00		 movaps	 XMMWORD PTR $T25[rbp+48], xmm3
-  004e7	0f 29 95 f0 0e
-	00 00		 movaps	 XMMWORD PTR $T25[rbp+32], xmm2
-  004ee	0f 29 8d e0 0e
-	00 00		 movaps	 XMMWORD PTR $T25[rbp+16], xmm1
-  004f5	0f 29 85 d0 0e
-	00 00		 movaps	 XMMWORD PTR $T25[rbp], xmm0
-  004fc	48 8d 85 b0 07
-	00 00		 lea	 rax, QWORD PTR $T6[rbp]
-  00503	48 8d 8d d0 0e
-	00 00		 lea	 rcx, QWORD PTR $T25[rbp]
-  0050a	48 8b f8	 mov	 rdi, rax
-  0050d	48 8b f1	 mov	 rsi, rcx
-  00510	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  00515	f3 a4		 rep movsb
-  00517	0f 28 85 10 08
-	00 00		 movaps	 xmm0, XMMWORD PTR $T7[rbp]
-  0051e	0f 28 8d 20 08
-	00 00		 movaps	 xmm1, XMMWORD PTR $T7[rbp+16]
-  00525	0f 28 95 30 08
-	00 00		 movaps	 xmm2, XMMWORD PTR $T7[rbp+32]
-  0052c	0f 28 9d 40 08
-	00 00		 movaps	 xmm3, XMMWORD PTR $T7[rbp+48]
-  00533	48 8d 8d b0 07
-	00 00		 lea	 rcx, QWORD PTR $T6[rbp]
-  0053a	e8 00 00 00 00	 call	 ??DXMMATRIX@DirectX@@QEBQ?AU01@U01@@Z ; DirectX::XMMATRIX::operator*
-  0053f	0f 29 9d 60 0f
-	00 00		 movaps	 XMMWORD PTR $T26[rbp+48], xmm3
-  00546	0f 29 95 50 0f
-	00 00		 movaps	 XMMWORD PTR $T26[rbp+32], xmm2
-  0054d	0f 29 8d 40 0f
-	00 00		 movaps	 XMMWORD PTR $T26[rbp+16], xmm1
-  00554	0f 29 85 30 0f
-	00 00		 movaps	 XMMWORD PTR $T26[rbp], xmm0
-  0055b	48 8d 85 50 07
-	00 00		 lea	 rax, QWORD PTR $T5[rbp]
-  00562	48 8d 8d 30 0f
-	00 00		 lea	 rcx, QWORD PTR $T26[rbp]
-  00569	48 8b f8	 mov	 rdi, rax
-  0056c	48 8b f1	 mov	 rsi, rcx
-  0056f	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  00574	f3 a4		 rep movsb
-  00576	48 8b 85 40 15
+  00449	0f 57 05 00 00
+	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
+  00450	f3 0f 58 05 00
+	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
+  00458	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0057d	48 05 08 01 00
-	00		 add	 rax, 264		; 00000108H
-  00583	0f 28 85 50 07
+  0045f	f3 0f 10 48 7c	 movss	 xmm1, DWORD PTR [rax+124]
+  00464	f3 0f 5c 0d 00
+	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
+  0046c	f3 0f 11 8d 14
+	15 00 00	 movss	 DWORD PTR tv171[rbp], xmm1
+  00474	0f 57 d2	 xorps	 xmm2, xmm2
+  00477	0f 28 c8	 movaps	 xmm1, xmm0
+  0047a	f3 0f 10 85 14
+	15 00 00	 movss	 xmm0, DWORD PTR tv171[rbp]
+  00482	e8 00 00 00 00	 call	 ?XMMatrixTranslation@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixTranslation
+  00487	0f 29 9d c0 0f
+	00 00		 movaps	 XMMWORD PTR $T27[rbp+48], xmm3
+  0048e	0f 29 95 b0 0f
+	00 00		 movaps	 XMMWORD PTR $T27[rbp+32], xmm2
+  00495	0f 29 8d a0 0f
+	00 00		 movaps	 XMMWORD PTR $T27[rbp+16], xmm1
+  0049c	0f 29 85 90 0f
+	00 00		 movaps	 XMMWORD PTR $T27[rbp], xmm0
+  004a3	48 8d 85 10 08
+	00 00		 lea	 rax, QWORD PTR $T7[rbp]
+  004aa	48 8d 8d 90 0f
+	00 00		 lea	 rcx, QWORD PTR $T27[rbp]
+  004b1	48 8b f8	 mov	 rdi, rax
+  004b4	48 8b f1	 mov	 rsi, rcx
+  004b7	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  004bc	f3 a4		 rep movsb
+  004be	f3 0f 10 15 00
+	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
+  004c6	48 8b 85 40 15
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  004cd	f3 0f 10 88 88
+	00 00 00	 movss	 xmm1, DWORD PTR [rax+136]
+  004d5	48 8b 85 40 15
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  004dc	f3 0f 10 80 84
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+132]
+  004e4	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
+  004e9	0f 29 9d 00 0f
+	00 00		 movaps	 XMMWORD PTR $T25[rbp+48], xmm3
+  004f0	0f 29 95 f0 0e
+	00 00		 movaps	 XMMWORD PTR $T25[rbp+32], xmm2
+  004f7	0f 29 8d e0 0e
+	00 00		 movaps	 XMMWORD PTR $T25[rbp+16], xmm1
+  004fe	0f 29 85 d0 0e
+	00 00		 movaps	 XMMWORD PTR $T25[rbp], xmm0
+  00505	48 8d 85 b0 07
+	00 00		 lea	 rax, QWORD PTR $T6[rbp]
+  0050c	48 8d 8d d0 0e
+	00 00		 lea	 rcx, QWORD PTR $T25[rbp]
+  00513	48 8b f8	 mov	 rdi, rax
+  00516	48 8b f1	 mov	 rsi, rcx
+  00519	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  0051e	f3 a4		 rep movsb
+  00520	0f 28 85 10 08
+	00 00		 movaps	 xmm0, XMMWORD PTR $T7[rbp]
+  00527	0f 28 8d 20 08
+	00 00		 movaps	 xmm1, XMMWORD PTR $T7[rbp+16]
+  0052e	0f 28 95 30 08
+	00 00		 movaps	 xmm2, XMMWORD PTR $T7[rbp+32]
+  00535	0f 28 9d 40 08
+	00 00		 movaps	 xmm3, XMMWORD PTR $T7[rbp+48]
+  0053c	48 8d 8d b0 07
+	00 00		 lea	 rcx, QWORD PTR $T6[rbp]
+  00543	e8 00 00 00 00	 call	 ??DXMMATRIX@DirectX@@QEBQ?AU01@U01@@Z ; DirectX::XMMATRIX::operator*
+  00548	0f 29 9d 60 0f
+	00 00		 movaps	 XMMWORD PTR $T26[rbp+48], xmm3
+  0054f	0f 29 95 50 0f
+	00 00		 movaps	 XMMWORD PTR $T26[rbp+32], xmm2
+  00556	0f 29 8d 40 0f
+	00 00		 movaps	 XMMWORD PTR $T26[rbp+16], xmm1
+  0055d	0f 29 85 30 0f
+	00 00		 movaps	 XMMWORD PTR $T26[rbp], xmm0
+  00564	48 8d 85 50 07
+	00 00		 lea	 rax, QWORD PTR $T5[rbp]
+  0056b	48 8d 8d 30 0f
+	00 00		 lea	 rcx, QWORD PTR $T26[rbp]
+  00572	48 8b f8	 mov	 rdi, rax
+  00575	48 8b f1	 mov	 rsi, rcx
+  00578	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  0057d	f3 a4		 rep movsb
+  0057f	48 8b 85 40 15
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00586	48 05 0c 01 00
+	00		 add	 rax, 268		; 0000010cH
+  0058c	0f 28 85 50 07
 	00 00		 movaps	 xmm0, XMMWORD PTR $T5[rbp]
-  0058a	0f 28 8d 60 07
+  00593	0f 28 8d 60 07
 	00 00		 movaps	 xmm1, XMMWORD PTR $T5[rbp+16]
-  00591	0f 28 95 70 07
+  0059a	0f 28 95 70 07
 	00 00		 movaps	 xmm2, XMMWORD PTR $T5[rbp+32]
-  00598	0f 28 9d 80 07
+  005a1	0f 28 9d 80 07
 	00 00		 movaps	 xmm3, XMMWORD PTR $T5[rbp+48]
-  0059f	48 8b c8	 mov	 rcx, rax
-  005a2	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
+  005a8	48 8b c8	 mov	 rcx, rax
+  005ab	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
 
 ; 76   : 	XMStoreFloat4x4(&m_DashMatrix, XMMatrixScaling(m_fWidth - 10.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fX - 80.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
 
-  005a7	48 8b 85 40 15
+  005b0	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  005ae	f3 0f 10 40 7c	 movss	 xmm0, DWORD PTR [rax+124]
-  005b3	0f 57 05 00 00
+  005b7	f3 0f 10 80 80
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+128]
+  005bf	0f 57 05 00 00
 	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
-  005ba	f3 0f 5c 05 00
+  005c6	f3 0f 5c 05 00
 	00 00 00	 subss	 xmm0, DWORD PTR __real@42480000
-  005c2	f3 0f 58 05 00
+  005ce	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
-  005ca	48 8b 85 40 15
+  005d6	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  005d1	f3 0f 10 48 78	 movss	 xmm1, DWORD PTR [rax+120]
-  005d6	f3 0f 5c 0d 00
+  005dd	f3 0f 10 48 7c	 movss	 xmm1, DWORD PTR [rax+124]
+  005e2	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@42a00000
-  005de	f3 0f 5c 0d 00
+  005ea	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
-  005e6	f3 0f 11 8d 14
+  005f2	f3 0f 11 8d 14
 	15 00 00	 movss	 DWORD PTR tv196[rbp], xmm1
-  005ee	0f 57 d2	 xorps	 xmm2, xmm2
-  005f1	0f 28 c8	 movaps	 xmm1, xmm0
-  005f4	f3 0f 10 85 14
+  005fa	0f 57 d2	 xorps	 xmm2, xmm2
+  005fd	0f 28 c8	 movaps	 xmm1, xmm0
+  00600	f3 0f 10 85 14
 	15 00 00	 movss	 xmm0, DWORD PTR tv196[rbp]
-  005fc	e8 00 00 00 00	 call	 ?XMMatrixTranslation@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixTranslation
-  00601	0f 29 9d e0 10
+  00608	e8 00 00 00 00	 call	 ?XMMatrixTranslation@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixTranslation
+  0060d	0f 29 9d e0 10
 	00 00		 movaps	 XMMWORD PTR $T30[rbp+48], xmm3
-  00608	0f 29 95 d0 10
+  00614	0f 29 95 d0 10
 	00 00		 movaps	 XMMWORD PTR $T30[rbp+32], xmm2
-  0060f	0f 29 8d c0 10
+  0061b	0f 29 8d c0 10
 	00 00		 movaps	 XMMWORD PTR $T30[rbp+16], xmm1
-  00616	0f 29 85 b0 10
+  00622	0f 29 85 b0 10
 	00 00		 movaps	 XMMWORD PTR $T30[rbp], xmm0
-  0061d	48 8d 85 30 09
+  00629	48 8d 85 30 09
 	00 00		 lea	 rax, QWORD PTR $T10[rbp]
-  00624	48 8d 8d b0 10
+  00630	48 8d 8d b0 10
 	00 00		 lea	 rcx, QWORD PTR $T30[rbp]
-  0062b	48 8b f8	 mov	 rdi, rax
-  0062e	48 8b f1	 mov	 rsi, rcx
-  00631	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  00636	f3 a4		 rep movsb
-  00638	48 8b 85 40 15
+  00637	48 8b f8	 mov	 rdi, rax
+  0063a	48 8b f1	 mov	 rsi, rcx
+  0063d	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  00642	f3 a4		 rep movsb
+  00644	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0063f	f3 0f 10 80 84
-	00 00 00	 movss	 xmm0, DWORD PTR [rax+132]
-  00647	f3 0f 5c 05 00
+  0064b	f3 0f 10 80 88
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+136]
+  00653	f3 0f 5c 05 00
 	00 00 00	 subss	 xmm0, DWORD PTR __real@41200000
-  0064f	48 8b 85 40 15
+  0065b	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00656	f3 0f 10 88 80
-	00 00 00	 movss	 xmm1, DWORD PTR [rax+128]
-  0065e	f3 0f 5c 0d 00
+  00662	f3 0f 10 88 84
+	00 00 00	 movss	 xmm1, DWORD PTR [rax+132]
+  0066a	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@41200000
-  00666	f3 0f 11 8d 18
+  00672	f3 0f 11 8d 18
 	15 00 00	 movss	 DWORD PTR tv183[rbp], xmm1
-  0066e	f3 0f 10 15 00
+  0067a	f3 0f 10 15 00
 	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
-  00676	0f 28 c8	 movaps	 xmm1, xmm0
-  00679	f3 0f 10 85 18
+  00682	0f 28 c8	 movaps	 xmm1, xmm0
+  00685	f3 0f 10 85 18
 	15 00 00	 movss	 xmm0, DWORD PTR tv183[rbp]
-  00681	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
-  00686	0f 29 9d 20 10
+  0068d	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
+  00692	0f 29 9d 20 10
 	00 00		 movaps	 XMMWORD PTR $T28[rbp+48], xmm3
-  0068d	0f 29 95 10 10
+  00699	0f 29 95 10 10
 	00 00		 movaps	 XMMWORD PTR $T28[rbp+32], xmm2
-  00694	0f 29 8d 00 10
+  006a0	0f 29 8d 00 10
 	00 00		 movaps	 XMMWORD PTR $T28[rbp+16], xmm1
-  0069b	0f 29 85 f0 0f
+  006a7	0f 29 85 f0 0f
 	00 00		 movaps	 XMMWORD PTR $T28[rbp], xmm0
-  006a2	48 8d 85 d0 08
+  006ae	48 8d 85 d0 08
 	00 00		 lea	 rax, QWORD PTR $T9[rbp]
-  006a9	48 8d 8d f0 0f
+  006b5	48 8d 8d f0 0f
 	00 00		 lea	 rcx, QWORD PTR $T28[rbp]
-  006b0	48 8b f8	 mov	 rdi, rax
-  006b3	48 8b f1	 mov	 rsi, rcx
-  006b6	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  006bb	f3 a4		 rep movsb
-  006bd	0f 28 85 30 09
+  006bc	48 8b f8	 mov	 rdi, rax
+  006bf	48 8b f1	 mov	 rsi, rcx
+  006c2	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  006c7	f3 a4		 rep movsb
+  006c9	0f 28 85 30 09
 	00 00		 movaps	 xmm0, XMMWORD PTR $T10[rbp]
-  006c4	0f 28 8d 40 09
+  006d0	0f 28 8d 40 09
 	00 00		 movaps	 xmm1, XMMWORD PTR $T10[rbp+16]
-  006cb	0f 28 95 50 09
+  006d7	0f 28 95 50 09
 	00 00		 movaps	 xmm2, XMMWORD PTR $T10[rbp+32]
-  006d2	0f 28 9d 60 09
+  006de	0f 28 9d 60 09
 	00 00		 movaps	 xmm3, XMMWORD PTR $T10[rbp+48]
-  006d9	48 8d 8d d0 08
+  006e5	48 8d 8d d0 08
 	00 00		 lea	 rcx, QWORD PTR $T9[rbp]
-  006e0	e8 00 00 00 00	 call	 ??DXMMATRIX@DirectX@@QEBQ?AU01@U01@@Z ; DirectX::XMMATRIX::operator*
-  006e5	0f 29 9d 80 10
+  006ec	e8 00 00 00 00	 call	 ??DXMMATRIX@DirectX@@QEBQ?AU01@U01@@Z ; DirectX::XMMATRIX::operator*
+  006f1	0f 29 9d 80 10
 	00 00		 movaps	 XMMWORD PTR $T29[rbp+48], xmm3
-  006ec	0f 29 95 70 10
+  006f8	0f 29 95 70 10
 	00 00		 movaps	 XMMWORD PTR $T29[rbp+32], xmm2
-  006f3	0f 29 8d 60 10
+  006ff	0f 29 8d 60 10
 	00 00		 movaps	 XMMWORD PTR $T29[rbp+16], xmm1
-  006fa	0f 29 85 50 10
+  00706	0f 29 85 50 10
 	00 00		 movaps	 XMMWORD PTR $T29[rbp], xmm0
-  00701	48 8d 85 70 08
+  0070d	48 8d 85 70 08
 	00 00		 lea	 rax, QWORD PTR $T8[rbp]
-  00708	48 8d 8d 50 10
+  00714	48 8d 8d 50 10
 	00 00		 lea	 rcx, QWORD PTR $T29[rbp]
-  0070f	48 8b f8	 mov	 rdi, rax
-  00712	48 8b f1	 mov	 rsi, rcx
-  00715	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  0071a	f3 a4		 rep movsb
-  0071c	48 8b 85 40 15
+  0071b	48 8b f8	 mov	 rdi, rax
+  0071e	48 8b f1	 mov	 rsi, rcx
+  00721	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  00726	f3 a4		 rep movsb
+  00728	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00723	48 05 48 01 00
-	00		 add	 rax, 328		; 00000148H
-  00729	0f 28 85 70 08
+  0072f	48 05 4c 01 00
+	00		 add	 rax, 332		; 0000014cH
+  00735	0f 28 85 70 08
 	00 00		 movaps	 xmm0, XMMWORD PTR $T8[rbp]
-  00730	0f 28 8d 80 08
+  0073c	0f 28 8d 80 08
 	00 00		 movaps	 xmm1, XMMWORD PTR $T8[rbp+16]
-  00737	0f 28 95 90 08
+  00743	0f 28 95 90 08
 	00 00		 movaps	 xmm2, XMMWORD PTR $T8[rbp+32]
-  0073e	0f 28 9d a0 08
+  0074a	0f 28 9d a0 08
 	00 00		 movaps	 xmm3, XMMWORD PTR $T8[rbp+48]
-  00745	48 8b c8	 mov	 rcx, rax
-  00748	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
+  00751	48 8b c8	 mov	 rcx, rax
+  00754	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
 
 ; 77   : 	XMStoreFloat4x4(&m_EvolutionButtonMatrix, XMMatrixScaling(m_fWidth - 10.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fEvolutionButtonX - 80.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
 
-  0074d	48 8b 85 40 15
+  00759	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00754	f3 0f 10 40 7c	 movss	 xmm0, DWORD PTR [rax+124]
-  00759	0f 57 05 00 00
+  00760	f3 0f 10 80 80
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+128]
+  00768	0f 57 05 00 00
 	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
-  00760	f3 0f 5c 05 00
+  0076f	f3 0f 5c 05 00
 	00 00 00	 subss	 xmm0, DWORD PTR __real@42480000
-  00768	f3 0f 58 05 00
+  00777	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
-  00770	48 8b 85 40 15
+  0077f	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00777	f3 0f 10 88 e8
-	03 00 00	 movss	 xmm1, DWORD PTR [rax+1000]
-  0077f	f3 0f 5c 0d 00
+  00786	f3 0f 10 88 ec
+	03 00 00	 movss	 xmm1, DWORD PTR [rax+1004]
+  0078e	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@42a00000
-  00787	f3 0f 5c 0d 00
+  00796	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
-  0078f	f3 0f 11 8d 14
+  0079e	f3 0f 11 8d 14
 	15 00 00	 movss	 DWORD PTR tv221[rbp], xmm1
-  00797	0f 57 d2	 xorps	 xmm2, xmm2
-  0079a	0f 28 c8	 movaps	 xmm1, xmm0
-  0079d	f3 0f 10 85 14
+  007a6	0f 57 d2	 xorps	 xmm2, xmm2
+  007a9	0f 28 c8	 movaps	 xmm1, xmm0
+  007ac	f3 0f 10 85 14
 	15 00 00	 movss	 xmm0, DWORD PTR tv221[rbp]
-  007a5	e8 00 00 00 00	 call	 ?XMMatrixTranslation@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixTranslation
-  007aa	0f 29 9d 00 12
+  007b4	e8 00 00 00 00	 call	 ?XMMatrixTranslation@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixTranslation
+  007b9	0f 29 9d 00 12
 	00 00		 movaps	 XMMWORD PTR $T33[rbp+48], xmm3
-  007b1	0f 29 95 f0 11
+  007c0	0f 29 95 f0 11
 	00 00		 movaps	 XMMWORD PTR $T33[rbp+32], xmm2
-  007b8	0f 29 8d e0 11
+  007c7	0f 29 8d e0 11
 	00 00		 movaps	 XMMWORD PTR $T33[rbp+16], xmm1
-  007bf	0f 29 85 d0 11
+  007ce	0f 29 85 d0 11
 	00 00		 movaps	 XMMWORD PTR $T33[rbp], xmm0
-  007c6	48 8d 85 50 0a
+  007d5	48 8d 85 50 0a
 	00 00		 lea	 rax, QWORD PTR $T13[rbp]
-  007cd	48 8d 8d d0 11
+  007dc	48 8d 8d d0 11
 	00 00		 lea	 rcx, QWORD PTR $T33[rbp]
-  007d4	48 8b f8	 mov	 rdi, rax
-  007d7	48 8b f1	 mov	 rsi, rcx
-  007da	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  007df	f3 a4		 rep movsb
-  007e1	48 8b 85 40 15
+  007e3	48 8b f8	 mov	 rdi, rax
+  007e6	48 8b f1	 mov	 rsi, rcx
+  007e9	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  007ee	f3 a4		 rep movsb
+  007f0	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  007e8	f3 0f 10 80 84
-	00 00 00	 movss	 xmm0, DWORD PTR [rax+132]
-  007f0	f3 0f 5c 05 00
+  007f7	f3 0f 10 80 88
+	00 00 00	 movss	 xmm0, DWORD PTR [rax+136]
+  007ff	f3 0f 5c 05 00
 	00 00 00	 subss	 xmm0, DWORD PTR __real@41200000
-  007f8	48 8b 85 40 15
+  00807	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  007ff	f3 0f 10 88 80
-	00 00 00	 movss	 xmm1, DWORD PTR [rax+128]
-  00807	f3 0f 5c 0d 00
+  0080e	f3 0f 10 88 84
+	00 00 00	 movss	 xmm1, DWORD PTR [rax+132]
+  00816	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@41200000
-  0080f	f3 0f 11 8d 18
+  0081e	f3 0f 11 8d 18
 	15 00 00	 movss	 DWORD PTR tv208[rbp], xmm1
-  00817	f3 0f 10 15 00
+  00826	f3 0f 10 15 00
 	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
-  0081f	0f 28 c8	 movaps	 xmm1, xmm0
-  00822	f3 0f 10 85 18
+  0082e	0f 28 c8	 movaps	 xmm1, xmm0
+  00831	f3 0f 10 85 18
 	15 00 00	 movss	 xmm0, DWORD PTR tv208[rbp]
-  0082a	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
-  0082f	0f 29 9d 40 11
+  00839	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
+  0083e	0f 29 9d 40 11
 	00 00		 movaps	 XMMWORD PTR $T31[rbp+48], xmm3
-  00836	0f 29 95 30 11
+  00845	0f 29 95 30 11
 	00 00		 movaps	 XMMWORD PTR $T31[rbp+32], xmm2
-  0083d	0f 29 8d 20 11
+  0084c	0f 29 8d 20 11
 	00 00		 movaps	 XMMWORD PTR $T31[rbp+16], xmm1
-  00844	0f 29 85 10 11
+  00853	0f 29 85 10 11
 	00 00		 movaps	 XMMWORD PTR $T31[rbp], xmm0
-  0084b	48 8d 85 f0 09
+  0085a	48 8d 85 f0 09
 	00 00		 lea	 rax, QWORD PTR $T12[rbp]
-  00852	48 8d 8d 10 11
+  00861	48 8d 8d 10 11
 	00 00		 lea	 rcx, QWORD PTR $T31[rbp]
-  00859	48 8b f8	 mov	 rdi, rax
-  0085c	48 8b f1	 mov	 rsi, rcx
-  0085f	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  00864	f3 a4		 rep movsb
-  00866	0f 28 85 50 0a
+  00868	48 8b f8	 mov	 rdi, rax
+  0086b	48 8b f1	 mov	 rsi, rcx
+  0086e	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  00873	f3 a4		 rep movsb
+  00875	0f 28 85 50 0a
 	00 00		 movaps	 xmm0, XMMWORD PTR $T13[rbp]
-  0086d	0f 28 8d 60 0a
+  0087c	0f 28 8d 60 0a
 	00 00		 movaps	 xmm1, XMMWORD PTR $T13[rbp+16]
-  00874	0f 28 95 70 0a
+  00883	0f 28 95 70 0a
 	00 00		 movaps	 xmm2, XMMWORD PTR $T13[rbp+32]
-  0087b	0f 28 9d 80 0a
+  0088a	0f 28 9d 80 0a
 	00 00		 movaps	 xmm3, XMMWORD PTR $T13[rbp+48]
-  00882	48 8d 8d f0 09
+  00891	48 8d 8d f0 09
 	00 00		 lea	 rcx, QWORD PTR $T12[rbp]
-  00889	e8 00 00 00 00	 call	 ??DXMMATRIX@DirectX@@QEBQ?AU01@U01@@Z ; DirectX::XMMATRIX::operator*
-  0088e	0f 29 9d a0 11
+  00898	e8 00 00 00 00	 call	 ??DXMMATRIX@DirectX@@QEBQ?AU01@U01@@Z ; DirectX::XMMATRIX::operator*
+  0089d	0f 29 9d a0 11
 	00 00		 movaps	 XMMWORD PTR $T32[rbp+48], xmm3
-  00895	0f 29 95 90 11
+  008a4	0f 29 95 90 11
 	00 00		 movaps	 XMMWORD PTR $T32[rbp+32], xmm2
-  0089c	0f 29 8d 80 11
+  008ab	0f 29 8d 80 11
 	00 00		 movaps	 XMMWORD PTR $T32[rbp+16], xmm1
-  008a3	0f 29 85 70 11
+  008b2	0f 29 85 70 11
 	00 00		 movaps	 XMMWORD PTR $T32[rbp], xmm0
-  008aa	48 8d 85 90 09
+  008b9	48 8d 85 90 09
 	00 00		 lea	 rax, QWORD PTR $T11[rbp]
-  008b1	48 8d 8d 70 11
+  008c0	48 8d 8d 70 11
 	00 00		 lea	 rcx, QWORD PTR $T32[rbp]
-  008b8	48 8b f8	 mov	 rdi, rax
-  008bb	48 8b f1	 mov	 rsi, rcx
-  008be	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  008c3	f3 a4		 rep movsb
-  008c5	48 8b 85 40 15
+  008c7	48 8b f8	 mov	 rdi, rax
+  008ca	48 8b f1	 mov	 rsi, rcx
+  008cd	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  008d2	f3 a4		 rep movsb
+  008d4	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  008cc	48 05 f8 03 00
-	00		 add	 rax, 1016		; 000003f8H
-  008d2	0f 28 85 90 09
+  008db	48 05 fc 03 00
+	00		 add	 rax, 1020		; 000003fcH
+  008e1	0f 28 85 90 09
 	00 00		 movaps	 xmm0, XMMWORD PTR $T11[rbp]
-  008d9	0f 28 8d a0 09
+  008e8	0f 28 8d a0 09
 	00 00		 movaps	 xmm1, XMMWORD PTR $T11[rbp+16]
-  008e0	0f 28 95 b0 09
+  008ef	0f 28 95 b0 09
 	00 00		 movaps	 xmm2, XMMWORD PTR $T11[rbp+32]
-  008e7	0f 28 9d c0 09
+  008f6	0f 28 9d c0 09
 	00 00		 movaps	 xmm3, XMMWORD PTR $T11[rbp+48]
-  008ee	48 8b c8	 mov	 rcx, rax
-  008f1	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
+  008fd	48 8b c8	 mov	 rcx, rax
+  00900	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
 
 ; 78   : 
 ; 79   : 	XMStoreFloat4x4(&m_ComboGageMatrix, XMMatrixScaling(m_fComboGageWidth, m_fComboGageHeight, 1.f) * XMMatrixTranslation(m_fComboGageX - g_iWinSizeX * 0.5f, -m_fComboGageY + g_iWinSizeY * 0.5f, 0.f));
 
-  008f6	48 8b 85 40 15
+  00905	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  008fd	f3 0f 10 80 2c
-	03 00 00	 movss	 xmm0, DWORD PTR [rax+812]
-  00905	0f 57 05 00 00
+  0090c	f3 0f 10 80 30
+	03 00 00	 movss	 xmm0, DWORD PTR [rax+816]
+  00914	0f 57 05 00 00
 	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
-  0090c	f3 0f 58 05 00
+  0091b	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
-  00914	48 8b 85 40 15
+  00923	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0091b	f3 0f 10 88 28
-	03 00 00	 movss	 xmm1, DWORD PTR [rax+808]
-  00923	f3 0f 5c 0d 00
+  0092a	f3 0f 10 88 2c
+	03 00 00	 movss	 xmm1, DWORD PTR [rax+812]
+  00932	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
-  0092b	f3 0f 11 8d 14
+  0093a	f3 0f 11 8d 14
 	15 00 00	 movss	 DWORD PTR tv242[rbp], xmm1
-  00933	0f 57 d2	 xorps	 xmm2, xmm2
-  00936	0f 28 c8	 movaps	 xmm1, xmm0
-  00939	f3 0f 10 85 14
+  00942	0f 57 d2	 xorps	 xmm2, xmm2
+  00945	0f 28 c8	 movaps	 xmm1, xmm0
+  00948	f3 0f 10 85 14
 	15 00 00	 movss	 xmm0, DWORD PTR tv242[rbp]
-  00941	e8 00 00 00 00	 call	 ?XMMatrixTranslation@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixTranslation
-  00946	0f 29 9d 20 13
+  00950	e8 00 00 00 00	 call	 ?XMMatrixTranslation@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixTranslation
+  00955	0f 29 9d 20 13
 	00 00		 movaps	 XMMWORD PTR $T36[rbp+48], xmm3
-  0094d	0f 29 95 10 13
+  0095c	0f 29 95 10 13
 	00 00		 movaps	 XMMWORD PTR $T36[rbp+32], xmm2
-  00954	0f 29 8d 00 13
+  00963	0f 29 8d 00 13
 	00 00		 movaps	 XMMWORD PTR $T36[rbp+16], xmm1
-  0095b	0f 29 85 f0 12
+  0096a	0f 29 85 f0 12
 	00 00		 movaps	 XMMWORD PTR $T36[rbp], xmm0
-  00962	48 8d 85 70 0b
+  00971	48 8d 85 70 0b
 	00 00		 lea	 rax, QWORD PTR $T16[rbp]
-  00969	48 8d 8d f0 12
+  00978	48 8d 8d f0 12
 	00 00		 lea	 rcx, QWORD PTR $T36[rbp]
-  00970	48 8b f8	 mov	 rdi, rax
-  00973	48 8b f1	 mov	 rsi, rcx
-  00976	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  0097b	f3 a4		 rep movsb
-  0097d	f3 0f 10 15 00
+  0097f	48 8b f8	 mov	 rdi, rax
+  00982	48 8b f1	 mov	 rsi, rcx
+  00985	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  0098a	f3 a4		 rep movsb
+  0098c	f3 0f 10 15 00
 	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
-  00985	48 8b 85 40 15
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0098c	f3 0f 10 88 34
-	03 00 00	 movss	 xmm1, DWORD PTR [rax+820]
   00994	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0099b	f3 0f 10 80 30
-	03 00 00	 movss	 xmm0, DWORD PTR [rax+816]
-  009a3	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
-  009a8	0f 29 9d 60 12
-	00 00		 movaps	 XMMWORD PTR $T34[rbp+48], xmm3
-  009af	0f 29 95 50 12
-	00 00		 movaps	 XMMWORD PTR $T34[rbp+32], xmm2
-  009b6	0f 29 8d 40 12
-	00 00		 movaps	 XMMWORD PTR $T34[rbp+16], xmm1
-  009bd	0f 29 85 30 12
-	00 00		 movaps	 XMMWORD PTR $T34[rbp], xmm0
-  009c4	48 8d 85 10 0b
-	00 00		 lea	 rax, QWORD PTR $T15[rbp]
-  009cb	48 8d 8d 30 12
-	00 00		 lea	 rcx, QWORD PTR $T34[rbp]
-  009d2	48 8b f8	 mov	 rdi, rax
-  009d5	48 8b f1	 mov	 rsi, rcx
-  009d8	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  009dd	f3 a4		 rep movsb
-  009df	0f 28 85 70 0b
-	00 00		 movaps	 xmm0, XMMWORD PTR $T16[rbp]
-  009e6	0f 28 8d 80 0b
-	00 00		 movaps	 xmm1, XMMWORD PTR $T16[rbp+16]
-  009ed	0f 28 95 90 0b
-	00 00		 movaps	 xmm2, XMMWORD PTR $T16[rbp+32]
-  009f4	0f 28 9d a0 0b
-	00 00		 movaps	 xmm3, XMMWORD PTR $T16[rbp+48]
-  009fb	48 8d 8d 10 0b
-	00 00		 lea	 rcx, QWORD PTR $T15[rbp]
-  00a02	e8 00 00 00 00	 call	 ??DXMMATRIX@DirectX@@QEBQ?AU01@U01@@Z ; DirectX::XMMATRIX::operator*
-  00a07	0f 29 9d c0 12
-	00 00		 movaps	 XMMWORD PTR $T35[rbp+48], xmm3
-  00a0e	0f 29 95 b0 12
-	00 00		 movaps	 XMMWORD PTR $T35[rbp+32], xmm2
-  00a15	0f 29 8d a0 12
-	00 00		 movaps	 XMMWORD PTR $T35[rbp+16], xmm1
-  00a1c	0f 29 85 90 12
-	00 00		 movaps	 XMMWORD PTR $T35[rbp], xmm0
-  00a23	48 8d 85 b0 0a
-	00 00		 lea	 rax, QWORD PTR $T14[rbp]
-  00a2a	48 8d 8d 90 12
-	00 00		 lea	 rcx, QWORD PTR $T35[rbp]
-  00a31	48 8b f8	 mov	 rdi, rax
-  00a34	48 8b f1	 mov	 rsi, rcx
-  00a37	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  00a3c	f3 a4		 rep movsb
-  00a3e	48 8b 85 40 15
+  0099b	f3 0f 10 88 38
+	03 00 00	 movss	 xmm1, DWORD PTR [rax+824]
+  009a3	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00a45	48 05 38 03 00
-	00		 add	 rax, 824		; 00000338H
-  00a4b	0f 28 85 b0 0a
+  009aa	f3 0f 10 80 34
+	03 00 00	 movss	 xmm0, DWORD PTR [rax+820]
+  009b2	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
+  009b7	0f 29 9d 60 12
+	00 00		 movaps	 XMMWORD PTR $T34[rbp+48], xmm3
+  009be	0f 29 95 50 12
+	00 00		 movaps	 XMMWORD PTR $T34[rbp+32], xmm2
+  009c5	0f 29 8d 40 12
+	00 00		 movaps	 XMMWORD PTR $T34[rbp+16], xmm1
+  009cc	0f 29 85 30 12
+	00 00		 movaps	 XMMWORD PTR $T34[rbp], xmm0
+  009d3	48 8d 85 10 0b
+	00 00		 lea	 rax, QWORD PTR $T15[rbp]
+  009da	48 8d 8d 30 12
+	00 00		 lea	 rcx, QWORD PTR $T34[rbp]
+  009e1	48 8b f8	 mov	 rdi, rax
+  009e4	48 8b f1	 mov	 rsi, rcx
+  009e7	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  009ec	f3 a4		 rep movsb
+  009ee	0f 28 85 70 0b
+	00 00		 movaps	 xmm0, XMMWORD PTR $T16[rbp]
+  009f5	0f 28 8d 80 0b
+	00 00		 movaps	 xmm1, XMMWORD PTR $T16[rbp+16]
+  009fc	0f 28 95 90 0b
+	00 00		 movaps	 xmm2, XMMWORD PTR $T16[rbp+32]
+  00a03	0f 28 9d a0 0b
+	00 00		 movaps	 xmm3, XMMWORD PTR $T16[rbp+48]
+  00a0a	48 8d 8d 10 0b
+	00 00		 lea	 rcx, QWORD PTR $T15[rbp]
+  00a11	e8 00 00 00 00	 call	 ??DXMMATRIX@DirectX@@QEBQ?AU01@U01@@Z ; DirectX::XMMATRIX::operator*
+  00a16	0f 29 9d c0 12
+	00 00		 movaps	 XMMWORD PTR $T35[rbp+48], xmm3
+  00a1d	0f 29 95 b0 12
+	00 00		 movaps	 XMMWORD PTR $T35[rbp+32], xmm2
+  00a24	0f 29 8d a0 12
+	00 00		 movaps	 XMMWORD PTR $T35[rbp+16], xmm1
+  00a2b	0f 29 85 90 12
+	00 00		 movaps	 XMMWORD PTR $T35[rbp], xmm0
+  00a32	48 8d 85 b0 0a
+	00 00		 lea	 rax, QWORD PTR $T14[rbp]
+  00a39	48 8d 8d 90 12
+	00 00		 lea	 rcx, QWORD PTR $T35[rbp]
+  00a40	48 8b f8	 mov	 rdi, rax
+  00a43	48 8b f1	 mov	 rsi, rcx
+  00a46	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  00a4b	f3 a4		 rep movsb
+  00a4d	48 8b 85 40 15
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00a54	48 05 3c 03 00
+	00		 add	 rax, 828		; 0000033cH
+  00a5a	0f 28 85 b0 0a
 	00 00		 movaps	 xmm0, XMMWORD PTR $T14[rbp]
-  00a52	0f 28 8d c0 0a
+  00a61	0f 28 8d c0 0a
 	00 00		 movaps	 xmm1, XMMWORD PTR $T14[rbp+16]
-  00a59	0f 28 95 d0 0a
+  00a68	0f 28 95 d0 0a
 	00 00		 movaps	 xmm2, XMMWORD PTR $T14[rbp+32]
-  00a60	0f 28 9d e0 0a
+  00a6f	0f 28 9d e0 0a
 	00 00		 movaps	 xmm3, XMMWORD PTR $T14[rbp+48]
-  00a67	48 8b c8	 mov	 rcx, rax
-  00a6a	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
+  00a76	48 8b c8	 mov	 rcx, rax
+  00a79	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
 
 ; 80   : 
 ; 81   : 	for(int i = 0 ; i < 4 ; ++i)
 
-  00a6f	c7 45 04 00 00
+  00a7e	c7 45 04 00 00
 	00 00		 mov	 DWORD PTR i$1[rbp], 0
-  00a76	eb 08		 jmp	 SHORT $LN4@Initialize
+  00a85	eb 08		 jmp	 SHORT $LN4@Initialize
 $LN2@Initialize:
-  00a78	8b 45 04	 mov	 eax, DWORD PTR i$1[rbp]
-  00a7b	ff c0		 inc	 eax
-  00a7d	89 45 04	 mov	 DWORD PTR i$1[rbp], eax
+  00a87	8b 45 04	 mov	 eax, DWORD PTR i$1[rbp]
+  00a8a	ff c0		 inc	 eax
+  00a8c	89 45 04	 mov	 DWORD PTR i$1[rbp], eax
 $LN4@Initialize:
-  00a80	83 7d 04 04	 cmp	 DWORD PTR i$1[rbp], 4
-  00a84	0f 8d 88 01 00
+  00a8f	83 7d 04 04	 cmp	 DWORD PTR i$1[rbp], 4
+  00a93	0f 8d 88 01 00
 	00		 jge	 $LN3@Initialize
 
 ; 82   : 		XMStoreFloat4x4(&m_ComboNumberMatrix[i], XMMatrixScaling(m_fComboNumWidth, m_fComboNumHeight, 1.f) * XMMatrixTranslation(m_fOriginComboNumX - g_iWinSizeX * 0.5f, -m_fComboNumY + g_iWinSizeY * 0.5f, 0.f));
 
-  00a8a	48 8b 85 40 15
+  00a99	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00a91	f3 0f 10 80 cc
-	01 00 00	 movss	 xmm0, DWORD PTR [rax+460]
-  00a99	0f 57 05 00 00
+  00aa0	f3 0f 10 80 d0
+	01 00 00	 movss	 xmm0, DWORD PTR [rax+464]
+  00aa8	0f 57 05 00 00
 	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
-  00aa0	f3 0f 58 05 00
+  00aaf	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
-  00aa8	48 8b 85 40 15
+  00ab7	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00aaf	f3 0f 10 88 d8
-	01 00 00	 movss	 xmm1, DWORD PTR [rax+472]
-  00ab7	f3 0f 5c 0d 00
+  00abe	f3 0f 10 88 dc
+	01 00 00	 movss	 xmm1, DWORD PTR [rax+476]
+  00ac6	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
-  00abf	f3 0f 11 8d 14
+  00ace	f3 0f 11 8d 14
 	15 00 00	 movss	 DWORD PTR tv265[rbp], xmm1
-  00ac7	0f 57 d2	 xorps	 xmm2, xmm2
-  00aca	0f 28 c8	 movaps	 xmm1, xmm0
-  00acd	f3 0f 10 85 14
+  00ad6	0f 57 d2	 xorps	 xmm2, xmm2
+  00ad9	0f 28 c8	 movaps	 xmm1, xmm0
+  00adc	f3 0f 10 85 14
 	15 00 00	 movss	 xmm0, DWORD PTR tv265[rbp]
-  00ad5	e8 00 00 00 00	 call	 ?XMMatrixTranslation@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixTranslation
-  00ada	0f 29 9d 40 14
+  00ae4	e8 00 00 00 00	 call	 ?XMMatrixTranslation@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixTranslation
+  00ae9	0f 29 9d 40 14
 	00 00		 movaps	 XMMWORD PTR $T39[rbp+48], xmm3
-  00ae1	0f 29 95 30 14
+  00af0	0f 29 95 30 14
 	00 00		 movaps	 XMMWORD PTR $T39[rbp+32], xmm2
-  00ae8	0f 29 8d 20 14
+  00af7	0f 29 8d 20 14
 	00 00		 movaps	 XMMWORD PTR $T39[rbp+16], xmm1
-  00aef	0f 29 85 10 14
+  00afe	0f 29 85 10 14
 	00 00		 movaps	 XMMWORD PTR $T39[rbp], xmm0
-  00af6	48 8d 85 90 0c
+  00b05	48 8d 85 90 0c
 	00 00		 lea	 rax, QWORD PTR $T19[rbp]
-  00afd	48 8d 8d 10 14
+  00b0c	48 8d 8d 10 14
 	00 00		 lea	 rcx, QWORD PTR $T39[rbp]
-  00b04	48 8b f8	 mov	 rdi, rax
-  00b07	48 8b f1	 mov	 rsi, rcx
-  00b0a	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  00b0f	f3 a4		 rep movsb
-  00b11	f3 0f 10 15 00
+  00b13	48 8b f8	 mov	 rdi, rax
+  00b16	48 8b f1	 mov	 rsi, rcx
+  00b19	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  00b1e	f3 a4		 rep movsb
+  00b20	f3 0f 10 15 00
 	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
-  00b19	48 8b 85 40 15
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00b20	f3 0f 10 88 d4
-	01 00 00	 movss	 xmm1, DWORD PTR [rax+468]
   00b28	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00b2f	f3 0f 10 80 d0
-	01 00 00	 movss	 xmm0, DWORD PTR [rax+464]
-  00b37	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
-  00b3c	0f 29 9d 80 13
+  00b2f	f3 0f 10 88 d8
+	01 00 00	 movss	 xmm1, DWORD PTR [rax+472]
+  00b37	48 8b 85 40 15
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00b3e	f3 0f 10 80 d4
+	01 00 00	 movss	 xmm0, DWORD PTR [rax+468]
+  00b46	e8 00 00 00 00	 call	 ?XMMatrixScaling@DirectX@@YQ?AUXMMATRIX@1@MMM@Z ; DirectX::XMMatrixScaling
+  00b4b	0f 29 9d 80 13
 	00 00		 movaps	 XMMWORD PTR $T37[rbp+48], xmm3
-  00b43	0f 29 95 70 13
+  00b52	0f 29 95 70 13
 	00 00		 movaps	 XMMWORD PTR $T37[rbp+32], xmm2
-  00b4a	0f 29 8d 60 13
+  00b59	0f 29 8d 60 13
 	00 00		 movaps	 XMMWORD PTR $T37[rbp+16], xmm1
-  00b51	0f 29 85 50 13
+  00b60	0f 29 85 50 13
 	00 00		 movaps	 XMMWORD PTR $T37[rbp], xmm0
-  00b58	48 8d 85 30 0c
+  00b67	48 8d 85 30 0c
 	00 00		 lea	 rax, QWORD PTR $T18[rbp]
-  00b5f	48 8d 8d 50 13
+  00b6e	48 8d 8d 50 13
 	00 00		 lea	 rcx, QWORD PTR $T37[rbp]
-  00b66	48 8b f8	 mov	 rdi, rax
-  00b69	48 8b f1	 mov	 rsi, rcx
-  00b6c	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  00b71	f3 a4		 rep movsb
-  00b73	0f 28 85 90 0c
+  00b75	48 8b f8	 mov	 rdi, rax
+  00b78	48 8b f1	 mov	 rsi, rcx
+  00b7b	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  00b80	f3 a4		 rep movsb
+  00b82	0f 28 85 90 0c
 	00 00		 movaps	 xmm0, XMMWORD PTR $T19[rbp]
-  00b7a	0f 28 8d a0 0c
+  00b89	0f 28 8d a0 0c
 	00 00		 movaps	 xmm1, XMMWORD PTR $T19[rbp+16]
-  00b81	0f 28 95 b0 0c
+  00b90	0f 28 95 b0 0c
 	00 00		 movaps	 xmm2, XMMWORD PTR $T19[rbp+32]
-  00b88	0f 28 9d c0 0c
+  00b97	0f 28 9d c0 0c
 	00 00		 movaps	 xmm3, XMMWORD PTR $T19[rbp+48]
-  00b8f	48 8d 8d 30 0c
+  00b9e	48 8d 8d 30 0c
 	00 00		 lea	 rcx, QWORD PTR $T18[rbp]
-  00b96	e8 00 00 00 00	 call	 ??DXMMATRIX@DirectX@@QEBQ?AU01@U01@@Z ; DirectX::XMMATRIX::operator*
-  00b9b	0f 29 9d e0 13
+  00ba5	e8 00 00 00 00	 call	 ??DXMMATRIX@DirectX@@QEBQ?AU01@U01@@Z ; DirectX::XMMATRIX::operator*
+  00baa	0f 29 9d e0 13
 	00 00		 movaps	 XMMWORD PTR $T38[rbp+48], xmm3
-  00ba2	0f 29 95 d0 13
+  00bb1	0f 29 95 d0 13
 	00 00		 movaps	 XMMWORD PTR $T38[rbp+32], xmm2
-  00ba9	0f 29 8d c0 13
+  00bb8	0f 29 8d c0 13
 	00 00		 movaps	 XMMWORD PTR $T38[rbp+16], xmm1
-  00bb0	0f 29 85 b0 13
+  00bbf	0f 29 85 b0 13
 	00 00		 movaps	 XMMWORD PTR $T38[rbp], xmm0
-  00bb7	48 8d 85 d0 0b
+  00bc6	48 8d 85 d0 0b
 	00 00		 lea	 rax, QWORD PTR $T17[rbp]
-  00bbe	48 8d 8d b0 13
+  00bcd	48 8d 8d b0 13
 	00 00		 lea	 rcx, QWORD PTR $T38[rbp]
-  00bc5	48 8b f8	 mov	 rdi, rax
-  00bc8	48 8b f1	 mov	 rsi, rcx
-  00bcb	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  00bd0	f3 a4		 rep movsb
-  00bd2	48 63 45 04	 movsxd	 rax, DWORD PTR i$1[rbp]
-  00bd6	48 6b c0 40	 imul	 rax, rax, 64		; 00000040H
-  00bda	48 8b 8d 40 15
+  00bd4	48 8b f8	 mov	 rdi, rax
+  00bd7	48 8b f1	 mov	 rsi, rcx
+  00bda	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  00bdf	f3 a4		 rep movsb
+  00be1	48 63 45 04	 movsxd	 rax, DWORD PTR i$1[rbp]
+  00be5	48 6b c0 40	 imul	 rax, rax, 64		; 00000040H
+  00be9	48 8b 8d 40 15
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00be1	48 8d 84 01 dc
-	01 00 00	 lea	 rax, QWORD PTR [rcx+rax+476]
-  00be9	0f 28 85 d0 0b
+  00bf0	48 8d 84 01 e0
+	01 00 00	 lea	 rax, QWORD PTR [rcx+rax+480]
+  00bf8	0f 28 85 d0 0b
 	00 00		 movaps	 xmm0, XMMWORD PTR $T17[rbp]
-  00bf0	0f 28 8d e0 0b
+  00bff	0f 28 8d e0 0b
 	00 00		 movaps	 xmm1, XMMWORD PTR $T17[rbp+16]
-  00bf7	0f 28 95 f0 0b
+  00c06	0f 28 95 f0 0b
 	00 00		 movaps	 xmm2, XMMWORD PTR $T17[rbp+32]
-  00bfe	0f 28 9d 00 0c
+  00c0d	0f 28 9d 00 0c
 	00 00		 movaps	 xmm3, XMMWORD PTR $T17[rbp+48]
-  00c05	48 8b c8	 mov	 rcx, rax
-  00c08	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
-  00c0d	e9 66 fe ff ff	 jmp	 $LN2@Initialize
+  00c14	48 8b c8	 mov	 rcx, rax
+  00c17	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
+  00c1c	e9 66 fe ff ff	 jmp	 $LN2@Initialize
 $LN3@Initialize:
 
 ; 83   : 
 ; 84   : 	XMStoreFloat4x4(&m_ViewMatrix, XMMatrixIdentity());
 
-  00c12	e8 00 00 00 00	 call	 ?XMMatrixIdentity@DirectX@@YQ?AUXMMATRIX@1@XZ ; DirectX::XMMatrixIdentity
-  00c17	0f 29 9d a0 14
+  00c21	e8 00 00 00 00	 call	 ?XMMatrixIdentity@DirectX@@YQ?AUXMMATRIX@1@XZ ; DirectX::XMMatrixIdentity
+  00c26	0f 29 9d a0 14
 	00 00		 movaps	 XMMWORD PTR $T40[rbp+48], xmm3
-  00c1e	0f 29 95 90 14
+  00c2d	0f 29 95 90 14
 	00 00		 movaps	 XMMWORD PTR $T40[rbp+32], xmm2
-  00c25	0f 29 8d 80 14
+  00c34	0f 29 8d 80 14
 	00 00		 movaps	 XMMWORD PTR $T40[rbp+16], xmm1
-  00c2c	0f 29 85 70 14
+  00c3b	0f 29 85 70 14
 	00 00		 movaps	 XMMWORD PTR $T40[rbp], xmm0
-  00c33	48 8d 85 f0 0c
+  00c42	48 8d 85 f0 0c
 	00 00		 lea	 rax, QWORD PTR $T20[rbp]
-  00c3a	48 8d 8d 70 14
+  00c49	48 8d 8d 70 14
 	00 00		 lea	 rcx, QWORD PTR $T40[rbp]
-  00c41	48 8b f8	 mov	 rdi, rax
-  00c44	48 8b f1	 mov	 rsi, rcx
-  00c47	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  00c4c	f3 a4		 rep movsb
-  00c4e	48 8b 85 40 15
+  00c50	48 8b f8	 mov	 rdi, rax
+  00c53	48 8b f1	 mov	 rsi, rcx
+  00c56	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  00c5b	f3 a4		 rep movsb
+  00c5d	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00c55	48 05 88 00 00
-	00		 add	 rax, 136		; 00000088H
-  00c5b	0f 28 85 f0 0c
+  00c64	48 05 8c 00 00
+	00		 add	 rax, 140		; 0000008cH
+  00c6a	0f 28 85 f0 0c
 	00 00		 movaps	 xmm0, XMMWORD PTR $T20[rbp]
-  00c62	0f 28 8d 00 0d
+  00c71	0f 28 8d 00 0d
 	00 00		 movaps	 xmm1, XMMWORD PTR $T20[rbp+16]
-  00c69	0f 28 95 10 0d
+  00c78	0f 28 95 10 0d
 	00 00		 movaps	 xmm2, XMMWORD PTR $T20[rbp+32]
-  00c70	0f 28 9d 20 0d
+  00c7f	0f 28 9d 20 0d
 	00 00		 movaps	 xmm3, XMMWORD PTR $T20[rbp+48]
-  00c77	48 8b c8	 mov	 rcx, rax
-  00c7a	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
+  00c86	48 8b c8	 mov	 rcx, rax
+  00c89	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
 
 ; 85   : 	XMStoreFloat4x4(&m_ProjMatrix, XMMatrixOrthographicLH((_float)g_iWinSizeX, (_float)g_iWinSizeY, 0.f, 1.f));
 
-  00c7f	f3 0f 10 1d 00
+  00c8e	f3 0f 10 1d 00
 	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
-  00c87	0f 57 d2	 xorps	 xmm2, xmm2
-  00c8a	f3 0f 10 0d 00
+  00c96	0f 57 d2	 xorps	 xmm2, xmm2
+  00c99	f3 0f 10 0d 00
 	00 00 00	 movss	 xmm1, DWORD PTR __real@44340000
-  00c92	f3 0f 10 05 00
+  00ca1	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@44a00000
-  00c9a	e8 00 00 00 00	 call	 ?XMMatrixOrthographicLH@DirectX@@YQ?AUXMMATRIX@1@MMMM@Z ; DirectX::XMMatrixOrthographicLH
-  00c9f	0f 29 9d 00 15
+  00ca9	e8 00 00 00 00	 call	 ?XMMatrixOrthographicLH@DirectX@@YQ?AUXMMATRIX@1@MMMM@Z ; DirectX::XMMatrixOrthographicLH
+  00cae	0f 29 9d 00 15
 	00 00		 movaps	 XMMWORD PTR $T41[rbp+48], xmm3
-  00ca6	0f 29 95 f0 14
+  00cb5	0f 29 95 f0 14
 	00 00		 movaps	 XMMWORD PTR $T41[rbp+32], xmm2
-  00cad	0f 29 8d e0 14
+  00cbc	0f 29 8d e0 14
 	00 00		 movaps	 XMMWORD PTR $T41[rbp+16], xmm1
-  00cb4	0f 29 85 d0 14
+  00cc3	0f 29 85 d0 14
 	00 00		 movaps	 XMMWORD PTR $T41[rbp], xmm0
-  00cbb	48 8d 85 50 0d
+  00cca	48 8d 85 50 0d
 	00 00		 lea	 rax, QWORD PTR $T21[rbp]
-  00cc2	48 8d 8d d0 14
+  00cd1	48 8d 8d d0 14
 	00 00		 lea	 rcx, QWORD PTR $T41[rbp]
-  00cc9	48 8b f8	 mov	 rdi, rax
-  00ccc	48 8b f1	 mov	 rsi, rcx
-  00ccf	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
-  00cd4	f3 a4		 rep movsb
-  00cd6	48 8b 85 40 15
+  00cd8	48 8b f8	 mov	 rdi, rax
+  00cdb	48 8b f1	 mov	 rsi, rcx
+  00cde	b9 40 00 00 00	 mov	 ecx, 64			; 00000040H
+  00ce3	f3 a4		 rep movsb
+  00ce5	48 8b 85 40 15
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00cdd	48 05 c8 00 00
-	00		 add	 rax, 200		; 000000c8H
-  00ce3	0f 28 85 50 0d
+  00cec	48 05 cc 00 00
+	00		 add	 rax, 204		; 000000ccH
+  00cf2	0f 28 85 50 0d
 	00 00		 movaps	 xmm0, XMMWORD PTR $T21[rbp]
-  00cea	0f 28 8d 60 0d
+  00cf9	0f 28 8d 60 0d
 	00 00		 movaps	 xmm1, XMMWORD PTR $T21[rbp+16]
-  00cf1	0f 28 95 70 0d
+  00d00	0f 28 95 70 0d
 	00 00		 movaps	 xmm2, XMMWORD PTR $T21[rbp+32]
-  00cf8	0f 28 9d 80 0d
+  00d07	0f 28 9d 80 0d
 	00 00		 movaps	 xmm3, XMMWORD PTR $T21[rbp+48]
-  00cff	48 8b c8	 mov	 rcx, rax
-  00d02	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
+  00d0e	48 8b c8	 mov	 rcx, rax
+  00d11	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
 
 ; 86   : 	
 ; 87   : 	return S_OK;
 
-  00d07	33 c0		 xor	 eax, eax
+  00d16	33 c0		 xor	 eax, eax
 $LN1@Initialize:
 
 ; 88   : }
 
-  00d09	48 8d a5 20 15
+  00d18	48 8d a5 20 15
 	00 00		 lea	 rsp, QWORD PTR [rbp+5408]
-  00d10	5f		 pop	 rdi
-  00d11	5e		 pop	 rsi
-  00d12	5d		 pop	 rbp
-  00d13	c3		 ret	 0
+  00d1f	5f		 pop	 rdi
+  00d20	5e		 pop	 rsi
+  00d21	5d		 pop	 rbp
+  00d22	c3		 ret	 0
 ?Initialize@CPlayerIcon@Client@@UEAAJPEAX@Z ENDP	; Client::CPlayerIcon::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -19976,48 +19981,48 @@ $LN4:
   0005d	48 89 08	 mov	 QWORD PTR [rax], rcx
   00060	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00067	48 05 88 00 00
-	00		 add	 rax, 136		; 00000088H
+  00067	48 05 8c 00 00
+	00		 add	 rax, 140		; 0000008cH
   0006d	48 8b c8	 mov	 rcx, rax
   00070	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   00075	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0007c	48 05 c8 00 00
-	00		 add	 rax, 200		; 000000c8H
+  0007c	48 05 cc 00 00
+	00		 add	 rax, 204		; 000000ccH
   00082	48 8b c8	 mov	 rcx, rax
   00085	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   0008a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00091	48 05 08 01 00
-	00		 add	 rax, 264		; 00000108H
+  00091	48 05 0c 01 00
+	00		 add	 rax, 268		; 0000010cH
   00097	48 8b c8	 mov	 rcx, rax
   0009a	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   0009f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000a6	48 05 48 01 00
-	00		 add	 rax, 328		; 00000148H
+  000a6	48 05 4c 01 00
+	00		 add	 rax, 332		; 0000014cH
   000ac	48 8b c8	 mov	 rcx, rax
   000af	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   000b4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000bb	48 05 88 01 00
-	00		 add	 rax, 392		; 00000188H
+  000bb	48 05 8c 01 00
+	00		 add	 rax, 396		; 0000018cH
   000c1	48 8b c8	 mov	 rcx, rax
   000c4	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
 ; File c:\users\arcco\documents\github\framework\client\public\playericon.h
 
-; 59   : 	_float		m_fOriginComboNumX = 150.f;
+; 60   : 	_float		m_fOriginComboNumX = 150.f;
 
   000c9	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000d0	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@43160000
-  000d8	f3 0f 11 80 d8
-	01 00 00	 movss	 DWORD PTR [rax+472], xmm0
+  000d8	f3 0f 11 80 dc
+	01 00 00	 movss	 DWORD PTR [rax+476], xmm0
   000e0	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000e7	48 05 dc 01 00
-	00		 add	 rax, 476		; 000001dcH
+  000e7	48 05 e0 01 00
+	00		 add	 rax, 480		; 000001e0H
   000ed	4c 8d 0d 00 00
 	00 00		 lea	 r9, OFFSET FLAT:??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   000f4	41 b8 04 00 00
@@ -20031,374 +20036,374 @@ $LN4:
 
   00107	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0010e	48 05 e8 02 00
-	00		 add	 rax, 744		; 000002e8H
+  0010e	48 05 ec 02 00
+	00		 add	 rax, 748		; 000002ecH
   00114	48 8b c8	 mov	 rcx, rax
   00117	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   0011c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00123	48 05 38 03 00
-	00		 add	 rax, 824		; 00000338H
+  00123	48 05 3c 03 00
+	00		 add	 rax, 828		; 0000033cH
   00129	48 8b c8	 mov	 rcx, rax
   0012c	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   00131	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00138	48 05 a8 03 00
-	00		 add	 rax, 936		; 000003a8H
+  00138	48 05 ac 03 00
+	00		 add	 rax, 940		; 000003acH
   0013e	48 8b c8	 mov	 rcx, rax
   00141	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   00146	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0014d	48 05 f8 03 00
-	00		 add	 rax, 1016		; 000003f8H
+  0014d	48 05 fc 03 00
+	00		 add	 rax, 1020		; 000003fcH
   00153	48 8b c8	 mov	 rcx, rax
   00156	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
 ; File c:\users\arcco\documents\github\framework\client\public\playericon.h
 
-; 82   : 	CRenderer*		m_pRenderer = { nullptr };
+; 83   : 	CRenderer*		m_pRenderer = { nullptr };
 
   0015b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00162	48 c7 80 38 04
-	00 00 00 00 00
-	00		 mov	 QWORD PTR [rax+1080], 0
-
-; 83   : 	CShader*		m_pShader = { nullptr };
-
-  0016d	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00174	48 c7 80 40 04
+  00162	48 c7 80 40 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1088], 0
 
-; 84   : 
-; 85   : 	//백그라운드 아이콘
-; 86   : 	CVIBuffer_Rect* m_pBackVIBuffer = { nullptr };
+; 84   : 	CShader*		m_pShader = { nullptr };
 
-  0017f	48 8b 85 00 01
+  0016d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00186	48 c7 80 48 04
+  00174	48 c7 80 48 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1096], 0
 
-; 87   : 	CTexture*		m_pBackTexture = { nullptr };
+; 85   : 
+; 86   : 	//백그라운드 아이콘
+; 87   : 	CVIBuffer_Rect* m_pBackVIBuffer = { nullptr };
 
-  00191	48 8b 85 00 01
+  0017f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00198	48 c7 80 50 04
+  00186	48 c7 80 50 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1104], 0
 
-; 88   : 
-; 89   : 	//아이콘
-; 90   : 	CVIBuffer_Rect* m_pAttackVIBuffer = { nullptr };
+; 88   : 	CTexture*		m_pBackTexture = { nullptr };
 
-  001a3	48 8b 85 00 01
+  00191	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001aa	48 c7 80 58 04
+  00198	48 c7 80 58 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1112], 0
 
-; 91   : 	CTexture*		m_pAttackTexture = { nullptr };
+; 89   : 
+; 90   : 	//아이콘
+; 91   : 	CVIBuffer_Rect* m_pAttackVIBuffer = { nullptr };
 
-  001b5	48 8b 85 00 01
+  001a3	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001bc	48 c7 80 60 04
+  001aa	48 c7 80 60 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1120], 0
 
-; 92   : 
-; 93   : 	CVIBuffer_Rect* m_pDashVIBuffer = { nullptr };
+; 92   : 	CTexture*		m_pAttackTexture = { nullptr };
 
-  001c7	48 8b 85 00 01
+  001b5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001ce	48 c7 80 68 04
+  001bc	48 c7 80 68 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1128], 0
 
-; 94   : 	CTexture*		m_pDashTexture = { nullptr };
+; 93   : 
+; 94   : 	CVIBuffer_Rect* m_pDashVIBuffer = { nullptr };
 
-  001d9	48 8b 85 00 01
+  001c7	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001e0	48 c7 80 70 04
+  001ce	48 c7 80 70 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1136], 0
 
-; 95   : 
-; 96   : 	CVIBuffer_Rect* m_pEvolutionVIBuffer = { nullptr };
+; 95   : 	CTexture*		m_pDashTexture = { nullptr };
 
-  001eb	48 8b 85 00 01
+  001d9	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001f2	48 c7 80 78 04
+  001e0	48 c7 80 78 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1144], 0
 
-; 97   : 	CTexture*		m_pEvolutionTexture = { nullptr };
+; 96   : 
+; 97   : 	CVIBuffer_Rect* m_pEvolutionVIBuffer = { nullptr };
 
-  001fd	48 8b 85 00 01
+  001eb	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00204	48 c7 80 80 04
+  001f2	48 c7 80 80 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1152], 0
 
-; 98   : 
-; 99   : 	//타겟 이미지
-; 100  : 	_bool m_bTargetImageRender = false;
+; 98   : 	CTexture*		m_pEvolutionTexture = { nullptr };
+
+  001fd	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00204	48 c7 80 88 04
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+1160], 0
+
+; 99   : 
+; 100  : 	//타겟 이미지
+; 101  : 	_bool m_bTargetImageRender = false;
 
   0020f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00216	c6 80 88 04 00
-	00 00		 mov	 BYTE PTR [rax+1160], 0
+  00216	c6 80 90 04 00
+	00 00		 mov	 BYTE PTR [rax+1168], 0
 
-; 101  : 	CVIBuffer_Rect* m_pTargetVIBuffer = { nullptr };
+; 102  : 	CVIBuffer_Rect* m_pTargetVIBuffer = { nullptr };
 
   0021d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00224	48 c7 80 90 04
-	00 00 00 00 00
-	00		 mov	 QWORD PTR [rax+1168], 0
-
-; 102  : 	CTexture*		m_pTargetTexture = { nullptr };
-
-  0022f	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00236	48 c7 80 98 04
+  00224	48 c7 80 98 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1176], 0
 
-; 103  : 
-; 104  : 	//콤보 이미지
-; 105  : 	CVIBuffer_Rect* m_pComboNumberBuffer = { nullptr };
+; 103  : 	CTexture*		m_pTargetTexture = { nullptr };
 
-  00241	48 8b 85 00 01
+  0022f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00248	48 c7 80 a0 04
+  00236	48 c7 80 a0 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1184], 0
 
-; 106  : 	CTexture*		m_pComboNumberTexture[10] = { nullptr };
+; 104  : 
+; 105  : 	//콤보 이미지
+; 106  : 	CVIBuffer_Rect* m_pComboNumberBuffer = { nullptr };
+
+  00241	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00248	48 c7 80 a8 04
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+1192], 0
+
+; 107  : 	CTexture*		m_pComboNumberTexture[10] = { nullptr };
 
   00253	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0025a	48 c7 80 a8 04
+  0025a	48 c7 80 b0 04
 	00 00 00 00 00
-	00		 mov	 QWORD PTR [rax+1192], 0
+	00		 mov	 QWORD PTR [rax+1200], 0
   00265	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0026c	48 05 b0 04 00
-	00		 add	 rax, 1200		; 000004b0H
+  0026c	48 05 b8 04 00
+	00		 add	 rax, 1208		; 000004b8H
   00272	48 8b f8	 mov	 rdi, rax
   00275	33 c0		 xor	 eax, eax
   00277	b9 48 00 00 00	 mov	 ecx, 72			; 00000048H
   0027c	f3 aa		 rep stosb
 
-; 107  : 
-; 108  : 	CVIBuffer_Rect* m_pComboBuffer = { nullptr };
+; 108  : 
+; 109  : 	CVIBuffer_Rect* m_pComboBuffer = { nullptr };
 
   0027e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00285	48 c7 80 f8 04
-	00 00 00 00 00
-	00		 mov	 QWORD PTR [rax+1272], 0
-
-; 109  : 	CTexture*		m_pComboTexture = { nullptr };
-
-  00290	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00297	48 c7 80 00 05
+  00285	48 c7 80 00 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1280], 0
 
-; 110  : 
-; 111  : 	CVIBuffer_Rect* m_pComboGageBuffer = { nullptr };
+; 110  : 	CTexture*		m_pComboTexture = { nullptr };
 
-  002a2	48 8b 85 00 01
+  00290	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002a9	48 c7 80 08 05
+  00297	48 c7 80 08 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1288], 0
 
-; 112  : 	CTexture*		m_pComboGageTexture = { nullptr };
+; 111  : 
+; 112  : 	CVIBuffer_Rect* m_pComboGageBuffer = { nullptr };
 
-  002b4	48 8b 85 00 01
+  002a2	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002bb	48 c7 80 10 05
+  002a9	48 c7 80 10 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1296], 0
 
-; 113  : 
-; 114  : 	//변신 게이지
-; 115  : 	CVIBuffer_Rect* m_pEvolutionGageBuffer = { nullptr };
+; 113  : 	CTexture*		m_pComboGageTexture = { nullptr };
 
-  002c6	48 8b 85 00 01
+  002b4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002cd	48 c7 80 18 05
+  002bb	48 c7 80 18 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1304], 0
 
-; 116  : 	CTexture*		m_pEvolutionGageBackTexture = { nullptr };
+; 114  : 
+; 115  : 	//변신 게이지
+; 116  : 	CVIBuffer_Rect* m_pEvolutionGageBuffer = { nullptr };
 
-  002d8	48 8b 85 00 01
+  002c6	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002df	48 c7 80 20 05
+  002cd	48 c7 80 20 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1312], 0
 
-; 117  : 	CTexture*		m_pEvolutionGageFrontTexture = { nullptr };
+; 117  : 	CTexture*		m_pEvolutionGageBackTexture = { nullptr };
 
-  002ea	48 8b 85 00 01
+  002d8	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002f1	48 c7 80 28 05
+  002df	48 c7 80 28 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1320], 0
 
-; 118  : 
-; 119  : 	//변신 버튼
-; 120  : 	CVIBuffer_Rect* m_pEvolutionButtonBuffer = { nullptr };
+; 118  : 	CTexture*		m_pEvolutionGageFrontTexture = { nullptr };
 
-  002fc	48 8b 85 00 01
+  002ea	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00303	48 c7 80 30 05
+  002f1	48 c7 80 30 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1328], 0
 
-; 121  : 	CTexture*		m_pEvolutionButtonTexture = { nullptr };
+; 119  : 
+; 120  : 	//변신 버튼
+; 121  : 	CVIBuffer_Rect* m_pEvolutionButtonBuffer = { nullptr };
 
-  0030e	48 8b 85 00 01
+  002fc	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00315	48 c7 80 38 05
+  00303	48 c7 80 38 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1336], 0
 
-; 122  : 
-; 123  : private:
-; 124  : 	_bool m_bRender = true;
+; 122  : 	CTexture*		m_pEvolutionButtonTexture = { nullptr };
+
+  0030e	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00315	48 c7 80 40 05
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+1344], 0
+
+; 123  : 
+; 124  : private:
+; 125  : 	_bool m_bRender = true;
 
   00320	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00327	c6 80 40 05 00
-	00 01		 mov	 BYTE PTR [rax+1344], 1
+  00327	c6 80 48 05 00
+	00 01		 mov	 BYTE PTR [rax+1352], 1
 
-; 125  : 	class CCharacter* m_pPlayer = nullptr;
+; 126  : 	class CCharacter* m_pPlayer = nullptr;
 
   0032e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00335	48 c7 80 48 05
+  00335	48 c7 80 50 05
 	00 00 00 00 00
-	00		 mov	 QWORD PTR [rax+1352], 0
+	00		 mov	 QWORD PTR [rax+1360], 0
 
-; 126  : 
-; 127  : 	_bool m_bComboRender = true;
+; 127  : 
+; 128  : 	_bool m_bComboRender = true;
 
   00340	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00347	c6 80 50 05 00
-	00 01		 mov	 BYTE PTR [rax+1360], 1
+  00347	c6 80 58 05 00
+	00 01		 mov	 BYTE PTR [rax+1368], 1
 
-; 128  : 	_int m_iCombo = 0;
+; 129  : 	_int m_iCombo = 0;
 
   0034e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00355	c7 80 54 05 00
-	00 00 00 00 00	 mov	 DWORD PTR [rax+1364], 0
+  00355	c7 80 5c 05 00
+	00 00 00 00 00	 mov	 DWORD PTR [rax+1372], 0
 
-; 129  : 
-; 130  : 	//콤보 게이지
-; 131  : 	_float m_fFill = 1.f;
+; 130  : 
+; 131  : 	//콤보 게이지
+; 132  : 	_float m_fFill = 1.f;
 
   0035f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00366	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
-  0036e	f3 0f 11 80 58
-	05 00 00	 movss	 DWORD PTR [rax+1368], xmm0
+  0036e	f3 0f 11 80 60
+	05 00 00	 movss	 DWORD PTR [rax+1376], xmm0
 
-; 132  : 	_float m_fComboCurTime = 0.0f;
+; 133  : 	_float m_fComboCurTime = 0.0f;
 
   00376	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0037d	0f 57 c0	 xorps	 xmm0, xmm0
-  00380	f3 0f 11 80 5c
-	05 00 00	 movss	 DWORD PTR [rax+1372], xmm0
+  00380	f3 0f 11 80 64
+	05 00 00	 movss	 DWORD PTR [rax+1380], xmm0
 
-; 133  : 	const _float m_fComboTimeOut = 3.5f;
+; 134  : 	const _float m_fComboTimeOut = 3.5f;
 
   00388	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0038f	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40600000
-  00397	f3 0f 11 80 60
-	05 00 00	 movss	 DWORD PTR [rax+1376], xmm0
+  00397	f3 0f 11 80 68
+	05 00 00	 movss	 DWORD PTR [rax+1384], xmm0
 
-; 134  : 
-; 135  : 	//분노 게이지
-; 136  : 	_float m_fEvolutionGageFill = 1.f;
+; 135  : 
+; 136  : 	//분노 게이지
+; 137  : 	_float m_fEvolutionGageFill = 1.f;
 
   0039f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003a6	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
-  003ae	f3 0f 11 80 64
-	05 00 00	 movss	 DWORD PTR [rax+1380], xmm0
+  003ae	f3 0f 11 80 6c
+	05 00 00	 movss	 DWORD PTR [rax+1388], xmm0
 
-; 137  : 
-; 138  : 	//쉐이크
-; 139  : 	_float m_fShakeX = 0.f;//이전위치 기록
+; 138  : 
+; 139  : 	//쉐이크
+; 140  : 	_float m_fShakeX = 0.f;//이전위치 기록
 
   003b6	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003bd	0f 57 c0	 xorps	 xmm0, xmm0
-  003c0	f3 0f 11 80 68
-	05 00 00	 movss	 DWORD PTR [rax+1384], xmm0
+  003c0	f3 0f 11 80 70
+	05 00 00	 movss	 DWORD PTR [rax+1392], xmm0
 
-; 140  : 	_float m_fShakeY = 0.f;//이전위치 기록
+; 141  : 	_float m_fShakeY = 0.f;//이전위치 기록
 
   003c8	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003cf	0f 57 c0	 xorps	 xmm0, xmm0
-  003d2	f3 0f 11 80 6c
-	05 00 00	 movss	 DWORD PTR [rax+1388], xmm0
+  003d2	f3 0f 11 80 74
+	05 00 00	 movss	 DWORD PTR [rax+1396], xmm0
 
-; 141  : 	_bool m_isShake = false;
+; 142  : 	_bool m_isShake = false;
 
   003da	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003e1	c6 80 70 05 00
-	00 00		 mov	 BYTE PTR [rax+1392], 0
+  003e1	c6 80 78 05 00
+	00 00		 mov	 BYTE PTR [rax+1400], 0
 
-; 142  : 	_float m_fShakeAcc = 0.f;
+; 143  : 	_float m_fShakeAcc = 0.f;
 
   003e8	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003ef	0f 57 c0	 xorps	 xmm0, xmm0
-  003f2	f3 0f 11 80 74
-	05 00 00	 movss	 DWORD PTR [rax+1396], xmm0
+  003f2	f3 0f 11 80 7c
+	05 00 00	 movss	 DWORD PTR [rax+1404], xmm0
 
-; 143  : 	const _float m_fShakeTimeOut = 2.5f;
+; 144  : 	const _float m_fShakeTimeOut = 2.5f;
 
   003fa	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00401	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40200000
-  00409	f3 0f 11 80 78
-	05 00 00	 movss	 DWORD PTR [rax+1400], xmm0
+  00409	f3 0f 11 80 80
+	05 00 00	 movss	 DWORD PTR [rax+1408], xmm0
 
-; 144  : 
-; 145  : 	_bool m_bMaxAlpha = false;
+; 145  : 
+; 146  : 	_bool m_bMaxAlpha = false;
 
   00411	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00418	c6 80 7c 05 00
-	00 00		 mov	 BYTE PTR [rax+1404], 0
+  00418	c6 80 84 05 00
+	00 00		 mov	 BYTE PTR [rax+1412], 0
 
-; 146  : 	_float m_fEvolutionAlpha = 1.f;
+; 147  : 	_float m_fEvolutionAlpha = 1.f;
 
   0041f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00426	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
-  0042e	f3 0f 11 80 80
-	05 00 00	 movss	 DWORD PTR [rax+1408], xmm0
+  0042e	f3 0f 11 80 88
+	05 00 00	 movss	 DWORD PTR [rax+1416], xmm0
 ; File c:\users\arcco\documents\github\framework\client\private\playericon.cpp
 
 ; 17   : }
@@ -20513,48 +20518,48 @@ $LN4:
   00069	48 89 08	 mov	 QWORD PTR [rax], rcx
   0006c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00073	48 05 88 00 00
-	00		 add	 rax, 136		; 00000088H
+  00073	48 05 8c 00 00
+	00		 add	 rax, 140		; 0000008cH
   00079	48 8b c8	 mov	 rcx, rax
   0007c	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   00081	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00088	48 05 c8 00 00
-	00		 add	 rax, 200		; 000000c8H
+  00088	48 05 cc 00 00
+	00		 add	 rax, 204		; 000000ccH
   0008e	48 8b c8	 mov	 rcx, rax
   00091	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   00096	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0009d	48 05 08 01 00
-	00		 add	 rax, 264		; 00000108H
+  0009d	48 05 0c 01 00
+	00		 add	 rax, 268		; 0000010cH
   000a3	48 8b c8	 mov	 rcx, rax
   000a6	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   000ab	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000b2	48 05 48 01 00
-	00		 add	 rax, 328		; 00000148H
+  000b2	48 05 4c 01 00
+	00		 add	 rax, 332		; 0000014cH
   000b8	48 8b c8	 mov	 rcx, rax
   000bb	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   000c0	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000c7	48 05 88 01 00
-	00		 add	 rax, 392		; 00000188H
+  000c7	48 05 8c 01 00
+	00		 add	 rax, 396		; 0000018cH
   000cd	48 8b c8	 mov	 rcx, rax
   000d0	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
 ; File c:\users\arcco\documents\github\framework\client\public\playericon.h
 
-; 59   : 	_float		m_fOriginComboNumX = 150.f;
+; 60   : 	_float		m_fOriginComboNumX = 150.f;
 
   000d5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000dc	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@43160000
-  000e4	f3 0f 11 80 d8
-	01 00 00	 movss	 DWORD PTR [rax+472], xmm0
+  000e4	f3 0f 11 80 dc
+	01 00 00	 movss	 DWORD PTR [rax+476], xmm0
   000ec	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000f3	48 05 dc 01 00
-	00		 add	 rax, 476		; 000001dcH
+  000f3	48 05 e0 01 00
+	00		 add	 rax, 480		; 000001e0H
   000f9	4c 8d 0d 00 00
 	00 00		 lea	 r9, OFFSET FLAT:??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   00100	41 b8 04 00 00
@@ -20568,374 +20573,374 @@ $LN4:
 
   00113	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0011a	48 05 e8 02 00
-	00		 add	 rax, 744		; 000002e8H
+  0011a	48 05 ec 02 00
+	00		 add	 rax, 748		; 000002ecH
   00120	48 8b c8	 mov	 rcx, rax
   00123	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   00128	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0012f	48 05 38 03 00
-	00		 add	 rax, 824		; 00000338H
+  0012f	48 05 3c 03 00
+	00		 add	 rax, 828		; 0000033cH
   00135	48 8b c8	 mov	 rcx, rax
   00138	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   0013d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00144	48 05 a8 03 00
-	00		 add	 rax, 936		; 000003a8H
+  00144	48 05 ac 03 00
+	00		 add	 rax, 940		; 000003acH
   0014a	48 8b c8	 mov	 rcx, rax
   0014d	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
   00152	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00159	48 05 f8 03 00
-	00		 add	 rax, 1016		; 000003f8H
+  00159	48 05 fc 03 00
+	00		 add	 rax, 1020		; 000003fcH
   0015f	48 8b c8	 mov	 rcx, rax
   00162	e8 00 00 00 00	 call	 ??0XMFLOAT4X4@DirectX@@QEAA@XZ ; DirectX::XMFLOAT4X4::XMFLOAT4X4
 ; File c:\users\arcco\documents\github\framework\client\public\playericon.h
 
-; 82   : 	CRenderer*		m_pRenderer = { nullptr };
+; 83   : 	CRenderer*		m_pRenderer = { nullptr };
 
   00167	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0016e	48 c7 80 38 04
-	00 00 00 00 00
-	00		 mov	 QWORD PTR [rax+1080], 0
-
-; 83   : 	CShader*		m_pShader = { nullptr };
-
-  00179	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00180	48 c7 80 40 04
+  0016e	48 c7 80 40 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1088], 0
 
-; 84   : 
-; 85   : 	//백그라운드 아이콘
-; 86   : 	CVIBuffer_Rect* m_pBackVIBuffer = { nullptr };
+; 84   : 	CShader*		m_pShader = { nullptr };
 
-  0018b	48 8b 85 00 01
+  00179	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00192	48 c7 80 48 04
+  00180	48 c7 80 48 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1096], 0
 
-; 87   : 	CTexture*		m_pBackTexture = { nullptr };
+; 85   : 
+; 86   : 	//백그라운드 아이콘
+; 87   : 	CVIBuffer_Rect* m_pBackVIBuffer = { nullptr };
 
-  0019d	48 8b 85 00 01
+  0018b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001a4	48 c7 80 50 04
+  00192	48 c7 80 50 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1104], 0
 
-; 88   : 
-; 89   : 	//아이콘
-; 90   : 	CVIBuffer_Rect* m_pAttackVIBuffer = { nullptr };
+; 88   : 	CTexture*		m_pBackTexture = { nullptr };
 
-  001af	48 8b 85 00 01
+  0019d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001b6	48 c7 80 58 04
+  001a4	48 c7 80 58 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1112], 0
 
-; 91   : 	CTexture*		m_pAttackTexture = { nullptr };
+; 89   : 
+; 90   : 	//아이콘
+; 91   : 	CVIBuffer_Rect* m_pAttackVIBuffer = { nullptr };
 
-  001c1	48 8b 85 00 01
+  001af	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001c8	48 c7 80 60 04
+  001b6	48 c7 80 60 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1120], 0
 
-; 92   : 
-; 93   : 	CVIBuffer_Rect* m_pDashVIBuffer = { nullptr };
+; 92   : 	CTexture*		m_pAttackTexture = { nullptr };
 
-  001d3	48 8b 85 00 01
+  001c1	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001da	48 c7 80 68 04
+  001c8	48 c7 80 68 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1128], 0
 
-; 94   : 	CTexture*		m_pDashTexture = { nullptr };
+; 93   : 
+; 94   : 	CVIBuffer_Rect* m_pDashVIBuffer = { nullptr };
 
-  001e5	48 8b 85 00 01
+  001d3	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001ec	48 c7 80 70 04
+  001da	48 c7 80 70 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1136], 0
 
-; 95   : 
-; 96   : 	CVIBuffer_Rect* m_pEvolutionVIBuffer = { nullptr };
+; 95   : 	CTexture*		m_pDashTexture = { nullptr };
 
-  001f7	48 8b 85 00 01
+  001e5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001fe	48 c7 80 78 04
+  001ec	48 c7 80 78 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1144], 0
 
-; 97   : 	CTexture*		m_pEvolutionTexture = { nullptr };
+; 96   : 
+; 97   : 	CVIBuffer_Rect* m_pEvolutionVIBuffer = { nullptr };
 
-  00209	48 8b 85 00 01
+  001f7	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00210	48 c7 80 80 04
+  001fe	48 c7 80 80 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1152], 0
 
-; 98   : 
-; 99   : 	//타겟 이미지
-; 100  : 	_bool m_bTargetImageRender = false;
+; 98   : 	CTexture*		m_pEvolutionTexture = { nullptr };
+
+  00209	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00210	48 c7 80 88 04
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+1160], 0
+
+; 99   : 
+; 100  : 	//타겟 이미지
+; 101  : 	_bool m_bTargetImageRender = false;
 
   0021b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00222	c6 80 88 04 00
-	00 00		 mov	 BYTE PTR [rax+1160], 0
+  00222	c6 80 90 04 00
+	00 00		 mov	 BYTE PTR [rax+1168], 0
 
-; 101  : 	CVIBuffer_Rect* m_pTargetVIBuffer = { nullptr };
+; 102  : 	CVIBuffer_Rect* m_pTargetVIBuffer = { nullptr };
 
   00229	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00230	48 c7 80 90 04
-	00 00 00 00 00
-	00		 mov	 QWORD PTR [rax+1168], 0
-
-; 102  : 	CTexture*		m_pTargetTexture = { nullptr };
-
-  0023b	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00242	48 c7 80 98 04
+  00230	48 c7 80 98 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1176], 0
 
-; 103  : 
-; 104  : 	//콤보 이미지
-; 105  : 	CVIBuffer_Rect* m_pComboNumberBuffer = { nullptr };
+; 103  : 	CTexture*		m_pTargetTexture = { nullptr };
 
-  0024d	48 8b 85 00 01
+  0023b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00254	48 c7 80 a0 04
+  00242	48 c7 80 a0 04
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1184], 0
 
-; 106  : 	CTexture*		m_pComboNumberTexture[10] = { nullptr };
+; 104  : 
+; 105  : 	//콤보 이미지
+; 106  : 	CVIBuffer_Rect* m_pComboNumberBuffer = { nullptr };
+
+  0024d	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00254	48 c7 80 a8 04
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+1192], 0
+
+; 107  : 	CTexture*		m_pComboNumberTexture[10] = { nullptr };
 
   0025f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00266	48 c7 80 a8 04
+  00266	48 c7 80 b0 04
 	00 00 00 00 00
-	00		 mov	 QWORD PTR [rax+1192], 0
+	00		 mov	 QWORD PTR [rax+1200], 0
   00271	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00278	48 05 b0 04 00
-	00		 add	 rax, 1200		; 000004b0H
+  00278	48 05 b8 04 00
+	00		 add	 rax, 1208		; 000004b8H
   0027e	48 8b f8	 mov	 rdi, rax
   00281	33 c0		 xor	 eax, eax
   00283	b9 48 00 00 00	 mov	 ecx, 72			; 00000048H
   00288	f3 aa		 rep stosb
 
-; 107  : 
-; 108  : 	CVIBuffer_Rect* m_pComboBuffer = { nullptr };
+; 108  : 
+; 109  : 	CVIBuffer_Rect* m_pComboBuffer = { nullptr };
 
   0028a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00291	48 c7 80 f8 04
-	00 00 00 00 00
-	00		 mov	 QWORD PTR [rax+1272], 0
-
-; 109  : 	CTexture*		m_pComboTexture = { nullptr };
-
-  0029c	48 8b 85 00 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002a3	48 c7 80 00 05
+  00291	48 c7 80 00 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1280], 0
 
-; 110  : 
-; 111  : 	CVIBuffer_Rect* m_pComboGageBuffer = { nullptr };
+; 110  : 	CTexture*		m_pComboTexture = { nullptr };
 
-  002ae	48 8b 85 00 01
+  0029c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002b5	48 c7 80 08 05
+  002a3	48 c7 80 08 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1288], 0
 
-; 112  : 	CTexture*		m_pComboGageTexture = { nullptr };
+; 111  : 
+; 112  : 	CVIBuffer_Rect* m_pComboGageBuffer = { nullptr };
 
-  002c0	48 8b 85 00 01
+  002ae	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002c7	48 c7 80 10 05
+  002b5	48 c7 80 10 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1296], 0
 
-; 113  : 
-; 114  : 	//변신 게이지
-; 115  : 	CVIBuffer_Rect* m_pEvolutionGageBuffer = { nullptr };
+; 113  : 	CTexture*		m_pComboGageTexture = { nullptr };
 
-  002d2	48 8b 85 00 01
+  002c0	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002d9	48 c7 80 18 05
+  002c7	48 c7 80 18 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1304], 0
 
-; 116  : 	CTexture*		m_pEvolutionGageBackTexture = { nullptr };
+; 114  : 
+; 115  : 	//변신 게이지
+; 116  : 	CVIBuffer_Rect* m_pEvolutionGageBuffer = { nullptr };
 
-  002e4	48 8b 85 00 01
+  002d2	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002eb	48 c7 80 20 05
+  002d9	48 c7 80 20 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1312], 0
 
-; 117  : 	CTexture*		m_pEvolutionGageFrontTexture = { nullptr };
+; 117  : 	CTexture*		m_pEvolutionGageBackTexture = { nullptr };
 
-  002f6	48 8b 85 00 01
+  002e4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002fd	48 c7 80 28 05
+  002eb	48 c7 80 28 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1320], 0
 
-; 118  : 
-; 119  : 	//변신 버튼
-; 120  : 	CVIBuffer_Rect* m_pEvolutionButtonBuffer = { nullptr };
+; 118  : 	CTexture*		m_pEvolutionGageFrontTexture = { nullptr };
 
-  00308	48 8b 85 00 01
+  002f6	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0030f	48 c7 80 30 05
+  002fd	48 c7 80 30 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1328], 0
 
-; 121  : 	CTexture*		m_pEvolutionButtonTexture = { nullptr };
+; 119  : 
+; 120  : 	//변신 버튼
+; 121  : 	CVIBuffer_Rect* m_pEvolutionButtonBuffer = { nullptr };
 
-  0031a	48 8b 85 00 01
+  00308	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00321	48 c7 80 38 05
+  0030f	48 c7 80 38 05
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+1336], 0
 
-; 122  : 
-; 123  : private:
-; 124  : 	_bool m_bRender = true;
+; 122  : 	CTexture*		m_pEvolutionButtonTexture = { nullptr };
+
+  0031a	48 8b 85 00 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00321	48 c7 80 40 05
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+1344], 0
+
+; 123  : 
+; 124  : private:
+; 125  : 	_bool m_bRender = true;
 
   0032c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00333	c6 80 40 05 00
-	00 01		 mov	 BYTE PTR [rax+1344], 1
+  00333	c6 80 48 05 00
+	00 01		 mov	 BYTE PTR [rax+1352], 1
 
-; 125  : 	class CCharacter* m_pPlayer = nullptr;
+; 126  : 	class CCharacter* m_pPlayer = nullptr;
 
   0033a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00341	48 c7 80 48 05
+  00341	48 c7 80 50 05
 	00 00 00 00 00
-	00		 mov	 QWORD PTR [rax+1352], 0
+	00		 mov	 QWORD PTR [rax+1360], 0
 
-; 126  : 
-; 127  : 	_bool m_bComboRender = true;
+; 127  : 
+; 128  : 	_bool m_bComboRender = true;
 
   0034c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00353	c6 80 50 05 00
-	00 01		 mov	 BYTE PTR [rax+1360], 1
+  00353	c6 80 58 05 00
+	00 01		 mov	 BYTE PTR [rax+1368], 1
 
-; 128  : 	_int m_iCombo = 0;
+; 129  : 	_int m_iCombo = 0;
 
   0035a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00361	c7 80 54 05 00
-	00 00 00 00 00	 mov	 DWORD PTR [rax+1364], 0
+  00361	c7 80 5c 05 00
+	00 00 00 00 00	 mov	 DWORD PTR [rax+1372], 0
 
-; 129  : 
-; 130  : 	//콤보 게이지
-; 131  : 	_float m_fFill = 1.f;
+; 130  : 
+; 131  : 	//콤보 게이지
+; 132  : 	_float m_fFill = 1.f;
 
   0036b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00372	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
-  0037a	f3 0f 11 80 58
-	05 00 00	 movss	 DWORD PTR [rax+1368], xmm0
+  0037a	f3 0f 11 80 60
+	05 00 00	 movss	 DWORD PTR [rax+1376], xmm0
 
-; 132  : 	_float m_fComboCurTime = 0.0f;
+; 133  : 	_float m_fComboCurTime = 0.0f;
 
   00382	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00389	0f 57 c0	 xorps	 xmm0, xmm0
-  0038c	f3 0f 11 80 5c
-	05 00 00	 movss	 DWORD PTR [rax+1372], xmm0
+  0038c	f3 0f 11 80 64
+	05 00 00	 movss	 DWORD PTR [rax+1380], xmm0
 
-; 133  : 	const _float m_fComboTimeOut = 3.5f;
+; 134  : 	const _float m_fComboTimeOut = 3.5f;
 
   00394	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0039b	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40600000
-  003a3	f3 0f 11 80 60
-	05 00 00	 movss	 DWORD PTR [rax+1376], xmm0
+  003a3	f3 0f 11 80 68
+	05 00 00	 movss	 DWORD PTR [rax+1384], xmm0
 
-; 134  : 
-; 135  : 	//분노 게이지
-; 136  : 	_float m_fEvolutionGageFill = 1.f;
+; 135  : 
+; 136  : 	//분노 게이지
+; 137  : 	_float m_fEvolutionGageFill = 1.f;
 
   003ab	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003b2	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
-  003ba	f3 0f 11 80 64
-	05 00 00	 movss	 DWORD PTR [rax+1380], xmm0
+  003ba	f3 0f 11 80 6c
+	05 00 00	 movss	 DWORD PTR [rax+1388], xmm0
 
-; 137  : 
-; 138  : 	//쉐이크
-; 139  : 	_float m_fShakeX = 0.f;//이전위치 기록
+; 138  : 
+; 139  : 	//쉐이크
+; 140  : 	_float m_fShakeX = 0.f;//이전위치 기록
 
   003c2	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003c9	0f 57 c0	 xorps	 xmm0, xmm0
-  003cc	f3 0f 11 80 68
-	05 00 00	 movss	 DWORD PTR [rax+1384], xmm0
+  003cc	f3 0f 11 80 70
+	05 00 00	 movss	 DWORD PTR [rax+1392], xmm0
 
-; 140  : 	_float m_fShakeY = 0.f;//이전위치 기록
+; 141  : 	_float m_fShakeY = 0.f;//이전위치 기록
 
   003d4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003db	0f 57 c0	 xorps	 xmm0, xmm0
-  003de	f3 0f 11 80 6c
-	05 00 00	 movss	 DWORD PTR [rax+1388], xmm0
+  003de	f3 0f 11 80 74
+	05 00 00	 movss	 DWORD PTR [rax+1396], xmm0
 
-; 141  : 	_bool m_isShake = false;
+; 142  : 	_bool m_isShake = false;
 
   003e6	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003ed	c6 80 70 05 00
-	00 00		 mov	 BYTE PTR [rax+1392], 0
+  003ed	c6 80 78 05 00
+	00 00		 mov	 BYTE PTR [rax+1400], 0
 
-; 142  : 	_float m_fShakeAcc = 0.f;
+; 143  : 	_float m_fShakeAcc = 0.f;
 
   003f4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003fb	0f 57 c0	 xorps	 xmm0, xmm0
-  003fe	f3 0f 11 80 74
-	05 00 00	 movss	 DWORD PTR [rax+1396], xmm0
+  003fe	f3 0f 11 80 7c
+	05 00 00	 movss	 DWORD PTR [rax+1404], xmm0
 
-; 143  : 	const _float m_fShakeTimeOut = 2.5f;
+; 144  : 	const _float m_fShakeTimeOut = 2.5f;
 
   00406	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0040d	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@40200000
-  00415	f3 0f 11 80 78
-	05 00 00	 movss	 DWORD PTR [rax+1400], xmm0
+  00415	f3 0f 11 80 80
+	05 00 00	 movss	 DWORD PTR [rax+1408], xmm0
 
-; 144  : 
-; 145  : 	_bool m_bMaxAlpha = false;
+; 145  : 
+; 146  : 	_bool m_bMaxAlpha = false;
 
   0041d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00424	c6 80 7c 05 00
-	00 00		 mov	 BYTE PTR [rax+1404], 0
+  00424	c6 80 84 05 00
+	00 00		 mov	 BYTE PTR [rax+1412], 0
 
-; 146  : 	_float m_fEvolutionAlpha = 1.f;
+; 147  : 	_float m_fEvolutionAlpha = 1.f;
 
   0042b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00432	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
-  0043a	f3 0f 11 80 80
-	05 00 00	 movss	 DWORD PTR [rax+1408], xmm0
+  0043a	f3 0f 11 80 88
+	05 00 00	 movss	 DWORD PTR [rax+1416], xmm0
 ; File c:\users\arcco\documents\github\framework\client\private\playericon.cpp
 
 ; 12   : }

@@ -190,6 +190,8 @@
     <ClInclude Include="..\Public\Client_Defines.h" />
     <ClInclude Include="..\public\DamageFont.h" />
     <ClInclude Include="..\public\EnemySpawner.h" />
+    <ClInclude Include="..\public\FloorCircle.h" />
+    <ClInclude Include="..\public\Flower.h" />
     <ClInclude Include="..\public\PlayerHealthBar.h" />
     <ClInclude Include="..\Public\PlayerIcon.h" />
     <ClInclude Include="..\public\SkillBallSystem.h" />
@@ -208,6 +210,7 @@
     <ClInclude Include="..\public\PlayerCamera.h" />
     <ClInclude Include="..\public\SkillBase.h" />
     <ClInclude Include="..\public\Skybox.h" />
+    <ClInclude Include="..\Public\SpawnEffect.h" />
     <ClInclude Include="..\public\StageCollisionManager.h" />
     <ClInclude Include="..\Public\SwordTrail.h" />
     <ClInclude Include="..\public\Thorn.h" />
@@ -255,6 +258,8 @@
     <ClCompile Include="..\Private\BossRoom.cpp" />
     <ClCompile Include="..\private\DamageFont.cpp" />
     <ClCompile Include="..\private\EnemySpawner.cpp" />
+    <ClCompile Include="..\private\FloorCircle.cpp" />
+    <ClCompile Include="..\private\Flower.cpp" />
     <ClCompile Include="..\private\PlayerHealthBar.cpp" />
     <ClCompile Include="..\Private\PlayerIcon.cpp" />
     <ClCompile Include="..\private\SkillBallSystem.cpp" />
@@ -273,6 +278,7 @@
     <ClCompile Include="..\private\PlayerCamera.cpp" />
     <ClCompile Include="..\private\SkillBase.cpp" />
     <ClCompile Include="..\private\Skybox.cpp" />
+    <ClCompile Include="..\Private\SpawnEffect.cpp" />
     <ClCompile Include="..\private\StageCollisionManager.cpp" />
     <ClCompile Include="..\Private\SwordTrail.cpp" />
     <ClCompile Include="..\private\Thorn.cpp" />
@@ -294,16 +300,22 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\..\Shader\SHADER_ALPHA.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_BLUR.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_DISTORTION.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_FREEZEAREA.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_GROUD.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_PHONG.hlsl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_POSTEFFECT.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_SPAWNEFFECT.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_SWORDTRAIL.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_THORNTRAIL.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_UI.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXANIMMODEL.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXCUBE.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_VTXINSTANCE_RECT.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXMODEL.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXNORTEX.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_VTXTEX.hlsl" />

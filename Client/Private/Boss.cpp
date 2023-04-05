@@ -137,6 +137,24 @@ HRESULT CBoss::Initialize(void * pArg)
 	for (int i = 0; i < 3; ++i)
 	{
 		_tchar pName[MAX_PATH] = L"";
+		wsprintfW(pName, L"thornMissilerr_%d", i);
+		if (nullptr == (m_pThornMissileRRR[i] = static_cast<CThorn*>(pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_thorn", L"layer_effect", pName))))
+			return E_FAIL;
+
+		m_pThornMissileRRR[i]->SetType(CThorn::TYPE::MISSILE);
+	}
+	for (int i = 0; i < 3; ++i)
+	{
+		_tchar pName[MAX_PATH] = L"";
+		wsprintfW(pName, L"thornMissilell_%d", i);
+		if (nullptr == (m_pThornMissileLLL[i] = static_cast<CThorn*>(pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_thorn", L"layer_effect", pName))))
+			return E_FAIL;
+
+		m_pThornMissileLLL[i]->SetType(CThorn::TYPE::MISSILE);
+	}
+	for (int i = 0; i < 3; ++i)
+	{
+		_tchar pName[MAX_PATH] = L"";
 		wsprintfW(pName, L"thornMissileLeft_%d", i);
 		if (nullptr == (m_pThornMissileLeft[i] = static_cast<CThorn*>(pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_thorn", L"layer_effect", pName))))
 			return E_FAIL;
@@ -160,6 +178,31 @@ HRESULT CBoss::Initialize(void * pArg)
 			return E_FAIL;
 
 		m_pThornMissileRight[i]->SetType(CThorn::TYPE::MISSILE);
+	}
+
+	for (int i = 0; i < 3; ++i)
+	{
+		_tchar pName[MAX_PATH] = L"";
+		wsprintfW(pName, L"thornMissileBLeft_%d", i);
+		if (nullptr == (m_pThornMissileBackLeft[i] = static_cast<CThorn*>(pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_thorn", L"layer_effect", pName))))
+			return E_FAIL;
+		m_pThornMissileBackLeft[i]->SetType(CThorn::TYPE::MISSILE);
+	}
+	for (int i = 0; i < 3; ++i)
+	{
+		_tchar pName[MAX_PATH] = L"";
+		wsprintfW(pName, L"thornMissileBMiddle_%d", i);
+		if (nullptr == (m_pThornMissileBackMiddle[i] = static_cast<CThorn*>(pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_thorn", L"layer_effect", pName))))
+			return E_FAIL;
+		m_pThornMissileBackMiddle[i]->SetType(CThorn::TYPE::MISSILE);
+	}
+	for (int i = 0; i < 3; ++i)
+	{
+		_tchar pName[MAX_PATH] = L"";
+		wsprintfW(pName, L"thornMissileBRight_%d", i);
+		if (nullptr == (m_pThornMissileBackRight[i] = static_cast<CThorn*>(pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_thorn", L"layer_effect", pName))))
+			return E_FAIL;
+		m_pThornMissileBackRight[i]->SetType(CThorn::TYPE::MISSILE);
 	}
 
 	//근접공격용 가시
@@ -235,10 +278,50 @@ void CBoss::Tick(_double TimeDelta)
 	m_bAlpha = false;
 	TimeDelta = Freeze(TimeDelta);
 	
+	if (m_bEvolutionFinish)
+		m_fVisibleTime += TimeDelta;
+
+	{//가시에게 타임델타 부여
+	
+		for (int i = 0; i < 9; ++i)
+		{
+			m_pThornCloseRightFront[i]->SetTimeDelta(TimeDelta);
+			m_pThornCloseLeftFront[i]->SetTimeDelta(TimeDelta);
+			m_pThornCloseFront[i]->SetTimeDelta(TimeDelta);
+			m_pThornCloseRight[i]->SetTimeDelta(TimeDelta);
+			m_pThornCloseLeft[i]->SetTimeDelta(TimeDelta);
+			m_pThornClose[i]->SetTimeDelta(TimeDelta);
+		}
+
+
+		for (int i = 0; i < 3; ++i)
+		{
+			m_pThornMissileLeft[i]->SetTimeDelta(TimeDelta);
+			m_pThornMissileMiddle[i]->SetTimeDelta(TimeDelta);
+			m_pThornMissileRight[i]->SetTimeDelta(TimeDelta);
+			m_pThornMissileRRR[i]->SetTimeDelta(TimeDelta);
+			m_pThornMissileLLL[i]->SetTimeDelta(TimeDelta);
+			m_pThornMissileBackLeft[i]->SetTimeDelta(TimeDelta);
+			m_pThornMissileBackMiddle[i]->SetTimeDelta(TimeDelta);
+			m_pThornMissileBackRight[i]->SetTimeDelta(TimeDelta);
+		}
+
+		for (int i = 0; i < 6; ++i)
+		{
+			for (int j = 0; j < 25; j++)
+			{
+				m_pThorn1[j][i]->SetTimeDelta(TimeDelta);
+				m_pThorn2[j][i]->SetTimeDelta(TimeDelta);
+			}
+		}
+	}
+
 	if (!m_bDie)
 	{
 		if (m_State.fCurHp <= 0.f)
 		{
+			m_State.fCurHp = 0.f;
+
 			if (model->AnimationIsFinishEx())
 			{
 				m_bDie = true;
@@ -375,7 +458,8 @@ HRESULT CBoss::Render()
 
 	if (!m_bDead)
 	{
-		for (_uint i = 0; i < MeshCount; ++i)
+		//살아있을때
+		for (_uint i = 0; i < MeshCount - 1; ++i)
 		{
 			//몸통 -> 얘 이상하게 아래로 내려가져있어서 강제로 올림 애니메이션마다 다름
 			if (i == 0)
@@ -429,10 +513,41 @@ HRESULT CBoss::Render()
 			model->Render(i);
 
 		}
+
+		//변신했을때 상체 디졸브
+		if (m_bEvolutionFinish)
+		{
+			model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", 2, aiTextureType::aiTextureType_DIFFUSE);
+			m_pDissolveTexture->Setup_ShaderResource(shader, "g_DissolveTexture", 0);
+			shader->SetRawValue("g_fDissolveAmount", &m_fVisibleTime, sizeof(float));
+
+			model->Setup_BoneMatrices(shader, "g_BoneMatrix", 2);
+			shader->Begin(5);
+
+			model->Render(2);
+		}
+		else
+		{
+			model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", 2, aiTextureType::aiTextureType_DIFFUSE);
+			model->Setup_BoneMatrices(shader, "g_BoneMatrix", 2);
+			if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
+				return E_FAIL;
+
+			if (m_bAlpha)
+				shader->Begin(1);
+			else
+				shader->Begin(0);
+
+			model->Render(2);
+
+			//Rim
+			shader->Begin(3);
+			model->Render(2);
+		}
 	}
 	else
 	{
-		for (_uint i = 0; i < MeshCount; ++i)
+		for (_uint i = 0; i < MeshCount - 1; ++i)
 		{
 			//몸통 -> 얘 이상하게 아래로 내려가져있어서 강제로 올림 애니메이션마다 다름
 			if (i == 0)
@@ -494,6 +609,9 @@ void CBoss::RenderGUI()
 HRESULT CBoss::AddComponents()
 {
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&renderer)))
+		return E_FAIL;
+
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_freezemask2"), TEXT("com_texture_dissolve332"), (CComponent**)&m_pDissolveTexture)))
 		return E_FAIL;
 
 	CTransform::TRANSFORM_DESC TransformDesc;
@@ -1003,6 +1121,11 @@ void CBoss::Missile1(_double TimeDelta)
 					m_pThornMissileLeft[i]->SetMoveStart();
 					m_pThornMissileMiddle[i]->SetMoveStart();
 					m_pThornMissileRight[i]->SetMoveStart();
+					m_pThornMissileLLL[i]->SetMoveStart();
+					m_pThornMissileRRR[i]->SetMoveStart();
+					m_pThornMissileBackLeft[i]->SetMoveStart();
+					m_pThornMissileBackMiddle[i]->SetMoveStart();
+					m_pThornMissileBackRight[i]->SetMoveStart();
 				}
 			}
 
@@ -1014,7 +1137,7 @@ void CBoss::Missile1(_double TimeDelta)
 		}
 		else
 		{
-			enum { LEFT, MIDDLE, RIGHT };
+			enum { LEFT, MIDDLE, RIGHT, BLEFT, BMIDDLE, BRIGHT};
 			for (int i = 0; i < 3; ++i)
 			{
 				_vector vMissilePos = XMVectorSetY(vBossPos, 1.f * i + 1) + XMVector3Normalize(vPlayerDir + -vRight) * 2.f;
@@ -1031,10 +1154,52 @@ void CBoss::Missile1(_double TimeDelta)
 			}
 			for (int i = 0; i < 3; ++i)
 			{
-				_vector vMissilePos = XMVectorSetY(vBossPos, 1.f * i + 1) + XMVector3Normalize(vPlayerDir + vRight) * 2.f;
+				_vector vMissilePos = XMVectorSetY(vBossPos, 1.f * i + 1) + XMVector3Normalize(-vPlayerDir + vRight) * 2.f;
 				m_pThornMissileRight[i]->SetRotationToTarget(vPlayerDir * 2 + vRight);
 				m_pThornMissileRight[i]->SetPosition(vMissilePos);
 				m_pThornMissileRight[i]->SetupScaleUpStart(2.f);
+			}
+
+			//양옆
+			for (int i = 0; i < 3; ++i)
+			{
+				_vector vMissilePos = XMVectorSetY(vBossPos, 1.f * i + 1) + XMVector3Normalize(vRight) * 2.f;
+				m_pThornMissileRRR[i]->SetRotationToTarget(vRight);
+				m_pThornMissileRRR[i]->SetPosition(vMissilePos);
+				m_pThornMissileRRR[i]->SetupScaleUpStart(2.f);
+			}
+
+			for (int i = 0; i < 3; ++i)
+			{
+				_vector vMissilePos = XMVectorSetY(vBossPos, 1.f * i + 1) + XMVector3Normalize(-vRight) * 2.f;
+				m_pThornMissileLLL[i]->SetRotationToTarget(-vRight);
+				m_pThornMissileLLL[i]->SetPosition(vMissilePos);
+				m_pThornMissileLLL[i]->SetupScaleUpStart(2.f);
+			}
+
+			//뒤쪽
+			for (int i = 0; i < 3; ++i)
+			{
+				_vector vMissilePos = XMVectorSetY(vBossPos, 1.f * i + 1) + XMVector3Normalize(-vPlayerDir - vRight) * 2.f;
+				m_pThornMissileBackLeft[i]->SetRotationToTarget(-vPlayerDir * 2 - vRight);
+				m_pThornMissileBackLeft[i]->SetPosition(vMissilePos);
+				m_pThornMissileBackLeft[i]->SetupScaleUpStart(2.f);
+			}
+
+			for (int i = 0; i < 3; ++i)
+			{
+				_vector vMissilePos = XMVectorSetY(vBossPos, 1.f * i + 1) - vPlayerDir * 2.f;
+				m_pThornMissileBackMiddle[i]->SetRotationToTarget(-vPlayerDir);
+				m_pThornMissileBackMiddle[i]->SetPosition(vMissilePos);
+				m_pThornMissileBackMiddle[i]->SetupScaleUpStart(2.f);
+			}
+
+			for (int i = 0; i < 3; ++i)
+			{
+				_vector vMissilePos = XMVectorSetY(vBossPos, 1.f * i + 1) + XMVector3Normalize(-vPlayerDir - -vRight) * 2.f;
+				m_pThornMissileBackRight[i]->SetRotationToTarget(-vPlayerDir * 2 + vRight);
+				m_pThornMissileBackRight[i]->SetPosition(vMissilePos);
+				m_pThornMissileBackRight[i]->SetupScaleUpStart(2.f);
 			}
 		}
 	}
@@ -2438,6 +2603,7 @@ void CBoss::AnimationController(_double TimeDelta)
 {
 	if (m_bDie)
 	{
+		m_State.fCurHp = 0.f;
 		if (model->AnimationCompare(BOSS_CLIP::DEATH))
 		{
 			//m_pCamera->StartShake(5.f, 80.f, 0.8f);
@@ -2614,6 +2780,11 @@ void CBoss::Free()
 		Safe_Release(m_pThornMissileLeft[i]);
 		Safe_Release(m_pThornMissileMiddle[i]);
 		Safe_Release(m_pThornMissileRight[i]);
+		Safe_Release(m_pThornMissileBackLeft[i]);
+		Safe_Release(m_pThornMissileBackMiddle[i]);
+		Safe_Release(m_pThornMissileBackRight[i]);
+		Safe_Release(m_pThornMissileLLL[i]);
+		Safe_Release(m_pThornMissileRRR[i]);
 	}
 
 	for (int i = 0; i < 9; ++i)

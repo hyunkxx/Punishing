@@ -1,15 +1,8 @@
-﻿  Model.cpp
-  Mesh.cpp
-  GameObject.cpp
-  GameInstance.cpp
-  Component_Manager.cpp
-  Channel.cpp
-  Camera.cpp
-c:\users\arcco\documents\github\framework\engine\private\camera.cpp(102): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\engine\private\camera.cpp(103): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Base.cpp
-  Animation.cpp
-  코드를 생성하고 있습니다...
+﻿  VIBuffer_Rect_Instance.cpp
+c:\users\arcco\documents\github\framework\engine\private\vibuffer_rect_instance.cpp(23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\arcco\documents\github\framework\engine\private\vibuffer_rect_instance.cpp(133): warning C4244: '=': 'Engine::_int'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\engine\private\vibuffer_rect_instance.cpp(135): warning C4244: '인수': 'Engine::_int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\arcco\documents\github\framework\engine\private\vibuffer_rect_instance.cpp(195): warning C4244: '-=': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
      ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
 Effects11d.lib(d3dxGlobal.obj) : warning LNK4099: 'Effects11d.pdb' PDB를 'Effects11d.lib(d3dxGlobal.obj)' 또는 'C:\Users\arcco\Documents\GitHub\Framework\Engine\Bin\Effects11d.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
 Effects11d.lib(EffectAPI.obj) : warning LNK4099: 'Effects11d.pdb' PDB를 'Effects11d.lib(EffectAPI.obj)' 또는 'C:\Users\arcco\Documents\GitHub\Framework\Engine\Bin\Effects11d.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.

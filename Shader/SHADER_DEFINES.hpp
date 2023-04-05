@@ -45,14 +45,20 @@ FrontCounterClockwise = false;
 DepthStencilState DS_Default
 {
 	DepthEnable = true;
-DepthWriteMask = All;
-DepthFunc = less_equal;
+	DepthWriteMask = All;
+	DepthFunc = less_equal;
 };
 
 DepthStencilState DS_Not_ZTest_ZWrite
 {
 	DepthEnable = false;
-DepthWriteMask = Zero;
+	DepthWriteMask = Zero;
+};
+
+DepthStencilState DS_ZTest_NoZWrite
+{
+	DepthEnable = true;
+	DepthWriteMask = Zero;
 };
 
 /* For.BlendState */
@@ -65,12 +71,12 @@ BlendState BS_AlphaBlend
 {
 	/* 인덱스 지정 필수 */
 	BlendEnable[0] = true;
-BlendEnable[1] = true;
+	BlendEnable[1] = true;
 
 /* 인덱스 지정 선택 */
 BlendOp = add;
-SrcBlend = src_alpha;
-DestBlend = Inv_src_alpha;
+	SrcBlend = src_alpha;
+	DestBlend = Inv_src_alpha;
 };
 
 

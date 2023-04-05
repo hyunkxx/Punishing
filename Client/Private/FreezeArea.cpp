@@ -154,7 +154,7 @@ HRESULT CFreezeArea::Render()
 
 			m_pModel->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
 			m_pNoiseTexture->Setup_ShaderResource(m_pShader, "g_NoiseTexture", 0);
-			m_pMaskTexture->Setup_ShaderResource(m_pShader, "m_pMaskTexture2", 0);
+			m_pMaskTexture2->Setup_ShaderResource(m_pShader, "g_MaskTexture2", 0);
 
 			m_pShader->Begin(i);
 			m_pModel->Render(i);

@@ -27,11 +27,27 @@ public:
 	virtual CComponent* Clone(void* pArg = nullptr) override;
 	virtual void Free() override;
 
+private:
+	void RenderPriority();
+	void RenderNonAlpha();
+	void RenderNonLight();
+	void RenderAlphaBlend();
+	void RenderUI();
+	void RenderEnding();//이거 카메라에서 쓰는데 일단 냅둠
+
 public:
 	list<class CGameObject*> m_RenderObject[RENDER_END];
 	list<class CGameObject*> m_AlphaRenderObject;
 
 	typedef list<class CGameObject*> RENDER_OBJECT;
+
+private:
+	// Main과 Bloom을 합성해서 백버퍼로 전송하는 쉐이더
+	class CPostEffect* m_pPostEffect = nullptr;
+	class CBlurEffect* m_pBlurEffect = nullptr;
+
+	class CShader* m_pPostEffectShader = nullptr;
+	class CShader* m_pBlurEffectShader = nullptr;
 
 };
 

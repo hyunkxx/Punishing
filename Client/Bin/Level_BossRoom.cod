@@ -14054,7 +14054,7 @@ this$ = 224
 value$ = 232
 ?SetHealthUI@CCharacter@Client@@QEAAXPEAVCEnemyHealthBar@2@@Z PROC ; Client::CCharacter::SetHealthUI, COMDAT
 
-; 159  : 	void SetHealthUI(class CEnemyHealthBar* value) { m_pEnemyHealthBar = value; }
+; 160  : 	void SetHealthUI(class CEnemyHealthBar* value) { m_pEnemyHealthBar = value; }
 
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -14091,7 +14091,7 @@ this$ = 224
 pCamera$ = 232
 ?SetPlayerCamera@CCharacter@Client@@QEAAXPEAVCPlayerCamera@2@@Z PROC ; Client::CCharacter::SetPlayerCamera, COMDAT
 
-; 157  : 	void SetPlayerCamera(class CPlayerCamera* pCamera) { m_pCamera = pCamera; };
+; 158  : 	void SetPlayerCamera(class CPlayerCamera* pCamera) { m_pCamera = pCamera; };
 
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx

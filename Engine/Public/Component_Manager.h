@@ -4,6 +4,7 @@
 #include "Collider.h"
 #include "OBBCollider.h"
 #include "SphereCollider.h"
+#include "VIBuffer_Rect_Instance.h"
 #include "VIBuffer_Triangle.h"
 #include "VIBuffer_Terrain.h"
 #include "VIBuffer_Cube.h"

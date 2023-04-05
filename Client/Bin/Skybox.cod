@@ -2447,7 +2447,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Render@CSkybox@Client@@UEAAJXZ DD imagerel $LN8
-	DD	imagerel $LN8+255
+	DD	imagerel $LN8+258
 	DD	imagerel $unwind$?Render@CSkybox@Client@@UEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -4349,7 +4349,7 @@ $LN8:
 ; 50   : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00040	e9 b0 00 00 00	 jmp	 $LN1@Render
+  00040	e9 b3 00 00 00	 jmp	 $LN1@Render
 $LN5@Render:
 
 ; 51   : 
@@ -4364,7 +4364,7 @@ $LN5@Render:
 ; 53   : 		return E_FAIL;
 
   00055	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0005a	e9 96 00 00 00	 jmp	 $LN1@Render
+  0005a	e9 99 00 00 00	 jmp	 $LN1@Render
 $LN6@Render:
 
 ; 54   : 
@@ -4390,7 +4390,7 @@ $LN2@Render:
 $LN4@Render:
   00087	8b 45 04	 mov	 eax, DWORD PTR iMeshCount$[rbp]
   0008a	39 45 24	 cmp	 DWORD PTR i$1[rbp], eax
-  0008d	73 64		 jae	 SHORT $LN3@Render
+  0008d	73 67		 jae	 SHORT $LN3@Render
 
 ; 57   : 	{
 ; 58   : 		m_pModel->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType_DIFFUSE);
@@ -4412,45 +4412,45 @@ $LN4@Render:
 	00		 call	 QWORD PTR __imp_?Setup_ShaderMaterialResource@CModel@Engine@@QEAAJPEAVCShader@2@PEBDIW4aiTextureType@@@Z
 
 ; 59   : 
-; 60   : 		m_pShader->Begin(0);
+; 60   : 		m_pShader->Begin(5);
 
-  000c4	33 d2		 xor	 edx, edx
-  000c6	48 8b 85 20 01
+  000c4	ba 05 00 00 00	 mov	 edx, 5
+  000c9	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000cd	48 8b 88 88 00
+  000d0	48 8b 88 88 00
 	00 00		 mov	 rcx, QWORD PTR [rax+136]
-  000d4	ff 15 00 00 00
+  000d7	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
 ; 61   : 
 ; 62   : 		m_pModel->Render(i);
 
-  000da	8b 55 24	 mov	 edx, DWORD PTR i$1[rbp]
-  000dd	48 8b 85 20 01
+  000dd	8b 55 24	 mov	 edx, DWORD PTR i$1[rbp]
+  000e0	48 8b 85 20 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000e4	48 8b 88 90 00
+  000e7	48 8b 88 90 00
 	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  000eb	ff 15 00 00 00
+  000ee	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CModel@Engine@@QEAAJI@Z
 
 ; 63   : 	}
 
-  000f1	eb 8c		 jmp	 SHORT $LN2@Render
+  000f4	eb 89		 jmp	 SHORT $LN2@Render
 $LN3@Render:
 
 ; 64   : 
 ; 65   : 	return S_OK;
 
-  000f3	33 c0		 xor	 eax, eax
+  000f6	33 c0		 xor	 eax, eax
 $LN1@Render:
 
 ; 66   : }
 
-  000f5	48 8d a5 08 01
+  000f8	48 8d a5 08 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+264]
-  000fc	5f		 pop	 rdi
-  000fd	5d		 pop	 rbp
-  000fe	c3		 ret	 0
+  000ff	5f		 pop	 rdi
+  00100	5d		 pop	 rbp
+  00101	c3		 ret	 0
 ?Render@CSkybox@Client@@UEAAJXZ ENDP			; Client::CSkybox::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI

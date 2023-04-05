@@ -263,10 +263,13 @@ protected:
 	_bool m_bSpawnWait = true;
 	_float m_fSpawnWaitAcc = 0.f;
 	_float m_fSpawnWaitTimeOut = 2.f;
+	_bool m_bSpawnEffect = false;
 
 	_float m_fDissolveAcc = 0.f;
 	CTexture* m_pDissolveTexture = nullptr;
 
+	//스폰 이펙트
+	class CSpawnEffect* m_pSpawnEffect = nullptr;
 };
 
 END

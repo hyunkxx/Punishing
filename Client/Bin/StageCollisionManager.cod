@@ -1222,6 +1222,21 @@ CONST	SEGMENT
 	DD	0b9500bf1r			; -0.000198409
 	DD	03638b88er			; 2.75256e-06
 CONST	ENDS
+_DATA	SEGMENT
+?filter@?1??SaveCollisionData@CStageCollisionManager@Client@@QEAAJXZ@4PA_WA DB 'B'
+	DB	00H, 'i', 00H, 'n', 00H, 'a', 00H, 'r', 00H, 'y', 00H, ' ', 00H
+	DB	'f', 00H, 'i', 00H, 'l', 00H, 'e', 00H, 00H, 00H, '*', 00H, '.'
+	DB	00H, 'b', 00H, 'i', 00H, 'n', 00H, 00H, 00H	; `Client::CStageCollisionManager::SaveCollisionData'::`2'::filter
+	ORG $+12
+?filter@?1??LoadCollisionData@CStageCollisionManager@Client@@SAJPEB_WPEAV?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@PEAI@Z@4PA_WA DB 'A'
+	DB	00H, 'l', 00H, 'l', 00H, ' ', 00H, 'f', 00H, 'i', 00H, 'l', 00H
+	DB	'e', 00H, 00H, 00H, '*', 00H, '.', 00H, '*', 00H, 00H, 00H, 'T'
+	DB	00H, 'e', 00H, 'x', 00H, 't', 00H, ' ', 00H, 'f', 00H, 'i', 00H
+	DB	'l', 00H, 'e', 00H, 00H, 00H, '*', 00H, '.', 00H, 't', 00H, 'x'
+	DB	00H, 't', 00H, 00H, 00H, 'F', 00H, 'B', 00H, 'X', 00H, ' ', 00H
+	DB	'f', 00H, 'i', 00H, 'l', 00H, 'e', 00H, 00H, 00H, '*', 00H, '.'
+	DB	00H, 'f', 00H, 'b', 00H, 'x', 00H, 00H, 00H	; `Client::CStageCollisionManager::LoadCollisionData'::`2'::filter
+_DATA	ENDS
 ;	COMDAT ?g_UnitPlaneEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B
 CONST	SEGMENT
 ?g_UnitPlaneEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B DD 038d1b717r ; 0.0001 ; DirectX::Internal::g_UnitPlaneEpsilon
@@ -2293,21 +2308,6 @@ CONST	SEGMENT
 	DD	03f800000r			; 1
 	DD	03f800000r			; 1
 CONST	ENDS
-_DATA	SEGMENT
-?filter@?1??SaveCollisionData@CStageCollisionManager@Client@@QEAAJXZ@4PA_WA DB 'B'
-	DB	00H, 'i', 00H, 'n', 00H, 'a', 00H, 'r', 00H, 'y', 00H, ' ', 00H
-	DB	'f', 00H, 'i', 00H, 'l', 00H, 'e', 00H, 00H, 00H, '*', 00H, '.'
-	DB	00H, 'b', 00H, 'i', 00H, 'n', 00H, 00H, 00H	; `Client::CStageCollisionManager::SaveCollisionData'::`2'::filter
-	ORG $+12
-?filter@?1??LoadCollisionData@CStageCollisionManager@Client@@SAJPEB_WPEAV?$vector@UtagCubeDesc@CWall@Client@@V?$allocator@UtagCubeDesc@CWall@Client@@@std@@@std@@PEAI@Z@4PA_WA DB 'A'
-	DB	00H, 'l', 00H, 'l', 00H, ' ', 00H, 'f', 00H, 'i', 00H, 'l', 00H
-	DB	'e', 00H, 00H, 00H, '*', 00H, '.', 00H, '*', 00H, 00H, 00H, 'T'
-	DB	00H, 'e', 00H, 'x', 00H, 't', 00H, ' ', 00H, 'f', 00H, 'i', 00H
-	DB	'l', 00H, 'e', 00H, 00H, 00H, '*', 00H, '.', 00H, 't', 00H, 'x'
-	DB	00H, 't', 00H, 00H, 00H, 'F', 00H, 'B', 00H, 'X', 00H, ' ', 00H
-	DB	'f', 00H, 'i', 00H, 'l', 00H, 'e', 00H, 00H, 00H, '*', 00H, '.'
-	DB	00H, 'f', 00H, 'b', 00H, 'x', 00H, 00H, 00H	; `Client::CStageCollisionManager::LoadCollisionData'::`2'::filter
-_DATA	ENDS
 PUBLIC	??_H@YAXPEAX_K1P6APEAX0@Z@Z			; `vector constructor iterator'
 PUBLIC	?__empty_global_delete@@YAXPEAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPEAX_K@Z		; __empty_global_delete

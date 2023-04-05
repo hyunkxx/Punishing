@@ -57,7 +57,7 @@ HRESULT CSkybox::Render()
 	{
 		m_pModel->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType_DIFFUSE);
 
-		m_pShader->Begin(0);
+		m_pShader->Begin(5);
 
 		m_pModel->Render(i);
 	}

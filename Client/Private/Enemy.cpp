@@ -8,6 +8,8 @@
 #include "Character.h"
 #include "Bone.h"
 #include "Boss.h"
+#include "SpawnEffect.h"
+#include "FloorCircle.h"
 
 _uint CEnemy::s_iCount = 0;
 
@@ -44,6 +46,7 @@ HRESULT CEnemy::Initialize_Prototype(TYPE eType)
 
 HRESULT CEnemy::Initialize(void * pArg)
 {
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	m_pAppManager = CApplicationManager::GetInstance();
 
 	if (FAILED(__super::Initialize(pArg)))
@@ -65,18 +68,44 @@ HRESULT CEnemy::Initialize(void * pArg)
 	XMStoreFloat4x4(&m_RootBoneMatrix, XMLoadFloat4x4(&bone->GetOffSetMatrix()) * XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&model->GetLocalMatrix()) * XMLoadFloat4x4(&transform->Get_WorldMatrix()));
 
 	ZeroMemory(&m_State, sizeof(ENEMY_STATE));
+
+	_tchar szName[MAX_PATH] = L"";
+	ZeroMemory(szName, sizeof(szName));
+
 	switch (m_eType)
 	{
-	case TYPE::HUMANOID:
-		m_State.fMaxHp = 1000.f;
-		m_State.fCurHp = 1000.f;
-		m_pWeaponBone = model->GetBonePtr("BulletCase");
-		break;
-	case TYPE::ANIMAL:
-		m_State.fMaxHp = 1000.f;
-		m_State.fCurHp = 1000.f;
-		m_pWeaponBone = model->GetBonePtr("Bip001");
-		break;
+		case TYPE::HUMANOID:
+		{
+			m_State.fMaxHp = 1000.f;
+			m_State.fCurHp = 1000.f;
+			m_pWeaponBone = model->GetBonePtr("BulletCase");
+
+			wsprintfW(szName, L"spawn_effect%d", s_iCount);
+			if (nullptr == (m_pSpawnEffect = (CSpawnEffect*)pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_spawneffect", L"layer_spawneffect", szName)))
+				return E_FAIL;
+
+			_float3 vScale = m_pSpawnEffect->GetScale();
+			vScale = { vScale.x , vScale.y , vScale.z  };
+			m_pSpawnEffect->SetScale(vScale);
+
+			break;
+		}
+		case TYPE::ANIMAL:
+		{
+			m_State.fMaxHp = 1000.f;
+			m_State.fCurHp = 1000.f;
+			m_pWeaponBone = model->GetBonePtr("Bip001");
+
+			wsprintfW(szName, L"spawn_effect%d", s_iCount);
+			if (nullptr == (m_pSpawnEffect = (CSpawnEffect*)pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_spawneffect", L"layer_spawneffect", szName)))
+				return E_FAIL;
+
+			_float3 vScale = m_pSpawnEffect->GetScale();
+			vScale = { vScale.x, vScale.y , vScale.z };
+			m_pSpawnEffect->SetScale(vScale);
+
+			break;
+		}
 	}
 
 	m_eState = CGameObject::STATE::DISABLE;
@@ -122,6 +151,8 @@ void CEnemy::Tick(_double TimeDelta)
 void CEnemy::LateTick(_double TimeDelta)
 {
 	TimeDelta = Freeze(TimeDelta);
+
+	m_pSpawnEffect->SetTransfrom(transform->Get_State(CTransform::STATE_POSITION));
 
 	__super::LateTick(TimeDelta);
 	
@@ -211,7 +242,9 @@ _float2 CEnemy::Reset(_float3 vPos, _float fRadius)
 
 	m_bDead = false;
 	m_bDeadWait = false;
-	
+	m_pSpawnEffect->SetRender(false);
+	m_bSpawnEffect = false;
+
 	_float2 iRandomPos = {0.f, 0.f};
 
 	iRandomPos.x = (rand() % (int)fRadius) - ((int)fRadius >> 1) + (int)vPos.x;
@@ -323,6 +356,27 @@ HRESULT CEnemy::AddComponents()
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_freezemask2"), TEXT("com_texture_dissolve"), (CComponent**)&m_pDissolveTexture)))
 		return E_FAIL;
+
+	if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+	{
+		CGameInstance* pGameInstance = CGameInstance::GetInstance();
+		_tchar szTag[MAX_PATH] = L"";
+		wsprintf(szTag, L"circle%d", s_iCount);
+		CGameObject* pCircle = nullptr;
+		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_circle", L"layer_ui", szTag, transform)))
+			return E_FAIL;
+		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_ENEMY);
+	}
+	else
+	{
+		CGameInstance* pGameInstance = CGameInstance::GetInstance();
+		CGameObject* pCircle = nullptr;
+		_tchar szTag[MAX_PATH] = L"";
+		wsprintf(szTag, L"circle%d", s_iCount);
+		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_circle", L"layer_ui", szTag, transform)))
+			return E_FAIL;
+		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_ENEMY);
+	}
 
 	return S_OK;
 }
@@ -854,6 +908,12 @@ void CEnemy::AnimationState(_double TimeDelta)
 	//스폰됬을떄 대기
 	if (m_bSpawnWait)
 	{
+		if (!m_bSpawnEffect)
+		{
+			m_pSpawnEffect->SetRender(true);
+			m_bSpawnEffect = true;
+		}
+
 		if (m_bHit || m_bAirHit || m_bHolding)
 		{
 			m_fSpawnWaitAcc = 0.f;
@@ -869,14 +929,14 @@ void CEnemy::AnimationState(_double TimeDelta)
 
 		if (m_fSpawnWaitAcc >= m_fSpawnWaitTimeOut)
 		{
+			m_bSpawnEffect = false;
 			m_bSpawnWait = false;
 			m_fSpawnWaitAcc = 0.f;
+			m_pSpawnEffect->SetRender(false);
 		}
 
 		return;
 	}
-
-
 
 	if (m_bAirHit)
 	{

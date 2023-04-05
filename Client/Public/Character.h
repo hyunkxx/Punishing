@@ -149,6 +149,7 @@ public:
 	virtual HRESULT Render() override;
 	virtual void RenderGUI() override;
 
+	virtual _float GetLengthFromCamera() override;
 public:
 	CTransform* GetTransform() { return mTransform; }
 	void SetPosition(_float3 vPos);
@@ -284,6 +285,9 @@ private: // camera
 	_bool m_bCameraBack = true;
 
 private: // Command
+	_bool m_bStart = true;
+	_bool m_bStartAction = false;
+
 	_bool m_bCombatMode = false;
 
 	CLIP m_iPrevClip = CLIP::ACTION0;
@@ -393,7 +397,7 @@ private: // Command
 	//변신상태 10초 동안
 	_int m_EvolutionCount = 0;
 	_bool m_bGageDownStart = false;
-	_bool m_bEvolutionReady = false;
+	_bool m_bEvolutionReady = true;
 	_float m_fCurEvolutionAcc = 0.f;
 	const _float m_fEvolutionTimeOut = 25.f;
 
@@ -430,6 +434,21 @@ private: // Command
 	_bool m_bUseSkillB = false;
 	_bool m_bUseSkillC[5] = { false, false, false, false, false };
 
+	//변신시 스모그 이펙트
+	CVIBuffer_Rect* m_pEvolutionSmoke = nullptr;
+	CTexture* m_pSmokeDiffuse = nullptr;
+	CTexture* m_pSmokeMask = nullptr;
+	CShader* m_pRectShader = nullptr;
+	CTransform* m_pSmokeTransform1 = nullptr;
+	CTransform* m_pSmokeTransform2 = nullptr;
+	CTransform* m_pSmokeTransform3 = nullptr;
+
+	_float m_fSmokeTimeAcc = 0.f;
+	_float m_fSmokeTimeAcc2 = 0.f;
+	_float m_fSmokeTimeAcc3 = 0.f;
+
+	//플레이어 서클
+	class CFloorCircle* m_pFloorCircle = nullptr;
 };
 
 END

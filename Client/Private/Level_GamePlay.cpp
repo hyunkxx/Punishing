@@ -17,6 +17,7 @@
 
 #include "PlayerCamera.h"
 #include "EnemyHealthBar.h"
+#include "Flower.h"
 
 CLevel_GamePlay::CLevel_GamePlay(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CLevel(pDevice, pContext)
@@ -243,6 +244,9 @@ HRESULT CLevel_GamePlay::Ready_Layer_Effect(const _tchar * pLayerTag)
 	CGameObject* pGameObject = nullptr;
 
    	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_freeze_area", pLayerTag, L"freeze", mPlayer))
+		return E_FAIL;
+
+	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_flower", pLayerTag, L"flower", mPlayer))
 		return E_FAIL;
 
 	return S_OK;

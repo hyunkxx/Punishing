@@ -22,6 +22,14 @@
 #include "EnemyHealthBar.h"
 #include "DamageFont.h"
 
+#include "SpawnEffect.h"
+
+//instance
+#include "Flower.h"
+
+//
+#include "FloorCircle.h"
+
 _uint CApplication::s_TickCount = 0;
 
 CApplication::CApplication()
@@ -118,9 +126,6 @@ HRESULT CApplication::Render()
 	
 	m_pGUIManager->Render();
 
-	m_pGameInstance->Clear_RenderTargetView(_float4(0.f, 0.f, 1.f, 1.f));
-	m_pGameInstance->Clear_DepthStencilView();
-
 	m_pRenderer->Draw();
 	m_pGameInstance->CollisionRender();
 	m_pGUIManager->RenderDrawData();
@@ -169,8 +174,16 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		CVIBuffer_Rect::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_vibuffer_instance_rect"),
+		CVIBuffer_Rect_Instance::Create(m_pDevice, m_pContext, 50.f, 40.f, 50.f, 5.f, 30.f, 30))))
+		return E_FAIL;
+
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_vtxtex"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXTEX.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_trail"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_THORNTRAIL.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_groud"),
@@ -189,6 +202,10 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXMODEL.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_spawneffect"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_SPAWNEFFECT.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
+		return E_FAIL;
+
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_swordtrail"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_SWORDTRAIL.hlsl"), VTXMODEL_DECLARATION::Elements, VTXMODEL_DECLARATION::ElementCount))))
 		return E_FAIL;
@@ -199,6 +216,10 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_ui"),
 		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_UI.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_shader_vtxinstance_rect"),
+		CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_VTXINSTANCE_RECT.hlsl"), VTXINSTANCE_DECLARATION::Elements, VTXINSTANCE_DECLARATION::ElementCount))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_black"),
@@ -296,47 +317,47 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_0"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/0.png")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/0.dds")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_1"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/1.png")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/1.dds")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_2"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/2.png")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/2.dds")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_3"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/3.png")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/3.dds")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_4"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/4.png")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/4.dds")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_5"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/5.png")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/5.dds")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_6"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/6.png")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/6.dds")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_7"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/7.png")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/7.dds")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_8"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/8.png")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/8.dds")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_9"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/9.png")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/9.dds")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_x"),
-		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/x.png")))))
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Text/x.dds")))))
 		return E_FAIL;
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_combo"),
@@ -403,13 +424,55 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/MaskImage/DarknessMask.jpg")))))
 		return E_FAIL;
 
+	//스폰 디퓨즈 이미지
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_spawneffect0"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/MaskImage/SpawnDiffuse.png")))))
+		return E_FAIL;
+	//스폰 마스크 이미지
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_spawneffect1"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/MaskImage/SpawnMask.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_smokediffuse"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/MaskImage/Smoke.png")))))
+		return E_FAIL;
+	
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_smokemask"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/MaskImage/Mask408.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_light"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/MaskImage/Light.png")))))
+		return E_FAIL;
+
+	//가시
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_thorndiffuse"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Thorn/diffuse.png")))))
+		return E_FAIL;
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_thornmask"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Thorn/mask.png")))))
+		return E_FAIL;
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_gardmask"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/MaskImage/Daoguang006.png")))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_trail"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/MaskImage/Trail.png")))))
+		return E_FAIL;
+
 	//if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_evolution_front"),
 	//	CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/EvolutionGageFront.png")))))
 	//	return E_FAIL;
 
 	//
 	// 무기는 정방향
+
 	_matrix	LocalMatrix = XMMatrixIdentity();
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, L"proto_com_model_spawneffect",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Enemy/SpawnEffect.fbx", LocalMatrix))))
+		return E_FAIL;
+
 	LocalMatrix = XMMatrixRotationY(XMConvertToRadians(180.0f));
 
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, L"proto_com_model_boss",
@@ -430,6 +493,18 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 
 	//소드 트레일 이펙트
 	_matrix SwordTrailMatrix = XMMatrixIdentity();
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, L"proto_com_model_thorngard",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Enemy/Boss/ThornGard.fbx", SwordTrailMatrix))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, L"proto_com_model_circle1",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Character/Kamui/PlayerCircle.fbx", SwordTrailMatrix))))
+		return E_FAIL;
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, L"proto_com_model_circle2",
+		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Character/Kamui/EnemyCircle.fbx", SwordTrailMatrix))))
+		return E_FAIL;
+
 	SwordTrailMatrix = XMMatrixRotationY(XMConvertToRadians(180.f));
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, L"proto_com_model_sword_trail",
 		CModel::Create(m_pDevice, m_pContext, CModel::MESH_TYPE::STATIC_MESH, "../../Resource/Mesh/Character/Kamui/Weapon/Effect/SwordTrail.fbx", SwordTrailMatrix))))
@@ -467,6 +542,14 @@ HRESULT CApplication::Ready_Prototype_Static_GameObject()
 	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_sword_trail"), CSwordTrail::Create(m_pDevice, m_pContext))))
 		return E_FAIL;
 
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_spawneffect"), CSpawnEffect::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_flower"), CFlower::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
+
+	if (FAILED(m_pGameInstance->Add_Prototype(TEXT("proto_obj_circle"), CFloorCircle::Create(m_pDevice, m_pContext))))
+		return E_FAIL;
 
 	return S_OK;
 }

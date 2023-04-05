@@ -60,7 +60,7 @@ void CWeapon::LateTick(_double TimeDelta)
 	mTransform->Set_WorldMatrix(WeaponBoneMatrix);
 
 	if (nullptr != mRenderer)
-		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+		mRenderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
 }
 
 HRESULT CWeapon::Render()
@@ -140,9 +140,9 @@ HRESULT CWeapon::SetupShaderResources()
 
 }
 
-CWeapon * CWeapon::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
+CWeapon* CWeapon::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
 {
-	CWeapon*	pInstance = new CWeapon(pDevice, pContext);
+	CWeapon* pInstance = new CWeapon(pDevice, pContext);
 	if (FAILED(pInstance->Initialize_Prototype()))
 	{
 		MSG_BOX("Failed to Create : CWeapon");
@@ -152,7 +152,7 @@ CWeapon * CWeapon::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pContext
 	return pInstance;
 }
 
-CGameObject * CWeapon::Clone(void * pArg)
+CGameObject* CWeapon::Clone(void * pArg)
 {
 	CWeapon* pInstance = new CWeapon(*this);
 	if (FAILED(pInstance->Initialize(pArg)))

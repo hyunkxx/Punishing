@@ -7,6 +7,8 @@ BEGIN(Engine)
 class CRenderer;
 class CTransform;
 class CSphereCollider;
+class CVIBuffer_Rect;
+class CTexture;
 class CModel;
 class CShader;
 class CBone;
@@ -50,6 +52,10 @@ public:
 
 	virtual _float GetLengthFromCamera() override;
 public://초기화, 스케일, 회전
+	void SetTimeDelta(_double TimeDelta) {
+		m_FixedTimeDelta = TimeDelta;
+	}
+
 	void Reset();
 
 	void SetType(TYPE eType) { m_eThornType = eType; }
@@ -117,6 +123,31 @@ private:
 	_bool m_bMove = false;
 	_float m_fMoveAcc = 0.f;
 
+	//바닥 텍스쳐
+	CTransform* m_pFloorEffectTransform = nullptr;
+	CVIBuffer_Rect* m_pFloorEffectBuffer = nullptr;
+	CShader* m_pFloorShader = nullptr;
+
+	CTexture* m_pFloorEffectDiffuse = nullptr;
+	CTexture* m_pFloorEffectMask = nullptr;
+
+	CModel* m_pFloorGard = nullptr;
+	CTransform* m_pFloorGardTransform = nullptr;
+	CTexture* m_pFloorGardTexture = nullptr;
+
+	_double m_FixedTimeDelta = 0.f;
+	_float m_fTimeAcc = 0.f;
+	_bool m_bGardRender = false;
+	_bool m_bFloorRender = false;
+	_float m_fFloorAlphaAcc = 0.f;
+
+	//미사일 궤적
+	CVIBuffer_Rect* m_pTrailEffectBuffer = nullptr;
+	CTransform* m_pTrailTransform = nullptr;
+	CTexture* m_pTrailTexture = nullptr;
+	CShader* m_pTrailEffectShader = nullptr;
+	_float3 vTrailScale = { 0.25f, 0.25f, 0.25f };
+	_float m_vTrailAcc = 0.f;
 };
 
 END

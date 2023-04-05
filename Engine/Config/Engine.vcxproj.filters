@@ -115,6 +115,12 @@
     <Filter Include="utility\06. Font">
       <UniqueIdentifier>{088b4236-0a1c-4f04-b9e2-57d1e81c67a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utility\03. Components\02. Renderer\PostEffect">
+      <UniqueIdentifier>{46477d9d-ecb8-4d52-85f5-5e3bcd41eaa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility\03. Components\02. Renderer\03. VIBuffer\Instance">
+      <UniqueIdentifier>{6043714e-87ce-457f-b852-eaac02e877ed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\private\Base.cpp">
@@ -236,6 +242,15 @@
     </ClCompile>
     <ClCompile Include="..\private\IAlphaSortable.cpp">
       <Filter>utility\03. Components\02. Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\PostEffect.cpp">
+      <Filter>utility\03. Components\02. Renderer\PostEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\BlurEffect.cpp">
+      <Filter>utility\03. Components\02. Renderer\PostEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\VIBuffer_Rect_Instance.cpp">
+      <Filter>utility\03. Components\02. Renderer\03. VIBuffer\Instance</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -370,6 +385,15 @@
     </ClInclude>
     <ClInclude Include="..\public\IAlphaSortable.h">
       <Filter>utility\03. Components\02. Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\PostEffect.h">
+      <Filter>utility\03. Components\02. Renderer\PostEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\BlurEffect.h">
+      <Filter>utility\03. Components\02. Renderer\PostEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\VIBuffer_Rect_Instance.h">
+      <Filter>utility\03. Components\02. Renderer\03. VIBuffer\Instance</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -63,6 +63,8 @@ HRESULT CGameInstance::Engine_Tick(_double TimeDelta)
 	if (!m_pLevel_Manager || !m_pObject_Manager || !m_pPipeLine)
 		return E_FAIL;
 
+	g_TimeDelta = TimeDelta;
+
 	m_pInput_Device->Update();
 
 	m_pLevel_Manager->Tick_Level(TimeDelta);
@@ -97,6 +99,70 @@ HRESULT CGameInstance::Present()
 		return E_FAIL;
 
 	return m_pGraphic_Device->Present();
+}
+
+HRESULT CGameInstance::SetPreRenderTargets()
+{
+	if (nullptr == m_pGraphic_Device)
+		return E_FAIL;
+
+	return m_pGraphic_Device->SetPreRenderTargets();
+}
+
+HRESULT CGameInstance::Clear_PreRenderTargetViews(_float4 vClearColor)
+{
+	if (nullptr == m_pGraphic_Device)
+		return E_FAIL;
+
+	return m_pGraphic_Device->Clear_PreRenderTargetViews(vClearColor);
+}
+
+ID3D11RenderTargetView * CGameInstance::GetRenderTarget(PRE_RENDERTARGET eTarget)
+{
+	if (nullptr == m_pGraphic_Device)
+		return nullptr;
+
+	return m_pGraphic_Device->GetRenderTarget(eTarget);
+}
+
+ID3D11ShaderResourceView * CGameInstance::GetShaderResourceView(PRE_RENDERTARGET eTarget)
+{
+	if (nullptr == m_pGraphic_Device)
+		return nullptr;
+
+	return m_pGraphic_Device->GetShaderResourceView(eTarget);
+}
+
+HRESULT CGameInstance::Clear_RenderTargetView(POST_RENDERTARGET eTarget, _float4 vClearColor)
+{
+	if (nullptr == m_pGraphic_Device)
+		return E_FAIL;
+
+	return m_pGraphic_Device->Clear_RenderTargetView(eTarget, vClearColor);
+}
+
+void CGameInstance::SetRenderTarget(POST_RENDERTARGET eTarget)
+{
+	if (nullptr == m_pGraphic_Device)
+		return;
+
+	return m_pGraphic_Device->SetRenderTarget(eTarget);
+}
+
+ID3D11RenderTargetView * CGameInstance::GetRenderTarget(POST_RENDERTARGET eTarget)
+{
+	if (nullptr == m_pGraphic_Device)
+		return nullptr;
+
+	return m_pGraphic_Device->GetRenderTarget(eTarget);
+}
+
+ID3D11ShaderResourceView * CGameInstance::GetShaderResourceView(POST_RENDERTARGET eTarget)
+{
+	if (nullptr == m_pGraphic_Device)
+		return nullptr;
+
+	return m_pGraphic_Device->GetShaderResourceView(eTarget);
 }
 
 HRESULT CGameInstance::Open_Level(_uint iLevelIndex, CLevel* pCurrentLevel)

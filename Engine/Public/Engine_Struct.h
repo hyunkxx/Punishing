@@ -56,12 +56,25 @@ namespace Engine
 		unsigned long _0, _1, _2;
 	}FACEINDICES32;
 
+
+	typedef struct tagVertex_Position_Color
+	{
+		XMFLOAT3		vPosition;
+	}VTXPOS;
+
+	typedef struct ENGINE_DLL tagVertex_Position_Color_Declaration
+	{
+		const static unsigned int						iNumElements = 1;
+		static D3D11_INPUT_ELEMENT_DESC					Elements[1];
+	}VTXPOS_DECLARATION;
+
 	// 내가 어떤 모델을 그리기위한 정점 구성요소
 	typedef struct tagVertex_Position_TexCoord
 	{
 		XMFLOAT3 vPosition;
 		XMFLOAT2 vTexUV;
 	}VTXTEX;
+
 	// 정점 요소에대한 구체적인 정보
 	typedef struct ENGINE_DLL tagVertex_Position_TexCoord_Declaration
 	{
@@ -129,4 +142,29 @@ namespace Engine
 		static D3D11_INPUT_ELEMENT_DESC					Elements[ElementCount];
 	}VTXANIMMODEL_DECLARATION;
 
+	typedef struct tagVertex_Matrix
+	{
+		XMFLOAT4		vRight;
+		XMFLOAT4		vUp;
+		XMFLOAT4		vLook;
+		XMFLOAT4		vPosition;
+	}VTXMATRIX;
+
+	typedef struct ENGINE_DLL tagVertex_Instance_Declaration
+	{
+		const static unsigned int						ElementCount = 6;
+		static D3D11_INPUT_ELEMENT_DESC					Elements[ElementCount];
+	}VTXINSTANCE_DECLARATION;
+
+	typedef struct tagVertex_Point
+	{
+		XMFLOAT3		vPosition;
+		XMFLOAT2		vPSize;
+	}VTXPOINT;
+
+	typedef struct ENGINE_DLL tagVertex_Point_Instance_Declaration
+	{
+		const static unsigned int						ElementCount = 6;
+		static D3D11_INPUT_ELEMENT_DESC					Elements[ElementCount];
+	}VTXPOINTINSTANCE_DECLARATION;
 }

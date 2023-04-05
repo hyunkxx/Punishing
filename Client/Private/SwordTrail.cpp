@@ -56,11 +56,11 @@ void CSwordTrail::Tick(_double TimeDelta)
 		m_pHitTransform->Set_Scale(m_vMinScale);
 	}
 
-	if (m_bHit)
-	{
-		m_vMinScale.y -= TimeDelta;
-		m_pHitTransform->Set_Scale(m_vMinScale);
-	}
+	//if (m_bHit)
+	//{
+	//	m_vMinScale.y -= TimeDelta;
+	//	m_pHitTransform->Set_Scale(m_vMinScale);
+	//}
 }
 
 void CSwordTrail::LateTick(_double TimeDelta)
@@ -85,6 +85,26 @@ HRESULT CSwordTrail::Render()
 	if (FAILED(SetupShaderResources()))
 		return E_FAIL;
 
+
+	if (m_bHit)
+	{
+		if (FAILED(m_pHitTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
+			return E_FAIL;
+
+		_uint MeshCount = m_pModel2->Get_MeshCount();
+		for (_uint i = 0; i < MeshCount; ++i)
+		{
+			if (FAILED(m_pDiffuse->Setup_ShaderResource(m_pShader, "g_DiffuseTexture")))
+				return E_FAIL;
+
+			if (FAILED(m_pDiffuse->Setup_ShaderResource(m_pShader, "g_MaskTexture")))
+				return E_FAIL;
+
+			m_pShader->Begin(1);
+			m_pModel2->Render(i);
+		}
+	}
+
 	_uint MeshCount = m_pModel->Get_MeshCount();
 	for (_uint i = 0; i < MeshCount; ++i)
 	{
@@ -99,24 +119,7 @@ HRESULT CSwordTrail::Render()
 		m_pModel->Render(i);
 	}
 
-	if (m_bHit)
-	{
-		if (FAILED(m_pHitTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
-			return E_FAIL;
 
-		MeshCount = m_pModel2->Get_MeshCount();
-		for (_uint i = 0; i < MeshCount; ++i)
-		{
-			if (FAILED(m_pDiffuse->Setup_ShaderResource(m_pShader, "g_DiffuseTexture")))
-				return E_FAIL;
-
-			if (FAILED(m_pDiffuse->Setup_ShaderResource(m_pShader, "g_MaskTexture")))
-				return E_FAIL;
-
-			m_pShader->Begin(1);
-			m_pModel2->Render(i);
-		}
-	}
 
 	return S_OK;
 }
@@ -215,17 +218,21 @@ void CSwordTrail::EffectStart(_float3 vOffsetPos, _float3 fDegreeAngle)
 	XMStoreFloat4x4(&EffectWorldMatrix, RotZ * RotY * RotX * XMLoadFloat4x4(&NewPivotMatrix));
 	m_pTransform->Set_WorldMatrix(EffectWorldMatrix);
 	
+	_vector whiteEffectPos = vPlayerPos + vPlayerLook * 2.5f;
+	m_pHitTransform->Set_WorldMatrix(EffectWorldMatrix);
+	m_pHitTransform->Set_State(CTransform::STATE_POSITION, whiteEffectPos);
+
 	m_bUse = true;
 }
 
 void CSwordTrail::SetHitPosition(_vector vHitPos)
 {
-	vHitPos = XMVectorSetY(vHitPos, 1.0f);
-	XMStoreFloat3(&m_vHitPos, vHitPos);
+	//vHitPos = XMVectorSetY(vHitPos, 1.0f);
+	//XMStoreFloat3(&m_vHitPos, vHitPos);
 
-	m_pHitTransform->Set_State(CTransform::STATE_POSITION, vHitPos);
-	m_pHitTransform->LookAt(XMLoadFloat4(&CPipeLine::GetInstance()->Get_CamPosition()));
-	//m_pHitTransform->SetRotation(VECTOR_LOOK, XMConvertToRadians(rand() % 20));
+	//m_pHitTransform->Set_State(CTransform::STATE_POSITION, vHitPos);
+	//m_pHitTransform->LookAt(XMLoadFloat4(&CPipeLine::GetInstance()->Get_CamPosition()));
+	//m_pHitTransform->SetRotation(vLook, XMConvertToRadians(rand() % 20));
 }
 
 _float CSwordTrail::GetLengthFromCamera()

@@ -13,6 +13,7 @@ float g_fLength = 10.f;
 float g_fPower = 50.f;
 
 float g_LightPower = 1.f;
+float g_fTimeAcc = 0.f;
 
 /* 조명의 색상 */
 vector g_vLightDiffuse = vector(1.f, 1.f, 1.f, 1.f);
@@ -90,25 +91,39 @@ PS_OUT PS_BLACK(PS_IN In)
 {
 	PS_OUT Out = (PS_OUT)0;
 
-	vector vWorldNormal = normalize(mul(float4(In.vNormal, 0.f), g_WorldMatrix));
-	float fShade = max(dot(normalize(g_vLightDir) * -1.f, vWorldNormal), 0.f);
-
-	if (fShade > 0.6f)
-		fShade = 1.f;
-	else if (fShade > 0.4f)
-		fShade = 0.6f;
-	else if (fShade > 0.1f)
-		fShade = 0.4f;
-	else if (fShade > 0.1f)
-		fShade = 0.0f;
-
-	vector vReflect = reflect(normalize(g_vLightDir), vWorldNormal);
-
-	float fSpecular = pow(max(dot(normalize(vReflect) * -1.f, normalize(In.vLook)), 0.f), g_fPower);
-	vector vMatDiffuse = g_DiffuseTexture.Sample(LinearSampler, In.vTexUV);
-
 	Out.vColor = float4(0.f, 0.f, 0.f, 1.f);
+	if (Out.vColor.a <= 0.1f)
+		discard;
 
+	return Out;
+}
+
+PS_OUT PS_BLACK_ALPHA(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+	Out.vColor = float4(0.f, 0.f, 0.f, 0.3f);
+	if (Out.vColor.a <= 0.1f)
+		discard;
+
+	return Out;
+}
+
+PS_OUT PS_WHITE_ALPHA(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+	Out.vColor = float4(1.f, 1.f, 1.f, 0.3f);
+	if (Out.vColor.a <= 0.1f)
+		discard;
+
+	return Out;
+}
+
+
+PS_OUT PS_WHITE(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+
+	Out.vColor = float4(1.f, 1.f, 1.f, 1.f);
 	if (Out.vColor.a <= 0.1f)
 		discard;
 
@@ -144,6 +159,23 @@ PS_OUT PS_BACKGROUND(PS_IN In)
 	//Out.vColor *= Out.vColor * 3.f;
 	//Out.vColor *= Out.vColor * 2.5f;
 
+	return Out;
+}
+
+PS_OUT PS_RIM(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+
+	vector vCamDir = In.vLook;
+	float rim = 0;
+	rim = 1 - saturate(dot(In.vNormal, -vCamDir));
+
+	rim = pow(rim, 80.f);
+
+	float4 rimColor = float4(0.2f, 0.2f, 0.2f, 1.f);
+	rimColor = rim * rimColor;
+
+	Out.vColor = rimColor;
 	return Out;
 }
 
@@ -197,6 +229,26 @@ PS_OUT PS_FREEZEDARK(PS_IN In)
 	return Out;
 }
 
+PS_OUT PS_GARD(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+
+	vector vWorldNormal = normalize(mul(float4(In.vNormal, 0.f), g_WorldMatrix));
+	
+	float2 uv = In.vTexUV;
+	uv.x += g_fTimeAcc;
+		
+	Out.vColor = g_DiffuseTexture.Sample(LinearSampler, uv);
+	Out.vColor.r = Out.vColor.r;
+	Out.vColor.gb = 0.f;
+
+	if (g_fTimeAcc <= 1.f)
+		Out.vColor.a = g_fTimeAcc;
+	else
+		Out.vColor.a = 2.f - g_fTimeAcc;
+
+	return Out;
+}
 
 technique11 DefaultTechnique
 {
@@ -230,7 +282,7 @@ technique11 DefaultTechnique
 	{
 		SetRasterizerState(RS_Default);
 		SetDepthStencilState(DS_Default, 0);
-		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
 
 		VertexShader = compile vs_5_0 VS_MAIN();
 		GeometryShader = NULL;
@@ -252,7 +304,7 @@ technique11 DefaultTechnique
 		PixelShader = compile ps_5_0 PS_ALPHA();
 	}
 
-	pass FreezeDark
+	pass FreezeDark4
 	{
 		SetRasterizerState(RS_Default);
 		SetDepthStencilState(DS_Default, 0);
@@ -264,6 +316,85 @@ technique11 DefaultTechnique
 		DomainShader = NULL;
 		PixelShader = compile ps_5_0 PS_FREEZEDARK();
 	}
+
+	pass SKY5
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Not_ZTest_ZWrite, 0);
+		SetBlendState(BS_AlphaBlend, float4(1.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_BACKGROUND();
+	}
+
+	pass GARD6
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_ZTest_NoZWrite, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_GARD();
+	}
+
+	pass Pass7
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_RIM();
+	}
+
+	pass White8
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_WHITE();
+	}
+
+	pass BlackAlpha9
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_BLACK_ALPHA();
+	}
+
+	pass BlackAlpha10
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_WHITE_ALPHA();
+	}
+
 }
 
 

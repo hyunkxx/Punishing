@@ -17,8 +17,8 @@ public:
 	enum { NUM_SIZE_X = 38 };
 
 protected:
-	CPlayerIcon(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
-	CPlayerIcon(const CPlayerIcon& rhs);
+	explicit CPlayerIcon(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
+	explicit CPlayerIcon(const CPlayerIcon& rhs);
 	virtual ~CPlayerIcon() = default;
 
 public:
@@ -47,6 +47,7 @@ public:
 	virtual void Free() override;
 
 private:
+	_float		m_fTargetAngle;
 	_float		m_fX, m_fY, m_fWidth, m_fHeight;
 	_float4x4	m_ViewMatrix, m_ProjMatrix;
 

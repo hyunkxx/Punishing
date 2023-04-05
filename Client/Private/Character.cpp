@@ -20,6 +20,7 @@
 #include "Thorn.h"
 
 #include "SwordTrail.h"
+#include "FloorCircle.h"
 
 //Bip001?(리얼 루트본) Bip001Pelvis (척추) R3KalieninaMd010031 (000)
 CCharacter::CCharacter(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
@@ -269,6 +270,10 @@ void CCharacter::Tick(_double TimeDelta)
 
 void CCharacter::LateTick(_double TimeDelta)
 {
+	m_fSmokeTimeAcc += TimeDelta * 0.25;
+	m_fSmokeTimeAcc2 += TimeDelta * 0.3f;
+	m_fSmokeTimeAcc3 += TimeDelta * 0.2f;
+
 	m_pPlayerIcon->SetCombo(m_iComboCount);
 	m_pPlayerIcon->SetComboPerTime(m_fCurComboTimer);
 
@@ -316,6 +321,44 @@ HRESULT CCharacter::Render()
 		mModel->Render(i);
 	}
 	
+	CGameInstance* pInstance = CGameInstance::GetInstance();
+	_float4 vCamPos = CPipeLine::GetInstance()->Get_CamPosition();
+
+	_vector vRight = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_RIGHT));
+	_vector vSmokePos;
+
+	vSmokePos = mTransform->Get_State(CTransform::STATE_POSITION);
+	vSmokePos = XMVectorSetY(vSmokePos, XMVectorGetY(vSmokePos) + 0.3f);
+	m_pSmokeTransform1->Set_State(CTransform::STATE_POSITION, vSmokePos);
+	m_pSmokeTransform1->LookAt(XMLoadFloat4(&vCamPos));
+	m_pSmokeTransform1->Set_Scale(_float3(0.8f, 0.8f, 0.8f));
+
+	vSmokePos = mTransform->Get_State(CTransform::STATE_POSITION);
+	vSmokePos = XMVectorSetY(vSmokePos, XMVectorGetY(vSmokePos) + 1.f);
+	m_pSmokeTransform3->Set_State(CTransform::STATE_POSITION, vSmokePos);
+	m_pSmokeTransform3->LookAt(XMLoadFloat4(&vCamPos));
+	m_pSmokeTransform3->Set_Scale(_float3(0.8f, 0.8f, 0.8f));
+
+	if (FAILED(m_pSmokeTransform1->Setup_ShaderResource(m_pRectShader, "g_WorldMatrix")))
+		return E_FAIL;
+	if (FAILED(m_pRectShader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
+		return E_FAIL;
+	if (FAILED(m_pRectShader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
+		return E_FAIL;
+	
+	m_pRectShader->SetRawValue("g_TimeAcc", &m_fSmokeTimeAcc, sizeof(_float));
+	m_pSmokeDiffuse->Setup_ShaderResource(m_pRectShader, "g_Texture");
+	m_pSmokeMask->Setup_ShaderResource(m_pRectShader, "g_MaskTexture");
+
+	m_pRectShader->Begin(4);
+	m_pEvolutionSmoke->Render();
+
+	if (FAILED(m_pSmokeTransform3->Setup_ShaderResource(m_pRectShader, "g_WorldMatrix")))
+		return E_FAIL;
+	m_pRectShader->SetRawValue("g_TimeAcc", &m_fSmokeTimeAcc3, sizeof(_float));
+	m_pRectShader->Begin(3);
+	m_pEvolutionSmoke->Render();
+
 	return S_OK;
 }
 
@@ -331,6 +374,18 @@ void CCharacter::RenderGUI()
 	ImGui::InputFloat3("LOOK  ", (_float*)&m_vPrevLook);
 
 	ImGui::End();
+}
+
+_float CCharacter::GetLengthFromCamera()
+{
+	CPipeLine* pPipeLine = CPipeLine::GetInstance();
+
+	_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vCamPos = XMLoadFloat4(&pPipeLine->Get_CamPosition());
+
+	_float fLength = XMVectorGetX(XMVector3Length(vPos - vCamPos));
+
+	return fLength;
 }
 
 void CCharacter::SetPosition(_float3 vPos)
@@ -395,6 +450,17 @@ HRESULT CCharacter::AddComponents()
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&mRenderer)))
 		return E_FAIL;
 
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"), TEXT("com_vibuffer_rect"), (CComponent**)&m_pEvolutionSmoke)))
+		return E_FAIL;
+
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxtex"), TEXT("com_shader_rect"), (CComponent**)&m_pRectShader)))
+		return E_FAIL;
+	
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_smokediffuse"), TEXT("com_texutre_rect"), (CComponent**)&m_pSmokeDiffuse)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_smokemask"), TEXT("com_texutre_rect2"), (CComponent**)&m_pSmokeMask)))
+		return E_FAIL;
+
 	CTransform::TRANSFORM_DESC TransformDesc;
 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
 
@@ -402,6 +468,13 @@ HRESULT CCharacter::AddComponents()
 	TransformDesc.fRotationSpeed = XMConvertToRadians(m_fRotationSpeed);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&mTransform, &TransformDesc)))
+		return E_FAIL;
+
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform2"), (CComponent**)&m_pSmokeTransform1, &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform3"), (CComponent**)&m_pSmokeTransform2, &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform4"), (CComponent**)&m_pSmokeTransform3, &TransformDesc)))
 		return E_FAIL;
 
 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
@@ -490,6 +563,21 @@ HRESULT CCharacter::AddComponents()
 	mWeaponCollider->SetActive(false);
 	mWeaponCollider->SetColor(_float4(0.f, 1.f, 0.f, 1.f));
 
+	if (!m_pAppManager->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+	{
+		CGameObject* pCircle = nullptr;
+		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_circle", L"layer_ui", L"circle", mTransform)))
+			return E_FAIL;
+		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_PLAYER);
+	}
+	else
+	{
+		CGameObject* pCircle = nullptr;
+		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_circle", L"layer_ui", L"circle", mTransform)))
+			return E_FAIL;
+		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_PLAYER);
+	}
+
 	return S_OK;
 }
 
@@ -565,6 +653,7 @@ void CCharacter::KeyInput(_double TimeDelta)
 			m_bEvolutionAttack = false;
 			m_bEvolutionReady = false;
 
+			m_pCamera->EvolutionStart();
 			m_bRedAddGageReady = true;
 			m_bYellowAddGageReady = true;
 			m_bBlueAddGageReady = true;
@@ -808,7 +897,28 @@ void CCharacter::KeyInput(_double TimeDelta)
 		}
 	}
 
-	if (mModel->AnimationIsFinish())
+	if (m_bStart)
+	{
+		SetAnimation(CLIP::BORN, CAnimation::TYPE::ONE);
+		if (mModel->AnimationCompare(CLIP::BORN))
+		{
+			if (!m_bStartAction)
+			{
+				if (mModel->GetCurrentTimeAcc() >= 0.2f)
+				{
+					m_bStartAction = true;
+					m_pCamera->AttackShake();
+				}
+			}
+
+			if (mModel->AnimationIsFinishEx())
+			{
+				m_bStart = false;
+				m_bStartAction = false;
+			}
+		}
+	}
+	else if (mModel->AnimationIsFinish())
 		Idle();
 }
 
@@ -1087,7 +1197,11 @@ void CCharacter::Attack(_double TimeDelta)
 		m_bHitColliderCheck = false;
 		
 		if (m_pNearEnemy)
-			mTransform->LookAt(XMLoadFloat4(&m_pNearEnemy->GetPosition()));
+		{
+			_float4 vPos = m_pNearEnemy->GetPosition();
+			vPos.y = 0.f;
+			mTransform->LookAt(XMLoadFloat4(&vPos));
+		}
 
 		if (!m_bEvolution)
 		{
@@ -1255,7 +1369,9 @@ void CCharacter::SkillA(_double TimeDelta)
 	{
 		if (m_pNearEnemy)
 		{
-			mTransform->LookAt(XMLoadFloat4(&m_pNearEnemy->GetPosition()));
+			_float4 vPos = m_pNearEnemy->GetPosition();
+			vPos.y = 0.f;
+			mTransform->LookAt(XMLoadFloat4(&vPos));
 			m_pAttackTargetEnemy = m_pNearEnemy;
 		}
 
@@ -1293,7 +1409,11 @@ void CCharacter::SkillC(_double TimeDelta)
 		return;
 
 	if (m_pNearEnemy != nullptr)
-		mTransform->LookAt(XMLoadFloat4(&m_pNearEnemy->GetPosition()));
+	{
+		_float4 vPos = m_pNearEnemy->GetPosition();
+		vPos.y = 0.f;
+		mTransform->LookAt(XMLoadFloat4(&vPos));
+	}
 
 	mWeaponCollider->SetActive(false);
 	m_bUseSkill = true;
@@ -2090,6 +2210,9 @@ void CCharacter::LeftRotation(_double TimeDelta)
 
 void CCharacter::Movement(_double TimeDelta)
 {
+	if (m_bStart)
+		return;
+
 	m_bMove = true;
 
 	if (AnimationCompare(CLIP::STAND1) || AnimationCompare(CLIP::STAND2) || AnimationCompare(CLIP::RUN_START_END) || AnimationCompare(CLIP::STOP))
@@ -2115,8 +2238,13 @@ void CCharacter::LookPos(_fvector vLookPos)
 {	
 	if (!m_bHit && !m_bEvolution && !m_bUseSkill)
 	{
-		if(!mModel->AnimationCompare(CLIP::HIT3))
+		if (mModel->AnimationCompare(MOVE1) || mModel->AnimationCompare(MOVE2))
+			return;
+
+		if (!mModel->AnimationCompare(CLIP::HIT3))
+		{
 			mTransform->LookAt(vLookPos);
+		}
 	}
 }
 
@@ -2146,7 +2274,7 @@ void CCharacter::AddEvolutionGage(CSkillBase::SKILL_INFO SkillInfo)
 	}
 
 	if (m_bEvolution)
-	{
+	{ 
 		if (SkillInfo.iChainCount == 0)
 		{
 			if (m_fCurEvolutionAcc - 2.5f >= 0.f)
@@ -2173,6 +2301,9 @@ void CCharacter::AddEvolutionGage(CSkillBase::SKILL_INFO SkillInfo)
 
 void CCharacter::InputMove(_double TimeDelta)
 {
+	if (m_bStart)
+		return;
+
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	if (pGameInstance->Input_KeyState_Custom(DIK_UPARROW) == KEY_STATE::TAP)
