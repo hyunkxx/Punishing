@@ -2293,6 +2293,7 @@ PUBLIC	??_H@YAXPEAX_K1P6APEAX0@Z@Z			; `vector constructor iterator'
 PUBLIC	?__empty_global_delete@@YAXPEAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPEAX_K@Z		; __empty_global_delete
 PUBLIC	?XMConvertToRadians@DirectX@@YAMM@Z		; DirectX::XMConvertToRadians
+PUBLIC	??0XMFLOAT4@DirectX@@QEAA@MMMM@Z		; DirectX::XMFLOAT4::XMFLOAT4
 PUBLIC	?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z	; DirectX::XMVectorSet
 PUBLIC	?XMVectorSetY@DirectX@@YQ?AT__m128@@T2@M@Z	; DirectX::XMVectorSetY
 PUBLIC	??0CFloorCircle@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ; Client::CFloorCircle::CFloorCircle
@@ -2311,16 +2312,18 @@ PUBLIC	?Create@CFloorCircle@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceC
 PUBLIC	?Clone@CFloorCircle@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z ; Client::CFloorCircle::Clone
 PUBLIC	?Free@CFloorCircle@Client@@UEAAXXZ		; Client::CFloorCircle::Free
 PUBLIC	??_GCFloorCircle@Client@@UEAAPEAXI@Z		; Client::CFloorCircle::`scalar deleting destructor'
+PUBLIC	?IsDeadWait@CEnemy@Client@@QEBA_NXZ		; Client::CEnemy::IsDeadWait
 PUBLIC	??$Safe_Release@PEAVCFloorCircle@Client@@@Engine@@YAKAEAPEAVCFloorCircle@Client@@@Z ; Engine::Safe_Release<Client::CFloorCircle * __ptr64>
 PUBLIC	??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 PUBLIC	??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 PUBLIC	??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ; Engine::Safe_Release<Engine::CModel * __ptr64>
 PUBLIC	??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ; Engine::Safe_Release<Engine::CShader * __ptr64>
 PUBLIC	??_7CFloorCircle@Client@@6B@			; Client::CFloorCircle::`vftable'
+PUBLIC	??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@ ; `string'
+PUBLIC	??_C@_0M@GIEPOAKC@g_GlowColor?$AA@		; `string'
 PUBLIC	??_C@_0BB@FMIBAICL@g_DiffuseTexture?$AA@	; `string'
 PUBLIC	??_C@_1BK@GIOMOCNE@?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CG@COFFFCLL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ ; `string'
-PUBLIC	??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CI@MLEFGO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BG@GGOMMBBL@?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1DE@OMAPGAIH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAv?$AAt?$AAx?$AAm?$AAo?$AAd?$AAe?$AAl?$AA?$AA@ ; `string'
@@ -2372,7 +2375,9 @@ EXTRN	__imp_?Initialize@CGameObject@Engine@@UEAAJPEAX@Z:PROC
 EXTRN	__imp_?Tick@CGameObject@Engine@@UEAAXN@Z:PROC
 EXTRN	__imp_?LateTick@CGameObject@Engine@@UEAAXN@Z:PROC
 EXTRN	__imp_?Render@CGameObject@Engine@@UEAAJXZ:PROC
+EXTRN	__imp_?Find_Component@CGameObject@Engine@@QEAAPEAVCComponent@2@PEB_W@Z:PROC
 EXTRN	__imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z:PROC
+EXTRN	__imp_?IsActive@CGameObject@Engine@@QEAA_NXZ:PROC
 EXTRN	__imp_?Free@CGameObject@Engine@@UEAAXXZ:PROC
 EXTRN	??_ECFloorCircle@Client@@UEAAPEAXI@Z:PROC	; Client::CFloorCircle::`vector deleting destructor'
 EXTRN	__imp_?Setup_ShaderMaterialResource@CModel@Engine@@QEAAJPEAVCShader@2@PEBDIW4aiTextureType@@@Z:PROC
@@ -2427,6 +2432,12 @@ $pdata$?XMConvertToRadians@DirectX@@YAMM@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$??0XMFLOAT4@DirectX@@QEAA@MMMM@Z DD imagerel $LN3
+	DD	imagerel $LN3+154
+	DD	imagerel $unwind$??0XMFLOAT4@DirectX@@QEAA@MMMM@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z DD imagerel $LN3
 	DD	imagerel $LN3+121
 	DD	imagerel $unwind$?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z
@@ -2440,13 +2451,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CFloorCircle@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z DD imagerel $LN4
-	DD	imagerel $LN4+235
+	DD	imagerel $LN4+253
 	DD	imagerel $unwind$??0CFloorCircle@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CFloorCircle@Client@@QEAA@AEBV01@@Z DD imagerel $LN4
-	DD	imagerel $LN4+223
+	DD	imagerel $LN4+241
 	DD	imagerel $unwind$??0CFloorCircle@Client@@QEAA@AEBV01@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2464,7 +2475,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Initialize@CFloorCircle@Client@@UEAAJPEAX@Z DD imagerel $LN6
-	DD	imagerel $LN6+144
+	DD	imagerel $LN6+185
 	DD	imagerel $unwind$?Initialize@CFloorCircle@Client@@UEAAJPEAX@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2481,8 +2492,8 @@ $pdata$?LateTick@CFloorCircle@Client@@UEAAXN@Z DD imagerel $LN4
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Render@CFloorCircle@Client@@UEAAJXZ DD imagerel $LN15
-	DD	imagerel $LN15+460
+$pdata$?Render@CFloorCircle@Client@@UEAAJXZ DD imagerel $LN16
+	DD	imagerel $LN16+770
 	DD	imagerel $unwind$?Render@CFloorCircle@Client@@UEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -2544,6 +2555,12 @@ pdata	SEGMENT
 $pdata$??_GCFloorCircle@Client@@UEAAPEAXI@Z DD imagerel $LN4
 	DD	imagerel $LN4+105
 	DD	imagerel $unwind$??_GCFloorCircle@Client@@UEAAPEAXI@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?IsDeadWait@CEnemy@Client@@QEBA_NXZ DD imagerel $LN3
+	DD	imagerel $LN3+64
+	DD	imagerel $unwind$?IsDeadWait@CEnemy@Client@@QEBA_NXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -2710,7 +2727,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CFloorCircle@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CFloorCircle@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0b1H ; `Client::CFloorCircle::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CFloorCircle@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0bcH ; `Client::CFloorCircle::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1EA@GGBHDOPG@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAF?$AAl?$AAo?$AAo?$AAr?$AAC?$AAi?$AAr?$AAc?$AAl?$AAe?$AA?$AA@
 CONST	SEGMENT
@@ -2735,7 +2752,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CFloorCircle@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CFloorCircle@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0a5H ; `Client::CFloorCircle::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CFloorCircle@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0b0H ; `Client::CFloorCircle::Create'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_0BA@EALGDMPJ@g_vLightAmbient?$AA@
 CONST	SEGMENT
@@ -2810,13 +2827,6 @@ CONST	SEGMENT
 	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'r', 00H, 'a', 00H, 'n'
 	DB	00H, 's', 00H, 'f', 00H, 'o', 00H, 'r', 00H, 'm', 00H, 00H, 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
-CONST	SEGMENT
-??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@ DB 'c'
-	DB	00H, 'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'r', 00H, 'a', 00H
-	DB	'n', 00H, 's', 00H, 'f', 00H, 'o', 00H, 'r', 00H, 'm', 00H, 00H
-	DB	00H						; `string'
-CONST	ENDS
 ;	COMDAT ??_C@_1CG@COFFFCLL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@
 CONST	SEGMENT
 ??_C@_1CG@COFFFCLL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ DB 'p'
@@ -2833,6 +2843,17 @@ CONST	ENDS
 ;	COMDAT ??_C@_0BB@FMIBAICL@g_DiffuseTexture?$AA@
 CONST	SEGMENT
 ??_C@_0BB@FMIBAICL@g_DiffuseTexture?$AA@ DB 'g_DiffuseTexture', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0M@GIEPOAKC@g_GlowColor?$AA@
+CONST	SEGMENT
+??_C@_0M@GIEPOAKC@g_GlowColor?$AA@ DB 'g_GlowColor', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
+CONST	SEGMENT
+??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@ DB 'c'
+	DB	00H, 'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'r', 00H, 'a', 00H
+	DB	'n', 00H, 's', 00H, 'f', 00H, 'o', 00H, 'r', 00H, 'm', 00H, 00H
+	DB	00H						; `string'
 CONST	ENDS
 ;	COMDAT ??_7CFloorCircle@Client@@6B@
 CONST	SEGMENT
@@ -2881,6 +2902,13 @@ xdata	SEGMENT
 $unwind$??$Safe_Release@PEAVCFloorCircle@Client@@@Engine@@YAKAEAPEAVCFloorCircle@Client@@@Z DD 025052a01H
 	DD	010e2313H
 	DD	070070021H
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?IsDeadWait@CEnemy@Client@@QEBA_NXZ DD 05052801H
+	DD	010e0311H
+	DD	070070019H
 	DD	05006H
 xdata	ENDS
 ;	COMDAT xdata
@@ -3067,11 +3095,50 @@ $unwind$?RenderGUI@CFloorCircle@Client@@UEAAXXZ DD 05052801H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?Render@CFloorCircle@Client@@UEAAJXZ DD 035052a01H
+$unwind$?Render@CFloorCircle@Client@@UEAAJXZ DD 035053b19H
 	DD	010e3313H
-	DD	07007002fH
+	DD	07007003bH
 	DD	05006H
+	DD	imagerel __GSHandlerCheck
+	DD	01c8H
 xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+?Render@CFloorCircle@Client@@UEAAJXZ$rtcName$0 DB 076H	; Client::CFloorCircle::Render
+	DB	047H
+	DB	06cH
+	DB	06fH
+	DB	077H
+	DB	043H
+	DB	06fH
+	DB	06cH
+	DB	06fH
+	DB	072H
+	DB	00H
+	ORG $+5
+?Render@CFloorCircle@Client@@UEAAJXZ$rtcName$1 DB 076H	; Client::CFloorCircle::Render
+	DB	047H
+	DB	06cH
+	DB	06fH
+	DB	077H
+	DB	043H
+	DB	06fH
+	DB	06cH
+	DB	06fH
+	DB	072H
+	DB	00H
+	ORG $+5
+?Render@CFloorCircle@Client@@UEAAJXZ$rtcVarDesc DD 0a8H	; Client::CFloorCircle::Render
+	DD	010H
+	DQ	FLAT:?Render@CFloorCircle@Client@@UEAAJXZ$rtcName$1
+	DD	038H
+	DD	010H
+	DQ	FLAT:?Render@CFloorCircle@Client@@UEAAJXZ$rtcName$0
+	ORG $+96
+?Render@CFloorCircle@Client@@UEAAJXZ$rtcFrameData DD 02H ; Client::CFloorCircle::Render
+	DD	00H
+	DQ	FLAT:?Render@CFloorCircle@Client@@UEAAJXZ$rtcVarDesc
+CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$?LateTick@CFloorCircle@Client@@UEAAXN@Z DD 025053001H
@@ -3157,6 +3224,13 @@ $unwind$?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z DD 015053501H
 	DD	01211326H
 	DD	0701a0021H
 	DD	05019H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??0XMFLOAT4@DirectX@@QEAA@MMMM@Z DD 05053a01H
+	DD	01200323H
+	DD	070190019H
+	DD	05018H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -3582,6 +3656,39 @@ $LN2@Safe_Relea:
 ??$Safe_Release@PEAVCFloorCircle@Client@@@Engine@@YAKAEAPEAVCFloorCircle@Client@@@Z ENDP ; Engine::Safe_Release<Client::CFloorCircle * __ptr64>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\users\arcco\documents\github\framework\client\public\enemy.h
+;	COMDAT ?IsDeadWait@CEnemy@Client@@QEBA_NXZ
+_TEXT	SEGMENT
+this$ = 224
+?IsDeadWait@CEnemy@Client@@QEBA_NXZ PROC		; Client::CEnemy::IsDeadWait, COMDAT
+
+; 130  : 	_bool IsDeadWait() const { return m_bDeadWait; }
+
+$LN3:
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	55		 push	 rbp
+  00006	57		 push	 rdi
+  00007	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  0000e	48 8b ec	 mov	 rbp, rsp
+  00011	48 8b fc	 mov	 rdi, rsp
+  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  0001e	f3 ab		 rep stosd
+  00020	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+  00028	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0002f	0f b6 80 82 01
+	00 00		 movzx	 eax, BYTE PTR [rax+386]
+  00036	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  0003d	5f		 pop	 rdi
+  0003e	5d		 pop	 rbp
+  0003f	c3		 ret	 0
+?IsDeadWait@CEnemy@Client@@QEBA_NXZ ENDP		; Client::CEnemy::IsDeadWait
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??_GCFloorCircle@Client@@UEAAPEAXI@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -3609,7 +3716,7 @@ $LN4:
   00040	83 e0 01	 and	 eax, 1
   00043	85 c0		 test	 eax, eax
   00045	74 11		 je	 SHORT $LN2@scalar
-  00047	ba b0 00 00 00	 mov	 edx, 176		; 000000b0H
+  00047	ba b8 00 00 00	 mov	 edx, 184		; 000000b8H
   0004c	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ??3@YAXPEAX_K@Z		; operator delete
@@ -3630,7 +3737,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CFloorCircle@Client@@UEAAXXZ PROC			; Client::CFloorCircle::Free, COMDAT
 
-; 189  : {
+; 200  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3646,15 +3753,15 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 190  : 	__super::Free();
+; 201  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CGameObject@Engine@@UEAAXXZ
 
-; 191  : 
-; 192  : 	Safe_Release(m_pRenderer);
+; 202  : 
+; 203  : 	Safe_Release(m_pRenderer);
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3663,7 +3770,7 @@ $LN3:
   00044	48 8b c8	 mov	 rcx, rax
   00047	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCRenderer@Engine@@@Engine@@YAKAEAPEAVCRenderer@0@@Z ; Engine::Safe_Release<Engine::CRenderer * __ptr64>
 
-; 193  : 	Safe_Release(m_pTransform);
+; 204  : 	Safe_Release(m_pTransform);
 
   0004c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3671,7 +3778,7 @@ $LN3:
   00057	48 8b c8	 mov	 rcx, rax
   0005a	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 194  : 	Safe_Release(m_pPlayerCircle);
+; 205  : 	Safe_Release(m_pPlayerCircle);
 
   0005f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3680,7 +3787,7 @@ $LN3:
   0006c	48 8b c8	 mov	 rcx, rax
   0006f	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ; Engine::Safe_Release<Engine::CModel * __ptr64>
 
-; 195  : 	Safe_Release(m_pEnemyCircle);
+; 206  : 	Safe_Release(m_pEnemyCircle);
 
   00074	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3689,7 +3796,7 @@ $LN3:
   00081	48 8b c8	 mov	 rcx, rax
   00084	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCModel@Engine@@@Engine@@YAKAEAPEAVCModel@0@@Z ; Engine::Safe_Release<Engine::CModel * __ptr64>
 
-; 196  : 	Safe_Release(m_pShader);
+; 207  : 	Safe_Release(m_pShader);
 
   00089	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -3698,7 +3805,7 @@ $LN3:
   00096	48 8b c8	 mov	 rcx, rax
   00099	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCShader@Engine@@@Engine@@YAKAEAPEAVCShader@0@@Z ; Engine::Safe_Release<Engine::CShader * __ptr64>
 
-; 197  : }
+; 208  : }
 
   0009e	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -3721,7 +3828,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CFloorCircle@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CFloorCircle::Clone, COMDAT
 
-; 177  : {
+; 188  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -3746,7 +3853,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 178  : 	CFloorCircle* pInstance = new CFloorCircle(*this);
+; 189  : 	CFloorCircle* pInstance = new CFloorCircle(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CFloorCircle@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
@@ -3755,7 +3862,7 @@ $LN7:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EJ@LKBCDGIP@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 b0 00 00 00	 mov	 ecx, 176		; 000000b0H
+  00062	b9 b8 00 00 00	 mov	 ecx, 184		; 000000b8H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 08 01
 	00 00		 mov	 QWORD PTR $T5[rbp], rax
@@ -3783,7 +3890,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 179  : 	if (FAILED(pInstance->Initialize(pArg)))
+; 190  : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 95 78 01
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -3792,8 +3899,8 @@ $LN5@Clone:
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Clone
 
-; 180  : 	{
-; 181  : 		MSG_BOX("Failed to Clone : CFloorCircle");
+; 191  : 	{
+; 192  : 		MSG_BOX("Failed to Clone : CFloorCircle");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -3804,19 +3911,19 @@ $LN5@Clone:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 182  : 		Safe_Release(pInstance);
+; 193  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCFloorCircle@Client@@@Engine@@YAKAEAPEAVCFloorCircle@Client@@@Z ; Engine::Safe_Release<Client::CFloorCircle * __ptr64>
 $LN2@Clone:
 
-; 183  : 	}
-; 184  : 
-; 185  : 	return pInstance;
+; 194  : 	}
+; 195  : 
+; 196  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 186  : }
+; 197  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -3914,7 +4021,7 @@ pDevice$ = 368
 pContext$ = 376
 ?Create@CFloorCircle@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CFloorCircle::Create, COMDAT
 
-; 165  : {
+; 176  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -3939,7 +4046,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 166  : 	CFloorCircle* pInstance = new CFloorCircle(pDevice, pContext);
+; 177  : 	CFloorCircle* pInstance = new CFloorCircle(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CFloorCircle@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -3948,7 +4055,7 @@ $LN7:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EJ@LKBCDGIP@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 b0 00 00 00	 mov	 ecx, 176		; 000000b0H
+  00062	b9 b8 00 00 00	 mov	 ecx, 184		; 000000b8H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 08 01
 	00 00		 mov	 QWORD PTR $T5[rbp], rax
@@ -3978,15 +4085,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 167  : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 178  : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CFloorCircle@Client@@UEAAJXZ ; Client::CFloorCircle::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Create
 
-; 168  : 	{
-; 169  : 		MSG_BOX("Failed to Create : CFloorCircle");
+; 179  : 	{
+; 180  : 		MSG_BOX("Failed to Create : CFloorCircle");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -3997,19 +4104,19 @@ $LN5@Create:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 170  : 		Safe_Release(pInstance);
+; 181  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCFloorCircle@Client@@@Engine@@YAKAEAPEAVCFloorCircle@Client@@@Z ; Engine::Safe_Release<Client::CFloorCircle * __ptr64>
 $LN2@Create:
 
-; 171  : 	}
-; 172  : 
-; 173  : 	return pInstance;
+; 182  : 	}
+; 183  : 
+; 184  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 174  : }
+; 185  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -4105,7 +4212,7 @@ $T3 = 452
 this$ = 528
 ?Setup_ShaderResources@CFloorCircle@Client@@AEAAJXZ PROC ; Client::CFloorCircle::Setup_ShaderResources, COMDAT
 
-; 130  : {
+; 141  : {
 
 $LN13:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4121,7 +4228,7 @@ $LN13:
   00022	48 8b 8c 24 38
 	02 00 00	 mov	 rcx, QWORD PTR [rsp+568]
 
-; 131  : 	if (nullptr == m_pShader)
+; 142  : 	if (nullptr == m_pShader)
 
   0002a	48 8b 85 10 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4129,21 +4236,21 @@ $LN13:
 	00 00 00	 cmp	 QWORD PTR [rax+136], 0
   00039	75 0a		 jne	 SHORT $LN2@Setup_Shad
 
-; 132  : 		return E_FAIL;
+; 143  : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00040	e9 06 02 00 00	 jmp	 $LN1@Setup_Shad
 $LN2@Setup_Shad:
 
-; 133  : 
-; 134  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
+; 144  : 
+; 145  : 	CGameInstance* pInstance = CGameInstance::GetInstance();
 
   00045	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0004b	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 135  : 
-; 136  : 	if (FAILED(m_pTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
+; 146  : 
+; 147  : 	if (FAILED(m_pTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
 
   0004f	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0O@PFNLPMLD@g_WorldMatrix?$AA@
@@ -4159,14 +4266,14 @@ $LN2@Setup_Shad:
   00075	85 c0		 test	 eax, eax
   00077	7d 0a		 jge	 SHORT $LN3@Setup_Shad
 
-; 137  : 		return E_FAIL;
+; 148  : 		return E_FAIL;
 
   00079	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0007e	e9 c8 01 00 00	 jmp	 $LN1@Setup_Shad
 $LN3@Setup_Shad:
 
-; 138  : 
-; 139  : 	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
+; 149  : 
+; 150  : 	if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_VIEW))))
 
   00083	45 33 c0	 xor	 r8d, r8d
   00086	48 8d 95 04 01
@@ -4186,14 +4293,14 @@ $LN3@Setup_Shad:
   000b5	85 c0		 test	 eax, eax
   000b7	7d 0a		 jge	 SHORT $LN4@Setup_Shad
 
-; 140  : 		return E_FAIL;
+; 151  : 		return E_FAIL;
 
   000b9	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000be	e9 88 01 00 00	 jmp	 $LN1@Setup_Shad
 $LN4@Setup_Shad:
 
-; 141  : 
-; 142  : 	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
+; 152  : 
+; 153  : 	if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &pInstance->Get_Transform_float4x4(CPipeLine::TS_PROJ))))
 
   000c3	41 b8 01 00 00
 	00		 mov	 r8d, 1
@@ -4214,14 +4321,14 @@ $LN4@Setup_Shad:
   000f8	85 c0		 test	 eax, eax
   000fa	7d 0a		 jge	 SHORT $LN5@Setup_Shad
 
-; 143  : 		return E_FAIL;
+; 154  : 		return E_FAIL;
 
   000fc	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00101	e9 45 01 00 00	 jmp	 $LN1@Setup_Shad
 $LN5@Setup_Shad:
 
-; 144  : 
-; 145  : 	if (FAILED(m_pShader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
+; 155  : 
+; 156  : 	if (FAILED(m_pShader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
 
   00106	48 8d 95 c4 01
 	00 00		 lea	 rdx, QWORD PTR $T3[rbp]
@@ -4242,14 +4349,14 @@ $LN5@Setup_Shad:
   0013b	85 c0		 test	 eax, eax
   0013d	7d 0a		 jge	 SHORT $LN6@Setup_Shad
 
-; 146  : 		return E_FAIL;
+; 157  : 		return E_FAIL;
 
   0013f	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00144	e9 02 01 00 00	 jmp	 $LN1@Setup_Shad
 $LN6@Setup_Shad:
 
-; 147  : 
-; 148  : 	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
+; 158  : 
+; 159  : 	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
 
   00149	33 d2		 xor	 edx, edx
   0014b	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
@@ -4257,19 +4364,19 @@ $LN6@Setup_Shad:
 	00		 call	 QWORD PTR __imp_?GetLightDesc@CGameInstance@Engine@@QEAAPEBUtagLight_Desc@2@I@Z
   00155	48 89 45 28	 mov	 QWORD PTR LightDesc$[rbp], rax
 
-; 149  : 	if (nullptr == LightDesc)
+; 160  : 	if (nullptr == LightDesc)
 
   00159	48 83 7d 28 00	 cmp	 QWORD PTR LightDesc$[rbp], 0
   0015e	75 0a		 jne	 SHORT $LN7@Setup_Shad
 
-; 150  : 		return E_FAIL;
+; 161  : 		return E_FAIL;
 
   00160	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00165	e9 e1 00 00 00	 jmp	 $LN1@Setup_Shad
 $LN7@Setup_Shad:
 
-; 151  : 
-; 152  : 	if (FAILED(m_pShader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
+; 162  : 
+; 163  : 	if (FAILED(m_pShader->SetRawValue("g_vLightDir", &LightDesc->vDirection, sizeof(_float4))))
 
   0016a	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   0016e	48 83 c0 04	 add	 rax, 4
@@ -4287,13 +4394,13 @@ $LN7@Setup_Shad:
   00196	85 c0		 test	 eax, eax
   00198	7d 0a		 jge	 SHORT $LN8@Setup_Shad
 
-; 153  : 		return E_FAIL;
+; 164  : 		return E_FAIL;
 
   0019a	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0019f	e9 a7 00 00 00	 jmp	 $LN1@Setup_Shad
 $LN8@Setup_Shad:
 
-; 154  : 	if (FAILED(m_pShader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
+; 165  : 	if (FAILED(m_pShader->SetRawValue("g_vLightDiffuse", &LightDesc->vDiffuse, sizeof(_float4))))
 
   001a4	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   001a8	48 83 c0 28	 add	 rax, 40			; 00000028H
@@ -4311,13 +4418,13 @@ $LN8@Setup_Shad:
   001d0	85 c0		 test	 eax, eax
   001d2	7d 07		 jge	 SHORT $LN9@Setup_Shad
 
-; 155  : 		return E_FAIL;
+; 166  : 		return E_FAIL;
 
   001d4	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001d9	eb 70		 jmp	 SHORT $LN1@Setup_Shad
 $LN9@Setup_Shad:
 
-; 156  : 	if (FAILED(m_pShader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
+; 167  : 	if (FAILED(m_pShader->SetRawValue("g_vLightSpecular", &LightDesc->vSpecular, sizeof(_float4))))
 
   001db	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   001df	48 83 c0 48	 add	 rax, 72			; 00000048H
@@ -4335,13 +4442,13 @@ $LN9@Setup_Shad:
   00207	85 c0		 test	 eax, eax
   00209	7d 07		 jge	 SHORT $LN10@Setup_Shad
 
-; 157  : 		return E_FAIL;
+; 168  : 		return E_FAIL;
 
   0020b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00210	eb 39		 jmp	 SHORT $LN1@Setup_Shad
 $LN10@Setup_Shad:
 
-; 158  : 	if (FAILED(m_pShader->SetRawValue("g_vLightAmbient", &LightDesc->vAmbient, sizeof(_float4))))
+; 169  : 	if (FAILED(m_pShader->SetRawValue("g_vLightAmbient", &LightDesc->vAmbient, sizeof(_float4))))
 
   00212	48 8b 45 28	 mov	 rax, QWORD PTR LightDesc$[rbp]
   00216	48 83 c0 38	 add	 rax, 56			; 00000038H
@@ -4359,19 +4466,19 @@ $LN10@Setup_Shad:
   0023e	85 c0		 test	 eax, eax
   00240	7d 07		 jge	 SHORT $LN11@Setup_Shad
 
-; 159  : 		return E_FAIL;
+; 170  : 		return E_FAIL;
 
   00242	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00247	eb 02		 jmp	 SHORT $LN1@Setup_Shad
 $LN11@Setup_Shad:
 
-; 160  : 
-; 161  : 	return S_OK;
+; 171  : 
+; 172  : 	return S_OK;
 
   00249	33 c0		 xor	 eax, eax
 $LN1@Setup_Shad:
 
-; 162  : }
+; 173  : }
 
   0024b	48 8d a5 f8 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+504]
@@ -4389,7 +4496,7 @@ __$ArrayPad$ = 216
 this$ = 256
 ?Add_Components@CFloorCircle@Client@@AEAAJXZ PROC	; Client::CFloorCircle::Add_Components, COMDAT
 
-; 108  : {
+; 119  : {
 
 $LN8:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4410,7 +4517,7 @@ $LN8:
   00034	48 89 85 d8 00
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 109  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
+; 120  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"), TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
 
   0003b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4431,28 +4538,28 @@ $LN8:
   00073	85 c0		 test	 eax, eax
   00075	7d 0a		 jge	 SHORT $LN2@Add_Compon
 
-; 110  : 		return E_FAIL;
+; 121  : 		return E_FAIL;
 
   00077	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0007c	e9 31 01 00 00	 jmp	 $LN1@Add_Compon
 $LN2@Add_Compon:
 
-; 111  : 
-; 112  : 	CTransform::TRANSFORM_DESC desc;
-; 113  : 	desc.fMoveSpeed = 0.1f;
+; 122  : 
+; 123  : 	CTransform::TRANSFORM_DESC desc;
+; 124  : 	desc.fMoveSpeed = 0.1f;
 
   00081	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@3dcccccd
   00089	f3 0f 11 45 08	 movss	 DWORD PTR desc$[rbp], xmm0
 
-; 114  : 	desc.fRotationSpeed = XMConvertToRadians(20.f);
+; 125  : 	desc.fRotationSpeed = XMConvertToRadians(20.f);
 
   0008e	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@41a00000
   00096	e8 00 00 00 00	 call	 ?XMConvertToRadians@DirectX@@YAMM@Z ; DirectX::XMConvertToRadians
   0009b	f3 0f 11 45 0c	 movss	 DWORD PTR desc$[rbp+4], xmm0
 
-; 115  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&m_pTransform, &desc)))
+; 126  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&m_pTransform, &desc)))
 
   000a0	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4472,14 +4579,14 @@ $LN2@Add_Compon:
   000d6	85 c0		 test	 eax, eax
   000d8	7d 0a		 jge	 SHORT $LN3@Add_Compon
 
-; 116  : 		return E_FAIL;
+; 127  : 		return E_FAIL;
 
   000da	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   000df	e9 ce 00 00 00	 jmp	 $LN1@Add_Compon
 $LN3@Add_Compon:
 
-; 117  : 
-; 118  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"), TEXT("com_shader"), (CComponent**)&m_pShader)))
+; 128  : 
+; 129  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxmodel"), TEXT("com_shader"), (CComponent**)&m_pShader)))
 
   000e4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4500,14 +4607,14 @@ $LN3@Add_Compon:
   0011c	85 c0		 test	 eax, eax
   0011e	7d 0a		 jge	 SHORT $LN4@Add_Compon
 
-; 119  : 		return E_FAIL;
+; 130  : 		return E_FAIL;
 
   00120	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00125	e9 88 00 00 00	 jmp	 $LN1@Add_Compon
 $LN4@Add_Compon:
 
-; 120  : 
-; 121  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_model_circle1"), TEXT("com_model1"), (CComponent**)&m_pPlayerCircle)))
+; 131  : 
+; 132  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_model_circle1"), TEXT("com_model1"), (CComponent**)&m_pPlayerCircle)))
 
   0012a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4528,13 +4635,13 @@ $LN4@Add_Compon:
   00162	85 c0		 test	 eax, eax
   00164	7d 07		 jge	 SHORT $LN5@Add_Compon
 
-; 122  : 		return E_FAIL;
+; 133  : 		return E_FAIL;
 
   00166	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   0016b	eb 45		 jmp	 SHORT $LN1@Add_Compon
 $LN5@Add_Compon:
 
-; 123  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_model_circle1"), TEXT("com_model2"), (CComponent**)&m_pEnemyCircle)))
+; 134  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_model_circle1"), TEXT("com_model2"), (CComponent**)&m_pEnemyCircle)))
 
   0016d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4555,19 +4662,19 @@ $LN5@Add_Compon:
   001a5	85 c0		 test	 eax, eax
   001a7	7d 07		 jge	 SHORT $LN6@Add_Compon
 
-; 124  : 		return E_FAIL;
+; 135  : 		return E_FAIL;
 
   001a9	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   001ae	eb 02		 jmp	 SHORT $LN1@Add_Compon
 $LN6@Add_Compon:
 
-; 125  : 
-; 126  : 	return S_OK;
+; 136  : 
+; 137  : 	return S_OK;
 
   001b0	33 c0		 xor	 eax, eax
 $LN1@Add_Compon:
 
-; 127  : }
+; 138  : }
 
   001b2	48 8b f8	 mov	 rdi, rax
   001b5	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
@@ -4595,7 +4702,7 @@ this$ = 272
 vScale$ = 280
 ?SetScale@CFloorCircle@Client@@QEAAXUXMFLOAT3@DirectX@@@Z PROC ; Client::CFloorCircle::SetScale, COMDAT
 
-; 103  : {
+; 114  : {
 
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -4613,7 +4720,7 @@ $LN3:
   00028	48 8b 8c 24 38
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+312]
 
-; 104  : 	m_pTransform->Set_Scale(vScale);
+; 115  : 	m_pTransform->Set_Scale(vScale);
 
   00030	48 8d 85 d0 00
 	00 00		 lea	 rax, QWORD PTR $T1[rbp]
@@ -4630,7 +4737,7 @@ $LN3:
   0005a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_Scale@CTransform@Engine@@QEAAXUXMFLOAT3@DirectX@@@Z
 
-; 105  : }
+; 116  : }
 
   00060	48 8d a5 f0 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+240]
@@ -4647,7 +4754,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?RenderGUI@CFloorCircle@Client@@UEAAXXZ PROC		; Client::CFloorCircle::RenderGUI, COMDAT
 
-; 99   : {
+; 110  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -4663,7 +4770,7 @@ $LN3:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 100  : }
+; 111  : }
 
   00028	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4676,245 +4783,355 @@ _TEXT	ENDS
 ; File c:\users\arcco\documents\github\framework\client\private\floorcircle.cpp
 ;	COMDAT ?Render@CFloorCircle@Client@@UEAAJXZ
 _TEXT	SEGMENT
-MeshCount$1 = 4
-i$2 = 36
-MeshCount$3 = 68
-i$4 = 100
-tv75 = 308
-this$ = 352
+vGlowColor$5 = 8
+MeshCount$6 = 52
+i$7 = 84
+vGlowColor$8 = 120
+MeshCount$9 = 164
+i$10 = 196
+tv75 = 404
+__$ArrayPad$ = 408
+this$ = 448
 ?Render@CFloorCircle@Client@@UEAAJXZ PROC		; Client::CFloorCircle::Render, COMDAT
 
-; 60   : {
+; 62   : {
 
-$LN15:
+$LN16:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	57		 push	 rdi
-  00007	48 81 ec 78 01
-	00 00		 sub	 rsp, 376		; 00000178H
+  00007	48 81 ec d8 01
+	00 00		 sub	 rsp, 472		; 000001d8H
   0000e	48 8d 6c 24 30	 lea	 rbp, QWORD PTR [rsp+48]
   00013	48 8b fc	 mov	 rdi, rsp
-  00016	b9 5e 00 00 00	 mov	 ecx, 94			; 0000005eH
+  00016	b9 76 00 00 00	 mov	 ecx, 118		; 00000076H
   0001b	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00020	f3 ab		 rep stosd
-  00022	48 8b 8c 24 98
-	01 00 00	 mov	 rcx, QWORD PTR [rsp+408]
+  00022	48 8b 8c 24 f8
+	01 00 00	 mov	 rcx, QWORD PTR [rsp+504]
+  0002a	48 8b 05 00 00
+	00 00		 mov	 rax, QWORD PTR __security_cookie
+  00031	48 33 c5	 xor	 rax, rbp
+  00034	48 89 85 98 01
+	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 61   : 	if (FAILED(__super::Render()))
+; 63   : 	if (FAILED(__super::Render()))
 
-  0002a	48 8b 8d 60 01
+  0003b	48 8b 8d c0 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00031	ff 15 00 00 00
+  00042	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CGameObject@Engine@@UEAAJXZ
-  00037	85 c0		 test	 eax, eax
-  00039	7d 0a		 jge	 SHORT $LN10@Render
+  00048	85 c0		 test	 eax, eax
+  0004a	7d 0a		 jge	 SHORT $LN10@Render
 
-; 62   : 		return E_FAIL;
+; 64   : 		return E_FAIL;
 
-  0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00040	e9 7d 01 00 00	 jmp	 $LN1@Render
+  0004c	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00051	e9 7d 02 00 00	 jmp	 $LN1@Render
 $LN10@Render:
 
-; 63   : 
-; 64   : 	if (FAILED(Setup_ShaderResources()))
+; 65   : 
+; 66   : 	if (FAILED(Setup_ShaderResources()))
 
-  00045	48 8b 8d 60 01
+  00056	48 8b 8d c0 01
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0004c	e8 00 00 00 00	 call	 ?Setup_ShaderResources@CFloorCircle@Client@@AEAAJXZ ; Client::CFloorCircle::Setup_ShaderResources
-  00051	85 c0		 test	 eax, eax
-  00053	7d 0a		 jge	 SHORT $LN11@Render
+  0005d	e8 00 00 00 00	 call	 ?Setup_ShaderResources@CFloorCircle@Client@@AEAAJXZ ; Client::CFloorCircle::Setup_ShaderResources
+  00062	85 c0		 test	 eax, eax
+  00064	7d 0a		 jge	 SHORT $LN11@Render
 
-; 65   : 		return E_FAIL;
+; 67   : 		return E_FAIL;
 
-  00055	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0005a	e9 63 01 00 00	 jmp	 $LN1@Render
+  00066	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  0006b	e9 63 02 00 00	 jmp	 $LN1@Render
 $LN11@Render:
 
-; 66   : 
-; 67   : 	switch (m_eCircleType)
+; 68   : 
+; 69   : 	switch (m_eCircleType)
 
-  0005f	48 8b 85 60 01
+  00070	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00066	8b 80 a8 00 00
-	00		 mov	 eax, DWORD PTR [rax+168]
-  0006c	89 85 34 01 00
+  00077	8b 80 b0 00 00
+	00		 mov	 eax, DWORD PTR [rax+176]
+  0007d	89 85 94 01 00
 	00		 mov	 DWORD PTR tv75[rbp], eax
-  00072	83 bd 34 01 00
+  00083	83 bd 94 01 00
 	00 00		 cmp	 DWORD PTR tv75[rbp], 0
-  00079	74 12		 je	 SHORT $LN12@Render
-  0007b	83 bd 34 01 00
+  0008a	74 12		 je	 SHORT $LN12@Render
+  0008c	83 bd 94 01 00
 	00 01		 cmp	 DWORD PTR tv75[rbp], 1
-  00082	0f 84 a1 00 00
+  00093	0f 84 f5 00 00
 	00		 je	 $LN13@Render
-  00088	e9 33 01 00 00	 jmp	 $LN2@Render
+  00099	e9 33 02 00 00	 jmp	 $LN2@Render
 $LN12@Render:
 
-; 68   : 	{
-; 69   : 	case CIRCLE_PLAYER:
 ; 70   : 	{
-; 71   : 		_uint MeshCount = m_pPlayerCircle->Get_MeshCount();
+; 71   : 	case CIRCLE_PLAYER:
+; 72   : 	{
+; 73   : 		_float4 vGlowColor = { 1.f, 1.f, 1.f, 1.f };
 
-  0008d	48 8b 85 60 01
+  0009e	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
+  000a6	f3 0f 11 44 24
+	20		 movss	 DWORD PTR [rsp+32], xmm0
+  000ac	f3 0f 10 1d 00
+	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
+  000b4	f3 0f 10 15 00
+	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
+  000bc	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@3f800000
+  000c4	48 8d 4d 08	 lea	 rcx, QWORD PTR vGlowColor$5[rbp]
+  000c8	e8 00 00 00 00	 call	 ??0XMFLOAT4@DirectX@@QEAA@MMMM@Z ; DirectX::XMFLOAT4::XMFLOAT4
+
+; 74   : 		m_pShader->SetRawValue("g_GlowColor", &vGlowColor, sizeof(_float4));
+
+  000cd	41 b9 10 00 00
+	00		 mov	 r9d, 16
+  000d3	4c 8d 45 08	 lea	 r8, QWORD PTR vGlowColor$5[rbp]
+  000d7	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0M@GIEPOAKC@g_GlowColor?$AA@
+  000de	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00094	48 8b 88 90 00
-	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  0009b	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Get_MeshCount@CModel@Engine@@QEAAIXZ
-  000a1	89 45 04	 mov	 DWORD PTR MeshCount$1[rbp], eax
-
-; 72   : 		for (_uint i = 0; i < MeshCount; ++i)
-
-  000a4	c7 45 24 00 00
-	00 00		 mov	 DWORD PTR i$2[rbp], 0
-  000ab	eb 08		 jmp	 SHORT $LN6@Render
-$LN4@Render:
-  000ad	8b 45 24	 mov	 eax, DWORD PTR i$2[rbp]
-  000b0	ff c0		 inc	 eax
-  000b2	89 45 24	 mov	 DWORD PTR i$2[rbp], eax
-$LN6@Render:
-  000b5	8b 45 04	 mov	 eax, DWORD PTR MeshCount$1[rbp]
-  000b8	39 45 24	 cmp	 DWORD PTR i$2[rbp], eax
-  000bb	73 67		 jae	 SHORT $LN5@Render
-
-; 73   : 		{
-; 74   : 			m_pPlayerCircle->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
-
-  000bd	c7 44 24 20 01
-	00 00 00	 mov	 DWORD PTR [rsp+32], 1
-  000c5	44 8b 4d 24	 mov	 r9d, DWORD PTR i$2[rbp]
-  000c9	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_0BB@FMIBAICL@g_DiffuseTexture?$AA@
-  000d0	48 8b 85 60 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000d7	48 8b 90 88 00
-	00 00		 mov	 rdx, QWORD PTR [rax+136]
-  000de	48 8b 85 60 01
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000e5	48 8b 88 90 00
-	00 00		 mov	 rcx, QWORD PTR [rax+144]
+  000e5	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
   000ec	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
+
+; 75   : 		_uint MeshCount = m_pPlayerCircle->Get_MeshCount();
+
+  000f2	48 8b 85 c0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000f9	48 8b 88 90 00
+	00 00		 mov	 rcx, QWORD PTR [rax+144]
+  00100	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_MeshCount@CModel@Engine@@QEAAIXZ
+  00106	89 45 34	 mov	 DWORD PTR MeshCount$6[rbp], eax
+
+; 76   : 		for (_uint i = 0; i < MeshCount; ++i)
+
+  00109	c7 45 54 00 00
+	00 00		 mov	 DWORD PTR i$7[rbp], 0
+  00110	eb 08		 jmp	 SHORT $LN6@Render
+$LN4@Render:
+  00112	8b 45 54	 mov	 eax, DWORD PTR i$7[rbp]
+  00115	ff c0		 inc	 eax
+  00117	89 45 54	 mov	 DWORD PTR i$7[rbp], eax
+$LN6@Render:
+  0011a	8b 45 34	 mov	 eax, DWORD PTR MeshCount$6[rbp]
+  0011d	39 45 54	 cmp	 DWORD PTR i$7[rbp], eax
+  00120	73 67		 jae	 SHORT $LN5@Render
+
+; 77   : 		{
+; 78   : 			m_pPlayerCircle->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+
+  00122	c7 44 24 20 01
+	00 00 00	 mov	 DWORD PTR [rsp+32], 1
+  0012a	44 8b 4d 54	 mov	 r9d, DWORD PTR i$7[rbp]
+  0012e	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_0BB@FMIBAICL@g_DiffuseTexture?$AA@
+  00135	48 8b 85 c0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0013c	48 8b 90 88 00
+	00 00		 mov	 rdx, QWORD PTR [rax+136]
+  00143	48 8b 85 c0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0014a	48 8b 88 90 00
+	00 00		 mov	 rcx, QWORD PTR [rax+144]
+  00151	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderMaterialResource@CModel@Engine@@QEAAJPEAVCShader@2@PEBDIW4aiTextureType@@@Z
 
-; 75   : 			m_pShader->Begin(8);
+; 79   : 			m_pShader->Begin(11);
 
-  000f2	ba 08 00 00 00	 mov	 edx, 8
-  000f7	48 8b 85 60 01
+  00157	ba 0b 00 00 00	 mov	 edx, 11
+  0015c	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000fe	48 8b 88 88 00
+  00163	48 8b 88 88 00
 	00 00		 mov	 rcx, QWORD PTR [rax+136]
-  00105	ff 15 00 00 00
+  0016a	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
-; 76   : 			m_pPlayerCircle->Render(i);
+; 80   : 			m_pPlayerCircle->Render(i);
 
-  0010b	8b 55 24	 mov	 edx, DWORD PTR i$2[rbp]
-  0010e	48 8b 85 60 01
+  00170	8b 55 54	 mov	 edx, DWORD PTR i$7[rbp]
+  00173	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00115	48 8b 88 90 00
+  0017a	48 8b 88 90 00
 	00 00		 mov	 rcx, QWORD PTR [rax+144]
-  0011c	ff 15 00 00 00
+  00181	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CModel@Engine@@QEAAJI@Z
 
-; 77   : 		}
+; 81   : 		}
 
-  00122	eb 89		 jmp	 SHORT $LN4@Render
+  00187	eb 89		 jmp	 SHORT $LN4@Render
 $LN5@Render:
 
-; 78   : 		break;
+; 82   : 		break;
 
-  00124	e9 97 00 00 00	 jmp	 $LN2@Render
+  00189	e9 43 01 00 00	 jmp	 $LN2@Render
 $LN13@Render:
 
-; 79   : 	}
-; 80   : 	case CIRCLE_ENEMY:
-; 81   : 	{
-; 82   : 		_uint MeshCount = m_pEnemyCircle->Get_MeshCount();
+; 83   : 	}
+; 84   : 	case CIRCLE_ENEMY:
+; 85   : 	{
+; 86   : 		_float4 vGlowColor = { 1.f, 1.f, 1.f, 1.f };
 
-  00129	48 8b 85 60 01
+  0018e	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3f800000
+  00196	f3 0f 11 44 24
+	20		 movss	 DWORD PTR [rsp+32], xmm0
+  0019c	f3 0f 10 1d 00
+	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
+  001a4	f3 0f 10 15 00
+	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
+  001ac	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@3f800000
+  001b4	48 8d 4d 78	 lea	 rcx, QWORD PTR vGlowColor$8[rbp]
+  001b8	e8 00 00 00 00	 call	 ??0XMFLOAT4@DirectX@@QEAA@MMMM@Z ; DirectX::XMFLOAT4::XMFLOAT4
+
+; 87   : 		m_pShader->SetRawValue("g_GlowColor", &vGlowColor, sizeof(_float4));
+
+  001bd	41 b9 10 00 00
+	00		 mov	 r9d, 16
+  001c3	4c 8d 45 78	 lea	 r8, QWORD PTR vGlowColor$8[rbp]
+  001c7	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_0M@GIEPOAKC@g_GlowColor?$AA@
+  001ce	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00130	48 8b 88 98 00
+  001d5	48 8b 88 88 00
+	00 00		 mov	 rcx, QWORD PTR [rax+136]
+  001dc	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetRawValue@CShader@Engine@@QEAAJPEBDPEBXI@Z
+
+; 88   : 		if (static_cast<CEnemy*>(m_pOwner)->IsActive() && !static_cast<CEnemy*>(m_pOwner)->IsDeadWait())
+
+  001e2	48 8b 85 c0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001e9	48 8b 88 a0 00
+	00 00		 mov	 rcx, QWORD PTR [rax+160]
+  001f0	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?IsActive@CGameObject@Engine@@QEAA_NXZ
+  001f6	0f b6 c0	 movzx	 eax, al
+  001f9	85 c0		 test	 eax, eax
+  001fb	0f 84 d0 00 00
+	00		 je	 $LN14@Render
+  00201	48 8b 85 c0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00208	48 8b 88 a0 00
+	00 00		 mov	 rcx, QWORD PTR [rax+160]
+  0020f	e8 00 00 00 00	 call	 ?IsDeadWait@CEnemy@Client@@QEBA_NXZ ; Client::CEnemy::IsDeadWait
+  00214	0f b6 c0	 movzx	 eax, al
+  00217	85 c0		 test	 eax, eax
+  00219	0f 85 b2 00 00
+	00		 jne	 $LN14@Render
+
+; 89   : 		{
+; 90   : 			_uint MeshCount = m_pEnemyCircle->Get_MeshCount();
+
+  0021f	48 8b 85 c0 01
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00226	48 8b 88 98 00
 	00 00		 mov	 rcx, QWORD PTR [rax+152]
-  00137	ff 15 00 00 00
+  0022d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_MeshCount@CModel@Engine@@QEAAIXZ
-  0013d	89 45 44	 mov	 DWORD PTR MeshCount$3[rbp], eax
+  00233	89 85 a4 00 00
+	00		 mov	 DWORD PTR MeshCount$9[rbp], eax
 
-; 83   : 		for (_uint i = 0; i < MeshCount; ++i)
+; 91   : 			for (_uint i = 0; i < MeshCount; ++i)
 
-  00140	c7 45 64 00 00
-	00 00		 mov	 DWORD PTR i$4[rbp], 0
-  00147	eb 08		 jmp	 SHORT $LN9@Render
+  00239	c7 85 c4 00 00
+	00 00 00 00 00	 mov	 DWORD PTR i$10[rbp], 0
+  00243	eb 0e		 jmp	 SHORT $LN9@Render
 $LN7@Render:
-  00149	8b 45 64	 mov	 eax, DWORD PTR i$4[rbp]
-  0014c	ff c0		 inc	 eax
-  0014e	89 45 64	 mov	 DWORD PTR i$4[rbp], eax
+  00245	8b 85 c4 00 00
+	00		 mov	 eax, DWORD PTR i$10[rbp]
+  0024b	ff c0		 inc	 eax
+  0024d	89 85 c4 00 00
+	00		 mov	 DWORD PTR i$10[rbp], eax
 $LN9@Render:
-  00151	8b 45 44	 mov	 eax, DWORD PTR MeshCount$3[rbp]
-  00154	39 45 64	 cmp	 DWORD PTR i$4[rbp], eax
-  00157	73 67		 jae	 SHORT $LN8@Render
+  00253	8b 85 a4 00 00
+	00		 mov	 eax, DWORD PTR MeshCount$9[rbp]
+  00259	39 85 c4 00 00
+	00		 cmp	 DWORD PTR i$10[rbp], eax
+  0025f	73 70		 jae	 SHORT $LN8@Render
 
-; 84   : 		{
-; 85   : 			m_pEnemyCircle->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+; 92   : 			{
+; 93   : 
+; 94   : 				m_pEnemyCircle->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
 
-  00159	c7 44 24 20 01
+  00261	c7 44 24 20 01
 	00 00 00	 mov	 DWORD PTR [rsp+32], 1
-  00161	44 8b 4d 64	 mov	 r9d, DWORD PTR i$4[rbp]
-  00165	4c 8d 05 00 00
+  00269	44 8b 8d c4 00
+	00 00		 mov	 r9d, DWORD PTR i$10[rbp]
+  00270	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0BB@FMIBAICL@g_DiffuseTexture?$AA@
-  0016c	48 8b 85 60 01
+  00277	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00173	48 8b 90 88 00
+  0027e	48 8b 90 88 00
 	00 00		 mov	 rdx, QWORD PTR [rax+136]
-  0017a	48 8b 85 60 01
+  00285	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00181	48 8b 88 98 00
+  0028c	48 8b 88 98 00
 	00 00		 mov	 rcx, QWORD PTR [rax+152]
-  00188	ff 15 00 00 00
+  00293	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Setup_ShaderMaterialResource@CModel@Engine@@QEAAJPEAVCShader@2@PEBDIW4aiTextureType@@@Z
 
-; 86   : 			m_pShader->Begin(8);
+; 95   : 				m_pShader->Begin(11);
 
-  0018e	ba 08 00 00 00	 mov	 edx, 8
-  00193	48 8b 85 60 01
+  00299	ba 0b 00 00 00	 mov	 edx, 11
+  0029e	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0019a	48 8b 88 88 00
+  002a5	48 8b 88 88 00
 	00 00		 mov	 rcx, QWORD PTR [rax+136]
-  001a1	ff 15 00 00 00
+  002ac	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Begin@CShader@Engine@@QEAAJI@Z
 
-; 87   : 			m_pEnemyCircle->Render(i);
+; 96   : 				m_pEnemyCircle->Render(i);
 
-  001a7	8b 55 64	 mov	 edx, DWORD PTR i$4[rbp]
-  001aa	48 8b 85 60 01
+  002b2	8b 95 c4 00 00
+	00		 mov	 edx, DWORD PTR i$10[rbp]
+  002b8	48 8b 85 c0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001b1	48 8b 88 98 00
+  002bf	48 8b 88 98 00
 	00 00		 mov	 rcx, QWORD PTR [rax+152]
-  001b8	ff 15 00 00 00
+  002c6	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Render@CModel@Engine@@QEAAJI@Z
 
-; 88   : 		}
+; 97   : 			}
 
-  001be	eb 89		 jmp	 SHORT $LN7@Render
+  002cc	e9 74 ff ff ff	 jmp	 $LN7@Render
 $LN8@Render:
+$LN14@Render:
 $LN2@Render:
 
-; 89   : 		break;
-; 90   : 	}
-; 91   : 	}
-; 92   : 
-; 93   : 
-; 94   : 	return S_OK;
+; 98   : 		}
+; 99   : 
+; 100  : 		break;
+; 101  : 	}
+; 102  : 	}
+; 103  : 
+; 104  : 
+; 105  : 	return S_OK;
 
-  001c0	33 c0		 xor	 eax, eax
+  002d1	33 c0		 xor	 eax, eax
 $LN1@Render:
 
-; 95   : 
-; 96   : }
+; 106  : 
+; 107  : }
 
-  001c2	48 8d a5 48 01
-	00 00		 lea	 rsp, QWORD PTR [rbp+328]
-  001c9	5f		 pop	 rdi
-  001ca	5d		 pop	 rbp
-  001cb	c3		 ret	 0
+  002d3	48 8b f8	 mov	 rdi, rax
+  002d6	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
+  002da	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:?Render@CFloorCircle@Client@@UEAAJXZ$rtcFrameData
+  002e1	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  002e6	48 8b c7	 mov	 rax, rdi
+  002e9	48 8b 8d 98 01
+	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
+  002f0	48 33 cd	 xor	 rcx, rbp
+  002f3	e8 00 00 00 00	 call	 __security_check_cookie
+  002f8	48 8d a5 a8 01
+	00 00		 lea	 rsp, QWORD PTR [rbp+424]
+  002ff	5f		 pop	 rdi
+  00300	5d		 pop	 rbp
+  00301	c3		 ret	 0
 ?Render@CFloorCircle@Client@@UEAAJXZ ENDP		; Client::CFloorCircle::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -4925,7 +5142,7 @@ this$ = 224
 TimeDelta$ = 232
 ?LateTick@CFloorCircle@Client@@UEAAXN@Z PROC		; Client::CFloorCircle::LateTick, COMDAT
 
-; 52   : {
+; 54   : {
 
 $LN4:
   00000	f2 0f 11 4c 24
@@ -4943,7 +5160,7 @@ $LN4:
   00028	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 53   : 	__super::LateTick(TimeDelta);
+; 55   : 	__super::LateTick(TimeDelta);
 
   00030	f2 0f 10 8d e8
 	00 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -4952,8 +5169,8 @@ $LN4:
   0003f	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?LateTick@CGameObject@Engine@@UEAAXN@Z
 
-; 54   : 
-; 55   : 	if (nullptr != m_pRenderer)
+; 56   : 
+; 57   : 	if (nullptr != m_pRenderer)
 
   00045	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -4961,7 +5178,7 @@ $LN4:
 	00 00 00	 cmp	 QWORD PTR [rax+128], 0
   00054	74 20		 je	 SHORT $LN2@LateTick
 
-; 56   : 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+; 58   : 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 
   00056	4c 8b 85 e0 00
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
@@ -4974,7 +5191,7 @@ $LN4:
 	00		 call	 QWORD PTR __imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z
 $LN2@LateTick:
 
-; 57   : }
+; 59   : }
 
   00076	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -4997,7 +5214,7 @@ this$ = 464
 TimeDelta$ = 472
 ?Tick@CFloorCircle@Client@@UEAAXN@Z PROC		; Client::CFloorCircle::Tick, COMDAT
 
-; 41   : {
+; 43   : {
 
 $LN3:
   00000	f2 0f 11 4c 24
@@ -5020,7 +5237,7 @@ $LN3:
   0003a	48 89 85 a8 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 42   : 	__super::Tick(TimeDelta);
+; 44   : 	__super::Tick(TimeDelta);
 
   00041	f2 0f 10 8d d8
 	01 00 00	 movsd	 xmm1, QWORD PTR TimeDelta$[rbp]
@@ -5029,20 +5246,20 @@ $LN3:
   00050	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Tick@CGameObject@Engine@@UEAAXN@Z
 
-; 43   : 
-; 44   : 	_vector vOwnerPos = m_pOwnerTransform->Get_State(CTransform::STATE_POSITION);
+; 45   : 
+; 46   : 	_vector vOwnerPos = m_pOwnerTransform->Get_State(CTransform::STATE_POSITION);
 
   00056	41 b8 03 00 00
 	00		 mov	 r8d, 3
   0005c	48 8d 55 10	 lea	 rdx, QWORD PTR vOwnerPos$[rbp]
   00060	48 8b 85 d0 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00067	48 8b 88 a0 00
-	00 00		 mov	 rcx, QWORD PTR [rax+160]
+  00067	48 8b 88 a8 00
+	00 00		 mov	 rcx, QWORD PTR [rax+168]
   0006e	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 45   : 	vOwnerPos = XMVectorSetY(vOwnerPos, 0.08f);
+; 47   : 	vOwnerPos = XMVectorSetY(vOwnerPos, 0.08f);
 
   00074	f3 0f 10 0d 00
 	00 00 00	 movss	 xmm1, DWORD PTR __real@3da3d70a
@@ -5054,7 +5271,7 @@ $LN3:
 	00 00		 movaps	 xmm0, XMMWORD PTR $T4[rbp]
   00093	0f 29 45 10	 movaps	 XMMWORD PTR vOwnerPos$[rbp], xmm0
 
-; 46   : 	m_pTransform->Set_State(CTransform::STATE_POSITION, vOwnerPos);
+; 48   : 	m_pTransform->Set_State(CTransform::STATE_POSITION, vOwnerPos);
 
   00097	0f 28 45 10	 movaps	 xmm0, XMMWORD PTR vOwnerPos$[rbp]
   0009b	0f 29 85 60 01
@@ -5068,8 +5285,8 @@ $LN3:
   000b9	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 47   : 
-; 48   : 	m_pTransform->Rotate(VECTOR_UP, TimeDelta);
+; 49   : 
+; 50   : 	m_pTransform->Rotate(VECTOR_UP, TimeDelta);
 
   000bf	0f 57 db	 xorps	 xmm3, xmm3
   000c2	0f 57 d2	 xorps	 xmm2, xmm2
@@ -5093,7 +5310,7 @@ $LN3:
   00104	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Rotate@CTransform@Engine@@QEAAXT__m128@@N@Z
 
-; 49   : }
+; 51   : }
 
   0010a	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
   0010e	48 8d 15 00 00
@@ -5118,7 +5335,7 @@ this$ = 224
 pArg$ = 232
 ?Initialize@CFloorCircle@Client@@UEAAJPEAX@Z PROC	; Client::CFloorCircle::Initialize, COMDAT
 
-; 25   : {
+; 26   : {
 
 $LN6:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -5135,7 +5352,7 @@ $LN6:
   00027	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 26   : 	if (FAILED(__super::Initialize(pArg)))
+; 27   : 	if (FAILED(__super::Initialize(pArg)))
 
   0002f	48 8b 95 e8 00
 	00 00		 mov	 rdx, QWORD PTR pArg$[rbp]
@@ -5146,14 +5363,14 @@ $LN6:
   00043	85 c0		 test	 eax, eax
   00045	7d 07		 jge	 SHORT $LN2@Initialize
 
-; 27   : 		return E_FAIL;
+; 28   : 		return E_FAIL;
 
   00047	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0004c	eb 38		 jmp	 SHORT $LN1@Initialize
+  0004c	eb 61		 jmp	 SHORT $LN1@Initialize
 $LN2@Initialize:
 
-; 28   : 
-; 29   : 	if (FAILED(Add_Components()))
+; 29   : 
+; 30   : 	if (FAILED(Add_Components()))
 
   0004e	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -5161,21 +5378,21 @@ $LN2@Initialize:
   0005a	85 c0		 test	 eax, eax
   0005c	7d 07		 jge	 SHORT $LN3@Initialize
 
-; 30   : 		return E_FAIL;
+; 31   : 		return E_FAIL;
 
   0005e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00063	eb 21		 jmp	 SHORT $LN1@Initialize
+  00063	eb 4a		 jmp	 SHORT $LN1@Initialize
 $LN3@Initialize:
 
-; 31   : 
-; 32   : 	if (pArg)
+; 32   : 
+; 33   : 	if (pArg)
 
   00065	48 83 bd e8 00
 	00 00 00	 cmp	 QWORD PTR pArg$[rbp], 0
-  0006d	74 15		 je	 SHORT $LN4@Initialize
+  0006d	74 3e		 je	 SHORT $LN4@Initialize
 
-; 33   : 	{
-; 34   : 		m_pOwnerTransform = (CTransform*)pArg;
+; 34   : 	{
+; 35   : 		m_pOwner = static_cast<CGameObject*>(pArg);
 
   0006f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5183,22 +5400,37 @@ $LN3@Initialize:
 	00 00		 mov	 rcx, QWORD PTR pArg$[rbp]
   0007d	48 89 88 a0 00
 	00 00		 mov	 QWORD PTR [rax+160], rcx
+
+; 36   : 		m_pOwnerTransform = static_cast<CTransform*>(m_pOwner->Find_Component(L"com_transform"));
+
+  00084	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
+  0008b	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00092	48 8b 88 a0 00
+	00 00		 mov	 rcx, QWORD PTR [rax+160]
+  00099	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Find_Component@CGameObject@Engine@@QEAAPEAVCComponent@2@PEB_W@Z
+  0009f	48 8b 8d e0 00
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  000a6	48 89 81 a8 00
+	00 00		 mov	 QWORD PTR [rcx+168], rax
 $LN4@Initialize:
 
-; 35   : 	}
-; 36   : 
-; 37   : 	return S_OK;
+; 37   : 	}
+; 38   : 
+; 39   : 	return S_OK;
 
-  00084	33 c0		 xor	 eax, eax
+  000ad	33 c0		 xor	 eax, eax
 $LN1@Initialize:
 
-; 38   : }
+; 40   : }
 
-  00086	48 8d a5 c8 00
+  000af	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  0008d	5f		 pop	 rdi
-  0008e	5d		 pop	 rbp
-  0008f	c3		 ret	 0
+  000b6	5f		 pop	 rdi
+  000b7	5d		 pop	 rbp
+  000b8	c3		 ret	 0
 ?Initialize@CFloorCircle@Client@@UEAAJPEAX@Z ENDP	; Client::CFloorCircle::Initialize
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -5208,7 +5440,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Initialize_Prototype@CFloorCircle@Client@@UEAAJXZ PROC	; Client::CFloorCircle::Initialize_Prototype, COMDAT
 
-; 17   : {
+; 18   : {
 
 $LN4:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -5224,7 +5456,7 @@ $LN4:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 18   : 	if (FAILED(__super::Initialize_Prototype()))
+; 19   : 	if (FAILED(__super::Initialize_Prototype()))
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
@@ -5233,19 +5465,19 @@ $LN4:
   00037	85 c0		 test	 eax, eax
   00039	7d 07		 jge	 SHORT $LN2@Initialize
 
-; 19   : 		return E_FAIL;
+; 20   : 		return E_FAIL;
 
   0003b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
   00040	eb 02		 jmp	 SHORT $LN1@Initialize
 $LN2@Initialize:
 
-; 20   : 
-; 21   : 	return S_OK;
+; 21   : 
+; 22   : 	return S_OK;
 
   00042	33 c0		 xor	 eax, eax
 $LN1@Initialize:
 
-; 22   : }
+; 23   : }
 
   00044	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -5261,7 +5493,7 @@ _TEXT	SEGMENT
 this$ = 224
 ??1CFloorCircle@Client@@UEAA@XZ PROC			; Client::CFloorCircle::~CFloorCircle, COMDAT
 
-; 9    : }
+; 10   : }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -5297,7 +5529,7 @@ this$ = 224
 rhs$ = 232
 ??0CFloorCircle@Client@@QEAA@AEBV01@@Z PROC		; Client::CFloorCircle::CFloorCircle, COMDAT
 
-; 13   : {
+; 14   : {
 
 $LN4:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -5314,7 +5546,7 @@ $LN4:
   00027	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 12   : 	: CGameObject(rhs)
+; 13   : 	: CGameObject(rhs)
 
   0002f	48 8b 95 e8 00
 	00 00		 mov	 rdx, QWORD PTR rhs$[rbp]
@@ -5323,7 +5555,7 @@ $LN4:
   0003d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_??0CGameObject@Engine@@IEAA@AEBV01@@Z
 
-; 13   : {
+; 14   : {
 
   00043	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5372,7 +5604,7 @@ $LN4:
 	00		 mov	 QWORD PTR [rax+152], 0
 
 ; 50   : 
-; 51   : 	CTransform* m_pOwnerTransform = nullptr;
+; 51   : 	CGameObject* m_pOwner = nullptr;
 
   000ab	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5380,23 +5612,31 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+160], 0
 
-; 52   : 	CIRCLE m_eCircleType = CIRCLE_END;
+; 52   : 	CTransform* m_pOwnerTransform = nullptr;
 
   000bd	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000c4	c7 80 a8 00 00
-	00 02 00 00 00	 mov	 DWORD PTR [rax+168], 2
+  000c4	48 c7 80 a8 00
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+168], 0
+
+; 53   : 	CIRCLE m_eCircleType = CIRCLE_END;
+
+  000cf	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000d6	c7 80 b0 00 00
+	00 02 00 00 00	 mov	 DWORD PTR [rax+176], 2
 ; File c:\users\arcco\documents\github\framework\client\private\floorcircle.cpp
 
-; 14   : }
+; 15   : }
 
-  000ce	48 8b 85 e0 00
+  000e0	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000d5	48 8d a5 c8 00
+  000e7	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  000dc	5f		 pop	 rdi
-  000dd	5d		 pop	 rbp
-  000de	c3		 ret	 0
+  000ee	5f		 pop	 rdi
+  000ef	5d		 pop	 rbp
+  000f0	c3		 ret	 0
 ??0CFloorCircle@Client@@QEAA@AEBV01@@Z ENDP		; Client::CFloorCircle::CFloorCircle
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -5410,7 +5650,7 @@ pDevice$ = 232
 pContext$ = 240
 ??0CFloorCircle@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CFloorCircle::CFloorCircle, COMDAT
 
-; 8    : {
+; 9    : {
 
 $LN4:
   00000	4c 89 44 24 18	 mov	 QWORD PTR [rsp+24], r8
@@ -5428,7 +5668,7 @@ $LN4:
   0002c	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 7    : 	: CGameObject(pDevice, pContext)
+; 8    : 	: CGameObject(pDevice, pContext)
 
   00034	4c 8b 85 f0 00
 	00 00		 mov	 r8, QWORD PTR pContext$[rbp]
@@ -5439,7 +5679,7 @@ $LN4:
   00049	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_??0CGameObject@Engine@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 
-; 8    : {
+; 9    : {
 
   0004f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5488,7 +5728,7 @@ $LN4:
 	00		 mov	 QWORD PTR [rax+152], 0
 
 ; 50   : 
-; 51   : 	CTransform* m_pOwnerTransform = nullptr;
+; 51   : 	CGameObject* m_pOwner = nullptr;
 
   000b7	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -5496,23 +5736,31 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+160], 0
 
-; 52   : 	CIRCLE m_eCircleType = CIRCLE_END;
+; 52   : 	CTransform* m_pOwnerTransform = nullptr;
 
   000c9	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000d0	c7 80 a8 00 00
-	00 02 00 00 00	 mov	 DWORD PTR [rax+168], 2
+  000d0	48 c7 80 a8 00
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+168], 0
+
+; 53   : 	CIRCLE m_eCircleType = CIRCLE_END;
+
+  000db	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000e2	c7 80 b0 00 00
+	00 02 00 00 00	 mov	 DWORD PTR [rax+176], 2
 ; File c:\users\arcco\documents\github\framework\client\private\floorcircle.cpp
 
-; 9    : }
+; 10   : }
 
-  000da	48 8b 85 e0 00
+  000ec	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000e1	48 8d a5 c8 00
+  000f3	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  000e8	5f		 pop	 rdi
-  000e9	5d		 pop	 rbp
-  000ea	c3		 ret	 0
+  000fa	5f		 pop	 rdi
+  000fb	5d		 pop	 rbp
+  000fc	c3		 ret	 0
 ??0CFloorCircle@Client@@QEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ENDP ; Client::CFloorCircle::CFloorCircle
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -5688,6 +5936,67 @@ $LN3:
   00077	5d		 pop	 rbp
   00078	c3		 ret	 0
 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ENDP		; DirectX::XMVectorSet
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\program files (x86)\windows kits\8.1\include\um\directxmath.h
+;	COMDAT ??0XMFLOAT4@DirectX@@QEAA@MMMM@Z
+_TEXT	SEGMENT
+this$ = 224
+_x$ = 232
+_y$ = 240
+_z$ = 248
+_w$ = 256
+??0XMFLOAT4@DirectX@@QEAA@MMMM@Z PROC			; DirectX::XMFLOAT4::XMFLOAT4, COMDAT
+
+; 561  :     XMFLOAT4(float _x, float _y, float _z, float _w) : x(_x), y(_y), z(_z), w(_w) {}
+
+$LN3:
+  00000	f3 0f 11 5c 24
+	20		 movss	 DWORD PTR [rsp+32], xmm3
+  00006	f3 0f 11 54 24
+	18		 movss	 DWORD PTR [rsp+24], xmm2
+  0000c	f3 0f 11 4c 24
+	10		 movss	 DWORD PTR [rsp+16], xmm1
+  00012	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00017	55		 push	 rbp
+  00018	57		 push	 rdi
+  00019	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  00020	48 8b ec	 mov	 rbp, rsp
+  00023	48 8b fc	 mov	 rdi, rsp
+  00026	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  0002b	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00030	f3 ab		 rep stosd
+  00032	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+  0003a	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00041	f3 0f 10 85 e8
+	00 00 00	 movss	 xmm0, DWORD PTR _x$[rbp]
+  00049	f3 0f 11 00	 movss	 DWORD PTR [rax], xmm0
+  0004d	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00054	f3 0f 10 85 f0
+	00 00 00	 movss	 xmm0, DWORD PTR _y$[rbp]
+  0005c	f3 0f 11 40 04	 movss	 DWORD PTR [rax+4], xmm0
+  00061	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00068	f3 0f 10 85 f8
+	00 00 00	 movss	 xmm0, DWORD PTR _z$[rbp]
+  00070	f3 0f 11 40 08	 movss	 DWORD PTR [rax+8], xmm0
+  00075	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0007c	f3 0f 10 85 00
+	01 00 00	 movss	 xmm0, DWORD PTR _w$[rbp]
+  00084	f3 0f 11 40 0c	 movss	 DWORD PTR [rax+12], xmm0
+  00089	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00090	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  00097	5f		 pop	 rdi
+  00098	5d		 pop	 rbp
+  00099	c3		 ret	 0
+??0XMFLOAT4@DirectX@@QEAA@MMMM@Z ENDP			; DirectX::XMFLOAT4::XMFLOAT4
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\windows kits\8.1\include\um\directxmath.h

@@ -20,6 +20,9 @@ public:
 public:
 	HRESULT Add_RenderGroup(RENDER_GROUP eRenderGroup, class CGameObject* pGameObject);
 	void Draw();
+	void SetBlurAmount(_float fPower);
+
+private:
 	void ZSort();
 
 public:
@@ -44,10 +47,14 @@ public:
 private:
 	// Main과 Bloom을 합성해서 백버퍼로 전송하는 쉐이더
 	class CPostEffect* m_pPostEffect = nullptr;
-	class CBlurEffect* m_pBlurEffect = nullptr;
+	class CBlurEffect* m_pBlurEffect = nullptr; //RGB 블러
+	class CScreenBlurEffect* m_pScreenBlurEffect = nullptr; //스크린블러
+	class CDistortionEffect* m_pDistortionEffect = nullptr; //Distortion 이펙트
 
 	class CShader* m_pPostEffectShader = nullptr;
 	class CShader* m_pBlurEffectShader = nullptr;
+	class CShader* m_pScreenBlurEffectShader = nullptr;
+	class CShader* m_pDistortionEffectShader = nullptr;
 
 };
 

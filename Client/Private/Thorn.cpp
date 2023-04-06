@@ -433,8 +433,8 @@ _bool CThorn::MoveProcess(_double TimeDelta)
 	_vector vUp = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_UP));
 
 	m_fMoveAcc += TimeDelta;
-	m_vTrailAcc += TimeDelta * 0.3f;
-	vPos = vPos + vUp * powf(m_fMoveAcc, 0.8f) * 50.f * TimeDelta;
+	m_vTrailAcc += TimeDelta * 0.1f;
+	vPos = vPos + vUp * powf(m_fMoveAcc, 0.8f) * 25.f * TimeDelta;
 
 	_vector vTrailUp = m_pTrailTransform->Get_State(CTransform::STATE_UP);
 	_vector vTrailDir = XMVector3Normalize(m_pTrailTransform->Get_State(CTransform::STATE_UP));

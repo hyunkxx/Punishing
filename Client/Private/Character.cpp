@@ -195,6 +195,23 @@ void CCharacter::Tick(_double TimeDelta)
 	pGameInstance->AddCollider(mSkillCollider);
 
 
+	//초산진입시 RGB 분리
+	if (CApplicationManager::GetInstance()->IsFreeze() && !m_bTimeStop)
+	{
+		m_fCurBlurAmount = 20.f;
+		mRenderer->SetBlurAmount(m_fCurBlurAmount);
+	}
+
+	if(m_bTimeStop && m_fCurBlurAmount >= 0.f)
+	{
+		m_fCurBlurAmount -= TimeDelta * 40.f;
+		mRenderer->SetBlurAmount(m_fCurBlurAmount);
+		if (m_fCurBlurAmount <= 0.f)
+		{
+			m_fCurBlurAmount = 0.f;
+			mRenderer->SetBlurAmount(0.f);
+		}
+	}
 
 	if (m_bWin)
 	{
@@ -314,7 +331,12 @@ HRESULT CCharacter::Render()
 		mModel->Setup_ShaderMaterialResource(mShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
 		//m_pModelCom->SetUp_ShaderMaterialResource(m_pShaderCom, "g_AmbientTexture", i, aiTextureType_AMBIENT);
 		mModel->Setup_BoneMatrices(mShader, "g_BoneMatrix", i);
-		mShader->Begin(0);
+
+		if(i == 3 || i == 4)
+			mShader->Begin(0);
+		else
+			mShader->Begin(6);
+
 		mModel->Render(i);
 
 		mShader->Begin(2);
@@ -566,17 +588,18 @@ HRESULT CCharacter::AddComponents()
 	if (!m_pAppManager->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
 	{
 		CGameObject* pCircle = nullptr;
-		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_circle", L"layer_ui", L"circle", mTransform)))
+		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_circle", L"layer_ui", L"circle", this)))
 			return E_FAIL;
 		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_PLAYER);
 	}
 	else
 	{
 		CGameObject* pCircle = nullptr;
-		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_circle", L"layer_ui", L"circle", mTransform)))
+		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_circle", L"layer_ui", L"circle", this)))
 			return E_FAIL;
 		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_PLAYER);
 	}
+
 
 	return S_OK;
 }

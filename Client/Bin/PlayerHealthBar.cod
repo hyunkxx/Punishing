@@ -1239,6 +1239,10 @@ CONST	SEGMENT
 	DD	038d1b717r			; 0.0001
 	DD	038d1b717r			; 0.0001
 CONST	ENDS
+CONST	SEGMENT
+?value@?1??Render@CPlayerHealthBar@Client@@UEAAJXZ@4MB DD 03f800000r ; 1 ; `Client::CPlayerHealthBar::Render'::`2'::value
+?discardValue@?1??Render@CPlayerHealthBar@Client@@UEAAJXZ@4MB DD 000000000r ; 0 ; `Client::CPlayerHealthBar::Render'::`2'::discardValue
+CONST	ENDS
 ;	COMDAT ?YellowGreen@Colors@DirectX@@3UXMVECTORF32@2@B
 CONST	SEGMENT
 ?YellowGreen@Colors@DirectX@@3UXMVECTORF32@2@B DD 03f1a9a9br ; 0.603922 ; DirectX::Colors::YellowGreen
@@ -1266,10 +1270,6 @@ CONST	SEGMENT
 	DD	03f800000r			; 1
 	DD	03f800000r			; 1
 	DD	03f800000r			; 1
-CONST	ENDS
-CONST	SEGMENT
-?value@?1??Render@CPlayerHealthBar@Client@@UEAAJXZ@4MB DD 03f800000r ; 1 ; `Client::CPlayerHealthBar::Render'::`2'::value
-?discardValue@?1??Render@CPlayerHealthBar@Client@@UEAAJXZ@4MB DD 000000000r ; 0 ; `Client::CPlayerHealthBar::Render'::`2'::discardValue
 CONST	ENDS
 ;	COMDAT ?Wheat@Colors@DirectX@@3UXMVECTORF32@2@B
 CONST	SEGMENT

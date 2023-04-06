@@ -3553,7 +3553,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?AddComponents@CEnemy@Client@@IEAAJXZ DD imagerel $LN17
-	DD	imagerel $LN17+1719
+	DD	imagerel $LN17+1705
 	DD	imagerel $unwind$?AddComponents@CEnemy@Client@@IEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -9258,8 +9258,8 @@ $LN3:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00033	8b 8d e8 00 00
 	00		 mov	 ecx, DWORD PTR eCircle$[rbp]
-  00039	89 88 a8 00 00
-	00		 mov	 DWORD PTR [rax+168], ecx
+  00039	89 88 b0 00 00
+	00		 mov	 DWORD PTR [rax+176], ecx
   0003f	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
   00046	5f		 pop	 rdi
@@ -15875,8 +15875,8 @@ $T22 = 2424
 $T23 = 2488
 $T24 = 2520
 $T25 = 2584
-tv416 = 2600
 tv382 = 2600
+tv380 = 2600
 __$ArrayPad$ = 2608
 this$ = 2656
 ?AddComponents@CEnemy@Client@@IEAAJXZ PROC		; Client::CEnemy::AddComponents, COMDAT
@@ -15926,7 +15926,7 @@ $LN17:
 ; 307  : 		return E_FAIL;
 
   00077	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0007c	e9 07 06 00 00	 jmp	 $LN1@AddCompone
+  0007c	e9 f9 05 00 00	 jmp	 $LN1@AddCompone
 $LN2@AddCompone:
 
 ; 308  : 
@@ -15977,7 +15977,7 @@ $LN2@AddCompone:
 ; 316  : 		return E_FAIL;
 
   000e8	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  000ed	e9 96 05 00 00	 jmp	 $LN1@AddCompone
+  000ed	e9 88 05 00 00	 jmp	 $LN1@AddCompone
 $LN3@AddCompone:
 
 ; 317  : 
@@ -16005,7 +16005,7 @@ $LN3@AddCompone:
 ; 319  : 		return E_FAIL;
 
   00131	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00136	e9 4d 05 00 00	 jmp	 $LN1@AddCompone
+  00136	e9 3f 05 00 00	 jmp	 $LN1@AddCompone
 $LN4@AddCompone:
 
 ; 320  : 
@@ -16042,7 +16042,7 @@ $LN4@AddCompone:
 ; 324  : 			return E_FAIL;
 
   0018a	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0018f	e9 f4 04 00 00	 jmp	 $LN1@AddCompone
+  0018f	e9 e6 04 00 00	 jmp	 $LN1@AddCompone
 $LN7@AddCompone:
 
 ; 325  : 	}
@@ -16076,7 +16076,7 @@ $LN5@AddCompone:
 ; 329  : 			return E_FAIL;
 
   001d5	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  001da	e9 a9 04 00 00	 jmp	 $LN1@AddCompone
+  001da	e9 9b 04 00 00	 jmp	 $LN1@AddCompone
 $LN6@AddCompone:
 
 ; 330  : 	}
@@ -16338,7 +16338,7 @@ $LN6@AddCompone:
 ; 358  : 		return E_FAIL;
 
   00498	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  0049d	e9 e6 01 00 00	 jmp	 $LN1@AddCompone
+  0049d	e9 d8 01 00 00	 jmp	 $LN1@AddCompone
 $LN9@AddCompone:
 
 ; 359  : 
@@ -16350,7 +16350,7 @@ $LN9@AddCompone:
   004ac	e8 00 00 00 00	 call	 ?IsLevelFinish@CApplicationManager@Client@@QEAA_NW4LEVEL@12@@Z ; Client::CApplicationManager::IsLevelFinish
   004b1	0f b6 c0	 movzx	 eax, al
   004b4	85 c0		 test	 eax, eax
-  004b6	0f 85 e6 00 00
+  004b6	0f 85 df 00 00
 	00		 jne	 $LN10@AddCompone
 
 ; 361  : 	{
@@ -16390,7 +16390,7 @@ $LN9@AddCompone:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR pCircle$9[rbp], 0
 
-; 366  : 		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_circle", L"layer_ui", szTag, transform)))
+; 366  : 		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_circle", L"layer_ui", szTag, this)))
 
   0050d	48 8d 85 78 09
 	00 00		 lea	 rax, QWORD PTR $T22[rbp]
@@ -16402,160 +16402,156 @@ $LN9@AddCompone:
 	00 00		 mov	 rcx, QWORD PTR $T23[rbp]
   00529	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
   0052e	48 89 85 28 0a
-	00 00		 mov	 QWORD PTR tv382[rbp], rax
+	00 00		 mov	 QWORD PTR tv380[rbp], rax
   00535	48 8b 85 60 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0053c	48 8b 80 98 00
-	00 00		 mov	 rax, QWORD PTR [rax+152]
-  00543	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
-  00548	48 8b 85 28 0a
-	00 00		 mov	 rax, QWORD PTR tv382[rbp]
-  0054f	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  00554	4c 8d 0d 00 00
+  0053c	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
+  00541	48 8b 85 28 0a
+	00 00		 mov	 rax, QWORD PTR tv380[rbp]
+  00548	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  0054d	4c 8d 0d 00 00
 	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BC@GDEMFKNH@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAu?$AAi?$AA?$AA@
-  0055b	4c 8d 05 00 00
+  00554	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CC@DAKIGGJN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAc?$AAi?$AAr?$AAc?$AAl?$AAe?$AA?$AA@
-  00562	ba 03 00 00 00	 mov	 edx, 3
-  00567	48 8b 4d 78	 mov	 rcx, QWORD PTR pGameInstance$7[rbp]
-  0056b	ff 15 00 00 00
+  0055b	ba 03 00 00 00	 mov	 edx, 3
+  00560	48 8b 4d 78	 mov	 rcx, QWORD PTR pGameInstance$7[rbp]
+  00564	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAX@Z
-  00571	48 89 85 c8 02
+  0056a	48 89 85 c8 02
 	00 00		 mov	 QWORD PTR pCircle$9[rbp], rax
-  00578	48 83 bd c8 02
+  00571	48 83 bd c8 02
 	00 00 00	 cmp	 QWORD PTR pCircle$9[rbp], 0
-  00580	75 0a		 jne	 SHORT $LN12@AddCompone
+  00579	75 0a		 jne	 SHORT $LN12@AddCompone
 
 ; 367  : 			return E_FAIL;
 
-  00582	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00587	e9 fc 00 00 00	 jmp	 $LN1@AddCompone
+  0057b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00580	e9 f5 00 00 00	 jmp	 $LN1@AddCompone
 $LN12@AddCompone:
 
 ; 368  : 		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_ENEMY);
 
-  0058c	ba 01 00 00 00	 mov	 edx, 1
-  00591	48 8b 8d c8 02
+  00585	ba 01 00 00 00	 mov	 edx, 1
+  0058a	48 8b 8d c8 02
 	00 00		 mov	 rcx, QWORD PTR pCircle$9[rbp]
-  00598	e8 00 00 00 00	 call	 ?SetType@CFloorCircle@Client@@QEAAXW4CIRCLE@12@@Z ; Client::CFloorCircle::SetType
+  00591	e8 00 00 00 00	 call	 ?SetType@CFloorCircle@Client@@QEAAXW4CIRCLE@12@@Z ; Client::CFloorCircle::SetType
 
 ; 369  : 	}
 ; 370  : 	else
 
-  0059d	e9 e4 00 00 00	 jmp	 $LN11@AddCompone
+  00596	e9 dd 00 00 00	 jmp	 $LN11@AddCompone
 $LN10@AddCompone:
 
 ; 371  : 	{
 ; 372  : 		CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-  005a2	ff 15 00 00 00
+  0059b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
-  005a8	48 89 85 e8 02
+  005a1	48 89 85 e8 02
 	00 00		 mov	 QWORD PTR pGameInstance$10[rbp], rax
 
 ; 373  : 		CGameObject* pCircle = nullptr;
 
-  005af	48 c7 85 08 03
+  005a8	48 c7 85 08 03
 	00 00 00 00 00
 	00		 mov	 QWORD PTR pCircle$11[rbp], 0
 
 ; 374  : 		_tchar szTag[MAX_PATH] = L"";
 
-  005ba	0f b7 05 00 00
+  005b3	0f b7 05 00 00
 	00 00		 movzx	 eax, WORD PTR ??_C@_11LOCGONAA@?$AA?$AA@
-  005c1	66 89 85 30 03
+  005ba	66 89 85 30 03
 	00 00		 mov	 WORD PTR szTag$12[rbp], ax
-  005c8	48 8d 85 32 03
+  005c1	48 8d 85 32 03
 	00 00		 lea	 rax, QWORD PTR szTag$12[rbp+2]
-  005cf	48 8b f8	 mov	 rdi, rax
-  005d2	33 c0		 xor	 eax, eax
-  005d4	b9 06 02 00 00	 mov	 ecx, 518		; 00000206H
-  005d9	f3 aa		 rep stosb
+  005c8	48 8b f8	 mov	 rdi, rax
+  005cb	33 c0		 xor	 eax, eax
+  005cd	b9 06 02 00 00	 mov	 ecx, 518		; 00000206H
+  005d2	f3 aa		 rep stosb
 
 ; 375  : 		wsprintf(szTag, L"circle%d", s_iCount);
 
-  005db	44 8b 05 00 00
+  005d4	44 8b 05 00 00
 	00 00		 mov	 r8d, DWORD PTR ?s_iCount@CEnemy@Client@@1IA ; Client::CEnemy::s_iCount
-  005e2	48 8d 15 00 00
+  005db	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BC@JFKLNBDJ@?$AAc?$AAi?$AAr?$AAc?$AAl?$AAe?$AA?$CF?$AAd?$AA?$AA@
-  005e9	48 8d 8d 30 03
+  005e2	48 8d 8d 30 03
 	00 00		 lea	 rcx, QWORD PTR szTag$12[rbp]
-  005f0	ff 15 00 00 00
+  005e9	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_wsprintfW
 
-; 376  : 		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_circle", L"layer_ui", szTag, transform)))
+; 376  : 		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_circle", L"layer_ui", szTag, this)))
 
-  005f6	48 8d 85 d8 09
+  005ef	48 8d 85 d8 09
 	00 00		 lea	 rax, QWORD PTR $T24[rbp]
-  005fd	48 89 85 18 0a
+  005f6	48 89 85 18 0a
 	00 00		 mov	 QWORD PTR $T25[rbp], rax
-  00604	48 8d 95 30 03
+  005fd	48 8d 95 30 03
 	00 00		 lea	 rdx, QWORD PTR szTag$12[rbp]
-  0060b	48 8b 8d 18 0a
+  00604	48 8b 8d 18 0a
 	00 00		 mov	 rcx, QWORD PTR $T25[rbp]
-  00612	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
-  00617	48 89 85 28 0a
-	00 00		 mov	 QWORD PTR tv416[rbp], rax
-  0061e	48 8b 85 60 0a
+  0060b	e8 00 00 00 00	 call	 ??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@PEB_W@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  00610	48 89 85 28 0a
+	00 00		 mov	 QWORD PTR tv382[rbp], rax
+  00617	48 8b 85 60 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00625	48 8b 80 98 00
-	00 00		 mov	 rax, QWORD PTR [rax+152]
-  0062c	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
-  00631	48 8b 85 28 0a
-	00 00		 mov	 rax, QWORD PTR tv416[rbp]
-  00638	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  0063d	4c 8d 0d 00 00
+  0061e	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
+  00623	48 8b 85 28 0a
+	00 00		 mov	 rax, QWORD PTR tv382[rbp]
+  0062a	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  0062f	4c 8d 0d 00 00
 	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BC@GDEMFKNH@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAu?$AAi?$AA?$AA@
-  00644	4c 8d 05 00 00
+  00636	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CC@DAKIGGJN@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAo?$AAb?$AAj?$AA_?$AAc?$AAi?$AAr?$AAc?$AAl?$AAe?$AA?$AA@
-  0064b	ba 04 00 00 00	 mov	 edx, 4
-  00650	48 8b 8d e8 02
+  0063d	ba 04 00 00 00	 mov	 edx, 4
+  00642	48 8b 8d e8 02
 	00 00		 mov	 rcx, QWORD PTR pGameInstance$10[rbp]
-  00657	ff 15 00 00 00
+  00649	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_GameObject@CGameInstance@Engine@@QEAAPEAVCGameObject@2@IPEB_W0V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAX@Z
-  0065d	48 89 85 08 03
+  0064f	48 89 85 08 03
 	00 00		 mov	 QWORD PTR pCircle$11[rbp], rax
-  00664	48 83 bd 08 03
+  00656	48 83 bd 08 03
 	00 00 00	 cmp	 QWORD PTR pCircle$11[rbp], 0
-  0066c	75 07		 jne	 SHORT $LN13@AddCompone
+  0065e	75 07		 jne	 SHORT $LN13@AddCompone
 
 ; 377  : 			return E_FAIL;
 
-  0066e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00673	eb 13		 jmp	 SHORT $LN1@AddCompone
+  00660	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00665	eb 13		 jmp	 SHORT $LN1@AddCompone
 $LN13@AddCompone:
 
 ; 378  : 		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_ENEMY);
 
-  00675	ba 01 00 00 00	 mov	 edx, 1
-  0067a	48 8b 8d 08 03
+  00667	ba 01 00 00 00	 mov	 edx, 1
+  0066c	48 8b 8d 08 03
 	00 00		 mov	 rcx, QWORD PTR pCircle$11[rbp]
-  00681	e8 00 00 00 00	 call	 ?SetType@CFloorCircle@Client@@QEAAXW4CIRCLE@12@@Z ; Client::CFloorCircle::SetType
+  00673	e8 00 00 00 00	 call	 ?SetType@CFloorCircle@Client@@QEAAXW4CIRCLE@12@@Z ; Client::CFloorCircle::SetType
 $LN11@AddCompone:
 
 ; 379  : 	}
 ; 380  : 
 ; 381  : 	return S_OK;
 
-  00686	33 c0		 xor	 eax, eax
+  00678	33 c0		 xor	 eax, eax
 $LN1@AddCompone:
 
 ; 382  : }
 
-  00688	48 8b f8	 mov	 rdi, rax
-  0068b	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
-  0068f	48 8d 15 00 00
+  0067a	48 8b f8	 mov	 rdi, rax
+  0067d	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
+  00681	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?AddComponents@CEnemy@Client@@IEAAJXZ$rtcFrameData
-  00696	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  0069b	48 8b c7	 mov	 rax, rdi
-  0069e	48 8b 8d 30 0a
+  00688	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  0068d	48 8b c7	 mov	 rax, rdi
+  00690	48 8b 8d 30 0a
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  006a5	48 33 cd	 xor	 rcx, rbp
-  006a8	e8 00 00 00 00	 call	 __security_check_cookie
-  006ad	48 8d a5 48 0a
+  00697	48 33 cd	 xor	 rcx, rbp
+  0069a	e8 00 00 00 00	 call	 __security_check_cookie
+  0069f	48 8d a5 48 0a
 	00 00		 lea	 rsp, QWORD PTR [rbp+2632]
-  006b4	5f		 pop	 rdi
-  006b5	5d		 pop	 rbp
-  006b6	c3		 ret	 0
+  006a6	5f		 pop	 rdi
+  006a7	5d		 pop	 rbp
+  006a8	c3		 ret	 0
 ?AddComponents@CEnemy@Client@@IEAAJXZ ENDP		; Client::CEnemy::AddComponents
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI

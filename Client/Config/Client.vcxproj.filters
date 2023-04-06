@@ -430,5 +430,8 @@
     <FxCompile Include="..\..\Shader\SHADER_VTXINSTANCE_RECT.hlsl">
       <Filter>src\99. Shader</Filter>
     </FxCompile>
+    <FxCompile Include="..\..\Shader\POST_PROCESSING_RGBBLUR.hlsl">
+      <Filter>src\99. Shader</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

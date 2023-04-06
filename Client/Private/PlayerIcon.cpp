@@ -45,8 +45,8 @@ HRESULT CPlayerIcon::Initialize(void * pArg)
 	m_fEvolutionButtonXHeight = 90.f;
 
 	//¶ô¿Â Å¸°Ù
-	m_fTargetWidth = 50.f;
-	m_fTargetHeight = 50.f;
+	m_fTargetWidth = 128.f;
+	m_fTargetHeight = 72.f;
 
 	//ÄÞº¸ ¼ýÀÚ
 	m_fComboNumX = m_fOriginComboNumX = 150.f;
@@ -105,18 +105,24 @@ void CPlayerIcon::Tick(_double TimeDelta)
 			_vector vPlayerPos = static_cast<CTransform*>(m_pPlayer->Find_Component(L"com_transform"))->Get_State(CTransform::STATE_POSITION);
 			_float fLength = XMVectorGetX(XMVector3Length(vBossPos - vPlayerPos));
 
-			if (pBoss && pBoss->IsSpawned())
+			if (pBoss->LockOnRelease())
+				m_bTargetImageRender = false;
+			else
 			{
-				if (fLength >= 20.f)
-					m_bTargetImageRender = false;
-				else
+				if (pBoss && pBoss->IsSpawned())
 				{
-					m_bTargetImageRender = true;
-					m_fTargetX = (vTargetPos.x + 1) * g_iWinSizeX * 0.5f;
-					m_fTargetY = (1 - vTargetPos.y) * g_iWinSizeY * 0.5f + g_iWinSizeY * 0.5f;
-					XMStoreFloat4x4(&m_TargetMatrix, XMMatrixScaling(m_fTargetWidth, m_fTargetHeight, 1.f) * XMMatrixTranslation(m_fTargetX - g_iWinSizeX * 0.5f, -m_fTargetY + g_iWinSizeY * 0.5f, 0.0f));
+					if (fLength >= 20.f)
+						m_bTargetImageRender = false;
+					else
+					{
+						m_bTargetImageRender = true;
+						m_fTargetX = (vTargetPos.x + 1) * g_iWinSizeX * 0.5f;
+						m_fTargetY = (1 - vTargetPos.y) * g_iWinSizeY * 0.5f + g_iWinSizeY * 0.5f;
+						XMStoreFloat4x4(&m_TargetMatrix, XMMatrixScaling(m_fTargetWidth, m_fTargetHeight, 1.f) * XMMatrixTranslation(m_fTargetX - g_iWinSizeX * 0.5f, -m_fTargetY + g_iWinSizeY * 0.5f, 0.0f));
+					}
 				}
 			}
+
 		}
 		else
 		{
@@ -199,6 +205,18 @@ void CPlayerIcon::LateTick(_double TimeDelta)
 
 	m_fEvolutionGageFill = (fEvolutionTimeOut - fCurEvolutionTimeAcc) / fEvolutionTimeOut;
 	
+	//ÀÌ¹ÌÁö ³Ñ±â±â
+	m_fImageAcc += TimeDelta;
+	if (m_fImageAcc >= 0.08f)
+	{
+		if (m_iCurrentIndex >= 137)
+			m_iCurrentIndex = 0;
+		else
+			m_iCurrentIndex++;
+	
+		m_fImageAcc = 0.f;
+	}
+
 	//±ôºý±ôºý
 	if (m_pPlayer->IsEvolutionReady())
 	{
@@ -304,10 +322,10 @@ HRESULT CPlayerIcon::Render()
 		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_TargetMatrix)))
 			return E_FAIL;
 
-		if (FAILED(m_pTargetTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+		if (FAILED(m_pTargetTexture->Setup_ShaderResource(m_pShader, "g_Texture", m_iCurrentIndex)))
 			return E_FAIL;
 
-		m_pShader->Begin(0);
+		m_pShader->Begin(4);
 		m_pTargetVIBuffer->Render();
 	}
 
@@ -457,9 +475,17 @@ HRESULT CPlayerIcon::Add_Components()
 		TEXT("com_texture_dash"), (CComponent**)&m_pDashTexture)))
 		return E_FAIL;
 
-	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_target"),
-		TEXT("com_texture_target"), (CComponent**)&m_pTargetTexture)))
+	_tchar szImageTag[MAX_PATH] = L"";
+	wsprintfW(szImageTag, L"tagetimage");
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_targetimage"),
+		szImageTag, (CComponent**)&m_pTargetTexture)))
 		return E_FAIL;
+
+
+	//±âÁ¸ ´ÜÀÏ Å¸°ÙÀÌ¹ÌÁö
+	//if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_target"),
+	//	TEXT("com_texture_target"), (CComponent**)&m_pTargetTexture)))
+	//	return E_FAIL;
 
 	//ÄÞº¸ ¼ýÀÚ
 	wstring strComboNumBufferName = L"com_vibuffer_combo_num_" + to_wstring(0);
@@ -598,6 +624,8 @@ void CPlayerIcon::Free()
 	for(int i = 0 ; i < 10 ; ++i)
 		Safe_Release(m_pComboNumberTexture[i]);
 
+	Safe_Release(m_pTargetTexture);
+
 	Safe_Release(m_pComboBuffer);
 	Safe_Release(m_pComboTexture);
 	Safe_Release(m_pBackVIBuffer);
@@ -609,7 +637,7 @@ void CPlayerIcon::Free()
 	Safe_Release(m_pEvolutionVIBuffer);
 	Safe_Release(m_pEvolutionTexture);
 	Safe_Release(m_pTargetVIBuffer);
-	Safe_Release(m_pTargetTexture);
+	
 
 	Safe_Release(m_pEvolutionGageBuffer);
 	Safe_Release(m_pEvolutionGageBackTexture);

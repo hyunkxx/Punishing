@@ -2368,8 +2368,8 @@ PUBLIC	??_R1A@?0A@EA@CBase@Engine@@8			; Engine::CBase::`RTTI Base Class Descrip
 PUBLIC	??_R0?AVCBase@Engine@@@8			; Engine::CBase `RTTI Type Descriptor'
 PUBLIC	??_R3CBase@Engine@@8				; Engine::CBase::`RTTI Class Hierarchy Descriptor'
 PUBLIC	??_R2CBase@Engine@@8				; Engine::CBase::`RTTI Base Class Array'
+PUBLIC	__real@3f800000
 PUBLIC	__real@3ff0000000000000
-PUBLIC	__real@40000000
 EXTRN	??3@YAXPEAX_K@Z:PROC				; operator delete
 EXTRN	__imp_MessageBoxW:PROC
 EXTRN	__imp__wassert:PROC
@@ -2624,13 +2624,13 @@ $pdata$??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z DD 
 	DD	imagerel $LN5+114
 	DD	imagerel $unwind$??$Safe_Release@PEAVCTexture@Engine@@@Engine@@YAKAEAPEAVCTexture@0@@Z
 pdata	ENDS
-;	COMDAT __real@40000000
-CONST	SEGMENT
-__real@40000000 DD 040000000r			; 2
-CONST	ENDS
 ;	COMDAT __real@3ff0000000000000
 CONST	SEGMENT
 __real@3ff0000000000000 DQ 03ff0000000000000r	; 1
+CONST	ENDS
+;	COMDAT __real@3f800000
+CONST	SEGMENT
+__real@3f800000 DD 03f800000r			; 1
 CONST	ENDS
 ;	COMDAT rtc$TMZ
 rtc$TMZ	SEGMENT
@@ -5439,14 +5439,14 @@ $LN2@LateTick:
   0008d	f3 0f 11 80 ac
 	00 00 00	 movss	 DWORD PTR [rax+172], xmm0
 
-; 45   : 	if (m_fTimeAcc >= 2.f)
+; 45   : 	if (m_fTimeAcc >= 1.f)
 
   00095	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0009c	f3 0f 10 80 ac
 	00 00 00	 movss	 xmm0, DWORD PTR [rax+172]
   000a4	0f 2f 05 00 00
-	00 00		 comiss	 xmm0, DWORD PTR __real@40000000
+	00 00		 comiss	 xmm0, DWORD PTR __real@3f800000
   000ab	72 0e		 jb	 SHORT $LN3@LateTick
 
 ; 46   : 		m_bRender = false;

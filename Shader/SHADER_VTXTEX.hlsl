@@ -72,6 +72,12 @@ struct PS_OUT
 	float4			vColor : SV_TARGET0;
 };
 
+struct PS_BLOOM
+{
+	float4			vColor : SV_TARGET0;
+	float4			vBloom : SV_TARGET1;
+};
+
 /* 픽셀셰이더 */
 /* 픽셀의 정보를 바탕으로하여 픽셀의 색을 결정한다 . */
 PS_OUT PS_MAIN(PS_IN In)
@@ -213,6 +219,16 @@ PS_OUT PS_EFFECT3(PS_IN In)
 	return Out;
 }
 
+PS_BLOOM PS_BLOOMMAIN(PS_IN In)
+{
+	PS_BLOOM Out = (PS_BLOOM)0;
+
+	Out.vColor = g_Texture.Sample(LinearSampler, In.vTexUV);
+	Out.vBloom = Out.vColor;
+
+	return Out;
+}
+
 technique11 DefaultTechnique
 {
 	/* 버텍스, 픽셀 셰이더를 다른 함수를 통해서 수행하고자할때. */
@@ -296,5 +312,18 @@ technique11 DefaultTechnique
 		HullShader = NULL;
 		DomainShader = NULL;
 		PixelShader = compile ps_5_0 PS_EFFECT3();
+	}
+
+	pass Bloom_Pass6
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_EFFECT();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_BLOOMMAIN();
 	}
 }

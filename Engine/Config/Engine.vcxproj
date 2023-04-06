@@ -168,6 +168,7 @@
     <ClInclude Include="..\public\Component_Manager.h" />
     <ClInclude Include="..\public\CustomFont.h" />
     <ClInclude Include="..\Public\DebugDraw\DebugDraw.h" />
+    <ClInclude Include="..\public\DistortionEffect.h" />
     <ClInclude Include="..\Public\Engine_Defines.h" />
     <ClInclude Include="..\Public\Engine_Macro.h" />
     <ClInclude Include="..\Public\Engine_Struct.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="..\public\PipeLine.h" />
     <ClInclude Include="..\public\PostEffect.h" />
     <ClInclude Include="..\public\Renderer.h" />
+    <ClInclude Include="..\Public\ScreenBlurEffect.h" />
     <ClInclude Include="..\public\Shader.h" />
     <ClInclude Include="..\public\SphereCollider.h" />
     <ClInclude Include="..\public\Texture.h" />
@@ -217,6 +219,7 @@
     <ClCompile Include="..\private\Component_Manager.cpp" />
     <ClCompile Include="..\private\CustomFont.cpp" />
     <ClCompile Include="..\Private\DebugDraw.cpp" />
+    <ClCompile Include="..\private\DistortionEffect.cpp" />
     <ClCompile Include="..\Private\Engine_Struct.cpp" />
     <ClCompile Include="..\private\Font_Manager.cpp" />
     <ClCompile Include="..\private\GameInstance.cpp" />
@@ -236,6 +239,7 @@
     <ClCompile Include="..\private\PipeLine.cpp" />
     <ClCompile Include="..\private\PostEffect.cpp" />
     <ClCompile Include="..\private\Renderer.cpp" />
+    <ClCompile Include="..\Private\ScreenBlurEffect.cpp" />
     <ClCompile Include="..\private\Shader.cpp" />
     <ClCompile Include="..\private\SphereCollider.cpp" />
     <ClCompile Include="..\private\Texture.cpp" />

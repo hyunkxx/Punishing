@@ -49,7 +49,7 @@ struct PS_IN
 struct PS_OUT
 {
 	float4 vColor : SV_TARGET0;
-	float4 vBloomColor : SV_TARGET1;
+	float4 vBloom : SV_TARGET1;
 };
 
 VS_OUT VS_MAIN(VS_IN In)
@@ -79,7 +79,7 @@ PS_OUT PS_ALPHA0(PS_IN In)
 	Out.vColor = float4(1.f, 0.7f, 0.4f, 0.f);// +g_MaskTexture.Sample(PointSampler, In.vTexUV);
 	Out.vColor.a = g_MaskTexture.Sample(PointSampler, In.vTexUV).r;
 
-	Out.vBloomColor.a = 1.f;
+	Out.vBloom = Out.vColor;
 
 	return Out;
 }
@@ -91,7 +91,7 @@ PS_OUT PS_ALPHA1(PS_IN In)
 	Out.vColor = float4(1.f, 0.7f, 0.4f, 0.f); // +g_MaskTexture.Sample(PointSampler, In.vTexUV);
 	Out.vColor.a = g_MaskTexture.Sample(PointSampler, In.vTexUV).r;
 
-	Out.vBloomColor.a = 1.f;
+	Out.vBloom = Out.vColor;
 
 	return Out;
 }
@@ -103,7 +103,7 @@ PS_OUT PS_ALPHA2(PS_IN In)
 	Out.vColor = float4(1.f, 0.7f, 0.4f, 0.f);
 	Out.vColor.a = g_MaskTexture.Sample(PointSampler, In.vTexUV).r;
 
-	Out.vBloomColor.a = 1.f;
+	Out.vBloom = Out.vColor;
 
 	return Out;
 }
@@ -119,6 +119,8 @@ PS_OUT PS_ALPHA3(PS_IN In)
 	Out.vColor.a = g_MaskTexture.Sample(LinearSampler, In.vTexUV).r;
 	Out.vColor.a = g_MaskTexture2.Sample(LinearSampler, AccUV).r;
 
+	Out.vBloom = Out.vColor;
+
 	return Out;
 }
 
@@ -133,6 +135,8 @@ PS_OUT PS_ALPHA4(PS_IN In)
 	Out.vColor = g_MaskTexture2.Sample(LinearSampler, AccUV);
 	Out.vColor.a = g_MaskTexture2.Sample(LinearSampler, AccUV).r;
 	Out.vColor.a = g_MaskTexture.Sample(LinearSampler, In.vTexUV).r;
+
+	Out.vBloom = Out.vColor;
 
 	return Out;
 }

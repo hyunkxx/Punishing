@@ -1,7 +1,7 @@
 #include "SHADER_DEFINES.hpp"
 
 matrix g_WorldMatrix, g_ViewMatrix, g_ProjMatrix;
-texture2D g_TargetBuffer;
+texture2D g_RTT;
 
 float fWeight[13] =
 {
@@ -9,7 +9,7 @@ float fWeight[13] =
 	0.9231, 0.7261, 0.4868, 0.278, 0.1353, 0.0561
 };
 
-float fTotal = 3.137;
+float fTotal = 6.2108;
 
 struct VS_IN
 {
@@ -55,18 +55,15 @@ PS_OUT PS_XBLUR(PS_IN In)
 
 	float2 t = In.vTexUV;
 	float2 uv = 0;
-	float tu = 1.f / (1280 / 2.f);
+	float tu = 1.f / (1280 / 2.f) ;
 
-	if (g_TargetBuffer.Sample(LinearSampler, tu).a > 0.f)
+	for (int i = -6; i < 6; ++i)
 	{
-		for (int i = -6; i < 6; ++i)
-		{
-			uv = t + float2(tu * i, 0);
-			Out.vColor += (fWeight[6 + i]) * g_TargetBuffer.Sample(LinearSampler, tu);
-		}
-
-		Out.vColor /= fTotal;
+		uv = t + float2(tu * i, 0);
+		Out.vColor += (fWeight[6 + i]) * g_RTT.Sample(LinearClampSampler, uv);
 	}
+
+	Out.vColor /= fTotal;
 
 	return Out;
 }
@@ -79,16 +76,13 @@ PS_OUT PS_YBLUR(PS_IN In)
 	float2 uv = 0;
 	float tv = 1.f / (720 / 2.f);
 
-	if (g_TargetBuffer.Sample(LinearSampler, tv).a > 0.f)
+	for (int i = -6; i < 6; ++i)
 	{
-		for (int i = -6; i < 6; ++i)
-		{
-			uv = t + float2(0, tv * i);
-			Out.vColor += fWeight[6 + i] * g_TargetBuffer.Sample(LinearSampler, tv);
-		}
-
-		Out.vColor /= fTotal;
+		uv = t + float2(0, tv * i);
+		Out.vColor += fWeight[6 + i] * g_RTT.Sample(LinearClampSampler, uv);
 	}
+
+	Out.vColor /= fTotal;
 
 	return Out;
 }
@@ -100,7 +94,7 @@ technique11 DefaultTechnique
 	{
 		SetRasterizerState(RS_Default);
 		SetDepthStencilState(DS_Not_ZTest_ZWrite, 0);
-		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
 
 		VertexShader = compile vs_5_0 VS_BLUR();
 		GeometryShader = NULL;
@@ -114,7 +108,7 @@ technique11 DefaultTechnique
 	{
 		SetRasterizerState(RS_Default);
 		SetDepthStencilState(DS_Not_ZTest_ZWrite, 0);
-		SetBlendState(BS_AlphaBlend, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
 
 		VertexShader = compile vs_5_0 VS_BLUR();
 		GeometryShader = NULL;

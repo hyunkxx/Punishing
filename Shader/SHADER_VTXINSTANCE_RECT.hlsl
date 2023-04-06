@@ -74,6 +74,7 @@ struct PS_IN
 struct PS_OUT
 {
 	float4 vColor : SV_TARGET0;
+	float4 vBloom : SV_TARGET1;
 };
 
 PS_OUT PS_MAIN(PS_IN In)
@@ -93,6 +94,7 @@ PS_OUT PS_Pass1_Alpha(PS_IN In)
 	PS_OUT	Out = (PS_OUT)0;
 
 	Out.vColor = g_DiffuseTexture.Sample(PointSampler, In.vTexUV);
+	Out.vBloom = Out.vColor;
 
 	return Out;
 }

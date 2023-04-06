@@ -449,6 +449,11 @@ private: // Command
 
 	//플레이어 서클
 	class CFloorCircle* m_pFloorCircle = nullptr;
+
+	//블러강도
+	_bool m_bBlurStart = false;
+	_float m_fBlurValue = 20.f;
+	_float m_fCurBlurAmount = 0.f;
 };
 
 END

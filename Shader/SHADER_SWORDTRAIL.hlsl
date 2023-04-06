@@ -76,7 +76,6 @@ PS_OUT PS_DEFAULT(PS_IN In)
 	vDiffuse.r = 0.f;
 
 	Out.vMainColor = vDiffuse;
-	Out.vBloomColor = vDiffuse;
 
 	if (vMask.a < 0.1f)
 		discard;
@@ -94,6 +93,8 @@ PS_OUT PS_PASS2(PS_IN In)
 	Out.vMainColor = float4(1.f, 1.f, 1.f, 1.5f);
 	Out.vMainColor.a -= g_fTimeAcc * 5.f;
 	
+	Out.vBloomColor = float4(1.f, 0.f, 0.f, 1.f);
+
 	return Out;
 }
 

@@ -299,6 +299,7 @@
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="..\..\Shader\POST_PROCESSING_RGBBLUR.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_ALPHA.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_BLUR.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_DISTORTION.hlsl" />

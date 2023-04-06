@@ -5,6 +5,8 @@
 
 #include "PostEffect.h"
 #include "BlurEffect.h"
+#include "ScreenBlurEffect.h"
+#include "DistortionEffect.h"
 
 CRenderer::CRenderer(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CComponent(pDevice, pContext)
@@ -13,14 +15,20 @@ CRenderer::CRenderer(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 
 HRESULT CRenderer::Initialize_Prototype()
 {
-	//m_pPostEffect = new CPostEffect(m_pDevice, m_pContext);
-	//m_pBlurEffect = new CBlurEffect(m_pDevice, m_pContext);
+	m_pPostEffect = new CPostEffect(m_pDevice, m_pContext);
+	m_pBlurEffect = new CBlurEffect(m_pDevice, m_pContext);
+	m_pScreenBlurEffect = new CScreenBlurEffect(m_pDevice, m_pContext);
+	m_pDistortionEffect = new CDistortionEffect(m_pDevice, m_pContext);
 
-	//m_pPostEffectShader = CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_POSTEFFECT.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount);
-	//m_pBlurEffectShader = CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_DISTORTION.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount);
+	m_pPostEffectShader = CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_POSTEFFECT.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount);
+	m_pBlurEffectShader = CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/POST_PROCESSING_RGBBLUR.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount);
+	m_pScreenBlurEffectShader = CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_BLUR.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount);
+	m_pDistortionEffectShader = CShader::Create(m_pDevice, m_pContext, TEXT("../../Shader/SHADER_DISTORTION.hlsl"), VTXTEX_DECLARATION::Elements, VTXTEX_DECLARATION::ElementCount);
 
-	//m_pPostEffect->SetBufferSize(0.f, 0.f, 1280, 720);
-	//m_pBlurEffect->SetBufferSize(0.f, 0.f, 1280, 720);
+	m_pPostEffect->SetBufferSize(0.f, 0.f, 1280, 720);
+	m_pBlurEffect->SetBufferSize(0.f, 0.f, 1280, 720);
+	m_pScreenBlurEffect->SetBufferSize(0.f, 0.f, 1280, 720);
+	m_pDistortionEffect->SetBufferSize(0.f, 0.f, 1280, 720);
 
 	return S_OK;
 }
@@ -42,40 +50,66 @@ void CRenderer::Draw()
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
 	//이거풀면 디폴트 렌더링방식
-	pGameInstance->Clear_RenderTargetView(POST_RENDERTARGET::BACK_BUFFER, _float4(0.f, 0.f, 1.f, 1.f));
-	pGameInstance->SetRenderTarget(POST_RENDERTARGET::BACK_BUFFER);
-	pGameInstance->Clear_DepthStencilView();
+	//pGameInstance->Clear_RenderTargetView(POST_RENDERTARGET::BACK_BUFFER, _float4(0.f, 0.f, 1.f, 1.f));
+	//pGameInstance->SetRenderTarget(POST_RENDERTARGET::BACK_BUFFER);
+	//pGameInstance->Clear_DepthStencilView();
 
-	////Pre 텍스쳐에 렌더링 (Main & Bloom)
-	//pGameInstance->Clear_PreRenderTargetViews(_float4(0.f, 0.f, 1.f, 0.f));
+	//Pre 텍스쳐에 렌더링 (Main & Bloom)
+	//pGameInstance->Clear_RenderTargetView(POST_RENDERTARGET::CURRENT_BUFFER, _float4(0.f, 1.f, 0.f, 0.f));
 	//pGameInstance->SetRenderTarget(POST_RENDERTARGET::CURRENT_BUFFER);
+
+	// MAIN & BLOOM
+	pGameInstance->Clear_PreRenderTargetViews(_float4(0.f, 0.f, 0.f, 0.f));
+	pGameInstance->SetPreRenderTargets();
 
 	RenderPriority();
 	RenderNonAlpha();
 	RenderNonLight();
 	RenderAlphaBlend();
 
-	//GG yo
-	////Fin 버퍼 바인딩 후 기존에 텍스쳐에 그련던 전체 화면을 Fin 텍스쳐에 렌더링
-	//pGameInstance->Clear_RenderTargetView(POST_RENDERTARGET::FINAL_BUFFER, _float4(0.f, 0.f, 1.f, 0.f));
-	//pGameInstance->SetRenderTarget(POST_RENDERTARGET::FINAL_BUFFER);
-	//ID3D11ShaderResourceView* pFinSRV = pGameInstance->GetShaderResourceView(POST_RENDERTARGET::CURRENT_BUFFER);
-	//_float time = pGameInstance->GetDeltaTime();
-	//m_pBlurEffect->TimeAcc(time);
-	//m_pBlurEffect->EffectApply(pFinSRV, m_pBlurEffectShader);
+	//X블러
+	pGameInstance->Clear_RenderTargetView(POST_RENDERTARGET::XBLUR_BUFFER, _float4(0.f, 0.f, 0.f, 0.f));
+	pGameInstance->SetRenderTarget(POST_RENDERTARGET::XBLUR_BUFFER);
+	pGameInstance->Clear_DepthStencilView();
+	ID3D11ShaderResourceView* pXBlurSRV = pGameInstance->GetShaderResourceView(PRE_RENDERTARGET::BLOOM);
+	m_pScreenBlurEffect->EffectApply(pXBlurSRV, m_pScreenBlurEffectShader, 0);
 
-	////백버퍼 바인딩
-	//pGameInstance->Clear_RenderTargetView(POST_RENDERTARGET::BACK_BUFFER, _float4(0.f, 0.f, 1.f, 0.f));
-	//pGameInstance->Clear_DepthStencilView();
-	//pGameInstance->SetRenderTarget(POST_RENDERTARGET::BACK_BUFFER);
+	//Y블러
+	pGameInstance->Clear_RenderTargetView(POST_RENDERTARGET::YBLUR_BUFFER, _float4(0.f, 0.f, 0.f, 0.f));
+	pGameInstance->SetRenderTarget(POST_RENDERTARGET::YBLUR_BUFFER);
+	pGameInstance->Clear_DepthStencilView();
+	ID3D11ShaderResourceView* pXYBlurSRV = pGameInstance->GetShaderResourceView(POST_RENDERTARGET::XBLUR_BUFFER);
+	m_pScreenBlurEffect->EffectApply(pXYBlurSRV, m_pScreenBlurEffectShader, 1);
 
-	////백버퍼에 텍스쳐 렌더링
-	//ID3D11ShaderResourceView* pSRV;
-	//pSRV = pGameInstance->GetShaderResourceView(POST_RENDERTARGET::FINAL_BUFFER);
-	//m_pPostEffect->EffectApply(pSRV, m_pPostEffectShader);
-	
+	//블룸 -> 블러처리 -> 메인에 합성
+	pGameInstance->Clear_RenderTargetView(POST_RENDERTARGET::CURRENT_BUFFER, _float4(0.f, 0.f, 0.f, 0.f));
+	pGameInstance->SetRenderTarget(POST_RENDERTARGET::CURRENT_BUFFER);
+	pGameInstance->Clear_DepthStencilView();
+	ID3D11ShaderResourceView* pBlurSRV = pGameInstance->GetShaderResourceView(POST_RENDERTARGET::YBLUR_BUFFER);
+	ID3D11ShaderResourceView* pMainSRV = pGameInstance->GetShaderResourceView(PRE_RENDERTARGET::MAIN);
+	m_pPostEffect->EffectCombine(pMainSRV, pBlurSRV, m_pPostEffectShader);
+
+	//Fin 버퍼 바인딩 후 기존에 텍스쳐에 그련던 전체 화면을 Fin 텍스쳐에 렌더링
+	pGameInstance->Clear_RenderTargetView(POST_RENDERTARGET::FINAL_BUFFER, _float4(0.f, 0.f, 0.f, 0.f));
+	pGameInstance->Clear_DepthStencilView();
+	pGameInstance->SetRenderTarget(POST_RENDERTARGET::FINAL_BUFFER);
+	ID3D11ShaderResourceView* pFinSRV = pGameInstance->GetShaderResourceView(POST_RENDERTARGET::CURRENT_BUFFER);
+	m_pBlurEffect->EffectApply(pFinSRV, m_pBlurEffectShader);//rgb분리 이펙트
+
+	//백버퍼 바인딩 - 텍스쳐 렌더
+	pGameInstance->Clear_RenderTargetView(POST_RENDERTARGET::BACK_BUFFER, _float4(0.f, 0.f, 1.f, 0.f));
+	pGameInstance->SetRenderTarget(POST_RENDERTARGET::BACK_BUFFER);
+
+	ID3D11ShaderResourceView* pSRV = pGameInstance->GetShaderResourceView(POST_RENDERTARGET::FINAL_BUFFER);
+	m_pPostEffect->EffectApply(pSRV, m_pPostEffectShader);
+
 	RenderUI();
 	RenderEnding();	//이거 카메라에서 쓰는데 일단 냅둠 왜썼는지 기억안남
+}
+
+void CRenderer::SetBlurAmount(_float fPower)
+{
+	m_pBlurEffect->SetBlurAmount(fPower);
 }
 
 bool Compute(Engine::CGameObject* pSourObject, Engine::CGameObject* pDestObject)
@@ -117,8 +151,8 @@ void CRenderer::Free()
 {
 	__super::Free();
 
-	//delete m_pPostEffect;
-	//delete m_pBlurEffect;
+	delete m_pPostEffect;
+	delete m_pBlurEffect;
 
 }
 

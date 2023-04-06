@@ -8852,9 +8852,9 @@ $LN4@Render:
 $LN5@Render:
 
 ; 85   : 
-; 86   : 	m_pShader->Begin(1);
+; 86   : 	m_pShader->Begin(6);
 
-  000f6	ba 01 00 00 00	 mov	 edx, 1
+  000f6	ba 06 00 00 00	 mov	 edx, 6
   000fb	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00102	48 8b 88 a0 01

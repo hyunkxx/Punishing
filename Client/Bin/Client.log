@@ -1,18 +1,6 @@
 ﻿FXC : warning X4717: Effects deprecated for D3DCompiler_47
-C:\Users\arcco\Documents\GitHub\Framework\Shader\SHADER_VTXMODEL.hlsl(171,21-45): warning X3206: 'dot': implicit truncation of vector type
+C:\Users\arcco\Documents\GitHub\Framework\Shader\SHADER_VTXMODEL.hlsl(211,21-45): warning X3206: 'dot': implicit truncation of vector type
   
   compilation object save succeeded; see C:\Users\arcco\Documents\GitHub\Framework\Client\Bin\SHADER_VTXMODEL.cso
-  FloorCircle.cpp
-  Enemy.cpp
-c:\users\arcco\documents\github\framework\client\public\skillballsystem.h(22): warning C4267: 'return': 'size_t'에서 'Engine::_uint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\enemy.cpp(65): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\enemy.cpp(250): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\enemy.cpp(251): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\enemy.cpp(754): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\enemy.cpp(892): warning C4244: '인수': 'Engine::_double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\enemy.cpp(928): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\enemy.cpp(1019): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\arcco\documents\github\framework\client\private\enemy.cpp(1046): warning C4244: '+=': 'Engine::_double'에서 'Engine::_float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
   Client.vcxproj -> C:\Users\arcco\Documents\GitHub\Framework\Client\Config\../Bin/Client.exe
   Client.vcxproj -> ../Bin/Client.pdb (Full PDB)

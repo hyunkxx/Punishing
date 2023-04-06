@@ -85,6 +85,7 @@ public://¿¢¼¼½º
 public://½ºÅ³
 	void Spawn();
 	_bool IsDie() { return m_bDie; };
+	_bool LockOnRelease() { return m_State.fCurHp <= 0.f; };
 	void MoveForward(_double TimeDelta);
 	void MoveBackword(_double TimeDelta);
 	void LineSkill(_double TimeDelta, _int iIndex);

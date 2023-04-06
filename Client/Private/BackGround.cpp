@@ -83,7 +83,7 @@ HRESULT CBackGround::Render()
 	if (FAILED(m_pRotationTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
 		return E_FAIL;
 
-	m_pShader->Begin(1);
+	m_pShader->Begin(6);
 	m_pVIBuffer->Render();
 
 	return S_OK;

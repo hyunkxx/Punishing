@@ -74,7 +74,8 @@ HRESULT CBossRoom::Render()
 	{
 		m_pModel->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType_DIFFUSE);
 
-		m_pShader->Begin(4);
+		//±âÁ¸ 4
+		m_pShader->Begin(13);
 		m_pModel->Render(i);
 	}
 

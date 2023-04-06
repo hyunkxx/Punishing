@@ -12,19 +12,16 @@ public:
 
 public:
 	virtual void SetBufferSize(int iPosX, int iPosY, int iWidth, int iHeight);
-	virtual void EffectApply(ID3D11ShaderResourceView * pSRV, class CShader* pShader);
+	virtual void EffectApply(ID3D11ShaderResourceView * pSRV, class CShader* pShader, _int iPass = 0);
 
-private:
-	void SetShaderResourceView(ID3D11ShaderResourceView* pMainSRV, ID3D11ShaderResourceView* pBloomSRV);
+public:
+	void EffectCombine(ID3D11ShaderResourceView* pMainSRV, ID3D11ShaderResourceView* pBloomSRV, class CShader* pShader);
 
 protected:
 	_float		m_fX, m_fY, m_fWidth, m_fHeight;
 	_float4x4	m_WorldMatrix, m_ViewMatrix, m_ProjMatrix;
 
 	class CVIBuffer_Rect* m_pBuffer = nullptr;
-
-	ID3D11ShaderResourceView* m_pMainResource = nullptr;
-	ID3D11ShaderResourceView* m_pBloomResource = nullptr;
 };
 
 END

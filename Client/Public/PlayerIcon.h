@@ -100,7 +100,8 @@ private:
 	//타겟 이미지
 	_bool m_bTargetImageRender = false;
 	CVIBuffer_Rect* m_pTargetVIBuffer = { nullptr };
-	CTexture*		m_pTargetTexture = { nullptr };
+	CTexture*		m_pTargetTexture = nullptr;
+
 
 	//콤보 이미지
 	CVIBuffer_Rect* m_pComboNumberBuffer = { nullptr };
@@ -146,6 +147,9 @@ private:
 	_bool m_bMaxAlpha = false;
 	_float m_fEvolutionAlpha = 1.f;
 
+	//타겟 락인 이미지 0~138
+	_int m_iCurrentIndex = 0;
+	_float m_fImageAcc = 0.f;
 };
 
 END

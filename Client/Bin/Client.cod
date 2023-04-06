@@ -2319,6 +2319,7 @@ EXTRN	__imp_PostQuitMessage:PROC
 EXTRN	__imp_RegisterClassExW:PROC
 EXTRN	__imp_CreateWindowExW:PROC
 EXTRN	__imp_ShowWindow:PROC
+EXTRN	__imp_MoveWindow:PROC
 EXTRN	__imp_LoadAcceleratorsW:PROC
 EXTRN	__imp_TranslateAcceleratorW:PROC
 EXTRN	__imp_UpdateWindow:PROC
@@ -2376,7 +2377,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?InitInstance@@YAHPEAUHINSTANCE__@@H@Z DD imagerel $LN4
-	DD	imagerel $LN4+341
+	DD	imagerel $LN4+394
 	DD	imagerel $unwind$?InitInstance@@YAHPEAUHINSTANCE__@@H@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2653,7 +2654,7 @@ wParam$ = 384
 lParam$ = 392
 ?WndProc@@YA_JPEAUHWND__@@I_K_J@Z PROC			; WndProc, COMDAT
 
-; 136  : {
+; 138  : {
 
 $LN9:
   00000	4c 89 4c 24 20	 mov	 QWORD PTR [rsp+32], r9
@@ -2677,7 +2678,7 @@ $LN9:
   00042	48 89 85 48 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 137  : 	if (ImGui_ImplWin32_WndProcHandler(hWnd, message, wParam, lParam))
+; 139  : 	if (ImGui_ImplWin32_WndProcHandler(hWnd, message, wParam, lParam))
 
   00049	4c 8b 8d 88 01
 	00 00		 mov	 r9, QWORD PTR lParam$[rbp]
@@ -2691,14 +2692,14 @@ $LN9:
   00069	48 85 c0	 test	 rax, rax
   0006c	74 07		 je	 SHORT $LN4@WndProc
 
-; 138  : 		return true;
+; 140  : 		return true;
 
   0006e	b8 01 00 00 00	 mov	 eax, 1
   00073	eb 77		 jmp	 SHORT $LN1@WndProc
 $LN4@WndProc:
 
-; 139  : 
-; 140  :     switch (message)
+; 141  : 
+; 142  :     switch (message)
 
   00075	8b 85 78 01 00
 	00		 mov	 eax, DWORD PTR message$[rbp]
@@ -2713,11 +2714,11 @@ $LN4@WndProc:
   00093	eb 32		 jmp	 SHORT $LN7@WndProc
 $LN5@WndProc:
 
-; 141  :     {
-; 142  :     case WM_PAINT:
-; 143  :         {
-; 144  :             PAINTSTRUCT ps;
-; 145  :             HDC hdc = BeginPaint(hWnd, &ps);
+; 143  :     {
+; 144  :     case WM_PAINT:
+; 145  :         {
+; 146  :             PAINTSTRUCT ps;
+; 147  :             HDC hdc = BeginPaint(hWnd, &ps);
 
   00095	48 8d 55 10	 lea	 rdx, QWORD PTR ps$4[rbp]
   00099	48 8b 8d 70 01
@@ -2726,8 +2727,8 @@ $LN5@WndProc:
 	00		 call	 QWORD PTR __imp_BeginPaint
   000a6	48 89 45 78	 mov	 QWORD PTR hdc$5[rbp], rax
 
-; 146  : 
-; 147  :             EndPaint(hWnd, &ps);
+; 148  : 
+; 149  :             EndPaint(hWnd, &ps);
 
   000aa	48 8d 55 10	 lea	 rdx, QWORD PTR ps$4[rbp]
   000ae	48 8b 8d 70 01
@@ -2735,26 +2736,26 @@ $LN5@WndProc:
   000b5	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_EndPaint
 
-; 148  :         }
-; 149  :         break;
+; 150  :         }
+; 151  :         break;
 
   000bb	eb 2d		 jmp	 SHORT $LN2@WndProc
 $LN6@WndProc:
 
-; 150  :     case WM_DESTROY:
-; 151  :         PostQuitMessage(0);
+; 152  :     case WM_DESTROY:
+; 153  :         PostQuitMessage(0);
 
   000bd	33 c9		 xor	 ecx, ecx
   000bf	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_PostQuitMessage
 
-; 152  :         break;
+; 154  :         break;
 
   000c5	eb 23		 jmp	 SHORT $LN2@WndProc
 $LN7@WndProc:
 
-; 153  :     default:
-; 154  :         return DefWindowProc(hWnd, message, wParam, lParam);
+; 155  :     default:
+; 156  :         return DefWindowProc(hWnd, message, wParam, lParam);
 
   000c7	4c 8b 8d 88 01
 	00 00		 mov	 r9, QWORD PTR lParam$[rbp]
@@ -2769,13 +2770,13 @@ $LN7@WndProc:
   000e8	eb 02		 jmp	 SHORT $LN1@WndProc
 $LN2@WndProc:
 
-; 155  :     }
-; 156  :     return 0;
+; 157  :     }
+; 158  :     return 0;
 
   000ea	33 c0		 xor	 eax, eax
 $LN1@WndProc:
 
-; 157  : }
+; 159  : }
 
   000ec	48 8b f8	 mov	 rdi, rax
   000ef	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -2847,112 +2848,133 @@ $LN4:
 	00 00		 mov	 DWORD PTR rcWindow$[rbp+12], 720 ; 000002d0H
 
 ; 114  : 
-; 115  :    AdjustWindowRect(&rcWindow, WS_OVERLAPPEDWINDOW, TRUE);
+; 115  :    AdjustWindowRect(&rcWindow, WS_OVERLAPPEDWINDOW, false);
 
-  00069	41 b8 01 00 00
-	00		 mov	 r8d, 1
-  0006f	ba 00 00 cf 00	 mov	 edx, 13565952		; 00cf0000H
-  00074	48 8d 4d 08	 lea	 rcx, QWORD PTR rcWindow$[rbp]
-  00078	ff 15 00 00 00
+  00069	45 33 c0	 xor	 r8d, r8d
+  0006c	ba 00 00 cf 00	 mov	 edx, 13565952		; 00cf0000H
+  00071	48 8d 4d 08	 lea	 rcx, QWORD PTR rcWindow$[rbp]
+  00075	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_AdjustWindowRect
 
 ; 116  : 
 ; 117  :    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
 
-  0007e	8b 45 0c	 mov	 eax, DWORD PTR rcWindow$[rbp+4]
-  00081	8b 4d 14	 mov	 ecx, DWORD PTR rcWindow$[rbp+12]
-  00084	2b c8		 sub	 ecx, eax
-  00086	8b c1		 mov	 eax, ecx
-  00088	8b 4d 08	 mov	 ecx, DWORD PTR rcWindow$[rbp]
-  0008b	8b 55 10	 mov	 edx, DWORD PTR rcWindow$[rbp+8]
-  0008e	2b d1		 sub	 edx, ecx
-  00090	8b ca		 mov	 ecx, edx
-  00092	48 c7 44 24 58
+  0007b	8b 45 0c	 mov	 eax, DWORD PTR rcWindow$[rbp+4]
+  0007e	8b 4d 14	 mov	 ecx, DWORD PTR rcWindow$[rbp+12]
+  00081	2b c8		 sub	 ecx, eax
+  00083	8b c1		 mov	 eax, ecx
+  00085	8b 4d 08	 mov	 ecx, DWORD PTR rcWindow$[rbp]
+  00088	8b 55 10	 mov	 edx, DWORD PTR rcWindow$[rbp+8]
+  0008b	2b d1		 sub	 edx, ecx
+  0008d	8b ca		 mov	 ecx, edx
+  0008f	48 c7 44 24 58
 	00 00 00 00	 mov	 QWORD PTR [rsp+88], 0
-  0009b	48 8b 95 30 01
+  00098	48 8b 95 30 01
 	00 00		 mov	 rdx, QWORD PTR hInstance$[rbp]
-  000a2	48 89 54 24 50	 mov	 QWORD PTR [rsp+80], rdx
-  000a7	48 c7 44 24 48
+  0009f	48 89 54 24 50	 mov	 QWORD PTR [rsp+80], rdx
+  000a4	48 c7 44 24 48
 	00 00 00 00	 mov	 QWORD PTR [rsp+72], 0
-  000b0	48 c7 44 24 40
+  000ad	48 c7 44 24 40
 	00 00 00 00	 mov	 QWORD PTR [rsp+64], 0
-  000b9	89 44 24 38	 mov	 DWORD PTR [rsp+56], eax
-  000bd	89 4c 24 30	 mov	 DWORD PTR [rsp+48], ecx
-  000c1	c7 44 24 28 00
+  000b6	89 44 24 38	 mov	 DWORD PTR [rsp+56], eax
+  000ba	89 4c 24 30	 mov	 DWORD PTR [rsp+48], ecx
+  000be	c7 44 24 28 00
 	00 00 00	 mov	 DWORD PTR [rsp+40], 0
-  000c9	c7 44 24 20 00
+  000c6	c7 44 24 20 00
 	00 00 80	 mov	 DWORD PTR [rsp+32], -2147483648 ; ffffffff80000000H
-  000d1	41 b9 00 00 cf
+  000ce	41 b9 00 00 cf
 	00		 mov	 r9d, 13565952		; 00cf0000H
-  000d7	4c 8d 05 00 00
+  000d4	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:?szTitle@@3PA_WA ; szTitle
-  000de	48 8d 15 00 00
+  000db	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?szWindowClass@@3PA_WA ; szWindowClass
-  000e5	33 c9		 xor	 ecx, ecx
-  000e7	ff 15 00 00 00
+  000e2	33 c9		 xor	 ecx, ecx
+  000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_CreateWindowExW
-  000ed	48 89 45 38	 mov	 QWORD PTR hWnd$[rbp], rax
+  000ea	48 89 45 38	 mov	 QWORD PTR hWnd$[rbp], rax
 
 ; 118  : 	   CW_USEDEFAULT, 0, rcWindow.right - rcWindow.left, rcWindow.bottom - rcWindow.top, nullptr, nullptr, hInstance, nullptr);
 ; 119  : 
-; 120  :    if (!hWnd)
+; 120  :    MoveWindow(hWnd, 100, 100, rcWindow.right - rcWindow.left, rcWindow.bottom - rcWindow.top, false);
 
-  000f1	48 83 7d 38 00	 cmp	 QWORD PTR hWnd$[rbp], 0
-  000f6	75 04		 jne	 SHORT $LN2@InitInstan
+  000ee	8b 45 0c	 mov	 eax, DWORD PTR rcWindow$[rbp+4]
+  000f1	8b 4d 14	 mov	 ecx, DWORD PTR rcWindow$[rbp+12]
+  000f4	2b c8		 sub	 ecx, eax
+  000f6	8b c1		 mov	 eax, ecx
+  000f8	8b 4d 08	 mov	 ecx, DWORD PTR rcWindow$[rbp]
+  000fb	8b 55 10	 mov	 edx, DWORD PTR rcWindow$[rbp+8]
+  000fe	2b d1		 sub	 edx, ecx
+  00100	8b ca		 mov	 ecx, edx
+  00102	c7 44 24 28 00
+	00 00 00	 mov	 DWORD PTR [rsp+40], 0
+  0010a	89 44 24 20	 mov	 DWORD PTR [rsp+32], eax
+  0010e	44 8b c9	 mov	 r9d, ecx
+  00111	41 b8 64 00 00
+	00		 mov	 r8d, 100		; 00000064H
+  00117	ba 64 00 00 00	 mov	 edx, 100		; 00000064H
+  0011c	48 8b 4d 38	 mov	 rcx, QWORD PTR hWnd$[rbp]
+  00120	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_MoveWindow
 
-; 121  :    {
-; 122  :       return FALSE;
+; 121  : 
+; 122  :    if (!hWnd)
 
-  000f8	33 c0		 xor	 eax, eax
-  000fa	eb 2a		 jmp	 SHORT $LN1@InitInstan
+  00126	48 83 7d 38 00	 cmp	 QWORD PTR hWnd$[rbp], 0
+  0012b	75 04		 jne	 SHORT $LN2@InitInstan
+
+; 123  :    {
+; 124  :       return FALSE;
+
+  0012d	33 c0		 xor	 eax, eax
+  0012f	eb 2a		 jmp	 SHORT $LN1@InitInstan
 $LN2@InitInstan:
 
-; 123  :    }
-; 124  : 
-; 125  :    ShowWindow(hWnd, nCmdShow);
+; 125  :    }
+; 126  : 
+; 127  :    ShowWindow(hWnd, nCmdShow);
 
-  000fc	8b 95 38 01 00
+  00131	8b 95 38 01 00
 	00		 mov	 edx, DWORD PTR nCmdShow$[rbp]
-  00102	48 8b 4d 38	 mov	 rcx, QWORD PTR hWnd$[rbp]
-  00106	ff 15 00 00 00
+  00137	48 8b 4d 38	 mov	 rcx, QWORD PTR hWnd$[rbp]
+  0013b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_ShowWindow
 
-; 126  :    UpdateWindow(hWnd);
+; 128  :    UpdateWindow(hWnd);
 
-  0010c	48 8b 4d 38	 mov	 rcx, QWORD PTR hWnd$[rbp]
-  00110	ff 15 00 00 00
+  00141	48 8b 4d 38	 mov	 rcx, QWORD PTR hWnd$[rbp]
+  00145	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_UpdateWindow
 
-; 127  : 
-; 128  :    g_hWnd = hWnd;
+; 129  : 
+; 130  :    g_hWnd = hWnd;
 
-  00116	48 8b 45 38	 mov	 rax, QWORD PTR hWnd$[rbp]
-  0011a	48 89 05 00 00
+  0014b	48 8b 45 38	 mov	 rax, QWORD PTR hWnd$[rbp]
+  0014f	48 89 05 00 00
 	00 00		 mov	 QWORD PTR ?g_hWnd@@3PEAUHWND__@@EA, rax ; g_hWnd
 
-; 129  : 
-; 130  :    return TRUE;
+; 131  : 
+; 132  :    return TRUE;
 
-  00121	b8 01 00 00 00	 mov	 eax, 1
+  00156	b8 01 00 00 00	 mov	 eax, 1
 $LN1@InitInstan:
 
-; 131  : }
+; 133  : }
 
-  00126	48 8b f8	 mov	 rdi, rax
-  00129	48 8d 4d a0	 lea	 rcx, QWORD PTR [rbp-96]
-  0012d	48 8d 15 00 00
+  0015b	48 8b f8	 mov	 rdi, rax
+  0015e	48 8d 4d a0	 lea	 rcx, QWORD PTR [rbp-96]
+  00162	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?InitInstance@@YAHPEAUHINSTANCE__@@H@Z$rtcFrameData
-  00134	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  00139	48 8b c7	 mov	 rax, rdi
-  0013c	48 8b 8d 08 01
+  00169	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  0016e	48 8b c7	 mov	 rax, rdi
+  00171	48 8b 8d 08 01
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  00143	48 33 cd	 xor	 rcx, rbp
-  00146	e8 00 00 00 00	 call	 __security_check_cookie
-  0014b	48 8d a5 18 01
+  00178	48 33 cd	 xor	 rcx, rbp
+  0017b	e8 00 00 00 00	 call	 __security_check_cookie
+  00180	48 8d a5 18 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+280]
-  00152	5f		 pop	 rdi
-  00153	5d		 pop	 rbp
-  00154	c3		 ret	 0
+  00187	5f		 pop	 rdi
+  00188	5d		 pop	 rbp
+  00189	c3		 ret	 0
 ?InitInstance@@YAHPEAUHINSTANCE__@@H@Z ENDP		; InitInstance
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -3440,8 +3462,6 @@ __formal$ = 224
 __formal$ = 232
 ?__empty_global_delete@@YAXPEAX_K@Z PROC		; __empty_global_delete, COMDAT
 
-; 158  : }
-
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   00005	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3470,7 +3490,7 @@ _TEXT	SEGMENT
 __formal$ = 224
 ?__empty_global_delete@@YAXPEAX@Z PROC			; __empty_global_delete, COMDAT
 
-; 158  : }
+; 160  : }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx

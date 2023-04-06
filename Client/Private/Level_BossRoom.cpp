@@ -46,6 +46,8 @@ HRESULT CLevel_BossRoom::Initialize()
 
 	static_cast<CCharacter*>(mPlayer)->SetHealthUI(static_cast<CEnemyHealthBar*>(m_pHealthBar));
 
+	CApplicationManager::GetInstance()->SetFreeze(false);
+
 	return S_OK;
 }
 

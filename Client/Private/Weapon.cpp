@@ -71,12 +71,14 @@ HRESULT CWeapon::Render()
 	if (FAILED(SetupShaderResources()))
 		return E_FAIL;
 
+	_float4 vGlowColor = { 0.f, 1.f, 0.f, 1.f };
+	mShader->SetRawValue("g_GlowColor", &vGlowColor, sizeof(_float4));
 	_uint MeshCount = mModel->Get_MeshCount();
 	for (_uint i = 0; i < MeshCount; ++i)
 	{
 		mModel->Setup_ShaderMaterialResource(mShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
 		
-		mShader->Begin(0);
+		mShader->Begin(12);
 		mModel->Render(i);
 	}
 

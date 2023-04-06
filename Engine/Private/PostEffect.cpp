@@ -24,7 +24,7 @@ void CPostEffect::SetBufferSize(int iPosX, int iPosY, int iWidth, int iHeight)
 
 }
 
-void CPostEffect::EffectApply(ID3D11ShaderResourceView * pSRV, CShader * pShader)
+void CPostEffect::EffectApply(ID3D11ShaderResourceView * pSRV, CShader * pShader, _int iPass)
 {
 	if (FAILED(pShader->SetMatrix("g_WorldMatrix", &m_WorldMatrix)))
 		return;
@@ -33,31 +33,34 @@ void CPostEffect::EffectApply(ID3D11ShaderResourceView * pSRV, CShader * pShader
 	if (FAILED(pShader->SetMatrix("g_ProjMatrix", &m_ProjMatrix)))
 		return;
 
-	if (FAILED(pShader->SetShaderResourceView("g_Buffer", pSRV)))
+	if (FAILED(pShader->SetShaderResourceView("g_MainTexture", pSRV)))
 		return;
 	
-	if (FAILED(pShader->Begin(0)))
+	if (FAILED(pShader->Begin(iPass)))
 		return;
 
 	if (FAILED(m_pBuffer->Render()))
 		return;
 }
 
-void CPostEffect::SetShaderResourceView(ID3D11ShaderResourceView * pMainSRV, ID3D11ShaderResourceView * pBloomSRV)
+void CPostEffect::EffectCombine(ID3D11ShaderResourceView * pMainSRV, ID3D11ShaderResourceView * pBloomSRV, CShader * pShader)
 {
-	m_pMainResource = pMainSRV;
-	m_pBloomResource = pBloomSRV;
-}
+	if (FAILED(pShader->SetMatrix("g_WorldMatrix", &m_WorldMatrix)))
+		return;
+	if (FAILED(pShader->SetMatrix("g_ViewMatrix", &m_ViewMatrix)))
+		return;
+	if (FAILED(pShader->SetMatrix("g_ProjMatrix", &m_ProjMatrix)))
+		return;
 
-//void CPostEffect::SetShaderResourceView(PRE_RENDERTARGET eTarget, ID3D11ShaderResourceView * pSRV)
-//{
-//	switch (eTarget)
-//	{
-//	case PRE_RENDERTARGET::MAIN:
-//		m_pMainResource = pSRV;
-//		break;
-//	case PRE_RENDERTARGET::BLOOM:
-//		m_pBloomResource = pSRV;
-//		break;
-//	}
-//}
+	if (FAILED(pShader->SetShaderResourceView("g_MainTexture", pMainSRV)))
+		return;
+
+	if (FAILED(pShader->SetShaderResourceView("g_BloomTexture", pBloomSRV)))
+		return;
+
+	if (FAILED(pShader->Begin(1)))
+		return;
+
+	if (FAILED(m_pBuffer->Render()))
+		return;
+}

@@ -18,9 +18,6 @@ private:
 	virtual ~CGameInstance() = default;
 
 public:
-	_double GetDeltaTime() const { return g_TimeDelta; }
-
-public:
 	HRESULT Engine_Initialize(const GRAPHIC_DESC& GraphicDesc, _uint iLevelCount, ID3D11Device** ppDevice_out, ID3D11DeviceContext** ppContext_out);
 	HRESULT Engine_Tick(_double TimeDelta);
 
@@ -106,9 +103,7 @@ private:
 	class CInput_Device*			m_pInput_Device = { nullptr };
 	class CLightManager*			m_LightManager = { nullptr };
 
-private:
-	_double g_TimeDelta;
-
+	_bool m_bBlurStart = false;
 };
 
 END

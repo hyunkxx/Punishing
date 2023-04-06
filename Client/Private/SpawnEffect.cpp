@@ -42,7 +42,7 @@ void CSpawnEffect::LateTick(_double TimeDelta)
 		return;
 
 	m_fTimeAcc += TimeDelta * 1.f;
-	if (m_fTimeAcc >= 2.f)
+	if (m_fTimeAcc >= 1.f)
 		m_bRender = false;
 
 	if (nullptr != m_pRenderer && m_bRender)

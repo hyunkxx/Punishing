@@ -363,7 +363,7 @@ HRESULT CEnemy::AddComponents()
 		_tchar szTag[MAX_PATH] = L"";
 		wsprintf(szTag, L"circle%d", s_iCount);
 		CGameObject* pCircle = nullptr;
-		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_circle", L"layer_ui", szTag, transform)))
+		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_circle", L"layer_ui", szTag, this)))
 			return E_FAIL;
 		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_ENEMY);
 	}
@@ -373,7 +373,7 @@ HRESULT CEnemy::AddComponents()
 		CGameObject* pCircle = nullptr;
 		_tchar szTag[MAX_PATH] = L"";
 		wsprintf(szTag, L"circle%d", s_iCount);
-		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_circle", L"layer_ui", szTag, transform)))
+		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_circle", L"layer_ui", szTag, this)))
 			return E_FAIL;
 		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_ENEMY);
 	}

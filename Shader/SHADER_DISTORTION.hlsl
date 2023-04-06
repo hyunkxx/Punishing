@@ -48,6 +48,8 @@ struct PS_IN
 struct PS_OUT
 {
 	float4			vColor : SV_TARGET0;
+	float4			vBloom : SV_TARGET1;
+	float4			vDistortion : SV_TARGET2;
 };
 
 float2 GetOffsetFromCenter(float2 screenCoords, float2 screenSize)
@@ -115,6 +117,27 @@ PS_OUT PS_DISTORTION(PS_IN In)
 	float4 Orig = g_BufferTexture.Sample(LinearClampSampler, UV);
 
 	Out.vColor = Orig;
+	Out.vBloom = Orig;
+	Out.vDistortion = Orig;
+
+	return Out;
+}
+
+
+PS_OUT PS_DISTORTION_2(PS_IN In)
+{
+	PS_OUT			Out = (PS_OUT)0;
+
+	float2 Trans = In.vTexUV;
+	Trans.x -= TimeAcc;
+
+	float4 Noise = g_DistortionTexture.Sample(LinearClampSampler, Trans);
+
+	float2 UV = In.vTexUV + Noise.xy * 0.05f;
+	float4 Orig = g_BufferTexture.Sample(LinearClampSampler, UV);
+
+	Out.vColor = Orig;
+
 	return Out;
 }
 
@@ -131,5 +154,18 @@ technique11 DefaultTechnique
 		HullShader = NULL;
 		DomainShader = NULL;
 		PixelShader = compile ps_5_0 PS_DISTORTION();
+	}
+
+	pass Pass1
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Not_ZTest_ZWrite, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_BLUR();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_DISTORTION_2();
 	}
 }

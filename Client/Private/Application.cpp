@@ -403,6 +403,11 @@ HRESULT CApplication::Ready_Prototype_Static_Component()
 		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/Skill/EvolutionGageFront.png")))))
 		return E_FAIL;
 
+	//타겟 이미지
+	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_targetimage"),
+		CTexture::Create(m_pDevice, m_pContext, TEXT("../../Resource/Texture/Image/dds/Target%d.dds"), 138))))
+		return E_FAIL;
+
 	//프리즈 에어리어
 	//무지개색 노이즈
 	if (FAILED(m_pGameInstance->Add_Prototype(LEVEL_STATIC, TEXT("proto_com_texture_freezemask0"),

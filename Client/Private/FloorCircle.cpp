@@ -2,6 +2,7 @@
 #include "..\Public\FloorCircle.h"
 
 #include "GameInstance.h"
+#include "Enemy.h"
 
 CFloorCircle::CFloorCircle(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
 	: CGameObject(pDevice, pContext)
@@ -31,7 +32,8 @@ HRESULT CFloorCircle::Initialize(void * pArg)
 
 	if (pArg)
 	{
-		m_pOwnerTransform = (CTransform*)pArg;
+		m_pOwner = static_cast<CGameObject*>(pArg);
+		m_pOwnerTransform = static_cast<CTransform*>(m_pOwner->Find_Component(L"com_transform"));
 	}
 
 	return S_OK;
@@ -68,24 +70,33 @@ HRESULT CFloorCircle::Render()
 	{
 	case CIRCLE_PLAYER:
 	{
+		_float4 vGlowColor = { 1.f, 1.f, 1.f, 1.f };
+		m_pShader->SetRawValue("g_GlowColor", &vGlowColor, sizeof(_float4));
 		_uint MeshCount = m_pPlayerCircle->Get_MeshCount();
 		for (_uint i = 0; i < MeshCount; ++i)
 		{
 			m_pPlayerCircle->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
-			m_pShader->Begin(8);
+			m_pShader->Begin(11);
 			m_pPlayerCircle->Render(i);
 		}
 		break;
 	}
 	case CIRCLE_ENEMY:
 	{
-		_uint MeshCount = m_pEnemyCircle->Get_MeshCount();
-		for (_uint i = 0; i < MeshCount; ++i)
+		_float4 vGlowColor = { 1.f, 1.f, 1.f, 1.f };
+		m_pShader->SetRawValue("g_GlowColor", &vGlowColor, sizeof(_float4));
+		if (static_cast<CEnemy*>(m_pOwner)->IsActive() && !static_cast<CEnemy*>(m_pOwner)->IsDeadWait())
 		{
-			m_pEnemyCircle->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
-			m_pShader->Begin(8);
-			m_pEnemyCircle->Render(i);
+			_uint MeshCount = m_pEnemyCircle->Get_MeshCount();
+			for (_uint i = 0; i < MeshCount; ++i)
+			{
+
+				m_pEnemyCircle->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+				m_pShader->Begin(11);
+				m_pEnemyCircle->Render(i);
+			}
 		}
+
 		break;
 	}
 	}

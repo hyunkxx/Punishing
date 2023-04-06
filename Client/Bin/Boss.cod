@@ -10564,7 +10564,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetOverlapCollider@CBoss@Client@@UEAAPEAVCCollider@Engine@@XZ PROC ; Client::CBoss::GetOverlapCollider, COMDAT
 
-; 128  : 	virtual class CCollider* GetOverlapCollider() override  { return m_pOverlapCollider; }
+; 129  : 	virtual class CCollider* GetOverlapCollider() override  { return m_pOverlapCollider; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -10597,7 +10597,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetWeaponCollider@CBoss@Client@@UEAAPEAVCCollider@Engine@@XZ PROC ; Client::CBoss::GetWeaponCollider, COMDAT
 
-; 127  : 	virtual class CCollider* GetWeaponCollider() override  { return m_pWeaponCollider; }
+; 128  : 	virtual class CCollider* GetWeaponCollider() override  { return m_pWeaponCollider; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -10630,7 +10630,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetBodyCollider@CBoss@Client@@UEAAPEAVCCollider@Engine@@XZ PROC ; Client::CBoss::GetBodyCollider, COMDAT
 
-; 126  : 	virtual class CCollider* GetBodyCollider() override { return collider; }
+; 127  : 	virtual class CCollider* GetBodyCollider() override { return collider; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -12767,7 +12767,7 @@ eAnimType$ = 240
 bLerp$ = 248
 ?SetupState@CBoss@Client@@AEAAXW4BOSS_CLIP@12@W4TYPE@CAnimation@Engine@@_N@Z PROC ; Client::CBoss::SetupState, COMDAT
 
-; 108  : 	{ 
+; 109  : 	{ 
 
 $LN3:
   00000	44 88 4c 24 20	 mov	 BYTE PTR [rsp+32], r9b
@@ -12786,7 +12786,7 @@ $LN3:
   0002e	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 109  : 		m_eAnimState.eCurAnimationClip = eClip;
+; 110  : 		m_eAnimState.eCurAnimationClip = eClip;
 
   00036	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -12795,7 +12795,7 @@ $LN3:
   00043	89 88 0c 02 00
 	00		 mov	 DWORD PTR [rax+524], ecx
 
-; 110  : 		m_eAnimState.eAnimType = eAnimType;
+; 111  : 		m_eAnimState.eAnimType = eAnimType;
 
   00049	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -12804,7 +12804,7 @@ $LN3:
   00056	89 88 10 02 00
 	00		 mov	 DWORD PTR [rax+528], ecx
 
-; 111  : 		m_eAnimState.bLerp = bLerp;
+; 112  : 		m_eAnimState.bLerp = bLerp;
 
   0005c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -12813,7 +12813,7 @@ $LN3:
   0006a	88 88 14 02 00
 	00		 mov	 BYTE PTR [rax+532], cl
 
-; 112  : 	}
+; 113  : 	}
 
   00070	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -13084,7 +13084,7 @@ tv68 = 192
 this$ = 240
 ?CloseToPlayer@CBoss@Client@@QEAA_NXZ PROC		; Client::CBoss::CloseToPlayer, COMDAT
 
-; 103  : 	_bool CloseToPlayer() { return GetLengthFromPlayer() <= m_fNearCheckRange; };
+; 104  : 	_bool CloseToPlayer() { return GetLengthFromPlayer() <= m_fNearCheckRange; };
 
 $LN5:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -37566,45 +37566,45 @@ $LN4:
 	00 00		 mov	 QWORD PTR [rax+136], rcx
 ; File c:\users\arcco\documents\github\framework\client\public\boss.h
 
-; 142  : 	_int iAnim = 0;
+; 143  : 	_int iAnim = 0;
 
   0009b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000a2	c7 80 08 02 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+520], 0
 
-; 143  : 	ANIM_STATE m_eAnimState;
-; 144  : 	
-; 145  : 	_bool m_bRotationFinish = false;
+; 144  : 	ANIM_STATE m_eAnimState;
+; 145  : 	
+; 146  : 	_bool m_bRotationFinish = false;
 
   000ac	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000b3	c6 80 18 02 00
 	00 00		 mov	 BYTE PTR [rax+536], 0
 
-; 146  : 	_bool m_bAttackable = false;
+; 147  : 	_bool m_bAttackable = false;
 
   000ba	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000c1	c6 80 19 02 00
 	00 00		 mov	 BYTE PTR [rax+537], 0
 
-; 147  : 	_int m_iAttackCount = 0;
+; 148  : 	_int m_iAttackCount = 0;
 
   000c8	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000cf	c7 80 1c 02 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+540], 0
 
-; 148  : 
-; 149  : 	_bool m_bSpawn = false;
+; 149  : 
+; 150  : 	_bool m_bSpawn = false;
 
   000d9	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000e0	c6 80 20 02 00
 	00 00		 mov	 BYTE PTR [rax+544], 0
 
-; 150  : 	const _float m_fNearCheckRange = 18.f;	 // 플레이어와 가까운지 체크 10
+; 151  : 	const _float m_fNearCheckRange = 18.f;	 // 플레이어와 가까운지 체크 10
 
   000e7	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37613,28 +37613,28 @@ $LN4:
   000f6	f3 0f 11 80 24
 	02 00 00	 movss	 DWORD PTR [rax+548], xmm0
 
-; 151  : 
-; 152  : 	_bool m_bBrrow = false;
+; 152  : 
+; 153  : 	_bool m_bBrrow = false;
 
   000fe	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00105	c6 80 28 02 00
 	00 00		 mov	 BYTE PTR [rax+552], 0
 
-; 153  : 
-; 154  : 	//라인 3타 공격
-; 155  : 	_bool m_bLineAttack = false;
+; 154  : 
+; 155  : 	//라인 3타 공격
+; 156  : 	_bool m_bLineAttack = false;
 
   0010c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00113	c6 80 29 02 00
 	00 00		 mov	 BYTE PTR [rax+553], 0
 
-; 156  : 
-; 157  : 	class CThorn* m_pThorn1[25][6];
-; 158  : 	class CThorn* m_pThorn2[25][6];
-; 159  : 
-; 160  : 	_float3 vThornSpawnPos = { 0.f, 0.f, 0.f };
+; 157  : 
+; 158  : 	class CThorn* m_pThorn1[25][6];
+; 159  : 	class CThorn* m_pThorn2[25][6];
+; 160  : 
+; 161  : 	_float3 vThornSpawnPos = { 0.f, 0.f, 0.f };
 
   0011a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37646,8 +37646,8 @@ $LN4:
   00130	48 8b c8	 mov	 rcx, rax
   00133	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 161  : 
-; 162  : 	_int m_iCurrentOneIndex[3] = {0, 0, 0};
+; 162  : 
+; 163  : 	_int m_iCurrentOneIndex[3] = {0, 0, 0};
 
   00138	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37662,7 +37662,7 @@ $LN4:
   00161	c7 80 a4 0b 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+2980], 0
 
-; 163  : 	_int m_iCurrentTwoIndex[3] = {0, 0, 0};
+; 164  : 	_int m_iCurrentTwoIndex[3] = {0, 0, 0};
 
   0016b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37677,8 +37677,8 @@ $LN4:
   00194	c7 80 b0 0b 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+2992], 0
 
-; 164  : 
-; 165  : 	_int m_iEraseIndex[3] = { 0, 0, 0 };
+; 165  : 
+; 166  : 	_int m_iEraseIndex[3] = { 0, 0, 0 };
 
   0019e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37693,15 +37693,15 @@ $LN4:
   001c7	c7 80 bc 0b 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+3004], 0
 
-; 166  : 
-; 167  : 	_bool m_bUseLineSkill = false;
+; 167  : 
+; 168  : 	_bool m_bUseLineSkill = false;
 
   001d1	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   001d8	c6 80 c0 0b 00
 	00 00		 mov	 BYTE PTR [rax+3008], 0
 
-; 168  : 	_bool m_bLineSkillStart[6] = { false, false, false };
+; 169  : 	_bool m_bLineSkillStart[6] = { false, false, false };
 
   001df	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37724,7 +37724,7 @@ $LN4:
   0021b	b9 03 00 00 00	 mov	 ecx, 3
   00220	f3 aa		 rep stosb
 
-; 169  : 	_bool m_bLineSkillErase[6] = { false, false, false };
+; 170  : 	_bool m_bLineSkillErase[6] = { false, false, false };
 
   00222	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37747,8 +37747,8 @@ $LN4:
   0025e	b9 03 00 00 00	 mov	 ecx, 3
   00263	f3 aa		 rep stosb
 
-; 170  : 	
-; 171  : 	float m_fEraseAcc[3] = { 0.f, 0.f, 0.f };
+; 171  : 	
+; 172  : 	float m_fEraseAcc[3] = { 0.f, 0.f, 0.f };
 
   00265	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37766,7 +37766,7 @@ $LN4:
   00293	f3 0f 11 80 d8
 	0b 00 00	 movss	 DWORD PTR [rax+3032], xmm0
 
-; 172  : 	const float m_fEraseTime = 0.05f;
+; 173  : 	const float m_fEraseTime = 0.05f;
 
   0029b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37775,8 +37775,8 @@ $LN4:
   002aa	f3 0f 11 80 dc
 	0b 00 00	 movss	 DWORD PTR [rax+3036], xmm0
 
-; 173  : 
-; 174  : 	_bool m_bCheckDir[3] = { false, false, false };
+; 174  : 
+; 175  : 	_bool m_bCheckDir[3] = { false, false, false };
 
   002b2	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37802,25 +37802,25 @@ $LN4:
   002fb	48 8b c8	 mov	 rcx, rax
   002fe	e8 00 00 00 00	 call	 ??_H@YAXPEAX_K1P6APEAX0@Z@Z
 
-; 175  : 	_float3 m_vLineOneDir[3];
-; 176  : 
-; 177  : 	_bool m_bEvolution = false;
+; 176  : 	_float3 m_vLineOneDir[3];
+; 177  : 
+; 178  : 	_bool m_bEvolution = false;
 
   00303	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0030a	c6 80 08 0c 00
 	00 00		 mov	 BYTE PTR [rax+3080], 0
 
-; 178  : 
-; 179  : 	//라인 3타 공격 - 총 3회중 몇번쨰 라인인지
-; 180  : 	_int m_iCurrentLine = 0;
+; 179  : 
+; 180  : 	//라인 3타 공격 - 총 3회중 몇번쨰 라인인지
+; 181  : 	_int m_iCurrentLine = 0;
 
   00311	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00318	c7 80 0c 0c 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+3084], 0
 
-; 181  : 	_float m_fLineUpAcc = 0.f;
+; 182  : 	_float m_fLineUpAcc = 0.f;
 
   00322	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37828,7 +37828,7 @@ $LN4:
   0032c	f3 0f 11 80 10
 	0c 00 00	 movss	 DWORD PTR [rax+3088], xmm0
 
-; 182  : 	const _float m_fLineUpTime = 0.5f;
+; 183  : 	const _float m_fLineUpTime = 0.5f;
 
   00334	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37837,9 +37837,9 @@ $LN4:
   00343	f3 0f 11 80 14
 	0c 00 00	 movss	 DWORD PTR [rax+3092], xmm0
 
-; 183  : 	
-; 184  : 	//보스 몸체 위로 올리기위한 트렌스폼
-; 185  : 	CTransform* m_pBodyTransform = nullptr;
+; 184  : 	
+; 185  : 	//보스 몸체 위로 올리기위한 트렌스폼
+; 186  : 	CTransform* m_pBodyTransform = nullptr;
 
   0034b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37847,31 +37847,31 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+3096], 0
 
-; 186  : 
-; 187  : 	_bool m_bMoveForward= false;
+; 187  : 
+; 188  : 	_bool m_bMoveForward= false;
 
   0035d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00364	c6 80 20 0c 00
 	00 00		 mov	 BYTE PTR [rax+3104], 0
 
-; 188  : 	_bool m_bMoveBackward= false;
+; 189  : 	_bool m_bMoveBackward= false;
 
   0036b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00372	c6 80 21 0c 00
 	00 00		 mov	 BYTE PTR [rax+3105], 0
 
-; 189  : 
-; 190  : 	//뒤로 이동 ATK_BACK
-; 191  : 	_bool m_bBack = false;
+; 190  : 
+; 191  : 	//뒤로 이동 ATK_BACK
+; 192  : 	_bool m_bBack = false;
 
   00379	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00380	c6 80 22 0c 00
 	00 00		 mov	 BYTE PTR [rax+3106], 0
 
-; 192  : 	_float3 m_vPrevPos = { 0.f,0.f,0.f };
+; 193  : 	_float3 m_vPrevPos = { 0.f,0.f,0.f };
 
   00387	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37883,7 +37883,7 @@ $LN4:
   0039d	48 8b c8	 mov	 rcx, rax
   003a0	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 193  : 	_float3 m_vPrevLook = { 0.f, 0.f, 0.f };
+; 194  : 	_float3 m_vPrevLook = { 0.f, 0.f, 0.f };
 
   003a5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37895,8 +37895,8 @@ $LN4:
   003bb	48 8b c8	 mov	 rcx, rax
   003be	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 194  : 
-; 195  : 	_float m_fAttackAcc = 2.f;
+; 195  : 
+; 196  : 	_float m_fAttackAcc = 2.f;
 
   003c3	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37905,7 +37905,7 @@ $LN4:
   003d2	f3 0f 11 80 3c
 	0c 00 00	 movss	 DWORD PTR [rax+3132], xmm0
 
-; 196  : 	const _float m_fAttackAccTime = 2.f;
+; 197  : 	const _float m_fAttackAccTime = 2.f;
 
   003da	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37914,43 +37914,43 @@ $LN4:
   003e9	f3 0f 11 80 40
 	0c 00 00	 movss	 DWORD PTR [rax+3136], xmm0
 
-; 197  : 
-; 198  : 	//미사일 9개 \ | / 방향으로 날리기
-; 199  : 	class CThorn* m_pThornMissileLeft[3];
-; 200  : 	class CThorn* m_pThornMissileMiddle[3];
-; 201  : 	class CThorn* m_pThornMissileRight[3];
-; 202  : 	//양옆
-; 203  : 	class CThorn* m_pThornMissileLLL[3];
-; 204  : 	class CThorn* m_pThornMissileRRR[3];
-; 205  : 	//뒤쪽방향
-; 206  : 	class CThorn* m_pThornMissileBackLeft[3];
-; 207  : 	class CThorn* m_pThornMissileBackMiddle[3];
-; 208  : 	class CThorn* m_pThornMissileBackRight[3];
-; 209  : 
-; 210  : 	_bool m_bUseMissile1 = false;
+; 198  : 
+; 199  : 	//미사일 9개 \ | / 방향으로 날리기
+; 200  : 	class CThorn* m_pThornMissileLeft[3];
+; 201  : 	class CThorn* m_pThornMissileMiddle[3];
+; 202  : 	class CThorn* m_pThornMissileRight[3];
+; 203  : 	//양옆
+; 204  : 	class CThorn* m_pThornMissileLLL[3];
+; 205  : 	class CThorn* m_pThornMissileRRR[3];
+; 206  : 	//뒤쪽방향
+; 207  : 	class CThorn* m_pThornMissileBackLeft[3];
+; 208  : 	class CThorn* m_pThornMissileBackMiddle[3];
+; 209  : 	class CThorn* m_pThornMissileBackRight[3];
+; 210  : 
+; 211  : 	_bool m_bUseMissile1 = false;
 
   003f1	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   003f8	c6 80 08 0d 00
 	00 00		 mov	 BYTE PTR [rax+3336], 0
 
-; 211  : 	_bool m_bMissileStart = false;
+; 212  : 	_bool m_bMissileStart = false;
 
   003ff	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00406	c6 80 09 0d 00
 	00 00		 mov	 BYTE PTR [rax+3337], 0
 
-; 212  : 
-; 213  : 	//플레이어와 멀어졌을때
-; 214  : 	_bool m_bTooFar = false;
+; 213  : 
+; 214  : 	//플레이어와 멀어졌을때
+; 215  : 	_bool m_bTooFar = false;
 
   0040d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00414	c6 80 0a 0d 00
 	00 00		 mov	 BYTE PTR [rax+3338], 0
 
-; 215  : 	_float m_fFarAcc = 0.f;
+; 216  : 	_float m_fFarAcc = 0.f;
 
   0041b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37958,7 +37958,7 @@ $LN4:
   00425	f3 0f 11 80 0c
 	0d 00 00	 movss	 DWORD PTR [rax+3340], xmm0
 
-; 216  : 	const _float m_fFarTime = 2.f;
+; 217  : 	const _float m_fFarTime = 2.f;
 
   0042d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37967,23 +37967,23 @@ $LN4:
   0043c	f3 0f 11 80 10
 	0d 00 00	 movss	 DWORD PTR [rax+3344], xmm0
 
-; 217  : 
-; 218  : 	//버로우 기능 근접, 디폴트포스
-; 219  : 	_bool m_bBurrowable = true; //다른 공격중 버로우 불가
+; 218  : 
+; 219  : 	//버로우 기능 근접, 디폴트포스
+; 220  : 	_bool m_bBurrowable = true; //다른 공격중 버로우 불가
 
   00444	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0044b	c6 80 14 0d 00
 	00 01		 mov	 BYTE PTR [rax+3348], 1
 
-; 220  : 	_bool m_bBurrowStart = false;
+; 221  : 	_bool m_bBurrowStart = false;
 
   00452	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00459	c6 80 15 0d 00
 	00 00		 mov	 BYTE PTR [rax+3349], 0
 
-; 221  : 	_float m_fBurrowAcc = 0.f;
+; 222  : 	_float m_fBurrowAcc = 0.f;
 
   00460	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -37991,23 +37991,23 @@ $LN4:
   0046a	f3 0f 11 80 18
 	0d 00 00	 movss	 DWORD PTR [rax+3352], xmm0
 
-; 222  : 
-; 223  : 	//근접공격
-; 224  : 	_bool m_bCloseAttackStart = false;
+; 223  : 
+; 224  : 	//근접공격
+; 225  : 	_bool m_bCloseAttackStart = false;
 
   00472	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00479	c6 80 1c 0d 00
 	00 00		 mov	 BYTE PTR [rax+3356], 0
 
-; 225  : 	_bool m_bCloseAttack = false;
+; 226  : 	_bool m_bCloseAttack = false;
 
   00480	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00487	c6 80 1d 0d 00
 	00 00		 mov	 BYTE PTR [rax+3357], 0
 
-; 226  : 	_float m_fCloseAttackActiveAcc = 0.f;
+; 227  : 	_float m_fCloseAttackActiveAcc = 0.f;
 
   0048e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38015,7 +38015,7 @@ $LN4:
   00498	f3 0f 11 80 20
 	0d 00 00	 movss	 DWORD PTR [rax+3360], xmm0
 
-; 227  : 	const _float m_fCloseAttackActiveTime = 3.f;
+; 228  : 	const _float m_fCloseAttackActiveTime = 3.f;
 
   004a0	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38024,61 +38024,61 @@ $LN4:
   004af	f3 0f 11 80 24
 	0d 00 00	 movss	 DWORD PTR [rax+3364], xmm0
 
-; 228  : 	class CThorn* m_pThornClose[9];
-; 229  : 
-; 230  : 	_bool m_bEvolutionFinish = false;
+; 229  : 	class CThorn* m_pThornClose[9];
+; 230  : 
+; 231  : 	_bool m_bEvolutionFinish = false;
 
   004b7	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004be	c6 80 70 0d 00
 	00 00		 mov	 BYTE PTR [rax+3440], 0
 
-; 231  : 	_bool m_bEvolutionStart = false;
+; 232  : 	_bool m_bEvolutionStart = false;
 
   004c5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004cc	c6 80 71 0d 00
 	00 00		 mov	 BYTE PTR [rax+3441], 0
 
-; 232  : 
-; 233  : 	//2페이즈 근접공격
-; 234  : 	class CThorn* m_pThornCloseRightFront[9];
-; 235  : 	class CThorn* m_pThornCloseLeftFront[9];
-; 236  : 	class CThorn* m_pThornCloseFront[9];
-; 237  : 	class CThorn* m_pThornCloseRight[9];
-; 238  : 	class CThorn* m_pThornCloseLeft[9];
-; 239  : 	
-; 240  : 	//프론트, 전방양옆, 양옆
-; 241  : 	_bool m_bCloseLockTarget = false;
+; 233  : 
+; 234  : 	//2페이즈 근접공격
+; 235  : 	class CThorn* m_pThornCloseRightFront[9];
+; 236  : 	class CThorn* m_pThornCloseLeftFront[9];
+; 237  : 	class CThorn* m_pThornCloseFront[9];
+; 238  : 	class CThorn* m_pThornCloseRight[9];
+; 239  : 	class CThorn* m_pThornCloseLeft[9];
+; 240  : 	
+; 241  : 	//프론트, 전방양옆, 양옆
+; 242  : 	_bool m_bCloseLockTarget = false;
 
   004d3	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004da	c6 80 e0 0e 00
 	00 00		 mov	 BYTE PTR [rax+3808], 0
 
-; 242  : 	_bool m_bCloseAttackExBegin = false;
+; 243  : 	_bool m_bCloseAttackExBegin = false;
 
   004e1	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004e8	c6 80 e1 0e 00
 	00 00		 mov	 BYTE PTR [rax+3809], 0
 
-; 243  : 	_bool m_bCloseAttackExStart = false;
+; 244  : 	_bool m_bCloseAttackExStart = false;
 
   004ef	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004f6	c6 80 e2 0e 00
 	00 00		 mov	 BYTE PTR [rax+3810], 0
 
-; 244  : 
-; 245  : 	_int m_iColseAttackIndex = 0;
+; 245  : 
+; 246  : 	_int m_iColseAttackIndex = 0;
 
   004fd	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00504	c7 80 e4 0e 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+3812], 0
 
-; 246  : 	_bool m_bColseAttackExStart[2] = { false, false };
+; 247  : 	_bool m_bColseAttackExStart[2] = { false, false };
 
   0050e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38089,7 +38089,7 @@ $LN4:
   00523	c6 80 e9 0e 00
 	00 00		 mov	 BYTE PTR [rax+3817], 0
 
-; 247  : 	_bool m_bColseAttackEx[2] = { false, false };
+; 248  : 	_bool m_bColseAttackEx[2] = { false, false };
 
   0052a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38100,8 +38100,8 @@ $LN4:
   0053f	c6 80 eb 0e 00
 	00 00		 mov	 BYTE PTR [rax+3819], 0
 
-; 248  : 
-; 249  : 	_float3 vPrevPlayerPos = { 0.f ,0.f, 0.f };
+; 249  : 
+; 250  : 	_float3 vPrevPlayerPos = { 0.f ,0.f, 0.f };
 
   00546	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38113,8 +38113,8 @@ $LN4:
   0055c	48 8b c8	 mov	 rcx, rax
   0055f	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 250  : 
-; 251  : 	_float m_fNextIndexAcc = 0.f;
+; 251  : 
+; 252  : 	_float m_fNextIndexAcc = 0.f;
 
   00564	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38122,7 +38122,7 @@ $LN4:
   0056e	f3 0f 11 80 f8
 	0e 00 00	 movss	 DWORD PTR [rax+3832], xmm0
 
-; 252  : 	const _float m_fNextIndexTime = 0.5f;
+; 253  : 	const _float m_fNextIndexTime = 0.5f;
 
   00576	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38131,16 +38131,16 @@ $LN4:
   00585	f3 0f 11 80 fc
 	0e 00 00	 movss	 DWORD PTR [rax+3836], xmm0
 
-; 253  : 
-; 254  : 	//라인공격 강화 제거
-; 255  : 	_bool m_bLineAttackEraseEx = false;
+; 254  : 
+; 255  : 	//라인공격 강화 제거
+; 256  : 	_bool m_bLineAttackEraseEx = false;
 
   0058d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00594	c6 80 00 0f 00
 	00 00		 mov	 BYTE PTR [rax+3840], 0
 
-; 256  : 	_float m_fEraseExAcc = 0.0f;
+; 257  : 	_float m_fEraseExAcc = 0.0f;
 
   0059b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38148,7 +38148,7 @@ $LN4:
   005a5	f3 0f 11 80 04
 	0f 00 00	 movss	 DWORD PTR [rax+3844], xmm0
 
-; 257  : 	const _float m_fEraseExDelay = 0.05f;
+; 258  : 	const _float m_fEraseExDelay = 0.05f;
 
   005ad	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38157,15 +38157,15 @@ $LN4:
   005bc	f3 0f 11 80 08
 	0f 00 00	 movss	 DWORD PTR [rax+3848], xmm0
 
-; 258  : 	_int m_iEraseIndexEx = 0;
+; 259  : 	_int m_iEraseIndexEx = 0;
 
   005c4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   005cb	c7 80 0c 0f 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+3852], 0
 
-; 259  : 
-; 260  : 	_float3 m_vFrontDir = { 0.f, 0.f, 0.f };
+; 260  : 
+; 261  : 	_float3 m_vFrontDir = { 0.f, 0.f, 0.f };
 
   005d5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38177,7 +38177,7 @@ $LN4:
   005eb	48 8b c8	 mov	 rcx, rax
   005ee	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 261  : 	_float3 m_vLeftDir = { 0.f, 0.f, 0.f };
+; 262  : 	_float3 m_vLeftDir = { 0.f, 0.f, 0.f };
 
   005f3	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38189,7 +38189,7 @@ $LN4:
   00609	48 8b c8	 mov	 rcx, rax
   0060c	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 262  : 	_float3 m_vRightDir = { 0.f, 0.f, 0.f };
+; 263  : 	_float3 m_vRightDir = { 0.f, 0.f, 0.f };
 
   00611	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38201,8 +38201,8 @@ $LN4:
   00627	48 8b c8	 mov	 rcx, rax
   0062a	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 263  : 
-; 264  : 	_float3 m_vBackDir = { 0.f, 0.f, 0.f };
+; 264  : 
+; 265  : 	_float3 m_vBackDir = { 0.f, 0.f, 0.f };
 
   0062f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38214,7 +38214,7 @@ $LN4:
   00645	48 8b c8	 mov	 rcx, rax
   00648	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 265  : 	_float3 m_vLeftBackDir = { 0.f, 0.f, 0.f };
+; 266  : 	_float3 m_vLeftBackDir = { 0.f, 0.f, 0.f };
 
   0064d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38226,7 +38226,7 @@ $LN4:
   00663	48 8b c8	 mov	 rcx, rax
   00666	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 266  : 	_float3 m_vRightBackDir = { 0.f, 0.f, 0.f };
+; 267  : 	_float3 m_vRightBackDir = { 0.f, 0.f, 0.f };
 
   0066b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38238,29 +38238,29 @@ $LN4:
   00681	48 8b c8	 mov	 rcx, rax
   00684	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 267  : 
-; 268  : 	_int m_iAttackCountEx = 0;
+; 268  : 
+; 269  : 	_int m_iAttackCountEx = 0;
 
   00689	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00690	c7 80 58 0f 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+3928], 0
 
-; 269  : 	_bool m_bLastAttackBegin = false;
+; 270  : 	_bool m_bLastAttackBegin = false;
 
   0069a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   006a1	c6 80 5c 0f 00
 	00 00		 mov	 BYTE PTR [rax+3932], 0
 
-; 270  : 	_bool m_bLastAttack = false;
+; 271  : 	_bool m_bLastAttack = false;
 
   006a8	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   006af	c6 80 5d 0f 00
 	00 00		 mov	 BYTE PTR [rax+3933], 0
 
-; 271  : 	_float m_fLastAttackEraseAcc = 0.f;
+; 272  : 	_float m_fLastAttackEraseAcc = 0.f;
 
   006b6	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38268,7 +38268,7 @@ $LN4:
   006c0	f3 0f 11 80 60
 	0f 00 00	 movss	 DWORD PTR [rax+3936], xmm0
 
-; 272  : 	const _float m_fLastAttackEraseDelay = 0.01f;
+; 273  : 	const _float m_fLastAttackEraseDelay = 0.01f;
 
   006c8	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38277,8 +38277,8 @@ $LN4:
   006d7	f3 0f 11 80 64
 	0f 00 00	 movss	 DWORD PTR [rax+3940], xmm0
 
-; 273  : 
-; 274  : 	int m_iLastEraseIndex[12] = {0,};
+; 274  : 
+; 275  : 	int m_iLastEraseIndex[12] = {0,};
 
   006df	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38293,70 +38293,70 @@ $LN4:
   00702	b9 2c 00 00 00	 mov	 ecx, 44			; 0000002cH
   00707	f3 aa		 rep stosb
 
-; 275  : 	_bool m_bLineExAnimStart = false;
+; 276  : 	_bool m_bLineExAnimStart = false;
 
   00709	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00710	c6 80 98 0f 00
 	00 00		 mov	 BYTE PTR [rax+3992], 0
 
-; 276  : 	_bool m_bLineExAnimSetup = false;
+; 277  : 	_bool m_bLineExAnimSetup = false;
 
   00717	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0071e	c6 80 99 0f 00
 	00 00		 mov	 BYTE PTR [rax+3993], 0
 
-; 277  : 	_bool m_bCloseExAnimStart = false;
+; 278  : 	_bool m_bCloseExAnimStart = false;
 
   00725	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0072c	c6 80 9a 0f 00
 	00 00		 mov	 BYTE PTR [rax+3994], 0
 
-; 278  : 	_bool m_bCloseExAnimSetup = false;
+; 279  : 	_bool m_bCloseExAnimSetup = false;
 
   00733	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0073a	c6 80 9b 0f 00
 	00 00		 mov	 BYTE PTR [rax+3995], 0
 
-; 279  : 
-; 280  : 	enum { LEFT, RIGHT, FRONT, BACK, BACK_LEFT, BACK_RIGHT, COLLTRANS_END };
-; 281  : 	enum { LEFT_COLL, RIGHT_COLL, FRONT_COLL, BACK_COLL, BACK_LEFT_COLL, BACK_RIGHT_COLL, COLL_END };
-; 282  : 	enum { ONE, TWO, TRE };
-; 283  : 	CTransform* m_pColliderTransform[COLLTRANS_END];
-; 284  : 	CTransform* m_pColliderCloseTransform[3];
-; 285  : 
-; 286  : public:
-; 287  : 	CCollider* GetCloseAttackCollider(_int iIndex) { return m_pCloseAttack[iIndex]; };
-; 288  : 	CCollider* GetLineAttackCollider(_int iIndex) { return m_pColliderLine[iIndex]; };
-; 289  : 
-; 290  : private:
-; 291  : 	CCollider* m_pColliderLine[6];
-; 292  : 	CCollider* m_pCloseAttack[3];
-; 293  : 	_bool m_bLineAttackCollActive = false;
+; 280  : 
+; 281  : 	enum { LEFT, RIGHT, FRONT, BACK, BACK_LEFT, BACK_RIGHT, COLLTRANS_END };
+; 282  : 	enum { LEFT_COLL, RIGHT_COLL, FRONT_COLL, BACK_COLL, BACK_LEFT_COLL, BACK_RIGHT_COLL, COLL_END };
+; 283  : 	enum { ONE, TWO, TRE };
+; 284  : 	CTransform* m_pColliderTransform[COLLTRANS_END];
+; 285  : 	CTransform* m_pColliderCloseTransform[3];
+; 286  : 
+; 287  : public:
+; 288  : 	CCollider* GetCloseAttackCollider(_int iIndex) { return m_pCloseAttack[iIndex]; };
+; 289  : 	CCollider* GetLineAttackCollider(_int iIndex) { return m_pColliderLine[iIndex]; };
+; 290  : 
+; 291  : private:
+; 292  : 	CCollider* m_pColliderLine[6];
+; 293  : 	CCollider* m_pCloseAttack[3];
+; 294  : 	_bool m_bLineAttackCollActive = false;
 
   00741	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00748	c6 80 30 10 00
 	00 00		 mov	 BYTE PTR [rax+4144], 0
 
-; 294  : 	_bool m_bLineAttackExCollActive = false;
+; 295  : 	_bool m_bLineAttackExCollActive = false;
 
   0074f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00756	c6 80 31 10 00
 	00 00		 mov	 BYTE PTR [rax+4145], 0
 
-; 295  : 	_bool m_bCloseAttackCollActive = false;
+; 296  : 	_bool m_bCloseAttackCollActive = false;
 
   0075d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00764	c6 80 32 10 00
 	00 00		 mov	 BYTE PTR [rax+4146], 0
 
-; 296  : 	const _float m_fLineCollSpeed = 10.f;
+; 297  : 	const _float m_fLineCollSpeed = 10.f;
 
   0076b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38365,30 +38365,30 @@ $LN4:
   0077a	f3 0f 11 80 34
 	10 00 00	 movss	 DWORD PTR [rax+4148], xmm0
 
-; 297  : 	//_bool m_bLineAttackCollStart[3] = { false, false, false };
-; 298  : 
-; 299  : 	_bool m_bDie = false;
+; 298  : 	//_bool m_bLineAttackCollStart[3] = { false, false, false };
+; 299  : 
+; 300  : 	_bool m_bDie = false;
 
   00782	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00789	c6 80 38 10 00
 	00 00		 mov	 BYTE PTR [rax+4152], 0
 
-; 300  : 	_bool m_bDead = false;
+; 301  : 	_bool m_bDead = false;
 
   00790	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00797	c6 80 39 10 00
 	00 00		 mov	 BYTE PTR [rax+4153], 0
 
-; 301  : 	_bool m_bRender = true;
+; 302  : 	_bool m_bRender = true;
 
   0079e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   007a5	c6 80 3a 10 00
 	00 01		 mov	 BYTE PTR [rax+4154], 1
 
-; 302  : 	_float m_fDieWaitAcc = 0.f;
+; 303  : 	_float m_fDieWaitAcc = 0.f;
 
   007ac	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38396,7 +38396,7 @@ $LN4:
   007b6	f3 0f 11 80 3c
 	10 00 00	 movss	 DWORD PTR [rax+4156], xmm0
 
-; 303  : 	const _float m_fDieWaitTime = 4.f;
+; 304  : 	const _float m_fDieWaitTime = 4.f;
 
   007be	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38405,17 +38405,17 @@ $LN4:
   007cd	f3 0f 11 80 40
 	10 00 00	 movss	 DWORD PTR [rax+4160], xmm0
 
-; 304  : 
-; 305  : 	//쉐이크
-; 306  : 	_bool m_bMissileShake = false;
+; 305  : 
+; 306  : 	//쉐이크
+; 307  : 	_bool m_bMissileShake = false;
 
   007d5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   007dc	c6 80 44 10 00
 	00 00		 mov	 BYTE PTR [rax+4164], 0
 
-; 307  : 	//상체 변신후 디졸브 변신이 완료되면 타임누적
-; 308  : 	_float m_fVisibleTime = 0.f;
+; 308  : 	//상체 변신후 디졸브 변신이 완료되면 타임누적
+; 309  : 	_float m_fVisibleTime = 0.f;
 
   007e3	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38548,45 +38548,45 @@ $LN4:
 	00 00		 mov	 QWORD PTR [rax+136], rcx
 ; File c:\users\arcco\documents\github\framework\client\public\boss.h
 
-; 142  : 	_int iAnim = 0;
+; 143  : 	_int iAnim = 0;
 
   000a7	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000ae	c7 80 08 02 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+520], 0
 
-; 143  : 	ANIM_STATE m_eAnimState;
-; 144  : 	
-; 145  : 	_bool m_bRotationFinish = false;
+; 144  : 	ANIM_STATE m_eAnimState;
+; 145  : 	
+; 146  : 	_bool m_bRotationFinish = false;
 
   000b8	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000bf	c6 80 18 02 00
 	00 00		 mov	 BYTE PTR [rax+536], 0
 
-; 146  : 	_bool m_bAttackable = false;
+; 147  : 	_bool m_bAttackable = false;
 
   000c6	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000cd	c6 80 19 02 00
 	00 00		 mov	 BYTE PTR [rax+537], 0
 
-; 147  : 	_int m_iAttackCount = 0;
+; 148  : 	_int m_iAttackCount = 0;
 
   000d4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000db	c7 80 1c 02 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+540], 0
 
-; 148  : 
-; 149  : 	_bool m_bSpawn = false;
+; 149  : 
+; 150  : 	_bool m_bSpawn = false;
 
   000e5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000ec	c6 80 20 02 00
 	00 00		 mov	 BYTE PTR [rax+544], 0
 
-; 150  : 	const _float m_fNearCheckRange = 18.f;	 // 플레이어와 가까운지 체크 10
+; 151  : 	const _float m_fNearCheckRange = 18.f;	 // 플레이어와 가까운지 체크 10
 
   000f3	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38595,28 +38595,28 @@ $LN4:
   00102	f3 0f 11 80 24
 	02 00 00	 movss	 DWORD PTR [rax+548], xmm0
 
-; 151  : 
-; 152  : 	_bool m_bBrrow = false;
+; 152  : 
+; 153  : 	_bool m_bBrrow = false;
 
   0010a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00111	c6 80 28 02 00
 	00 00		 mov	 BYTE PTR [rax+552], 0
 
-; 153  : 
-; 154  : 	//라인 3타 공격
-; 155  : 	_bool m_bLineAttack = false;
+; 154  : 
+; 155  : 	//라인 3타 공격
+; 156  : 	_bool m_bLineAttack = false;
 
   00118	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0011f	c6 80 29 02 00
 	00 00		 mov	 BYTE PTR [rax+553], 0
 
-; 156  : 
-; 157  : 	class CThorn* m_pThorn1[25][6];
-; 158  : 	class CThorn* m_pThorn2[25][6];
-; 159  : 
-; 160  : 	_float3 vThornSpawnPos = { 0.f, 0.f, 0.f };
+; 157  : 
+; 158  : 	class CThorn* m_pThorn1[25][6];
+; 159  : 	class CThorn* m_pThorn2[25][6];
+; 160  : 
+; 161  : 	_float3 vThornSpawnPos = { 0.f, 0.f, 0.f };
 
   00126	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38628,8 +38628,8 @@ $LN4:
   0013c	48 8b c8	 mov	 rcx, rax
   0013f	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 161  : 
-; 162  : 	_int m_iCurrentOneIndex[3] = {0, 0, 0};
+; 162  : 
+; 163  : 	_int m_iCurrentOneIndex[3] = {0, 0, 0};
 
   00144	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38644,7 +38644,7 @@ $LN4:
   0016d	c7 80 a4 0b 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+2980], 0
 
-; 163  : 	_int m_iCurrentTwoIndex[3] = {0, 0, 0};
+; 164  : 	_int m_iCurrentTwoIndex[3] = {0, 0, 0};
 
   00177	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38659,8 +38659,8 @@ $LN4:
   001a0	c7 80 b0 0b 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+2992], 0
 
-; 164  : 
-; 165  : 	_int m_iEraseIndex[3] = { 0, 0, 0 };
+; 165  : 
+; 166  : 	_int m_iEraseIndex[3] = { 0, 0, 0 };
 
   001aa	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38675,15 +38675,15 @@ $LN4:
   001d3	c7 80 bc 0b 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+3004], 0
 
-; 166  : 
-; 167  : 	_bool m_bUseLineSkill = false;
+; 167  : 
+; 168  : 	_bool m_bUseLineSkill = false;
 
   001dd	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   001e4	c6 80 c0 0b 00
 	00 00		 mov	 BYTE PTR [rax+3008], 0
 
-; 168  : 	_bool m_bLineSkillStart[6] = { false, false, false };
+; 169  : 	_bool m_bLineSkillStart[6] = { false, false, false };
 
   001eb	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38706,7 +38706,7 @@ $LN4:
   00227	b9 03 00 00 00	 mov	 ecx, 3
   0022c	f3 aa		 rep stosb
 
-; 169  : 	_bool m_bLineSkillErase[6] = { false, false, false };
+; 170  : 	_bool m_bLineSkillErase[6] = { false, false, false };
 
   0022e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38729,8 +38729,8 @@ $LN4:
   0026a	b9 03 00 00 00	 mov	 ecx, 3
   0026f	f3 aa		 rep stosb
 
-; 170  : 	
-; 171  : 	float m_fEraseAcc[3] = { 0.f, 0.f, 0.f };
+; 171  : 	
+; 172  : 	float m_fEraseAcc[3] = { 0.f, 0.f, 0.f };
 
   00271	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38748,7 +38748,7 @@ $LN4:
   0029f	f3 0f 11 80 d8
 	0b 00 00	 movss	 DWORD PTR [rax+3032], xmm0
 
-; 172  : 	const float m_fEraseTime = 0.05f;
+; 173  : 	const float m_fEraseTime = 0.05f;
 
   002a7	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38757,8 +38757,8 @@ $LN4:
   002b6	f3 0f 11 80 dc
 	0b 00 00	 movss	 DWORD PTR [rax+3036], xmm0
 
-; 173  : 
-; 174  : 	_bool m_bCheckDir[3] = { false, false, false };
+; 174  : 
+; 175  : 	_bool m_bCheckDir[3] = { false, false, false };
 
   002be	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38784,25 +38784,25 @@ $LN4:
   00307	48 8b c8	 mov	 rcx, rax
   0030a	e8 00 00 00 00	 call	 ??_H@YAXPEAX_K1P6APEAX0@Z@Z
 
-; 175  : 	_float3 m_vLineOneDir[3];
-; 176  : 
-; 177  : 	_bool m_bEvolution = false;
+; 176  : 	_float3 m_vLineOneDir[3];
+; 177  : 
+; 178  : 	_bool m_bEvolution = false;
 
   0030f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00316	c6 80 08 0c 00
 	00 00		 mov	 BYTE PTR [rax+3080], 0
 
-; 178  : 
-; 179  : 	//라인 3타 공격 - 총 3회중 몇번쨰 라인인지
-; 180  : 	_int m_iCurrentLine = 0;
+; 179  : 
+; 180  : 	//라인 3타 공격 - 총 3회중 몇번쨰 라인인지
+; 181  : 	_int m_iCurrentLine = 0;
 
   0031d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00324	c7 80 0c 0c 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+3084], 0
 
-; 181  : 	_float m_fLineUpAcc = 0.f;
+; 182  : 	_float m_fLineUpAcc = 0.f;
 
   0032e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38810,7 +38810,7 @@ $LN4:
   00338	f3 0f 11 80 10
 	0c 00 00	 movss	 DWORD PTR [rax+3088], xmm0
 
-; 182  : 	const _float m_fLineUpTime = 0.5f;
+; 183  : 	const _float m_fLineUpTime = 0.5f;
 
   00340	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38819,9 +38819,9 @@ $LN4:
   0034f	f3 0f 11 80 14
 	0c 00 00	 movss	 DWORD PTR [rax+3092], xmm0
 
-; 183  : 	
-; 184  : 	//보스 몸체 위로 올리기위한 트렌스폼
-; 185  : 	CTransform* m_pBodyTransform = nullptr;
+; 184  : 	
+; 185  : 	//보스 몸체 위로 올리기위한 트렌스폼
+; 186  : 	CTransform* m_pBodyTransform = nullptr;
 
   00357	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38829,31 +38829,31 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+3096], 0
 
-; 186  : 
-; 187  : 	_bool m_bMoveForward= false;
+; 187  : 
+; 188  : 	_bool m_bMoveForward= false;
 
   00369	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00370	c6 80 20 0c 00
 	00 00		 mov	 BYTE PTR [rax+3104], 0
 
-; 188  : 	_bool m_bMoveBackward= false;
+; 189  : 	_bool m_bMoveBackward= false;
 
   00377	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0037e	c6 80 21 0c 00
 	00 00		 mov	 BYTE PTR [rax+3105], 0
 
-; 189  : 
-; 190  : 	//뒤로 이동 ATK_BACK
-; 191  : 	_bool m_bBack = false;
+; 190  : 
+; 191  : 	//뒤로 이동 ATK_BACK
+; 192  : 	_bool m_bBack = false;
 
   00385	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0038c	c6 80 22 0c 00
 	00 00		 mov	 BYTE PTR [rax+3106], 0
 
-; 192  : 	_float3 m_vPrevPos = { 0.f,0.f,0.f };
+; 193  : 	_float3 m_vPrevPos = { 0.f,0.f,0.f };
 
   00393	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38865,7 +38865,7 @@ $LN4:
   003a9	48 8b c8	 mov	 rcx, rax
   003ac	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 193  : 	_float3 m_vPrevLook = { 0.f, 0.f, 0.f };
+; 194  : 	_float3 m_vPrevLook = { 0.f, 0.f, 0.f };
 
   003b1	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38877,8 +38877,8 @@ $LN4:
   003c7	48 8b c8	 mov	 rcx, rax
   003ca	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 194  : 
-; 195  : 	_float m_fAttackAcc = 2.f;
+; 195  : 
+; 196  : 	_float m_fAttackAcc = 2.f;
 
   003cf	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38887,7 +38887,7 @@ $LN4:
   003de	f3 0f 11 80 3c
 	0c 00 00	 movss	 DWORD PTR [rax+3132], xmm0
 
-; 196  : 	const _float m_fAttackAccTime = 2.f;
+; 197  : 	const _float m_fAttackAccTime = 2.f;
 
   003e6	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38896,43 +38896,43 @@ $LN4:
   003f5	f3 0f 11 80 40
 	0c 00 00	 movss	 DWORD PTR [rax+3136], xmm0
 
-; 197  : 
-; 198  : 	//미사일 9개 \ | / 방향으로 날리기
-; 199  : 	class CThorn* m_pThornMissileLeft[3];
-; 200  : 	class CThorn* m_pThornMissileMiddle[3];
-; 201  : 	class CThorn* m_pThornMissileRight[3];
-; 202  : 	//양옆
-; 203  : 	class CThorn* m_pThornMissileLLL[3];
-; 204  : 	class CThorn* m_pThornMissileRRR[3];
-; 205  : 	//뒤쪽방향
-; 206  : 	class CThorn* m_pThornMissileBackLeft[3];
-; 207  : 	class CThorn* m_pThornMissileBackMiddle[3];
-; 208  : 	class CThorn* m_pThornMissileBackRight[3];
-; 209  : 
-; 210  : 	_bool m_bUseMissile1 = false;
+; 198  : 
+; 199  : 	//미사일 9개 \ | / 방향으로 날리기
+; 200  : 	class CThorn* m_pThornMissileLeft[3];
+; 201  : 	class CThorn* m_pThornMissileMiddle[3];
+; 202  : 	class CThorn* m_pThornMissileRight[3];
+; 203  : 	//양옆
+; 204  : 	class CThorn* m_pThornMissileLLL[3];
+; 205  : 	class CThorn* m_pThornMissileRRR[3];
+; 206  : 	//뒤쪽방향
+; 207  : 	class CThorn* m_pThornMissileBackLeft[3];
+; 208  : 	class CThorn* m_pThornMissileBackMiddle[3];
+; 209  : 	class CThorn* m_pThornMissileBackRight[3];
+; 210  : 
+; 211  : 	_bool m_bUseMissile1 = false;
 
   003fd	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00404	c6 80 08 0d 00
 	00 00		 mov	 BYTE PTR [rax+3336], 0
 
-; 211  : 	_bool m_bMissileStart = false;
+; 212  : 	_bool m_bMissileStart = false;
 
   0040b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00412	c6 80 09 0d 00
 	00 00		 mov	 BYTE PTR [rax+3337], 0
 
-; 212  : 
-; 213  : 	//플레이어와 멀어졌을때
-; 214  : 	_bool m_bTooFar = false;
+; 213  : 
+; 214  : 	//플레이어와 멀어졌을때
+; 215  : 	_bool m_bTooFar = false;
 
   00419	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00420	c6 80 0a 0d 00
 	00 00		 mov	 BYTE PTR [rax+3338], 0
 
-; 215  : 	_float m_fFarAcc = 0.f;
+; 216  : 	_float m_fFarAcc = 0.f;
 
   00427	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38940,7 +38940,7 @@ $LN4:
   00431	f3 0f 11 80 0c
 	0d 00 00	 movss	 DWORD PTR [rax+3340], xmm0
 
-; 216  : 	const _float m_fFarTime = 2.f;
+; 217  : 	const _float m_fFarTime = 2.f;
 
   00439	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38949,23 +38949,23 @@ $LN4:
   00448	f3 0f 11 80 10
 	0d 00 00	 movss	 DWORD PTR [rax+3344], xmm0
 
-; 217  : 
-; 218  : 	//버로우 기능 근접, 디폴트포스
-; 219  : 	_bool m_bBurrowable = true; //다른 공격중 버로우 불가
+; 218  : 
+; 219  : 	//버로우 기능 근접, 디폴트포스
+; 220  : 	_bool m_bBurrowable = true; //다른 공격중 버로우 불가
 
   00450	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00457	c6 80 14 0d 00
 	00 01		 mov	 BYTE PTR [rax+3348], 1
 
-; 220  : 	_bool m_bBurrowStart = false;
+; 221  : 	_bool m_bBurrowStart = false;
 
   0045e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00465	c6 80 15 0d 00
 	00 00		 mov	 BYTE PTR [rax+3349], 0
 
-; 221  : 	_float m_fBurrowAcc = 0.f;
+; 222  : 	_float m_fBurrowAcc = 0.f;
 
   0046c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38973,23 +38973,23 @@ $LN4:
   00476	f3 0f 11 80 18
 	0d 00 00	 movss	 DWORD PTR [rax+3352], xmm0
 
-; 222  : 
-; 223  : 	//근접공격
-; 224  : 	_bool m_bCloseAttackStart = false;
+; 223  : 
+; 224  : 	//근접공격
+; 225  : 	_bool m_bCloseAttackStart = false;
 
   0047e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00485	c6 80 1c 0d 00
 	00 00		 mov	 BYTE PTR [rax+3356], 0
 
-; 225  : 	_bool m_bCloseAttack = false;
+; 226  : 	_bool m_bCloseAttack = false;
 
   0048c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00493	c6 80 1d 0d 00
 	00 00		 mov	 BYTE PTR [rax+3357], 0
 
-; 226  : 	_float m_fCloseAttackActiveAcc = 0.f;
+; 227  : 	_float m_fCloseAttackActiveAcc = 0.f;
 
   0049a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -38997,7 +38997,7 @@ $LN4:
   004a4	f3 0f 11 80 20
 	0d 00 00	 movss	 DWORD PTR [rax+3360], xmm0
 
-; 227  : 	const _float m_fCloseAttackActiveTime = 3.f;
+; 228  : 	const _float m_fCloseAttackActiveTime = 3.f;
 
   004ac	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39006,61 +39006,61 @@ $LN4:
   004bb	f3 0f 11 80 24
 	0d 00 00	 movss	 DWORD PTR [rax+3364], xmm0
 
-; 228  : 	class CThorn* m_pThornClose[9];
-; 229  : 
-; 230  : 	_bool m_bEvolutionFinish = false;
+; 229  : 	class CThorn* m_pThornClose[9];
+; 230  : 
+; 231  : 	_bool m_bEvolutionFinish = false;
 
   004c3	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004ca	c6 80 70 0d 00
 	00 00		 mov	 BYTE PTR [rax+3440], 0
 
-; 231  : 	_bool m_bEvolutionStart = false;
+; 232  : 	_bool m_bEvolutionStart = false;
 
   004d1	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004d8	c6 80 71 0d 00
 	00 00		 mov	 BYTE PTR [rax+3441], 0
 
-; 232  : 
-; 233  : 	//2페이즈 근접공격
-; 234  : 	class CThorn* m_pThornCloseRightFront[9];
-; 235  : 	class CThorn* m_pThornCloseLeftFront[9];
-; 236  : 	class CThorn* m_pThornCloseFront[9];
-; 237  : 	class CThorn* m_pThornCloseRight[9];
-; 238  : 	class CThorn* m_pThornCloseLeft[9];
-; 239  : 	
-; 240  : 	//프론트, 전방양옆, 양옆
-; 241  : 	_bool m_bCloseLockTarget = false;
+; 233  : 
+; 234  : 	//2페이즈 근접공격
+; 235  : 	class CThorn* m_pThornCloseRightFront[9];
+; 236  : 	class CThorn* m_pThornCloseLeftFront[9];
+; 237  : 	class CThorn* m_pThornCloseFront[9];
+; 238  : 	class CThorn* m_pThornCloseRight[9];
+; 239  : 	class CThorn* m_pThornCloseLeft[9];
+; 240  : 	
+; 241  : 	//프론트, 전방양옆, 양옆
+; 242  : 	_bool m_bCloseLockTarget = false;
 
   004df	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004e6	c6 80 e0 0e 00
 	00 00		 mov	 BYTE PTR [rax+3808], 0
 
-; 242  : 	_bool m_bCloseAttackExBegin = false;
+; 243  : 	_bool m_bCloseAttackExBegin = false;
 
   004ed	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   004f4	c6 80 e1 0e 00
 	00 00		 mov	 BYTE PTR [rax+3809], 0
 
-; 243  : 	_bool m_bCloseAttackExStart = false;
+; 244  : 	_bool m_bCloseAttackExStart = false;
 
   004fb	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00502	c6 80 e2 0e 00
 	00 00		 mov	 BYTE PTR [rax+3810], 0
 
-; 244  : 
-; 245  : 	_int m_iColseAttackIndex = 0;
+; 245  : 
+; 246  : 	_int m_iColseAttackIndex = 0;
 
   00509	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00510	c7 80 e4 0e 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+3812], 0
 
-; 246  : 	_bool m_bColseAttackExStart[2] = { false, false };
+; 247  : 	_bool m_bColseAttackExStart[2] = { false, false };
 
   0051a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39071,7 +39071,7 @@ $LN4:
   0052f	c6 80 e9 0e 00
 	00 00		 mov	 BYTE PTR [rax+3817], 0
 
-; 247  : 	_bool m_bColseAttackEx[2] = { false, false };
+; 248  : 	_bool m_bColseAttackEx[2] = { false, false };
 
   00536	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39082,8 +39082,8 @@ $LN4:
   0054b	c6 80 eb 0e 00
 	00 00		 mov	 BYTE PTR [rax+3819], 0
 
-; 248  : 
-; 249  : 	_float3 vPrevPlayerPos = { 0.f ,0.f, 0.f };
+; 249  : 
+; 250  : 	_float3 vPrevPlayerPos = { 0.f ,0.f, 0.f };
 
   00552	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39095,8 +39095,8 @@ $LN4:
   00568	48 8b c8	 mov	 rcx, rax
   0056b	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 250  : 
-; 251  : 	_float m_fNextIndexAcc = 0.f;
+; 251  : 
+; 252  : 	_float m_fNextIndexAcc = 0.f;
 
   00570	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39104,7 +39104,7 @@ $LN4:
   0057a	f3 0f 11 80 f8
 	0e 00 00	 movss	 DWORD PTR [rax+3832], xmm0
 
-; 252  : 	const _float m_fNextIndexTime = 0.5f;
+; 253  : 	const _float m_fNextIndexTime = 0.5f;
 
   00582	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39113,16 +39113,16 @@ $LN4:
   00591	f3 0f 11 80 fc
 	0e 00 00	 movss	 DWORD PTR [rax+3836], xmm0
 
-; 253  : 
-; 254  : 	//라인공격 강화 제거
-; 255  : 	_bool m_bLineAttackEraseEx = false;
+; 254  : 
+; 255  : 	//라인공격 강화 제거
+; 256  : 	_bool m_bLineAttackEraseEx = false;
 
   00599	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   005a0	c6 80 00 0f 00
 	00 00		 mov	 BYTE PTR [rax+3840], 0
 
-; 256  : 	_float m_fEraseExAcc = 0.0f;
+; 257  : 	_float m_fEraseExAcc = 0.0f;
 
   005a7	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39130,7 +39130,7 @@ $LN4:
   005b1	f3 0f 11 80 04
 	0f 00 00	 movss	 DWORD PTR [rax+3844], xmm0
 
-; 257  : 	const _float m_fEraseExDelay = 0.05f;
+; 258  : 	const _float m_fEraseExDelay = 0.05f;
 
   005b9	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39139,15 +39139,15 @@ $LN4:
   005c8	f3 0f 11 80 08
 	0f 00 00	 movss	 DWORD PTR [rax+3848], xmm0
 
-; 258  : 	_int m_iEraseIndexEx = 0;
+; 259  : 	_int m_iEraseIndexEx = 0;
 
   005d0	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   005d7	c7 80 0c 0f 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+3852], 0
 
-; 259  : 
-; 260  : 	_float3 m_vFrontDir = { 0.f, 0.f, 0.f };
+; 260  : 
+; 261  : 	_float3 m_vFrontDir = { 0.f, 0.f, 0.f };
 
   005e1	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39159,7 +39159,7 @@ $LN4:
   005f7	48 8b c8	 mov	 rcx, rax
   005fa	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 261  : 	_float3 m_vLeftDir = { 0.f, 0.f, 0.f };
+; 262  : 	_float3 m_vLeftDir = { 0.f, 0.f, 0.f };
 
   005ff	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39171,7 +39171,7 @@ $LN4:
   00615	48 8b c8	 mov	 rcx, rax
   00618	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 262  : 	_float3 m_vRightDir = { 0.f, 0.f, 0.f };
+; 263  : 	_float3 m_vRightDir = { 0.f, 0.f, 0.f };
 
   0061d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39183,8 +39183,8 @@ $LN4:
   00633	48 8b c8	 mov	 rcx, rax
   00636	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 263  : 
-; 264  : 	_float3 m_vBackDir = { 0.f, 0.f, 0.f };
+; 264  : 
+; 265  : 	_float3 m_vBackDir = { 0.f, 0.f, 0.f };
 
   0063b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39196,7 +39196,7 @@ $LN4:
   00651	48 8b c8	 mov	 rcx, rax
   00654	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 265  : 	_float3 m_vLeftBackDir = { 0.f, 0.f, 0.f };
+; 266  : 	_float3 m_vLeftBackDir = { 0.f, 0.f, 0.f };
 
   00659	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39208,7 +39208,7 @@ $LN4:
   0066f	48 8b c8	 mov	 rcx, rax
   00672	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 266  : 	_float3 m_vRightBackDir = { 0.f, 0.f, 0.f };
+; 267  : 	_float3 m_vRightBackDir = { 0.f, 0.f, 0.f };
 
   00677	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39220,29 +39220,29 @@ $LN4:
   0068d	48 8b c8	 mov	 rcx, rax
   00690	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 267  : 
-; 268  : 	_int m_iAttackCountEx = 0;
+; 268  : 
+; 269  : 	_int m_iAttackCountEx = 0;
 
   00695	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0069c	c7 80 58 0f 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+3928], 0
 
-; 269  : 	_bool m_bLastAttackBegin = false;
+; 270  : 	_bool m_bLastAttackBegin = false;
 
   006a6	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   006ad	c6 80 5c 0f 00
 	00 00		 mov	 BYTE PTR [rax+3932], 0
 
-; 270  : 	_bool m_bLastAttack = false;
+; 271  : 	_bool m_bLastAttack = false;
 
   006b4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   006bb	c6 80 5d 0f 00
 	00 00		 mov	 BYTE PTR [rax+3933], 0
 
-; 271  : 	_float m_fLastAttackEraseAcc = 0.f;
+; 272  : 	_float m_fLastAttackEraseAcc = 0.f;
 
   006c2	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39250,7 +39250,7 @@ $LN4:
   006cc	f3 0f 11 80 60
 	0f 00 00	 movss	 DWORD PTR [rax+3936], xmm0
 
-; 272  : 	const _float m_fLastAttackEraseDelay = 0.01f;
+; 273  : 	const _float m_fLastAttackEraseDelay = 0.01f;
 
   006d4	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39259,8 +39259,8 @@ $LN4:
   006e3	f3 0f 11 80 64
 	0f 00 00	 movss	 DWORD PTR [rax+3940], xmm0
 
-; 273  : 
-; 274  : 	int m_iLastEraseIndex[12] = {0,};
+; 274  : 
+; 275  : 	int m_iLastEraseIndex[12] = {0,};
 
   006eb	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39275,70 +39275,70 @@ $LN4:
   0070e	b9 2c 00 00 00	 mov	 ecx, 44			; 0000002cH
   00713	f3 aa		 rep stosb
 
-; 275  : 	_bool m_bLineExAnimStart = false;
+; 276  : 	_bool m_bLineExAnimStart = false;
 
   00715	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0071c	c6 80 98 0f 00
 	00 00		 mov	 BYTE PTR [rax+3992], 0
 
-; 276  : 	_bool m_bLineExAnimSetup = false;
+; 277  : 	_bool m_bLineExAnimSetup = false;
 
   00723	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0072a	c6 80 99 0f 00
 	00 00		 mov	 BYTE PTR [rax+3993], 0
 
-; 277  : 	_bool m_bCloseExAnimStart = false;
+; 278  : 	_bool m_bCloseExAnimStart = false;
 
   00731	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00738	c6 80 9a 0f 00
 	00 00		 mov	 BYTE PTR [rax+3994], 0
 
-; 278  : 	_bool m_bCloseExAnimSetup = false;
+; 279  : 	_bool m_bCloseExAnimSetup = false;
 
   0073f	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00746	c6 80 9b 0f 00
 	00 00		 mov	 BYTE PTR [rax+3995], 0
 
-; 279  : 
-; 280  : 	enum { LEFT, RIGHT, FRONT, BACK, BACK_LEFT, BACK_RIGHT, COLLTRANS_END };
-; 281  : 	enum { LEFT_COLL, RIGHT_COLL, FRONT_COLL, BACK_COLL, BACK_LEFT_COLL, BACK_RIGHT_COLL, COLL_END };
-; 282  : 	enum { ONE, TWO, TRE };
-; 283  : 	CTransform* m_pColliderTransform[COLLTRANS_END];
-; 284  : 	CTransform* m_pColliderCloseTransform[3];
-; 285  : 
-; 286  : public:
-; 287  : 	CCollider* GetCloseAttackCollider(_int iIndex) { return m_pCloseAttack[iIndex]; };
-; 288  : 	CCollider* GetLineAttackCollider(_int iIndex) { return m_pColliderLine[iIndex]; };
-; 289  : 
-; 290  : private:
-; 291  : 	CCollider* m_pColliderLine[6];
-; 292  : 	CCollider* m_pCloseAttack[3];
-; 293  : 	_bool m_bLineAttackCollActive = false;
+; 280  : 
+; 281  : 	enum { LEFT, RIGHT, FRONT, BACK, BACK_LEFT, BACK_RIGHT, COLLTRANS_END };
+; 282  : 	enum { LEFT_COLL, RIGHT_COLL, FRONT_COLL, BACK_COLL, BACK_LEFT_COLL, BACK_RIGHT_COLL, COLL_END };
+; 283  : 	enum { ONE, TWO, TRE };
+; 284  : 	CTransform* m_pColliderTransform[COLLTRANS_END];
+; 285  : 	CTransform* m_pColliderCloseTransform[3];
+; 286  : 
+; 287  : public:
+; 288  : 	CCollider* GetCloseAttackCollider(_int iIndex) { return m_pCloseAttack[iIndex]; };
+; 289  : 	CCollider* GetLineAttackCollider(_int iIndex) { return m_pColliderLine[iIndex]; };
+; 290  : 
+; 291  : private:
+; 292  : 	CCollider* m_pColliderLine[6];
+; 293  : 	CCollider* m_pCloseAttack[3];
+; 294  : 	_bool m_bLineAttackCollActive = false;
 
   0074d	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00754	c6 80 30 10 00
 	00 00		 mov	 BYTE PTR [rax+4144], 0
 
-; 294  : 	_bool m_bLineAttackExCollActive = false;
+; 295  : 	_bool m_bLineAttackExCollActive = false;
 
   0075b	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00762	c6 80 31 10 00
 	00 00		 mov	 BYTE PTR [rax+4145], 0
 
-; 295  : 	_bool m_bCloseAttackCollActive = false;
+; 296  : 	_bool m_bCloseAttackCollActive = false;
 
   00769	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00770	c6 80 32 10 00
 	00 00		 mov	 BYTE PTR [rax+4146], 0
 
-; 296  : 	const _float m_fLineCollSpeed = 10.f;
+; 297  : 	const _float m_fLineCollSpeed = 10.f;
 
   00777	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39347,30 +39347,30 @@ $LN4:
   00786	f3 0f 11 80 34
 	10 00 00	 movss	 DWORD PTR [rax+4148], xmm0
 
-; 297  : 	//_bool m_bLineAttackCollStart[3] = { false, false, false };
-; 298  : 
-; 299  : 	_bool m_bDie = false;
+; 298  : 	//_bool m_bLineAttackCollStart[3] = { false, false, false };
+; 299  : 
+; 300  : 	_bool m_bDie = false;
 
   0078e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00795	c6 80 38 10 00
 	00 00		 mov	 BYTE PTR [rax+4152], 0
 
-; 300  : 	_bool m_bDead = false;
+; 301  : 	_bool m_bDead = false;
 
   0079c	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   007a3	c6 80 39 10 00
 	00 00		 mov	 BYTE PTR [rax+4153], 0
 
-; 301  : 	_bool m_bRender = true;
+; 302  : 	_bool m_bRender = true;
 
   007aa	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   007b1	c6 80 3a 10 00
 	00 01		 mov	 BYTE PTR [rax+4154], 1
 
-; 302  : 	_float m_fDieWaitAcc = 0.f;
+; 303  : 	_float m_fDieWaitAcc = 0.f;
 
   007b8	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39378,7 +39378,7 @@ $LN4:
   007c2	f3 0f 11 80 3c
 	10 00 00	 movss	 DWORD PTR [rax+4156], xmm0
 
-; 303  : 	const _float m_fDieWaitTime = 4.f;
+; 304  : 	const _float m_fDieWaitTime = 4.f;
 
   007ca	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -39387,17 +39387,17 @@ $LN4:
   007d9	f3 0f 11 80 40
 	10 00 00	 movss	 DWORD PTR [rax+4160], xmm0
 
-; 304  : 
-; 305  : 	//쉐이크
-; 306  : 	_bool m_bMissileShake = false;
+; 305  : 
+; 306  : 	//쉐이크
+; 307  : 	_bool m_bMissileShake = false;
 
   007e1	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   007e8	c6 80 44 10 00
 	00 00		 mov	 BYTE PTR [rax+4164], 0
 
-; 307  : 	//상체 변신후 디졸브 변신이 완료되면 타임누적
-; 308  : 	_float m_fVisibleTime = 0.f;
+; 308  : 	//상체 변신후 디졸브 변신이 완료되면 타임누적
+; 309  : 	_float m_fVisibleTime = 0.f;
 
   007ef	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]

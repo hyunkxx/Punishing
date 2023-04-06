@@ -106,7 +106,7 @@ PS_OUT PS_MASK(PS_IN In)
 	if (In.vTexUV.x > g_FillAmount)
 		discard;
 
-	Out.vColor = g_Texture.Sample(LinearSampler, In.vTexUV);
+	Out.vColor = g_Texture.Sample(PointSampler, In.vTexUV);
 	Out.vColor.a = Out.vColor.r;
 
 	return Out;

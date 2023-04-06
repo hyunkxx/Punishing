@@ -2465,7 +2465,7 @@ PUBLIC	__real@3f000000
 PUBLIC	__real@3f333333
 PUBLIC	__real@3f4ccccd
 PUBLIC	__real@3f800000
-PUBLIC	__real@3fd3333340000000
+PUBLIC	__real@3fb99999a0000000
 PUBLIC	__real@40000000
 PUBLIC	__real@4000000000000000
 PUBLIC	__real@4014000000000000
@@ -3038,9 +3038,9 @@ CONST	ENDS
 CONST	SEGMENT
 __real@40000000 DD 040000000r			; 2
 CONST	ENDS
-;	COMDAT __real@3fd3333340000000
+;	COMDAT __real@3fb99999a0000000
 CONST	SEGMENT
-__real@3fd3333340000000 DQ 03fd3333340000000r	; 0.3
+__real@3fb99999a0000000 DQ 03fb99999a0000000r	; 0.1
 CONST	ENDS
 ;	COMDAT __real@3f800000
 CONST	SEGMENT
@@ -7596,12 +7596,12 @@ $LN5:
   000bc	f3 0f 11 80 f0
 	00 00 00	 movss	 DWORD PTR [rax+240], xmm0
 
-; 436  : 	m_vTrailAcc += TimeDelta * 0.3f;
+; 436  : 	m_vTrailAcc += TimeDelta * 0.1f;
 
   000c4	f2 0f 10 85 68
 	07 00 00	 movsd	 xmm0, QWORD PTR TimeDelta$[rbp]
   000cc	f2 0f 59 05 00
-	00 00 00	 mulsd	 xmm0, QWORD PTR __real@3fd3333340000000
+	00 00 00	 mulsd	 xmm0, QWORD PTR __real@3fb99999a0000000
   000d4	48 8b 85 60 07
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000db	f3 0f 5a 88 7c
@@ -7614,7 +7614,7 @@ $LN5:
   000f5	f3 0f 11 80 7c
 	01 00 00	 movss	 DWORD PTR [rax+380], xmm0
 
-; 437  : 	vPos = vPos + vUp * powf(m_fMoveAcc, 0.8f) * 50.f * TimeDelta;
+; 437  : 	vPos = vPos + vUp * powf(m_fMoveAcc, 0.8f) * 25.f * TimeDelta;
 
   000fd	f3 0f 10 0d 00
 	00 00 00	 movss	 xmm1, DWORD PTR __real@3f4ccccd
@@ -7630,7 +7630,7 @@ $LN5:
   00126	0f 29 85 50 04
 	00 00		 movaps	 XMMWORD PTR $T10[rbp], xmm0
   0012d	f3 0f 10 0d 00
-	00 00 00	 movss	 xmm1, DWORD PTR __real@42480000
+	00 00 00	 movss	 xmm1, DWORD PTR __real@41c80000
   00135	0f 28 85 50 04
 	00 00		 movaps	 xmm0, XMMWORD PTR $T10[rbp]
   0013c	e8 00 00 00 00	 call	 ??DDirectX@@YQ?AT__m128@@T1@M@Z ; DirectX::operator*

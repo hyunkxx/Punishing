@@ -81,12 +81,17 @@ struct PS_IN
 struct PS_OUT
 {
 	float4 vColor : SV_TARGET0;
+};
+
+struct PS_BLOOMOUT
+{
+	float4 vColor : SV_TARGET0;
 	float4 vColor1 : SV_TARGET1;
 };
 
-PS_OUT PS_MAIN(PS_IN In)
+PS_BLOOMOUT PS_MAIN(PS_IN In)
 {
-	PS_OUT Out = (PS_OUT)0;
+	PS_BLOOMOUT Out = (PS_BLOOMOUT)0;
 
 	vector vMtrlDiffuse = g_DiffuseTexture.Sample(LinearSampler, In.vTexUV);
 
@@ -110,7 +115,70 @@ PS_OUT PS_MAIN(PS_IN In)
 	float fSpecular = pow(saturate(dot(normalize(vReflect) * -1.f, normalize(vLook))), 30.f);
 
 	Out.vColor = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
-	Out.vColor1 = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
+
+	return Out;
+}
+
+PS_BLOOMOUT PS_PLAYER(PS_IN In)
+{
+	PS_BLOOMOUT Out = (PS_BLOOMOUT)0;
+
+	vector vMtrlDiffuse = g_DiffuseTexture.Sample(LinearSampler, In.vTexUV);
+
+	if (vMtrlDiffuse.a <= 0.1f)
+		discard;
+
+	float fShade = saturate(dot(normalize(g_vLightDir) * -1.f, In.vNormal));
+
+	if (fShade > 0.9f)
+		fShade = 1.f;
+	else if (fShade > 0.7f)
+		fShade = 0.7f;
+	else if (fShade > 0.2f)
+		fShade = 0.2f;
+	else if (fShade > 0.0f)
+		fShade = 0.0f;
+
+	vector vReflect = reflect(normalize(g_vLightDir), In.vNormal);
+	vector vLook = In.vWorldPos - g_vCamPosition;
+
+	float fSpecular = pow(saturate(dot(normalize(vReflect) * -1.f, normalize(vLook))), 30.f);
+
+	Out.vColor = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
+	if (Out.vColor.g >= Out.vColor.r + Out.vColor.b)
+		Out.vColor1 = float4(0.f, 1.f, 0.f, 1.f);
+
+	return Out;
+}
+
+PS_BLOOMOUT PS_ENEMY(PS_IN In)
+{
+	PS_BLOOMOUT Out = (PS_BLOOMOUT)0;
+
+	vector vMtrlDiffuse = g_DiffuseTexture.Sample(LinearSampler, In.vTexUV);
+
+	if (vMtrlDiffuse.a <= 0.1f)
+		discard;
+
+	float fShade = saturate(dot(normalize(g_vLightDir) * -1.f, In.vNormal));
+
+	if (fShade > 0.9f)
+		fShade = 1.f;
+	else if (fShade > 0.7f)
+		fShade = 0.7f;
+	else if (fShade > 0.2f)
+		fShade = 0.2f;
+	else if (fShade > 0.0f)
+		fShade = 0.0f;
+
+	vector vReflect = reflect(normalize(g_vLightDir), In.vNormal);
+	vector vLook = In.vWorldPos - g_vCamPosition;
+
+	float fSpecular = pow(saturate(dot(normalize(vReflect) * -1.f, normalize(vLook))), 30.f);
+
+	Out.vColor = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
+	if (Out.vColor.r >= Out.vColor.g + Out.vColor.b)
+		Out.vColor1 = float4(1.f, 0.f, 0.f, 1.f);
 
 	return Out;
 }
@@ -180,9 +248,9 @@ PS_OUT PS_RIMENEMY(PS_IN In)
 	return Out;
 }
 
-PS_OUT PS_DESSOLVE(PS_IN In)
+PS_BLOOMOUT PS_DESSOLVE(PS_IN In)
 {
-	PS_OUT Out = (PS_OUT)0;
+	PS_BLOOMOUT Out = (PS_BLOOMOUT)0;
 
 	float dissolve = g_DissolveTexture.Sample(LinearSampler, In.vTexUV).r;
 	dissolve = dissolve * 0.999f;
@@ -215,13 +283,14 @@ PS_OUT PS_DESSOLVE(PS_IN In)
 
 	Out.vColor = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
 	Out.vColor.xyz += vGlowColor;
+	Out.vColor1 = float4(vGlowColor, 1.f);
 
 	return Out;
 }
 
-PS_OUT PS_DESSOLVE_COLOR_RED(PS_IN In)
+PS_BLOOMOUT PS_DESSOLVE_COLOR_RED(PS_IN In)
 {
-	PS_OUT Out = (PS_OUT)0;
+	PS_BLOOMOUT Out = (PS_BLOOMOUT)0;
 
 	float dissolve = g_DissolveTexture.Sample(LinearSampler, In.vTexUV).r;
 	dissolve = dissolve * 0.999f;
@@ -254,6 +323,7 @@ PS_OUT PS_DESSOLVE_COLOR_RED(PS_IN In)
 
 	Out.vColor = (g_vLightDiffuse * vMtrlDiffuse) * (fShade + (g_vLightAmbient * g_vMtrlAmbient));
 	Out.vColor.xyz += vGlowColor;
+	Out.vColor1 = float4(g_vGlowColorRed, 1.f);
 
 	return Out;
 }
@@ -336,5 +406,31 @@ technique11 DefaultTechnique
 		HullShader = NULL;
 		DomainShader = NULL;
 		PixelShader = compile ps_5_0 PS_DESSOLVE_COLOR_RED();
+	}
+
+	pass GlowPlayer_green6
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_PLAYER();
+	}
+
+	pass GlowEnemy_red7
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Default, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_ENEMY();
 	}
 }

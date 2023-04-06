@@ -12,8 +12,8 @@ private:
 	CGraphic_Device() = default;
 	virtual ~CGraphic_Device() = default;
 public:
-	enum PRE_RENDERTARGET { MAIN, BLOOM, PRE_TARGET_MAX };
-	enum POST_RENDERTARGET { BACK_BUFFER, CURRENT_BUFFER, FINAL_BUFFER, POST_TARGET_MAX };
+	enum PRE_RENDERTARGET { MAIN, BLOOM, DISTORTION, PRE_TARGET_MAX };
+	enum POST_RENDERTARGET { BACK_BUFFER, CURRENT_BUFFER, XBLUR_BUFFER, YBLUR_BUFFER, POST_DISTORTION, FINAL_BUFFER, POST_TARGET_MAX };
 
 public:
 	HRESULT Ready_Graphic_Device(HWND hWnd, GRAPHIC_DESC::WIN_MODE eWinMode, _uint iWinSizeX, _uint iWinSizeY, ID3D11Device** ppDevice_out, ID3D11DeviceContext** ppContext_out);

@@ -48,6 +48,7 @@ public:
 	CModel* m_pPlayerCircle = nullptr;
 	CModel* m_pEnemyCircle = nullptr;
 
+	CGameObject* m_pOwner = nullptr;
 	CTransform* m_pOwnerTransform = nullptr;
 	CIRCLE m_eCircleType = CIRCLE_END;
 };

@@ -62,9 +62,7 @@ HRESULT CGameInstance::Engine_Tick(_double TimeDelta)
 {
 	if (!m_pLevel_Manager || !m_pObject_Manager || !m_pPipeLine)
 		return E_FAIL;
-
-	g_TimeDelta = TimeDelta;
-
+	
 	m_pInput_Device->Update();
 
 	m_pLevel_Manager->Tick_Level(TimeDelta);
