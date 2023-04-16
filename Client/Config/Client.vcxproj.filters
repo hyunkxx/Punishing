@@ -65,9 +65,6 @@
     <Filter Include="src\02. GameObjects\04. Character\Enemy">
       <UniqueIdentifier>{a1be8fae-8749-45dc-a4f4-f079c734514b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\02. GameObjects\05.FreezeArea">
-      <UniqueIdentifier>{98f152f9-f233-4bd3-9ccb-2cf69cff37c8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\02. GameObjects\06. UI">
       <UniqueIdentifier>{aa8bf005-d78d-4db3-9b1d-7c46e664c313}</UniqueIdentifier>
     </Filter>
@@ -82,6 +79,9 @@
     </Filter>
     <Filter Include="src\02. GameObjects\Instance">
       <UniqueIdentifier>{074c1a1e-fbd0-45e5-82ad-fd0066e771ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\02. GameObjects\Effect">
+      <UniqueIdentifier>{98f152f9-f233-4bd3-9ccb-2cf69cff37c8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -185,7 +185,7 @@
       <Filter>src\02. GameObjects\04. Character</Filter>
     </ClInclude>
     <ClInclude Include="..\public\FreezeArea.h">
-      <Filter>src\02. GameObjects\05.FreezeArea</Filter>
+      <Filter>src\02. GameObjects\Effect</Filter>
     </ClInclude>
     <ClInclude Include="..\Public\EnemyHealthBar.h">
       <Filter>src\02. GameObjects\06. UI</Filter>
@@ -226,7 +226,40 @@
     <ClInclude Include="..\public\Flower.h">
       <Filter>src\02. GameObjects\Instance</Filter>
     </ClInclude>
-    <ClInclude Include="..\public\FloorCircle.h" />
+    <ClInclude Include="..\public\SkillBlueEffect.h">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\FloorCircle.h">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\FootSmoke.h">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Robby.h">
+      <Filter>src\02. GameObjects\02. BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\EvolutionEffect.h">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Sprite.h">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Cloud.h">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Footstep.h">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\WarningImage.h">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\DashSprite.h">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Buff.h">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\BuffHandler.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -317,7 +350,7 @@
       <Filter>src\02. GameObjects\04. Character</Filter>
     </ClCompile>
     <ClCompile Include="..\private\FreezeArea.cpp">
-      <Filter>src\02. GameObjects\05.FreezeArea</Filter>
+      <Filter>src\02. GameObjects\Effect</Filter>
     </ClCompile>
     <ClCompile Include="..\Private\EnemyHealthBar.cpp">
       <Filter>src\02. GameObjects\06. UI</Filter>
@@ -355,7 +388,40 @@
     <ClCompile Include="..\private\Flower.cpp">
       <Filter>src\02. GameObjects\Instance</Filter>
     </ClCompile>
-    <ClCompile Include="..\private\FloorCircle.cpp" />
+    <ClCompile Include="..\private\FloorCircle.cpp">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\SkillBlueEffect.cpp">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\FootSmoke.cpp">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Robby.cpp">
+      <Filter>src\02. GameObjects\02. BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\EvolutionEffect.cpp">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Sprite.cpp">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Cloud.cpp">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Private\Footstep.cpp">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\WarningImage.cpp">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\DashSprite.cpp">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Buff.cpp">
+      <Filter>src\02. GameObjects\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\BuffHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc">
@@ -431,6 +497,15 @@
       <Filter>src\99. Shader</Filter>
     </FxCompile>
     <FxCompile Include="..\..\Shader\POST_PROCESSING_RGBBLUR.hlsl">
+      <Filter>src\99. Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_GARDEFFECT.hlsl">
+      <Filter>src\99. Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_SPRITE.hlsl">
+      <Filter>src\99. Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Shader\SHADER_SHADOW.hlsl">
       <Filter>src\99. Shader</Filter>
     </FxCompile>
   </ItemGroup>

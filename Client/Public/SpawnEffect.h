@@ -10,6 +10,7 @@ class CShader;
 class CBone;
 class CModel;
 class CTexture;
+class CVIBuffer_Rect;
 END
 
 BEGIN(Client)
@@ -33,7 +34,7 @@ public:
 	void SetRender(_bool value) { m_bRender = value; m_fTimeAcc = 0.f; };
 	void SetScale(_float3 vScale);
 	_float3 GetScale() const;
-	void SetTransfrom(_fvector vPos);
+	void SetTransfrom(_float4x4 vPos);
 
 
 private:
@@ -57,6 +58,15 @@ private:
 private:
 	_bool m_bRender = false;
 	_float m_fTimeAcc = 0.f;
+
+	CTransform* m_pSpawnStartTransform = nullptr;
+	CShader* m_pTextureShader = nullptr;
+	CTexture* m_pTextureSpawnStart = false;
+	CVIBuffer_Rect* m_pVIBuffer = false;
+
+	_float m_fSpriteAcc = 0.f;
+	_float m_fCurrentIndex = 0.0f;
+	const _float m_fWidth = 4.0f;
 
 };
 

@@ -43,14 +43,14 @@ void CImGUIManager::RenderDrawData()
 
 void CImGUIManager::Render()
 {
-	{
-		ImGui::SetNextWindowPos(ImVec2(0, g_iWinSizeY - 30));
-		ImGui::SetNextWindowSize(ImVec2(210, 20));
-		ImGui::Begin("Frame", nullptr, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
-		ImGui::SameLine();
-		ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-		ImGui::End();
-	}
+	//{
+	//	ImGui::SetNextWindowPos(ImVec2(0, g_iWinSizeY - 30));
+	//	ImGui::SetNextWindowSize(ImVec2(210, 20));
+	//	ImGui::Begin("Frame", nullptr, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
+	//	ImGui::SameLine();
+	//	ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	//	ImGui::End();
+	//}
 
 	ImGui::Render();
 }

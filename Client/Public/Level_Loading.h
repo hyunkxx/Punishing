@@ -26,6 +26,8 @@ private:
 	class CLoader*	m_pLoader = { nullptr };
 
 	class CGameObject* m_pBackground = nullptr;
+
+	_float value = 0.3f;
 };
 
 END

@@ -10,7 +10,6 @@
 #include "../../Tool/ImGui/imgui_impl_win32.h"
 #include "../../Tool/ImGui/imgui_impl_dx11.h"
 
-
 //nan check
 #include<cmath> 
 
@@ -61,6 +60,32 @@ using namespace std;
 using namespace DirectX;
 // Utility
 #include <time.h>
+
+//FMOD
+#include "Fmod/fmod.h"
+#include "Fmod/fmod.hpp"
+#include "Fmod/fmod_codec.h"
+#include "Fmod/fmod_common.h"
+#include "Fmod/fmod_dsp.h"
+#include "Fmod/fmod_dsp_effects.h"
+#include "Fmod/fmod_errors.h"
+#include "Fmod/fmod_output.h"
+#include <io.h>
+
+//enum SOUND_CHANNEL
+//{
+//	SOUND_BGM,        // πË∞Ê¿Ω
+//	PLAYER_ATTACK41,
+//	MAX_CHANNEL = 30,
+//};
+
+enum SOUND_VOLUME
+{
+	CUSTOM_VOLUM,
+	MIN_VOLUME,
+	DEFAULT_VOLUME,
+	MAX_VOLUME,
+};
 
 // Project
 #include "Engine_Macro.h"

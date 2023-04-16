@@ -4,6 +4,9 @@ matrix g_WorldMatrix, g_ViewMatrix, g_ProjMatrix;
 texture2D g_DiffuseTexture;
 float3 g_vCamPosition;
 
+float g_WidthCount;
+float g_CurrentCount;
+
 struct VS_IN
 {
 	float3 vPosition : POSITION;
@@ -45,21 +48,22 @@ VS_OUT VS_Billboard(VS_IN In)
 
 	matrix matWV, matWVP;
 
-	float4x4 TransformMatrix = float4x4(In.vRight, In.vUp, In.vLook, In.vTranslation);
-	vector vPosition = mul(float4(In.vPosition,1.f), TransformMatrix);
-	
-	vector vLook = float4(g_vCamPosition, 1.f) - vPosition;
+	matrix TransformMatrix = matrix(In.vRight, In.vUp, In.vLook, In.vTranslation);
+	vector vPosition = mul(float4(In.vPosition, 1.f), TransformMatrix);
+
+	vector vLook = normalize(float4(g_vCamPosition, 1.f) - vPosition) * length(In.vLook);
 	float3 vRight = normalize(cross(float3(0.f, 1.f, 0.f), vLook.xyz)) * length(In.vRight);
-	float3 vUp = normalize(cross(vLook.xyz, vRight))  * length(In.vUp);
+	float3 vUp = normalize(cross(vLook.xyz, vRight)) * length(In.vUp);
 
-	TransformMatrix[0] = float4(vRight.xyz, 0.f);
-	TransformMatrix[1] = float4(vUp.xyz, 0.f);
-	TransformMatrix[2] = float4(vLook.xyz, 0.f);
+	TransformMatrix[0] = float4(vRight, 0.f);
+	TransformMatrix[1] = float4(vUp, 0.f);
+	TransformMatrix[2] = vLook;
+
+	vPosition = mul(float4(In.vPosition, 1.f), TransformMatrix);
 	
-	vPosition = mul(vPosition, TransformMatrix);
-	matrix matVP = mul(g_ViewMatrix, g_ProjMatrix);
-
-	Out.vPosition = mul(vPosition, matVP);
+	matWV = mul(g_WorldMatrix, g_ViewMatrix);
+	matWVP = mul(matWV, g_ProjMatrix);
+	Out.vPosition = mul(vPosition, matWVP);
 	Out.vTexUV = In.vTexUV;
 
 	return Out;
@@ -99,6 +103,24 @@ PS_OUT PS_Pass1_Alpha(PS_IN In)
 	return Out;
 }
 
+PS_OUT PS_Pass2_Alpha(PS_IN In)
+{
+	PS_OUT	Out = (PS_OUT)0;
+
+	float2 uv = In.vTexUV;
+
+	float fHeight = floor(g_CurrentCount / g_WidthCount);
+	float fWidth = frac(g_CurrentCount / g_WidthCount);
+
+	uv.x = In.vTexUV.x / g_WidthCount + fWidth;
+	uv.y = In.vTexUV.y / g_WidthCount + (fHeight * (1 / g_WidthCount));
+
+	Out.vColor = g_DiffuseTexture.Sample(PointSampler, uv);
+	Out.vBloom = Out.vColor;
+
+	return Out;
+}
+
 technique11 DefaultTechnique
 {
 	pass Particle
@@ -106,11 +128,6 @@ technique11 DefaultTechnique
 		SetRasterizerState(RS_Default);
 		SetDepthStencilState(DS_Default, 0);
 		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
-
-		//ALPHABLENDENABLE = TRUE;
-		//SrcBlend = SrcAlpha;
-		//DestBlend = INvSrcAlpha;
-		//BlendOp = Add;
 
 		VertexShader = compile vs_5_0 VS_MAIN();
 		GeometryShader = NULL;
@@ -142,7 +159,7 @@ technique11 DefaultTechnique
 		GeometryShader = NULL;
 		HullShader = NULL;
 		DomainShader = NULL;
-		PixelShader = compile ps_5_0 PS_Pass1_Alpha();
+		PixelShader = compile ps_5_0 PS_Pass2_Alpha();
 	}
 
 }

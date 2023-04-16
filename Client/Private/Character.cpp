@@ -21,6 +21,17 @@
 
 #include "SwordTrail.h"
 #include "FloorCircle.h"
+#include "SkillBlueEffect.h"
+#include "EvolutionEffect.h"
+#include "FootSmoke.h"
+#include "Flower.h"
+#include "Footstep.h"
+#include "DamageFont.h"
+
+#include "WarningImage.h"
+#include "DashSprite.h"
+#include "Buff.h"
+#include "BuffHandler.h"
 
 //Bip001?(리얼 루트본) Bip001Pelvis (척추) R3KalieninaMd010031 (000)
 CCharacter::CCharacter(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
@@ -61,11 +72,18 @@ HRESULT CCharacter::Initialize(void* pArg)
 	if (FAILED(AddWeapon()))
 		return E_FAIL;
 
+	//잔상 값 세팅
+	memset(m_bMotionIsUse, false, sizeof(_bool) * PREV_COUNT);
+	memset(m_fMotionAlphaAcc, 0.f, sizeof(_float) * PREV_COUNT);
+
 	ZeroMemory(&ANIM_DESC, sizeof(CAnimation::ANIMATION_DESC));
 	SetAnimation(CLIP::STAND2, CAnimation::TYPE::LOOP);
 
 	bone = mModel->GetBonePtr("Bip001");
 	m_pWeaponBone = mModel->GetBonePtr("WeaponCase1");
+
+	LeftFoot = mModel->GetBonePtr("Bip001LFoot");
+	RightFoot = mModel->GetBonePtr("Bip001RFoot");
 
 	CSkillBase::SKILL_INFO SkillInfo;
 	ZeroMemory(&SkillInfo, sizeof CSkillBase::SKILL_INFO);
@@ -118,6 +136,51 @@ HRESULT CCharacter::Initialize(void* pArg)
 			m_pSwordTrail[i] = static_cast<CSwordTrail*>(pGameObject);
 		}
 	}
+
+	if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+	{
+		for (int i = 0; i < 10; ++i)
+		{
+			_tchar szTag[MAX_PATH] = L"";
+			wsprintfW(szTag, L"footEffect%d", i);
+			if (nullptr == (m_pFoot[i] = (CFootstep*)pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_foot"), L"layer_effect", szTag)))
+				return E_FAIL;
+		}
+	}
+	else
+	{
+		for (int i = 0; i < 10; ++i)
+		{
+			_tchar szTag[MAX_PATH] = L"";
+			wsprintfW(szTag, L"footEffect%d", i);
+			if (nullptr == (m_pFoot[i] = (CFootstep*)pGameInstance->Add_GameObject(LEVEL_BOSS, TEXT("proto_obj_foot"), L"layer_effect", szTag)))
+				return E_FAIL;
+		}
+	}
+
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxtex"),
+		TEXT("com_shader55"), (CComponent**)&m_pTexShader)))
+		return E_FAIL;
+
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_start"),
+		TEXT("com_start"), (CComponent**)&m_pTextureStart)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_end"),
+		TEXT("com_end"), (CComponent**)&m_pTextureEnd)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+		TEXT("com_vibbbb"), (CComponent**)&m_pVIBuffer)))
+		return E_FAIL;
+
+
+	m_fVoiceWidth = g_iWinSizeX - 300.f;
+	m_fVoiceHeight = 70.f;
+	m_fVoiceX = g_iWinSizeX >> 1;
+	m_fVoiceY = g_iWinSizeY - 100;
+
+	XMStoreFloat4x4(&m_VoiceWorldMatrix, XMMatrixScaling(m_fVoiceWidth, m_fVoiceHeight, 1.f) * XMMatrixTranslation(m_fVoiceX - g_iWinSizeX * 0.5f, -m_fVoiceY + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_ViewMatrix, XMMatrixIdentity());
+	XMStoreFloat4x4(&m_ProjMatrix, XMMatrixOrthographicLH((_float)g_iWinSizeX, (_float)g_iWinSizeY, 0.f, 1.f));
 
 	return S_OK;
 }
@@ -176,6 +239,8 @@ void CCharacter::Tick(_double TimeDelta)
 
 	TimeDelta = Freeze(TimeDelta);
 
+	m_TimeDelta = Freeze(TimeDelta);
+		
 	__super::Tick(TimeDelta);
 
 	CBoss* pBoss = dynamic_cast<CBoss*>(m_pNearEnemy);
@@ -266,6 +331,7 @@ void CCharacter::Tick(_double TimeDelta)
 		KeyInput(TimeDelta);
 		Dash(TimeDelta);
 		Attack(TimeDelta);
+		AttackFootSmoke(TimeDelta);
 
 		if (!m_WallHit)
 			XMStoreFloat3(&vPrevPosition, mTransform->Get_State(CTransform::STATE_POSITION));
@@ -283,6 +349,7 @@ void CCharacter::Tick(_double TimeDelta)
 	TargetListDeastroyCehck();
 	m_pHealthBar->SetHealth(m_fCurHp, m_fMaxHp);
 	m_pHealthBar->SetDash(m_fCurDash, m_fMaxDash);
+
 }
 
 void CCharacter::LateTick(_double TimeDelta)
@@ -300,6 +367,9 @@ void CCharacter::LateTick(_double TimeDelta)
 	FindNearTarget();
 	RenderEnemyHealth(TimeDelta);
 
+	//발의 높이 계산
+	CalcFootHeight();
+
 	//콜리전 세팅
 	_matrix transMatrix = XMLoadFloat4x4(&bone->GetCombinedMatrix()) * XMLoadFloat4x4(&mTransform->Get_WorldMatrix());
 	mCollider->Update(transMatrix);
@@ -309,6 +379,46 @@ void CCharacter::LateTick(_double TimeDelta)
 	mWeaponCollider->Update(XMLoadFloat4x4(&m_pWeaponBone->GetOffSetMatrix()) * XMLoadFloat4x4(&m_pWeaponBone->GetCombinedMatrix()) * XMLoadFloat4x4(&mModel->GetLocalMatrix()) *  XMLoadFloat4x4(&mTransform->Get_WorldMatrix()));
 	mDashCheckCollider->Update(XMLoadFloat4x4(&m_matrixPrevPos));
 	mSkillCollider->Update(XMLoadFloat4x4(&mTransform->Get_WorldMatrix()));
+
+	if (mModel->AnimationCompare(CLIP::HIT1) ||
+		mModel->AnimationCompare(CLIP::HIT2) ||
+		mModel->AnimationCompare(CLIP::HIT3) ||
+		mModel->AnimationCompare(CLIP::HIT4))
+	{
+		if (m_fAttackVolume >= 0.f)
+		{
+			CGameInstance* pGI = CGameInstance::GetInstance();
+			m_fAttackVolume -= 0.2f * TimeDelta;
+			pGI->SetSoundVolume(PLAYER_ATTACK1, SOUND_VOLUME::CUSTOM_VOLUM, m_fAttackVolume);
+			pGI->SetSoundVolume(PLAYER_ATTACK2, SOUND_VOLUME::CUSTOM_VOLUM, m_fAttackVolume);
+			pGI->SetSoundVolume(PLAYER_ATTACK3, SOUND_VOLUME::CUSTOM_VOLUM, m_fAttackVolume);
+			pGI->SetSoundVolume(PLAYER_ATTACK4, SOUND_VOLUME::CUSTOM_VOLUM, m_fAttackVolume);
+			pGI->SetSoundVolume(PLAYER_ATTACK5, SOUND_VOLUME::CUSTOM_VOLUM, m_fAttackVolume);
+		}
+	}
+	else
+		m_fAttackVolume = 0.5f;
+
+	if (mModel->AnimationCompare(CLIP::WIN))
+	{
+		m_bEvolution = false;
+		if (!m_bWinSound)
+		{
+			m_bWinSound = true;
+			CGameInstance* pGI = CGameInstance::GetInstance();
+			pGI->PlaySoundEx(L"End.mp3", SOUND_CHANNEL::PLAYER_ATTACK1, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
+		}
+	}
+
+	if (mModel->AnimationCompare(CLIP::BORN))
+	{
+		if (!m_bStartSound)
+		{
+			m_bStartSound = true;
+			CGameInstance* pGI = CGameInstance::GetInstance();
+			pGI->PlaySoundEx(L"Born.mp3", SOUND_CHANNEL::PLAYER_ATTACK1, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
+		}
+	}
 
 	if (nullptr != mRenderer)
 		mRenderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
@@ -332,17 +442,32 @@ HRESULT CCharacter::Render()
 		//m_pModelCom->SetUp_ShaderMaterialResource(m_pShaderCom, "g_AmbientTexture", i, aiTextureType_AMBIENT);
 		mModel->Setup_BoneMatrices(mShader, "g_BoneMatrix", i);
 
-		if(i == 3 || i == 4)
+		if (i == 3 || i == 4)
 			mShader->Begin(0);
 		else
 			mShader->Begin(6);
 
+		if (!strcmp("R3Shenwei01001Eye", mModel->GetMeshName(i)))
+		{
+			mShader->Begin(13);
+		}
 		mModel->Render(i);
 
 		mShader->Begin(2);
 		mModel->Render(i);
+
+		//CGameInstance* pGameInstance = CGameInstance::GetInstance();
+		//if (FAILED(mShader->SetMatrix("g_LightViewMatrix", &pGameInstance->GetLightFloat4x4(LIGHT_MATRIX::LIGHT_VIEW))))
+		//	return E_FAIL;
+		//if (FAILED(mShader->SetMatrix("g_LightProjMatrix", &pGameInstance->GetLightFloat4x4(LIGHT_MATRIX::LIGHT_PROJ))))
+		//	return E_FAIL;
+		//if (FAILED(mShader->SetRawValue("g_LightPos", &pGameInstance->GetLightPosition(), sizeof(_float3))))
+		//	return E_FAIL;
+
+		//mShader->Begin(12);
+		//mModel->Render(i);
 	}
-	
+
 	CGameInstance* pInstance = CGameInstance::GetInstance();
 	_float4 vCamPos = CPipeLine::GetInstance()->Get_CamPosition();
 
@@ -381,21 +506,88 @@ HRESULT CCharacter::Render()
 	m_pRectShader->Begin(3);
 	m_pEvolutionSmoke->Render();
 
+	//잔상용
+	if (m_bEvolution)
+	{
+		for (int j = 0; j < PREV_COUNT; ++j)
+		{
+			if (!m_bMotionIsUse[j])
+				continue;
+
+			if (FAILED(m_pPrevTransform[j]->Setup_ShaderResource(mShader, "g_WorldMatrix")))
+				return E_FAIL;
+			for (_uint i = 0; i < MeshCount; ++i)
+			{
+				if (!strcmp("Cheek", m_pPrevModel[j]->GetMeshName(i)) || !strcmp("Cheek01", m_pPrevModel[j]->GetMeshName(i)))
+					continue;
+
+				m_pPrevModel[j]->Setup_ShaderMaterialResource(mShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+				m_pPrevModel[j]->Setup_BoneMatrices(mShader, "g_BoneMatrix", i);
+
+				mShader->SetRawValue("g_fDissolveAmount", &m_fMotionAlphaAcc[j], sizeof(_float));
+				mShader->Begin(10);
+				m_pPrevModel[j]->Render(i);
+			}
+		}
+	}
+	else if(m_pAppManager->IsFreeze())
+	{
+		for (int j = 0; j < PREV_COUNT; ++j)
+		{
+			if (!m_bMotionIsUse[j])
+				continue;
+
+			if (FAILED(m_pPrevTransform[j]->Setup_ShaderResource(mShader, "g_WorldMatrix")))
+				return E_FAIL;
+			for (_uint i = 0; i < MeshCount; ++i)
+			{
+				if (!strcmp("Cheek", m_pPrevModel[j]->GetMeshName(i)) || !strcmp("Cheek01", m_pPrevModel[j]->GetMeshName(i)))
+					continue;
+
+				m_pPrevModel[j]->Setup_ShaderMaterialResource(mShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+				m_pPrevModel[j]->Setup_BoneMatrices(mShader, "g_BoneMatrix", i);
+
+				mShader->SetRawValue("g_fDissolveAmount", &m_fMotionAlphaAcc[j], sizeof(_float));
+				mShader->Begin(11);
+				m_pPrevModel[j]->Render(i);
+			}
+		}
+	}
+
+
+	if (m_pCamera->IsStarting())
+	{
+		if (FAILED(m_pTexShader->SetMatrix("g_WorldMatrix", &m_VoiceWorldMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pTexShader->SetMatrix("g_ViewMatrix", &m_ViewMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pTexShader->SetMatrix("g_ProjMatrix", &m_ProjMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pTextureStart->Setup_ShaderResource(m_pTexShader, "g_Texture")))
+			return E_FAIL;
+		m_pTexShader->Begin(14);
+		m_pVIBuffer->Render();
+	}
+
+	if (m_pCamera->IsEnding())
+	{
+		if (FAILED(m_pTexShader->SetMatrix("g_WorldMatrix", &m_VoiceWorldMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pTexShader->SetMatrix("g_ViewMatrix", &m_ViewMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pTexShader->SetMatrix("g_ProjMatrix", &m_ProjMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pTextureEnd->Setup_ShaderResource(m_pTexShader, "g_Texture")))
+			return E_FAIL;
+		m_pTexShader->Begin(14);
+		m_pVIBuffer->Render();
+	}
+
 	return S_OK;
 }
 
 void CCharacter::RenderGUI()
 {
-	ImGui::Begin("Player Position");
-
-	_float3 vPos;
-	XMStoreFloat3(&vPos, mTransform->Get_State(CTransform::STATE_POSITION));
-	ImGui::InputFloat3("World Pos ", (_float*)&vPos);
-
-	XMStoreFloat3(&m_vPrevLook, mTransform->Get_State(CTransform::STATE_LOOK));
-	ImGui::InputFloat3("LOOK  ", (_float*)&m_vPrevLook);
-
-	ImGui::End();
 }
 
 _float CCharacter::GetLengthFromCamera()
@@ -449,6 +641,39 @@ const CBone * CCharacter::GetBone(const char * szBoneName) const
 	return mModel->GetBonePtr(szBoneName);
 }
 
+void CCharacter::StartEvolitionEffect()
+{
+	m_pEvolutionEffect->StartEffect();
+}
+
+void CCharacter::UseFootSmoke()
+{
+	if (m_pFootSmoke[0]->IsActive() && m_pFootSmoke[1]->IsActive())
+		return;
+
+	if (m_pFootSmoke[0]->IsActive())
+		m_pFootSmoke[1]->StartEffect();
+	else
+		m_pFootSmoke[0]->StartEffect();
+}
+
+void CCharacter::CurrentMotionCapture()
+{
+	for (int i = 0; i < PREV_COUNT; ++i)
+	{
+		if (m_bMotionIsUse[i] == false)
+		{
+			m_bMotionIsUse[i] = true;
+			m_PrevLocalTime[i] = mModel->GetCurrentTimeAcc();
+			m_pPrevTransform[i]->Set_WorldMatrix(mTransform->Get_WorldMatrix());
+			m_pPrevModel[i]->Setup_Animation(ANIM_DESC.Clip, ANIM_DESC.Type, false);
+			m_pPrevModel[i]->Play_Animation(m_PrevLocalTime[i], m_pPrevTransform[i], 0.0f, false);
+
+			return;
+		}
+	}
+}
+
 HRESULT CCharacter::AddWeapon()
 {
 	//레이어 삭제시 삭제됨
@@ -483,6 +708,9 @@ HRESULT CCharacter::AddComponents()
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_smokemask"), TEXT("com_texutre_rect2"), (CComponent**)&m_pSmokeMask)))
 		return E_FAIL;
 
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_freezemask0"), TEXT("com_tx_rainbow"), (CComponent**)&m_pRainbowTexture)))
+		return E_FAIL;
+	
 	CTransform::TRANSFORM_DESC TransformDesc;
 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
 
@@ -498,7 +726,7 @@ HRESULT CCharacter::AddComponents()
 		return E_FAIL;
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform4"), (CComponent**)&m_pSmokeTransform3, &TransformDesc)))
 		return E_FAIL;
-
+	
 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
 
 	TransformDesc.fMoveSpeed = m_fMoveSpeed;
@@ -512,6 +740,42 @@ HRESULT CCharacter::AddComponents()
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kamui"), TEXT("com_model"), (CComponent**)&mModel)))
 		return E_FAIL;
+
+	//잔상
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kamui"), L"pmodel0", (CComponent**)&m_pPrevModel[0])))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kamui"), L"pmodel1", (CComponent**)&m_pPrevModel[1])))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kamui"), L"pmodel2", (CComponent**)&m_pPrevModel[2])))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kamui"), L"pmodel3", (CComponent**)&m_pPrevModel[3])))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kamui"), L"pmodel4", (CComponent**)&m_pPrevModel[4])))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kamui"), L"pmodel5", (CComponent**)&m_pPrevModel[5])))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kamui"), L"pmodel6", (CComponent**)&m_pPrevModel[6])))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_model_kamui"), L"pmodel7", (CComponent**)&m_pPrevModel[7])))
+		return E_FAIL;
+
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), L"trans0", (CComponent**)&m_pPrevTransform[0], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), L"trans1", (CComponent**)&m_pPrevTransform[1], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), L"trans2", (CComponent**)&m_pPrevTransform[2], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), L"trans3", (CComponent**)&m_pPrevTransform[3], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), L"trans4", (CComponent**)&m_pPrevTransform[4], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), L"trans5", (CComponent**)&m_pPrevTransform[5], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), L"trans6", (CComponent**)&m_pPrevTransform[6], &TransformDesc)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), L"trans7", (CComponent**)&m_pPrevTransform[7], &TransformDesc)))
+		return E_FAIL;
+
 
 	mTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(31.5f, 0.f, 19.5f, 1.f));
 
@@ -591,6 +855,7 @@ HRESULT CCharacter::AddComponents()
 		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_circle", L"layer_ui", L"circle", this)))
 			return E_FAIL;
 		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_PLAYER);
+
 	}
 	else
 	{
@@ -598,9 +863,39 @@ HRESULT CCharacter::AddComponents()
 		if (nullptr == (pCircle = pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_circle", L"layer_ui", L"circle", this)))
 			return E_FAIL;
 		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_PLAYER);
+
 	}
 
+	CGameObject* pSkillEffect = nullptr;
+	if (nullptr == (pSkillEffect = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_blueeffect", L"layer_effect", L"skilleffect", this)))
+		return E_FAIL;
+	m_pSkillBlueEffect = (CSkillBlueEffect*)pSkillEffect;
 
+	//풋 스모크
+	CGameObject* pFootSmoke = nullptr;
+	if (nullptr == (pFootSmoke = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_footsmoke", L"layer_effect", L"footsmoke0", this)))
+		return E_FAIL;
+	m_pFootSmoke[0] = (CFootSmoke*)pFootSmoke;
+
+	pFootSmoke = nullptr;
+	if (nullptr == (pFootSmoke = pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_footsmoke", L"layer_effect", L"footsmoke1", this)))
+		return E_FAIL;
+	m_pFootSmoke[1] = (CFootSmoke*)pFootSmoke;
+
+	if(!m_pAppManager->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+		m_pFlower = (CFlower*)(pGameInstance->Find_GameObject(LEVEL_GAMEPLAY, L"layer_effect", L"flower"));
+	else
+		m_pFlower = (CFlower*)(pGameInstance->Find_GameObject(LEVEL_BOSS, L"layer_effect", L"flower"));
+
+	if (nullptr == (m_pEvolutionEffect = (CEvolutionEffect*)pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_evolutioneffect", L"layer_effect", L"evolitioneffect", this)))
+		return E_FAIL;
+
+	if (nullptr == (m_pDashSprite = (CDashSprite*)pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_dashdust", L"layer_effect", L"dash")))
+		return E_FAIL;
+	
+	if (nullptr == (m_pBuffhandler = (CBuffHandler*)pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_buffhandler", L"layer_effect", L"buffhandler", mTransform)))
+		return E_FAIL;
+	
 	return S_OK;
 }
 
@@ -623,9 +918,19 @@ HRESULT CCharacter::SetupShaderResources()
 	if (FAILED(mShader->SetRawValue("g_vCamPosition", &pInstance->Get_CamPosition(), sizeof(_float3))))
 		return E_FAIL;
 
-	const LIGHT_DESC* LightDesc = pInstance->GetLightDesc(0);
-	if (nullptr == LightDesc)
-		return E_FAIL;
+	const LIGHT_DESC* LightDesc;
+	if (!m_pAppManager->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+	{
+		LightDesc = pInstance->GetLightDesc(0);
+		if (nullptr == LightDesc)
+			return E_FAIL;
+	}
+	else
+	{
+		LightDesc = pInstance->GetLightDesc(1);
+		if (nullptr == LightDesc)
+			return E_FAIL;
+	}
 
 	if (CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::BOSS))
 	{
@@ -656,6 +961,10 @@ void CCharacter::KeyInput(_double TimeDelta)
 
 	InputMove(TimeDelta);
 
+	if (pGameInstance->Input_KeyState_Custom(DIK_T) == KEY_STATE::TAP)
+	{
+	}
+
 	if (pGameInstance->Input_KeyState_Custom(DIK_TAB) == KEY_STATE::TAP)
 	{
 		NearTargetChange();
@@ -668,6 +977,7 @@ void CCharacter::KeyInput(_double TimeDelta)
 		{
 			m_EvolutionCount = 0;
 
+			pGameInstance->PlaySoundEx(L"Evolution.mp3", SOUND_CHANNEL::EVOLUTION, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
 			m_bEvolution = true;
 			SetAnimation(CLIP::ATTACK51, CAnimation::TYPE::ONE);
 			m_bAttackable = false;
@@ -703,10 +1013,17 @@ void CCharacter::KeyInput(_double TimeDelta)
 					pEnemy->SetAirborne(GetDamage());
 				}
 
+				m_bEvolitionMotionFinish = true;
 				m_pCamera->StartShake(5.f, 50.f);
 			}
 		}
 
+	}
+
+	if (!m_bEvolution)
+	{
+		m_bEvolitionMotionFinish = false;
+		m_iCurrentPrevCount = 0;
 	}
 
 	if (pGameInstance->Input_KeyState_Custom(DIK_A) == KEY_STATE::TAP)
@@ -978,6 +1295,7 @@ void CCharacter::Dash(_double TimeDelta)
 		mWeaponCollider->SetActive(false);
 		mSkillCollider->SetActive(false);
 
+		m_bSkillSound = false;
 		m_bUseSkill = false;
 		m_bSkillReady = false;
 
@@ -1028,6 +1346,7 @@ void CCharacter::Dash(_double TimeDelta)
 			{
 				if (m_fCurDash >= 20.f && !mModel->AnimationCompare(CLIP::MOVE1))
 				{
+					pGameInstance->PlaySoundEx(L"Dash.mp3", SOUND_CHANNEL::DASH, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
 					m_fCurDash -= 20.f;
 					SetAnimation(CLIP::MOVE1, CAnimation::ONE);
 					m_bAttackable = false;
@@ -1035,6 +1354,7 @@ void CCharacter::Dash(_double TimeDelta)
 					m_bDashable = false;
 					m_bSkillReady = false;
 
+					UseFootSmoke();
 					SavePrevPos();
 				}
 			}
@@ -1065,13 +1385,14 @@ void CCharacter::Dash(_double TimeDelta)
 					if (m_bAttacking)
 						mTransform->LookAt(mTransform->Get_State(CTransform::STATE_POSITION) + -XMVector3Normalize(mTransform->Get_State(CTransform::STATE_RIGHT)));
 
+					pGameInstance->PlaySoundEx(L"Dash.mp3", SOUND_CHANNEL::DASH, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
 					m_fCurDash -= 20.f;
 					SetAnimation(CLIP::MOVE1, CAnimation::ONE);
 					m_bAttackable = false;
 					m_bMoveable = false;
 					m_bDashable = false;
 					m_bSkillReady = false;
-
+					UseFootSmoke();
 					SavePrevPos();
 				}
 			}
@@ -1102,13 +1423,14 @@ void CCharacter::Dash(_double TimeDelta)
 					if (m_bAttacking)
 						mTransform->LookAt(mTransform->Get_State(CTransform::STATE_POSITION) + XMVector3Normalize(mTransform->Get_State(CTransform::STATE_RIGHT)));
 
+					pGameInstance->PlaySoundEx(L"Dash.mp3", SOUND_CHANNEL::DASH, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
 					m_fCurDash -= 20.f;
 					SetAnimation(CLIP::MOVE1, CAnimation::ONE);
 					m_bAttackable = false;
 					m_bMoveable = false;
 					m_bDashable = false;
 					m_bSkillReady = false;
-
+					UseFootSmoke();
 					SavePrevPos();
 				}
 			}
@@ -1122,6 +1444,7 @@ void CCharacter::Dash(_double TimeDelta)
 		{
 			if (m_fCurDash >= 20.f && !mModel->AnimationCompare(CLIP::MOVE2))
 			{
+				pGameInstance->PlaySoundEx(L"Dash.mp3", SOUND_CHANNEL::DASH, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
 				m_fCurDash -= 20.f;
 				SavePrevPos();
 				SetAnimation(CLIP::MOVE2, CAnimation::ONE);
@@ -1129,6 +1452,7 @@ void CCharacter::Dash(_double TimeDelta)
 				m_bMoveable = false;
 				m_bDashable = false;
 				m_bSkillReady = false;
+				UseFootSmoke();
 			}
 		}
 	}
@@ -1214,7 +1538,7 @@ void CCharacter::Attack(_double TimeDelta)
 			mWeaponCollider->SetActive(false);
 		}
 	}
-
+	 
 	if (pGameInstance->Input_KeyState_Custom(DIK_LCONTROL) == KEY_STATE::TAP)
 	{
 		m_bHitColliderCheck = false;
@@ -1228,7 +1552,6 @@ void CCharacter::Attack(_double TimeDelta)
 
 		if (!m_bEvolution)
 		{
-
 			if (m_bAttacking)
 			{
 				m_bMoveable = false;
@@ -1245,7 +1568,7 @@ void CCharacter::Attack(_double TimeDelta)
 				}
 				else
 				{
-					if (mModel->AnimationIsPreFinish())
+					if (mModel->AnimationIsPreFinishEx())
 					{
 						m_iCurAttackCount++;
 						if (m_iCurAttackCount >= m_iAttackCount)
@@ -1285,7 +1608,7 @@ void CCharacter::Attack(_double TimeDelta)
 				}
 				else
 				{
-					if (mModel->AnimationIsPreFinish())
+					if (mModel->AnimationIsPreFinishCustom(4.3))
 					{
 						m_iCurAttackCount++;
 						if (m_iCurAttackCount >= m_iAttackCount)
@@ -1325,6 +1648,173 @@ void CCharacter::Attack(_double TimeDelta)
 		}
 	}
 
+#pragma region 기본공격 사운드(기본,변신)
+	//근처에 있는지 사운드처리위함
+	if (m_pNearEnemy)
+	{
+		_vector vEnemyPos = XMLoadFloat4(&m_pNearEnemy->GetPosition());
+		_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+		_float fLength = XMVectorGetX(XMVector3Length(vPos - vEnemyPos));
+
+		if(fLength <= 4.f)
+			m_bEnemyNear = true;
+		else
+			m_bEnemyNear = false;
+	}
+	else
+		m_bEnemyNear = false;
+
+	//사운드 처리
+	if (!m_bEnemyNear)
+	{
+		if (!m_bAttackSound)
+		{
+			if (mModel->AnimationCompare(ATTACK1))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK1;
+				pGameInstance->PlaySoundEx(L"Attack1.mp3", SOUND_CHANNEL::PLAYER_ATTACK1, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK2))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK2;
+				pGameInstance->PlaySoundEx(L"Attack2.mp3", SOUND_CHANNEL::PLAYER_ATTACK2, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK3))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK3;
+				pGameInstance->PlaySoundEx(L"Attack3.mp3", SOUND_CHANNEL::PLAYER_ATTACK3, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK4))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK4;
+				pGameInstance->PlaySoundEx(L"Attack4.mp3", SOUND_CHANNEL::PLAYER_ATTACK4, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK5))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK5;
+				pGameInstance->PlaySoundEx(L"Attack5.mp3", SOUND_CHANNEL::PLAYER_ATTACK5, CUSTOM_VOLUM, 0.5f);
+			}
+
+			
+			else if (mModel->AnimationCompare(ATTACK41))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK41;
+				pGameInstance->PlaySoundEx(L"Attack41.mp3", SOUND_CHANNEL::PLAYER_ATTACK41, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK42))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK42;
+				pGameInstance->PlaySoundEx(L"Attack42.mp3", SOUND_CHANNEL::PLAYER_ATTACK42, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK43))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK43;
+				pGameInstance->PlaySoundEx(L"Attack43.mp3", SOUND_CHANNEL::PLAYER_ATTACK43, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK44))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK44;
+				pGameInstance->PlaySoundEx(L"Attack44.mp3", SOUND_CHANNEL::PLAYER_ATTACK44, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK45))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK45;
+				pGameInstance->PlaySoundEx(L"Attack45.mp3", SOUND_CHANNEL::PLAYER_ATTACK45, CUSTOM_VOLUM, 0.5f);
+			}
+		}
+		else
+		{
+			if (m_PrevClip != ANIM_DESC.Clip)
+				m_bAttackSound = false;
+		}
+	}
+	else
+	{
+		if (!m_bAttackSound)
+		{
+			if (mModel->AnimationCompare(ATTACK1))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK1;
+				pGameInstance->PlaySoundEx(L"AttackEx1.mp3", SOUND_CHANNEL::PLAYER_ATTACK1, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK2))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK2;
+				pGameInstance->PlaySoundEx(L"AttackEx2.mp3", SOUND_CHANNEL::PLAYER_ATTACK2, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK3))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK3;
+				pGameInstance->PlaySoundEx(L"AttackEx3.mp3", SOUND_CHANNEL::PLAYER_ATTACK3, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK4))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK4;
+				pGameInstance->PlaySoundEx(L"AttackEx4.mp3", SOUND_CHANNEL::PLAYER_ATTACK4, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK5))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK5;
+				pGameInstance->PlaySoundEx(L"AttackEx5.mp3", SOUND_CHANNEL::PLAYER_ATTACK5, CUSTOM_VOLUM, 0.5f);
+			}
+
+			//스킬
+			else if (mModel->AnimationCompare(ATTACK41))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK41;
+				pGameInstance->PlaySoundEx(L"Attack41Ex.mp3", SOUND_CHANNEL::PLAYER_ATTACK41, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK42))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK42;
+				pGameInstance->PlaySoundEx(L"Attack42Ex.mp3", SOUND_CHANNEL::PLAYER_ATTACK42, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK43))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK43;
+				pGameInstance->PlaySoundEx(L"Attack43Ex.mp3", SOUND_CHANNEL::PLAYER_ATTACK43, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK44))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK44;
+				pGameInstance->PlaySoundEx(L"Attack44Ex.mp3", SOUND_CHANNEL::PLAYER_ATTACK44, CUSTOM_VOLUM, 0.5f);
+			}
+			else if (mModel->AnimationCompare(ATTACK45))
+			{
+				m_bAttackSound = true;
+				m_PrevClip = ATTACK45;
+				pGameInstance->PlaySoundEx(L"Attack45Ex.mp3", SOUND_CHANNEL::PLAYER_ATTACK45, CUSTOM_VOLUM, 0.5f);
+			}
+		}
+		else
+		{
+			if (m_PrevClip != ANIM_DESC.Clip)
+				m_bAttackSound = false;
+		}
+	}
+
+#pragma endregion
+
+
 	if (!AnimationCompare(CLIP::ATTACK1) &&
 		!AnimationCompare(CLIP::ATTACK2) &&
 		!AnimationCompare(CLIP::ATTACK3) &&
@@ -1344,6 +1834,178 @@ void CCharacter::Attack(_double TimeDelta)
 		m_bAttacking = false;
 		m_bMoveable = true;
 	}
+}
+
+void CCharacter::AttackFootSmoke(_double TimeDelta)
+{
+	if (mModel->AnimationCompare(CLIP::ATTACK1))
+	{
+		if (!m_bAttack1Smoke)
+		{
+			if (mModel->GetCurrentTimeAcc() >= 0.32f)
+			{
+				m_bAttack1Smoke = true;
+				UseFootSmoke();
+			}
+		}
+	}
+	else if(m_bAttack1Smoke)
+		m_bAttack1Smoke = false;
+
+	if (mModel->AnimationCompare(CLIP::ATTACK4))
+	{
+		if (!m_bAttack4Smoke)
+		{
+			if (mModel->GetCurrentTimeAcc() >= 0.216f)
+			{
+				m_bAttack4Smoke = true;
+				UseFootSmoke();
+			}
+		}
+	}
+	else if (m_bAttack4Smoke)
+		m_bAttack4Smoke = false;
+
+	if (mModel->AnimationCompare(CLIP::ATTACK5))
+	{
+		if (!m_bAttack5Smoke)
+		{
+			if (mModel->GetCurrentTimeAcc() >= 0.25f)
+			{
+				m_bAttack5Smoke = true;
+				UseFootSmoke();
+			}
+		}
+	}
+	else if (m_bAttack5Smoke)
+		m_bAttack5Smoke = false;
+
+	if (mModel->AnimationCompare(CLIP::ATTACK11))
+	{
+		if (!m_bAttack11Smoke)
+		{
+			if (mModel->GetCurrentTimeAcc() >= 0.366f)
+			{
+				m_bAttack11Smoke = true;
+				UseFootSmoke();
+			}
+		}
+	}
+	else if (m_bAttack11Smoke)
+		m_bAttack11Smoke = false;
+
+	if (mModel->AnimationCompare(CLIP::ATTACK21))
+	{
+		if (!m_bAttack21Smoke)
+		{
+			if (mModel->GetCurrentTimeAcc() >= 0.11f)
+			{
+				m_bAttack21Smoke = true;
+				UseFootSmoke();
+			}
+		}
+	}
+	else if (m_bAttack21Smoke)
+		m_bAttack21Smoke = false;
+
+	if (mModel->AnimationCompare(CLIP::ATTACK31))
+	{
+		if (!m_bAttack31Smoke)
+		{
+			if (mModel->GetCurrentTimeAcc() >= 0.72f)
+			{
+				m_bAttack31Smoke = true;
+				UseFootSmoke();
+			}
+		}
+	}
+	else if (m_bAttack31Smoke)
+		m_bAttack31Smoke = false;
+
+	if (mModel->AnimationCompare(CLIP::ATTACK41))
+	{
+		if (!m_bAttack41Smoke)
+		{
+			if (mModel->GetCurrentTimeAcc() >= 0.05f)
+			{
+				m_bAttack41Smoke = true;
+				UseFootSmoke();
+			}
+		}
+	}
+	else if (m_bAttack41Smoke)
+		m_bAttack41Smoke = false;
+
+	if (mModel->AnimationCompare(CLIP::ATTACK43))
+	{
+		if (!m_bAttack43Smoke)
+		{
+			if (mModel->GetCurrentTimeAcc() >= 0.235f)
+			{
+				m_bAttack43Smoke = true;
+				UseFootSmoke();
+			}
+		}
+	}
+	else if (m_bAttack43Smoke)
+		m_bAttack43Smoke = false;
+
+	if (mModel->AnimationCompare(CLIP::ATTACK44))
+	{
+		if (!m_bAttack44Smoke)
+		{
+			if (mModel->GetCurrentTimeAcc() >= 0.23f)
+			{
+				m_bAttack44Smoke = true;
+				UseFootSmoke();
+			}
+		}
+	}
+	else if (m_bAttack44Smoke)
+		m_bAttack44Smoke = false;
+
+	if (mModel->AnimationCompare(CLIP::ATTACK45))
+	{
+		if (!m_bAttack45Smoke)
+		{
+			if (mModel->GetCurrentTimeAcc() >= 0.4f)
+			{
+				m_bAttack45Smoke = true;
+				UseFootSmoke();
+			}
+		}
+	}
+	else if (m_bAttack45Smoke)
+		m_bAttack45Smoke = false;
+
+	if (mModel->AnimationCompare(CLIP::ATTACK12))
+	{
+		if (!m_bAttack22Smoke)
+		{
+			if (mModel->GetCurrentTimeAcc() >= 0.2f)
+			{
+				m_bAttack22Smoke = true;
+				UseFootSmoke();
+			}
+		}
+	}
+	else if (m_bAttack22Smoke)
+		m_bAttack22Smoke = false;
+
+
+	if (mModel->AnimationCompare(CLIP::ATTACK32))
+	{
+		if (!m_bAttack32Smoke)
+		{
+			if (mModel->GetCurrentTimeAcc() >= 0.82f)
+			{
+				m_bAttack32Smoke = true;
+				UseFootSmoke();
+			}
+		}
+	}
+	else if (m_bAttack32Smoke)
+		m_bAttack32Smoke = false;
 }
 
 void CCharacter::PositionHold(_double TimeDelta)
@@ -1460,10 +2122,22 @@ void CCharacter::SkillC(_double TimeDelta)
 
 void CCharacter::SkillColliderControl(_double TimeDelta)
 {
+	CGameInstance* pGI = CGameInstance::GetInstance();
+	
+	if (AnimationCompare(CLIP::MOVE1) || AnimationCompare(CLIP::MOVE2))
+		pGI->StopSound(SOUND_CHANNEL::EVOLUTION);
+
 	if (mModel->AnimationCompare(CLIP::ATTACK11) || mModel->AnimationCompare(CLIP::ATTACK12))
 	{
 		if (mModel->AnimationCompare(CLIP::ATTACK11))
 		{
+			if (!m_bSkillSound)
+			{
+				m_ePrevSkill = ATTACK11;
+				m_bSkillSound = true;
+				pGI->PlaySoundEx(L"Attack11Ex.mp3", SOUND_CHANNEL::PLAYER_ATTACK11, CUSTOM_VOLUM, 0.5f);
+			}
+
 			if (mModel->AnimationIsPreFinishCustom(0.5))
 			{
 				mWeaponCollider->SetActive(false);
@@ -1471,6 +2145,28 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 		}
 		else if (mModel->AnimationCompare(CLIP::ATTACK12))
 		{
+			if (m_pNearEnemy)
+			{
+				if (!m_bSkillSound)
+				{
+					m_ePrevSkill = ATTACK12;
+					m_bSkillSound = true;
+					pGI->PlaySoundEx(L"AttackE11.mp3", SOUND_CHANNEL::PLAYER_ATTACK12, CUSTOM_VOLUM, 0.5f);
+				}
+			}
+			else
+			{
+				if (mModel->AnimationCompare(ATTACK12))
+				{
+					if (!m_bSkillSound)
+					{
+						m_ePrevSkill = ATTACK12;
+						m_bSkillSound = true;
+						pGI->PlaySoundEx(L"AttackE10.mp3", SOUND_CHANNEL::PLAYER_ATTACK12, CUSTOM_VOLUM, 0.5f);
+					}
+				}
+			}
+
 			if (mModel->AnimationIsPreFinishCustom(0.8))
 			{
 				mWeaponCollider->SetActive(false);
@@ -1500,9 +2196,15 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 	}
 	else if (mModel->AnimationCompare(CLIP::ATTACK21) || mModel->AnimationCompare(CLIP::ATTACK22))
 	{
-
 		if (mModel->AnimationCompare(CLIP::ATTACK21))
 		{
+			if (!m_bSkillSound)
+			{
+				m_ePrevSkill = ATTACK21;
+				m_bSkillSound = true;
+				pGI->PlaySoundEx(L"Attack21.mp3", SOUND_CHANNEL::PLAYER_ATTACK21, CUSTOM_VOLUM, 0.5f);
+			}
+
 			if (mModel->AnimationIsPreFinishEx())
 			{
 				mSkillCollider->SetActive(true);
@@ -1516,10 +2218,37 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 
 		if (mModel->AnimationCompare(CLIP::ATTACK22))
 		{
+			if (!m_bSkillSound)
+			{
+				m_ePrevSkill = ATTACK22;
+				m_bSkillSound = true;
+				if (m_pNearEnemy)
+					pGI->PlaySoundEx(L"AttackE21.mp3", SOUND_CHANNEL::PLAYER_ATTACK22, CUSTOM_VOLUM, 0.5f);
+				else
+					pGI->PlaySoundEx(L"AttackE20.mp3", SOUND_CHANNEL::PLAYER_ATTACK22, CUSTOM_VOLUM, 0.5f);
+			}	
+
 			if (mModel->AnimationIsPreFinishCustom(0.2))
 			{
 				mSkillCollider->SetActive(true);
+
+				if (!m_bActiveBlueEffect)
+				{
+					m_bActiveBlueEffect = true;
+					m_pSkillBlueEffect->SetupPosition();
+				}
 			}
+
+			if (!m_bActiveBlueCamShake)
+			{
+				if (mModel->GetCurrentTimeAcc() >= 0.85)
+				{
+					m_bActiveBlueCamShake = true;
+					m_pCamera->AttackShake();
+					UseFootSmoke();
+				}
+			}
+
 
 			if (mModel->AnimationIsPreFinish())
 			{
@@ -1539,6 +2268,44 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 	}
 	else if (mModel->AnimationCompare(CLIP::ATTACK31) || mModel->AnimationCompare(CLIP::ATTACK32))
 	{
+		if (!m_bSkillSound)
+		{
+			if (mModel->AnimationCompare(ATTACK31))
+			{
+				m_ePrevSkill = ATTACK31;
+				m_bSkillSound = true;
+				m_PrevClip = ATTACK31;
+				pGI->PlaySoundEx(L"Attack31Ex.mp3", SOUND_CHANNEL::PLAYER_ATTACK31, CUSTOM_VOLUM, 0.5f);
+			}
+
+			if (m_pNearEnemy)
+			{
+				if (mModel->AnimationCompare(ATTACK32))
+				{
+					if (!m_bSkillSound)
+					{
+						m_ePrevSkill = ATTACK32;
+						m_bSkillSound = true;
+						pGI->PlaySoundEx(L"AttackE31.mp3", SOUND_CHANNEL::PLAYER_ATTACK32, CUSTOM_VOLUM, 0.5f);
+					}
+				}
+			}
+			else
+			{
+				if (mModel->AnimationCompare(ATTACK32))
+				{
+					if (!m_bSkillSound)
+					{
+						m_ePrevSkill = ATTACK32;
+						m_bSkillSound = true;
+						pGI->PlaySoundEx(L"AttackE30.mp3", SOUND_CHANNEL::PLAYER_ATTACK32, CUSTOM_VOLUM, 0.5f);
+					}
+				}
+			}
+		}
+
+
+
 		if (!m_bSkillYellowAttack && m_pNearEnemy)
 		{
 			if (mModel->AnimationIsPreFinishCustom(0.5))
@@ -1581,6 +2348,17 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 			m_bEnemyHolding = false;
 		}
 	}
+	
+
+	if (mModel->AnimationCompare(CLIP::MOVE1) ||
+		mModel->AnimationCompare(CLIP::MOVE2))
+	{
+		if (m_ePrevSkill == ATTACK12);
+		{
+			CGameInstance* pGI = CGameInstance::GetInstance();
+			pGI->StopSound(PLAYER_ATTACK12);
+		}
+	}
 
 	if (!mModel->AnimationCompare(CLIP::ATTACK11) &&
 		!mModel->AnimationCompare(CLIP::ATTACK21) &&
@@ -1591,8 +2369,11 @@ void CCharacter::SkillColliderControl(_double TimeDelta)
 		!mModel->AnimationCompare(CLIP::MOVE1) &&
 		!mModel->AnimationCompare(CLIP::MOVE2))
 	{
+		m_bSkillSound = false;
 		m_bUseSkill = false;
 		m_bSkillReady = true;
+		m_bActiveBlueEffect = false;
+		m_bActiveBlueCamShake = false;
 		//m_bAttackable = true;
 		//m_bMoveable = true;
 		//m_bDashable = true;
@@ -1603,7 +2384,9 @@ _bool CCharacter::IsCameraLockOn()
 {
 	CBoss* pBoss = dynamic_cast<CBoss*>(m_pNearEnemy);
 	if (pBoss)
-		return pBoss->IsSpawned();
+	{
+		return pBoss->IsSpawned() && m_pNearEnemy != nullptr;
+	}
 
 	return m_pNearEnemy != nullptr;
 }
@@ -1773,10 +2556,10 @@ void CCharacter::HoldEnemy()
 
 void CCharacter::Hit()
 {
+	CGameInstance* pGI = CGameInstance::GetInstance();
+
 	//대쉬 강화상태 변신중 힛 모션 쓰루
-	if (mModel->AnimationCompare(CLIP::MOVE1) ||
-		mModel->AnimationCompare(CLIP::MOVE2) ||
-		mModel->AnimationCompare(CLIP::ATTACK11) ||
+	if (mModel->AnimationCompare(CLIP::ATTACK11) ||
 		mModel->AnimationCompare(CLIP::ATTACK21) ||
 		mModel->AnimationCompare(CLIP::ATTACK31) ||
 		mModel->AnimationCompare(CLIP::ATTACK12) ||
@@ -1786,20 +2569,49 @@ void CCharacter::Hit()
 		mModel->AnimationCompare(CLIP::ATTACK42) ||
 		mModel->AnimationCompare(CLIP::ATTACK43) ||
 		mModel->AnimationCompare(CLIP::ATTACK44) ||
-		mModel->AnimationCompare(CLIP::ATTACK45) ||
-		mModel->AnimationCompare(CLIP::ATTACK51))
+		mModel->AnimationCompare(CLIP::ATTACK45))
 	{
+		pGI->StopSound(SOUND_CHANNEL::EVOLUTION);
 		return;
 	}
 
-	if (AnimationCompare(CLIP::MOVE1) || AnimationCompare(CLIP::MOVE2))
+	if (mModel->AnimationCompare(CLIP::ATTACK51))
 		return;
+
+	//m_fAttackVolume -= 0.2f * GetTimeDelta();
+	//pGI->SetSoundVolume(PLAYER_ATTACK1, SOUND_VOLUME::CUSTOM_VOLUM, m_fAttackVolume);
+	//pGI->SetSoundVolume(PLAYER_ATTACK2, SOUND_VOLUME::CUSTOM_VOLUM, m_fAttackVolume);
+	//pGI->SetSoundVolume(PLAYER_ATTACK3, SOUND_VOLUME::CUSTOM_VOLUM, m_fAttackVolume);
+	//pGI->SetSoundVolume(PLAYER_ATTACK4, SOUND_VOLUME::CUSTOM_VOLUM, m_fAttackVolume);
+	//pGI->SetSoundVolume(PLAYER_ATTACK5, SOUND_VOLUME::CUSTOM_VOLUM, m_fAttackVolume);
+
+	//if (!m_bHitSound)
+	//{
+	//	m_bHitSound = true;
+	//}
+
+	if (AnimationCompare(CLIP::MOVE1) || AnimationCompare(CLIP::MOVE2))
+	{
+		//pGI->StopSound(SOUND_CHANNEL::EVOLUTION);
+		return;
+	}
 
 	if (m_bUseSkill)
+	{
+		pGI->StopSound(SOUND_CHANNEL::EVOLUTION);
 		return;
+	}
 
 	if (m_bEvolution)
+	{
+		pGI->StopSound(SOUND_CHANNEL::EVOLUTION);
 		return;
+	}
+
+	if (!m_bHit)
+	{
+		pGI->PlaySoundEx(L"Hit.mp3", SOUND_CHANNEL::EVOLUTION, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
+	}
 
 	m_bHit = true;
 	m_bMoveable = false;
@@ -1949,8 +2761,16 @@ void CCharacter::RecvDamage(_float fDamage)
 
 _double CCharacter::Freeze(_double TimeDelta)
 {
+	CGameInstance* pGI = CGameInstance::GetInstance();
 	if (m_pAppManager->IsFreeze())
 	{
+		if (!m_bFreezeSound)
+		{
+			m_bFreezeSound = true;
+			pGI->PlaySoundEx(L"Slow.wav", SOUND_CHANNEL::SLOW, SOUND_VOLUME::CUSTOM_VOLUM, 1.f);
+			pGI->PlaySoundEx(L"Snap.mp3", SOUND_CHANNEL::SNAP, SOUND_VOLUME::CUSTOM_VOLUM, 0.8f);
+		}
+
 		m_pAppManager->SetFreezeReady(false);
 
 		_vector CurTimeDelta = XMVectorSet((_float)m_fCurTimeScale, (_float)m_fCurTimeScale, (_float)m_fCurTimeScale, (_float)m_fCurTimeScale);
@@ -1963,6 +2783,8 @@ _double CCharacter::Freeze(_double TimeDelta)
 
 		m_pAppManager->SetPlayerPrevPosition(vPrevPos);
 	}
+	else
+		m_bFreezeSound = false;
 
 	if (m_fCurTimeScale <= 0.1)
 	{
@@ -2088,7 +2910,8 @@ void CCharacter::AnimationControl(_double TimeDelta)
 		AnimationCompare(CLIP::HIT_FLY) ||
 		AnimationCompare(CLIP::FALLDOWN) ||
 		AnimationCompare(CLIP::STAND_UP) ||
-		AnimationCompare(CLIP::ATTACK45))
+		AnimationCompare(CLIP::ATTACK45) ||
+		AnimationCompare(CLIP::BORN))
 	{
 		mModel->Play_Animation(TimeDelta, mTransform, 0.03f, m_bRootMotion);
 	}
@@ -2112,12 +2935,67 @@ void CCharacter::AnimationControl(_double TimeDelta)
 		}
 
 		if (AnimationCompare(CLIP::STAND2))
+		{
 			mModel->Play_Animation(TimeDelta, mTransform, 0.01f, m_bRootMotion);
+		}
 		else
+		{
 			mModel->Play_Animation(TimeDelta, mTransform, 0.1f, m_bRootMotion);
+		}
 	}
 	else
+	{
 		mModel->Play_Animation(TimeDelta, mTransform);
+		
+	}
+
+	if (mModel->AnimationCompare(CLIP::MOVE1))
+	{
+		if (mModel->AnimationIsPreFinishCustom(0.1))
+		{
+			if (!m_bDashEffect)
+			{
+				m_bDashEffect = true;
+				m_pDashSprite->StartEffect(mTransform);
+			}
+		}
+
+		if(mModel->AnimationIsFinishEx())
+			m_bDashEffect = false;
+	}
+	else
+		m_bDashEffect = false;
+
+	for (int i = 0; i < PREV_COUNT; ++i)
+	{
+		//모션이 사용중
+		if (m_bMotionIsUse[i])
+		{
+			m_fMotionAlphaAcc[i] += TimeDelta;
+			if (m_fMotionAlphaAcc[i] >= 1.f)
+			{
+				m_fMotionAlphaAcc[i] = 0.f;
+				m_bMotionIsUse[i] = false;
+			}
+		}
+	}
+
+	//모션 잔상 생성
+	if (m_bEvolitionMotionFinish || m_pAppManager->IsFreeze())
+	{
+		m_fMotionAcc += TimeDelta;
+		if (m_fMotionAcc >= 0.25f)
+		{
+			m_fMotionAcc = 0.f;
+			CurrentMotionCapture();
+		}
+	}
+
+	if (mModel->AnimationCompare(CLIP::BORN))
+	{
+		if(mModel->AnimationIsFinishEx())
+			m_bBornFinish = true;
+	}
 }
 
 void CCharacter::CameraSocketUpdate()
@@ -2322,6 +3200,16 @@ void CCharacter::AddEvolutionGage(CSkillBase::SKILL_INFO SkillInfo)
 	}
 }
 
+_bool CCharacter::IsCurrentActionEvolution()
+{
+	return mModel->AnimationCompare(CLIP::ATTACK51);
+}
+
+_bool CCharacter::IsCurrentActionEvolutionFinish()
+{
+	return mModel->AnimationIsFinishEx();
+}
+
 void CCharacter::InputMove(_double TimeDelta)
 {
 	if (m_bStart)
@@ -2423,6 +3311,14 @@ _bool CCharacter::FinishCheckPlay(CLIP eClip, CAnimation::TYPE eAnimationType)
 	}
 
 	return false;
+}
+
+_double CCharacter::GetTimeDelta() const
+{
+	if (m_pAppManager->IsFreeze())
+		return m_TimeDelta * m_fCurTimeScale;
+	else
+		return m_TimeDelta;
 }
 
 CSwordTrail * CCharacter::GetNotUsedEffect()
@@ -2775,6 +3671,66 @@ void CCharacter::AttackEffectControl(_double TimeDelta)
 
 }
 
+void CCharacter::CalcFootHeight()
+{
+	_vector vPos = mTransform->Get_State(CTransform::STATE_POSITION);
+	_vector vLook = XMVector3Normalize(mTransform->Get_State(CTransform::STATE_LOOK));
+
+	_matrix LeftFootMatrix = XMLoadFloat4x4(&LeftFoot->GetOffSetMatrix())
+		* XMLoadFloat4x4(&LeftFoot->GetCombinedMatrix())
+		* XMLoadFloat4x4(&mModel->GetLocalMatrix())
+		* XMLoadFloat4x4(&mTransform->Get_WorldMatrix());
+
+	_matrix RightFootMatrix = XMLoadFloat4x4(&RightFoot->GetOffSetMatrix())
+		* XMLoadFloat4x4(&RightFoot->GetCombinedMatrix())
+		* XMLoadFloat4x4(&mModel->GetLocalMatrix())
+		* XMLoadFloat4x4(&mTransform->Get_WorldMatrix());
+
+	vPos = vPos - vLook * 0.3f;
+
+	_vector vLeftFootPosition = LeftFootMatrix.r[3];
+	vLeftFootPosition = vLeftFootPosition - vLook * 0.3f;
+
+	_vector vRightFootPosition = RightFootMatrix.r[3];
+	vRightFootPosition = vRightFootPosition - vLook * 0.3f;
+
+	_float fLeftHeight = XMVectorGetY(vLeftFootPosition);
+	_float fRightHeight = XMVectorGetY(vRightFootPosition);
+
+	if (fLeftHeight >= 0.07f)
+		m_bFootAir[0] = true;
+
+	if (fRightHeight >= 0.07f)
+		m_bFootAir[1] = true;
+
+	if (m_bFootAir[0] && fLeftHeight <= 0.02f)
+	{
+		for (int i = 0; i < 10; ++i)
+		{
+			if (!m_pFoot[i]->IsRender())
+			{
+				m_pFoot[i]->StartEffect(vLeftFootPosition);
+				m_bFootAir[0] = false;
+				break;
+			}
+		}
+	}
+
+	if (m_bFootAir[1] && fRightHeight <= 0.02f)
+	{
+		for (int i = 0; i < 10; ++i)
+		{
+			if (!m_pFoot[i]->IsRender())
+			{
+				m_pFoot[i]->StartEffect(vRightFootPosition);
+				m_bFootAir[1] = false;
+				break;
+			}
+		}
+	}
+
+}
+
 CCharacter* CCharacter::Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 {
 	CCharacter*	pInstance = new CCharacter(pDevice, pContext);
@@ -2818,8 +3774,25 @@ void CCharacter::Free()
 	Safe_Release(mModel);
 	Safe_Release(mShader);
 
+	Safe_Release(m_pTextureStart);
+	Safe_Release(m_pTextureEnd);
+	Safe_Release(m_pTexShader);
+
 	for (int i = 0; i < SWORD_EFFECT_COUNT; ++i)
 		Safe_Release(m_pSwordTrail[i]);
+}
+
+_bool CCharacter::IsStartMotion()
+{
+	if (mModel->AnimationCompare(CLIP::BORN))
+	{
+		if (mModel->AnimationIsPreFinishCustom(0.05f))
+			return true;
+		else
+			return false;
+	}
+	else
+		return false;
 }
 
 void CCharacter::OnCollisionEnter(CCollider * src, CCollider * dest)

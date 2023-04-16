@@ -37,8 +37,8 @@ HRESULT CBackGround::Initialize(void * pArg)
 
 	m_fRotWidth = 60.f;
 	m_fRotHeight = 60.f;
-	m_fRotX = g_iWinSizeX - 60.f;
-	m_fRotY = g_iWinSizeY - 60.f;
+	m_fRotX = g_iWinSizeX - 55.f;
+	m_fRotY = g_iWinSizeY - 55.f;
 
 	XMStoreFloat4x4(&m_RotMatrix, XMMatrixScaling(m_fRotWidth, m_fRotHeight, 1.f) * XMMatrixTranslation(m_fRotX - g_iWinSizeX * 0.5f, -m_fRotY + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
@@ -55,6 +55,28 @@ void CBackGround::Tick(_double TimeDelta)
 	m_fAngle += TimeDelta * (_float)2.0;
 	//if (m_fAngle > 3.141592 * 2.f)
 	//	m_fAngle = 0.f;
+
+	if (m_bToggle)
+	{
+		m_fAlpha += TimeDelta;
+		if (m_fAlpha >= 1.f)
+		{
+			m_bToggle = false;
+		}
+	}
+
+	if (m_bEnd)
+	{
+		if (!bWarningSound)
+		{
+			bWarningSound = true;
+			CGameInstance* pGameInstance = CGameInstance::GetInstance();
+			pGameInstance->PlaySoundEx(L"Warning.wav", SOUND_CHANNEL::WARNING, SOUND_VOLUME::CUSTOM_VOLUM, 0.7f);
+		}
+
+		m_fAlpha -= TimeDelta;
+		m_fEndAcc += TimeDelta;
+	}
 
 	XMStoreFloat4x4(&m_RotMatrix, XMMatrixScaling(m_fRotWidth, m_fRotHeight, 1.f) * XMMatrixRotationZ(-m_fAngle) * XMMatrixTranslation(m_fRotX - g_iWinSizeX * 0.5f, -m_fRotY + g_iWinSizeY * 0.5f, 0.f));
 }
@@ -74,15 +96,19 @@ HRESULT CBackGround::Render()
 
 	if (FAILED(Setup_ShaderResources()))
 		return E_FAIL;
-
-	m_pShader->Begin(0);
+	if (FAILED(m_pGradientMask->Setup_ShaderResource(m_pShader, "g_MaskTexture")))
+		return E_FAIL;
+	//백그라운드
+	m_pShader->Begin(8);
 	m_pVIBuffer->Render();
 
+	//뱅글뱅글 로딩 게이지
 	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_RotMatrix)))
 		return E_FAIL;
 	if (FAILED(m_pRotationTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
 		return E_FAIL;
 
+	m_pShader->SetRawValue("g_TimeAcc", &m_fAlpha, sizeof(float));
 	m_pShader->Begin(6);
 	m_pVIBuffer->Render();
 
@@ -117,6 +143,10 @@ HRESULT CBackGround::Add_Components()
 
 	if (FAILED(__super::Add_Component(LEVEL_LOADING, TEXT("proto_com_texture_loading"),
 		TEXT("com_texture_loading"), (CComponent**)&m_pRotationTexture)))
+		return E_FAIL;
+
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_gradmask"),
+		TEXT("con_texture_gradmask"), (CComponent**)&m_pGradientMask)))
 		return E_FAIL;
 
 	return S_OK;

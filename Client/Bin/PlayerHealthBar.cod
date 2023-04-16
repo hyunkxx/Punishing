@@ -1218,6 +1218,10 @@ CONST	SEGMENT
 	DD	0b9500bf1r			; -0.000198409
 	DD	03638b88er			; 2.75256e-06
 CONST	ENDS
+CONST	SEGMENT
+?value@?1??Render@CPlayerHealthBar@Client@@UEAAJXZ@4MB DD 03f800000r ; 1 ; `Client::CPlayerHealthBar::Render'::`2'::value
+?discardValue@?1??Render@CPlayerHealthBar@Client@@UEAAJXZ@4MB DD 000000000r ; 0 ; `Client::CPlayerHealthBar::Render'::`2'::discardValue
+CONST	ENDS
 ;	COMDAT ?g_UnitPlaneEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B
 CONST	SEGMENT
 ?g_UnitPlaneEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B DD 038d1b717r ; 0.0001 ; DirectX::Internal::g_UnitPlaneEpsilon
@@ -1238,10 +1242,6 @@ CONST	SEGMENT
 	DD	038d1b717r			; 0.0001
 	DD	038d1b717r			; 0.0001
 	DD	038d1b717r			; 0.0001
-CONST	ENDS
-CONST	SEGMENT
-?value@?1??Render@CPlayerHealthBar@Client@@UEAAJXZ@4MB DD 03f800000r ; 1 ; `Client::CPlayerHealthBar::Render'::`2'::value
-?discardValue@?1??Render@CPlayerHealthBar@Client@@UEAAJXZ@4MB DD 000000000r ; 0 ; `Client::CPlayerHealthBar::Render'::`2'::discardValue
 CONST	ENDS
 ;	COMDAT ?YellowGreen@Colors@DirectX@@3UXMVECTORF32@2@B
 CONST	SEGMENT
@@ -2522,13 +2522,15 @@ PUBLIC	__real@3f800000
 PUBLIC	__real@3ff8000000000000
 PUBLIC	__real@40000000
 PUBLIC	__real@40a00000
+PUBLIC	__real@41000000
 PUBLIC	__real@41200000
-PUBLIC	__real@41600000
+PUBLIC	__real@41500000
+PUBLIC	__real@41880000
 PUBLIC	__real@41a00000
 PUBLIC	__real@41c80000
-PUBLIC	__real@41f00000
-PUBLIC	__real@420c0000
+PUBLIC	__real@42040000
 PUBLIC	__real@42480000
+PUBLIC	__real@428c0000
 PUBLIC	__real@42960000
 PUBLIC	__real@42c80000
 PUBLIC	__real@432f0000
@@ -3555,17 +3557,17 @@ CONST	ENDS
 CONST	SEGMENT
 __real@42960000 DD 042960000r			; 75
 CONST	ENDS
+;	COMDAT __real@428c0000
+CONST	SEGMENT
+__real@428c0000 DD 0428c0000r			; 70
+CONST	ENDS
 ;	COMDAT __real@42480000
 CONST	SEGMENT
 __real@42480000 DD 042480000r			; 50
 CONST	ENDS
-;	COMDAT __real@420c0000
+;	COMDAT __real@42040000
 CONST	SEGMENT
-__real@420c0000 DD 0420c0000r			; 35
-CONST	ENDS
-;	COMDAT __real@41f00000
-CONST	SEGMENT
-__real@41f00000 DD 041f00000r			; 30
+__real@42040000 DD 042040000r			; 33
 CONST	ENDS
 ;	COMDAT __real@41c80000
 CONST	SEGMENT
@@ -3575,13 +3577,21 @@ CONST	ENDS
 CONST	SEGMENT
 __real@41a00000 DD 041a00000r			; 20
 CONST	ENDS
-;	COMDAT __real@41600000
+;	COMDAT __real@41880000
 CONST	SEGMENT
-__real@41600000 DD 041600000r			; 14
+__real@41880000 DD 041880000r			; 17
+CONST	ENDS
+;	COMDAT __real@41500000
+CONST	SEGMENT
+__real@41500000 DD 041500000r			; 13
 CONST	ENDS
 ;	COMDAT __real@41200000
 CONST	SEGMENT
 __real@41200000 DD 041200000r			; 10
+CONST	ENDS
+;	COMDAT __real@41000000
+CONST	SEGMENT
+__real@41000000 DD 041000000r			; 8
 CONST	ENDS
 ;	COMDAT __real@40a00000
 CONST	SEGMENT
@@ -10139,7 +10149,7 @@ $LN4:
 
   00068	4c 8b 85 e0 00
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
-  0006f	ba 04 00 00 00	 mov	 edx, 4
+  0006f	ba 05 00 00 00	 mov	 edx, 5
   00074	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0007b	48 8b 88 c8 01
@@ -10225,7 +10235,7 @@ $LN3:
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   0004c	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 53   : 	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth - 75.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fX + 30.f - g_iWinSizeX * 0.5f, -m_fY + 35.f + g_iWinSizeY * 0.5f, 0.f));
+; 53   : 	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth - 70.f, m_fHeight - 8.f, 1.f) * XMMatrixTranslation(m_fX + 50.f - g_iWinSizeX * 0.5f, -m_fY + 33.f + g_iWinSizeY * 0.5f, 0.f));
 
   00050	48 8b 85 00 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10233,14 +10243,14 @@ $LN3:
   0005c	0f 57 05 00 00
 	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
   00063	f3 0f 58 05 00
-	00 00 00	 addss	 xmm0, DWORD PTR __real@420c0000
+	00 00 00	 addss	 xmm0, DWORD PTR __real@42040000
   0006b	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
   00073	48 8b 85 00 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0007a	f3 0f 10 48 78	 movss	 xmm1, DWORD PTR [rax+120]
   0007f	f3 0f 58 0d 00
-	00 00 00	 addss	 xmm1, DWORD PTR __real@41f00000
+	00 00 00	 addss	 xmm1, DWORD PTR __real@42480000
   00087	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
   0008f	f3 0f 11 8d d4
@@ -10271,13 +10281,13 @@ $LN3:
   000e8	f3 0f 10 80 84
 	00 00 00	 movss	 xmm0, DWORD PTR [rax+132]
   000f0	f3 0f 5c 05 00
-	00 00 00	 subss	 xmm0, DWORD PTR __real@41200000
+	00 00 00	 subss	 xmm0, DWORD PTR __real@41000000
   000f8	48 8b 85 00 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000ff	f3 0f 10 88 80
 	00 00 00	 movss	 xmm1, DWORD PTR [rax+128]
   00107	f3 0f 5c 0d 00
-	00 00 00	 subss	 xmm1, DWORD PTR __real@42960000
+	00 00 00	 subss	 xmm1, DWORD PTR __real@428c0000
   0010f	f3 0f 11 8d d8
 	09 00 00	 movss	 DWORD PTR tv77[rbp], xmm1
   00117	f3 0f 10 15 00
@@ -10344,7 +10354,7 @@ $LN3:
   001ee	48 8b c8	 mov	 rcx, rax
   001f1	e8 00 00 00 00	 call	 ?XMStoreFloat4x4@DirectX@@YQXPEAUXMFLOAT4X4@1@UXMMATRIX@1@@Z ; DirectX::XMStoreFloat4x4
 
-; 54   : 	XMStoreFloat4x4(&m_PlayerDashMatrix, XMMatrixScaling(m_fWidth - 75.f, m_fHeight - 14.f, 1.f) * XMMatrixTranslation(m_fX + 30.f - g_iWinSizeX * 0.5f, -m_fY + 20.f + g_iWinSizeY * 0.5f, 0.f));
+; 54   : 	XMStoreFloat4x4(&m_PlayerDashMatrix, XMMatrixScaling(m_fWidth - 70.f, m_fHeight - 13.f, 1.f) * XMMatrixTranslation(m_fX + 50.f - g_iWinSizeX * 0.5f, -m_fY + 17.f + g_iWinSizeY * 0.5f, 0.f));
 
   001f6	48 8b 85 00 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10352,14 +10362,14 @@ $LN3:
   00202	0f 57 05 00 00
 	00 00		 xorps	 xmm0, DWORD PTR __xmm@80000000800000008000000080000000
   00209	f3 0f 58 05 00
-	00 00 00	 addss	 xmm0, DWORD PTR __real@41a00000
+	00 00 00	 addss	 xmm0, DWORD PTR __real@41880000
   00211	f3 0f 58 05 00
 	00 00 00	 addss	 xmm0, DWORD PTR __real@43b40000
   00219	48 8b 85 00 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   00220	f3 0f 10 48 78	 movss	 xmm1, DWORD PTR [rax+120]
   00225	f3 0f 58 0d 00
-	00 00 00	 addss	 xmm1, DWORD PTR __real@41f00000
+	00 00 00	 addss	 xmm1, DWORD PTR __real@42480000
   0022d	f3 0f 5c 0d 00
 	00 00 00	 subss	 xmm1, DWORD PTR __real@44200000
   00235	f3 0f 11 8d d4
@@ -10390,13 +10400,13 @@ $LN3:
   0028e	f3 0f 10 80 84
 	00 00 00	 movss	 xmm0, DWORD PTR [rax+132]
   00296	f3 0f 5c 05 00
-	00 00 00	 subss	 xmm0, DWORD PTR __real@41600000
+	00 00 00	 subss	 xmm0, DWORD PTR __real@41500000
   0029e	48 8b 85 00 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   002a5	f3 0f 10 88 80
 	00 00 00	 movss	 xmm1, DWORD PTR [rax+128]
   002ad	f3 0f 5c 0d 00
-	00 00 00	 subss	 xmm1, DWORD PTR __real@42960000
+	00 00 00	 subss	 xmm1, DWORD PTR __real@428c0000
   002b5	f3 0f 11 8d d8
 	09 00 00	 movss	 DWORD PTR tv134[rbp], xmm1
   002bd	f3 0f 10 15 00

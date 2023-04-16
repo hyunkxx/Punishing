@@ -73,10 +73,9 @@ BlendState BS_AlphaBlend
 	BlendEnable[0] = true;
 	BlendEnable[1] = true;
 
-/* 인덱스 지정 선택 */
-BlendOp = add;
+	/* 인덱스 지정 선택 */
+	BlendOp = add;
 	SrcBlend = src_alpha;
 	DestBlend = Inv_src_alpha;
 };
-
 

@@ -9,7 +9,7 @@ class CGameObject;
 class ENGINE_DLL CRenderer final : public CComponent
 {
 public:
-	enum RENDER_GROUP { RENDER_PRIORITY, RENDER_NONALPHA, RENDER_NONLIGHT, RENDER_ALPHABLEND, RENDER_UI, RENDER_ENDING, RENDER_END };
+	enum RENDER_GROUP { RENDER_PRIORITY, RENDER_NONALPHA, RENDER_NONLIGHT, RENDER_ALPHABLEND, RENDER_EFFECT, RENDER_UI, RENDER_ENDING, RENDER_END };
 private:
 	CRenderer(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	virtual ~CRenderer() = default;
@@ -35,6 +35,7 @@ private:
 	void RenderNonAlpha();
 	void RenderNonLight();
 	void RenderAlphaBlend();
+	void RenderEffect();
 	void RenderUI();
 	void RenderEnding();//이거 카메라에서 쓰는데 일단 냅둠
 
@@ -50,11 +51,13 @@ private:
 	class CBlurEffect* m_pBlurEffect = nullptr; //RGB 블러
 	class CScreenBlurEffect* m_pScreenBlurEffect = nullptr; //스크린블러
 	class CDistortionEffect* m_pDistortionEffect = nullptr; //Distortion 이펙트
+	class CShadow* m_pShadow = nullptr; // 쉐도우
 
 	class CShader* m_pPostEffectShader = nullptr;
 	class CShader* m_pBlurEffectShader = nullptr;
 	class CShader* m_pScreenBlurEffectShader = nullptr;
 	class CShader* m_pDistortionEffectShader = nullptr;
+	class CShader* m_pShadowShader = nullptr;
 
 };
 

@@ -10,7 +10,10 @@
 #include "Boss.h"
 #include "SpawnEffect.h"
 #include "FloorCircle.h"
+#include "FootSmoke.h"
+#include "DamageFont.h"
 
+#include "WarningImage.h"
 _uint CEnemy::s_iCount = 0;
 
 CEnemy::CEnemy(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
@@ -76,8 +79,8 @@ HRESULT CEnemy::Initialize(void * pArg)
 	{
 		case TYPE::HUMANOID:
 		{
-			m_State.fMaxHp = 1000.f;
-			m_State.fCurHp = 1000.f;
+			m_State.fMaxHp = 4000.f;
+			m_State.fCurHp = 4000.f;
 			m_pWeaponBone = model->GetBonePtr("BulletCase");
 
 			wsprintfW(szName, L"spawn_effect%d", s_iCount);
@@ -88,12 +91,17 @@ HRESULT CEnemy::Initialize(void * pArg)
 			vScale = { vScale.x , vScale.y , vScale.z  };
 			m_pSpawnEffect->SetScale(vScale);
 
+			wsprintfW(szName, L"spawn_smoke%d", s_iCount);
+			if (nullptr == (m_pFootSmoke = (CFootSmoke*)pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_footsmoke", L"layer_effect", szName, this)))
+				return E_FAIL;
+			m_pFootSmoke->SetSaveScale(5.f);
+			m_pFootSmoke->SetType(CFootSmoke::FOOT::ENEMY);
 			break;
 		}
 		case TYPE::ANIMAL:
 		{
-			m_State.fMaxHp = 1000.f;
-			m_State.fCurHp = 1000.f;
+			m_State.fMaxHp = 5000.f;
+			m_State.fCurHp = 5000.f;
 			m_pWeaponBone = model->GetBonePtr("Bip001");
 
 			wsprintfW(szName, L"spawn_effect%d", s_iCount);
@@ -104,6 +112,11 @@ HRESULT CEnemy::Initialize(void * pArg)
 			vScale = { vScale.x, vScale.y , vScale.z };
 			m_pSpawnEffect->SetScale(vScale);
 
+			wsprintfW(szName, L"spawn_smoke%d", s_iCount);
+			if (nullptr == (m_pFootSmoke = (CFootSmoke*)pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_footsmoke", L"layer_effect", szName, this)))
+				return E_FAIL;
+			m_pFootSmoke->SetSaveScale(5.f);
+			m_pFootSmoke->SetType(CFootSmoke::FOOT::ENEMY);
 			break;
 		}
 	}
@@ -152,7 +165,7 @@ void CEnemy::LateTick(_double TimeDelta)
 {
 	TimeDelta = Freeze(TimeDelta);
 
-	m_pSpawnEffect->SetTransfrom(transform->Get_State(CTransform::STATE_POSITION));
+	m_pSpawnEffect->SetTransfrom(transform->Get_WorldMatrix());
 
 	__super::LateTick(TimeDelta);
 	
@@ -165,6 +178,14 @@ void CEnemy::LateTick(_double TimeDelta)
 	collider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));
 	m_pOverlapCollider->Update(XMLoadFloat4x4(&overlapMatrix));
 	m_pWeaponCollider->Update(XMLoadFloat4x4(&transform->Get_WorldMatrix()));	
+
+	if (m_pPlayer->IsCurrentActionEvolution())
+	{
+		m_bAlpha = true;
+		if (m_pPlayer->IsCurrentActionEvolutionFinish())
+			m_bAlpha = false;
+	}
+
 
 	if (nullptr != renderer)
 		renderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
@@ -179,19 +200,21 @@ HRESULT CEnemy::Render()
 		return E_FAIL;
 
 	_uint MeshCount = model->Get_MeshCount();
-	if (m_bDead)
+
+	if (m_bSpawnWait)
 	{
 		for (_uint i = 0; i < MeshCount; ++i)
 		{
 			if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
 				continue;
 
+			float revAmount = 1.f - (m_fSpawnWaitAcc * 0.7f);
 			model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
 			m_pDissolveTexture->Setup_ShaderResource(shader, "g_DissolveTexture", 0);
-			shader->SetRawValue("g_fDissolveAmount", &m_fDeadWaitTimer, sizeof(float));
+			shader->SetRawValue("g_fDissolveAmount", &revAmount, sizeof(float));
 
 			model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
-			shader->Begin(4);
+			shader->Begin(8);
 
 			model->Render(i);
 
@@ -199,25 +222,72 @@ HRESULT CEnemy::Render()
 	}
 	else
 	{
-		for (_uint i = 0; i < MeshCount; ++i)
+		if (m_bDead)
 		{
-			if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
-				continue;
+			for (_uint i = 0; i < MeshCount; ++i)
+			{
+				if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
+					continue;
 
-			model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
-			model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
+				model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+				m_pDissolveTexture->Setup_ShaderResource(shader, "g_DissolveTexture", 0);
+				shader->SetRawValue("g_fDissolveAmount", &m_fDeadWaitTimer, sizeof(float));
 
-			if (m_bAlpha)
-				shader->Begin(1);
+				model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
+				shader->Begin(4);
+
+				model->Render(i);
+
+			}
+		}
+		else
+		{
+			if (m_pAppManager->IsFreeze())
+			{
+				for (_uint i = 0; i < MeshCount; ++i)
+				{
+					if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
+						continue;
+
+					model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+					model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
+
+					if (m_bAlpha)
+						shader->Begin(1);
+					else
+						shader->Begin(0);
+
+					model->Render(i);
+
+					shader->Begin(9);
+					model->Render(i);
+				}
+			}
 			else
-				shader->Begin(0);
+			{
+				for (_uint i = 0; i < MeshCount; ++i)
+				{
+					if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
+						continue;
 
-			model->Render(i);
+					model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+					model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
 
-			shader->Begin(3);
-			model->Render(i);
+					if (m_bAlpha)
+						shader->Begin(1);
+					else
+						shader->Begin(0);
+
+					model->Render(i);
+
+					shader->Begin(3);
+					model->Render(i);
+				}
+			}
 		}
 	}
+
+
 
 	return S_OK;
 }
@@ -238,13 +308,16 @@ void CEnemy::LookPlayer()
 
 _float2 CEnemy::Reset(_float3 vPos, _float fRadius)
 {
+	CGameInstance::GetInstance()->PlaySoundEx(L"Spawn.mp3", SOUND_CHANNEL::WARNING, SOUND_VOLUME::CUSTOM_VOLUM, 0.1f);
+
 	m_eState = STATE::ACTIVE;
 
 	m_bDead = false;
 	m_bDeadWait = false;
 	m_pSpawnEffect->SetRender(false);
 	m_bSpawnEffect = false;
-
+	m_bSpawnSmoke = false;
+	
 	_float2 iRandomPos = {0.f, 0.f};
 
 	iRandomPos.x = (rand() % (int)fRadius) - ((int)fRadius >> 1) + (int)vPos.x;
@@ -377,6 +450,12 @@ HRESULT CEnemy::AddComponents()
 			return E_FAIL;
 		static_cast<CFloorCircle*>(pCircle)->SetType(CFloorCircle::CIRCLE_ENEMY);
 	}
+
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	_tchar szTag[MAX_PATH] = L"";
+	wsprintf(szTag, L"warning%d", s_iCount);
+	if (nullptr == (m_pWarning = (CWarningImage*)pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_warning", L"layer_effect", szTag)))
+		return E_FAIL;
 
 	return S_OK;
 }
@@ -677,7 +756,7 @@ _bool CEnemy::Hit(_double TimeDelta)
 		else if (m_iRandomHitAnim == 1)
 			model->Setup_Animation((_uint)CLIP_TWO::HIT2, CAnimation::TYPE::ONE, true);
 	}
-
+	
 	if (model->AnimationIsFinishEx())
 	{
 		m_bHitStart = false;
@@ -759,6 +838,13 @@ void CEnemy::NuckBack(_double TimeDelta)
 void CEnemy::Airborne(_double TimeDelta)
 {
 	m_bRotationFinish = false;
+
+	m_bTraceFinish = false;
+	m_fAttackCoolTimer = 0.f;
+	m_bAttack = false;
+	m_bAttackOneCall = false;
+	m_bAttackCollision = false;
+	m_pWeaponCollider->SetActive(false);
 
 	if (m_bAir)
 	{
@@ -908,6 +994,14 @@ void CEnemy::AnimationState(_double TimeDelta)
 	//스폰됬을떄 대기
 	if (m_bSpawnWait)
 	{
+		m_pWeaponCollider->SetActive(false);
+
+		if (!m_bSpawnSmoke)
+		{
+			m_bSpawnSmoke = true;
+			m_pFootSmoke->StartEffect();
+		}
+
 		if (!m_bSpawnEffect)
 		{
 			m_pSpawnEffect->SetRender(true);
@@ -1048,6 +1142,9 @@ void CEnemy::AnimationState(_double TimeDelta)
 					{
 						m_bAttack = true;
 						m_fAttackCoolTimer = 0.f;
+						
+						m_pWarning->SetStartEffect(transform, 1.3f);
+						CGameInstance::GetInstance()->PlaySoundEx(L"AttackSignal.wav", SOUND_CHANNEL::SIGNAL, CUSTOM_VOLUM, 0.5f);
 					}
 				}
 			}
@@ -1068,11 +1165,37 @@ void CEnemy::AnimationState(_double TimeDelta)
 
 				if (model->AnimationIsFinishEx())
 				{
+					m_fAttackCoolTimer = 0.f;
 					m_bAttack = false;
 					m_bAttackOneCall = false;
 					m_bAttackCollision = false;
 					m_pWeaponCollider->SetActive(false);
 				}
+
+				if (m_eType == TYPE::ANIMAL)
+				{
+					if (!model->AnimationCompare((_uint)CLIP_TWO::ATTACK1))
+					{
+						m_fAttackCoolTimer = 0.f;
+						m_bAttack = false;
+						m_bAttackOneCall = false;
+						m_bAttackCollision = false;
+						m_pWeaponCollider->SetActive(false);
+					}
+				}
+				else
+				{
+					if (!model->AnimationCompare((_uint)CLIP_TWO::ATTACK4))
+					{
+						m_fAttackCoolTimer = 0.f;
+						m_bAttack = false;
+						m_bAttackOneCall = false;
+						m_bAttackCollision = false;
+						m_pWeaponCollider->SetActive(false);
+					}
+
+				}
+
 			}
 
 			if (model->AnimationIsFinishEx())
@@ -1083,6 +1206,8 @@ void CEnemy::AnimationState(_double TimeDelta)
 	//공격중이 아닌데 켜져있으면 끄자 && 초산 공간일떄도 
 	if(m_pAppManager->IsFreeze() || (!m_bAttack && m_pWeaponCollider->IsActive()))
 		m_pWeaponCollider->SetActive(false);
+
+
 
 	if (m_bNuckback)
 	{
@@ -1205,7 +1330,6 @@ void CEnemy::OnCollisionEnter(CCollider * src, CCollider * dest)
 					}
 				}
 			}
-
 
 			m_bHit = true;
 			RecvDamage(pPlayer->GetDamage());

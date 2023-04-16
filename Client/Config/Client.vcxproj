@@ -106,7 +106,7 @@
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>../Public/;./;../../Reference/Headers</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Public/;./;../../Reference/Headers;../../Engine/Public/Fmod/</AdditionalIncludeDirectories>
       <AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
       <AssemblerOutput>All</AssemblerOutput>
     </ClCompile>
@@ -187,13 +187,21 @@
     <ClInclude Include="..\public\BackGround.h" />
     <ClInclude Include="..\public\Boss.h" />
     <ClInclude Include="..\Public\BossRoom.h" />
+    <ClInclude Include="..\public\Buff.h" />
+    <ClInclude Include="..\public\BuffHandler.h" />
     <ClInclude Include="..\Public\Client_Defines.h" />
+    <ClInclude Include="..\public\Cloud.h" />
     <ClInclude Include="..\public\DamageFont.h" />
+    <ClInclude Include="..\public\DashSprite.h" />
     <ClInclude Include="..\public\EnemySpawner.h" />
+    <ClInclude Include="..\Public\EvolutionEffect.h" />
     <ClInclude Include="..\public\FloorCircle.h" />
     <ClInclude Include="..\public\Flower.h" />
+    <ClInclude Include="..\public\FootSmoke.h" />
+    <ClInclude Include="..\Public\Footstep.h" />
     <ClInclude Include="..\public\PlayerHealthBar.h" />
     <ClInclude Include="..\Public\PlayerIcon.h" />
+    <ClInclude Include="..\public\Robby.h" />
     <ClInclude Include="..\public\SkillBallSystem.h" />
     <ClInclude Include="..\public\DynamicCamera.h" />
     <ClInclude Include="..\public\Enemy.h" />
@@ -209,12 +217,15 @@
     <ClInclude Include="..\public\City.h" />
     <ClInclude Include="..\public\PlayerCamera.h" />
     <ClInclude Include="..\public\SkillBase.h" />
+    <ClInclude Include="..\public\SkillBlueEffect.h" />
     <ClInclude Include="..\public\Skybox.h" />
     <ClInclude Include="..\Public\SpawnEffect.h" />
+    <ClInclude Include="..\public\Sprite.h" />
     <ClInclude Include="..\public\StageCollisionManager.h" />
     <ClInclude Include="..\Public\SwordTrail.h" />
     <ClInclude Include="..\public\Thorn.h" />
     <ClInclude Include="..\public\Wall.h" />
+    <ClInclude Include="..\public\WarningImage.h" />
     <ClInclude Include="..\public\Weapon.h" />
     <ClInclude Include="..\public\Terrain.h" />
     <ClInclude Include="Client.h" />
@@ -256,12 +267,20 @@
     <ClCompile Include="..\private\BackGround.cpp" />
     <ClCompile Include="..\private\Boss.cpp" />
     <ClCompile Include="..\Private\BossRoom.cpp" />
+    <ClCompile Include="..\private\Buff.cpp" />
+    <ClCompile Include="..\private\BuffHandler.cpp" />
+    <ClCompile Include="..\private\Cloud.cpp" />
     <ClCompile Include="..\private\DamageFont.cpp" />
+    <ClCompile Include="..\private\DashSprite.cpp" />
     <ClCompile Include="..\private\EnemySpawner.cpp" />
+    <ClCompile Include="..\Private\EvolutionEffect.cpp" />
     <ClCompile Include="..\private\FloorCircle.cpp" />
     <ClCompile Include="..\private\Flower.cpp" />
+    <ClCompile Include="..\private\FootSmoke.cpp" />
+    <ClCompile Include="..\Private\Footstep.cpp" />
     <ClCompile Include="..\private\PlayerHealthBar.cpp" />
     <ClCompile Include="..\Private\PlayerIcon.cpp" />
+    <ClCompile Include="..\private\Robby.cpp" />
     <ClCompile Include="..\private\SkillBallSystem.cpp" />
     <ClCompile Include="..\private\DynamicCamera.cpp" />
     <ClCompile Include="..\private\Enemy.cpp" />
@@ -277,12 +296,15 @@
     <ClCompile Include="..\private\City.cpp" />
     <ClCompile Include="..\private\PlayerCamera.cpp" />
     <ClCompile Include="..\private\SkillBase.cpp" />
+    <ClCompile Include="..\private\SkillBlueEffect.cpp" />
     <ClCompile Include="..\private\Skybox.cpp" />
     <ClCompile Include="..\Private\SpawnEffect.cpp" />
+    <ClCompile Include="..\private\Sprite.cpp" />
     <ClCompile Include="..\private\StageCollisionManager.cpp" />
     <ClCompile Include="..\Private\SwordTrail.cpp" />
     <ClCompile Include="..\private\Thorn.cpp" />
     <ClCompile Include="..\private\Wall.cpp" />
+    <ClCompile Include="..\private\WarningImage.cpp" />
     <ClCompile Include="..\private\Weapon.cpp" />
     <ClCompile Include="..\private\Terrain.cpp" />
     <ClCompile Include="Client.cpp" />
@@ -304,13 +326,16 @@
     <FxCompile Include="..\..\Shader\SHADER_BLUR.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_DISTORTION.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_FREEZEAREA.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_GARDEFFECT.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_GROUD.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_PHONG.hlsl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </FxCompile>
     <FxCompile Include="..\..\Shader\SHADER_POSTEFFECT.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_SHADOW.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_SPAWNEFFECT.hlsl" />
+    <FxCompile Include="..\..\Shader\SHADER_SPRITE.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_SWORDTRAIL.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_THORNTRAIL.hlsl" />
     <FxCompile Include="..\..\Shader\SHADER_UI.hlsl" />

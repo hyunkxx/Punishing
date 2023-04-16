@@ -90,6 +90,16 @@ HRESULT CGraphic_Device::SetPreRenderTargets()
 	return S_OK;
 }
 
+HRESULT CGraphic_Device::SetPreRenderTarget(PRE_RENDERTARGET eTarget)
+{
+	if (nullptr == m_pContext)
+		return E_FAIL;
+
+	m_pContext->OMSetRenderTargets(1, &m_pPreRenderTargetViews[eTarget], m_pDepthStencilView);
+
+	return S_OK;
+}
+
 HRESULT CGraphic_Device::Clear_PreRenderTargetViews(_float4 vClearColor)
 {
 	if (nullptr == m_pContext)
@@ -97,6 +107,16 @@ HRESULT CGraphic_Device::Clear_PreRenderTargetViews(_float4 vClearColor)
 
 	for (int i = 0; i < PRE_TARGET_MAX; ++i)
 		m_pContext->ClearRenderTargetView(m_pPreRenderTargetViews[i], (_float*)&vClearColor);
+
+	return S_OK;
+}
+
+HRESULT CGraphic_Device::Clear_PreRenderTargetViews(PRE_RENDERTARGET eTarget, _float4 vClearColor)
+{
+	if (nullptr == m_pContext)
+		return E_FAIL;
+
+	m_pContext->ClearRenderTargetView(m_pPreRenderTargetViews[eTarget], (_float*)&vClearColor);
 
 	return S_OK;
 }
@@ -195,6 +215,7 @@ HRESULT CGraphic_Device::Ready_PreRenderTargetViews()
 	if (nullptr == m_pDevice)
 		return E_FAIL;
 
+	//Pre∑£¥ı≈∏∞Ÿ
 	for (int i = 0; i < PRE_TARGET_MAX; ++i)
 	{
 		ID3D11Texture2D* pBufferTexture = nullptr;

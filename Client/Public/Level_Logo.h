@@ -20,6 +20,8 @@ private:
 public:
 	static CLevel_Logo* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	virtual void Free() override;
+
+	class CRobby* m_pRobby = nullptr;
 };
 
 END

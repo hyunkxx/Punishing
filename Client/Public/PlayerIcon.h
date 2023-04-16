@@ -52,6 +52,7 @@ private:
 	_float4x4	m_ViewMatrix, m_ProjMatrix;
 
 	//버튼별 위치
+	_float4x4	m_DashBackMatrix;
 	_float4x4	m_AttackMatrix, m_DashMatrix;
 	_float4x4	m_TargetMatrix;
 
@@ -77,8 +78,9 @@ private:
 
 	//변신 버튼
 	_float		m_fEvolutionButtonX, m_fEvolutionButtonY, m_fEvolutionButtonXWidth, m_fEvolutionButtonXHeight;
-	_float4x4	m_EvolutionButtonMatrix;
+	_float4x4	m_EvolutionButtonMatrix, m_EvolutionBackMatrix;
 
+	_float4x4	m_DashRotMatrix,m_EvolutionRotMatrix;
 private:
 	CRenderer*		m_pRenderer = { nullptr };
 	CShader*		m_pShader = { nullptr };
@@ -118,6 +120,8 @@ private:
 	CTexture*		m_pEvolutionGageBackTexture = { nullptr };
 	CTexture*		m_pEvolutionGageFrontTexture = { nullptr };
 
+	CTexture*		m_pRotationTexture = { nullptr };
+
 	//변신 버튼
 	CVIBuffer_Rect* m_pEvolutionButtonBuffer = { nullptr };
 	CTexture*		m_pEvolutionButtonTexture = { nullptr };
@@ -150,6 +154,9 @@ private:
 	//타겟 락인 이미지 0~138
 	_int m_iCurrentIndex = 0;
 	_float m_fImageAcc = 0.f;
+
+	_float m_fAngleEvolution = 0.f;
+
 };
 
 END

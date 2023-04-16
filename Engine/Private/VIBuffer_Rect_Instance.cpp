@@ -12,6 +12,7 @@ CVIBuffer_Rect_Instance::CVIBuffer_Rect_Instance(const CVIBuffer_Rect_Instance &
 	, m_iStrideInstance(rhs.m_iStrideInstance)
 	, m_pSpeed(rhs.m_pSpeed)
 	, m_pOldHeight(rhs.m_pOldHeight)
+	, m_pOldX(rhs.m_pOldX)
 {
 	Safe_AddRef(m_pVBInstance);
 }
@@ -124,6 +125,7 @@ HRESULT CVIBuffer_Rect_Instance::Initialize_Prototype(_float fWidth, _float fHei
 	ZeroMemory(pInstanceVertices, sizeof(VTXMATRIX) * m_iInstanceCount);
 
 	m_pOldHeight = new _float[m_iInstanceCount];
+	m_pOldX = new _float[m_iInstanceCount];
 	for (_uint i = 0; i < m_iInstanceCount; ++i)
 	{
 		pInstanceVertices[i].vRight = _float4(1.f, 0.f, 0.f, 0.f);
@@ -131,8 +133,9 @@ HRESULT CVIBuffer_Rect_Instance::Initialize_Prototype(_float fWidth, _float fHei
 		pInstanceVertices[i].vLook = _float4(0.f, 0.f, 1.f, 0.f);
 
 		m_pOldHeight[i] = rand() % (_int(fHeight) + 1) - (_int(fHeight) >> 1);
+		m_pOldX[i] = rand() % (_int(fWidth) + 1) - (_int(fWidth) >> 1);
 		pInstanceVertices[i].vPosition = 
-			_float4(rand() % (_int(fWidth) + 1) - (_int(fWidth) >> 1),
+			_float4(m_pOldX[i],
 			m_pOldHeight[i],
 			rand() % (_int(fDepth) + 1) - (_int(fDepth) >> 1),
 			1.f);
@@ -201,6 +204,29 @@ void CVIBuffer_Rect_Instance::Update(_double TimeDelta)
 	m_pContext->Unmap(m_pVBInstance, 0);
 }
 
+void CVIBuffer_Rect_Instance::Update2(_double TimeDelta)
+{
+	D3D11_MAPPED_SUBRESOURCE SubResource;
+	ZeroMemory(&SubResource, sizeof SubResource);
+
+	if (FAILED(m_pContext->Map(m_pVBInstance, 0, D3D11_MAP_WRITE_NO_OVERWRITE, 0, &SubResource)))
+		return;
+
+	for (_uint i = 0; i < m_iInstanceCount; ++i)
+	{
+		((VTXMATRIX*)SubResource.pData)[i].vPosition.y -= m_pSpeed[i] * TimeDelta;
+		((VTXMATRIX*)SubResource.pData)[i].vPosition.x -= m_pSpeed[i] * TimeDelta * 0.5f;
+
+		if (((VTXMATRIX*)SubResource.pData)[i].vPosition.y < -30.f)
+		{
+			((VTXMATRIX*)SubResource.pData)[i].vPosition.y = m_pOldHeight[i];
+			((VTXMATRIX*)SubResource.pData)[i].vPosition.x = m_pOldX[i];
+		}
+	}
+
+	m_pContext->Unmap(m_pVBInstance, 0);
+}
+
 CVIBuffer_Rect_Instance * CVIBuffer_Rect_Instance::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pContext, _float fWidth, _float fHeight, _float fDepth, _float fMinSpeed, _float fMaxSpeed, _uint iInstanceCount)
 {
 	CVIBuffer_Rect_Instance* pInstance = new CVIBuffer_Rect_Instance(pDevice, pContext);
@@ -235,6 +261,7 @@ void CVIBuffer_Rect_Instance::Free()
 	{
 		Safe_Delete_Array(m_pSpeed);
 		Safe_Delete_Array(m_pOldHeight);
+		Safe_Delete_Array(m_pOldX);
 	}
 
 	Safe_Release(m_pVBInstance);

@@ -51,7 +51,7 @@ PS_OUT PS_MAIN(PS_IN In)
 	return Out;
 }
 
-PS_OUT PS_COMBINE(PS_IN In)
+PS_OUT PS_BLOOM_COMBINE(PS_IN In)
 {
 	PS_OUT			Out = (PS_OUT)0;
 
@@ -62,7 +62,9 @@ PS_OUT PS_COMBINE(PS_IN In)
 	vector hdrColor = g_MainTexture.Sample(LinearSampler, In.vTexUV);
 	vector bloomColor = g_BloomTexture.Sample(LinearSampler, In.vTexUV);
 
-	if (bloomColor.a > 0.f)
+	float fBloomColor = bloomColor.r + bloomColor.g + bloomColor.b + bloomColor.a;
+
+	if (fBloomColor > 0.f)
 	{
 		//hdrColor += bloomColor;
 		//float3 result = float3(1.f, 1.f, 1.f) - exp(-hdrColor * exposure);
@@ -75,6 +77,24 @@ PS_OUT PS_COMBINE(PS_IN In)
 	{
 		Out.vColor = hdrColor;
 	}
+
+	return Out;
+}
+
+//두 텍스쳐를 합성
+PS_OUT PS_COMBINE(PS_IN In)
+{
+	PS_OUT Out = (PS_OUT)0;
+
+	vector MainColor = g_MainTexture.Sample(LinearSampler, In.vTexUV);
+	vector ShadowColor = g_BloomTexture.Sample(LinearSampler, In.vTexUV);
+
+	//if(ShadowColor.r >= 1.f)
+	//	Out.vColor = float4(0.f, 0.f, 0.f, 0.f);
+	//else
+	//	Out.vColor = MainColor;
+
+	Out.vColor = MainColor;
 
 	return Out;
 }
@@ -95,6 +115,20 @@ technique11 DefaultTechnique
 	}
 
 	pass Pass1
+	{
+		SetRasterizerState(RS_Default);
+		SetDepthStencilState(DS_Not_ZTest_ZWrite, 0);
+		SetBlendState(BS_Default, float4(0.0f, 0.f, 0.f, 0.f), 0xffffffff);
+
+		VertexShader = compile vs_5_0 VS_MAIN();
+		GeometryShader = NULL;
+		HullShader = NULL;
+		DomainShader = NULL;
+		PixelShader = compile ps_5_0 PS_BLOOM_COMBINE();
+	}
+
+
+	pass Pass2
 	{
 		SetRasterizerState(RS_Default);
 		SetDepthStencilState(DS_Not_ZTest_ZWrite, 0);

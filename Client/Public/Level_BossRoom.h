@@ -35,6 +35,8 @@ public:
 	CGameObject* mPlayer = nullptr;
 	CGameObject* m_pHealthBar = nullptr;
 	class CPlayerCamera* mCamera = nullptr;
+
+	_float m_fBossBgmStart = 0.15f;
 };
 
 END

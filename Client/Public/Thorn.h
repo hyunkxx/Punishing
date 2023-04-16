@@ -29,7 +29,7 @@ class CThorn final
 {
 public:
 	//가시형태, 미사일형태
-	enum TYPE { THORN, MISSILE };
+	enum TYPE { THORN, PLAYER_THORN, MISSILE };
 public:
 	typedef struct tagOwner
 	{
@@ -67,6 +67,8 @@ public://초기화, 스케일, 회전
 	void SetupScaleUpDownStart(_float fLength);
 	void SetupScaleSmoothUpStart(_float fLength);
 	void SetupScaleSmoothDownStart();
+	void SetDessolve(_bool value) { m_bDessolve = value; }
+	void StartDessolve() { m_bDessolve = true; };
 	_bool ScaleUpProcess(_double TimeDelta);
 	_bool ScaleUpSmoothProcess(_double TimeDelta);
 	_bool ScaleDownSmoothProcess(_double TimeDelta);
@@ -99,7 +101,11 @@ private:
 	CRenderer* m_pRenderer = nullptr;
 	CTransform* m_pTransform = nullptr;
 	CModel* m_pModel = nullptr;
+	CModel* m_pModel2 = nullptr;
+	CTexture* m_pThornDiffuse = nullptr;
+
 	CShader* m_pShader = nullptr;
+	CShader* m_pGardSahder = nullptr;
 
 	_bool m_bAlpha = false;
 	//각도는 랜덤으로 길이는 보관
@@ -148,6 +154,14 @@ private:
 	CShader* m_pTrailEffectShader = nullptr;
 	_float3 vTrailScale = { 0.25f, 0.25f, 0.25f };
 	_float m_vTrailAcc = 0.f;
+
+	//스핀 텍스쳐
+	CTexture* m_pSpinDiffuse = nullptr;
+	CTexture* m_pDessolvemask = nullptr;
+	_bool m_bDessolve = false;
+	_float m_fDessolveAcc = 0.f;
+
+	_bool m_bThornSound = false;
 };
 
 END

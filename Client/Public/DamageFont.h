@@ -31,6 +31,8 @@ public:
 	void SetupPlayer(class CCharacter* pPlayer) { m_pPlayer = pPlayer; }
 	CTexture* ComputeComboToTexture(int iIndex);
 
+	void SetPosition();
+
 private:
 	HRESULT Add_Components();
 	HRESULT Setup_ShaderResources();
@@ -56,6 +58,7 @@ private:
 	CTexture*		m_pDamageTexture[10] = { nullptr };
 
 private:
+	string m_strCombo = "123";
 	_bool m_bRender = true;
 	class CCharacter* m_pPlayer = nullptr;
 

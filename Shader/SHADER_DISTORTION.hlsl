@@ -128,15 +128,20 @@ PS_OUT PS_DISTORTION_2(PS_IN In)
 {
 	PS_OUT			Out = (PS_OUT)0;
 
-	float2 Trans = In.vTexUV;
-	Trans.x -= TimeAcc;
+	float4 vDistortionColor = g_DistortionTexture.Sample(LinearSampler, In.vTexUV);
+	if (vDistortionColor.r == 1.f && vDistortionColor.a == 0.f)
+		Out.vColor = g_BufferTexture.Sample(LinearSampler, In.vTexUV);
+	else
+	{
+		float2 Trans = In.vTexUV + TimeAcc;
 
-	float4 Noise = g_DistortionTexture.Sample(LinearClampSampler, Trans);
+		//노이즈 텍스쳐 흔들림
+		float4 Noise = g_DistortionTexture.Sample(LinearSampler, Trans);
+		float2 UV = In.vTexUV + Noise.xy * 0.05f;
+		float4 Orig = g_BufferTexture.Sample(LinearSampler, UV);
 
-	float2 UV = In.vTexUV + Noise.xy * 0.05f;
-	float4 Orig = g_BufferTexture.Sample(LinearClampSampler, UV);
-
-	Out.vColor = Orig;
+		Out.vColor = Orig;
+	}
 
 	return Out;
 }

@@ -5,6 +5,7 @@
 #include "GameInstance.h"
 
 #include "Level_Loading.h"
+#include "Robby.h"
 
 CLevel_Logo::CLevel_Logo(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CLevel(pDevice, pContext)
@@ -28,6 +29,13 @@ void CLevel_Logo::Tick(_double TimeDelta)
 #endif
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
+	static bool bBgm = false;
+	if (!bBgm)
+	{
+		pGameInstance->PlaySoundEx(L"LogoBgm.mp3", SOUND_CHANNEL::SOUND_LOGO, CUSTOM_VOLUM, 0.3f);
+		bBgm = true;
+	}
+
 	if (pGameInstance->Input_KeyState_Custom(DIK_ESCAPE) == KEY_STATE::TAP)
 	{
 		if (FAILED(pGameInstance->Open_Level(LEVEL_LOADING, CLevel_Loading::Create(m_pDevice, m_pContext, LEVEL_GAMEPLAY))))
@@ -39,7 +47,7 @@ HRESULT CLevel_Logo::Ready_Layer_BackGround(const _tchar* pLayerTag)
 {
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-	if (nullptr == pGameInstance->Add_GameObject(LEVEL_LOADING, TEXT("proto_obj_background"), L"background", pLayerTag))
+	if (nullptr == (m_pRobby = (CRobby*)pGameInstance->Add_GameObject(LEVEL_LOGO, TEXT("proto_obj_robby"), L"robby", pLayerTag)))
 		return E_FAIL;
 
 	return S_OK;

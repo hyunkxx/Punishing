@@ -38,6 +38,13 @@ struct PS_OUT
 	float4 vBloomColor : SV_TARGET1;
 };
 
+struct PS_DISTORTION
+{
+	float4 vMainColor : SV_TARGET0;
+	float4 vBloomColor : SV_TARGET1;
+	float4 vDistortion : SV_TARGET2;
+};
+
 VS_OUT VS_MAIN(VS_IN In)
 {
 	VS_OUT Out = (VS_OUT)0;
@@ -58,16 +65,13 @@ VS_OUT VS_MAIN(VS_IN In)
 	return Out;
 }
 
-PS_OUT PS_DEFAULT(PS_IN In)
+PS_DISTORTION PS_DEFAULT(PS_IN In)
 {
-	PS_OUT Out = (PS_OUT)0;
+	PS_DISTORTION Out = (PS_DISTORTION)0;
 
 	float2 FixUV = In.vTexUV;
 	FixUV.y += g_fTimeAcc * 0.1f;
 	FixUV.x += g_fTimeAcc;
-
-	//float fDissolveValue = g_DissolveTexture.Sample(LinearSampler, In.vTexUV).r;
-	//clip(fDissolveValue - g_fDissolveAmount);
 
 	vector vDiffuse = g_DiffuseTexture.Sample(LinearClampSampler, FixUV);
 	vector vMask = g_MaskTexture.Sample(LinearClampSampler, In.vTexUV) * vDiffuse;
@@ -83,10 +87,13 @@ PS_OUT PS_DEFAULT(PS_IN In)
 	if (Out.vMainColor.a < 0.1f)
 		discard;
 	
+	if(Out.vMainColor.a < 0.125f)
+		Out.vDistortion = float4(1.f, 1.f, 1.f, 1.f);
+
 	return Out;
 }
 
-PS_OUT PS_PASS2(PS_IN In)
+PS_OUT PS_PASS1(PS_IN In)
 {
 	PS_OUT Out = (PS_OUT)0;
 
@@ -94,6 +101,7 @@ PS_OUT PS_PASS2(PS_IN In)
 	Out.vMainColor.a -= g_fTimeAcc * 5.f;
 	
 	Out.vBloomColor = float4(1.f, 0.f, 0.f, 1.f);
+	Out.vBloomColor.a -= g_fTimeAcc;
 
 	return Out;
 }
@@ -123,7 +131,7 @@ technique11 DefaultTechnique
 		GeometryShader = NULL;
 		HullShader = NULL;
 		DomainShader = NULL;
-		PixelShader = compile ps_5_0 PS_PASS2();
+		PixelShader = compile ps_5_0 PS_PASS1();
 	}
 
 }

@@ -5,6 +5,7 @@
 #include "GameInstance.h"
 #include "ApplicationManager.h"
 #include "Character.h"
+
 #include "Bone.h"
 
 CThorn::CThorn(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
@@ -46,10 +47,13 @@ void CThorn::Tick(_double TimeDelta)
 
 	__super::Tick(m_FixedTimeDelta);
 
+	if(m_eThornType == THORN)
+		m_pFloorEffectTransform->Rotate(VECTOR_UP, TimeDelta * 2.f);
+
 	if (m_bGardRender)
 	{
 		m_fTimeAcc += m_FixedTimeDelta * 2.f;
-		if (m_fTimeAcc >= 2.f)
+		if (m_fTimeAcc >= 1.2f)
 		{
 			m_fTimeAcc = 0.f;
 			m_bGardRender = false;
@@ -66,22 +70,18 @@ void CThorn::Tick(_double TimeDelta)
 		}
 	}
 
+	if (m_bDessolve)
+	{
+		m_fDessolveAcc += TimeDelta;
+		if(m_fDessolveAcc >= 1.f)
+		{
+			m_bDessolve = false;
+			m_fDessolveAcc = 0.f;
+			Reset();
+		}
+	}
+
 	m_pFloorEffectTransform->Rotate(VECTOR_UP, m_FixedTimeDelta);
-
-	if (m_bScaleUp)
-		ScaleUpProcess(m_FixedTimeDelta);
-
-	if (m_bScaleUpDown)
-		ScaleUpProcess(m_FixedTimeDelta);
-
-	if (m_bScaleSmoothUp)
-		ScaleUpSmoothProcess(m_FixedTimeDelta);
-	
-	if (m_bScaleSmoothDown)
-		ScaleDownSmoothProcess(m_FixedTimeDelta);
-
-	if (m_bMove)
-		MoveProcess(m_FixedTimeDelta);
 
 }
 
@@ -96,17 +96,26 @@ void CThorn::LateTick(_double TimeDelta)
 
 	__super::LateTick(m_FixedTimeDelta);
 
+	if (m_bScaleUp)
+		ScaleUpProcess(m_FixedTimeDelta);
+
+	if (m_bScaleUpDown)
+		ScaleUpProcess(m_FixedTimeDelta);
+
+	if (m_bScaleSmoothUp)
+		ScaleUpSmoothProcess(m_FixedTimeDelta);
+
+	if (m_bScaleSmoothDown)
+		ScaleDownSmoothProcess(m_FixedTimeDelta);
+
+	if (m_bMove)
+		MoveProcess(m_FixedTimeDelta);
+
 	_float fLength = GetLengthFromCamera();
 
 	if (m_eThornType == THORN)
 	{
-		//if (fLength < 5.f)
-		//	m_bAlpha = true;
-		//else
-		//	m_bAlpha = false;
-
-		if (nullptr != m_pRenderer && m_bRender || m_bGardRender || m_bFloorRender)
-			m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 	}
 	else
 	{
@@ -122,7 +131,6 @@ HRESULT CThorn::Render()
 		return E_FAIL;
 
 	CGameInstance* pInstance = CGameInstance::GetInstance();
-
 
 	if (m_eThornType == THORN)
 	{
@@ -177,32 +185,62 @@ HRESULT CThorn::Render()
 
 	if (m_bRender)
 	{
-		if (FAILED(SetupShaderResources()))
-			return E_FAIL;
-		if (FAILED(m_pTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
-			return E_FAIL;
-		_uint MeshCount = m_pModel->Get_MeshCount();
-		for (_uint i = 0; i < MeshCount; ++i)
+		if (m_eThornType == PLAYER_THORN)
 		{
-			m_pModel->Setup_ShaderMaterialResource(m_pShader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
-
-			if (CApplicationManager::GetInstance()->IsFreeze())
+			if (FAILED(SetupShaderResources()))
+				return E_FAIL;
+			if (FAILED(m_pTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
+				return E_FAIL;
+			_uint MeshCount = m_pModel->Get_MeshCount();
+			for (_uint i = 0; i < MeshCount; ++i)
 			{
-				if(m_bAlpha)
-					m_pShader->Begin(10);
-				else
-					m_pShader->Begin(8);
-			}
-			else
-			{
-				if (m_bAlpha)
-					m_pShader->Begin(9);
-				else
-					m_pShader->Begin(2);
-			}
+				m_pSpinDiffuse->Setup_ShaderResource(m_pShader, "g_DiffuseTexture");
 
-			m_pModel->Render(i);
+				if (!m_bDessolve)
+				{
+					m_pShader->Begin(14);
+					m_pModel->Render(i);
+				}
+				else
+				{
+					m_pDessolvemask->Setup_ShaderResource(m_pShader, "g_DissolveTexture");
+					m_pShader->SetRawValue("g_fDissolveAmount", &m_fDessolveAcc, sizeof(_float));
+					m_pShader->Begin(15);
+
+					m_pModel->Render(i);
+				}
+
+			}
 		}
+		else
+		{
+			if (FAILED(SetupShaderResources()))
+				return E_FAIL;
+			if (FAILED(m_pTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
+				return E_FAIL;
+			_uint MeshCount = m_pModel->Get_MeshCount();
+			for (_uint i = 0; i < MeshCount; ++i)
+			{
+				m_pThornDiffuse->Setup_ShaderResource(m_pShader, "g_DiffuseTexture");
+				if (CApplicationManager::GetInstance()->IsFreeze())
+				{
+					//if(m_bAlpha)
+					//	m_pShader->Begin(10);
+					//else
+					m_pShader->Begin(8);
+				}
+				else
+				{
+					//if (m_bAlpha)
+					//	m_pShader->Begin(9);
+					//else
+					m_pShader->Begin(2);
+				}
+
+				m_pModel2->Render(i);
+			}
+		}
+
 	}
 
 	return S_OK;
@@ -226,6 +264,8 @@ _float CThorn::GetLengthFromCamera()
 
 void CThorn::Reset()
 {
+	m_bThornSound = false;
+
 	m_bRender = false;
 	m_bScaleUpDown = false;
 
@@ -290,6 +330,13 @@ void CThorn::SetupScaleUpStart(_float fLength)
 	m_bScaleUp = true;
 	m_bRender = true;
 	m_fLength = fLength;
+
+	if (m_eThornType == THORN)
+	{
+		m_bFloorRender = true;
+		m_bGardRender = true;
+	}
+
 }
 
 void CThorn::SetupScaleUpDownStart(_float fLength)
@@ -297,6 +344,12 @@ void CThorn::SetupScaleUpDownStart(_float fLength)
 	m_bScaleUpDown = true;
 	m_bRender = true;
 	m_fLength = fLength;
+
+	if (m_eThornType == THORN)
+	{
+		m_bFloorRender = true;
+		m_bGardRender = true;
+	}
 }
 
 void CThorn::SetupScaleSmoothUpStart(_float fLength)
@@ -314,15 +367,42 @@ void CThorn::SetupScaleSmoothDownStart()
 
 _bool CThorn::ScaleUpProcess(_double TimeDelta)
 {
-	_float vRightLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_RIGHT)));
-	_float vUpLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_UP)));
-	_float vLookLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_LOOK)));
+	CGameInstance* pGI = CGameInstance::GetInstance();
+
+	//if (m_eThornType == THORN)
+	//{
+	//	if (!m_bThornSound)
+	//	{
+	//		m_bThornSound = true;
+	//		//CApplicationManager* pApp = CApplicationManager::GetInstance();
+	//		//int UseIndex = pApp->CurrentThornSound();
+	//		
+	//		pGI->StopSound(SOUND_CHANNEL::THORN0);
+	//		pGI->PlaySoundEx(L"Thorn.wav", SOUND_CHANNEL::THORN0, SOUND_VOLUME::CUSTOM_VOLUM, 0.07f);
+	//	}
+	//}
+
+
+	_float vRightLength;
+	_float vUpLength;
+	_float vLookLength;
+
+	if (m_eThornType == PLAYER_THORN)
+	{
+		vRightLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_RIGHT)));
+		vUpLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_UP)));
+		vLookLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_LOOK)));
+	}
+	else
+	{
+		vRightLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_RIGHT)));
+		vUpLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_UP)));
+		vLookLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_LOOK)));
+	}
 
 	_float3 vLength;
 	if (m_eThornType == THORN)
 	{
-		m_bFloorRender = true;
-		m_bGardRender = true;
 		m_fScaleAcc += TimeDelta;
 		//vLength.x = vRightLength + powf(vRightLength, m_fScaleAcc);
 		//vLength.y = vUpLength + powf(vUpLength, m_fScaleAcc);
@@ -331,6 +411,13 @@ _bool CThorn::ScaleUpProcess(_double TimeDelta)
 		vLength.x = vRightLength + powf(m_fScaleAcc, 2.f) * 900.f;
 		vLength.y = vUpLength + powf(m_fScaleAcc, 2.f) * 900.f;
 		vLength.z = vLookLength + powf(m_fScaleAcc, 2.f) * 900.f;
+	}
+	else if (m_eThornType == PLAYER_THORN)
+	{
+		m_fScaleAcc += TimeDelta;
+		vLength.x = vRightLength + powf(m_fScaleAcc, 5.f) * 350.f;
+		vLength.y = vUpLength + powf(m_fScaleAcc, 5.f) * 100.f;
+		vLength.z = vLookLength + powf(m_fScaleAcc, 5.f) * 350.f;
 	}
 	else if (m_eThornType == MISSILE)
 	{
@@ -360,8 +447,6 @@ _bool CThorn::ScaleUpSmoothProcess(_double TimeDelta)
 	_float3 vLength;
 	if (m_eThornType == THORN)
 	{
-		m_bFloorRender = true;
-		m_bGardRender = true;
 		m_fScaleAcc += TimeDelta;
 		//vLength.x = vRightLength + powf(vRightLength, m_fScaleAcc);
 		//vLength.y = vUpLength + powf(vUpLength, m_fScaleAcc);
@@ -432,20 +517,20 @@ _bool CThorn::MoveProcess(_double TimeDelta)
 	_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
 	_vector vUp = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_UP));
 
-	m_fMoveAcc += TimeDelta;
+	m_fMoveAcc += TimeDelta * 1.5f;
 	m_vTrailAcc += TimeDelta * 0.1f;
 	vPos = vPos + vUp * powf(m_fMoveAcc, 0.8f) * 25.f * TimeDelta;
 
 	_vector vTrailUp = m_pTrailTransform->Get_State(CTransform::STATE_UP);
 	_vector vTrailDir = XMVector3Normalize(m_pTrailTransform->Get_State(CTransform::STATE_UP));
-	if (XMVectorGetX(XMVector3Length(vTrailUp)) < 50.f)
+	if (XMVectorGetX(XMVector3Length(vTrailUp)) < 16.f)
 	{
-		vTrailUp = vTrailUp * (1.f + m_vTrailAcc);
+		vTrailUp = vTrailUp + vTrailUp * m_vTrailAcc * 1.5f;
 		m_pTrailTransform->Set_State(CTransform::STATE_UP, vTrailUp);
 	}
 
 	_float fHalfLength = XMVectorGetX(XMVector3Length(m_pTransform->Get_State(CTransform::STATE_UP))) * 0.5f;
-	_vector vTrailPos = vPos - vTrailDir * fHalfLength;
+	_vector vTrailPos = vPos - vTrailDir * fHalfLength * 0.7f;
 	m_pTrailTransform->Set_State(CTransform::STATE_POSITION, vTrailPos - vTrailDir * (XMVectorGetX(XMVector3Length(vTrailUp) * 0.5f)));
 	m_pTransform->Set_State(CTransform::STATE_POSITION, vPos);
 	if (m_fMoveAcc >= 2.f)
@@ -471,7 +556,7 @@ HRESULT CThorn::AddComponents()
 
 	CTransform::TRANSFORM_DESC desc;
 	ZeroMemory(&desc, sizeof(desc));
-	desc.fRotationSpeed = XMConvertToRadians(30.f);
+	desc.fRotationSpeed = XMConvertToRadians(5.f);
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform3"), (CComponent**)&m_pFloorGardTransform, &desc)))
 		return E_FAIL;
 
@@ -484,13 +569,19 @@ HRESULT CThorn::AddComponents()
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_model_thorngard"), TEXT("com_mode_gard"), (CComponent**)&m_pFloorGard)))
 		return E_FAIL;
 
-	if (FAILED(CGameObject::Add_Component(LEVEL_BOSS, TEXT("proto_com_model_thorn"), TEXT("com_model"), (CComponent**)&m_pModel)))
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_model_thorn"), TEXT("com_model"), (CComponent**)&m_pModel)))
+		return E_FAIL;
+
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_model_fixthorn"), TEXT("com_model2"), (CComponent**)&m_pModel2)))
+		return E_FAIL;
+
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxgard"), TEXT("com_shader2"), (CComponent**)&m_pGardSahder)))
 		return E_FAIL;
 
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
 	collDesc.vCenter = _float3(0.f, 0.f, 0.f);
-	collDesc.vExtents = _float3(0.5f, 0.5f, 0.5f);
+	collDesc.vExtents = _float3(0.25f, 0.25f, 0.25f);
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collider"), (CComponent**)&m_pCollider, &collDesc)))
@@ -514,6 +605,17 @@ HRESULT CThorn::AddComponents()
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"), TEXT("com_buffertrail"), (CComponent**)&m_pTrailEffectBuffer)))
 		return E_FAIL;
 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_trail"), TEXT("com_texture_masktrail"), (CComponent**)&m_pTrailTexture)))
+		return E_FAIL;
+
+	//가시 디퓨즈
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_fixthorndiffuse"), TEXT("com_texture_tdif"), (CComponent**)&m_pThornDiffuse)))
+		return E_FAIL;
+
+
+	//스핀
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_spin"), TEXT("com_texture_spindiffuse"), (CComponent**)&m_pSpinDiffuse)))
+		return E_FAIL;
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_dessolvemask"), TEXT("com_texture_dessolvemask"), (CComponent**)&m_pDessolvemask)))
 		return E_FAIL;
 
 	return S_OK;

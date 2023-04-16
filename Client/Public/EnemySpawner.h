@@ -9,6 +9,10 @@ class IOnCollisionEnter;
 class IOnCollisionStay;
 class IOnCollisionExit;
 class CTransform;
+class CVIBuffer_Rect;
+class CRenderer;
+class CShader;
+class CTexture;
 END
 	
 BEGIN(Client)
@@ -59,6 +63,15 @@ private:
 	_int m_iRespawnCount = 0;
 
 	class CPlayerCamera* m_pPlayerCamera = nullptr;
+
+	_float m_fDisAcc = 0.f;
+	CTransform* m_pWarpTransform = nullptr;
+	CVIBuffer_Rect* m_pWarpBuffer = nullptr;
+	CRenderer* m_pRenderer = nullptr;
+	CTexture* m_pWarpNoise = nullptr;
+	CShader* m_pShader = nullptr;
+
+	_float m_fBGMVolum = 0.1f;
 };
 
 END

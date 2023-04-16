@@ -2,12 +2,14 @@
 
 #include "Component_Manager.h"
 #include "Graphic_Device.h"
+#include "LightManager.h"
 #include "PipeLine.h"
 
 BEGIN(Engine)
 
 typedef CGraphic_Device::PRE_RENDERTARGET PRE_RENDERTARGET;
 typedef CGraphic_Device::POST_RENDERTARGET POST_RENDERTARGET;
+typedef CLightManager::LIGHT_MATRIX LIGHT_MATRIX;
 
 class ENGINE_DLL CGameInstance final: public CBase
 {
@@ -28,7 +30,10 @@ public: //Graphic_Device
 
 	//Pre
 	HRESULT SetPreRenderTargets();
+	HRESULT SetPreRenderTarget(PRE_RENDERTARGET eTarget);
 	HRESULT Clear_PreRenderTargetViews(_float4 vClearColor);
+	HRESULT Clear_PreRenderTargetViews(PRE_RENDERTARGET eTarget, _float4 vClearColor);
+
 	ID3D11RenderTargetView* GetRenderTarget(PRE_RENDERTARGET eTarget);
 	ID3D11ShaderResourceView* GetShaderResourceView(PRE_RENDERTARGET eTarget);
 
@@ -82,11 +87,24 @@ public: //LightManager
 	HRESULT AddLight(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, const LIGHT_DESC& LightDesc);
 	const LIGHT_DESC* GetLightDesc(_uint Index);
 
+	//Shadow
+	void SetLightMatrix(_fmatrix LightMatrix, LIGHT_MATRIX eLightMatrix);
+	_float4x4 GetLightFloat4x4(LIGHT_MATRIX eLightMatrix);
+	_float4x4 GetLightInverseFloat4x4(LIGHT_MATRIX eLightMatrix);
+	void SetLightPosition(_fvector vLightPos);
+	_float4 GetLightPosition() const;
+
 public: //CollisionManager
 	void SetCollisionDebugRender(_bool value);
 	HRESULT AddCollider(class CCollider* collider, _uint iLayerIndex = 0);
 	//void PhysicsUpdate();
 	void CollisionRender();
+
+public: //SoundManager
+	HRESULT PlaySoundEx(TCHAR* pSoundKey, int eChannel, SOUND_VOLUME eVolum = CUSTOM_VOLUM, _float fVolume = 0.1f);
+	HRESULT SetSoundVolume(int eChannel, SOUND_VOLUME eVolum = CUSTOM_VOLUM, _float fVolume = 0.1f);
+	HRESULT StopSound(int eChannel);
+	void StopAllSound();
 
 public:
 	static void Engine_Release();
@@ -102,6 +120,7 @@ private:
 	class CTimer_Manager*			m_pTimer_Manager = { nullptr };
 	class CInput_Device*			m_pInput_Device = { nullptr };
 	class CLightManager*			m_LightManager = { nullptr };
+	class CSound_Manager*			m_pSoundManager = { nullptr };
 
 	_bool m_bBlurStart = false;
 };

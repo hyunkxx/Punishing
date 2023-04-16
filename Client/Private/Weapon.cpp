@@ -60,7 +60,7 @@ void CWeapon::LateTick(_double TimeDelta)
 	mTransform->Set_WorldMatrix(WeaponBoneMatrix);
 
 	if (nullptr != mRenderer)
-		mRenderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
+		mRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
 }
 
 HRESULT CWeapon::Render()

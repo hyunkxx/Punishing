@@ -2435,7 +2435,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?LateTick@CBossRoom@Client@@UEAAXN@Z DD imagerel $LN4
-	DD	imagerel $LN4+128
+	DD	imagerel $LN4+125
 	DD	imagerel $unwind$?LateTick@CBossRoom@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -4562,29 +4562,29 @@ $LN4:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0004c	48 83 b8 80 00
 	00 00 00	 cmp	 QWORD PTR [rax+128], 0
-  00054	74 20		 je	 SHORT $LN2@LateTick
+  00054	74 1d		 je	 SHORT $LN2@LateTick
 
-; 58   : 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+; 58   : 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_PRIORITY, this);
 
   00056	4c 8b 85 e0 00
 	00 00		 mov	 r8, QWORD PTR this$[rbp]
-  0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	48 8b 85 e0 00
+  0005d	33 d2		 xor	 edx, edx
+  0005f	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00069	48 8b 88 80 00
+  00066	48 8b 88 80 00
 	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  00070	ff 15 00 00 00
+  0006d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z
 $LN2@LateTick:
 
 ; 59   : 
 ; 60   : }
 
-  00076	48 8d a5 c8 00
+  00073	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  0007d	5f		 pop	 rdi
-  0007e	5d		 pop	 rbp
-  0007f	c3		 ret	 0
+  0007a	5f		 pop	 rdi
+  0007b	5d		 pop	 rbp
+  0007c	c3		 ret	 0
 ?LateTick@CBossRoom@Client@@UEAAXN@Z ENDP		; Client::CBossRoom::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI

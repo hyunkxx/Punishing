@@ -35,10 +35,10 @@ HRESULT CLevel_BossRoom::Initialize()
 	if (FAILED(Ready_Layer_Camera(TEXT("layer_camera"))))
 		return E_FAIL;
 
-	if (FAILED(Ready_Layer_Enemy(TEXT("layer_enemy"))))
+	if (FAILED(Ready_Layer_Effect(TEXT("layer_effect"))))
 		return E_FAIL;
 
-	if (FAILED(Ready_Layer_Effect(TEXT("layer_effect"))))
+	if (FAILED(Ready_Layer_Enemy(TEXT("layer_enemy"))))
 		return E_FAIL;
 
 	if (FAILED(Ready_Layer_UI(TEXT("layer_ui"))))
@@ -48,15 +48,30 @@ HRESULT CLevel_BossRoom::Initialize()
 
 	CApplicationManager::GetInstance()->SetFreeze(false);
 
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+	pGameInstance->StopAllSound();
+
 	return S_OK;
 }
 
 void CLevel_BossRoom::Tick(_double TimeDelta)
 {
-	CGameInstance* pGameInstance = CGameInstance::GetInstance();
-
 	CSkillBallSystem* pSkillSystem = CSkillBallSystem::GetInstance();
 	pSkillSystem->PushReadyTimer(TimeDelta);
+	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+	static bool bBgm = false;
+	static float fVolum = 0.08f;
+
+	if (!bBgm)
+	{
+		m_fBossBgmStart += TimeDelta;
+		if (m_fBossBgmStart >= 2.f)
+		{
+			pGameInstance->PlaySoundEx(L"BossBGM.mp3", SOUND_CHANNEL::SOUND_BGM, CUSTOM_VOLUM, 0.15f);
+			bBgm = true;
+		}
+	}
 
 	////콜리전 생성
 	//if (pGameInstance->Input_KeyState_Custom(DIK_INSERT) == KEY_STATE::TAP)
@@ -87,18 +102,7 @@ HRESULT CLevel_BossRoom::Ready_Light()
 {
 	CGameInstance* GameInstance = CGameInstance::GetInstance();
 	
-	LIGHT_DESC LightDesc;
-	ZeroMemory(&LightDesc, sizeof(LIGHT_DESC));
-	
-	LightDesc.eLightType = LIGHT_DESC::TYPE_DIRECTIONAL;
-	LightDesc.vDirection = _float4(0.f, -1.f, 1.f, 0.f);
-	LightDesc.vPosition = _float4(1.f, 1.f, 1.f, 1.f);
-	LightDesc.vDiffuse = _float4(1.f, 1.f, 1.f, 1.f);
-	LightDesc.vAmbient = _float4(1.f, 1.f, 1.f, 1.f);
-	LightDesc.vSpecular = _float4(1.f, 1.f, 1.f, 1.f);
 
-	if (FAILED(GameInstance->AddLight(m_pDevice, m_pContext, LightDesc)))
-		return E_FAIL;
 
 	return S_OK;
 }
@@ -195,8 +199,14 @@ HRESULT CLevel_BossRoom::Ready_Layer_Effect(const _tchar * pLayerTag)
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	CGameObject* pGameObject = nullptr;
 
+
+
 	if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, L"proto_obj_freeze_area", pLayerTag, L"freeze", mPlayer))
 		return E_FAIL;
+
+	if (nullptr == pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_flower", pLayerTag, L"flower", mPlayer))
+		return E_FAIL;
+
 
 	return S_OK;
 }

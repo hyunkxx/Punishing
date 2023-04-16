@@ -112,7 +112,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d11.lib;dinput8.lib;Effects11d.lib;DirectXTKd.lib;assimp-vc140-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dinput8.lib;fmod_vc.lib;fmodL_vc.lib;Effects11d.lib;DirectXTKd.lib;assimp-vc140-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../ThirdPartyLib/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -151,7 +151,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d11.lib;dinput8.lib;Effects11.lib;DirectXTK.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dinput8.lib;fmod_vc.lib;fmodL_vc.lib;Effects11.lib;DirectXTK.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../ThirdPartyLib/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -174,6 +174,14 @@
     <ClInclude Include="..\Public\Engine_Struct.h" />
     <ClInclude Include="..\Public\Engine_Template.h" />
     <ClInclude Include="..\Public\Engine_Typedef.h" />
+    <ClInclude Include="..\Public\Fmod\fmod.h" />
+    <ClInclude Include="..\Public\Fmod\fmod.hpp" />
+    <ClInclude Include="..\Public\Fmod\fmod_codec.h" />
+    <ClInclude Include="..\Public\Fmod\fmod_common.h" />
+    <ClInclude Include="..\Public\Fmod\fmod_dsp.h" />
+    <ClInclude Include="..\Public\Fmod\fmod_dsp_effects.h" />
+    <ClInclude Include="..\Public\Fmod\fmod_errors.h" />
+    <ClInclude Include="..\Public\Fmod\fmod_output.h" />
     <ClInclude Include="..\public\Font_Manager.h" />
     <ClInclude Include="..\public\GameInstance.h" />
     <ClInclude Include="..\public\GameObject.h" />
@@ -194,6 +202,8 @@
     <ClInclude Include="..\public\Renderer.h" />
     <ClInclude Include="..\Public\ScreenBlurEffect.h" />
     <ClInclude Include="..\public\Shader.h" />
+    <ClInclude Include="..\public\Shadow.h" />
+    <ClInclude Include="..\Public\Sound_Manager.h" />
     <ClInclude Include="..\public\SphereCollider.h" />
     <ClInclude Include="..\public\Texture.h" />
     <ClInclude Include="..\public\Timer.h" />
@@ -207,6 +217,7 @@
     <ClInclude Include="..\public\VIBuffer_Triangle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\Downloads\fmod_1\Sound_Manager.cpp" />
     <ClCompile Include="..\private\Animation.cpp" />
     <ClCompile Include="..\private\Base.cpp" />
     <ClCompile Include="..\private\BlurEffect.cpp" />
@@ -241,6 +252,7 @@
     <ClCompile Include="..\private\Renderer.cpp" />
     <ClCompile Include="..\Private\ScreenBlurEffect.cpp" />
     <ClCompile Include="..\private\Shader.cpp" />
+    <ClCompile Include="..\private\Shadow.cpp" />
     <ClCompile Include="..\private\SphereCollider.cpp" />
     <ClCompile Include="..\private\Texture.cpp" />
     <ClCompile Include="..\private\Timer.cpp" />

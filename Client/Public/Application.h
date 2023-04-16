@@ -48,6 +48,7 @@ private:
 	class CImGUIManager*			m_pGUIManager = { nullptr };
 	class CStageCollisionManager*	m_pStageManager = { nullptr };
 	class CSkillBallSystem*			m_pSkillSystem = { nullptr };
+
 };
 
 END

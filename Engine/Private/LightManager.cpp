@@ -24,6 +24,38 @@ const LIGHT_DESC* CLightManager::GetLightDesc(_uint Index)
 	return (*iter)->GetLightDesc();
 }
 
+void CLightManager::SetLightMatrix(_fmatrix LightMatrix, LIGHT_MATRIX eLightMatrix)
+{
+	switch (eLightMatrix)
+	{
+	case Engine::CLightManager::LIGHT_VIEW:
+		XMStoreFloat4x4(&m_LightMatrix[LIGHT_VIEW], LightMatrix);
+		break;
+	case Engine::CLightManager::LIGHT_PROJ:
+		XMStoreFloat4x4(&m_LightMatrix[LIGHT_PROJ], LightMatrix);
+		break;
+	default:
+		break;
+	}
+}
+
+_float4x4 CLightManager::GetLightFloat4x4(LIGHT_MATRIX eLightMatrix)
+{
+	return m_LightMatrix[eLightMatrix];
+}
+
+_float4x4 CLightManager::GetLightInverseFloat4x4(LIGHT_MATRIX eLightMatrix)
+{
+	_float4x4 InvMatrix;
+	XMStoreFloat4x4(&InvMatrix, XMMatrixInverse(nullptr, XMLoadFloat4x4(&m_LightMatrix[eLightMatrix])));
+	return InvMatrix;
+}
+
+void CLightManager::SetLightPosition(_fvector vLightPos)
+{
+	XMStoreFloat4(&m_vLightPos, vLightPos);
+}
+
 void CLightManager::Free()
 {
 	for (auto& Light : mLights)

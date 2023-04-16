@@ -4,6 +4,8 @@
 #include "ApplicationManager.h"
 #include "GameInstance.h"
 #include "Character.h"
+#include "Enemy.h"
+#include "Boss.h"
 
 CDamageFont::CDamageFont(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CGameObject(pDevice, pContext)
@@ -31,9 +33,11 @@ HRESULT CDamageFont::Initialize(void * pArg)
 	if (FAILED(Add_Components()))
 		return E_FAIL;
 
-	//공격 대쉬 버튼
-	m_fDamageWidth  = 25.f;
-	m_fDamageHeight = 17.f;
+	if (pArg != nullptr)
+		m_pPlayer = (CCharacter*)pArg;
+
+	m_fDamageWidth  = 13.f;
+	m_fDamageHeight = 20.f;
 	m_fDamageX = g_iWinSizeX >> 1;
 	m_fDamageY = g_iWinSizeY >> 1;
 
@@ -50,6 +54,30 @@ void CDamageFont::Tick(_double TimeDelta)
 {
 	__super::Tick(TimeDelta);
 	CGameInstance* pInstance = CGameInstance::GetInstance();
+
+	switch (m_strCombo.size())
+	{
+	case 0:
+		m_fDamageX = m_fOriginDamageX;
+		break;
+	case 1:
+		m_fDamageX = m_fOriginDamageX + 13.f;
+		break;
+	case 2:
+		m_fDamageX = m_fOriginDamageX + 13.f * 2.f;
+		break;
+	case 3:
+		m_fDamageX = m_fOriginDamageX + 13.f * 3.f;
+		break;
+	case 4:
+		m_fDamageX = m_fOriginDamageX + 13.f * 4.f;
+		break;
+	default:
+		break;
+	}
+
+	for (int i = 0; i < 4; ++i)
+		XMStoreFloat4x4(&m_DamageMatrix[i], XMMatrixScaling(m_fDamageWidth, m_fDamageHeight, 1.f) * XMMatrixTranslation(m_fDamageX - g_iWinSizeX * 0.5f, -m_fDamageY + g_iWinSizeY * 0.5f, 0.f));
 
 }
 
@@ -83,7 +111,6 @@ HRESULT CDamageFont::Render()
 	if (FAILED(m_pShader->SetRawValue("g_DiscardValue", &fDiscardValue, sizeof(_float))))
 		return E_FAIL;
 
-	//데미지
 	//GetComboCount였음 
 	for (int i = 0; i < 3; ++i)
 	{
@@ -106,9 +133,41 @@ void CDamageFont::RenderGUI()
 
 CTexture* CDamageFont::ComputeComboToTexture(int iIndex)
 {
-	string strCombo = to_string(111);
+	string strCombo = to_string(123);
 	int index = strCombo[iIndex] - '0';
 	return m_pDamageTexture[index];
+}
+
+void CDamageFont::SetPosition()
+{
+	m_bRender = true;
+	_float2 vTargetPos = m_pPlayer->GetTargetWindowPos();
+	if (vTargetPos.x != FLT_MAX && vTargetPos.y != FLT_MAX)
+	{
+		CGameInstance* pInstance = CGameInstance::GetInstance();
+
+		//보스쪽 타겟
+		if (CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+		{
+			//보스가 스폰된 상태 혹은 버로우하지 않은상태일때만 락온
+			CBoss* pBoss = static_cast<CBoss*>(m_pPlayer->GetLockOnTarget());
+			_vector vBossPos = XMLoadFloat4(&pBoss->GetPosition());
+			_vector vPlayerPos = static_cast<CTransform*>(m_pPlayer->Find_Component(L"com_transform"))->Get_State(CTransform::STATE_POSITION);
+			_float fLength = XMVectorGetX(XMVector3Length(vBossPos - vPlayerPos));
+
+			if (pBoss && pBoss->IsSpawned())
+			{
+				m_fOriginDamageX = (vTargetPos.x + 1) * g_iWinSizeX * 0.5f;
+				m_fDamageY = (1 - vTargetPos.y) * g_iWinSizeY * 0.5f + g_iWinSizeY * 0.5f;
+			}
+		}
+		else
+		{
+			m_fOriginDamageX = (vTargetPos.x + 1) * g_iWinSizeX * 0.5f;
+			m_fDamageY = (1 - vTargetPos.y) * g_iWinSizeY * 0.5f + g_iWinSizeY * 0.5f;
+		}
+
+	}
 }
 
 HRESULT CDamageFont::Add_Components()

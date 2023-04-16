@@ -26,6 +26,10 @@ public:
 	virtual HRESULT Render() override;
 	virtual void RenderGUI() override;
 
+public:
+	void SetEnd() { m_bEnd = true; };
+	_bool IsEnd() { return m_fEndAcc >= 1.f; };
+
 private:
 	HRESULT Add_Components();
 	HRESULT Setup_ShaderResources();
@@ -47,11 +51,19 @@ private:
 	CShader*		m_pShader = { nullptr };
 	CVIBuffer_Rect* m_pVIBuffer = { nullptr };
 
+	CTexture*		m_pGradientMask = nullptr;
 	CTexture*		m_pTexture1 = { nullptr };
 	CTexture*		m_pTexture2 = { nullptr };
 	CTexture*		m_pRotationTexture = { nullptr };//·Îµù
 
 	_float m_fAngle = 0.f;
+	_float m_fAlpha = 0.f;
+	_bool m_bToggle = true;
+
+	_bool m_bEnd = false;
+	_float m_fEndAcc = 0.f;
+
+	_bool bWarningSound = false;
 };
 
 END

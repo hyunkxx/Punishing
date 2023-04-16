@@ -15,6 +15,7 @@ public:
 	virtual void EffectApply(ID3D11ShaderResourceView * pSRV, class CShader* pShader, _int iPass = 0);
 
 public:
+	void BufferCombine(ID3D11ShaderResourceView* pMainSRV, ID3D11ShaderResourceView* pBloomSRV, class CShader* pShader, _int iPass = 2);
 	void EffectCombine(ID3D11ShaderResourceView* pMainSRV, ID3D11ShaderResourceView* pBloomSRV, class CShader* pShader);
 
 protected:

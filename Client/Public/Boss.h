@@ -115,7 +115,7 @@ private://애니메이션 관련
 	void DefaultAnimation(_double TimeDelta);
 	void EvolutionAnimation(_double TimeDelta);
 	void AnimationController(_double TimeDelta);
-
+	void SoundController(_double TimeDelta);
 private://콜라이더 관련
 	void SetupColliders();
 
@@ -307,6 +307,31 @@ private:
 	_bool m_bMissileShake = false;
 	//상체 변신후 디졸브 변신이 완료되면 타임누적
 	_float m_fVisibleTime = 0.f;
+
+	//연기 이펙트
+	class CCloud* m_pCloudEffect = nullptr;
+	_bool m_bCloudStart = false;
+
+
+	//사운드
+	const _float m_fBossFxVolume = 0.4f;
+	_bool m_bBornSound = false;
+	_bool m_bEvolutionSound = false;
+
+	_bool m_bThornSound[3] = { false, };
+	_bool m_bEvolutionFinishSound = false;
+	_bool m_bDieSound = false;
+	_bool m_bBossVoice = false;
+	_bool m_bLine2Sound = false;
+	_bool m_bBossDashSouund = false;
+	_bool m_bAttack3Sound = false;
+	_bool m_bMissileSound = false;
+	_bool m_bBurrowSound = false;
+	_bool m_fMissileSoundOff = 0.f;
+	_bool m_bCloseSound = false;
+	
+	_bool m_bAttackBeginSound = false;
+	_bool m_bClose2Sound[3] = { false, };
 };
 
 END

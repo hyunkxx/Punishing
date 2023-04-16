@@ -8,6 +8,7 @@ class CRenderer;
 class CTexture;
 class CVIBuffer_Rect;
 class CShader;
+class CLayer;
 END
 
 BEGIN(Client)
@@ -27,13 +28,17 @@ public:
 	virtual HRESULT Render() override;
 
 public:
+	_bool IsEnding() { return m_bWinAction; }
+	_bool IsStarting() { return m_bStartAction; }
+
 	void AttackShake();
 	void ThornShake();
 	CCollider* GetCollider() { return m_pCollider; }
 	void LevelEnd() { m_bFadeIn = true; m_bFadeInStart = true; }
 
 	void EvolutionStart() { m_bEvolution = true; };
-
+	_bool IsEvolition() const { return m_bEvolution; }
+	
 public:
 	HRESULT Add_Components();
 	HRESULT Setup_ShaderResources();
@@ -90,9 +95,13 @@ private:
 	//변신 무브
 	_bool m_bEvolution = false;
 	_float m_fEvolutionAcc = 0.f;
-	const _float m_fEvolutionLimit = 1.8f;
+	const _float m_fEvolutionLimit = 2.5f;
 	_float3 m_vCamStartPos = { 0.f, 0.f, 0.f };
 	_float3 m_vCurrentCamPos = { 0.f, 0.f, 0.f };
+	_bool m_bCamMoveLock = false;
+
+	_float m_fStartActionAcc = -8.f;
+	_float m_fStartDarkAcc = 0.f;
 private:
 	//Fade in&out
 	_float		m_fX, m_fY, m_fWidth, m_fHeight;
@@ -105,6 +114,22 @@ private:
 	CVIBuffer_Rect* m_pVIBuffer = { nullptr };
 	CTexture*		m_pTexture = { nullptr };
 	
+private:
+	CLayer* pEnemyLayer = nullptr;
+	_bool m_bEvolitionEffectStart = false;
+	_bool m_bEnemyLayerSetup = false;
+	_bool m_bEvolitionEnemeyAlpha = false;
+
+	_bool m_bFinished = false;
+	_float m_fBossBgmStart = 0.15f;
+
+
+	CShader* m_pTexShader = nullptr;
+	_float		m_fLevelX, m_fLevelY, m_fLevelWidth, m_fLevelHeight;
+	_float4x4	m_LevelWorldMatrix;
+	CTexture* m_pLevel1 = nullptr;
+	CTexture* m_pLevel2 = nullptr;
+
 };
 
 END

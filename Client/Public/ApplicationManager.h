@@ -40,6 +40,8 @@ public:
 	//몬스터 스폰체크
 	void SetSpawned(_bool value) { m_bEnemySpawned = value; }
 	_bool IsSpawned() { return m_bEnemySpawned; }
+
+	//보스 가시 사운드 채널관리
 public:
 	virtual void Free() override;
 
@@ -59,6 +61,8 @@ private:
 
 	//스폰되기전 이펙트 false
 	_bool m_bEnemySpawned = false;
+
+	//_bool m_bUsedSound[8] = { false, };
 };
 
 END

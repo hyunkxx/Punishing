@@ -4,6 +4,7 @@
 #include "GameInstance.h"
 #include "Character.h"
 #include "Bone.h"
+#include "Enemy.h"
 
 CSwordTrail::CSwordTrail(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
 	: CGameObject(pDevice, pContext)
@@ -85,7 +86,6 @@ HRESULT CSwordTrail::Render()
 	if (FAILED(SetupShaderResources()))
 		return E_FAIL;
 
-
 	if (m_bHit)
 	{
 		if (FAILED(m_pHitTransform->Setup_ShaderResource(m_pShader, "g_WorldMatrix")))
@@ -118,8 +118,6 @@ HRESULT CSwordTrail::Render()
 		m_pShader->Begin(0);
 		m_pModel->Render(i);
 	}
-
-
 
 	return S_OK;
 }
@@ -211,6 +209,7 @@ void CSwordTrail::EffectStart(_float3 vOffsetPos, _float3 fDegreeAngle)
 	NewPivotMatrix._42 = vPivotPos.y;
 	NewPivotMatrix._43 = vPivotPos.z;
 
+	_matrix RotZero = XMMatrixRotationX(XMConvertToRadians(0.f));
 	_matrix RotX = XMMatrixRotationX(XMConvertToRadians(fDegreeAngle.x));
 	_matrix RotY = XMMatrixRotationY(XMConvertToRadians(fDegreeAngle.y));
 	_matrix RotZ = XMMatrixRotationZ(XMConvertToRadians(fDegreeAngle.z));
@@ -218,21 +217,32 @@ void CSwordTrail::EffectStart(_float3 vOffsetPos, _float3 fDegreeAngle)
 	XMStoreFloat4x4(&EffectWorldMatrix, RotZ * RotY * RotX * XMLoadFloat4x4(&NewPivotMatrix));
 	m_pTransform->Set_WorldMatrix(EffectWorldMatrix);
 	
-	_vector whiteEffectPos = vPlayerPos + vPlayerLook * 2.5f;
-	m_pHitTransform->Set_WorldMatrix(EffectWorldMatrix);
-	m_pHitTransform->Set_State(CTransform::STATE_POSITION, whiteEffectPos);
+
+	_matrix HitRotMatrkx = XMMatrixRotationX(XMConvertToRadians(0.f));
+	HitRotMatrkx = RotZ * RotY * RotZero * XMLoadFloat4x4(&NewPivotMatrix);
+	_float4x4 hitMatrix;
+	XMStoreFloat4x4(&hitMatrix, HitRotMatrkx);
+	CEnemy* m_pEnemy = (CEnemy*)m_pPlayer->GetLockOnTarget();
+
+	if (m_pEnemy)
+	{
+		_vector vEnemyPos;
+		vEnemyPos = XMLoadFloat4(&m_pEnemy->GetPosition());
+
+		vPlayerLook = XMVector3Normalize(vEnemyPos - vPlayerPos) * 1.5f;
+
+		_vector whiteEffectPos = vPlayerPos + vPlayerLook * 1.5f;
+		whiteEffectPos = XMVectorSetY(whiteEffectPos, XMVectorGetY(whiteEffectPos) + 1.5f);
+		m_pHitTransform->Set_WorldMatrix(hitMatrix);
+		m_pHitTransform->Set_State(CTransform::STATE_POSITION, whiteEffectPos);
+	}
 
 	m_bUse = true;
 }
 
 void CSwordTrail::SetHitPosition(_vector vHitPos)
 {
-	//vHitPos = XMVectorSetY(vHitPos, 1.0f);
 	//XMStoreFloat3(&m_vHitPos, vHitPos);
-
-	//m_pHitTransform->Set_State(CTransform::STATE_POSITION, vHitPos);
-	//m_pHitTransform->LookAt(XMLoadFloat4(&CPipeLine::GetInstance()->Get_CamPosition()));
-	//m_pHitTransform->SetRotation(vLook, XMConvertToRadians(rand() % 20));
 }
 
 _float CSwordTrail::GetLengthFromCamera()

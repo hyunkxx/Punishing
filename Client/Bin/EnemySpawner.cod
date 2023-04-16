@@ -287,6 +287,9 @@ PUBLIC	?g_XMLogEst6@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLogEst6
 PUBLIC	?g_XMLogEst7@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLogEst7
 PUBLIC	?g_XMLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLgE
 PUBLIC	?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMInvLgE
+_BSS	SEGMENT
+?bEmptySound@?N@??Tick@CEnemySpawner@Client@@UEAAXN@Z@4_NA DB 01H DUP (?) ; `Client::CEnemySpawner::Tick'::`13'::bEmptySound
+_BSS	ENDS
 ;	COMDAT ?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B
 CONST	SEGMENT
 ?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B DD 03f317218r ; 0.693147 ; DirectX::g_XMInvLgE
@@ -2342,6 +2345,7 @@ PUBLIC	?begin@?$list@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$all
 PUBLIC	?end@?$list@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::list<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64>,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > >::end
 PUBLIC	?begin@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::begin
 PUBLIC	?end@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::end
+PUBLIC	?IsDeadWait@CEnemy@Client@@QEBA_NXZ		; Client::CEnemy::IsDeadWait
 PUBLIC	?GetBodyCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ ; Client::CCharacter::GetBodyCollider
 PUBLIC	?LevelEnd@CPlayerCamera@Client@@QEAAXXZ		; Client::CPlayerCamera::LevelEnd
 PUBLIC	??0?$_Iterator012@Ubidirectional_iterator_tag@std@@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@2@_JPEBU32@AEBU32@U_Iterator_base12@2@@std@@QEAA@XZ ; std::_Iterator012<std::bidirectional_iterator_tag,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64>,__int64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const * __ptr64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const & __ptr64,std::_Iterator_base12>::_Iterator012<std::bidirectional_iterator_tag,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64>,__int64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const * __ptr64,std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> const & __ptr64,std::_Iterator_base12>
@@ -2377,10 +2381,20 @@ PUBLIC	?__LINE__Var@?0??XMLoadFloat4x4@DirectX@@YQ?AUXMMATRIX@2@PEBUXMFLOAT4X4@2
 PUBLIC	??_7CEnemySpawner@Client@@6BCGameObject@Engine@@@ ; Client::CEnemySpawner::`vftable'
 PUBLIC	??_7CEnemySpawner@Client@@6BIOnCollisionEnter@Engine@@@ ; Client::CEnemySpawner::`vftable'
 PUBLIC	??_C@_1BI@DCFJMCMJ@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1BE@BFIDKPLH@?$AAE?$AAm?$AAp?$AAt?$AAy?$AA?4?$AAw?$AAa?$AAv?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CI@MLEFGO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1BO@KLEJCLMG@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA2?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BK@BKCENIHA@?$AAc?$AAo?$AAm?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1CO@HJBGOIAH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAo?$AAb?$AAb?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1BK@GIOMOCNE@?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1CG@COFFFCLL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1BK@GKOIFCHG@?$AAc?$AAo?$AAm?$AA_?$AAv?$AAi?$AAb?$AAu?$AAf?$AAf?$AAe?$AAr?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1DA@BAIPNHMH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAv?$AAi?$AAb?$AAu?$AAf?$AAf?$AAe?$AAr?$AA_?$AAr?$AAe?$AAc?$AAt?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1BG@GGOMMBBL@?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1DA@NCILMLLP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAv?$AAt?$AAx?$AAt?$AAe?$AAx?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1BE@IPMCCGAN@?$AAc?$AAo?$AAm?$AA_?$AAn?$AAo?$AAi?$AAs?$AAe?$AA?$AA@ ; `string'
+PUBLIC	??_C@_1DE@JHOHMCJG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AAi?$AAs?$AAm?$AAa?$AAs?$AAk?$AA?$AA@ ; `string'
 PUBLIC	?__LINE__Var@?0??Create@CEnemySpawner@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA ; `Client::CEnemySpawner::Create'::`1'::__LINE__Var
 PUBLIC	??_C@_0EK@NIKABINC@c?3?2users?2arcco?2documents?2github?2@ ; `string'
 PUBLIC	??_C@_1BA@HHOMBECE@?$AAM?$AAe?$AAs?$AAs?$AAa?$AAg?$AAe?$AA?$AA@ ; `string'
@@ -2420,9 +2434,17 @@ PUBLIC	??_R2IOnCollisionEnter@Engine@@8		; Engine::IOnCollisionEnter::`RTTI Base
 PUBLIC	??_R1A@?0A@EA@IOnCollisionEnter@Engine@@8	; Engine::IOnCollisionEnter::`RTTI Base Class Descriptor at (0,-1,0,64)'
 PUBLIC	??_R4CEnemySpawner@Client@@6BIOnCollisionEnter@Engine@@@ ; Client::CEnemySpawner::`RTTI Complete Object Locator'
 PUBLIC	__real@3c8efa35
+PUBLIC	__real@3dcccccd
+PUBLIC	__real@3e4ccccd
 PUBLIC	__real@3f800000
+PUBLIC	__real@3f947ae147ae147b
+PUBLIC	__real@3fe0000000000000
 PUBLIC	__real@40000000
+PUBLIC	__real@40800000
+PUBLIC	__real@40a00000
+PUBLIC	__real@40c00000
 PUBLIC	__real@41000000
+PUBLIC	__real@41200000
 PUBLIC	__real@41500000
 PUBLIC	__real@41e00000
 PUBLIC	__real@41f00000
@@ -2448,6 +2470,7 @@ EXTRN	__imp_??1CGameObject@Engine@@MEAA@XZ:PROC
 EXTRN	__imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z:PROC
 EXTRN	__imp_?Destroy@CGameObject@Engine@@QEAAXXZ:PROC
 EXTRN	__imp_?IsActive@CGameObject@Engine@@QEAA_NXZ:PROC
+EXTRN	__imp_?IsDisable@CGameObject@Engine@@QEAA_NXZ:PROC
 EXTRN	__imp_?Free@CGameObject@Engine@@UEAAXXZ:PROC
 EXTRN	__imp_?SetVisible@CCollider@Engine@@QEAAX_N@Z:PROC
 EXTRN	__imp_?Compare@CCollider@Engine@@QEAA_NPEAV12@@Z:PROC
@@ -2458,12 +2481,17 @@ EXTRN	??_ECEnemySpawner@Client@@MEAAPEAXI@Z:PROC	; Client::CEnemySpawner::`vecto
 EXTRN	__imp_?Update@CSphereCollider@Engine@@UEAAXUXMMATRIX@DirectX@@@Z:PROC
 EXTRN	__imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z:PROC
 EXTRN	__imp_?Get_WorldMatrix@CTransform@Engine@@QEAA?AUXMFLOAT4X4@DirectX@@XZ:PROC
+EXTRN	__imp_?Set_Scale@CTransform@Engine@@QEAAXUXMFLOAT3@DirectX@@@Z:PROC
 EXTRN	__imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z:PROC
 EXTRN	__imp_?SetRotation@CTransform@Engine@@QEAAXT__m128@@M@Z:PROC
+EXTRN	__imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z:PROC
 EXTRN	__imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ:PROC
 EXTRN	__imp_?Find_Layer@CGameInstance@Engine@@QEAAPEAVCLayer@2@IPEB_W@Z:PROC
 EXTRN	__imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z:PROC
 EXTRN	__imp_?AddCollider@CGameInstance@Engine@@QEAAJPEAVCCollider@2@I@Z:PROC
+EXTRN	__imp_?PlaySoundEx@CGameInstance@Engine@@QEAAJPEA_WHW4SOUND_VOLUME@@M@Z:PROC
+EXTRN	__imp_?SetSoundVolume@CGameInstance@Engine@@QEAAJHW4SOUND_VOLUME@@M@Z:PROC
+EXTRN	__imp_?StopSound@CGameInstance@Engine@@QEAAJH@Z:PROC
 EXTRN	?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ:PROC ; Client::CApplicationManager::GetInstance
 EXTRN	?LookPlayer@CEnemy@Client@@QEAAXXZ:PROC		; Client::CEnemy::LookPlayer
 EXTRN	?Reset@CEnemy@Client@@QEAA?AUXMFLOAT2@DirectX@@UXMFLOAT3@4@M@Z:PROC ; Client::CEnemy::Reset
@@ -2644,13 +2672,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CEnemySpawner@Client@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z DD imagerel $LN4
-	DD	imagerel $LN4+276
+	DD	imagerel $LN4+407
 	DD	imagerel $unwind$??0CEnemySpawner@Client@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CEnemySpawner@Client@@IEAA@AEBVCGameObject@Engine@@@Z DD imagerel $LN4
-	DD	imagerel $LN4+264
+	DD	imagerel $LN4+395
 	DD	imagerel $unwind$??0CEnemySpawner@Client@@IEAA@AEBVCGameObject@Engine@@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2673,8 +2701,8 @@ $pdata$?Initialize@CEnemySpawner@Client@@UEAAJPEAX@Z DD imagerel $LN4
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Tick@CEnemySpawner@Client@@UEAAXN@Z DD imagerel $LN29
-	DD	imagerel $LN29+1870
+$pdata$?Tick@CEnemySpawner@Client@@UEAAXN@Z DD imagerel $LN37
+	DD	imagerel $LN37+2290
 	DD	imagerel $unwind$?Tick@CEnemySpawner@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2716,13 +2744,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?LateTick@CEnemySpawner@Client@@UEAAXN@Z DD imagerel $LN3
-	DD	imagerel $LN3+241
+	DD	imagerel $LN3+273
 	DD	imagerel $unwind$?LateTick@CEnemySpawner@Client@@UEAAXN@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?Render@CEnemySpawner@Client@@UEAAJXZ DD imagerel $LN3
-	DD	imagerel $LN3+52
+	DD	imagerel $LN3+64
 	DD	imagerel $unwind$?Render@CEnemySpawner@Client@@UEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -2739,8 +2767,8 @@ $pdata$?SetupSpawner@CEnemySpawner@Client@@QEAAXUXMFLOAT3@DirectX@@M@Z DD imager
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?AddComponents@CEnemySpawner@Client@@AEAAJXZ DD imagerel $LN5
-	DD	imagerel $LN5+499
+$pdata$?AddComponents@CEnemySpawner@Client@@AEAAJXZ DD imagerel $LN10
+	DD	imagerel $LN10+1021
 	DD	imagerel $unwind$?AddComponents@CEnemySpawner@Client@@AEAAJXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -2794,7 +2822,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0CEnemySpawner@Client@@QEAA@AEBV01@@Z DD imagerel $LN6
-	DD	imagerel $LN6+380
+	DD	imagerel $LN6+580
 	DD	imagerel $unwind$??0CEnemySpawner@Client@@QEAA@AEBV01@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2868,6 +2896,12 @@ pdata	SEGMENT
 $pdata$?end@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ DD imagerel $LN3
 	DD	imagerel $LN3+90
 	DD	imagerel $unwind$?end@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?IsDeadWait@CEnemy@Client@@QEBA_NXZ DD imagerel $LN3
+	DD	imagerel $LN3+64
+	DD	imagerel $unwind$?IsDeadWait@CEnemy@Client@@QEBA_NXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -3047,17 +3081,49 @@ CONST	ENDS
 CONST	SEGMENT
 __real@41500000 DD 041500000r			; 13
 CONST	ENDS
+;	COMDAT __real@41200000
+CONST	SEGMENT
+__real@41200000 DD 041200000r			; 10
+CONST	ENDS
 ;	COMDAT __real@41000000
 CONST	SEGMENT
 __real@41000000 DD 041000000r			; 8
+CONST	ENDS
+;	COMDAT __real@40c00000
+CONST	SEGMENT
+__real@40c00000 DD 040c00000r			; 6
+CONST	ENDS
+;	COMDAT __real@40a00000
+CONST	SEGMENT
+__real@40a00000 DD 040a00000r			; 5
+CONST	ENDS
+;	COMDAT __real@40800000
+CONST	SEGMENT
+__real@40800000 DD 040800000r			; 4
 CONST	ENDS
 ;	COMDAT __real@40000000
 CONST	SEGMENT
 __real@40000000 DD 040000000r			; 2
 CONST	ENDS
+;	COMDAT __real@3fe0000000000000
+CONST	SEGMENT
+__real@3fe0000000000000 DQ 03fe0000000000000r	; 0.5
+CONST	ENDS
+;	COMDAT __real@3f947ae147ae147b
+CONST	SEGMENT
+__real@3f947ae147ae147b DQ 03f947ae147ae147br	; 0.02
+CONST	ENDS
 ;	COMDAT __real@3f800000
 CONST	SEGMENT
 __real@3f800000 DD 03f800000r			; 1
+CONST	ENDS
+;	COMDAT __real@3e4ccccd
+CONST	SEGMENT
+__real@3e4ccccd DD 03e4ccccdr			; 0.2
+CONST	ENDS
+;	COMDAT __real@3dcccccd
+CONST	SEGMENT
+__real@3dcccccd DD 03dcccccdr			; 0.1
 CONST	ENDS
 ;	COMDAT __real@3c8efa35
 CONST	SEGMENT
@@ -3440,7 +3506,7 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Clone@CEnemySpawner@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Clone@CEnemySpawner@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0b3H ; `Client::CEnemySpawner::Clone'::`1'::__LINE__Var
+?__LINE__Var@?0??Clone@CEnemySpawner@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA DD 0fcH ; `Client::CEnemySpawner::Clone'::`1'::__LINE__Var
 _DATA	ENDS
 ;	COMDAT ??_C@_1EC@PAPCHKFE@?$AAF?$AAa?$AAi?$AAl?$AAe?$AAd?$AA?5?$AAt?$AAo?$AA?5?$AAC?$AAr?$AAe?$AAa?$AAt?$AAe?$AA?5?$AA?3?$AA?5?$AAC?$AAE?$AAn?$AAe?$AAm?$AAy?$AAS?$AAp?$AAa?$AAw?$AAn?$AAe?$AAr@
 CONST	SEGMENT
@@ -3465,8 +3531,63 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT ?__LINE__Var@?0??Create@CEnemySpawner@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
 _DATA	SEGMENT
-?__LINE__Var@?0??Create@CEnemySpawner@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0a7H ; `Client::CEnemySpawner::Create'::`1'::__LINE__Var
+?__LINE__Var@?0??Create@CEnemySpawner@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA DD 0f0H ; `Client::CEnemySpawner::Create'::`1'::__LINE__Var
 _DATA	ENDS
+;	COMDAT ??_C@_1DE@JHOHMCJG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AAi?$AAs?$AAm?$AAa?$AAs?$AAk?$AA?$AA@
+CONST	SEGMENT
+??_C@_1DE@JHOHMCJG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AAi?$AAs?$AAm?$AAa?$AAs?$AAk?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'e', 00H, 'x', 00H, 't'
+	DB	00H, 'u', 00H, 'r', 00H, 'e', 00H, '_', 00H, 'd', 00H, 'i', 00H
+	DB	's', 00H, 'm', 00H, 'a', 00H, 's', 00H, 'k', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1BE@IPMCCGAN@?$AAc?$AAo?$AAm?$AA_?$AAn?$AAo?$AAi?$AAs?$AAe?$AA?$AA@
+CONST	SEGMENT
+??_C@_1BE@IPMCCGAN@?$AAc?$AAo?$AAm?$AA_?$AAn?$AAo?$AAi?$AAs?$AAe?$AA?$AA@ DB 'c'
+	DB	00H, 'o', 00H, 'm', 00H, '_', 00H, 'n', 00H, 'o', 00H, 'i', 00H
+	DB	's', 00H, 'e', 00H, 00H, 00H			; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1DA@NCILMLLP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAv?$AAt?$AAx?$AAt?$AAe?$AAx?$AA?$AA@
+CONST	SEGMENT
+??_C@_1DA@NCILMLLP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAv?$AAt?$AAx?$AAt?$AAe?$AAx?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 's', 00H, 'h', 00H, 'a', 00H, 'd'
+	DB	00H, 'e', 00H, 'r', 00H, '_', 00H, 'v', 00H, 't', 00H, 'x', 00H
+	DB	't', 00H, 'e', 00H, 'x', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1BG@GGOMMBBL@?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?$AA@
+CONST	SEGMENT
+??_C@_1BG@GGOMMBBL@?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?$AA@ DB 'c'
+	DB	00H, 'o', 00H, 'm', 00H, '_', 00H, 's', 00H, 'h', 00H, 'a', 00H
+	DB	'd', 00H, 'e', 00H, 'r', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1DA@BAIPNHMH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAv?$AAi?$AAb?$AAu?$AAf?$AAf?$AAe?$AAr?$AA_?$AAr?$AAe?$AAc?$AAt?$AA?$AA@
+CONST	SEGMENT
+??_C@_1DA@BAIPNHMH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAv?$AAi?$AAb?$AAu?$AAf?$AAf?$AAe?$AAr?$AA_?$AAr?$AAe?$AAc?$AAt?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 'v', 00H, 'i', 00H, 'b', 00H, 'u'
+	DB	00H, 'f', 00H, 'f', 00H, 'e', 00H, 'r', 00H, '_', 00H, 'r', 00H
+	DB	'e', 00H, 'c', 00H, 't', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1BK@GKOIFCHG@?$AAc?$AAo?$AAm?$AA_?$AAv?$AAi?$AAb?$AAu?$AAf?$AAf?$AAe?$AAr?$AA?$AA@
+CONST	SEGMENT
+??_C@_1BK@GKOIFCHG@?$AAc?$AAo?$AAm?$AA_?$AAv?$AAi?$AAb?$AAu?$AAf?$AAf?$AAe?$AAr?$AA?$AA@ DB 'c'
+	DB	00H, 'o', 00H, 'm', 00H, '_', 00H, 'v', 00H, 'i', 00H, 'b', 00H
+	DB	'u', 00H, 'f', 00H, 'f', 00H, 'e', 00H, 'r', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1CG@COFFFCLL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@
+CONST	SEGMENT
+??_C@_1CG@COFFFCLL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ DB 'p'
+	DB	00H, 'r', 00H, 'o', 00H, 't', 00H, 'o', 00H, '_', 00H, 'c', 00H
+	DB	'o', 00H, 'm', 00H, '_', 00H, 'r', 00H, 'e', 00H, 'n', 00H, 'd'
+	DB	00H, 'e', 00H, 'r', 00H, 'e', 00H, 'r', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1BK@GIOMOCNE@?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@
+CONST	SEGMENT
+??_C@_1BK@GIOMOCNE@?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@ DB 'c'
+	DB	00H, 'o', 00H, 'm', 00H, '_', 00H, 'r', 00H, 'e', 00H, 'n', 00H
+	DB	'd', 00H, 'e', 00H, 'r', 00H, 'e', 00H, 'r', 00H, 00H, 00H ; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_1CO@HJBGOIAH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAo?$AAb?$AAb?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@
 CONST	SEGMENT
 ??_C@_1CO@HJBGOIAH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAo?$AAb?$AAb?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@ DB 'p'
@@ -3481,6 +3602,13 @@ CONST	SEGMENT
 	DB	00H, 'o', 00H, 'm', 00H, '_', 00H, 'c', 00H, 'o', 00H, 'l', 00H
 	DB	'l', 00H, 'i', 00H, 'd', 00H, 'e', 00H, 'r', 00H, 00H, 00H ; `string'
 CONST	ENDS
+;	COMDAT ??_C@_1BO@KLEJCLMG@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA2?$AA?$AA@
+CONST	SEGMENT
+??_C@_1BO@KLEJCLMG@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA2?$AA?$AA@ DB 'c'
+	DB	00H, 'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'r', 00H, 'a', 00H
+	DB	'n', 00H, 's', 00H, 'f', 00H, 'o', 00H, 'r', 00H, 'm', 00H, '2'
+	DB	00H, 00H, 00H				; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_1CI@MLEFGO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
 CONST	SEGMENT
 ??_C@_1CI@MLEFGO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@ DB 'p'
@@ -3494,6 +3622,12 @@ CONST	SEGMENT
 	DB	00H, 'o', 00H, 'm', 00H, '_', 00H, 't', 00H, 'r', 00H, 'a', 00H
 	DB	'n', 00H, 's', 00H, 'f', 00H, 'o', 00H, 'r', 00H, 'm', 00H, 00H
 	DB	00H						; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1BE@BFIDKPLH@?$AAE?$AAm?$AAp?$AAt?$AAy?$AA?4?$AAw?$AAa?$AAv?$AA?$AA@
+CONST	SEGMENT
+??_C@_1BE@BFIDKPLH@?$AAE?$AAm?$AAp?$AAt?$AAy?$AA?4?$AAw?$AAa?$AAv?$AA?$AA@ DB 'E'
+	DB	00H, 'm', 00H, 'p', 00H, 't', 00H, 'y', 00H, '.', 00H, 'w', 00H
+	DB	'a', 00H, 'v', 00H, 00H, 00H			; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1BI@DCFJMCMJ@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AA?$AA@
 CONST	SEGMENT
@@ -3784,6 +3918,13 @@ xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$?GetBodyCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ DD 05052801H
+	DD	010e0311H
+	DD	070070019H
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?IsDeadWait@CEnemy@Client@@QEBA_NXZ DD 05052801H
 	DD	010e0311H
 	DD	070070019H
 	DD	05006H
@@ -4127,12 +4268,12 @@ $cppxdata$?OnCollisionEnter@CEnemySpawner@Client@@EEAAXPEAVCCollider@Engine@@0@Z
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?AddComponents@CEnemySpawner@Client@@AEAAJXZ DD 035053b19H
-	DD	010e3313H
-	DD	070070049H
-	DD	05006H
+$unwind$?AddComponents@CEnemySpawner@Client@@AEAAJXZ DD 035063c19H
+	DD	010f3314H
+	DD	07008005eH
+	DD	050066007H
 	DD	imagerel __GSHandlerCheck
-	DD	0238H
+	DD	02e8H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -4188,9 +4329,9 @@ $unwind$?RenderGUI@CEnemySpawner@Client@@UEAAXXZ DD 05052801H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?Render@CEnemySpawner@Client@@UEAAJXZ DD 05052801H
-	DD	010e0311H
-	DD	070070019H
+$unwind$?Render@CEnemySpawner@Client@@UEAAJXZ DD 025052a01H
+	DD	010e2313H
+	DD	070070021H
 	DD	05006H
 xdata	ENDS
 ;	COMDAT xdata
@@ -4240,29 +4381,29 @@ xdata	ENDS
 xdata	SEGMENT
 $ip2state$?Tick@CEnemySpawner@Client@@UEAAXN@Z DD imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z
 	DD	0ffffffffH
-	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+294
+	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+351
 	DD	00H
-	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+349
+	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+406
 	DD	01H
-	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+371
+	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+428
 	DD	00H
-	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+704
+	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+761
 	DD	0ffffffffH
-	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+818
+	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+895
 	DD	02H
-	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+879
+	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+956
 	DD	03H
-	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+904
+	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+981
 	DD	02H
-	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+975
+	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+1172
 	DD	0ffffffffH
-	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+1118
+	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+1572
 	DD	04H
-	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+1179
+	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+1633
 	DD	05H
-	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+1204
+	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+1658
 	DD	04H
-	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+1543
+	DD	imagerel ?Tick@CEnemySpawner@Client@@UEAAXN@Z+1997
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -4282,13 +4423,13 @@ $stateUnwindMap$?Tick@CEnemySpawner@Client@@UEAAXN@Z DD 0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?Tick@CEnemySpawner@Client@@UEAAXN@Z DD 025064d19H
-	DD	0115231aH
-	DD	0700e013eH
+$unwind$?Tick@CEnemySpawner@Client@@UEAAXN@Z DD 035064d19H
+	DD	0115331aH
+	DD	0700e0148H
 	DD	0500c600dH
 	DD	imagerel __GSHandlerCheck_EH
 	DD	imagerel $cppxdata$?Tick@CEnemySpawner@Client@@UEAAXN@Z
-	DD	09eaH
+	DD	0a3aH
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -4332,22 +4473,22 @@ $cppxdata$?Tick@CEnemySpawner@Client@@UEAAXN@Z DD 019930522H
 	DD	00H
 	DD	0dH
 	DD	imagerel $ip2state$?Tick@CEnemySpawner@Client@@UEAAXN@Z
-	DD	09c8H
+	DD	0a18H
 	DD	00H
 	DD	01H
-?Tick@CEnemySpawner@Client@@UEAAXN@Z$rtcVarDesc DD 01d0H ; Client::CEnemySpawner::Tick
+?Tick@CEnemySpawner@Client@@UEAAXN@Z$rtcVarDesc DD 0220H ; Client::CEnemySpawner::Tick
 	DD	010H
 	DQ	FLAT:?Tick@CEnemySpawner@Client@@UEAAXN@Z$rtcName$4
-	DD	0198H
+	DD	01e8H
 	DD	018H
 	DQ	FLAT:?Tick@CEnemySpawner@Client@@UEAAXN@Z$rtcName$3
-	DD	0168H
+	DD	01b8H
 	DD	018H
 	DQ	FLAT:?Tick@CEnemySpawner@Client@@UEAAXN@Z$rtcName$2
-	DD	0a0H
+	DD	0b0H
 	DD	010H
 	DQ	FLAT:?Tick@CEnemySpawner@Client@@UEAAXN@Z$rtcName$1
-	DD	068H
+	DD	078H
 	DD	018H
 	DQ	FLAT:?Tick@CEnemySpawner@Client@@UEAAXN@Z$rtcName$0
 CONST	ENDS
@@ -6040,7 +6181,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?LevelEnd@CPlayerCamera@Client@@QEAAXXZ PROC		; Client::CPlayerCamera::LevelEnd, COMDAT
 
-; 33   : 	void LevelEnd() { m_bFadeIn = true; m_bFadeInStart = true; }
+; 37   : 	void LevelEnd() { m_bFadeIn = true; m_bFadeInStart = true; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -6077,7 +6218,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?GetBodyCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ PROC ; Client::CCharacter::GetBodyCollider, COMDAT
 
-; 239  : 	class CCollider* GetBodyCollider() const { return mCollider; };
+; 253  : 	class CCollider* GetBodyCollider() const { return mCollider; };
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -6094,14 +6235,47 @@ $LN3:
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
   00028	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0002f	48 8b 80 b0 00
-	00 00		 mov	 rax, QWORD PTR [rax+176]
+  0002f	48 8b 80 b8 00
+	00 00		 mov	 rax, QWORD PTR [rax+184]
   00036	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
   0003d	5f		 pop	 rdi
   0003e	5d		 pop	 rbp
   0003f	c3		 ret	 0
 ?GetBodyCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ ENDP ; Client::CCharacter::GetBodyCollider
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\users\arcco\documents\github\framework\client\public\enemy.h
+;	COMDAT ?IsDeadWait@CEnemy@Client@@QEBA_NXZ
+_TEXT	SEGMENT
+this$ = 224
+?IsDeadWait@CEnemy@Client@@QEBA_NXZ PROC		; Client::CEnemy::IsDeadWait, COMDAT
+
+; 132  : 	_bool IsDeadWait() const { return m_bDeadWait; }
+
+$LN3:
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	55		 push	 rbp
+  00006	57		 push	 rdi
+  00007	48 81 ec c8 00
+	00 00		 sub	 rsp, 200		; 000000c8H
+  0000e	48 8b ec	 mov	 rbp, rsp
+  00011	48 8b fc	 mov	 rdi, rsp
+  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
+  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  0001e	f3 ab		 rep stosd
+  00020	48 8b 8c 24 e8
+	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+  00028	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0002f	0f b6 80 82 01
+	00 00		 movzx	 eax, BYTE PTR [rax+386]
+  00036	48 8d a5 c8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+200]
+  0003d	5f		 pop	 rdi
+  0003e	5d		 pop	 rbp
+  0003f	c3		 ret	 0
+?IsDeadWait@CEnemy@Client@@QEBA_NXZ ENDP		; Client::CEnemy::IsDeadWait
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\xhash
@@ -6615,7 +6789,7 @@ $LN4:
   00040	83 e0 01	 and	 eax, 1
   00043	85 c0		 test	 eax, eax
   00045	74 11		 je	 SHORT $LN2@scalar
-  00047	ba a8 00 00 00	 mov	 edx, 168		; 000000a8H
+  00047	ba e0 00 00 00	 mov	 edx, 224		; 000000e0H
   0004c	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00053	e8 00 00 00 00	 call	 ??3@YAXPEAX_K@Z		; operator delete
@@ -6746,11 +6920,67 @@ $LN4@CEnemySpaw:
 	00 00		 mov	 QWORD PTR [rax+160], rcx
   0016b	48 8b 85 f0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00172	48 8d a5 d8 00
+  00172	48 8b 8d f8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  00179	f3 0f 10 81 a8
+	00 00 00	 movss	 xmm0, DWORD PTR [rcx+168]
+  00181	f3 0f 11 80 a8
+	00 00 00	 movss	 DWORD PTR [rax+168], xmm0
+  00189	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00190	48 8b 8d f8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  00197	48 8b 89 b0 00
+	00 00		 mov	 rcx, QWORD PTR [rcx+176]
+  0019e	48 89 88 b0 00
+	00 00		 mov	 QWORD PTR [rax+176], rcx
+  001a5	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001ac	48 8b 8d f8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  001b3	48 8b 89 b8 00
+	00 00		 mov	 rcx, QWORD PTR [rcx+184]
+  001ba	48 89 88 b8 00
+	00 00		 mov	 QWORD PTR [rax+184], rcx
+  001c1	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001c8	48 8b 8d f8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  001cf	48 8b 89 c0 00
+	00 00		 mov	 rcx, QWORD PTR [rcx+192]
+  001d6	48 89 88 c0 00
+	00 00		 mov	 QWORD PTR [rax+192], rcx
+  001dd	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001e4	48 8b 8d f8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  001eb	48 8b 89 c8 00
+	00 00		 mov	 rcx, QWORD PTR [rcx+200]
+  001f2	48 89 88 c8 00
+	00 00		 mov	 QWORD PTR [rax+200], rcx
+  001f9	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00200	48 8b 8d f8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  00207	48 8b 89 d0 00
+	00 00		 mov	 rcx, QWORD PTR [rcx+208]
+  0020e	48 89 88 d0 00
+	00 00		 mov	 QWORD PTR [rax+208], rcx
+  00215	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0021c	48 8b 8d f8 00
+	00 00		 mov	 rcx, QWORD PTR __that$[rbp]
+  00223	f3 0f 10 81 d8
+	00 00 00	 movss	 xmm0, DWORD PTR [rcx+216]
+  0022b	f3 0f 11 80 d8
+	00 00 00	 movss	 DWORD PTR [rax+216], xmm0
+  00233	48 8b 85 f0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0023a	48 8d a5 d8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+216]
-  00179	5f		 pop	 rdi
-  0017a	5d		 pop	 rbp
-  0017b	c3		 ret	 0
+  00241	5f		 pop	 rdi
+  00242	5d		 pop	 rbp
+  00243	c3		 ret	 0
 ??0CEnemySpawner@Client@@QEAA@AEBV01@@Z ENDP		; Client::CEnemySpawner::CEnemySpawner
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -6760,7 +6990,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?Free@CEnemySpawner@Client@@UEAAXXZ PROC		; Client::CEnemySpawner::Free, COMDAT
 
-; 191  : {
+; 264  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -6776,15 +7006,15 @@ $LN3:
   00022	48 8b 8c 24 08
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+264]
 
-; 192  : 	__super::Free();
+; 265  : 	__super::Free();
 
   0002a	48 8b 8d e0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Free@CGameObject@Engine@@UEAAXXZ
 
-; 193  : 
-; 194  : 	Safe_Release(m_pCollider);
+; 266  : 
+; 267  : 	Safe_Release(m_pCollider);
 
   00037	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6793,7 +7023,7 @@ $LN3:
   00044	48 8b c8	 mov	 rcx, rax
   00047	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCSphereCollider@Engine@@@Engine@@YAKAEAPEAVCSphereCollider@0@@Z ; Engine::Safe_Release<Engine::CSphereCollider * __ptr64>
 
-; 195  : 	Safe_Release(m_pTransform);
+; 268  : 	Safe_Release(m_pTransform);
 
   0004c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6802,7 +7032,7 @@ $LN3:
   00059	48 8b c8	 mov	 rcx, rax
   0005c	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCTransform@Engine@@@Engine@@YAKAEAPEAVCTransform@0@@Z ; Engine::Safe_Release<Engine::CTransform * __ptr64>
 
-; 196  : }
+; 269  : }
 
   00061	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -6825,7 +7055,7 @@ this$ = 368
 pArg$ = 376
 ?Clone@CEnemySpawner@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z PROC ; Client::CEnemySpawner::Clone, COMDAT
 
-; 179  : {
+; 252  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -6850,7 +7080,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 180  : 	CGameObject* pInstance = new CEnemySpawner(*this);
+; 253  : 	CGameObject* pInstance = new CEnemySpawner(*this);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Clone@CEnemySpawner@Client@@UEAAPEAVCGameObject@Engine@@PEAX@Z@4JA
@@ -6859,7 +7089,7 @@ $LN7:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@NIKABINC@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 a8 00 00 00	 mov	 ecx, 168		; 000000a8H
+  00062	b9 e0 00 00 00	 mov	 ecx, 224		; 000000e0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 08 01
 	00 00		 mov	 QWORD PTR $T5[rbp], rax
@@ -6887,7 +7117,7 @@ $LN5@Clone:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000b9	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 181  : 	if (FAILED(pInstance->Initialize(pArg)))
+; 254  : 	if (FAILED(pInstance->Initialize(pArg)))
 
   000bd	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
   000c1	48 8b 00	 mov	 rax, QWORD PTR [rax]
@@ -6898,8 +7128,8 @@ $LN5@Clone:
   000d2	85 c0		 test	 eax, eax
   000d4	7d 22		 jge	 SHORT $LN2@Clone
 
-; 182  : 	{
-; 183  : 		MSG_BOX("Failed to Clone : CEnemySpawner");
+; 255  : 	{
+; 256  : 		MSG_BOX("Failed to Clone : CEnemySpawner");
 
   000d6	45 33 c9	 xor	 r9d, r9d
   000d9	4c 8d 05 00 00
@@ -6910,19 +7140,19 @@ $LN5@Clone:
   000e9	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 184  : 		Safe_Release(pInstance);
+; 257  : 		Safe_Release(pInstance);
 
   000ef	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000f3	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCGameObject@Engine@@@Engine@@YAKAEAPEAVCGameObject@0@@Z ; Engine::Safe_Release<Engine::CGameObject * __ptr64>
 $LN2@Clone:
 
-; 185  : 	}
-; 186  : 
-; 187  : 	return pInstance;
+; 258  : 	}
+; 259  : 
+; 260  : 	return pInstance;
 
   000f8	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 188  : }
+; 261  : }
 
   000fc	48 8b f8	 mov	 rdi, rax
   000ff	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -7020,7 +7250,7 @@ pDevice$ = 368
 pContext$ = 376
 ?Create@CEnemySpawner@Client@@SAPEAV12@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z PROC ; Client::CEnemySpawner::Create, COMDAT
 
-; 167  : {
+; 240  : {
 
 $LN7:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -7045,7 +7275,7 @@ $LN7:
   00044	48 89 85 40 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 168  : 	CEnemySpawner*	pInstance = new CEnemySpawner(pDevice, pContext);
+; 241  : 	CEnemySpawner*	pInstance = new CEnemySpawner(pDevice, pContext);
 
   0004b	8b 05 00 00 00
 	00		 mov	 eax, DWORD PTR ?__LINE__Var@?0??Create@CEnemySpawner@Client@@SAPEAV23@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z@4JA
@@ -7054,7 +7284,7 @@ $LN7:
   00056	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_0EK@NIKABINC@c?3?2users?2arcco?2documents?2github?2@
   0005d	ba 01 00 00 00	 mov	 edx, 1
-  00062	b9 a8 00 00 00	 mov	 ecx, 168		; 000000a8H
+  00062	b9 e0 00 00 00	 mov	 ecx, 224		; 000000e0H
   00067	e8 00 00 00 00	 call	 ??2@YAPEAX_KHPEBDH@Z	; operator new
   0006c	48 89 85 08 01
 	00 00		 mov	 QWORD PTR $T5[rbp], rax
@@ -7084,15 +7314,15 @@ $LN5@Create:
 	00 00		 mov	 rax, QWORD PTR $T4[rbp]
   000c0	48 89 45 08	 mov	 QWORD PTR pInstance$[rbp], rax
 
-; 169  : 	if (FAILED(pInstance->Initialize_Prototype()))
+; 242  : 	if (FAILED(pInstance->Initialize_Prototype()))
 
   000c4	48 8b 4d 08	 mov	 rcx, QWORD PTR pInstance$[rbp]
   000c8	e8 00 00 00 00	 call	 ?Initialize_Prototype@CEnemySpawner@Client@@UEAAJXZ ; Client::CEnemySpawner::Initialize_Prototype
   000cd	85 c0		 test	 eax, eax
   000cf	7d 22		 jge	 SHORT $LN2@Create
 
-; 170  : 	{
-; 171  : 		MSG_BOX("Failed to Create : CEnemySpawner");
+; 243  : 	{
+; 244  : 		MSG_BOX("Failed to Create : CEnemySpawner");
 
   000d1	45 33 c9	 xor	 r9d, r9d
   000d4	4c 8d 05 00 00
@@ -7103,19 +7333,19 @@ $LN5@Create:
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 
-; 172  : 		Safe_Release(pInstance);
+; 245  : 		Safe_Release(pInstance);
 
   000ea	48 8d 4d 08	 lea	 rcx, QWORD PTR pInstance$[rbp]
   000ee	e8 00 00 00 00	 call	 ??$Safe_Release@PEAVCEnemySpawner@Client@@@Engine@@YAKAEAPEAVCEnemySpawner@Client@@@Z ; Engine::Safe_Release<Client::CEnemySpawner * __ptr64>
 $LN2@Create:
 
-; 173  : 	}
-; 174  : 
-; 175  : 	return pInstance;
+; 246  : 	}
+; 247  : 
+; 248  : 	return pInstance;
 
   000f3	48 8b 45 08	 mov	 rax, QWORD PTR pInstance$[rbp]
 
-; 176  : }
+; 249  : }
 
   000f7	48 8b f8	 mov	 rdi, rax
   000fa	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
@@ -7232,7 +7462,7 @@ src$ = 1272
 dest$ = 1280
 ?OnCollisionEnter@CEnemySpawner@Client@@EEAAXPEAVCCollider@Engine@@0@Z PROC ; Client::CEnemySpawner::OnCollisionEnter, COMDAT
 
-; 199  : {
+; 272  : {
 
 $LN13:
   00000	4c 89 44 24 18	 mov	 QWORD PTR [rsp+24], r8
@@ -7259,7 +7489,7 @@ $LN13:
   0004a	48 89 85 c8 04
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 200  : 	if (m_isEnter)
+; 273  : 	if (m_isEnter)
 
   00051	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -7267,14 +7497,14 @@ $LN13:
   0005c	85 c0		 test	 eax, eax
   0005e	74 05		 je	 SHORT $LN5@OnCollisio
 
-; 201  : 		return;
+; 274  : 		return;
 
   00060	e9 ca 02 00 00	 jmp	 $LN1@OnCollisio
 $LN5@OnCollisio:
 
-; 202  : 
-; 203  : 	//처음 진입시 생성
-; 204  : 	CCharacter* pPlayer = dynamic_cast<CCharacter*>(dest->GetOwner());
+; 275  : 
+; 276  : 	//처음 진입시 생성
+; 277  : 	CCharacter* pPlayer = dynamic_cast<CCharacter*>(dest->GetOwner());
 
   00065	48 8b 8d 00 05
 	00 00		 mov	 rcx, QWORD PTR dest$[rbp]
@@ -7291,20 +7521,20 @@ $LN5@OnCollisio:
   0008d	e8 00 00 00 00	 call	 __RTDynamicCast
   00092	48 89 45 08	 mov	 QWORD PTR pPlayer$[rbp], rax
 
-; 205  : 	if (pPlayer)
+; 278  : 	if (pPlayer)
 
   00096	48 83 7d 08 00	 cmp	 QWORD PTR pPlayer$[rbp], 0
   0009b	0f 84 8e 02 00
 	00		 je	 $LN1@OnCollisio
 
-; 206  : 	{
-; 207  : 		CCollider* pPlayerBodyCollider = pPlayer->GetBodyCollider();
+; 279  : 	{
+; 280  : 		CCollider* pPlayerBodyCollider = pPlayer->GetBodyCollider();
 
   000a1	48 8b 4d 08	 mov	 rcx, QWORD PTR pPlayer$[rbp]
   000a5	e8 00 00 00 00	 call	 ?GetBodyCollider@CCharacter@Client@@QEBAPEAVCCollider@Engine@@XZ ; Client::CCharacter::GetBodyCollider
   000aa	48 89 45 28	 mov	 QWORD PTR pPlayerBodyCollider$5[rbp], rax
 
-; 208  : 		if (dest->Compare(pPlayerBodyCollider))
+; 281  : 		if (dest->Compare(pPlayerBodyCollider))
 
   000ae	48 8b 55 28	 mov	 rdx, QWORD PTR pPlayerBodyCollider$5[rbp]
   000b2	48 8b 8d 00 05
@@ -7316,29 +7546,39 @@ $LN5@OnCollisio:
   000c4	0f 84 65 02 00
 	00		 je	 $LN1@OnCollisio
 
-; 209  : 		{
-; 210  : 			m_isEnter = true;
+; 282  : 		{
+; 283  : 			m_isEnter = true;
 
   000ca	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000d1	c6 40 1c 01	 mov	 BYTE PTR [rax+28], 1
 
-; 211  : 
-; 212  : 			CApplicationManager::GetInstance()->SetSpawned(true);
+; 284  : 
+; 285  : 			//if (m_iCurSpawnerIndex == SECOND_SPAWNER)
+; 286  : 			//{
+; 287  : 			//	m_pWarpTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
+; 288  : 			//}
+; 289  : 			//else
+; 290  : 			//{
+; 291  : 			//	m_pWarpTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(28.f, 0.f, 60.f, 1.f));
+; 292  : 			//	m_pWarpTransform->SetRotation(VECTOR_UP, XMConvertToRadians(40.f));
+; 293  : 			//}
+; 294  : 
+; 295  : 			CApplicationManager::GetInstance()->SetSpawned(true);
 
   000d5	e8 00 00 00 00	 call	 ?GetInstance@CApplicationManager@Client@@SAPEAV12@XZ ; Client::CApplicationManager::GetInstance
   000da	b2 01		 mov	 dl, 1
   000dc	48 8b c8	 mov	 rcx, rax
   000df	e8 00 00 00 00	 call	 ?SetSpawned@CApplicationManager@Client@@QEAAX_N@Z ; Client::CApplicationManager::SetSpawned
 
-; 213  : 			CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 296  : 			CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   000e4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   000ea	48 89 45 48	 mov	 QWORD PTR pGameInstance$6[rbp], rax
 
-; 214  : 
-; 215  : 			CLayer* pLayer = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("layer_enemy"));
+; 297  : 
+; 298  : 			CLayer* pLayer = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("layer_enemy"));
 
   000ee	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1BI@DCFJMCMJ@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AA?$AA@
@@ -7348,7 +7588,7 @@ $LN5@OnCollisio:
 	00		 call	 QWORD PTR __imp_?Find_Layer@CGameInstance@Engine@@QEAAPEAVCLayer@2@IPEB_W@Z
   00104	48 89 45 68	 mov	 QWORD PTR pLayer$7[rbp], rax
 
-; 216  : 			for (auto iter = pLayer->m_GameObjects.begin(); iter != pLayer->m_GameObjects.end(); ++iter)
+; 299  : 			for (auto iter = pLayer->m_GameObjects.begin(); iter != pLayer->m_GameObjects.end(); ++iter)
 
   00108	ba 18 00 00 00	 mov	 edx, 24
   0010d	48 8d 8d 88 00
@@ -7395,8 +7635,8 @@ $LN4@OnCollisio:
   00199	0f 84 84 01 00
 	00		 je	 $LN3@OnCollisio
 
-; 217  : 			{
-; 218  : 				_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
+; 300  : 			{
+; 301  : 				_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
 
   0019f	41 b8 03 00 00
 	00		 mov	 r8d, 3
@@ -7408,7 +7648,7 @@ $LN4@OnCollisio:
   001b7	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 219  : 				_vector vLook = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_LOOK));
+; 302  : 				_vector vLook = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_LOOK));
 
   001bd	41 b8 02 00 00
 	00		 mov	 r8d, 2
@@ -7428,18 +7668,18 @@ $LN4@OnCollisio:
   001f1	0f 29 85 f0 00
 	00 00		 movaps	 XMMWORD PTR vLook$10[rbp], xmm0
 
-; 220  : 				_vector vSpawnPos;
-; 221  : 				if(m_iCurSpawnerIndex == FIRST_SPAWNER)
+; 303  : 				_vector vSpawnPos;
+; 304  : 				if(m_iCurSpawnerIndex == FIRST_SPAWNER)
 
   001f8	48 8b 85 f0 04
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   001ff	83 78 20 00	 cmp	 DWORD PTR [rax+32], 0
   00203	75 45		 jne	 SHORT $LN8@OnCollisio
 
-; 222  : 					vSpawnPos = vPos + vLook * 8.f;
+; 305  : 					vSpawnPos = vPos + vLook * 6.f;
 
   00205	f3 0f 10 0d 00
-	00 00 00	 movss	 xmm1, DWORD PTR __real@41000000
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40c00000
   0020d	0f 28 85 f0 00
 	00 00		 movaps	 xmm0, XMMWORD PTR vLook$10[rbp]
   00214	e8 00 00 00 00	 call	 ??DDirectX@@YQ?AT__m128@@T1@M@Z ; DirectX::operator*
@@ -7457,12 +7697,12 @@ $LN4@OnCollisio:
   00241	0f 29 85 20 01
 	00 00		 movaps	 XMMWORD PTR vSpawnPos$11[rbp], xmm0
 
-; 223  : 				else
+; 306  : 				else
 
   00248	eb 43		 jmp	 SHORT $LN9@OnCollisio
 $LN8@OnCollisio:
 
-; 224  : 					vSpawnPos = vPos + vLook * 13.f;
+; 307  : 					vSpawnPos = vPos + vLook * 13.f;
 
   0024a	f3 0f 10 0d 00
 	00 00 00	 movss	 xmm1, DWORD PTR __real@41500000
@@ -7484,8 +7724,8 @@ $LN8@OnCollisio:
 	00 00		 movaps	 XMMWORD PTR vSpawnPos$11[rbp], xmm0
 $LN9@OnCollisio:
 
-; 225  : 
-; 226  : 				static_cast<CEnemy*>(iter->second)->Reset(_float3(XMVectorGetX(vSpawnPos), 0.f, XMVectorGetZ(vSpawnPos)), _float(8.f));
+; 308  : 
+; 309  : 				static_cast<CEnemy*>(iter->second)->Reset(_float3(XMVectorGetX(vSpawnPos), 0.f, XMVectorGetZ(vSpawnPos)), _float(8.f));
 
   0028d	0f 28 85 20 01
 	00 00		 movaps	 xmm0, XMMWORD PTR vSpawnPos$11[rbp]
@@ -7521,7 +7761,7 @@ $LN9@OnCollisio:
   00300	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
   00304	e8 00 00 00 00	 call	 ?Reset@CEnemy@Client@@QEAA?AUXMFLOAT2@DirectX@@UXMFLOAT3@4@M@Z ; Client::CEnemy::Reset
 
-; 227  : 				static_cast<CEnemy*>(iter->second)->LookPlayer();
+; 310  : 				static_cast<CEnemy*>(iter->second)->LookPlayer();
 
   00309	48 8d 8d 88 00
 	00 00		 lea	 rcx, QWORD PTR iter$8[rbp]
@@ -7531,18 +7771,18 @@ $LN9@OnCollisio:
   0031e	e9 10 fe ff ff	 jmp	 $LN2@OnCollisio
 $LN3@OnCollisio:
 
-; 228  : 			}
+; 311  : 			}
 
   00323	48 8d 8d 88 00
 	00 00		 lea	 rcx, QWORD PTR iter$8[rbp]
   0032a	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
 $LN1@OnCollisio:
 
-; 229  : 
-; 230  : 			//static_cast<CCharacter*>(pPlayer)->ClearEnemyCheckCollider();
-; 231  : 		}
-; 232  : 	}
-; 233  : }
+; 312  : 
+; 313  : 			//static_cast<CCharacter*>(pPlayer)->ClearEnemyCheckCollider();
+; 314  : 		}
+; 315  : 	}
+; 316  : }
 
   0032f	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
   00333	48 8d 15 00 00
@@ -7747,208 +7987,411 @@ pGameInstance$ = 8
 TransformDesc$ = 40
 collDesc$ = 72
 $T5 = 352
-$T6 = 388
-$T7 = 420
-$T8 = 452
-$T9 = 496
-__$ArrayPad$ = 520
-this$ = 560
+$T6 = 400
+$T7 = 436
+$T8 = 468
+$T9 = 500
+$T10 = 532
+$T11 = 576
+$T12 = 624
+$T13 = 672
+__$ArrayPad$ = 696
+this$ = 736
 ?AddComponents@CEnemySpawner@Client@@AEAAJXZ PROC	; Client::CEnemySpawner::AddComponents, COMDAT
 
-; 144  : {
+; 196  : {
 
-$LN5:
+$LN10:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
-  00006	57		 push	 rdi
-  00007	48 81 ec 48 02
-	00 00		 sub	 rsp, 584		; 00000248H
-  0000e	48 8d 6c 24 30	 lea	 rbp, QWORD PTR [rsp+48]
-  00013	48 8b fc	 mov	 rdi, rsp
-  00016	b9 92 00 00 00	 mov	 ecx, 146		; 00000092H
-  0001b	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
-  00020	f3 ab		 rep stosd
-  00022	48 8b 8c 24 68
-	02 00 00	 mov	 rcx, QWORD PTR [rsp+616]
-  0002a	48 8b 05 00 00
+  00006	56		 push	 rsi
+  00007	57		 push	 rdi
+  00008	48 81 ec f0 02
+	00 00		 sub	 rsp, 752		; 000002f0H
+  0000f	48 8d 6c 24 30	 lea	 rbp, QWORD PTR [rsp+48]
+  00014	48 8b fc	 mov	 rdi, rsp
+  00017	b9 bc 00 00 00	 mov	 ecx, 188		; 000000bcH
+  0001c	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00021	f3 ab		 rep stosd
+  00023	48 8b 8c 24 18
+	03 00 00	 mov	 rcx, QWORD PTR [rsp+792]
+  0002b	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR __security_cookie
-  00031	48 33 c5	 xor	 rax, rbp
-  00034	48 89 85 08 02
+  00032	48 33 c5	 xor	 rax, rbp
+  00035	48 89 85 b8 02
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
-; 145  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 197  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-  0003b	ff 15 00 00 00
+  0003c	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
-  00041	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
+  00042	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 146  : 
-; 147  : 	CTransform::TRANSFORM_DESC TransformDesc;
-; 148  : 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
+; 198  : 
+; 199  : 	CTransform::TRANSFORM_DESC TransformDesc;
+; 200  : 	ZeroMemory(&TransformDesc, sizeof(CTransform::TRANSFORM_DESC));
 
-  00045	41 b8 08 00 00
+  00046	41 b8 08 00 00
 	00		 mov	 r8d, 8
-  0004b	33 d2		 xor	 edx, edx
-  0004d	48 8d 4d 28	 lea	 rcx, QWORD PTR TransformDesc$[rbp]
-  00051	e8 00 00 00 00	 call	 memset
+  0004c	33 d2		 xor	 edx, edx
+  0004e	48 8d 4d 28	 lea	 rcx, QWORD PTR TransformDesc$[rbp]
+  00052	e8 00 00 00 00	 call	 memset
 
-; 149  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&m_pTransform, &TransformDesc)))
+; 201  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform"), (CComponent**)&m_pTransform, &TransformDesc)))
 
-  00056	48 8b 85 30 02
+  00057	48 8b 85 e0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0005d	48 05 80 00 00
+  0005e	48 05 80 00 00
 	00		 add	 rax, 128		; 00000080H
-  00063	48 8d 4d 28	 lea	 rcx, QWORD PTR TransformDesc$[rbp]
-  00067	48 89 4c 24 28	 mov	 QWORD PTR [rsp+40], rcx
-  0006c	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  00071	4c 8d 0d 00 00
+  00064	48 8d 4d 28	 lea	 rcx, QWORD PTR TransformDesc$[rbp]
+  00068	48 89 4c 24 28	 mov	 QWORD PTR [rsp+40], rcx
+  0006d	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  00072	4c 8d 0d 00 00
 	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BM@CJMPMHDD@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
-  00078	4c 8d 05 00 00
+  00079	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@MLEFGO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
-  0007f	33 d2		 xor	 edx, edx
-  00081	48 8b 8d 30 02
+  00080	33 d2		 xor	 edx, edx
+  00082	48 8b 8d e0 02
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00088	ff 15 00 00 00
+  00089	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
-  0008e	85 c0		 test	 eax, eax
-  00090	7d 0a		 jge	 SHORT $LN2@AddCompone
+  0008f	85 c0		 test	 eax, eax
+  00091	7d 0a		 jge	 SHORT $LN2@AddCompone
 
-; 150  : 		return E_FAIL;
+; 202  : 		return E_FAIL;
 
-  00092	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  00097	e9 28 01 00 00	 jmp	 $LN1@AddCompone
+  00093	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00098	e9 30 03 00 00	 jmp	 $LN1@AddCompone
 $LN2@AddCompone:
 
-; 151  : 
-; 152  : 	m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(28.f, 0.f, 34.f, 1.f));
+; 203  : 
+; 204  : 	m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(28.f, 0.f, 34.f, 1.f));
 
-  0009c	f3 0f 10 1d 00
+  0009d	f3 0f 10 1d 00
 	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
-  000a4	f3 0f 10 15 00
+  000a5	f3 0f 10 15 00
 	00 00 00	 movss	 xmm2, DWORD PTR __real@42080000
-  000ac	0f 57 c9	 xorps	 xmm1, xmm1
-  000af	f3 0f 10 05 00
+  000ad	0f 57 c9	 xorps	 xmm1, xmm1
+  000b0	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@41e00000
-  000b7	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
-  000bc	0f 29 85 60 01
+  000b8	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
+  000bd	0f 29 85 60 01
 	00 00		 movaps	 XMMWORD PTR $T5[rbp], xmm0
-  000c3	0f 28 85 60 01
+  000c4	0f 28 85 60 01
 	00 00		 movaps	 xmm0, XMMWORD PTR $T5[rbp]
-  000ca	0f 29 85 f0 01
-	00 00		 movaps	 XMMWORD PTR $T9[rbp], xmm0
-  000d1	4c 8d 85 f0 01
-	00 00		 lea	 r8, QWORD PTR $T9[rbp]
-  000d8	ba 03 00 00 00	 mov	 edx, 3
-  000dd	48 8b 85 30 02
+  000cb	0f 29 85 40 02
+	00 00		 movaps	 XMMWORD PTR $T11[rbp], xmm0
+  000d2	4c 8d 85 40 02
+	00 00		 lea	 r8, QWORD PTR $T11[rbp]
+  000d9	ba 03 00 00 00	 mov	 edx, 3
+  000de	48 8b 85 e0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000e4	48 8b 88 80 00
+  000e5	48 8b 88 80 00
 	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  000eb	ff 15 00 00 00
+  000ec	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 153  : 
-; 154  : 	CCollider::COLLIDER_DESC collDesc;
+; 205  : 
+; 206  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_transform"), TEXT("com_transform2"), (CComponent**)&m_pWarpTransform, &TransformDesc)))
 
-  000f1	48 8d 4d 48	 lea	 rcx, QWORD PTR collDesc$[rbp]
-  000f5	e8 00 00 00 00	 call	 ??0tagColliderDesc@CCollider@Engine@@QEAA@XZ
-
-; 155  : 	collDesc.owner = this;
-
-  000fa	48 8b 85 30 02
+  000f2	48 8b 85 e0 02
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00101	48 89 45 48	 mov	 QWORD PTR collDesc$[rbp], rax
-
-; 156  : 	collDesc.vCenter = _float3(0.f, 1.f, 0.f);
-
-  00105	0f 57 db	 xorps	 xmm3, xmm3
-  00108	f3 0f 10 15 00
-	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
-  00110	0f 57 c9	 xorps	 xmm1, xmm1
-  00113	48 8d 8d 84 01
-	00 00		 lea	 rcx, QWORD PTR $T6[rbp]
-  0011a	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
-  0011f	48 8b d0	 mov	 rdx, rax
-  00122	48 8d 4d 50	 lea	 rcx, QWORD PTR collDesc$[rbp+8]
-  00126	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
-
-; 157  : 	collDesc.vExtents = _float3(30.f, 2.f, 1.f);
-
-  0012b	f3 0f 10 1d 00
-	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
-  00133	f3 0f 10 15 00
-	00 00 00	 movss	 xmm2, DWORD PTR __real@40000000
-  0013b	f3 0f 10 0d 00
-	00 00 00	 movss	 xmm1, DWORD PTR __real@41f00000
-  00143	48 8d 8d a4 01
-	00 00		 lea	 rcx, QWORD PTR $T7[rbp]
-  0014a	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
-  0014f	48 8b d0	 mov	 rdx, rax
-  00152	48 8d 4d 5c	 lea	 rcx, QWORD PTR collDesc$[rbp+20]
-  00156	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
-
-; 158  : 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
-
-  0015b	0f 57 db	 xorps	 xmm3, xmm3
-  0015e	0f 57 d2	 xorps	 xmm2, xmm2
-  00161	0f 57 c9	 xorps	 xmm1, xmm1
-  00164	48 8d 8d c4 01
-	00 00		 lea	 rcx, QWORD PTR $T8[rbp]
-  0016b	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
-  00170	48 8b d0	 mov	 rdx, rax
-  00173	48 8d 4d 68	 lea	 rcx, QWORD PTR collDesc$[rbp+32]
-  00177	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
-
-; 159  : 
-; 160  : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"), TEXT("com_collider"), (CComponent**)&m_pCollider, &collDesc)))
-
-  0017c	48 8b 85 30 02
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00183	48 05 88 00 00
-	00		 add	 rax, 136		; 00000088H
-  00189	48 8d 4d 48	 lea	 rcx, QWORD PTR collDesc$[rbp]
-  0018d	48 89 4c 24 28	 mov	 QWORD PTR [rsp+40], rcx
-  00192	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  00197	4c 8d 0d 00 00
-	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BK@BKCENIHA@?$AAc?$AAo?$AAm?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@
-  0019e	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CO@HJBGOIAH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAo?$AAb?$AAb?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@
-  001a5	ba 03 00 00 00	 mov	 edx, 3
-  001aa	48 8b 8d 30 02
+  000f9	48 05 b0 00 00
+	00		 add	 rax, 176		; 000000b0H
+  000ff	48 8d 4d 28	 lea	 rcx, QWORD PTR TransformDesc$[rbp]
+  00103	48 89 4c 24 28	 mov	 QWORD PTR [rsp+40], rcx
+  00108	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  0010d	4c 8d 0d 00 00
+	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BO@KLEJCLMG@?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA2?$AA?$AA@
+  00114	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CI@MLEFGO@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAr?$AAa?$AAn?$AAs?$AAf?$AAo?$AAr?$AAm?$AA?$AA@
+  0011b	33 d2		 xor	 edx, edx
+  0011d	48 8b 8d e0 02
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  001b1	ff 15 00 00 00
+  00124	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
-  001b7	85 c0		 test	 eax, eax
-  001b9	7d 07		 jge	 SHORT $LN3@AddCompone
+  0012a	85 c0		 test	 eax, eax
+  0012c	7d 0a		 jge	 SHORT $LN3@AddCompone
 
-; 161  : 		return E_FAIL;
+; 207  : 		return E_FAIL;
 
-  001bb	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
-  001c0	eb 02		 jmp	 SHORT $LN1@AddCompone
+  0012e	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00133	e9 95 02 00 00	 jmp	 $LN1@AddCompone
 $LN3@AddCompone:
 
-; 162  : 
-; 163  : 	return S_OK;
+; 208  : 	m_pWarpTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(28.f, 5.f, 5.f, 1.f));
 
-  001c2	33 c0		 xor	 eax, eax
+  00138	f3 0f 10 1d 00
+	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
+  00140	f3 0f 10 15 00
+	00 00 00	 movss	 xmm2, DWORD PTR __real@40a00000
+  00148	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@40a00000
+  00150	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@41e00000
+  00158	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
+  0015d	0f 29 85 90 01
+	00 00		 movaps	 XMMWORD PTR $T6[rbp], xmm0
+  00164	0f 28 85 90 01
+	00 00		 movaps	 xmm0, XMMWORD PTR $T6[rbp]
+  0016b	0f 29 85 70 02
+	00 00		 movaps	 XMMWORD PTR $T12[rbp], xmm0
+  00172	4c 8d 85 70 02
+	00 00		 lea	 r8, QWORD PTR $T12[rbp]
+  00179	ba 03 00 00 00	 mov	 edx, 3
+  0017e	48 8b 85 e0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00185	48 8b 88 b0 00
+	00 00		 mov	 rcx, QWORD PTR [rax+176]
+  0018c	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
+
+; 209  : 	m_pWarpTransform->Set_Scale(_float3(28.f, 4.f, 10.f));
+
+  00192	f3 0f 10 1d 00
+	00 00 00	 movss	 xmm3, DWORD PTR __real@41200000
+  0019a	f3 0f 10 15 00
+	00 00 00	 movss	 xmm2, DWORD PTR __real@40800000
+  001a2	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@41e00000
+  001aa	48 8d 8d b4 01
+	00 00		 lea	 rcx, QWORD PTR $T7[rbp]
+  001b1	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
+  001b6	48 8d 8d a0 02
+	00 00		 lea	 rcx, QWORD PTR $T13[rbp]
+  001bd	48 8b f9	 mov	 rdi, rcx
+  001c0	48 8b f0	 mov	 rsi, rax
+  001c3	b9 0c 00 00 00	 mov	 ecx, 12
+  001c8	f3 a4		 rep movsb
+  001ca	48 8d 95 a0 02
+	00 00		 lea	 rdx, QWORD PTR $T13[rbp]
+  001d1	48 8b 85 e0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001d8	48 8b 88 b0 00
+	00 00		 mov	 rcx, QWORD PTR [rax+176]
+  001df	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Set_Scale@CTransform@Engine@@QEAAXUXMFLOAT3@DirectX@@@Z
+
+; 210  : 
+; 211  : 	CCollider::COLLIDER_DESC collDesc;
+
+  001e5	48 8d 4d 48	 lea	 rcx, QWORD PTR collDesc$[rbp]
+  001e9	e8 00 00 00 00	 call	 ??0tagColliderDesc@CCollider@Engine@@QEAA@XZ
+
+; 212  : 	collDesc.owner = this;
+
+  001ee	48 8b 85 e0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  001f5	48 89 45 48	 mov	 QWORD PTR collDesc$[rbp], rax
+
+; 213  : 	collDesc.vCenter = _float3(0.f, 1.f, 0.f);
+
+  001f9	0f 57 db	 xorps	 xmm3, xmm3
+  001fc	f3 0f 10 15 00
+	00 00 00	 movss	 xmm2, DWORD PTR __real@3f800000
+  00204	0f 57 c9	 xorps	 xmm1, xmm1
+  00207	48 8d 8d d4 01
+	00 00		 lea	 rcx, QWORD PTR $T8[rbp]
+  0020e	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
+  00213	48 8b d0	 mov	 rdx, rax
+  00216	48 8d 4d 50	 lea	 rcx, QWORD PTR collDesc$[rbp+8]
+  0021a	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
+
+; 214  : 	collDesc.vExtents = _float3(30.f, 2.f, 1.f);
+
+  0021f	f3 0f 10 1d 00
+	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
+  00227	f3 0f 10 15 00
+	00 00 00	 movss	 xmm2, DWORD PTR __real@40000000
+  0022f	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@41f00000
+  00237	48 8d 8d f4 01
+	00 00		 lea	 rcx, QWORD PTR $T9[rbp]
+  0023e	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
+  00243	48 8b d0	 mov	 rdx, rax
+  00246	48 8d 4d 5c	 lea	 rcx, QWORD PTR collDesc$[rbp+20]
+  0024a	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
+
+; 215  : 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
+
+  0024f	0f 57 db	 xorps	 xmm3, xmm3
+  00252	0f 57 d2	 xorps	 xmm2, xmm2
+  00255	0f 57 c9	 xorps	 xmm1, xmm1
+  00258	48 8d 8d 14 02
+	00 00		 lea	 rcx, QWORD PTR $T10[rbp]
+  0025f	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
+  00264	48 8b d0	 mov	 rdx, rax
+  00267	48 8d 4d 68	 lea	 rcx, QWORD PTR collDesc$[rbp+32]
+  0026b	e8 00 00 00 00	 call	 ??4XMFLOAT3@DirectX@@QEAAAEAU01@AEBU01@@Z ; DirectX::XMFLOAT3::operator=
+
+; 216  : 
+; 217  : 	if (FAILED(CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_obb_collider"), TEXT("com_collider"), (CComponent**)&m_pCollider, &collDesc)))
+
+  00270	48 8b 85 e0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00277	48 05 88 00 00
+	00		 add	 rax, 136		; 00000088H
+  0027d	48 8d 4d 48	 lea	 rcx, QWORD PTR collDesc$[rbp]
+  00281	48 89 4c 24 28	 mov	 QWORD PTR [rsp+40], rcx
+  00286	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  0028b	4c 8d 0d 00 00
+	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BK@BKCENIHA@?$AAc?$AAo?$AAm?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@
+  00292	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CO@HJBGOIAH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAo?$AAb?$AAb?$AA_?$AAc?$AAo?$AAl?$AAl?$AAi?$AAd?$AAe?$AAr?$AA?$AA@
+  00299	ba 03 00 00 00	 mov	 edx, 3
+  0029e	48 8b 8d e0 02
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  002a5	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
+  002ab	85 c0		 test	 eax, eax
+  002ad	7d 0a		 jge	 SHORT $LN4@AddCompone
+
+; 218  : 		return E_FAIL;
+
+  002af	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  002b4	e9 14 01 00 00	 jmp	 $LN1@AddCompone
+$LN4@AddCompone:
+
+; 219  : 
+; 220  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_renderer"),
+
+  002b9	48 8b 85 e0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  002c0	48 05 c0 00 00
+	00		 add	 rax, 192		; 000000c0H
+  002c6	48 c7 44 24 28
+	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
+  002cf	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  002d4	4c 8d 0d 00 00
+	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BK@GIOMOCNE@?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@
+  002db	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1CG@COFFFCLL@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAr?$AAe?$AAn?$AAd?$AAe?$AAr?$AAe?$AAr?$AA?$AA@
+  002e2	33 d2		 xor	 edx, edx
+  002e4	48 8b 8d e0 02
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  002eb	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
+  002f1	85 c0		 test	 eax, eax
+  002f3	7d 0a		 jge	 SHORT $LN5@AddCompone
+
+; 221  : 		TEXT("com_renderer"), (CComponent**)&m_pRenderer)))
+; 222  : 		return E_FAIL;
+
+  002f5	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  002fa	e9 ce 00 00 00	 jmp	 $LN1@AddCompone
+$LN5@AddCompone:
+
+; 223  : 
+; 224  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_vibuffer_rect"),
+
+  002ff	48 8b 85 e0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00306	48 05 b8 00 00
+	00		 add	 rax, 184		; 000000b8H
+  0030c	48 c7 44 24 28
+	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
+  00315	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  0031a	4c 8d 0d 00 00
+	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BK@GKOIFCHG@?$AAc?$AAo?$AAm?$AA_?$AAv?$AAi?$AAb?$AAu?$AAf?$AAf?$AAe?$AAr?$AA?$AA@
+  00321	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DA@BAIPNHMH@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAv?$AAi?$AAb?$AAu?$AAf?$AAf?$AAe?$AAr?$AA_?$AAr?$AAe?$AAc?$AAt?$AA?$AA@
+  00328	33 d2		 xor	 edx, edx
+  0032a	48 8b 8d e0 02
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  00331	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
+  00337	85 c0		 test	 eax, eax
+  00339	7d 0a		 jge	 SHORT $LN6@AddCompone
+
+; 225  : 		TEXT("com_vibuffer"), (CComponent**)&m_pWarpBuffer)))
+; 226  : 		return E_FAIL;
+
+  0033b	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00340	e9 88 00 00 00	 jmp	 $LN1@AddCompone
+$LN6@AddCompone:
+
+; 227  : 
+; 228  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxtex"),
+
+  00345	48 8b 85 e0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0034c	48 05 d0 00 00
+	00		 add	 rax, 208		; 000000d0H
+  00352	48 c7 44 24 28
+	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
+  0035b	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  00360	4c 8d 0d 00 00
+	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BG@GGOMMBBL@?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA?$AA@
+  00367	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DA@NCILMLLP@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAs?$AAh?$AAa?$AAd?$AAe?$AAr?$AA_?$AAv?$AAt?$AAx?$AAt?$AAe?$AAx?$AA?$AA@
+  0036e	33 d2		 xor	 edx, edx
+  00370	48 8b 8d e0 02
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  00377	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
+  0037d	85 c0		 test	 eax, eax
+  0037f	7d 07		 jge	 SHORT $LN7@AddCompone
+
+; 229  : 		TEXT("com_shader"), (CComponent**)&m_pShader)))
+; 230  : 		return E_FAIL;
+
+  00381	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  00386	eb 45		 jmp	 SHORT $LN1@AddCompone
+$LN7@AddCompone:
+
+; 231  : 
+; 232  : 	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_dismask"),
+
+  00388	48 8b 85 e0 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0038f	48 05 c8 00 00
+	00		 add	 rax, 200		; 000000c8H
+  00395	48 c7 44 24 28
+	00 00 00 00	 mov	 QWORD PTR [rsp+40], 0
+  0039e	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  003a3	4c 8d 0d 00 00
+	00 00		 lea	 r9, OFFSET FLAT:??_C@_1BE@IPMCCGAN@?$AAc?$AAo?$AAm?$AA_?$AAn?$AAo?$AAi?$AAs?$AAe?$AA?$AA@
+  003aa	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:??_C@_1DE@JHOHMCJG@?$AAp?$AAr?$AAo?$AAt?$AAo?$AA_?$AAc?$AAo?$AAm?$AA_?$AAt?$AAe?$AAx?$AAt?$AAu?$AAr?$AAe?$AA_?$AAd?$AAi?$AAs?$AAm?$AAa?$AAs?$AAk?$AA?$AA@
+  003b1	33 d2		 xor	 edx, edx
+  003b3	48 8b 8d e0 02
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  003ba	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_Component@CGameObject@Engine@@IEAAJIPEB_W0PEAPEAVCComponent@2@PEAX@Z
+  003c0	85 c0		 test	 eax, eax
+  003c2	7d 07		 jge	 SHORT $LN8@AddCompone
+
+; 233  : 		TEXT("com_noise"), (CComponent**)&m_pWarpNoise)))
+; 234  : 		return E_FAIL;
+
+  003c4	b8 05 40 00 80	 mov	 eax, -2147467259	; ffffffff80004005H
+  003c9	eb 02		 jmp	 SHORT $LN1@AddCompone
+$LN8@AddCompone:
+
+; 235  : 
+; 236  : 	return S_OK;
+
+  003cb	33 c0		 xor	 eax, eax
 $LN1@AddCompone:
 
-; 164  : }
+; 237  : }
 
-  001c4	48 8b f8	 mov	 rdi, rax
-  001c7	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
-  001cb	48 8d 15 00 00
+  003cd	48 8b f8	 mov	 rdi, rax
+  003d0	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
+  003d4	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?AddComponents@CEnemySpawner@Client@@AEAAJXZ$rtcFrameData
-  001d2	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  001d7	48 8b c7	 mov	 rax, rdi
-  001da	48 8b 8d 08 02
+  003db	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  003e0	48 8b c7	 mov	 rax, rdi
+  003e3	48 8b 8d b8 02
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  001e1	48 33 cd	 xor	 rcx, rbp
-  001e4	e8 00 00 00 00	 call	 __security_check_cookie
-  001e9	48 8d a5 18 02
-	00 00		 lea	 rsp, QWORD PTR [rbp+536]
-  001f0	5f		 pop	 rdi
-  001f1	5d		 pop	 rbp
-  001f2	c3		 ret	 0
+  003ea	48 33 cd	 xor	 rcx, rbp
+  003ed	e8 00 00 00 00	 call	 __security_check_cookie
+  003f2	48 8d a5 c0 02
+	00 00		 lea	 rsp, QWORD PTR [rbp+704]
+  003f9	5f		 pop	 rdi
+  003fa	5e		 pop	 rsi
+  003fb	5d		 pop	 rbp
+  003fc	c3		 ret	 0
 ?AddComponents@CEnemySpawner@Client@@AEAAJXZ ENDP	; Client::CEnemySpawner::AddComponents
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -7962,7 +8405,7 @@ vPos$ = 328
 fRadius$ = 336
 ?SetupSpawner@CEnemySpawner@Client@@QEAAXUXMFLOAT3@DirectX@@M@Z PROC ; Client::CEnemySpawner::SetupSpawner, COMDAT
 
-; 139  : {
+; 191  : {
 
 $LN3:
   00000	f3 0f 11 54 24
@@ -7981,7 +8424,7 @@ $LN3:
   0002d	48 8b 8c 24 68
 	01 00 00	 mov	 rcx, QWORD PTR [rsp+360]
 
-; 140  : 	m_pTransform->Set_State(CTransform::STATE_POSITION, XMLoadFloat3(&vPos));
+; 192  : 	m_pTransform->Set_State(CTransform::STATE_POSITION, XMLoadFloat3(&vPos));
 
   00035	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR vPos$[rbp]
@@ -8002,7 +8445,7 @@ $LN3:
   00070	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 141  : }
+; 193  : }
 
   00076	48 8d a5 28 01
 	00 00		 lea	 rsp, QWORD PTR [rbp+296]
@@ -8018,7 +8461,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?RenderGUI@CEnemySpawner@Client@@UEAAXXZ PROC		; Client::CEnemySpawner::RenderGUI, COMDAT
 
-; 135  : {
+; 187  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -8034,7 +8477,7 @@ $LN3:
   00020	48 8b 8c 24 e8
 	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
 
-; 136  : }
+; 188  : }
 
   00028	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8047,36 +8490,58 @@ _TEXT	ENDS
 ; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
 ;	COMDAT ?Render@CEnemySpawner@Client@@UEAAJXZ
 _TEXT	SEGMENT
-this$ = 224
+pGameInstance$ = 8
+this$ = 256
 ?Render@CEnemySpawner@Client@@UEAAJXZ PROC		; Client::CEnemySpawner::Render, COMDAT
 
-; 130  : {
+; 166  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	55		 push	 rbp
   00006	57		 push	 rdi
-  00007	48 81 ec c8 00
-	00 00		 sub	 rsp, 200		; 000000c8H
-  0000e	48 8b ec	 mov	 rbp, rsp
-  00011	48 8b fc	 mov	 rdi, rsp
-  00014	b9 32 00 00 00	 mov	 ecx, 50			; 00000032H
-  00019	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
-  0001e	f3 ab		 rep stosd
-  00020	48 8b 8c 24 e8
-	00 00 00	 mov	 rcx, QWORD PTR [rsp+232]
+  00007	48 81 ec 08 01
+	00 00		 sub	 rsp, 264		; 00000108H
+  0000e	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
+  00013	48 8b fc	 mov	 rdi, rsp
+  00016	b9 42 00 00 00	 mov	 ecx, 66			; 00000042H
+  0001b	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00020	f3 ab		 rep stosd
+  00022	48 8b 8c 24 28
+	01 00 00	 mov	 rcx, QWORD PTR [rsp+296]
 
-; 131  : 	return S_OK;
+; 167  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
-  00028	33 c0		 xor	 eax, eax
+  0002a	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
+  00030	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 132  : }
+; 168  : 
+; 169  : 	//if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_pWarpTransform->Get_WorldMatrix())))
+; 170  : 	//	return E_FAIL;
+; 171  : 	//if (FAILED(m_pShader->SetMatrix("g_ViewMatrix", &pGameInstance->Get_Transform_float4x4(CPipeLine::TRANSFORM_STATE::TS_VIEW))))
+; 172  : 	//	return E_FAIL;
+; 173  : 	//if (FAILED(m_pShader->SetMatrix("g_ProjMatrix", &pGameInstance->Get_Transform_float4x4(CPipeLine::TRANSFORM_STATE::TS_PROJ))))
+; 174  : 	//	return E_FAIL;
+; 175  : 
+; 176  : 	//if (FAILED(m_pWarpNoise->Setup_ShaderResource(m_pShader, "g_Texture")))
+; 177  : 	//	return E_FAIL;
+; 178  : 
+; 179  : 	//m_pShader->SetRawValue("g_TimeAcc", &m_fDisAcc, sizeof(float));
+; 180  : 	//m_pShader->Begin(10);
+; 181  : 	//m_pWarpBuffer->Render();
+; 182  : 
+; 183  : 	return S_OK;
 
-  0002a	48 8d a5 c8 00
-	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  00031	5f		 pop	 rdi
-  00032	5d		 pop	 rbp
-  00033	c3		 ret	 0
+  00034	33 c0		 xor	 eax, eax
+
+; 184  : }
+
+  00036	48 8d a5 e8 00
+	00 00		 lea	 rsp, QWORD PTR [rbp+232]
+  0003d	5f		 pop	 rdi
+  0003e	5d		 pop	 rbp
+  0003f	c3		 ret	 0
 ?Render@CEnemySpawner@Client@@UEAAJXZ ENDP		; Client::CEnemySpawner::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -8092,7 +8557,7 @@ this$ = 640
 TimeDelta$ = 648
 ?LateTick@CEnemySpawner@Client@@UEAAXN@Z PROC		; Client::CEnemySpawner::LateTick, COMDAT
 
-; 122  : {
+; 156  : {
 
 $LN3:
   00000	f2 0f 11 4c 24
@@ -8111,14 +8576,14 @@ $LN3:
   00029	48 8b 8c 24 a8
 	02 00 00	 mov	 rcx, QWORD PTR [rsp+680]
 
-; 123  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+; 157  : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 
   00031	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?GetInstance@CGameInstance@Engine@@SAPEAV12@XZ
   00037	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
-; 124  : 
-; 125  : 	pGameInstance->AddCollider(m_pCollider);
+; 158  : 
+; 159  : 	pGameInstance->AddCollider(m_pCollider);
 
   0003b	45 33 c0	 xor	 r8d, r8d
   0003e	48 8b 85 80 02
@@ -8129,7 +8594,7 @@ $LN3:
   00050	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?AddCollider@CGameInstance@Engine@@QEAAJPEAVCCollider@2@I@Z
 
-; 126  : 	m_pCollider->Update(XMLoadFloat4x4(&m_pTransform->Get_WorldMatrix()));
+; 160  : 	m_pCollider->Update(XMLoadFloat4x4(&m_pTransform->Get_WorldMatrix()));
 
   00056	48 8d 95 44 01
 	00 00		 lea	 rdx, QWORD PTR $T2[rbp]
@@ -8174,14 +8639,27 @@ $LN3:
   000e0	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Update@CSphereCollider@Engine@@UEAAXUXMMATRIX@DirectX@@@Z
 
-; 127  : }
+; 161  : 
+; 162  : 	m_pRenderer->Add_RenderGroup(CRenderer::RENDER_ALPHABLEND, this);
 
-  000e6	48 8d a5 60 02
+  000e6	4c 8b 85 80 02
+	00 00		 mov	 r8, QWORD PTR this$[rbp]
+  000ed	ba 03 00 00 00	 mov	 edx, 3
+  000f2	48 8b 85 80 02
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000f9	48 8b 88 c0 00
+	00 00		 mov	 rcx, QWORD PTR [rax+192]
+  00100	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Add_RenderGroup@CRenderer@Engine@@QEAAJW4RENDER_GROUP@12@PEAVCGameObject@2@@Z
+
+; 163  : }
+
+  00106	48 8d a5 60 02
 	00 00		 lea	 rsp, QWORD PTR [rbp+608]
-  000ed	5f		 pop	 rdi
-  000ee	5e		 pop	 rsi
-  000ef	5d		 pop	 rbp
-  000f0	c3		 ret	 0
+  0010d	5f		 pop	 rdi
+  0010e	5e		 pop	 rsi
+  0010f	5d		 pop	 rbp
+  00110	c3		 ret	 0
 ?LateTick@CEnemySpawner@Client@@UEAAXN@Z ENDP		; Client::CEnemySpawner::LateTick
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -8195,78 +8673,80 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?Tick@CEnemySpawner@Client@@UEAAXN@Z PROC		; Client::CEnemySpawner::Tick, COMDAT
 
 ; 43   : {
 
-$LN29:
+$LN37:
   00000	f2 0f 11 4c 24
 	10		 movsd	 QWORD PTR [rsp+16], xmm1
   00006	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0000b	55		 push	 rbp
   0000c	56		 push	 rsi
   0000d	57		 push	 rdi
-  0000e	48 81 ec f0 09
-	00 00		 sub	 rsp, 2544		; 000009f0H
-  00015	48 8d 6c 24 20	 lea	 rbp, QWORD PTR [rsp+32]
+  0000e	48 81 ec 40 0a
+	00 00		 sub	 rsp, 2624		; 00000a40H
+  00015	48 8d 6c 24 30	 lea	 rbp, QWORD PTR [rsp+48]
   0001a	48 8b fc	 mov	 rdi, rsp
-  0001d	b9 7c 02 00 00	 mov	 ecx, 636		; 0000027cH
+  0001d	b9 90 02 00 00	 mov	 ecx, 656		; 00000290H
   00022	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00027	f3 ab		 rep stosd
-  00029	48 8b 8c 24 18
-	0a 00 00	 mov	 rcx, QWORD PTR [rsp+2584]
-  00031	48 c7 85 a8 09
+  00029	48 8b 8c 24 68
+	0a 00 00	 mov	 rcx, QWORD PTR [rsp+2664]
+  00031	48 c7 85 e8 09
 	00 00 fe ff ff
-	ff		 mov	 QWORD PTR $T46[rbp], -2
+	ff		 mov	 QWORD PTR $T48[rbp], -2
   0003c	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR __security_cookie
   00043	48 33 c5	 xor	 rax, rbp
-  00046	48 89 85 c8 09
+  00046	48 89 85 08 0a
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp], rax
 
 ; 44   : 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
@@ -8276,669 +8756,860 @@ $LN29:
   00053	48 89 45 08	 mov	 QWORD PTR pGameInstance$[rbp], rax
 
 ; 45   : 
-; 46   : 	if (pGameInstance->Input_KeyState_Custom(DIK_9) == KEY_STATE::TAP)
+; 46   : 	m_fDisAcc += TimeDelta * 0.5f;
 
-  00057	ba 0a 00 00 00	 mov	 edx, 10
-  0005c	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  00060	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z
-  00066	83 f8 01	 cmp	 eax, 1
-  00069	75 66		 jne	 SHORT $LN13@Tick
-
-; 47   : 	{
-; 48   : 		//스포너 리셋임
-; 49   : 		m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(31.f, 0.f, 60.f, 1.f));
-
-  0006b	f3 0f 10 1d 00
-	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
-  00073	f3 0f 10 15 00
-	00 00 00	 movss	 xmm2, DWORD PTR __real@42700000
-  0007b	0f 57 c9	 xorps	 xmm1, xmm1
-  0007e	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@41f80000
-  00086	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
-  0008b	0f 29 85 40 05
-	00 00		 movaps	 XMMWORD PTR $T20[rbp], xmm0
-  00092	0f 28 85 40 05
-	00 00		 movaps	 xmm0, XMMWORD PTR $T20[rbp]
-  00099	0f 29 85 c0 08
-	00 00		 movaps	 XMMWORD PTR $T41[rbp], xmm0
-  000a0	4c 8d 85 c0 08
-	00 00		 lea	 r8, QWORD PTR $T41[rbp]
-  000a7	ba 03 00 00 00	 mov	 edx, 3
-  000ac	48 8b 85 f0 09
+  00057	f2 0f 10 85 38
+	0a 00 00	 movsd	 xmm0, QWORD PTR TimeDelta$[rbp]
+  0005f	f2 0f 59 05 00
+	00 00 00	 mulsd	 xmm0, QWORD PTR __real@3fe0000000000000
+  00067	48 8b 85 30 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000b3	48 8b 88 80 00
+  0006e	f3 0f 5a 88 a8
+	00 00 00	 cvtss2sd xmm1, DWORD PTR [rax+168]
+  00076	f2 0f 58 c8	 addsd	 xmm1, xmm0
+  0007a	0f 28 c1	 movaps	 xmm0, xmm1
+  0007d	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  00081	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00088	f3 0f 11 80 a8
+	00 00 00	 movss	 DWORD PTR [rax+168], xmm0
+
+; 47   : 
+; 48   : 	if (pGameInstance->Input_KeyState_Custom(DIK_9) == KEY_STATE::TAP)
+
+  00090	ba 0a 00 00 00	 mov	 edx, 10
+  00095	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  00099	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z
+  0009f	83 f8 01	 cmp	 eax, 1
+  000a2	75 66		 jne	 SHORT $LN13@Tick
+
+; 49   : 	{
+; 50   : 		//스포너 리셋임
+; 51   : 		m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(31.f, 0.f, 60.f, 1.f));
+
+  000a4	f3 0f 10 1d 00
+	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
+  000ac	f3 0f 10 15 00
+	00 00 00	 movss	 xmm2, DWORD PTR __real@42700000
+  000b4	0f 57 c9	 xorps	 xmm1, xmm1
+  000b7	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@41f80000
+  000bf	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
+  000c4	0f 29 85 80 05
+	00 00		 movaps	 XMMWORD PTR $T22[rbp], xmm0
+  000cb	0f 28 85 80 05
+	00 00		 movaps	 xmm0, XMMWORD PTR $T22[rbp]
+  000d2	0f 29 85 00 09
+	00 00		 movaps	 XMMWORD PTR $T43[rbp], xmm0
+  000d9	4c 8d 85 00 09
+	00 00		 lea	 r8, QWORD PTR $T43[rbp]
+  000e0	ba 03 00 00 00	 mov	 edx, 3
+  000e5	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000ec	48 8b 88 80 00
 	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  000ba	ff 15 00 00 00
+  000f3	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
 
-; 50   : 
-; 51   : 		m_iRespawnCount = 0.f;
+; 52   : 		m_iRespawnCount = 0.f;
 
-  000c0	48 8b 85 f0 09
+  000f9	48 8b 85 30 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000c7	c7 80 9c 00 00
+  00100	c7 80 9c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+156], 0
 $LN13@Tick:
 
-; 52   : 	}
-; 53   : 
-; 54   : 	if (pGameInstance->Input_KeyState_Custom(DIK_0) == KEY_STATE::TAP)
+; 53   : 	}
+; 54   : 
+; 55   : 	if (pGameInstance->Input_KeyState_Custom(DIK_0) == KEY_STATE::TAP)
 
-  000d1	ba 0b 00 00 00	 mov	 edx, 11
-  000d6	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  000da	ff 15 00 00 00
+  0010a	ba 0b 00 00 00	 mov	 edx, 11
+  0010f	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  00113	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Input_KeyState_Custom@CGameInstance@Engine@@QEAA?AW4KEY_STATE@2@H@Z
-  000e0	83 f8 01	 cmp	 eax, 1
-  000e3	0f 85 e0 01 00
+  00119	83 f8 01	 cmp	 eax, 1
+  0011c	0f 85 e0 01 00
 	00		 jne	 $LN14@Tick
 
-; 55   : 	{
-; 56   : 		CLayer* pLayer = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("layer_enemy"));
+; 56   : 	{
+; 57   : 		CLayer* pLayer = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("layer_enemy"));
 
-  000e9	4c 8d 05 00 00
+  00122	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1BI@DCFJMCMJ@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AA?$AA@
-  000f0	ba 03 00 00 00	 mov	 edx, 3
-  000f5	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  000f9	ff 15 00 00 00
+  00129	ba 03 00 00 00	 mov	 edx, 3
+  0012e	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  00132	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Find_Layer@CGameInstance@Engine@@QEAAPEAVCLayer@2@IPEB_W@Z
-  000ff	48 89 45 28	 mov	 QWORD PTR pLayer$8[rbp], rax
+  00138	48 89 45 28	 mov	 QWORD PTR pLayer$8[rbp], rax
 
-; 57   : 		for (auto iter = pLayer->m_GameObjects.begin(); iter != pLayer->m_GameObjects.end(); ++iter)
+; 58   : 		for (auto iter = pLayer->m_GameObjects.begin(); iter != pLayer->m_GameObjects.end(); ++iter)
 
-  00103	ba 18 00 00 00	 mov	 edx, 24
-  00108	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
-  0010c	e8 00 00 00 00	 call	 ?__autoclassinit2@?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAAX_K@Z
-  00111	48 8b 45 28	 mov	 rax, QWORD PTR pLayer$8[rbp]
-  00115	48 83 c0 10	 add	 rax, 16
-  00119	48 8d 55 48	 lea	 rdx, QWORD PTR iter$9[rbp]
-  0011d	48 8b c8	 mov	 rcx, rax
-  00120	e8 00 00 00 00	 call	 ?begin@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::begin
-  00125	90		 npad	 1
-  00126	eb 09		 jmp	 SHORT $LN4@Tick
+  0013c	ba 18 00 00 00	 mov	 edx, 24
+  00141	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
+  00145	e8 00 00 00 00	 call	 ?__autoclassinit2@?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAAX_K@Z
+  0014a	48 8b 45 28	 mov	 rax, QWORD PTR pLayer$8[rbp]
+  0014e	48 83 c0 10	 add	 rax, 16
+  00152	48 8d 55 48	 lea	 rdx, QWORD PTR iter$9[rbp]
+  00156	48 8b c8	 mov	 rcx, rax
+  00159	e8 00 00 00 00	 call	 ?begin@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::begin
+  0015e	90		 npad	 1
+  0015f	eb 09		 jmp	 SHORT $LN4@Tick
 $LN2@Tick:
-  00128	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
-  0012c	e8 00 00 00 00	 call	 ??E?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAAAEAV01@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator++
+  00161	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
+  00165	e8 00 00 00 00	 call	 ??E?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAAAEAV01@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator++
 $LN4@Tick:
-  00131	48 8b 45 28	 mov	 rax, QWORD PTR pLayer$8[rbp]
-  00135	48 83 c0 10	 add	 rax, 16
-  00139	48 8d 95 88 05
-	00 00		 lea	 rdx, QWORD PTR $T22[rbp]
-  00140	48 8b c8	 mov	 rcx, rax
-  00143	e8 00 00 00 00	 call	 ?end@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::end
-  00148	48 89 85 b8 09
-	00 00		 mov	 QWORD PTR tv95[rbp], rax
-  0014f	48 8b 85 b8 09
-	00 00		 mov	 rax, QWORD PTR tv95[rbp]
-  00156	48 89 85 c0 09
-	00 00		 mov	 QWORD PTR tv404[rbp], rax
-  0015d	48 8b 95 c0 09
-	00 00		 mov	 rdx, QWORD PTR tv404[rbp]
-  00164	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
-  00168	e8 00 00 00 00	 call	 ??9?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator!=
-  0016d	88 85 64 05 00
-	00		 mov	 BYTE PTR $T21[rbp], al
-  00173	48 8d 8d 88 05
-	00 00		 lea	 rcx, QWORD PTR $T22[rbp]
-  0017a	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
-  0017f	0f b6 85 64 05
-	00 00		 movzx	 eax, BYTE PTR $T21[rbp]
-  00186	85 c0		 test	 eax, eax
-  00188	0f 84 32 01 00
+  0016a	48 8b 45 28	 mov	 rax, QWORD PTR pLayer$8[rbp]
+  0016e	48 83 c0 10	 add	 rax, 16
+  00172	48 8d 95 c8 05
+	00 00		 lea	 rdx, QWORD PTR $T24[rbp]
+  00179	48 8b c8	 mov	 rcx, rax
+  0017c	e8 00 00 00 00	 call	 ?end@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::end
+  00181	48 89 85 f8 09
+	00 00		 mov	 QWORD PTR tv133[rbp], rax
+  00188	48 8b 85 f8 09
+	00 00		 mov	 rax, QWORD PTR tv133[rbp]
+  0018f	48 89 85 00 0a
+	00 00		 mov	 QWORD PTR tv464[rbp], rax
+  00196	48 8b 95 00 0a
+	00 00		 mov	 rdx, QWORD PTR tv464[rbp]
+  0019d	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
+  001a1	e8 00 00 00 00	 call	 ??9?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator!=
+  001a6	88 85 a4 05 00
+	00		 mov	 BYTE PTR $T23[rbp], al
+  001ac	48 8d 8d c8 05
+	00 00		 lea	 rcx, QWORD PTR $T24[rbp]
+  001b3	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
+  001b8	0f b6 85 a4 05
+	00 00		 movzx	 eax, BYTE PTR $T23[rbp]
+  001bf	85 c0		 test	 eax, eax
+  001c1	0f 84 32 01 00
 	00		 je	 $LN3@Tick
 
-; 58   : 		{
-; 59   : 			_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
+; 59   : 		{
+; 60   : 			_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
 
-  0018e	41 b8 03 00 00
+  001c7	41 b8 03 00 00
 	00		 mov	 r8d, 3
-  00194	48 8d 95 80 00
+  001cd	48 8d 95 80 00
 	00 00		 lea	 rdx, QWORD PTR vPos$10[rbp]
-  0019b	48 8b 85 f0 09
+  001d4	48 8b 85 30 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001a2	48 8b 88 80 00
+  001db	48 8b 88 80 00
 	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  001a9	ff 15 00 00 00
+  001e2	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
 
-; 60   : 			_vector vLook = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_LOOK));
+; 61   : 			_vector vLook = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_LOOK));
 
-  001af	41 b8 02 00 00
+  001e8	41 b8 02 00 00
 	00		 mov	 r8d, 2
-  001b5	48 8d 95 f0 05
-	00 00		 lea	 rdx, QWORD PTR $T24[rbp]
-  001bc	48 8b 85 f0 09
+  001ee	48 8d 95 30 06
+	00 00		 lea	 rdx, QWORD PTR $T26[rbp]
+  001f5	48 8b 85 30 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  001c3	48 8b 88 80 00
+  001fc	48 8b 88 80 00
 	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  001ca	ff 15 00 00 00
+  00203	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
-  001d0	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
-  001d3	e8 00 00 00 00	 call	 ?XMVector3Normalize@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Normalize
-  001d8	0f 29 85 c0 05
-	00 00		 movaps	 XMMWORD PTR $T23[rbp], xmm0
-  001df	0f 28 85 c0 05
-	00 00		 movaps	 xmm0, XMMWORD PTR $T23[rbp]
-  001e6	0f 29 85 b0 00
+  00209	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  0020c	e8 00 00 00 00	 call	 ?XMVector3Normalize@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Normalize
+  00211	0f 29 85 00 06
+	00 00		 movaps	 XMMWORD PTR $T25[rbp], xmm0
+  00218	0f 28 85 00 06
+	00 00		 movaps	 xmm0, XMMWORD PTR $T25[rbp]
+  0021f	0f 29 85 b0 00
 	00 00		 movaps	 XMMWORD PTR vLook$11[rbp], xmm0
 
-; 61   : 			_vector vSpawnPos = vPos + vLook * 8.f;
+; 62   : 			_vector vSpawnPos = vPos + vLook * 8.f;
 
-  001ed	f3 0f 10 0d 00
+  00226	f3 0f 10 0d 00
 	00 00 00	 movss	 xmm1, DWORD PTR __real@41000000
-  001f5	0f 28 85 b0 00
+  0022e	0f 28 85 b0 00
 	00 00		 movaps	 xmm0, XMMWORD PTR vLook$11[rbp]
-  001fc	e8 00 00 00 00	 call	 ??DDirectX@@YQ?AT__m128@@T1@M@Z ; DirectX::operator*
-  00201	0f 29 85 50 06
-	00 00		 movaps	 XMMWORD PTR $T26[rbp], xmm0
-  00208	0f 28 8d 50 06
-	00 00		 movaps	 xmm1, XMMWORD PTR $T26[rbp]
-  0020f	0f 28 85 80 00
+  00235	e8 00 00 00 00	 call	 ??DDirectX@@YQ?AT__m128@@T1@M@Z ; DirectX::operator*
+  0023a	0f 29 85 90 06
+	00 00		 movaps	 XMMWORD PTR $T28[rbp], xmm0
+  00241	0f 28 8d 90 06
+	00 00		 movaps	 xmm1, XMMWORD PTR $T28[rbp]
+  00248	0f 28 85 80 00
 	00 00		 movaps	 xmm0, XMMWORD PTR vPos$10[rbp]
-  00216	e8 00 00 00 00	 call	 ??HDirectX@@YQ?AT__m128@@T1@0@Z ; DirectX::operator+
-  0021b	0f 29 85 20 06
-	00 00		 movaps	 XMMWORD PTR $T25[rbp], xmm0
-  00222	0f 28 85 20 06
-	00 00		 movaps	 xmm0, XMMWORD PTR $T25[rbp]
-  00229	0f 29 85 e0 00
+  0024f	e8 00 00 00 00	 call	 ??HDirectX@@YQ?AT__m128@@T1@0@Z ; DirectX::operator+
+  00254	0f 29 85 60 06
+	00 00		 movaps	 XMMWORD PTR $T27[rbp], xmm0
+  0025b	0f 28 85 60 06
+	00 00		 movaps	 xmm0, XMMWORD PTR $T27[rbp]
+  00262	0f 29 85 e0 00
 	00 00		 movaps	 XMMWORD PTR vSpawnPos$12[rbp], xmm0
 
-; 62   : 
-; 63   : 			static_cast<CEnemy*>(iter->second)->Reset(_float3(XMVectorGetX(vSpawnPos), 0.f, XMVectorGetZ(vSpawnPos)), _float(8.f));
+; 63   : 
+; 64   : 			static_cast<CEnemy*>(iter->second)->Reset(_float3(XMVectorGetX(vSpawnPos), 0.f, XMVectorGetZ(vSpawnPos)), _float(8.f));
 
-  00230	0f 28 85 e0 00
+  00269	0f 28 85 e0 00
 	00 00		 movaps	 xmm0, XMMWORD PTR vSpawnPos$12[rbp]
-  00237	e8 00 00 00 00	 call	 ?XMVectorGetZ@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetZ
-  0023c	f3 0f 11 85 b4
-	09 00 00	 movss	 DWORD PTR tv183[rbp], xmm0
-  00244	0f 28 85 e0 00
+  00270	e8 00 00 00 00	 call	 ?XMVectorGetZ@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetZ
+  00275	f3 0f 11 85 f4
+	09 00 00	 movss	 DWORD PTR tv189[rbp], xmm0
+  0027d	0f 28 85 e0 00
 	00 00		 movaps	 xmm0, XMMWORD PTR vSpawnPos$12[rbp]
-  0024b	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
-  00250	f3 0f 10 8d b4
-	09 00 00	 movss	 xmm1, DWORD PTR tv183[rbp]
-  00258	0f 28 d9	 movaps	 xmm3, xmm1
-  0025b	0f 57 d2	 xorps	 xmm2, xmm2
-  0025e	0f 28 c8	 movaps	 xmm1, xmm0
-  00261	48 8d 8d 74 06
-	00 00		 lea	 rcx, QWORD PTR $T27[rbp]
-  00268	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
-  0026d	48 8d 8d f0 08
-	00 00		 lea	 rcx, QWORD PTR $T42[rbp]
-  00274	48 8b f9	 mov	 rdi, rcx
-  00277	48 8b f0	 mov	 rsi, rax
-  0027a	b9 0c 00 00 00	 mov	 ecx, 12
-  0027f	f3 a4		 rep movsb
-  00281	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
-  00285	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
-  0028a	f3 0f 10 1d 00
+  00284	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
+  00289	f3 0f 10 8d f4
+	09 00 00	 movss	 xmm1, DWORD PTR tv189[rbp]
+  00291	0f 28 d9	 movaps	 xmm3, xmm1
+  00294	0f 57 d2	 xorps	 xmm2, xmm2
+  00297	0f 28 c8	 movaps	 xmm1, xmm0
+  0029a	48 8d 8d b4 06
+	00 00		 lea	 rcx, QWORD PTR $T29[rbp]
+  002a1	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
+  002a6	48 8d 8d 30 09
+	00 00		 lea	 rcx, QWORD PTR $T44[rbp]
+  002ad	48 8b f9	 mov	 rdi, rcx
+  002b0	48 8b f0	 mov	 rsi, rax
+  002b3	b9 0c 00 00 00	 mov	 ecx, 12
+  002b8	f3 a4		 rep movsb
+  002ba	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
+  002be	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
+  002c3	f3 0f 10 1d 00
 	00 00 00	 movss	 xmm3, DWORD PTR __real@41000000
-  00292	4c 8d 85 f0 08
-	00 00		 lea	 r8, QWORD PTR $T42[rbp]
-  00299	48 8d 95 94 06
-	00 00		 lea	 rdx, QWORD PTR $T28[rbp]
-  002a0	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
-  002a4	e8 00 00 00 00	 call	 ?Reset@CEnemy@Client@@QEAA?AUXMFLOAT2@DirectX@@UXMFLOAT3@4@M@Z ; Client::CEnemy::Reset
+  002cb	4c 8d 85 30 09
+	00 00		 lea	 r8, QWORD PTR $T44[rbp]
+  002d2	48 8d 95 d4 06
+	00 00		 lea	 rdx, QWORD PTR $T30[rbp]
+  002d9	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
+  002dd	e8 00 00 00 00	 call	 ?Reset@CEnemy@Client@@QEAA?AUXMFLOAT2@DirectX@@UXMFLOAT3@4@M@Z ; Client::CEnemy::Reset
 
-; 64   : 			static_cast<CEnemy*>(iter->second)->LookPlayer();
+; 65   : 			static_cast<CEnemy*>(iter->second)->LookPlayer();
 
-  002a9	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
-  002ad	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
-  002b2	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
-  002b6	e8 00 00 00 00	 call	 ?LookPlayer@CEnemy@Client@@QEAAXXZ ; Client::CEnemy::LookPlayer
-  002bb	e9 68 fe ff ff	 jmp	 $LN2@Tick
+  002e2	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
+  002e6	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
+  002eb	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
+  002ef	e8 00 00 00 00	 call	 ?LookPlayer@CEnemy@Client@@QEAAXXZ ; Client::CEnemy::LookPlayer
+  002f4	e9 68 fe ff ff	 jmp	 $LN2@Tick
 $LN3@Tick:
 
-; 65   : 			//static_cast<CCharacter*>(mPlayer)->ClearEnemyCheckCollider();
-; 66   : 		}
+; 66   : 			//static_cast<CCharacter*>(mPlayer)->ClearEnemyCheckCollider();
+; 67   : 		}
 
-  002c0	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
-  002c4	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
+  002f9	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
+  002fd	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
 $LN14@Tick:
 
-; 67   : 	}
-; 68   : 
-; 69   : 	if (m_isEnter)
+; 68   : 	}
+; 69   : 
+; 70   : 	if (m_isEnter)
 
-  002c9	48 8b 85 f0 09
+  00302	48 8b 85 30 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  002d0	0f b6 80 94 00
+  00309	0f b6 80 94 00
 	00 00		 movzx	 eax, BYTE PTR [rax+148]
-  002d7	85 c0		 test	 eax, eax
-  002d9	0f 84 45 04 00
+  00310	85 c0		 test	 eax, eax
+  00312	0f 84 b0 05 00
 	00		 je	 $LN15@Tick
 
-; 70   : 	{
-; 71   : 		int iActiveEnemyCount = 0;
+; 71   : 	{
+; 72   : 		int iActiveEnemyCount = 0;
 
-  002df	c7 85 04 01 00
+  00318	c7 85 04 01 00
 	00 00 00 00 00	 mov	 DWORD PTR iActiveEnemyCount$13[rbp], 0
 
-; 72   : 		CLayer* pLayer = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("layer_enemy"));
+; 73   : 		int iDisableeEnemyCount = 0;
 
-  002e9	4c 8d 05 00 00
+  00322	c7 85 24 01 00
+	00 00 00 00 00	 mov	 DWORD PTR iDisableeEnemyCount$14[rbp], 0
+
+; 74   : 		CLayer* pLayer = pGameInstance->Find_Layer(LEVEL_GAMEPLAY, TEXT("layer_enemy"));
+
+  0032c	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_1BI@DCFJMCMJ@?$AAl?$AAa?$AAy?$AAe?$AAr?$AA_?$AAe?$AAn?$AAe?$AAm?$AAy?$AA?$AA@
-  002f0	ba 03 00 00 00	 mov	 edx, 3
-  002f5	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
-  002f9	ff 15 00 00 00
+  00333	ba 03 00 00 00	 mov	 edx, 3
+  00338	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  0033c	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?Find_Layer@CGameInstance@Engine@@QEAAPEAVCLayer@2@IPEB_W@Z
-  002ff	48 89 85 28 01
-	00 00		 mov	 QWORD PTR pLayer$14[rbp], rax
+  00342	48 89 85 48 01
+	00 00		 mov	 QWORD PTR pLayer$15[rbp], rax
 
-; 73   : 
-; 74   : 		for (auto iter = pLayer->m_GameObjects.begin(); iter != pLayer->m_GameObjects.end(); ++iter)
+; 75   : 
+; 76   : 		_int iDeadWaitCount = 0;
 
-  00306	ba 18 00 00 00	 mov	 edx, 24
-  0030b	48 8d 8d 48 01
-	00 00		 lea	 rcx, QWORD PTR iter$15[rbp]
-  00312	e8 00 00 00 00	 call	 ?__autoclassinit2@?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAAX_K@Z
-  00317	48 8b 85 28 01
-	00 00		 mov	 rax, QWORD PTR pLayer$14[rbp]
-  0031e	48 83 c0 10	 add	 rax, 16
-  00322	48 8d 95 48 01
-	00 00		 lea	 rdx, QWORD PTR iter$15[rbp]
-  00329	48 8b c8	 mov	 rcx, rax
-  0032c	e8 00 00 00 00	 call	 ?begin@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::begin
-  00331	90		 npad	 1
-  00332	eb 0c		 jmp	 SHORT $LN7@Tick
+  00349	c7 85 64 01 00
+	00 00 00 00 00	 mov	 DWORD PTR iDeadWaitCount$16[rbp], 0
+
+; 77   : 		static bool bEmptySound = false;
+; 78   : 		for (auto iter = pLayer->m_GameObjects.begin(); iter != pLayer->m_GameObjects.end(); ++iter)
+
+  00353	ba 18 00 00 00	 mov	 edx, 24
+  00358	48 8d 8d 88 01
+	00 00		 lea	 rcx, QWORD PTR iter$17[rbp]
+  0035f	e8 00 00 00 00	 call	 ?__autoclassinit2@?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAAX_K@Z
+  00364	48 8b 85 48 01
+	00 00		 mov	 rax, QWORD PTR pLayer$15[rbp]
+  0036b	48 83 c0 10	 add	 rax, 16
+  0036f	48 8d 95 88 01
+	00 00		 lea	 rdx, QWORD PTR iter$17[rbp]
+  00376	48 8b c8	 mov	 rcx, rax
+  00379	e8 00 00 00 00	 call	 ?begin@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::begin
+  0037e	90		 npad	 1
+  0037f	eb 0c		 jmp	 SHORT $LN7@Tick
 $LN5@Tick:
-  00334	48 8d 8d 48 01
-	00 00		 lea	 rcx, QWORD PTR iter$15[rbp]
-  0033b	e8 00 00 00 00	 call	 ??E?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAAAEAV01@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator++
+  00381	48 8d 8d 88 01
+	00 00		 lea	 rcx, QWORD PTR iter$17[rbp]
+  00388	e8 00 00 00 00	 call	 ??E?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAAAEAV01@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator++
 $LN7@Tick:
-  00340	48 8b 85 28 01
-	00 00		 mov	 rax, QWORD PTR pLayer$14[rbp]
-  00347	48 83 c0 10	 add	 rax, 16
-  0034b	48 8d 95 d8 06
-	00 00		 lea	 rdx, QWORD PTR $T30[rbp]
-  00352	48 8b c8	 mov	 rcx, rax
-  00355	e8 00 00 00 00	 call	 ?end@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::end
-  0035a	48 89 85 b8 09
-	00 00		 mov	 QWORD PTR tv214[rbp], rax
-  00361	48 8b 85 b8 09
-	00 00		 mov	 rax, QWORD PTR tv214[rbp]
-  00368	48 89 85 c0 09
-	00 00		 mov	 QWORD PTR tv407[rbp], rax
-  0036f	48 8b 95 c0 09
-	00 00		 mov	 rdx, QWORD PTR tv407[rbp]
-  00376	48 8d 8d 48 01
-	00 00		 lea	 rcx, QWORD PTR iter$15[rbp]
-  0037d	e8 00 00 00 00	 call	 ??9?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator!=
-  00382	88 85 b4 06 00
-	00		 mov	 BYTE PTR $T29[rbp], al
-  00388	48 8d 8d d8 06
-	00 00		 lea	 rcx, QWORD PTR $T30[rbp]
-  0038f	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
-  00394	0f b6 85 b4 06
-	00 00		 movzx	 eax, BYTE PTR $T29[rbp]
-  0039b	85 c0		 test	 eax, eax
-  0039d	74 30		 je	 SHORT $LN6@Tick
+  0038d	48 8b 85 48 01
+	00 00		 mov	 rax, QWORD PTR pLayer$15[rbp]
+  00394	48 83 c0 10	 add	 rax, 16
+  00398	48 8d 95 18 07
+	00 00		 lea	 rdx, QWORD PTR $T32[rbp]
+  0039f	48 8b c8	 mov	 rcx, rax
+  003a2	e8 00 00 00 00	 call	 ?end@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::end
+  003a7	48 89 85 f8 09
+	00 00		 mov	 QWORD PTR tv220[rbp], rax
+  003ae	48 8b 85 f8 09
+	00 00		 mov	 rax, QWORD PTR tv220[rbp]
+  003b5	48 89 85 00 0a
+	00 00		 mov	 QWORD PTR tv467[rbp], rax
+  003bc	48 8b 95 00 0a
+	00 00		 mov	 rdx, QWORD PTR tv467[rbp]
+  003c3	48 8d 8d 88 01
+	00 00		 lea	 rcx, QWORD PTR iter$17[rbp]
+  003ca	e8 00 00 00 00	 call	 ??9?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator!=
+  003cf	88 85 f4 06 00
+	00		 mov	 BYTE PTR $T31[rbp], al
+  003d5	48 8d 8d 18 07
+	00 00		 lea	 rcx, QWORD PTR $T32[rbp]
+  003dc	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
+  003e1	0f b6 85 f4 06
+	00 00		 movzx	 eax, BYTE PTR $T31[rbp]
+  003e8	85 c0		 test	 eax, eax
+  003ea	0f 84 a4 00 00
+	00		 je	 $LN6@Tick
 
-; 75   : 		{
-; 76   : 			if ((iter->second)->IsActive())
+; 79   : 		{
+; 80   : 			if ((iter->second)->IsActive())
 
-  0039f	48 8d 8d 48 01
-	00 00		 lea	 rcx, QWORD PTR iter$15[rbp]
-  003a6	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
-  003ab	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
-  003af	ff 15 00 00 00
+  003f0	48 8d 8d 88 01
+	00 00		 lea	 rcx, QWORD PTR iter$17[rbp]
+  003f7	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
+  003fc	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
+  00400	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_?IsActive@CGameObject@Engine@@QEAA_NXZ
-  003b5	0f b6 c0	 movzx	 eax, al
-  003b8	85 c0		 test	 eax, eax
-  003ba	74 0e		 je	 SHORT $LN16@Tick
+  00406	0f b6 c0	 movzx	 eax, al
+  00409	85 c0		 test	 eax, eax
+  0040b	74 10		 je	 SHORT $LN16@Tick
 
-; 77   : 				iActiveEnemyCount++;
+; 81   : 				iActiveEnemyCount++;
 
-  003bc	8b 85 04 01 00
+  0040d	8b 85 04 01 00
 	00		 mov	 eax, DWORD PTR iActiveEnemyCount$13[rbp]
-  003c2	ff c0		 inc	 eax
-  003c4	89 85 04 01 00
+  00413	ff c0		 inc	 eax
+  00415	89 85 04 01 00
 	00		 mov	 DWORD PTR iActiveEnemyCount$13[rbp], eax
+  0041b	eb 2b		 jmp	 SHORT $LN17@Tick
 $LN16@Tick:
 
-; 78   : 		}
+; 82   : 
+; 83   : 			else  if ((iter->second)->IsDisable())
 
-  003ca	e9 65 ff ff ff	 jmp	 $LN5@Tick
-$LN6@Tick:
-  003cf	48 8d 8d 48 01
-	00 00		 lea	 rcx, QWORD PTR iter$15[rbp]
-  003d6	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
+  0041d	48 8d 8d 88 01
+	00 00		 lea	 rcx, QWORD PTR iter$17[rbp]
+  00424	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
+  00429	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
+  0042d	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?IsDisable@CGameObject@Engine@@QEAA_NXZ
+  00433	0f b6 c0	 movzx	 eax, al
+  00436	85 c0		 test	 eax, eax
+  00438	74 0e		 je	 SHORT $LN17@Tick
 
-; 79   : 
-; 80   : 		if (iActiveEnemyCount == 0)
+; 84   : 				iDisableeEnemyCount++;
 
-  003db	83 bd 04 01 00
-	00 00		 cmp	 DWORD PTR iActiveEnemyCount$13[rbp], 0
-  003e2	0f 85 3c 03 00
-	00		 jne	 $LN15@Tick
+  0043a	8b 85 24 01 00
+	00		 mov	 eax, DWORD PTR iDisableeEnemyCount$14[rbp]
+  00440	ff c0		 inc	 eax
+  00442	89 85 24 01 00
+	00		 mov	 DWORD PTR iDisableeEnemyCount$14[rbp], eax
+$LN17@Tick:
 
-; 81   : 		{
-; 82   : 			switch (m_iCurSpawnerIndex)
+; 85   : 
+; 86   : 			if (!(iter->second)->IsDisable() && static_cast<CEnemy*>(iter->second)->IsDeadWait())
 
-  003e8	48 8b 85 f0 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  003ef	8b 80 98 00 00
-	00		 mov	 eax, DWORD PTR [rax+152]
-  003f5	89 85 b4 09 00
-	00		 mov	 DWORD PTR tv251[rbp], eax
-  003fb	83 bd b4 09 00
-	00 00		 cmp	 DWORD PTR tv251[rbp], 0
-  00402	74 12		 je	 SHORT $LN18@Tick
-  00404	83 bd b4 09 00
-	00 01		 cmp	 DWORD PTR tv251[rbp], 1
-  0040b	0f 84 f3 02 00
-	00		 je	 $LN20@Tick
-  00411	e9 0e 03 00 00	 jmp	 $LN15@Tick
-$LN18@Tick:
+  00448	48 8d 8d 88 01
+	00 00		 lea	 rcx, QWORD PTR iter$17[rbp]
+  0044f	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
+  00454	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
+  00458	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?IsDisable@CGameObject@Engine@@QEAA_NXZ
+  0045e	0f b6 c0	 movzx	 eax, al
+  00461	85 c0		 test	 eax, eax
+  00463	75 2a		 jne	 SHORT $LN19@Tick
+  00465	48 8d 8d 88 01
+	00 00		 lea	 rcx, QWORD PTR iter$17[rbp]
+  0046c	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
+  00471	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
+  00475	e8 00 00 00 00	 call	 ?IsDeadWait@CEnemy@Client@@QEBA_NXZ ; Client::CEnemy::IsDeadWait
+  0047a	0f b6 c0	 movzx	 eax, al
+  0047d	85 c0		 test	 eax, eax
+  0047f	74 0e		 je	 SHORT $LN19@Tick
 
-; 83   : 			{
-; 84   : 			case FIRST_SPAWNER:
-; 85   : 				m_iRespawnCount++;
+; 87   : 				iDeadWaitCount++;
 
-  00416	48 8b 85 f0 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0041d	8b 80 9c 00 00
-	00		 mov	 eax, DWORD PTR [rax+156]
-  00423	ff c0		 inc	 eax
-  00425	48 8b 8d f0 09
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0042c	89 81 9c 00 00
-	00		 mov	 DWORD PTR [rcx+156], eax
-
-; 86   : 				for (auto iter = pLayer->m_GameObjects.begin(); iter != pLayer->m_GameObjects.end(); ++iter)
-
-  00432	ba 18 00 00 00	 mov	 edx, 24
-  00437	48 8d 8d 78 01
-	00 00		 lea	 rcx, QWORD PTR iter$16[rbp]
-  0043e	e8 00 00 00 00	 call	 ?__autoclassinit2@?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAAX_K@Z
-  00443	48 8b 85 28 01
-	00 00		 mov	 rax, QWORD PTR pLayer$14[rbp]
-  0044a	48 83 c0 10	 add	 rax, 16
-  0044e	48 8d 95 78 01
-	00 00		 lea	 rdx, QWORD PTR iter$16[rbp]
-  00455	48 8b c8	 mov	 rcx, rax
-  00458	e8 00 00 00 00	 call	 ?begin@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::begin
-  0045d	90		 npad	 1
-  0045e	eb 0c		 jmp	 SHORT $LN12@Tick
-$LN10@Tick:
-  00460	48 8d 8d 78 01
-	00 00		 lea	 rcx, QWORD PTR iter$16[rbp]
-  00467	e8 00 00 00 00	 call	 ??E?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAAAEAV01@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator++
-$LN12@Tick:
-  0046c	48 8b 85 28 01
-	00 00		 mov	 rax, QWORD PTR pLayer$14[rbp]
-  00473	48 83 c0 10	 add	 rax, 16
-  00477	48 8d 95 28 07
-	00 00		 lea	 rdx, QWORD PTR $T32[rbp]
-  0047e	48 8b c8	 mov	 rcx, rax
-  00481	e8 00 00 00 00	 call	 ?end@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::end
-  00486	48 89 85 b8 09
-	00 00		 mov	 QWORD PTR tv264[rbp], rax
-  0048d	48 8b 85 b8 09
-	00 00		 mov	 rax, QWORD PTR tv264[rbp]
-  00494	48 89 85 c0 09
-	00 00		 mov	 QWORD PTR tv410[rbp], rax
-  0049b	48 8b 95 c0 09
-	00 00		 mov	 rdx, QWORD PTR tv410[rbp]
-  004a2	48 8d 8d 78 01
-	00 00		 lea	 rcx, QWORD PTR iter$16[rbp]
-  004a9	e8 00 00 00 00	 call	 ??9?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator!=
-  004ae	88 85 04 07 00
-	00		 mov	 BYTE PTR $T31[rbp], al
-  004b4	48 8d 8d 28 07
-	00 00		 lea	 rcx, QWORD PTR $T32[rbp]
-  004bb	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
-  004c0	0f b6 85 04 07
-	00 00		 movzx	 eax, BYTE PTR $T31[rbp]
-  004c7	85 c0		 test	 eax, eax
-  004c9	0f 84 38 01 00
-	00		 je	 $LN11@Tick
-
-; 87   : 				{
-; 88   : 					_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
-
-  004cf	41 b8 03 00 00
-	00		 mov	 r8d, 3
-  004d5	48 8d 95 b0 01
-	00 00		 lea	 rdx, QWORD PTR vPos$17[rbp]
-  004dc	48 8b 85 f0 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  004e3	48 8b 88 80 00
-	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  004ea	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
-
-; 89   : 					_vector vLook = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_LOOK));
-
-  004f0	41 b8 02 00 00
-	00		 mov	 r8d, 2
-  004f6	48 8d 95 90 07
-	00 00		 lea	 rdx, QWORD PTR $T34[rbp]
-  004fd	48 8b 85 f0 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00504	48 8b 88 80 00
-	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  0050b	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
-  00511	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
-  00514	e8 00 00 00 00	 call	 ?XMVector3Normalize@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Normalize
-  00519	0f 29 85 60 07
-	00 00		 movaps	 XMMWORD PTR $T33[rbp], xmm0
-  00520	0f 28 85 60 07
-	00 00		 movaps	 xmm0, XMMWORD PTR $T33[rbp]
-  00527	0f 29 85 e0 01
-	00 00		 movaps	 XMMWORD PTR vLook$18[rbp], xmm0
-
-; 90   : 					_vector vSpawnPos = vPos + vLook * 8.f;
-
-  0052e	f3 0f 10 0d 00
-	00 00 00	 movss	 xmm1, DWORD PTR __real@41000000
-  00536	0f 28 85 e0 01
-	00 00		 movaps	 xmm0, XMMWORD PTR vLook$18[rbp]
-  0053d	e8 00 00 00 00	 call	 ??DDirectX@@YQ?AT__m128@@T1@M@Z ; DirectX::operator*
-  00542	0f 29 85 f0 07
-	00 00		 movaps	 XMMWORD PTR $T36[rbp], xmm0
-  00549	0f 28 8d f0 07
-	00 00		 movaps	 xmm1, XMMWORD PTR $T36[rbp]
-  00550	0f 28 85 b0 01
-	00 00		 movaps	 xmm0, XMMWORD PTR vPos$17[rbp]
-  00557	e8 00 00 00 00	 call	 ??HDirectX@@YQ?AT__m128@@T1@0@Z ; DirectX::operator+
-  0055c	0f 29 85 c0 07
-	00 00		 movaps	 XMMWORD PTR $T35[rbp], xmm0
-  00563	0f 28 85 c0 07
-	00 00		 movaps	 xmm0, XMMWORD PTR $T35[rbp]
-  0056a	0f 29 85 10 02
-	00 00		 movaps	 XMMWORD PTR vSpawnPos$19[rbp], xmm0
-
-; 91   : 
-; 92   : 					static_cast<CEnemy*>(iter->second)->Reset(_float3(XMVectorGetX(vSpawnPos), 0.f, XMVectorGetZ(vSpawnPos)), _float(8.f));
-
-  00571	0f 28 85 10 02
-	00 00		 movaps	 xmm0, XMMWORD PTR vSpawnPos$19[rbp]
-  00578	e8 00 00 00 00	 call	 ?XMVectorGetZ@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetZ
-  0057d	f3 0f 11 85 b4
-	09 00 00	 movss	 DWORD PTR tv352[rbp], xmm0
-  00585	0f 28 85 10 02
-	00 00		 movaps	 xmm0, XMMWORD PTR vSpawnPos$19[rbp]
-  0058c	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
-  00591	f3 0f 10 8d b4
-	09 00 00	 movss	 xmm1, DWORD PTR tv352[rbp]
-  00599	0f 28 d9	 movaps	 xmm3, xmm1
-  0059c	0f 57 d2	 xorps	 xmm2, xmm2
-  0059f	0f 28 c8	 movaps	 xmm1, xmm0
-  005a2	48 8d 8d 14 08
-	00 00		 lea	 rcx, QWORD PTR $T37[rbp]
-  005a9	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
-  005ae	48 8d 8d 20 09
-	00 00		 lea	 rcx, QWORD PTR $T43[rbp]
-  005b5	48 8b f9	 mov	 rdi, rcx
-  005b8	48 8b f0	 mov	 rsi, rax
-  005bb	b9 0c 00 00 00	 mov	 ecx, 12
-  005c0	f3 a4		 rep movsb
-  005c2	48 8d 8d 78 01
-	00 00		 lea	 rcx, QWORD PTR iter$16[rbp]
-  005c9	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
-  005ce	f3 0f 10 1d 00
-	00 00 00	 movss	 xmm3, DWORD PTR __real@41000000
-  005d6	4c 8d 85 20 09
-	00 00		 lea	 r8, QWORD PTR $T43[rbp]
-  005dd	48 8d 95 34 08
-	00 00		 lea	 rdx, QWORD PTR $T38[rbp]
-  005e4	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
-  005e8	e8 00 00 00 00	 call	 ?Reset@CEnemy@Client@@QEAA?AUXMFLOAT2@DirectX@@UXMFLOAT3@4@M@Z ; Client::CEnemy::Reset
-
-; 93   : 					static_cast<CEnemy*>(iter->second)->LookPlayer();
-
-  005ed	48 8d 8d 78 01
-	00 00		 lea	 rcx, QWORD PTR iter$16[rbp]
-  005f4	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
-  005f9	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
-  005fd	e8 00 00 00 00	 call	 ?LookPlayer@CEnemy@Client@@QEAAXXZ ; Client::CEnemy::LookPlayer
-  00602	e9 59 fe ff ff	 jmp	 $LN10@Tick
-$LN11@Tick:
-
-; 94   : 				}
-
-  00607	48 8d 8d 78 01
-	00 00		 lea	 rcx, QWORD PTR iter$16[rbp]
-  0060e	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
-
-; 95   : 
-; 96   : 				if (m_iRespawnCount >= 0)
-
-  00613	48 8b 85 f0 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0061a	83 b8 9c 00 00
-	00 00		 cmp	 DWORD PTR [rax+156], 0
-  00621	0f 8c db 00 00
-	00		 jl	 $LN19@Tick
-
-; 97   : 				{
-; 98   : 					m_isEnter = false;
-
-  00627	48 8b 85 f0 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0062e	c6 80 94 00 00
-	00 00		 mov	 BYTE PTR [rax+148], 0
-
-; 99   : 					m_iRespawnCount = 0;
-
-  00635	48 8b 85 f0 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0063c	c7 80 9c 00 00
-	00 00 00 00 00	 mov	 DWORD PTR [rax+156], 0
-
-; 100  : 					m_iCurSpawnerIndex = SECOND_SPAWNER;
-
-  00646	48 8b 85 f0 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0064d	c7 80 98 00 00
-	00 01 00 00 00	 mov	 DWORD PTR [rax+152], 1
-
-; 101  : 
-; 102  : 					m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(28.f, 0.f, 60.f, 1.f));
-
-  00657	f3 0f 10 1d 00
-	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
-  0065f	f3 0f 10 15 00
-	00 00 00	 movss	 xmm2, DWORD PTR __real@42700000
-  00667	0f 57 c9	 xorps	 xmm1, xmm1
-  0066a	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@41e00000
-  00672	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
-  00677	0f 29 85 60 08
-	00 00		 movaps	 XMMWORD PTR $T39[rbp], xmm0
-  0067e	0f 28 85 60 08
-	00 00		 movaps	 xmm0, XMMWORD PTR $T39[rbp]
-  00685	0f 29 85 50 09
-	00 00		 movaps	 XMMWORD PTR $T44[rbp], xmm0
-  0068c	4c 8d 85 50 09
-	00 00		 lea	 r8, QWORD PTR $T44[rbp]
-  00693	ba 03 00 00 00	 mov	 edx, 3
-  00698	48 8b 85 f0 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0069f	48 8b 88 80 00
-	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  006a6	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
-
-; 103  : 					m_pTransform->SetRotation(VECTOR_UP, XMConvertToRadians(40.f));
-
-  006ac	0f 57 db	 xorps	 xmm3, xmm3
-  006af	0f 57 d2	 xorps	 xmm2, xmm2
-  006b2	f3 0f 10 0d 00
-	00 00 00	 movss	 xmm1, DWORD PTR __real@3f800000
-  006ba	0f 57 c0	 xorps	 xmm0, xmm0
-  006bd	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
-  006c2	0f 29 85 90 08
-	00 00		 movaps	 XMMWORD PTR $T40[rbp], xmm0
-  006c9	f3 0f 10 05 00
-	00 00 00	 movss	 xmm0, DWORD PTR __real@42200000
-  006d1	e8 00 00 00 00	 call	 ?XMConvertToRadians@DirectX@@YAMM@Z ; DirectX::XMConvertToRadians
-  006d6	0f 28 8d 90 08
-	00 00		 movaps	 xmm1, XMMWORD PTR $T40[rbp]
-  006dd	0f 29 8d 80 09
-	00 00		 movaps	 XMMWORD PTR $T45[rbp], xmm1
-  006e4	0f 28 d0	 movaps	 xmm2, xmm0
-  006e7	48 8d 95 80 09
-	00 00		 lea	 rdx, QWORD PTR $T45[rbp]
-  006ee	48 8b 85 f0 09
-	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  006f5	48 8b 88 80 00
-	00 00		 mov	 rcx, QWORD PTR [rax+128]
-  006fc	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?SetRotation@CTransform@Engine@@QEAAXT__m128@@M@Z
+  00481	8b 85 64 01 00
+	00		 mov	 eax, DWORD PTR iDeadWaitCount$16[rbp]
+  00487	ff c0		 inc	 eax
+  00489	89 85 64 01 00
+	00		 mov	 DWORD PTR iDeadWaitCount$16[rbp], eax
 $LN19@Tick:
 
-; 104  : 				}
-; 105  : 				break;
+; 88   : 		}
 
-  00702	eb 20		 jmp	 SHORT $LN15@Tick
+  0048f	e9 ed fe ff ff	 jmp	 $LN5@Tick
+$LN6@Tick:
+  00494	48 8d 8d 88 01
+	00 00		 lea	 rcx, QWORD PTR iter$17[rbp]
+  0049b	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
+
+; 89   : 
+; 90   : 		if (m_iCurSpawnerIndex == SECOND_SPAWNER)
+
+  004a0	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  004a7	83 b8 98 00 00
+	00 01		 cmp	 DWORD PTR [rax+152], 1
+  004ae	0f 85 fa 00 00
+	00		 jne	 $LN20@Tick
+
+; 91   : 		{
+; 92   : 			if (iDisableeEnemyCount + iDeadWaitCount == 5)
+
+  004b4	8b 85 64 01 00
+	00		 mov	 eax, DWORD PTR iDeadWaitCount$16[rbp]
+  004ba	8b 8d 24 01 00
+	00		 mov	 ecx, DWORD PTR iDisableeEnemyCount$14[rbp]
+  004c0	03 c8		 add	 ecx, eax
+  004c2	8b c1		 mov	 eax, ecx
+  004c4	83 f8 05	 cmp	 eax, 5
+  004c7	75 3a		 jne	 SHORT $LN21@Tick
+
+; 93   : 			{
+; 94   : 				if (!bEmptySound)
+
+  004c9	0f b6 05 00 00
+	00 00		 movzx	 eax, BYTE PTR ?bEmptySound@?N@??Tick@CEnemySpawner@Client@@UEAAXN@Z@4_NA
+  004d0	85 c0		 test	 eax, eax
+  004d2	75 2f		 jne	 SHORT $LN21@Tick
+
+; 95   : 				{
+; 96   : 					bEmptySound = true;
+
+  004d4	c6 05 00 00 00
+	00 01		 mov	 BYTE PTR ?bEmptySound@?N@??Tick@CEnemySpawner@Client@@UEAAXN@Z@4_NA, 1
+
+; 97   : 					pGameInstance->PlaySoundEx(L"Empty.wav", SOUND_CHANNEL::WARNING, SOUND_VOLUME::CUSTOM_VOLUM, 0.2f);
+
+  004db	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3e4ccccd
+  004e3	f3 0f 11 44 24
+	20		 movss	 DWORD PTR [rsp+32], xmm0
+  004e9	45 33 c9	 xor	 r9d, r9d
+  004ec	41 b8 02 00 00
+	00		 mov	 r8d, 2
+  004f2	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:??_C@_1BE@BFIDKPLH@?$AAE?$AAm?$AAp?$AAt?$AAy?$AA?4?$AAw?$AAa?$AAv?$AA?$AA@
+  004f9	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  004fd	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?PlaySoundEx@CGameInstance@Engine@@QEAAJPEA_WHW4SOUND_VOLUME@@M@Z
+$LN21@Tick:
+
+; 98   : 				}
+; 99   : 			}
+; 100  : 
+; 101  : 			if (bEmptySound)
+
+  00503	0f b6 05 00 00
+	00 00		 movzx	 eax, BYTE PTR ?bEmptySound@?N@??Tick@CEnemySpawner@Client@@UEAAXN@Z@4_NA
+  0050a	85 c0		 test	 eax, eax
+  0050c	0f 84 9c 00 00
+	00		 je	 $LN20@Tick
+
+; 102  : 			{
+; 103  : 				m_fBGMVolum -= 0.02 * TimeDelta;
+
+  00512	f2 0f 10 05 00
+	00 00 00	 movsd	 xmm0, QWORD PTR __real@3f947ae147ae147b
+  0051a	f2 0f 59 85 38
+	0a 00 00	 mulsd	 xmm0, QWORD PTR TimeDelta$[rbp]
+  00522	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00529	f3 0f 5a 88 d8
+	00 00 00	 cvtss2sd xmm1, DWORD PTR [rax+216]
+  00531	f2 0f 5c c8	 subsd	 xmm1, xmm0
+  00535	0f 28 c1	 movaps	 xmm0, xmm1
+  00538	f2 0f 5a c0	 cvtsd2ss xmm0, xmm0
+  0053c	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00543	f3 0f 11 80 d8
+	00 00 00	 movss	 DWORD PTR [rax+216], xmm0
+
+; 104  : 				pGameInstance->SetSoundVolume(SOUND_CHANNEL::SOUND_BGM, SOUND_VOLUME::CUSTOM_VOLUM, m_fBGMVolum);
+
+  0054b	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00552	f3 0f 10 98 d8
+	00 00 00	 movss	 xmm3, DWORD PTR [rax+216]
+  0055a	45 33 c0	 xor	 r8d, r8d
+  0055d	ba 01 00 00 00	 mov	 edx, 1
+  00562	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  00566	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetSoundVolume@CGameInstance@Engine@@QEAAJHW4SOUND_VOLUME@@M@Z
+
+; 105  : 
+; 106  : 				if (m_fBGMVolum <= 0.f)
+
+  0056c	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00573	0f 57 c0	 xorps	 xmm0, xmm0
+  00576	0f 2f 80 d8 00
+	00 00		 comiss	 xmm0, DWORD PTR [rax+216]
+  0057d	72 2f		 jb	 SHORT $LN20@Tick
+
+; 107  : 				{
+; 108  : 					pGameInstance->StopSound(SOUND_CHANNEL::SOUND_BGM);
+
+  0057f	ba 01 00 00 00	 mov	 edx, 1
+  00584	48 8b 4d 08	 mov	 rcx, QWORD PTR pGameInstance$[rbp]
+  00588	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?StopSound@CGameInstance@Engine@@QEAAJH@Z
+
+; 109  : 					m_pPlayerCamera->LevelEnd();
+
+  0058e	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00595	48 8b 88 a0 00
+	00 00		 mov	 rcx, QWORD PTR [rax+160]
+  0059c	e8 00 00 00 00	 call	 ?LevelEnd@CPlayerCamera@Client@@QEAAXXZ ; Client::CPlayerCamera::LevelEnd
+
+; 110  : 					Destroy();
+
+  005a1	48 8b 8d 30 0a
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  005a8	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Destroy@CGameObject@Engine@@QEAAXXZ
 $LN20@Tick:
 
-; 106  : 			case SECOND_SPAWNER:
-; 107  : 			{
-; 108  : 				Destroy();
+; 111  : 				}
+; 112  : 			}
+; 113  : 		}
+; 114  : 
+; 115  : 
+; 116  : 		if (iActiveEnemyCount == 0)
 
-  00704	48 8b 8d f0 09
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  0070b	ff 15 00 00 00
-	00		 call	 QWORD PTR __imp_?Destroy@CGameObject@Engine@@QEAAXXZ
+  005ae	83 bd 04 01 00
+	00 00		 cmp	 DWORD PTR iActiveEnemyCount$13[rbp], 0
+  005b5	0f 85 0d 03 00
+	00		 jne	 $LN15@Tick
 
-; 109  : 				m_pPlayerCamera->LevelEnd();
+; 117  : 		{
+; 118  : 			switch (m_iCurSpawnerIndex)
 
-  00711	48 8b 85 f0 09
+  005bb	48 8b 85 30 0a
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00718	48 8b 88 a0 00
-	00 00		 mov	 rcx, QWORD PTR [rax+160]
-  0071f	e8 00 00 00 00	 call	 ?LevelEnd@CPlayerCamera@Client@@QEAAXXZ ; Client::CPlayerCamera::LevelEnd
+  005c2	8b 80 98 00 00
+	00		 mov	 eax, DWORD PTR [rax+152]
+  005c8	89 85 f4 09 00
+	00		 mov	 DWORD PTR tv319[rbp], eax
+  005ce	83 bd f4 09 00
+	00 00		 cmp	 DWORD PTR tv319[rbp], 0
+  005d5	74 05		 je	 SHORT $LN26@Tick
+  005d7	e9 ec 02 00 00	 jmp	 $LN15@Tick
+$LN26@Tick:
+
+; 119  : 			{
+; 120  : 			case FIRST_SPAWNER:
+; 121  : 				m_iRespawnCount++;
+
+  005dc	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  005e3	8b 80 9c 00 00
+	00		 mov	 eax, DWORD PTR [rax+156]
+  005e9	ff c0		 inc	 eax
+  005eb	48 8b 8d 30 0a
+	00 00		 mov	 rcx, QWORD PTR this$[rbp]
+  005f2	89 81 9c 00 00
+	00		 mov	 DWORD PTR [rcx+156], eax
+
+; 122  : 				for (auto iter = pLayer->m_GameObjects.begin(); iter != pLayer->m_GameObjects.end(); ++iter)
+
+  005f8	ba 18 00 00 00	 mov	 edx, 24
+  005fd	48 8d 8d b8 01
+	00 00		 lea	 rcx, QWORD PTR iter$18[rbp]
+  00604	e8 00 00 00 00	 call	 ?__autoclassinit2@?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAAX_K@Z
+  00609	48 8b 85 48 01
+	00 00		 mov	 rax, QWORD PTR pLayer$15[rbp]
+  00610	48 83 c0 10	 add	 rax, 16
+  00614	48 8d 95 b8 01
+	00 00		 lea	 rdx, QWORD PTR iter$18[rbp]
+  0061b	48 8b c8	 mov	 rcx, rax
+  0061e	e8 00 00 00 00	 call	 ?begin@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::begin
+  00623	90		 npad	 1
+  00624	eb 0c		 jmp	 SHORT $LN12@Tick
+$LN10@Tick:
+  00626	48 8d 8d b8 01
+	00 00		 lea	 rcx, QWORD PTR iter$18[rbp]
+  0062d	e8 00 00 00 00	 call	 ??E?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAAAEAV01@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator++
+$LN12@Tick:
+  00632	48 8b 85 48 01
+	00 00		 mov	 rax, QWORD PTR pLayer$15[rbp]
+  00639	48 83 c0 10	 add	 rax, 16
+  0063d	48 8d 95 68 07
+	00 00		 lea	 rdx, QWORD PTR $T34[rbp]
+  00644	48 8b c8	 mov	 rcx, rax
+  00647	e8 00 00 00 00	 call	 ?end@?$_Hash@V?$_Umap_traits@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@V?$_Uhash_compare@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@U?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@2@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@2@XZ ; std::_Hash<std::_Umap_traits<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,Engine::CGameObject * __ptr64,std::_Uhash_compare<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >,std::equal_to<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> >,0> >::end
+  0064c	48 89 85 f8 09
+	00 00		 mov	 QWORD PTR tv332[rbp], rax
+  00653	48 8b 85 f8 09
+	00 00		 mov	 rax, QWORD PTR tv332[rbp]
+  0065a	48 89 85 00 0a
+	00 00		 mov	 QWORD PTR tv470[rbp], rax
+  00661	48 8b 95 00 0a
+	00 00		 mov	 rdx, QWORD PTR tv470[rbp]
+  00668	48 8d 8d b8 01
+	00 00		 lea	 rcx, QWORD PTR iter$18[rbp]
+  0066f	e8 00 00 00 00	 call	 ??9?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator!=
+  00674	88 85 44 07 00
+	00		 mov	 BYTE PTR $T33[rbp], al
+  0067a	48 8d 8d 68 07
+	00 00		 lea	 rcx, QWORD PTR $T34[rbp]
+  00681	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
+  00686	0f b6 85 44 07
+	00 00		 movzx	 eax, BYTE PTR $T33[rbp]
+  0068d	85 c0		 test	 eax, eax
+  0068f	0f 84 38 01 00
+	00		 je	 $LN11@Tick
+
+; 123  : 				{
+; 124  : 					_vector vPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
+
+  00695	41 b8 03 00 00
+	00		 mov	 r8d, 3
+  0069b	48 8d 95 f0 01
+	00 00		 lea	 rdx, QWORD PTR vPos$19[rbp]
+  006a2	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  006a9	48 8b 88 80 00
+	00 00		 mov	 rcx, QWORD PTR [rax+128]
+  006b0	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+
+; 125  : 					_vector vLook = XMVector3Normalize(m_pTransform->Get_State(CTransform::STATE_LOOK));
+
+  006b6	41 b8 02 00 00
+	00		 mov	 r8d, 2
+  006bc	48 8d 95 d0 07
+	00 00		 lea	 rdx, QWORD PTR $T36[rbp]
+  006c3	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  006ca	48 8b 88 80 00
+	00 00		 mov	 rcx, QWORD PTR [rax+128]
+  006d1	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Get_State@CTransform@Engine@@QEAA?AT__m128@@W4STATE@12@@Z
+  006d7	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  006da	e8 00 00 00 00	 call	 ?XMVector3Normalize@DirectX@@YQ?AT__m128@@T2@@Z ; DirectX::XMVector3Normalize
+  006df	0f 29 85 a0 07
+	00 00		 movaps	 XMMWORD PTR $T35[rbp], xmm0
+  006e6	0f 28 85 a0 07
+	00 00		 movaps	 xmm0, XMMWORD PTR $T35[rbp]
+  006ed	0f 29 85 20 02
+	00 00		 movaps	 XMMWORD PTR vLook$20[rbp], xmm0
+
+; 126  : 					_vector vSpawnPos = vPos + vLook * 8.f;
+
+  006f4	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@41000000
+  006fc	0f 28 85 20 02
+	00 00		 movaps	 xmm0, XMMWORD PTR vLook$20[rbp]
+  00703	e8 00 00 00 00	 call	 ??DDirectX@@YQ?AT__m128@@T1@M@Z ; DirectX::operator*
+  00708	0f 29 85 30 08
+	00 00		 movaps	 XMMWORD PTR $T38[rbp], xmm0
+  0070f	0f 28 8d 30 08
+	00 00		 movaps	 xmm1, XMMWORD PTR $T38[rbp]
+  00716	0f 28 85 f0 01
+	00 00		 movaps	 xmm0, XMMWORD PTR vPos$19[rbp]
+  0071d	e8 00 00 00 00	 call	 ??HDirectX@@YQ?AT__m128@@T1@0@Z ; DirectX::operator+
+  00722	0f 29 85 00 08
+	00 00		 movaps	 XMMWORD PTR $T37[rbp], xmm0
+  00729	0f 28 85 00 08
+	00 00		 movaps	 xmm0, XMMWORD PTR $T37[rbp]
+  00730	0f 29 85 50 02
+	00 00		 movaps	 XMMWORD PTR vSpawnPos$21[rbp], xmm0
+
+; 127  : 
+; 128  : 					static_cast<CEnemy*>(iter->second)->Reset(_float3(XMVectorGetX(vSpawnPos), 0.f, XMVectorGetZ(vSpawnPos)), _float(8.f));
+
+  00737	0f 28 85 50 02
+	00 00		 movaps	 xmm0, XMMWORD PTR vSpawnPos$21[rbp]
+  0073e	e8 00 00 00 00	 call	 ?XMVectorGetZ@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetZ
+  00743	f3 0f 11 85 f4
+	09 00 00	 movss	 DWORD PTR tv420[rbp], xmm0
+  0074b	0f 28 85 50 02
+	00 00		 movaps	 xmm0, XMMWORD PTR vSpawnPos$21[rbp]
+  00752	e8 00 00 00 00	 call	 ?XMVectorGetX@DirectX@@YQMT__m128@@@Z ; DirectX::XMVectorGetX
+  00757	f3 0f 10 8d f4
+	09 00 00	 movss	 xmm1, DWORD PTR tv420[rbp]
+  0075f	0f 28 d9	 movaps	 xmm3, xmm1
+  00762	0f 57 d2	 xorps	 xmm2, xmm2
+  00765	0f 28 c8	 movaps	 xmm1, xmm0
+  00768	48 8d 8d 54 08
+	00 00		 lea	 rcx, QWORD PTR $T39[rbp]
+  0076f	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
+  00774	48 8d 8d 60 09
+	00 00		 lea	 rcx, QWORD PTR $T45[rbp]
+  0077b	48 8b f9	 mov	 rdi, rcx
+  0077e	48 8b f0	 mov	 rsi, rax
+  00781	b9 0c 00 00 00	 mov	 ecx, 12
+  00786	f3 a4		 rep movsb
+  00788	48 8d 8d b8 01
+	00 00		 lea	 rcx, QWORD PTR iter$18[rbp]
+  0078f	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
+  00794	f3 0f 10 1d 00
+	00 00 00	 movss	 xmm3, DWORD PTR __real@41000000
+  0079c	4c 8d 85 60 09
+	00 00		 lea	 r8, QWORD PTR $T45[rbp]
+  007a3	48 8d 95 74 08
+	00 00		 lea	 rdx, QWORD PTR $T40[rbp]
+  007aa	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
+  007ae	e8 00 00 00 00	 call	 ?Reset@CEnemy@Client@@QEAA?AUXMFLOAT2@DirectX@@UXMFLOAT3@4@M@Z ; Client::CEnemy::Reset
+
+; 129  : 					static_cast<CEnemy*>(iter->second)->LookPlayer();
+
+  007b3	48 8d 8d b8 01
+	00 00		 lea	 rcx, QWORD PTR iter$18[rbp]
+  007ba	e8 00 00 00 00	 call	 ??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEBAPEAU?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@1@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,Engine::CGameObject * __ptr64> > > >::operator->
+  007bf	48 8b 48 28	 mov	 rcx, QWORD PTR [rax+40]
+  007c3	e8 00 00 00 00	 call	 ?LookPlayer@CEnemy@Client@@QEAAXXZ ; Client::CEnemy::LookPlayer
+  007c8	e9 59 fe ff ff	 jmp	 $LN10@Tick
+$LN11@Tick:
+
+; 130  : 				}
+
+  007cd	48 8d 8d b8 01
+	00 00		 lea	 rcx, QWORD PTR iter$18[rbp]
+  007d4	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
+
+; 131  : 
+; 132  : 				if (m_iRespawnCount >= 0)
+
+  007d9	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  007e0	83 b8 9c 00 00
+	00 00		 cmp	 DWORD PTR [rax+156], 0
+  007e7	0f 8c db 00 00
+	00		 jl	 $LN15@Tick
+
+; 133  : 				{
+; 134  : 					m_isEnter = false;
+
+  007ed	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  007f4	c6 80 94 00 00
+	00 00		 mov	 BYTE PTR [rax+148], 0
+
+; 135  : 					m_iRespawnCount = 0;
+
+  007fb	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00802	c7 80 9c 00 00
+	00 00 00 00 00	 mov	 DWORD PTR [rax+156], 0
+
+; 136  : 					m_iCurSpawnerIndex = SECOND_SPAWNER;
+
+  0080c	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00813	c7 80 98 00 00
+	00 01 00 00 00	 mov	 DWORD PTR [rax+152], 1
+
+; 137  : 
+; 138  : 					m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(28.f, 0.f, 60.f, 1.f));
+
+  0081d	f3 0f 10 1d 00
+	00 00 00	 movss	 xmm3, DWORD PTR __real@3f800000
+  00825	f3 0f 10 15 00
+	00 00 00	 movss	 xmm2, DWORD PTR __real@42700000
+  0082d	0f 57 c9	 xorps	 xmm1, xmm1
+  00830	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@41e00000
+  00838	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
+  0083d	0f 29 85 a0 08
+	00 00		 movaps	 XMMWORD PTR $T41[rbp], xmm0
+  00844	0f 28 85 a0 08
+	00 00		 movaps	 xmm0, XMMWORD PTR $T41[rbp]
+  0084b	0f 29 85 90 09
+	00 00		 movaps	 XMMWORD PTR $T46[rbp], xmm0
+  00852	4c 8d 85 90 09
+	00 00		 lea	 r8, QWORD PTR $T46[rbp]
+  00859	ba 03 00 00 00	 mov	 edx, 3
+  0085e	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00865	48 8b 88 80 00
+	00 00		 mov	 rcx, QWORD PTR [rax+128]
+  0086c	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?Set_State@CTransform@Engine@@QEAAXW4STATE@12@T__m128@@@Z
+
+; 139  : 					m_pTransform->SetRotation(VECTOR_UP, XMConvertToRadians(40.f));
+
+  00872	0f 57 db	 xorps	 xmm3, xmm3
+  00875	0f 57 d2	 xorps	 xmm2, xmm2
+  00878	f3 0f 10 0d 00
+	00 00 00	 movss	 xmm1, DWORD PTR __real@3f800000
+  00880	0f 57 c0	 xorps	 xmm0, xmm0
+  00883	e8 00 00 00 00	 call	 ?XMVectorSet@DirectX@@YQ?AT__m128@@MMMM@Z ; DirectX::XMVectorSet
+  00888	0f 29 85 d0 08
+	00 00		 movaps	 XMMWORD PTR $T42[rbp], xmm0
+  0088f	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@42200000
+  00897	e8 00 00 00 00	 call	 ?XMConvertToRadians@DirectX@@YAMM@Z ; DirectX::XMConvertToRadians
+  0089c	0f 28 8d d0 08
+	00 00		 movaps	 xmm1, XMMWORD PTR $T42[rbp]
+  008a3	0f 29 8d c0 09
+	00 00		 movaps	 XMMWORD PTR $T47[rbp], xmm1
+  008aa	0f 28 d0	 movaps	 xmm2, xmm0
+  008ad	48 8d 95 c0 09
+	00 00		 lea	 rdx, QWORD PTR $T47[rbp]
+  008b4	48 8b 85 30 0a
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  008bb	48 8b 88 80 00
+	00 00		 mov	 rcx, QWORD PTR [rax+128]
+  008c2	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_?SetRotation@CTransform@Engine@@QEAAXT__m128@@M@Z
 $LN15@Tick:
 
-; 110  : 				break;
-; 111  : 			}
-; 112  : 			default:
-; 113  : 				break;
-; 114  : 			}
-; 115  : 			
-; 116  : 		}
-; 117  : 
-; 118  : 	}
-; 119  : }
+; 140  : 				}
+; 141  : 				break;
+; 142  : 			case SECOND_SPAWNER:
+; 143  : 			{
+; 144  : 				break;
+; 145  : 			}
+; 146  : 			default:
+; 147  : 				break;
+; 148  : 			}
+; 149  : 			
+; 150  : 		}
+; 151  : 
+; 152  : 	}
+; 153  : }
 
-  00724	48 8d 4d e0	 lea	 rcx, QWORD PTR [rbp-32]
-  00728	48 8d 15 00 00
+  008c8	48 8d 4d d0	 lea	 rcx, QWORD PTR [rbp-48]
+  008cc	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?Tick@CEnemySpawner@Client@@UEAAXN@Z$rtcFrameData
-  0072f	e8 00 00 00 00	 call	 _RTC_CheckStackVars
-  00734	48 8b 8d c8 09
+  008d3	e8 00 00 00 00	 call	 _RTC_CheckStackVars
+  008d8	48 8b 8d 08 0a
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp]
-  0073b	48 33 cd	 xor	 rcx, rbp
-  0073e	e8 00 00 00 00	 call	 __security_check_cookie
-  00743	48 8d a5 d0 09
-	00 00		 lea	 rsp, QWORD PTR [rbp+2512]
-  0074a	5f		 pop	 rdi
-  0074b	5e		 pop	 rsi
-  0074c	5d		 pop	 rbp
-  0074d	c3		 ret	 0
+  008df	48 33 cd	 xor	 rcx, rbp
+  008e2	e8 00 00 00 00	 call	 __security_check_cookie
+  008e7	48 8d a5 10 0a
+	00 00		 lea	 rsp, QWORD PTR [rbp+2576]
+  008ee	5f		 pop	 rdi
+  008ef	5e		 pop	 rsi
+  008f0	5d		 pop	 rbp
+  008f1	c3		 ret	 0
 ?Tick@CEnemySpawner@Client@@UEAAXN@Z ENDP		; Client::CEnemySpawner::Tick
 _TEXT	ENDS
 ;	COMDAT text$x
@@ -8950,58 +9621,60 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?dtor$0@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA PROC ; `Client::CEnemySpawner::Tick'::`1'::dtor$0
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   0000a	55		 push	 rbp
   0000b	57		 push	 rdi
   0000c	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  00010	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
+  00010	48 8d 6a 30	 lea	 rbp, QWORD PTR [rdx+48]
   00014	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
   00018	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
   0001d	48 83 c4 28	 add	 rsp, 40			; 00000028H
@@ -9016,60 +9689,62 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?dtor$1@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA PROC ; `Client::CEnemySpawner::Tick'::`1'::dtor$1
   00024	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00029	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   0002e	55		 push	 rbp
   0002f	57		 push	 rdi
   00030	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  00034	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  00038	48 8d 8d 88 05
-	00 00		 lea	 rcx, QWORD PTR $T22[rbp]
+  00034	48 8d 6a 30	 lea	 rbp, QWORD PTR [rdx+48]
+  00038	48 8d 8d c8 05
+	00 00		 lea	 rcx, QWORD PTR $T24[rbp]
   0003f	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
   00044	48 83 c4 28	 add	 rsp, 40			; 00000028H
   00048	5f		 pop	 rdi
@@ -9083,60 +9758,62 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?dtor$2@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA PROC ; `Client::CEnemySpawner::Tick'::`1'::dtor$2
   0004b	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00050	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   00055	55		 push	 rbp
   00056	57		 push	 rdi
   00057	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  0005b	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  0005f	48 8d 8d 48 01
-	00 00		 lea	 rcx, QWORD PTR iter$15[rbp]
+  0005b	48 8d 6a 30	 lea	 rbp, QWORD PTR [rdx+48]
+  0005f	48 8d 8d 88 01
+	00 00		 lea	 rcx, QWORD PTR iter$17[rbp]
   00066	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
   0006b	48 83 c4 28	 add	 rsp, 40			; 00000028H
   0006f	5f		 pop	 rdi
@@ -9150,60 +9827,62 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?dtor$3@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA PROC ; `Client::CEnemySpawner::Tick'::`1'::dtor$3
   00072	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00077	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   0007c	55		 push	 rbp
   0007d	57		 push	 rdi
   0007e	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  00082	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  00086	48 8d 8d d8 06
-	00 00		 lea	 rcx, QWORD PTR $T30[rbp]
+  00082	48 8d 6a 30	 lea	 rbp, QWORD PTR [rdx+48]
+  00086	48 8d 8d 18 07
+	00 00		 lea	 rcx, QWORD PTR $T32[rbp]
   0008d	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
   00092	48 83 c4 28	 add	 rsp, 40			; 00000028H
   00096	5f		 pop	 rdi
@@ -9217,60 +9896,62 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?dtor$4@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA PROC ; `Client::CEnemySpawner::Tick'::`1'::dtor$4
   00099	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0009e	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   000a3	55		 push	 rbp
   000a4	57		 push	 rdi
   000a5	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  000a9	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  000ad	48 8d 8d 78 01
-	00 00		 lea	 rcx, QWORD PTR iter$16[rbp]
+  000a9	48 8d 6a 30	 lea	 rbp, QWORD PTR [rdx+48]
+  000ad	48 8d 8d b8 01
+	00 00		 lea	 rcx, QWORD PTR iter$18[rbp]
   000b4	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
   000b9	48 83 c4 28	 add	 rsp, 40			; 00000028H
   000bd	5f		 pop	 rdi
@@ -9284,60 +9965,62 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?dtor$5@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA PROC ; `Client::CEnemySpawner::Tick'::`1'::dtor$5
   000c0	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   000c5	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   000ca	55		 push	 rbp
   000cb	57		 push	 rdi
   000cc	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  000d0	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  000d4	48 8d 8d 28 07
-	00 00		 lea	 rcx, QWORD PTR $T32[rbp]
+  000d0	48 8d 6a 30	 lea	 rbp, QWORD PTR [rdx+48]
+  000d4	48 8d 8d 68 07
+	00 00		 lea	 rcx, QWORD PTR $T34[rbp]
   000db	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
   000e0	48 83 c4 28	 add	 rsp, 40			; 00000028H
   000e4	5f		 pop	 rdi
@@ -9355,58 +10038,60 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?dtor$0@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA PROC ; `Client::CEnemySpawner::Tick'::`1'::dtor$0
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   0000a	55		 push	 rbp
   0000b	57		 push	 rdi
   0000c	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  00010	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
+  00010	48 8d 6a 30	 lea	 rbp, QWORD PTR [rdx+48]
   00014	48 8d 4d 48	 lea	 rcx, QWORD PTR iter$9[rbp]
   00018	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
   0001d	48 83 c4 28	 add	 rsp, 40			; 00000028H
@@ -9425,60 +10110,62 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?dtor$1@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA PROC ; `Client::CEnemySpawner::Tick'::`1'::dtor$1
   00024	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00029	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   0002e	55		 push	 rbp
   0002f	57		 push	 rdi
   00030	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  00034	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  00038	48 8d 8d 88 05
-	00 00		 lea	 rcx, QWORD PTR $T22[rbp]
+  00034	48 8d 6a 30	 lea	 rbp, QWORD PTR [rdx+48]
+  00038	48 8d 8d c8 05
+	00 00		 lea	 rcx, QWORD PTR $T24[rbp]
   0003f	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
   00044	48 83 c4 28	 add	 rsp, 40			; 00000028H
   00048	5f		 pop	 rdi
@@ -9496,60 +10183,62 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?dtor$2@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA PROC ; `Client::CEnemySpawner::Tick'::`1'::dtor$2
   0004b	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00050	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   00055	55		 push	 rbp
   00056	57		 push	 rdi
   00057	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  0005b	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  0005f	48 8d 8d 48 01
-	00 00		 lea	 rcx, QWORD PTR iter$15[rbp]
+  0005b	48 8d 6a 30	 lea	 rbp, QWORD PTR [rdx+48]
+  0005f	48 8d 8d 88 01
+	00 00		 lea	 rcx, QWORD PTR iter$17[rbp]
   00066	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
   0006b	48 83 c4 28	 add	 rsp, 40			; 00000028H
   0006f	5f		 pop	 rdi
@@ -9567,60 +10256,62 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?dtor$3@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA PROC ; `Client::CEnemySpawner::Tick'::`1'::dtor$3
   00072	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00077	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   0007c	55		 push	 rbp
   0007d	57		 push	 rdi
   0007e	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  00082	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  00086	48 8d 8d d8 06
-	00 00		 lea	 rcx, QWORD PTR $T30[rbp]
+  00082	48 8d 6a 30	 lea	 rbp, QWORD PTR [rdx+48]
+  00086	48 8d 8d 18 07
+	00 00		 lea	 rcx, QWORD PTR $T32[rbp]
   0008d	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
   00092	48 83 c4 28	 add	 rsp, 40			; 00000028H
   00096	5f		 pop	 rdi
@@ -9638,60 +10329,62 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?dtor$4@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA PROC ; `Client::CEnemySpawner::Tick'::`1'::dtor$4
   00099	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0009e	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   000a3	55		 push	 rbp
   000a4	57		 push	 rdi
   000a5	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  000a9	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  000ad	48 8d 8d 78 01
-	00 00		 lea	 rcx, QWORD PTR iter$16[rbp]
+  000a9	48 8d 6a 30	 lea	 rbp, QWORD PTR [rdx+48]
+  000ad	48 8d 8d b8 01
+	00 00		 lea	 rcx, QWORD PTR iter$18[rbp]
   000b4	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
   000b9	48 83 c4 28	 add	 rsp, 40			; 00000028H
   000bd	5f		 pop	 rdi
@@ -9709,60 +10402,62 @@ vPos$10 = 128
 vLook$11 = 176
 vSpawnPos$12 = 224
 iActiveEnemyCount$13 = 260
-pLayer$14 = 296
-iter$15 = 328
-iter$16 = 376
-vPos$17 = 432
-vLook$18 = 480
-vSpawnPos$19 = 528
-$T20 = 1344
-$T21 = 1380
-$T22 = 1416
-$T23 = 1472
-$T24 = 1520
-$T25 = 1568
-$T26 = 1616
-$T27 = 1652
-$T28 = 1684
+iDisableeEnemyCount$14 = 292
+pLayer$15 = 328
+iDeadWaitCount$16 = 356
+iter$17 = 392
+iter$18 = 440
+vPos$19 = 496
+vLook$20 = 544
+vSpawnPos$21 = 592
+$T22 = 1408
+$T23 = 1444
+$T24 = 1480
+$T25 = 1536
+$T26 = 1584
+$T27 = 1632
+$T28 = 1680
 $T29 = 1716
-$T30 = 1752
-$T31 = 1796
-$T32 = 1832
-$T33 = 1888
-$T34 = 1936
-$T35 = 1984
-$T36 = 2032
-$T37 = 2068
-$T38 = 2100
-$T39 = 2144
-$T40 = 2192
-$T41 = 2240
-$T42 = 2288
-$T43 = 2336
-$T44 = 2384
-$T45 = 2432
-$T46 = 2472
-tv352 = 2484
-tv251 = 2484
-tv183 = 2484
-tv264 = 2488
-tv214 = 2488
-tv95 = 2488
-tv410 = 2496
-tv407 = 2496
-tv404 = 2496
-__$ArrayPad$ = 2504
-this$ = 2544
-TimeDelta$ = 2552
+$T30 = 1748
+$T31 = 1780
+$T32 = 1816
+$T33 = 1860
+$T34 = 1896
+$T35 = 1952
+$T36 = 2000
+$T37 = 2048
+$T38 = 2096
+$T39 = 2132
+$T40 = 2164
+$T41 = 2208
+$T42 = 2256
+$T43 = 2304
+$T44 = 2352
+$T45 = 2400
+$T46 = 2448
+$T47 = 2496
+$T48 = 2536
+tv420 = 2548
+tv319 = 2548
+tv189 = 2548
+tv332 = 2552
+tv220 = 2552
+tv133 = 2552
+tv470 = 2560
+tv467 = 2560
+tv464 = 2560
+__$ArrayPad$ = 2568
+this$ = 2608
+TimeDelta$ = 2616
 ?dtor$5@?0??Tick@CEnemySpawner@Client@@UEAAXN@Z@4HA PROC ; `Client::CEnemySpawner::Tick'::`1'::dtor$5
   000c0	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   000c5	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   000ca	55		 push	 rbp
   000cb	57		 push	 rdi
   000cc	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  000d0	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
-  000d4	48 8d 8d 28 07
-	00 00		 lea	 rcx, QWORD PTR $T32[rbp]
+  000d0	48 8d 6a 30	 lea	 rbp, QWORD PTR [rdx+48]
+  000d4	48 8d 8d 68 07
+	00 00		 lea	 rcx, QWORD PTR $T34[rbp]
   000db	e8 00 00 00 00	 call	 ??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVCGameObject@Engine@@@std@@@std@@@std@@@std@@QEAA@XZ
   000e0	48 83 c4 28	 add	 rsp, 40			; 00000028H
   000e4	5f		 pop	 rdi
@@ -9972,7 +10667,7 @@ $LN4:
   00076	48 89 48 78	 mov	 QWORD PTR [rax+120], rcx
 ; File c:\users\arcco\documents\github\framework\client\public\enemyspawner.h
 
-; 51   : 	CTransform* m_pTransform = nullptr;
+; 55   : 	CTransform* m_pTransform = nullptr;
 
   0007a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9980,7 +10675,7 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+128], 0
 
-; 52   : 	CSphereCollider* m_pCollider = nullptr;
+; 56   : 	CSphereCollider* m_pCollider = nullptr;
 
   0008c	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9988,8 +10683,8 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+136], 0
 
-; 53   : 
-; 54   : 	_float m_fRadius = 8.f;
+; 57   : 
+; 58   : 	_float m_fRadius = 8.f;
 
   0009e	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -9998,48 +10693,107 @@ $LN4:
   000ad	f3 0f 11 80 90
 	00 00 00	 movss	 DWORD PTR [rax+144], xmm0
 
-; 55   : 
-; 56   : 	_bool m_isEnter = false;
+; 59   : 
+; 60   : 	_bool m_isEnter = false;
 
   000b5	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000bc	c6 80 94 00 00
 	00 00		 mov	 BYTE PTR [rax+148], 0
 
-; 57   : 
-; 58   : 	_int m_iCurSpawnerIndex = 0;
+; 61   : 
+; 62   : 	_int m_iCurSpawnerIndex = 0;
 
   000c3	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000ca	c7 80 98 00 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+152], 0
 
-; 59   : 	_int m_iRespawnCount = 0;
+; 63   : 	_int m_iRespawnCount = 0;
 
   000d4	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000db	c7 80 9c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+156], 0
 
-; 60   : 
-; 61   : 	class CPlayerCamera* m_pPlayerCamera = nullptr;
+; 64   : 
+; 65   : 	class CPlayerCamera* m_pPlayerCamera = nullptr;
 
   000e5	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000ec	48 c7 80 a0 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+160], 0
+
+; 66   : 
+; 67   : 	_float m_fDisAcc = 0.f;
+
+  000f7	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  000fe	0f 57 c0	 xorps	 xmm0, xmm0
+  00101	f3 0f 11 80 a8
+	00 00 00	 movss	 DWORD PTR [rax+168], xmm0
+
+; 68   : 	CTransform* m_pWarpTransform = nullptr;
+
+  00109	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00110	48 c7 80 b0 00
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+176], 0
+
+; 69   : 	CVIBuffer_Rect* m_pWarpBuffer = nullptr;
+
+  0011b	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00122	48 c7 80 b8 00
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+184], 0
+
+; 70   : 	CRenderer* m_pRenderer = nullptr;
+
+  0012d	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00134	48 c7 80 c0 00
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+192], 0
+
+; 71   : 	CTexture* m_pWarpNoise = nullptr;
+
+  0013f	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00146	48 c7 80 c8 00
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+200], 0
+
+; 72   : 	CShader* m_pShader = nullptr;
+
+  00151	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00158	48 c7 80 d0 00
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+208], 0
+
+; 73   : 
+; 74   : 	_float m_fBGMVolum = 0.1f;
+
+  00163	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0016a	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3dcccccd
+  00172	f3 0f 11 80 d8
+	00 00 00	 movss	 DWORD PTR [rax+216], xmm0
 ; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
 
 ; 19   : }
 
-  000f7	48 8b 85 e0 00
+  0017a	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  000fe	48 8d a5 c8 00
+  00181	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  00105	5f		 pop	 rdi
-  00106	5d		 pop	 rbp
-  00107	c3		 ret	 0
+  00188	5f		 pop	 rdi
+  00189	5d		 pop	 rbp
+  0018a	c3		 ret	 0
 ??0CEnemySpawner@Client@@IEAA@AEBVCGameObject@Engine@@@Z ENDP ; Client::CEnemySpawner::CEnemySpawner
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -10102,7 +10856,7 @@ $LN4:
   00082	48 89 48 78	 mov	 QWORD PTR [rax+120], rcx
 ; File c:\users\arcco\documents\github\framework\client\public\enemyspawner.h
 
-; 51   : 	CTransform* m_pTransform = nullptr;
+; 55   : 	CTransform* m_pTransform = nullptr;
 
   00086	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10110,7 +10864,7 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+128], 0
 
-; 52   : 	CSphereCollider* m_pCollider = nullptr;
+; 56   : 	CSphereCollider* m_pCollider = nullptr;
 
   00098	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10118,8 +10872,8 @@ $LN4:
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+136], 0
 
-; 53   : 
-; 54   : 	_float m_fRadius = 8.f;
+; 57   : 
+; 58   : 	_float m_fRadius = 8.f;
 
   000aa	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -10128,48 +10882,107 @@ $LN4:
   000b9	f3 0f 11 80 90
 	00 00 00	 movss	 DWORD PTR [rax+144], xmm0
 
-; 55   : 
-; 56   : 	_bool m_isEnter = false;
+; 59   : 
+; 60   : 	_bool m_isEnter = false;
 
   000c1	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000c8	c6 80 94 00 00
 	00 00		 mov	 BYTE PTR [rax+148], 0
 
-; 57   : 
-; 58   : 	_int m_iCurSpawnerIndex = 0;
+; 61   : 
+; 62   : 	_int m_iCurSpawnerIndex = 0;
 
   000cf	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000d6	c7 80 98 00 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+152], 0
 
-; 59   : 	_int m_iRespawnCount = 0;
+; 63   : 	_int m_iRespawnCount = 0;
 
   000e0	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000e7	c7 80 9c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR [rax+156], 0
 
-; 60   : 
-; 61   : 	class CPlayerCamera* m_pPlayerCamera = nullptr;
+; 64   : 
+; 65   : 	class CPlayerCamera* m_pPlayerCamera = nullptr;
 
   000f1	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000f8	48 c7 80 a0 00
 	00 00 00 00 00
 	00		 mov	 QWORD PTR [rax+160], 0
+
+; 66   : 
+; 67   : 	_float m_fDisAcc = 0.f;
+
+  00103	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0010a	0f 57 c0	 xorps	 xmm0, xmm0
+  0010d	f3 0f 11 80 a8
+	00 00 00	 movss	 DWORD PTR [rax+168], xmm0
+
+; 68   : 	CTransform* m_pWarpTransform = nullptr;
+
+  00115	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0011c	48 c7 80 b0 00
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+176], 0
+
+; 69   : 	CVIBuffer_Rect* m_pWarpBuffer = nullptr;
+
+  00127	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  0012e	48 c7 80 b8 00
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+184], 0
+
+; 70   : 	CRenderer* m_pRenderer = nullptr;
+
+  00139	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00140	48 c7 80 c0 00
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+192], 0
+
+; 71   : 	CTexture* m_pWarpNoise = nullptr;
+
+  0014b	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00152	48 c7 80 c8 00
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+200], 0
+
+; 72   : 	CShader* m_pShader = nullptr;
+
+  0015d	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00164	48 c7 80 d0 00
+	00 00 00 00 00
+	00		 mov	 QWORD PTR [rax+208], 0
+
+; 73   : 
+; 74   : 	_float m_fBGMVolum = 0.1f;
+
+  0016f	48 8b 85 e0 00
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00176	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@3dcccccd
+  0017e	f3 0f 11 80 d8
+	00 00 00	 movss	 DWORD PTR [rax+216], xmm0
 ; File c:\users\arcco\documents\github\framework\client\private\enemyspawner.cpp
 
 ; 14   : }
 
-  00103	48 8b 85 e0 00
+  00186	48 8b 85 e0 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  0010a	48 8d a5 c8 00
+  0018d	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
-  00111	5f		 pop	 rdi
-  00112	5d		 pop	 rbp
-  00113	c3		 ret	 0
+  00194	5f		 pop	 rdi
+  00195	5d		 pop	 rbp
+  00196	c3		 ret	 0
 ??0CEnemySpawner@Client@@IEAA@PEAUID3D11Device@@PEAUID3D11DeviceContext@@@Z ENDP ; Client::CEnemySpawner::CEnemySpawner
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI

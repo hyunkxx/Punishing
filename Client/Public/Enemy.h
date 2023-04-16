@@ -108,6 +108,8 @@ public:
 public:
 	_fmatrix GetWorldMatrix();
 
+	void SetAlpha(bool value) { m_bAlphaEx = value; }
+
 	void LookPlayer();
 	void SetupCamera(class CPlayerCamera* pCamera) { m_pCamera = pCamera; };
 
@@ -234,7 +236,7 @@ protected:
 
 	_float m_fCurTimeScale = 1.0;
 
-	_float m_fAttackCoolTimer = 4.0f;
+	_float m_fAttackCoolTimer = 2.0f;
 	const _float m_fAttackCoolTimeOut = 4.0f;
 
 	_float m_fTraceLocal = 0.0f;
@@ -255,6 +257,7 @@ protected:
 	_int m_iRandomHitAnim = 0;
 
 	_bool m_bAlpha = false;
+	_bool m_bAlphaEx = false;
 	class CPlayerCamera* m_pCamera;
 
 	_float m_fAirboneAcc = 0.f;
@@ -270,6 +273,14 @@ protected:
 
 	//½ºÆù ÀÌÆåÆ®
 	class CSpawnEffect* m_pSpawnEffect = nullptr;
+	class CFootSmoke* m_pFootSmoke = nullptr;
+	_bool m_bSpawnSmoke = false;
+
+	_bool m_bAttackSound = false;
+	_bool m_fAttackCollExit = 0.f;
+	_bool m_bAttackBegin = false;
+
+	class CWarningImage* m_pWarning = nullptr;
 };
 
 END

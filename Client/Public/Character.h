@@ -13,6 +13,8 @@ class CShader;
 class CBone;
 class CTimer;
 class CCollider;
+class CTexture;
+class CVIBuffer_Rect;
 
 class IOnCollisionStay;
 END
@@ -169,13 +171,21 @@ public:
 	_float GetCurEvolutionTime() const { return m_fCurEvolutionAcc; }
 	_float GetEvolutionTime() const { return m_fEvolutionTimeOut; }
 
+	_bool IsCurrentActionEvolution();
+	_bool IsCurrentActionEvolutionFinish();
+
 	_bool IsEvolutionReady() { return m_bEvolutionReady; }
 	_bool IsEvolution() { return m_bEvolution; }
 	_bool IsAttackalbe() { return m_bAttackable; }
 	_bool IsDashable() { return m_bDashable; }
 	_bool IsDashGageFull() { return m_fCurDash >= 20.f; }
 
+	void StartEvolitionEffect();
+	void UseFootSmoke();
 	void SetWinMotion(_bool value) { m_bWin = value; };
+
+	//잔상
+	void CurrentMotionCapture();
 private:
 	HRESULT AddWeapon();
 	HRESULT AddComponents();
@@ -201,6 +211,7 @@ private:
 	void InputMove(_double TimeDelta);
 	void MoveStop(_double TimeDelta);
 	void Attack(_double TimeDelta);
+	void AttackFootSmoke(_double TimeDelta);
 	void PositionHold(_double TimeDelta);
 
 	void SkillA(_double TimeDelta);
@@ -234,6 +245,9 @@ public: // Enemy 관련 코드
 	//초산공간
 public:
 	void SavePrevPos();
+	_bool IsBornFinish() { return m_bBornFinish; }
+private:
+	_bool m_bBornFinish = false;
 
 public: //충돌관련
 	class CCollider* GetBodyCollider() const { return mCollider; };
@@ -241,15 +255,21 @@ public: //충돌관련
 	CCollider* GetSkillCollider() const { return mSkillCollider; }
 	CCollider* GetEnemyCheckCollider() const { return mEnemyCheckCollider; }
 
+	_double GetTimeDelta() const;
+
 public://이펙트 관련
 	class CSwordTrail* GetNotUsedEffect();
 	void UseSwordEffect(_float3 vOffsetPos, _float3 fDegreeAngles);
 	void AttackEffectControl(_double TimeDelta);
+	_bool IsEvolutionFinish() const { return m_bEvolitionMotionFinish; }
+	void CalcFootHeight();
 
 public:
 	static CCharacter* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext);
 	virtual CGameObject* Clone(void* pArg) override;
 	virtual void Free() override;
+
+	_bool IsStartMotion();
 
 public:
 	virtual void OnCollisionEnter(CCollider* src, CCollider* dest);
@@ -342,6 +362,7 @@ private: // Command
 
 	//강화상태
 	_bool m_bEvolution = false;
+	_bool m_bEvolitionMotionFinish = false;
 	_bool m_bEvolutionAttack = false;
 
 	//회피 (대쉬 콜리전)
@@ -397,7 +418,7 @@ private: // Command
 	//변신상태 10초 동안
 	_int m_EvolutionCount = 0;
 	_bool m_bGageDownStart = false;
-	_bool m_bEvolutionReady = true;
+	_bool m_bEvolutionReady = false;
 	_float m_fCurEvolutionAcc = 0.f;
 	const _float m_fEvolutionTimeOut = 25.f;
 
@@ -443,6 +464,9 @@ private: // Command
 	CTransform* m_pSmokeTransform2 = nullptr;
 	CTransform* m_pSmokeTransform3 = nullptr;
 
+	_float m_fCurrentAuraCount = 0.f;
+	_float m_fCurrentAuraAcc = 0.f;
+
 	_float m_fSmokeTimeAcc = 0.f;
 	_float m_fSmokeTimeAcc2 = 0.f;
 	_float m_fSmokeTimeAcc3 = 0.f;
@@ -454,6 +478,80 @@ private: // Command
 	_bool m_bBlurStart = false;
 	_float m_fBlurValue = 20.f;
 	_float m_fCurBlurAmount = 0.f;
+
+	//블루 스킬 이펙트
+	_bool m_bActiveBlueEffect = false;
+	_bool m_bActiveBlueCamShake = false;
+	class CSkillBlueEffect* m_pSkillBlueEffect = nullptr;
+
+	//풋 스모크 이펙트
+	class CFootSmoke* m_pFootSmoke[2];
+	_bool m_bAttack1Smoke = false;
+	_bool m_bAttack4Smoke = false;
+	_bool m_bAttack5Smoke = false;
+	_bool m_bAttack11Smoke = false;
+	_bool m_bAttack21Smoke = false;
+	_bool m_bAttack31Smoke = false;
+	_bool m_bAttack41Smoke = false;
+	_bool m_bAttack43Smoke = false;
+	_bool m_bAttack44Smoke = false;
+	_bool m_bAttack45Smoke = false;
+	_bool m_bAttack22Smoke = false;
+	_bool m_bAttack32Smoke = false;
+
+	class CFlower* m_pFlower = nullptr;
+	_double m_TimeDelta = 0.f;
+
+	class CEvolutionEffect* m_pEvolutionEffect = nullptr;
+
+	//실체 잔상
+	enum { PREV_COUNT = 8 };
+	_int m_iCurrentPrevCount = 0;
+	_float m_fMotionAcc = 0.f;
+
+	_bool m_bMotionIsUse[PREV_COUNT];
+	_float m_fMotionAlphaAcc[PREV_COUNT];
+
+	CModel* m_pPrevModel[PREV_COUNT];
+	CTransform* m_pPrevTransform[PREV_COUNT];
+	_double m_PrevLocalTime[PREV_COUNT];
+	CTexture* m_pRainbowTexture = nullptr;
+
+	class CFootstep* m_pFoot[10];
+	CBone* LeftFoot = nullptr;
+	CBone* RightFoot = nullptr;
+	//Left Right
+	_bool m_bFootAir[2] = { false, false };
+
+	//기본공격 사운드
+	_bool m_bAttackSound = false;
+	_bool m_bSkillSound = false;
+	_bool m_bDashSound = false;
+	CLIP m_PrevClip = BORN;
+	CLIP m_ePrevSkill = BORN;
+	_bool m_bEnemyNear = false;
+
+	//초산 사운드
+	_bool m_bFreezeSound = false;
+
+	_float m_fAttackVolume = 0.5f;
+	_bool m_bHitSound = false;
+
+	_bool m_bStartSound = false;
+	_bool m_bWinSound = false;
+	
+	_bool m_bDashEffect = false;
+	class CDashSprite* m_pDashSprite = nullptr;
+	class CBuffHandler* m_pBuffhandler = nullptr;
+
+
+	_float		m_fVoiceX, m_fVoiceY, m_fVoiceWidth, m_fVoiceHeight;
+	_float4x4	m_VoiceWorldMatrix, m_ViewMatrix, m_ProjMatrix;
+	CTexture* m_pTextureStart = nullptr;
+	CTexture* m_pTextureEnd = nullptr;
+	CShader* m_pTexShader = nullptr;
+	CVIBuffer_Rect* m_pVIBuffer = nullptr;
+
 };
 
 END

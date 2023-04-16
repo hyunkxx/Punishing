@@ -3,6 +3,7 @@
 
 #include "ApplicationManager.h"
 
+#include "Layer.h"
 #include "PipeLine.h"
 #include "GameInstance.h"
 
@@ -11,6 +12,8 @@
 #include "PlayerCamera.h"
 
 #include "Thorn.h"
+#include "Cloud.h"
+#include "WarningImage.h"
 
 #define LINE_ONE 0
 #define LINE_TWO 1
@@ -29,8 +32,8 @@ CBoss::CBoss(const CBoss & rhs)
 HRESULT CBoss::Initialize_Prototype()
 {
 	ZeroMemory(&m_State, sizeof(ENEMY_STATE));
-	m_State.fMaxHp = 20000.f;
-	m_State.fCurHp = 20000.f;
+	m_State.fMaxHp = 25000.f;
+	m_State.fCurHp = 25000.f;
 	
 	return S_OK;
 }
@@ -121,11 +124,11 @@ HRESULT CBoss::Initialize(void * pArg)
 			_tchar pName1[MAX_PATH] = L"";
 			_tchar pName2[MAX_PATH] = L"";
 			wsprintfW(pName1, L"thorn1_%d_%d", i, j);
-			if (nullptr == (m_pThorn1[i][j] = static_cast<CThorn*>(pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_thorn", L"layer_effect", pName1))))
+			if (nullptr == (m_pThorn1[i][j] = static_cast<CThorn*>(pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_thorn", L"layer_effect", pName1))))
 				return E_FAIL;
 
 			wsprintfW(pName2, L"thorn2_%d_%d", i, j);
-			if (nullptr == (m_pThorn2[i][j] = static_cast<CThorn*>(pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_thorn", L"layer_effect", pName2))))
+			if (nullptr == (m_pThorn2[i][j] = static_cast<CThorn*>(pGameInstance->Add_GameObject(LEVEL_STATIC, L"proto_obj_thorn", L"layer_effect", pName2))))
 				return E_FAIL;
 
 			m_pThorn1[i][j]->SetType(CThorn::TYPE::THORN);
@@ -268,6 +271,14 @@ HRESULT CBoss::Initialize(void * pArg)
 		m_pThornCloseRightFront[i]->SetType(CThorn::TYPE::THORN);
 	}
 
+	if (nullptr == (m_pCloudEffect = (CCloud*)pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_cloud", L"layer_effect", L"cloud")))
+		return E_FAIL;
+
+	transform->SetRotation(VECTOR_UP, XMConvertToRadians(180.f));
+
+	if (nullptr == (m_pWarning = (CWarningImage*)pGameInstance->Add_GameObject(LEVEL_BOSS, L"proto_obj_warning", L"layer_effect", L"warning")))
+		return E_FAIL;
+
 	return S_OK;
 }
 
@@ -345,7 +356,7 @@ void CBoss::Tick(_double TimeDelta)
 		//체력 절반이하일때 2페이즈 돌입
 		if (!m_bEvolutionStart)
 		{
-			if (m_State.fCurHp <= m_State.fMaxHp * 0.5f)
+			if (m_State.fCurHp <= 15000)
 			{
 				if (m_bBurrowable && !m_bBrrow)
 					m_bEvolutionStart = true;
@@ -432,7 +443,10 @@ void CBoss::Tick(_double TimeDelta)
 		}
 
 	}
-
+	//사운드 제어
+	SoundController(TimeDelta);
+	//각종 애니미에션 설정 및 제어
+	AnimationController(TimeDelta);
 }
 
 void CBoss::LateTick(_double TimeDelta)
@@ -440,8 +454,6 @@ void CBoss::LateTick(_double TimeDelta)
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	TimeDelta = Freeze(TimeDelta);
 
-	//각종 애니미에션 설정 및 제어
-	AnimationController(TimeDelta);
 	//콜라이더 피직스 업데이트에 전달
 	SetupColliders();
 
@@ -498,19 +510,38 @@ HRESULT CBoss::Render()
 			if (!strcmp("Cheek", model->GetMeshName(i)) || !strcmp("Cheek01", model->GetMeshName(i)))
 				continue;
 
-			model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
-			model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
+			if (m_pAppManager->IsFreeze())
+			{
+				model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+				model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
 
-			if (m_bAlpha)
-				shader->Begin(1);
+				if (m_bAlpha)
+					shader->Begin(1);
+				else
+					shader->Begin(0);
+
+				model->Render(i);
+
+				//Rim
+				shader->Begin(9);
+				model->Render(i);
+			}
 			else
-				shader->Begin(0);
+			{
+				model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", i, aiTextureType::aiTextureType_DIFFUSE);
+				model->Setup_BoneMatrices(shader, "g_BoneMatrix", i);
 
-			model->Render(i);
+				if (m_bAlpha)
+					shader->Begin(1);
+				else
+					shader->Begin(0);
 
-			//Rim
-			shader->Begin(3);
-			model->Render(i);
+				model->Render(i);
+
+				//Rim
+				shader->Begin(3);
+				model->Render(i);
+			}
 
 		}
 
@@ -528,21 +559,43 @@ HRESULT CBoss::Render()
 		}
 		else
 		{
-			model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", 2, aiTextureType::aiTextureType_DIFFUSE);
-			model->Setup_BoneMatrices(shader, "g_BoneMatrix", 2);
-			if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
-				return E_FAIL;
+			if (m_pAppManager->IsFreeze())
+			{
+				model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", 2, aiTextureType::aiTextureType_DIFFUSE);
+				model->Setup_BoneMatrices(shader, "g_BoneMatrix", 2);
+				if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
+					return E_FAIL;
 
-			if (m_bAlpha)
-				shader->Begin(1);
+				if (m_bAlpha)
+					shader->Begin(1);
+				else
+					shader->Begin(0);
+
+				model->Render(2);
+
+				//Rim
+				shader->Begin(9);
+				model->Render(2);
+			}
 			else
-				shader->Begin(0);
+			{
+				model->Setup_ShaderMaterialResource(shader, "g_DiffuseTexture", 2, aiTextureType::aiTextureType_DIFFUSE);
+				model->Setup_BoneMatrices(shader, "g_BoneMatrix", 2);
+				if (FAILED(transform->Setup_ShaderResource(shader, "g_WorldMatrix")))
+					return E_FAIL;
 
-			model->Render(2);
+				if (m_bAlpha)
+					shader->Begin(1);
+				else
+					shader->Begin(0);
 
-			//Rim
-			shader->Begin(3);
-			model->Render(2);
+				model->Render(2);
+
+				//Rim
+				shader->Begin(3);
+				model->Render(2);
+			}
+
 		}
 	}
 	else
@@ -647,6 +700,7 @@ HRESULT CBoss::AddComponents()
 	collDesc.vRotation = _float3(0.f, 0.f, 0.f);
 
 	CGameObject::Add_Component(LEVEL_GAMEPLAY, TEXT("proto_com_sphere_collider"), TEXT("com_collder_enemy"), (CComponent**)&m_pOverlapCollider, &collDesc);
+
 
 	return S_OK;
 }
@@ -837,6 +891,12 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 	{
 		_vector vBossPos = transform->Get_State(CTransform::STATE_POSITION);
 
+		if (!m_bThornSound[0])
+		{
+			m_bThornSound[0] = true;
+			CGameInstance::GetInstance()->PlaySoundEx(L"Thorn.wav", SOUND_CHANNEL::THORN0, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
+		}
+
 		if (!m_bCheckDir[0])
 		{
 			m_pCamera->ThornShake();
@@ -900,6 +960,11 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 	}
 	else if (m_bLineSkillStart[1])
 	{
+		if (!m_bThornSound[1])
+		{
+			m_bThornSound[1] = true;
+			CGameInstance::GetInstance()->PlaySoundEx(L"Thorn.wav", SOUND_CHANNEL::THORN0, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
+		}
 
 		_vector vBossPos = transform->Get_State(CTransform::STATE_POSITION);
 		if (!m_bCheckDir[1])
@@ -965,6 +1030,11 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 	}
 	else if (m_bLineSkillStart[2])
 	{
+		if (!m_bThornSound[2])
+		{
+			m_bThornSound[2] = true;
+			CGameInstance::GetInstance()->PlaySoundEx(L"Thorn.wav", SOUND_CHANNEL::THORN0, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
+		}
 
 		m_bUseLineSkill = false;
 		_vector vBossPos = transform->Get_State(CTransform::STATE_POSITION);
@@ -1031,6 +1101,8 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 
 	if (m_bLineSkillErase[0])
 	{
+		m_bThornSound[0] = false;
+
 		m_fEraseAcc[0] += TimeDelta;
 		if (m_fEraseAcc[0] >= m_fEraseTime)
 		{
@@ -1054,6 +1126,7 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 	}
 	else if (m_bLineSkillErase[1])
 	{
+		m_bThornSound[1] = false;
 		m_fEraseAcc[1] += TimeDelta;
 		if (m_fEraseAcc[1] >= m_fEraseTime)
 		{
@@ -1075,6 +1148,7 @@ void CBoss::LineSkill(_double TimeDelta, _int iIndex)
 	}
 	else if (m_bLineSkillErase[2])
 	{
+		m_bThornSound[2] = false;
 		m_fEraseAcc[2] += TimeDelta;
 		if (m_fEraseAcc[2] >= m_fEraseTime)
 		{
@@ -1110,6 +1184,12 @@ void CBoss::Missile1(_double TimeDelta)
 		{
 			if (model->AnimationIsPreFinishCustom(0.4))
 			{
+				if (!m_bMissileSound)
+				{
+					m_bMissileSound = true;
+					CGameInstance::GetInstance()->PlaySoundEx(L"Boss_Shot.wav", SOUND_CHANNEL::BOSS_VOICE, SOUND_VOLUME::CUSTOM_VOLUM, 0.7f);
+				}
+
 				if (!m_bMissileShake)
 				{
 					m_bMissileShake = true;
@@ -1131,6 +1211,7 @@ void CBoss::Missile1(_double TimeDelta)
 
 			if (model->AnimationIsFinishEx())
 			{
+				m_bMissileSound = false;
 				m_bMissileShake = false;
 				m_bUseMissile1 = false;
 			}
@@ -1209,6 +1290,12 @@ void CBoss::Missile1(_double TimeDelta)
 		{
 			if (model->AnimationIsPreFinishCustom(0.5))
 			{
+				if (!m_bMissileSound)
+				{
+					m_bMissileSound = true;
+					CGameInstance::GetInstance()->PlaySoundEx(L"Boss_Shot.wav", SOUND_CHANNEL::BOSS_VOICE, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
+				}
+
 				if (!m_bMissileShake)
 				{
 					m_bMissileShake = true;
@@ -1225,6 +1312,7 @@ void CBoss::Missile1(_double TimeDelta)
 
 			if (model->AnimationIsFinishEx())
 			{
+				m_bMissileSound = false;
 				m_bMissileShake = false;
 				m_bUseMissile1 = false;
 			}
@@ -1299,6 +1387,12 @@ void CBoss::CloseAttack(_double TimeDelta)
 	m_fCloseAttackActiveAcc += TimeDelta;
 	if (m_fCloseAttackActiveAcc >= m_fCloseAttackActiveTime)
 	{
+		if (!m_bCloseSound)
+		{
+			m_bCloseAttack = true;
+			CGameInstance::GetInstance()->PlaySoundEx(L"Boss_CloseAttack.wav", SOUND_CHANNEL::BOSS_VOICE, SOUND_VOLUME::CUSTOM_VOLUM, 0.4f);
+		}
+
 		m_bCloseAttack = false;
 		m_bCloseAttackStart = false;
 		m_fCloseAttackActiveAcc = 0.f;
@@ -1323,6 +1417,11 @@ void CBoss::Burrow(_double TimeDelta)
 
 	m_bBrrow = true;
 
+	if (!m_bBurrowSound)
+	{
+		m_bBurrowSound = true;
+		CGameInstance::GetInstance()->PlaySoundEx(L"Boss_Burrow.wav", SOUND_CHANNEL::BOSS_VOICE, SOUND_VOLUME::CUSTOM_VOLUM, 0.8f);
+	}
 	//if (model->AnimationCompare(BOSS_CLIP::STANDEX) || model->AnimationCompare(BOSS_CLIP::STAND2))
 	//	m_bBrrow = true;
 	//else
@@ -1466,6 +1565,12 @@ void CBoss::ColseAttack2(_double TimeDelta)
 			m_pCamera->ThornShake();
 			m_bCloseAttack = true;
 
+			if (!m_bClose2Sound[0])
+			{
+				m_bClose2Sound[0] = true;
+				CGameInstance::GetInstance()->PlaySoundEx(L"Boss_CloseAttack.wav", SOUND_CHANNEL::BOSS_VOICE, SOUND_VOLUME::CUSTOM_VOLUM, 0.7f);
+			}
+
 			int iDirRandom = rand() % 7;
 			_vector vPlayerPos = m_pPlayerTransform->Get_State(CTransform::STATE_POSITION);
 			_vector vDir = XMVector3Normalize(m_pPlayerTransform->Get_State(CTransform::STATE_LOOK));
@@ -1509,6 +1614,12 @@ void CBoss::ColseAttack2(_double TimeDelta)
 		//두번째 양 사이드 시작
 		if (m_bColseAttackExStart[0])
 		{
+			if (!m_bClose2Sound[1])
+			{
+				m_bClose2Sound[1] = true;
+				CGameInstance::GetInstance()->PlaySoundEx(L"Boss_CloseAttack.wav", SOUND_CHANNEL::BOSS_VOICE, SOUND_VOLUME::CUSTOM_VOLUM, 0.7f);
+			}
+
 			if (!m_bColseAttackEx[0])
 			{
 				int iDirRandom = rand() % 7;
@@ -1559,6 +1670,12 @@ void CBoss::ColseAttack2(_double TimeDelta)
 		//두번째 양 사이드 시작
 		if (m_bColseAttackExStart[1])
 		{
+			if (!m_bClose2Sound[2])
+			{
+				m_bClose2Sound[2] = true;
+				CGameInstance::GetInstance()->PlaySoundEx(L"Boss_CloseAttack.wav", SOUND_CHANNEL::BOSS_VOICE, SOUND_VOLUME::CUSTOM_VOLUM, 0.7f);
+			}
+
 			if (!m_bColseAttackEx[1])
 			{
 				int iDirRandom = rand() % 7;
@@ -1627,8 +1744,11 @@ void CBoss::ColseAttack2(_double TimeDelta)
 			m_bColseAttackExStart[0] = false;
 			m_bColseAttackExStart[1] = false;
 
+		
+
 			for (int i = 0; i < 3; ++i)
 			{
+				m_bClose2Sound[i] = false;
 				m_pCloseAttack[m_iColseAttackIndex]->SetActive(false);
 				m_pColliderCloseTransform[i]->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 10.f, 0.f, 1.f));
 			}
@@ -1672,13 +1792,20 @@ void CBoss::LineSkill2(_double TimeDelta)
 	{
 		if (!m_bLineExAnimSetup)
 		{
-			if (model->AnimationIsPreFinishCustom(0.4))
+			if (model->AnimationIsPreFinishCustom(0.3))
 			{
 				//회전이 종료됬을떄 라인공격 실행
 				if (!m_bLineAttack)
 				{
 					if (bRotationFinish)
 					{
+						if (!m_bLine2Sound)
+						{
+							m_bLine2Sound = true;
+							CGameInstance* pGameInstance = CGameInstance::GetInstance();
+							pGameInstance->PlaySoundEx(L"Thorn.wav", SOUND_CHANNEL::THORN0, SOUND_VOLUME::CUSTOM_VOLUM, 0.4f);
+						}
+
 						m_bLineAttackCollActive = true;
 
 						m_bAttackable = false;
@@ -1908,6 +2035,8 @@ void CBoss::LineSkill2(_double TimeDelta)
 
 	if (m_bLineAttackEraseEx)
 	{
+		m_bLine2Sound = false;
+
 		m_fEraseExAcc += TimeDelta;
 		if (m_fEraseExAcc >= m_fEraseExDelay)
 		{
@@ -1966,6 +2095,15 @@ void CBoss::LastAttack(_double TimeDelta)
 			{
 				if (model->AnimationIsPreFinishCustom(0.3))
 				{
+					if (!m_bBossVoice)
+					{
+						CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
+						m_bBossVoice = true;
+						pGameInstance->PlaySoundEx(L"Boss_Voice.wav", SOUND_CHANNEL::BOSS_VOICE, SOUND_VOLUME::CUSTOM_VOLUM, 0.5f);
+						pGameInstance->PlaySoundEx(L"Thorn.wav", SOUND_CHANNEL::THORN0, SOUND_VOLUME::CUSTOM_VOLUM, 0.4f);
+					}
+
 					m_pCamera->AttackShake();
 
 					m_bLastAttackBegin = true;
@@ -2380,6 +2518,7 @@ void CBoss::LastAttack(_double TimeDelta)
 				m_iEraseIndexEx++;
 				if (m_iEraseIndexEx == 25)
 				{
+					m_bBossVoice = false;
 					m_bLineExAnimStart = false;
 					m_bLineExAnimSetup = false;
 					m_bLastAttack = false;
@@ -2454,10 +2593,22 @@ void CBoss::DefaultAnimation(_double TimeDelta)
 		if (model->AnimationCompare(BOSS_CLIP::STAND2))
 		{
 			m_fAttackAcc += TimeDelta;
+
+			if (m_fAttackAcc >= m_fAttackAccTime - 0.5f)
+			{
+				if (!m_bAttackBeginSound)
+				{
+					m_bAttackBeginSound = true;
+					m_pWarning->SetStartEffect(transform, 2.5f);
+					CGameInstance::GetInstance()->PlaySoundEx(L"AttackSignal.wav", SOUND_CHANNEL::WARNING, SOUND_VOLUME::CUSTOM_VOLUM, 0.6f);
+				}
+			}
+
 			if (m_fAttackAcc >= m_fAttackAccTime)
 			{
 				m_fAttackAcc = 0.f;
 				m_bAttackable = true;
+				m_bAttackBeginSound = false;
 
 				switch (m_iAttackCount)
 				{
@@ -2550,16 +2701,33 @@ void CBoss::DefaultAnimation(_double TimeDelta)
 
 void CBoss::EvolutionAnimation(_double TimeDelta)
 {
-	if (m_bAttackable)
+	if (m_bEvolutionFinish)
+		LookTarget(Freeze(TimeDelta), 0.8f);
+
+	if (m_bAttackable && m_bEvolutionFinish)
 	{
 		m_fAttackAcc += TimeDelta;
-		if (m_fAttackAcc >= 3.0f)
+
+		if (m_fAttackAcc >= 2.f)
 		{
+			if (!m_bAttackBeginSound)
+			{
+				m_bAttackBeginSound = true;
+				m_pWarning->SetStartEffect(transform, 2.5f);
+				CGameInstance::GetInstance()->PlaySoundEx(L"AttackSignal.wav", SOUND_CHANNEL::WARNING, SOUND_VOLUME::CUSTOM_VOLUM, 0.6f);
+			}
+		}
+
+		if (m_fAttackAcc >= 2.5f)
+		{
+			m_bAttackSound = false;
+			m_bAttackBeginSound = false;
+
 			m_bAttack = true;
 			m_fAttackAcc = 0.f;
 
 			m_iAttackCountEx++;
-			if (m_iAttackCountEx > 3)
+			if (m_iAttackCountEx > 4)
 				m_iAttackCountEx = 0;
 		}
 	}
@@ -2570,16 +2738,20 @@ void CBoss::EvolutionAnimation(_double TimeDelta)
 		switch (m_iAttackCountEx)
 		{
 		case 0:
-			m_bUseLineSkill = true;
-			break;
-		case 1:
-			m_bCloseAttackExStart = true;
-			break;
-		case 2:
 			m_bUseMissile1 = true;
 			m_bMissileStart = true;
 			break;
+		case 1:
+			m_bUseLineSkill = true;
+			break;
+		case 2:
+			m_bCloseAttackExStart = true;
+			break;
 		case 3:
+			m_bUseMissile1 = true;
+			m_bMissileStart = true;
+			break;
+		case 4:
 			m_bLastAttackBegin = false;
 			m_bLastAttack = true;
 			break;
@@ -2588,6 +2760,8 @@ void CBoss::EvolutionAnimation(_double TimeDelta)
 
 	if (m_bCloseAttackExStart)
 		ColseAttack2(TimeDelta);
+	else
+		m_bCloseSound = false;
 
 	if (m_bUseLineSkill)
 		LineSkill2(TimeDelta);
@@ -2650,6 +2824,16 @@ void CBoss::AnimationController(_double TimeDelta)
 			m_bDead = true;
 	}
 
+	if (model->AnimationCompare(BOSS_CLIP::BORN))
+	{
+		if (!m_bCloudStart)
+		{
+			m_bCloudStart = true;
+			m_pCloudEffect->StartEffect(transform->Get_State(CTransform::STATE_POSITION));
+		}
+	}
+	else
+		m_bCloudStart = false;
 
 	//바디 올리기
 	_float4x4 vBossWorld = transform->Get_WorldMatrix();
@@ -2658,6 +2842,83 @@ void CBoss::AnimationController(_double TimeDelta)
 
 	model->Setup_Animation(m_eAnimState.eCurAnimationClip, m_eAnimState.eAnimType, m_eAnimState.bLerp);
 	model->Play_Animation(TimeDelta, transform, 0.2, false, "BoneHip");
+}
+
+void CBoss::SoundController(_double TimeDelta)
+{
+	CGameInstance* pGI = CGameInstance::GetInstance();
+
+	if (m_bMissileSound)
+	{
+		m_fMissileSoundOff += TimeDelta;
+		if (m_fMissileSoundOff >= 2.f)
+		{
+			m_bMissileSound = false;
+		}
+	}
+
+	if (model->AnimationCompare(BOSS_CLIP::BORN))
+	{
+		if (!m_bBornSound) 
+		{
+			m_bBornSound = true;
+			pGI->PlaySoundEx(L"Boss_Born.wav", SOUND_CHANNEL::BOSS_BORN, SOUND_VOLUME::CUSTOM_VOLUM, m_fBossFxVolume);
+		}
+	}
+	else
+		m_bBornSound = false;
+
+	if (model->AnimationCompare(BOSS_CLIP::ATK5))
+	{
+		if (!m_bEvolutionSound)
+		{
+			m_bEvolutionSound = true;
+			pGI->PlaySoundEx(L"Boss_Evolution.wav", SOUND_CHANNEL::BOSS_VOICE, SOUND_VOLUME::CUSTOM_VOLUM, 0.7f);
+		}
+
+		if(model->AnimationIsFinishEx())
+		{
+			if (!m_bEvolutionFinishSound)
+			{
+				m_bEvolutionFinishSound = true;
+				pGI->PlaySoundEx(L"Boss_Change.wav", SOUND_CHANNEL::BOSS_VOICE, SOUND_VOLUME::CUSTOM_VOLUM, 0.7f);
+			}
+		}
+	}
+
+	if (model->AnimationCompare(BOSS_CLIP::DEATH))
+	{
+		if (!m_bDieSound)
+		{
+			m_bDieSound = true;
+			pGI->PlaySoundEx(L"Boss_Die.wav", SOUND_CHANNEL::BOSS_VOICE, SOUND_VOLUME::CUSTOM_VOLUM, 1.f);
+		}
+	}
+
+	if (model->AnimationCompare(BOSS_CLIP::ATK3))
+	{
+		if (!m_bAttack3Sound)
+		{
+			m_bAttack3Sound = true;
+			pGI->PlaySoundEx(L"Boss_Attack3.wav", SOUND_CHANNEL::BOSS_BORN, SOUND_VOLUME::CUSTOM_VOLUM, 0.8f);
+		}
+	}
+	else
+		m_bAttack3Sound = false;
+
+	if (model->AnimationCompare(BOSS_CLIP::ATK_BACK) || model->AnimationCompare(BOSS_CLIP::ATK_FOWARD))
+	{
+		if (!m_bBossDashSouund)
+		{
+			m_bBossDashSouund = true;
+			pGI->PlaySoundEx(L"Boss_Dash.wav", SOUND_CHANNEL::BOSS_VOICE, SOUND_VOLUME::CUSTOM_VOLUM, m_fBossFxVolume);
+		}
+	}
+	else
+	{
+		m_bBossDashSouund = false;
+	}
+
 }
 
 void CBoss::SetupColliders()

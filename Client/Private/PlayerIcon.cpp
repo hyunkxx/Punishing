@@ -35,7 +35,7 @@ HRESULT CPlayerIcon::Initialize(void * pArg)
 	//공격 대쉬 버튼
 	m_fWidth = 90.f;
 	m_fHeight = 90.f;
-	m_fX = g_iWinSizeX - 60.f;
+	m_fX = g_iWinSizeX;
 	m_fY = g_iWinSizeY - 120.f;
 
 	//변신 버튼
@@ -67,13 +67,18 @@ HRESULT CPlayerIcon::Initialize(void * pArg)
 	//변신 게이지
 	m_fEvolutionGageWidth = 300.f;
 	m_fEvolutionGageHeight = 40.f;
-	m_fEvolutionGageX = 300  >> 1;
-	m_fEvolutionGageY = 100.f;
-
+	m_fEvolutionGageX = g_iWinSizeX  >> 1;
+	m_fEvolutionGageY = g_iWinSizeY - 100.f;
 
 	XMStoreFloat4x4(&m_EvolutionMatrix, XMMatrixScaling(m_fEvolutionGageWidth, m_fEvolutionGageHeight, 1.f) * XMMatrixTranslation(m_fEvolutionGageX - g_iWinSizeX * 0.5f, -m_fEvolutionGageY + g_iWinSizeY * 0.5f, 0.f));
-	XMStoreFloat4x4(&m_AttackMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
-	XMStoreFloat4x4(&m_DashMatrix, XMMatrixScaling(m_fWidth - 10.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fX - 80.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_AttackMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(((m_fX - g_iWinSizeX)) * 0.5f, ((-m_fY + g_iWinSizeY)) * 0.5f, 0.f));
+
+	XMStoreFloat4x4(&m_DashBackMatrix, XMMatrixScaling(m_fWidth + 5.f, m_fHeight + 5.f, 1.f) * XMMatrixTranslation(m_fX - 70.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_DashRotMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - 70.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_DashMatrix, XMMatrixScaling(m_fWidth - 10.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fX - 70.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
+
+	XMStoreFloat4x4(&m_EvolutionBackMatrix, XMMatrixScaling(m_fWidth + 5.f, m_fHeight + 5.f, 1.f) * XMMatrixTranslation(m_fEvolutionButtonX - 80.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_EvolutionRotMatrix, XMMatrixScaling(m_fWidth , m_fHeight , 1.f) * XMMatrixTranslation(m_fEvolutionButtonX - 80.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_EvolutionButtonMatrix, XMMatrixScaling(m_fWidth - 10.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fEvolutionButtonX - 80.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
 
 	XMStoreFloat4x4(&m_ComboGageMatrix, XMMatrixScaling(m_fComboGageWidth, m_fComboGageHeight, 1.f) * XMMatrixTranslation(m_fComboGageX - g_iWinSizeX * 0.5f, -m_fComboGageY + g_iWinSizeY * 0.5f, 0.f));
@@ -90,6 +95,12 @@ HRESULT CPlayerIcon::Initialize(void * pArg)
 void CPlayerIcon::Tick(_double TimeDelta)
 {
 	__super::Tick(TimeDelta);
+
+	m_fAngleEvolution -= TimeDelta;
+	_matrix RotationMatrix = XMMatrixRotationZ(m_fAngleEvolution);
+	XMStoreFloat4x4(&m_DashRotMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * RotationMatrix * XMMatrixTranslation(m_fX - 70.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_EvolutionRotMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * RotationMatrix * XMMatrixTranslation(m_fEvolutionButtonX - 80.f - g_iWinSizeX * 0.5f, -m_fY - 50.f + g_iWinSizeY * 0.5f, 0.f));
+
 
 	_float2 vTargetPos = m_pPlayer->GetTargetWindowPos();
 	if (vTargetPos.x != FLT_MAX && vTargetPos.y != FLT_MAX)
@@ -271,27 +282,26 @@ HRESULT CPlayerIcon::Render()
 	if (FAILED(m_pShader->SetRawValue("g_DiscardValue", &fDiscardValue, sizeof(_float))))
 		return E_FAIL;
 
-	//공격 버튼 세팅
-	if(m_pPlayer->IsAttackalbe())
-		m_pShader->Begin(0);
-	else
-		m_pShader->Begin(2);
+	////공격 버튼 세팅
+	//if(m_pPlayer->IsAttackalbe())
+	//	m_pShader->Begin(0);
+	//else
+	//	m_pShader->Begin(2);
 
-	m_pBackVIBuffer->Render();
+	//m_pBackVIBuffer->Render();
 
-	if (FAILED(m_pAttackTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
-		return E_FAIL;
+	//if (FAILED(m_pAttackTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+	//	return E_FAIL;
 
-	if (m_pPlayer->IsAttackalbe())
-		m_pShader->Begin(0);
-	else
-		m_pShader->Begin(2);
-	m_pAttackVIBuffer->Render();
+	//if (m_pPlayer->IsAttackalbe())
+	//	m_pShader->Begin(0);
+	//else
+	//	m_pShader->Begin(2);
+	//m_pAttackVIBuffer->Render();
 
 	//대쉬 버튼 세팅
-	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_DashMatrix)))
+	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_DashBackMatrix)))
 		return E_FAIL;
-
 	if (FAILED(m_pBackTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
 		return E_FAIL;
 
@@ -306,14 +316,19 @@ HRESULT CPlayerIcon::Render()
 
 	m_pBackVIBuffer->Render();
 
-	if (FAILED(m_pDashTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+	if (FAILED(m_pRotationTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
 		return E_FAIL;
 
-	if (m_pPlayer->IsDashable() && m_pPlayer->IsDashGageFull())
-		m_pShader->Begin(0);
-	else
-		m_pShader->Begin(2);
+	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_DashRotMatrix)))
+		return E_FAIL;
+	m_pShader->Begin(0);
+	m_pDashVIBuffer->Render();
 
+	if (FAILED(m_pDashTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+		return E_FAIL;
+	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_DashMatrix)))
+		return E_FAIL;
+	m_pShader->Begin(0);
 	m_pDashVIBuffer->Render();
 
 	//타겟 락인
@@ -393,9 +408,20 @@ HRESULT CPlayerIcon::Render()
 
 	if (m_pPlayer->IsEvolutionReady())
 	{
-		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_EvolutionButtonMatrix)))
+		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_EvolutionBackMatrix)))
 			return E_FAIL;
 		if (FAILED(m_pBackTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
+			return E_FAIL;
+		if (FAILED(m_pShader->SetRawValue("g_FillAmount", &fValue, sizeof(_float))))
+			return E_FAIL;
+
+		m_pShader->Begin(0);
+		m_pEvolutionButtonBuffer->Render();
+
+		//회전
+		if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_EvolutionRotMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pRotationTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
 			return E_FAIL;
 		if (FAILED(m_pShader->SetRawValue("g_FillAmount", &fValue, sizeof(_float))))
 			return E_FAIL;
@@ -481,6 +507,8 @@ HRESULT CPlayerIcon::Add_Components()
 		szImageTag, (CComponent**)&m_pTargetTexture)))
 		return E_FAIL;
 
+	if (FAILED(CGameObject::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_rot_icon"), TEXT("com_texture_rot"), (CComponent**)&m_pRotationTexture)))
+		return E_FAIL;
 
 	//기존 단일 타겟이미지
 	//if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_target"),

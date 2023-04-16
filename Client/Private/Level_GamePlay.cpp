@@ -18,6 +18,7 @@
 #include "PlayerCamera.h"
 #include "EnemyHealthBar.h"
 #include "Flower.h"
+#include "Cloud.h"
 
 CLevel_GamePlay::CLevel_GamePlay(ID3D11Device* pDevice, ID3D11DeviceContext* pContext)
 	: CLevel(pDevice, pContext)
@@ -72,6 +73,15 @@ void CLevel_GamePlay::Tick(_double TimeDelta)
 			return;
 	}
 
+	static bool bBgm = false;
+	static float fVolum = 0.1f;
+
+	if (!bBgm)
+	{
+		pGameInstance->PlaySoundEx(L"mainBGM.mp3", SOUND_CHANNEL::SOUND_BGM, CUSTOM_VOLUM, 0.12f);
+		bBgm = true;
+	}
+
 	////콜리전 생성
 	//if (pGameInstance->Input_KeyState_Custom(DIK_INSERT) == KEY_STATE::TAP)
 	//{
@@ -99,12 +109,24 @@ void CLevel_GamePlay::Tick(_double TimeDelta)
 HRESULT CLevel_GamePlay::Ready_Light()
 {
 	CGameInstance* GameInstance = CGameInstance::GetInstance();
-	
+
 	LIGHT_DESC LightDesc;
 	ZeroMemory(&LightDesc, sizeof(LIGHT_DESC));
 	
 	LightDesc.eLightType = LIGHT_DESC::TYPE_DIRECTIONAL;
 	LightDesc.vDirection = _float4(-1.f, -0.8f, 1.f, 0.f);
+	LightDesc.vPosition = _float4(1.f, 1.f, 1.f, 1.f);
+	LightDesc.vDiffuse = _float4(1.f, 1.f, 1.f, 1.f);
+	LightDesc.vAmbient = _float4(1.f, 1.f, 1.f, 1.f);
+	LightDesc.vSpecular = _float4(1.f, 1.f, 1.f, 1.f);
+	
+	if (FAILED(GameInstance->AddLight(m_pDevice, m_pContext, LightDesc)))
+		return E_FAIL;
+
+	ZeroMemory(&LightDesc, sizeof(LIGHT_DESC));
+
+	LightDesc.eLightType = LIGHT_DESC::TYPE_DIRECTIONAL;
+	LightDesc.vDirection = _float4(-0.8f, -1.f, 0.f, 0.f);
 	LightDesc.vPosition = _float4(1.f, 1.f, 1.f, 1.f);
 	LightDesc.vDiffuse = _float4(1.f, 1.f, 1.f, 1.f);
 	LightDesc.vAmbient = _float4(1.f, 1.f, 1.f, 1.f);
@@ -168,15 +190,23 @@ HRESULT CLevel_GamePlay::Ready_Layer_Camera(const _tchar* pLayerTag)
 	CameraDesc.fNear = 0.1f;
 	CameraDesc.fFar = 1000.f;
 
+	_vector vLightEye = XMVectorSet(0.f, 20.f, -5.f, 1.f);
+	_vector vLightAt = XMVectorSet(30.f, 0.f, 30.f, 1.f);
+	_matrix vLightViewMatrix = XMMatrixLookAtLH(vLightEye, vLightAt, VECTOR_UP);
+	_matrix vLightProjMatrix = XMMatrixPerspectiveFovLH(CameraDesc.fFovy, CameraDesc.fAspect, CameraDesc.fNear, CameraDesc.fFar);
+
+	pGameInstance->SetLightMatrix(vLightViewMatrix, LIGHT_MATRIX::LIGHT_VIEW);
+	pGameInstance->SetLightMatrix(vLightProjMatrix, LIGHT_MATRIX::LIGHT_PROJ);
+	pGameInstance->SetLightPosition(vLightEye);
 	//if (nullptr == pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_dynamic_camera"), L"dynamic_camera", pLayerTag, &CameraDesc))
 	//	return E_FAIL;
 
 	assert(mPlayer);
-
+	
 	mCamera = static_cast<CPlayerCamera*>(pGameInstance->Add_GameObject(LEVEL_GAMEPLAY, TEXT("proto_obj_player_camera"), pLayerTag, L"player_camera", mPlayer));
 	if (nullptr == mCamera)
 		return E_FAIL;
-
+	
 	static_cast<CCharacter*>(mPlayer)->SetPlayerCamera(mCamera);
 
 	return S_OK;

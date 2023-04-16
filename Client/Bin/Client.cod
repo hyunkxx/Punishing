@@ -5,8 +5,6 @@ include listing.inc
 INCLUDELIB MSVCRTD
 INCLUDELIB OLDNAMES
 
-PUBLIC	?szTitle@@3PA_WA				; szTitle
-PUBLIC	?szWindowClass@@3PA_WA				; szWindowClass
 PUBLIC	?g_hInst@@3PEAUHINSTANCE__@@EA			; g_hInst
 PUBLIC	?g_hWnd@@3PEAUHWND__@@EA			; g_hWnd
 PUBLIC	?AliceBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::AliceBlue
@@ -147,7 +145,9 @@ PUBLIC	?Tan@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Tan
 PUBLIC	?Teal@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Teal
 PUBLIC	?Thistle@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Thistle
 PUBLIC	?Tomato@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Tomato
+PUBLIC	?szTitle@@3PA_WA				; szTitle
 PUBLIC	?Transparent@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Transparent
+PUBLIC	?szWindowClass@@3PA_WA				; szWindowClass
 PUBLIC	?Turquoise@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Turquoise
 PUBLIC	?Violet@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Violet
 PUBLIC	?Wheat@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::Wheat
@@ -292,10 +292,10 @@ PUBLIC	?g_XMLogEst7@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLogEst7
 PUBLIC	?g_XMLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMLgE
 PUBLIC	?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B		; DirectX::g_XMInvLgE
 _BSS	SEGMENT
-?szTitle@@3PA_WA DW 064H DUP (?)			; szTitle
-?szWindowClass@@3PA_WA DW 064H DUP (?)			; szWindowClass
 ?g_hInst@@3PEAUHINSTANCE__@@EA DQ 01H DUP (?)		; g_hInst
 ?g_hWnd@@3PEAUHWND__@@EA DQ 01H DUP (?)			; g_hWnd
+?szTitle@@3PA_WA DW 064H DUP (?)			; szTitle
+?szWindowClass@@3PA_WA DW 064H DUP (?)			; szWindowClass
 _BSS	ENDS
 ;	COMDAT ?g_XMInvLgE@DirectX@@3UXMVECTORF32@1@B
 CONST	SEGMENT

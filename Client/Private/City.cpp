@@ -76,6 +76,18 @@ HRESULT CCity::Render()
 
 		m_pShader->Begin(4);
 		m_pModel->Render(i);
+
+		////±×¸²ÀÚ
+		//CGameInstance* pGameInstance = CGameInstance::GetInstance();
+		//if (FAILED(m_pShader->SetMatrix("g_LightViewMatrix", &pGameInstance->GetLightFloat4x4(LIGHT_MATRIX::LIGHT_VIEW))))
+		//	return E_FAIL;
+		//if (FAILED(m_pShader->SetMatrix("g_LightProjMatrix", &pGameInstance->GetLightFloat4x4(LIGHT_MATRIX::LIGHT_PROJ))))
+		//	return E_FAIL;
+		//if (FAILED(m_pShader->SetRawValue("g_LightPos", &pGameInstance->GetLightPosition(), sizeof(_float3))))
+		//	return E_FAIL;
+		//
+		//m_pShader->Begin(19);
+		//m_pModel->Render(i);
 	}
 
 	return S_OK;

@@ -9,6 +9,7 @@
 #include "Timer_Manager.h"
 #include "Input_Device.h"
 #include "LightManager.h"
+#include "Sound_Manager.h"
 #include "Layer.h"
 
 IMPLEMENT_SINGLETON(CGameInstance)
@@ -23,6 +24,7 @@ CGameInstance::CGameInstance()
 	, m_pInput_Device { CInput_Device::GetInstance() }
 	, m_LightManager{ CLightManager::GetInstance() }
 	, m_pCollision_Manager { CCollisionManager::GetInstance() }
+	, m_pSoundManager{ CSound_Manager::GetInstance() }
 {
 	Safe_AddRef(m_pCollision_Manager);
 	Safe_AddRef(m_pInput_Device);
@@ -33,6 +35,7 @@ CGameInstance::CGameInstance()
 	Safe_AddRef(m_pObject_Manager);
 	Safe_AddRef(m_pComponent_Manager);
 	Safe_AddRef(m_LightManager);
+	Safe_AddRef(m_pSoundManager);
 }
 
 HRESULT CGameInstance::Engine_Initialize(const GRAPHIC_DESC& GraphicDesc, _uint iLevelCount, ID3D11Device** ppDevice_out, ID3D11DeviceContext** ppContext_out)
@@ -53,6 +56,9 @@ HRESULT CGameInstance::Engine_Initialize(const GRAPHIC_DESC& GraphicDesc, _uint 
 		return E_FAIL;
 
 	if (FAILED(m_pPipeLine->Initialize()))
+		return E_FAIL;
+
+	if (FAILED(m_pSoundManager->Initialize()))
 		return E_FAIL;
 
 	return S_OK;
@@ -107,12 +113,28 @@ HRESULT CGameInstance::SetPreRenderTargets()
 	return m_pGraphic_Device->SetPreRenderTargets();
 }
 
+HRESULT CGameInstance::SetPreRenderTarget(PRE_RENDERTARGET eTarget)
+{
+	if (nullptr == m_pGraphic_Device)
+		return E_FAIL;
+
+	return m_pGraphic_Device->SetPreRenderTarget(eTarget);
+}
+
 HRESULT CGameInstance::Clear_PreRenderTargetViews(_float4 vClearColor)
 {
 	if (nullptr == m_pGraphic_Device)
 		return E_FAIL;
 
 	return m_pGraphic_Device->Clear_PreRenderTargetViews(vClearColor);
+}
+
+HRESULT CGameInstance::Clear_PreRenderTargetViews(PRE_RENDERTARGET eTarget, _float4 vClearColor)
+{
+	if (nullptr == m_pGraphic_Device)
+		return E_FAIL;
+
+	return m_pGraphic_Device->Clear_PreRenderTargetViews(eTarget, vClearColor);
 }
 
 ID3D11RenderTargetView * CGameInstance::GetRenderTarget(PRE_RENDERTARGET eTarget)
@@ -401,6 +423,46 @@ const LIGHT_DESC* CGameInstance::GetLightDesc(_uint Index)
 	return m_LightManager->GetLightDesc(Index);
 }
 
+void CGameInstance::SetLightMatrix(_fmatrix LightMatrix, LIGHT_MATRIX eLightMatrix)
+{
+	if (nullptr == m_LightManager)
+		return;
+
+	m_LightManager->SetLightMatrix(LightMatrix, eLightMatrix);
+}
+
+_float4x4 CGameInstance::GetLightFloat4x4(LIGHT_MATRIX eLightMatrix)
+{
+	if (nullptr == m_LightManager)
+		return _float4x4();
+
+	return m_LightManager->GetLightFloat4x4(eLightMatrix);
+}
+
+_float4x4 CGameInstance::GetLightInverseFloat4x4(LIGHT_MATRIX eLightMatrix)
+{
+	if (nullptr == m_LightManager)
+		return _float4x4();
+
+	return m_LightManager->GetLightInverseFloat4x4(eLightMatrix);
+}
+
+void CGameInstance::SetLightPosition(_fvector vLightPos)
+{
+	if (nullptr == m_LightManager)
+		return;
+
+	return m_LightManager->SetLightPosition(vLightPos);
+}
+
+_float4 CGameInstance::GetLightPosition() const
+{
+	if (nullptr == m_LightManager)
+		return _float4();
+
+	return m_LightManager->GetLightPosition();
+}
+
 void CGameInstance::SetCollisionDebugRender(_bool value)
 {
 	if (m_pCollision_Manager == nullptr)
@@ -425,6 +487,38 @@ void CGameInstance::CollisionRender()
 	return m_pCollision_Manager->Render();
 }
 
+HRESULT CGameInstance::PlaySoundEx(TCHAR * pSoundKey, int eChannel, SOUND_VOLUME eVolum, _float fVolume)
+{
+	if (m_pSoundManager == nullptr)
+		return E_FAIL;
+
+	return m_pSoundManager->Play_Sound(pSoundKey, eChannel, eVolum, fVolume);
+}
+
+HRESULT CGameInstance::SetSoundVolume(int eChannel, SOUND_VOLUME eVolum, _float fVolume)
+{
+	if (m_pSoundManager == nullptr)
+		return E_FAIL;
+
+	return m_pSoundManager->Set_SoundVolume(eChannel, eVolum, fVolume);
+}
+
+HRESULT CGameInstance::StopSound(int eChannel)
+{
+	if (m_pSoundManager == nullptr)
+		return E_FAIL;
+
+	return m_pSoundManager->Stop_Sound(eChannel);
+}
+
+void CGameInstance::StopAllSound()
+{
+	if (m_pSoundManager == nullptr)
+		return;
+
+	m_pSoundManager->Stop_AllSound();
+}
+
 //void CGameInstance::PhysicsUpdate()
 //{
 //	if (m_pCollision_Manager == nullptr)
@@ -445,6 +539,7 @@ void CGameInstance::Engine_Release()
 	CLevel_Manager::DestroyInstance();
 	CPipeLine::DestroyInstance();
 	CGraphic_Device::DestroyInstance();
+	CSound_Manager::DestroyInstance();
 }
 
 void CGameInstance::Free()
@@ -456,6 +551,7 @@ void CGameInstance::Free()
 	Safe_Release(m_pPipeLine);
 	Safe_Release(m_pComponent_Manager);
 	Safe_Release(m_pObject_Manager);
+	Safe_Release(m_pSoundManager);
 	Safe_Release(m_pLevel_Manager);
 	Safe_Release(m_pGraphic_Device);
 }

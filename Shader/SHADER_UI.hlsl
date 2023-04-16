@@ -101,7 +101,7 @@ PS_OUT PS_DARK(PS_IN In)
 
 PS_OUT PS_MASK(PS_IN In)
 {
-	PS_OUT			Out = (PS_OUT)0;
+	PS_OUT Out = (PS_OUT)0;
 
 	if (In.vTexUV.x > g_FillAmount)
 		discard;
@@ -111,6 +111,7 @@ PS_OUT PS_MASK(PS_IN In)
 
 	return Out;
 }
+
 
 technique11 DefaultTechnique
 {
@@ -178,4 +179,5 @@ technique11 DefaultTechnique
 		DomainShader = NULL;
 		PixelShader = compile ps_5_0 PS_MASK();
 	}
+
 }

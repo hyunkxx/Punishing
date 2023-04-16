@@ -15,7 +15,7 @@ void CDistortionEffect::TimeAcc()
 {
 	CGameInstance* pInstance = CGameInstance::GetInstance();
 	m_TimeAcc += pInstance->GetTimer(L"FPS144");
-	if (m_TimeAcc >= 2.f)
+	if (m_TimeAcc >= 10.f)
 		m_TimeAcc = 0.f;
 }
 
@@ -51,7 +51,7 @@ void CDistortionEffect::EffectApply(ID3D11ShaderResourceView * pMain, ID3D11Shad
 	if (pShader->SetRawValue("TimeAcc", &m_TimeAcc, sizeof(float)))
 		return;
 
-	if (FAILED(pShader->Begin(0)))
+	if (FAILED(pShader->Begin(1)))
 		return;
 	if (FAILED(m_pBuffer->Render()))
 		return;

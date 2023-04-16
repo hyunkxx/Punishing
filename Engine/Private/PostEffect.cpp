@@ -43,6 +43,28 @@ void CPostEffect::EffectApply(ID3D11ShaderResourceView * pSRV, CShader * pShader
 		return;
 }
 
+void CPostEffect::BufferCombine(ID3D11ShaderResourceView * pMainSRV, ID3D11ShaderResourceView * pBloomSRV, CShader * pShader, _int iPass)
+{
+	if (FAILED(pShader->SetMatrix("g_WorldMatrix", &m_WorldMatrix)))
+		return;
+	if (FAILED(pShader->SetMatrix("g_ViewMatrix", &m_ViewMatrix)))
+		return;
+	if (FAILED(pShader->SetMatrix("g_ProjMatrix", &m_ProjMatrix)))
+		return;
+
+	if (FAILED(pShader->SetShaderResourceView("g_MainTexture", pMainSRV)))
+		return;
+
+	if (FAILED(pShader->SetShaderResourceView("g_BloomTexture", pBloomSRV)))
+		return;
+
+	if (FAILED(pShader->Begin(iPass)))
+		return;
+
+	if (FAILED(m_pBuffer->Render()))
+		return;
+}
+
 void CPostEffect::EffectCombine(ID3D11ShaderResourceView * pMainSRV, ID3D11ShaderResourceView * pBloomSRV, CShader * pShader)
 {
 	if (FAILED(pShader->SetMatrix("g_WorldMatrix", &m_WorldMatrix)))

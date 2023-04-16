@@ -18,6 +18,7 @@ public:
 
 public:
 	void Update(_double TimeDelta);
+	void Update2(_double TimeDelta);
 
 public:
 	static CVIBuffer_Rect_Instance* Create(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, _float fWidth, _float fHeight, _float fDepth, _float fMinSpeed, _float fMaxSpeed, _uint iInstanceCount = 1);
@@ -30,7 +31,7 @@ private:
 	_uint		  m_iInstanceCount = { 0 };
 	_float*		  m_pSpeed = { nullptr };
 	_float*		  m_pOldHeight = { nullptr };
-
+	_float*		  m_pOldX = { nullptr };
 
 };
 

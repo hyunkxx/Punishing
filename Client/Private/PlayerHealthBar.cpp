@@ -50,8 +50,8 @@ void CPlayerHealthBar::Tick(_double TimeDelta)
 	__super::Tick(TimeDelta);
 
 	CGameInstance* pInstance = CGameInstance::GetInstance();
-	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth - 75.f, m_fHeight - 10.f, 1.f) * XMMatrixTranslation(m_fX + 30.f - g_iWinSizeX * 0.5f, -m_fY + 35.f + g_iWinSizeY * 0.5f, 0.f));
-	XMStoreFloat4x4(&m_PlayerDashMatrix, XMMatrixScaling(m_fWidth - 75.f, m_fHeight - 14.f, 1.f) * XMMatrixTranslation(m_fX + 30.f - g_iWinSizeX * 0.5f, -m_fY + 20.f + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth - 70.f, m_fHeight - 8.f, 1.f) * XMMatrixTranslation(m_fX + 50.f - g_iWinSizeX * 0.5f, -m_fY + 33.f + g_iWinSizeY * 0.5f, 0.f));
+	XMStoreFloat4x4(&m_PlayerDashMatrix, XMMatrixScaling(m_fWidth - 70.f, m_fHeight - 13.f, 1.f) * XMMatrixTranslation(m_fX + 50.f - g_iWinSizeX * 0.5f, -m_fY + 17.f + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_PlayerBackWorld, XMMatrixScaling(m_fWidth + 100.f, m_fHeight * 5.f, 1.f) * XMMatrixTranslation((m_fX) - g_iWinSizeX * 0.5f, (-m_fY + 50.f) + g_iWinSizeY * 0.5f, 0.f));
 
 }

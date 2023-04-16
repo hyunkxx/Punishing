@@ -51,6 +51,13 @@ struct PS_BLOOMOUT
 	float4 vBloomColor : SV_TARGET1;
 };
 
+struct PS_DISTORTION
+{
+	float4 vColor : SV_TARGET0;
+	float4 vBloomColor : SV_TARGET1;
+	float4 vDistortion : SV_TARGET2;
+};
+
 VS_OUT VS_MAIN(VS_IN In)
 {
 	VS_OUT Out = (VS_OUT)0;
@@ -71,27 +78,30 @@ VS_OUT VS_MAIN(VS_IN In)
 	return Out;
 }
 
-PS_BLOOMOUT PS_MAIN(PS_IN In)
+PS_DISTORTION PS_MAIN(PS_IN In)
 {
-	PS_BLOOMOUT Out = (PS_BLOOMOUT)0;
+	PS_DISTORTION Out = (PS_DISTORTION)0;
 
 	float2 uv = In.vTexUV;
-	uv.y += g_fTimeAcc * 2.f;
-	uv.x -= g_fTimeAcc;
+	uv.y += g_fTimeAcc * 1.2f;
+	uv.x -= g_fTimeAcc * 0.7f;
 
 	Out.vColor = g_DiffuseTexture.Sample(LinearSampler, uv);
 
 	if (Out.vColor.a <= 0.1f)
 		discard;
-
-	Out.vColor.a = g_DiffuseTexture.Sample(LinearSampler, uv).a * (1.2f - g_fTimeAcc);
+	
+	Out.vColor.a = g_DiffuseTexture.Sample(LinearSampler, uv).a * (1.f - g_fTimeAcc);
+	Out.vColor.a = 1.f - g_fTimeAcc;
 
 	if (Out.vColor.a > 0.f)
 	{
 		// float4(1.f, 0.7f, 0.4f)
-		Out.vColor = float4(1.f, 0.7f, 0.4f, Out.vColor.a);
+		Out.vColor = float4(1.f, 1.f, 1.f, Out.vColor.a);
 		Out.vBloomColor = Out.vColor;
+		Out.vBloomColor.a = 0.7f - g_fTimeAcc;
 	}
+		
 
 	return Out;
 }

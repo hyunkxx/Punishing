@@ -8,8 +8,10 @@
 #include "Bone.h"
 #include "Boss.h"
 
+#include "EvolutionEffect.h"
 #include "ApplicationManager.h"
 #include "SkillBallSystem.h"
+#include "Layer.h"
 
 CPlayerCamera::CPlayerCamera(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
 	: CCamera(pDevice, pContext)
@@ -34,7 +36,7 @@ HRESULT CPlayerCamera::Initialize(void * pArg)
 	m_pTransform = CTransform::Create(m_pDevice, m_pContext);
 	if (nullptr == m_pTransform)
 		return E_FAIL;
-	
+
 	assert(pArg);
 	m_pTarget = (CGameObject*)pArg;
 
@@ -46,20 +48,33 @@ HRESULT CPlayerCamera::Initialize(void * pArg)
 	m_CameraDesc.fNear = 0.1f;
 	m_CameraDesc.fFar = 1500.f;
 
-	m_pTransform->Set_State(CTransform::STATE_POSITION, m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
-	XMStoreFloat4(&vLookTarget, m_pTransform->Get_State(CTransform::STATE_POSITION));
-	
-	CApplicationManager::GetInstance()->SetWinMotion(false);
-	if (CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+
+	if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
 	{
-		m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
+		_vector vPoos = XMVectorSet(31.f, 1.f, 22.f, 1.f);
+		m_pTransform->Set_State(CTransform::STATE_POSITION, vPoos);
+		XMStoreFloat4(&vLookTarget, m_pTransform->Get_State(CTransform::STATE_POSITION));
 		m_pTransform->LookAt(m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
 	}
 	else
 	{
-		m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 0.f, 1.f));
+		_vector vPoos = XMVectorSet(0.f, 1.f, -8.f, 1.f);
+		m_pTransform->Set_State(CTransform::STATE_POSITION, vPoos);
+		XMStoreFloat4(&vLookTarget, m_pTransform->Get_State(CTransform::STATE_POSITION));
 		m_pTransform->LookAt(m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
 	}
+
+	CApplicationManager::GetInstance()->SetWinMotion(false);
+	//if (CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+	//{
+	//	m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 1.f, 1.f));
+	//	m_pTransform->LookAt(m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
+	//}
+	//else
+	//{
+	//	m_pTransform->Set_State(CTransform::STATE_POSITION, XMVectorSet(0.f, 0.f, 1.f, 1.f));
+	//	m_pTransform->LookAt(m_pTargetTransform->Get_State(CTransform::STATE_POSITION));
+	//}
 
 	CCollider::COLLIDER_DESC collDesc;
 	collDesc.owner = this;
@@ -88,9 +103,30 @@ HRESULT CPlayerCamera::Initialize(void * pArg)
 	m_fX = g_iWinSizeX >> 1;
 	m_fY = g_iWinSizeY >> 1;
 
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_shader_vtxtex"),
+		TEXT("com_shader332"), (CComponent**)&m_pTexShader)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_one"),
+		TEXT("com_one23"), (CComponent**)&m_pLevel1)))
+		return E_FAIL;
+	if (FAILED(__super::Add_Component(LEVEL_STATIC, TEXT("proto_com_texture_two"),
+		TEXT("com_two23"), (CComponent**)&m_pLevel2)))
+		return E_FAIL;
+
+	m_fLevelWidth = 250.f;
+	m_fLevelHeight = 50.f;
+	m_fLevelX = 200;
+	m_fLevelY = 200;
+
+	XMStoreFloat4x4(&m_LevelWorldMatrix, XMMatrixScaling(m_fLevelWidth, m_fLevelHeight, 1.f) * XMMatrixTranslation(m_fLevelX - g_iWinSizeX * 0.5f, -m_fLevelY + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_WorldMatrix, XMMatrixScaling(m_fWidth, m_fHeight, 1.f) * XMMatrixTranslation(m_fX - g_iWinSizeX * 0.5f, -m_fY + g_iWinSizeY * 0.5f, 0.f));
 	XMStoreFloat4x4(&m_ViewMatrix, XMMatrixIdentity());
 	XMStoreFloat4x4(&m_ProjMatrix, XMMatrixOrthographicLH((_float)g_iWinSizeX, (_float)g_iWinSizeY, 0.f, 1.f));
+
+	if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+		m_fStartActionAcc = -7.f;
+	else
+		m_fStartActionAcc = -8.f;
 
 	return S_OK;
 }
@@ -99,11 +135,32 @@ void CPlayerCamera::Tick(_double TimeDelta)
 {
 	__super::Tick(TimeDelta);
 
+	//if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+	//{
+	//	if (!m_bEnemyLayerSetup)
+	//	{
+	//		m_bEnemyLayerSetup = true;
+	//		CGameInstance* pInstance = CGameInstance::GetInstance();
+	//		pEnemyLayer = pInstance->Find_Layer(LEVEL_GAMEPLAY, L"layer_enemy");
+
+	//	}
+	//}
+	//else
+	//{
+	//	if (!m_bEnemyLayerSetup)
+	//	{
+	//		m_bEnemyLayerSetup = true;
+	//		CGameInstance* pInstance = CGameInstance::GetInstance();
+	//		pEnemyLayer = pInstance->Find_Layer(LEVEL_BOSS, L"layer_enemy");
+
+	//	}
+	//}
+
 	if (m_bFinish && m_fAlpha >= 1.f)
 	{
 		m_fAlpha = 1.f;
 		m_bFinish = false;
-		if(!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+		if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
 			CApplicationManager::GetInstance()->SetLevelFinish(CApplicationManager::LEVEL::GAMEPLAY);
 		else
 			CApplicationManager::GetInstance()->SetLevelFinish(CApplicationManager::LEVEL::BOSS);
@@ -114,7 +171,14 @@ void CPlayerCamera::Tick(_double TimeDelta)
 		m_fAlpha += TimeDelta;
 
 		if (m_fAlpha >= 1.f)
+		{
+			if (CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+			{
+				CGameInstance::GetInstance()->PlaySoundEx(L"Confirm.wav", SOUND_CHANNEL::DASH, SOUND_VOLUME::CUSTOM_VOLUM, 0.8f);
+			}
+
 			m_bFadeIn = false;
+		}
 	}
 
 	if (m_bFadeOut)
@@ -126,12 +190,19 @@ void CPlayerCamera::Tick(_double TimeDelta)
 			m_bFadeOut = false;
 		}
 	}
+}
 
+void CPlayerCamera::LateTick(_double TimeDelta)
+{
+	__super::LateTick(TimeDelta);
+
+	//??????????
 	if (m_bStartAction)
 	{
 		StartMovement(TimeDelta);
 	}
-	else
+
+	if(!m_bStartAction)
 	{
 		if (m_bEvolution)
 		{
@@ -144,21 +215,21 @@ void CPlayerCamera::Tick(_double TimeDelta)
 			else
 				WinActionMovement(TimeDelta);
 		}
-
 	}
 
-}
-
-void CPlayerCamera::LateTick(_double TimeDelta)
-{
-	__super::LateTick(TimeDelta);
-
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
-
 	if (pGameInstance->Input_KeyState_Custom(DIK_8) == KEY_STATE::TAP)
 	{
 		m_bFadeIn = true;
 		m_bFadeInStart = true;
+	}
+
+	if (CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY) && m_bFinished)
+	{
+		m_fBossBgmStart -= 0.05 * TimeDelta;
+		pGameInstance->SetSoundVolume(SOUND_BGM, SOUND_VOLUME::CUSTOM_VOLUM, m_fBossBgmStart);
+		if (m_fBossBgmStart <= 0.f)
+			pGameInstance->StopSound(SOUND_BGM);
 	}
 
 	if (m_bFadeInStart)
@@ -195,12 +266,15 @@ void CPlayerCamera::LateTick(_double TimeDelta)
 
 	if (nullptr != m_pRenderer)
 		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_ENDING, this);
+
 }
 
 HRESULT CPlayerCamera::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
+
+
 
 	if (FAILED(m_pShader->SetMatrix("g_WorldMatrix", &m_WorldMatrix)))
 		return E_FAIL;
@@ -211,7 +285,6 @@ HRESULT CPlayerCamera::Render()
 
 	_float fValue = 1.f;
 	_float fDiscardValue = 0.f;
-
 	//버튼 백그라운드 이미지
 	if (FAILED(m_pTexture->Setup_ShaderResource(m_pShader, "g_Texture")))
 		return E_FAIL;
@@ -228,12 +301,36 @@ HRESULT CPlayerCamera::Render()
 	m_pShader->Begin(0);
 	m_pVIBuffer->Render();
 
+	if (!IsStarting() && !IsEnding())
+	{
+		if (FAILED(m_pTexShader->SetMatrix("g_WorldMatrix", &m_LevelWorldMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pTexShader->SetMatrix("g_ViewMatrix", &m_ViewMatrix)))
+			return E_FAIL;
+		if (FAILED(m_pTexShader->SetMatrix("g_ProjMatrix", &m_ProjMatrix)))
+			return E_FAIL;
+
+		if (!CApplicationManager::GetInstance()->IsLevelFinish(CApplicationManager::LEVEL::GAMEPLAY))
+		{
+			if (FAILED(m_pLevel1->Setup_ShaderResource(m_pTexShader, "g_Texture")))
+				return E_FAIL;
+		}
+		else
+		{
+			if (FAILED(m_pLevel2->Setup_ShaderResource(m_pTexShader, "g_Texture")))
+				return E_FAIL;
+		}
+
+		m_pTexShader->Begin(15);
+		m_pVIBuffer->Render();
+	}
+
 	return S_OK;
 }
 
 void CPlayerCamera::AttackShake()
 {
-	if (!CApplicationManager::GetInstance()->IsSpawned())
+	if (m_bEvolution)
 		return;
 
 	ShakeReset();
@@ -242,6 +339,9 @@ void CPlayerCamera::AttackShake()
 
 void CPlayerCamera::ThornShake()
 {
+	if (m_bEvolution)
+		return;
+
 	ShakeReset();
 	StartShake(2.f, 1.5f);
 }
@@ -326,10 +426,28 @@ void CPlayerCamera::DefaultCameraMovement(_double TimeDelta)
 
 void CPlayerCamera::WinActionMovement(_double TimeDelta)
 {
+	if (m_bEvolitionEffectStart)
+	{
+		_vector vCameraPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
+		vCameraPos = XMVectorSetY(vCameraPos, XMVectorGetY(m_pTransform->Get_State(CTransform::STATE_POSITION)));
+		m_pTransform->Set_State(CTransform::STATE_POSITION, vCameraPos);
+
+		//m_bEvolitionEffectStart = false;
+		//m_bEvolitionEnemeyAlpha = false;
+
+		////보스 스테이지 변신이펙트시 레이어 추가되는거 수정해야함
+		//if (pEnemyLayer)
+		//{
+		//	for (auto iter = pEnemyLayer->m_GameObjects.begin(); iter != pEnemyLayer->m_GameObjects.end(); ++iter)
+		//		static_cast<CEnemy*>(iter->second)->SetAlpha(false);
+		//}
+	}
+
 	if (m_isGoal)
 		return;
 
 	m_fWinActionAcc += TimeDelta * 1.5f;
+	m_bFinished = true;
 
 	if (m_fWinActionAcc >= 6.f)
 	{
@@ -341,6 +459,7 @@ void CPlayerCamera::WinActionMovement(_double TimeDelta)
 	}
 
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
+
 	_vector vTargetPos = m_pTargetTransform->Get_State(CTransform::STATE_POSITION);
 	_vector vTargetLook = XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_LOOK));
 
@@ -359,35 +478,30 @@ void CPlayerCamera::StartMovement(_double TimeDelta)
 	if (m_isGoal)
 		return;
 
-	m_fWinActionAcc += TimeDelta * 1.5f;
-
-	if (m_fWinActionAcc >= 7.f)
+	m_fStartActionAcc += TimeDelta * 1.5f;
+	if (m_fStartActionAcc >= 7.f)
 	{
+		m_fStartActionAcc = 0.f;
 		m_bStartAction = false;
-		m_fWinActionAcc = 0.f;
 	}
 
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	_vector vTargetPos = m_pTargetTransform->Get_State(CTransform::STATE_POSITION);
-	_vector vTargetLook = XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_LOOK));
+	_vector vTargetLook = XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_LOOK)) * 3.8f;
 	vTargetLook = XMVector3Normalize(vTargetLook + XMVector3Normalize(m_pTargetTransform->Get_State(CTransform::STATE_RIGHT)));
 	
-	
 	_vector vCurCamPos;
-	if (m_fWinActionAcc <= 4.f)
+	if (m_fStartActionAcc <= 4.5f)
 	{
-		vTargetPos = XMVectorSetY(vTargetPos, 0.5f * m_fWinActionAcc * 0.6f);
-		vCurCamPos = vTargetPos + vTargetLook * (1.f + (m_fWinActionAcc * 0.2f));
+		vTargetPos = XMVectorSetY(vTargetPos, m_fStartActionAcc * 0.25);
+		vCurCamPos = vTargetPos + vTargetLook * (1.f + (m_fStartActionAcc * 0.3f));
 	}
 	else
 	{
 		m_fLookAcc += TimeDelta;
-		vTargetPos = XMVectorSetY(vTargetPos, 1.3f);
-		vCurCamPos = m_pTransform->Get_State(CTransform::STATE_POSITION) - (vTargetLook + -VECTOR_UP) * 0.2f * TimeDelta;
+		vTargetPos = XMVectorSetY(vTargetPos, 4.5f * 0.25f);
+		vCurCamPos = m_pTransform->Get_State(CTransform::STATE_POSITION) - (vTargetLook + (-VECTOR_UP * 0.65f)) * 0.35f * TimeDelta;
 	}
-
-	//vCurCamPos = XMVectorSetY(vCurCamPos, XMVectorGetY(vCurCamPos) + 0.05f * cos(m_fWinActionAcc));
-	//vCurCamPos = XMVectorSetY(vCurCamPos, 0.5f * m_fWinActionAcc * 0.4f);
 
 	m_pTransform->Set_State(CTransform::STATE_POSITION, vCurCamPos);
 	m_pTransform->LookAt(vTargetPos);
@@ -396,13 +510,15 @@ void CPlayerCamera::StartMovement(_double TimeDelta)
 
 void CPlayerCamera::EvolutionMovement(_double TimeDelta)
 {
-	m_fEvolutionAcc += TimeDelta;
-
-	if (m_fEvolutionAcc >= m_fEvolutionLimit)
-	{
-		m_bEvolution = false;
-		m_fEvolutionAcc = 0.f;
-	}
+	//if (pEnemyLayer)
+	//{
+	//	if (!m_bEvolitionEnemeyAlpha)
+	//	{
+	//		m_bEvolitionEnemeyAlpha = true;
+	//		for (auto iter = pEnemyLayer->m_GameObjects.begin(); iter != pEnemyLayer->m_GameObjects.end(); ++iter)
+	//			static_cast<CEnemy*>(iter->second)->SetAlpha(true);
+	//	}
+	//}
 
 	CGameInstance* pGameInstance = CGameInstance::GetInstance();
 	_vector vTargetPos = m_pTargetTransform->Get_State(CTransform::STATE_POSITION);
@@ -415,14 +531,36 @@ void CPlayerCamera::EvolutionMovement(_double TimeDelta)
 		vTargetPos = XMVectorSetY(vTargetPos, 0.8f);
 		vCurCamPos = vTargetPos + vTargetLook * (8.f - m_fEvolutionAcc);
 	}
-	else
+	else if(m_fEvolutionAcc <= 1.8f)
 	{
 		vTargetPos = XMVectorSetY(vTargetPos, 0.8f);
-		vCurCamPos = vTargetPos + vTargetLook * (8.f - m_fEvolutionAcc * 2.f);
+		vCurCamPos = vTargetPos + vTargetLook * (8.f - m_fEvolutionAcc * 3.f);
 	}
+	else if(m_fEvolutionAcc < m_fEvolutionLimit)
+	{
+		if (!m_bEvolitionEffectStart)
+		{
+			m_bEvolitionEffectStart = true;
+			static_cast<CCharacter*>(m_pTarget)->StartEvolitionEffect();
+		}
+
+		vTargetPos = XMVectorSetY(vTargetPos, 0.8f);
+		vCurCamPos = m_pTransform->Get_State(CTransform::STATE_POSITION);
+		 _vector vEvolitionLerpPos = vTargetPos + vTargetLook * 12.f;
+		vCurCamPos = XMVectorLerp(vCurCamPos, vEvolitionLerpPos, TimeDelta * 3.f);
+	}             
 
 	m_pTransform->Set_State(CTransform::STATE_POSITION, vCurCamPos);
 	m_pTransform->LookAt(vTargetPos);
+
+	m_fEvolutionAcc += TimeDelta;
+	if (m_fEvolutionAcc >= m_fEvolutionLimit)
+	{
+		m_bEvolution = false;
+		m_fEvolutionAcc = 0.f;
+
+		return;
+	}
 }
 
 CPlayerCamera * CPlayerCamera::Create(ID3D11Device * pDevice, ID3D11DeviceContext * pContext)
@@ -459,4 +597,9 @@ void CPlayerCamera::Free()
 	Safe_Release(m_pShader);
 	Safe_Release(m_pVIBuffer);
 	Safe_Release(m_pTexture);
+
+
+	Safe_Release(m_pLevel1);
+	Safe_Release(m_pLevel2);
+
 }

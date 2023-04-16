@@ -80,6 +80,7 @@ PUBLIC	?LightSeaGreen@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::Light
 PUBLIC	?LightSkyBlue@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LightSkyBlue
 PUBLIC	?LightSlateGray@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::LightSlateGray
 PUBLIC	?LightSteelBlue@Colors@DirectX@@3UXMVECTORF32@2@B ; DirectX::Colors::LightSteelBlue
+PUBLIC	?m_pInstance@CApplicationManager@Client@@0PEAV12@EA ; Client::CApplicationManager::m_pInstance
 PUBLIC	?LightYellow@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LightYellow
 PUBLIC	?Lime@Colors@DirectX@@3UXMVECTORF32@2@B		; DirectX::Colors::Lime
 PUBLIC	?LimeGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::LimeGreen
@@ -154,7 +155,6 @@ PUBLIC	?YellowGreen@Colors@DirectX@@3UXMVECTORF32@2@B	; DirectX::Colors::YellowG
 PUBLIC	?g_UnitVectorEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitVectorEpsilon
 PUBLIC	?g_UnitQuaternionEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitQuaternionEpsilon
 PUBLIC	?g_UnitPlaneEpsilon@Internal@DirectX@@3UXMVECTORF32@2@B ; DirectX::Internal::g_UnitPlaneEpsilon
-PUBLIC	?m_pInstance@CApplicationManager@Client@@0PEAV12@EA ; Client::CApplicationManager::m_pInstance
 PUBLIC	?g_XMSinCoefficients0@DirectX@@3UXMVECTORF32@1@B ; DirectX::g_XMSinCoefficients0
 PUBLIC	?g_XMSinCoefficients1@DirectX@@3UXMVECTORF32@1@B ; DirectX::g_XMSinCoefficients1
 PUBLIC	?g_XMCosCoefficients0@DirectX@@3UXMVECTORF32@1@B ; DirectX::g_XMCosCoefficients0
@@ -6626,20 +6626,20 @@ $LN5:
   00067	90		 npad	 1
 ; File c:\users\arcco\documents\github\framework\client\public\applicationmanager.h
 
-; 48   : 	_bool m_bFreeze = false;
+; 50   : 	_bool m_bFreeze = false;
 
   00068	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0006f	c6 40 38 00	 mov	 BYTE PTR [rax+56], 0
 
-; 49   : 	_bool m_bFreezeReady = true;
+; 51   : 	_bool m_bFreezeReady = true;
 
   00073	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   0007a	c6 40 39 01	 mov	 BYTE PTR [rax+57], 1
 
-; 50   : 
-; 51   : 	_float3 m_vPrevPosition = { 0.f, 0.f, 0.f };
+; 52   : 
+; 53   : 	_float3 m_vPrevPosition = { 0.f, 0.f, 0.f };
 
   0007e	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6650,16 +6650,16 @@ $LN5:
   00092	48 8b c8	 mov	 rcx, rax
   00095	e8 00 00 00 00	 call	 ??0XMFLOAT3@DirectX@@QEAA@MMM@Z ; DirectX::XMFLOAT3::XMFLOAT3
 
-; 52   : 
-; 53   : 	_bool m_bHitFreeze = false;
+; 54   : 
+; 55   : 	_bool m_bHitFreeze = false;
 
   0009a	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000a1	c6 40 48 00	 mov	 BYTE PTR [rax+72], 0
 
-; 54   : 
-; 55   : 	//레벨 끝났다
-; 56   : 	_bool m_bLevelEnd[(_uint)LEVEL::MAX] = { false, false };
+; 56   : 
+; 57   : 	//레벨 끝났다
+; 58   : 	_bool m_bLevelEnd[(_uint)LEVEL::MAX] = { false, false };
 
   000a5	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -6668,16 +6668,16 @@ $LN5:
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000b7	c6 40 4a 00	 mov	 BYTE PTR [rax+74], 0
 
-; 57   : 	//레벨 승리 모션중
-; 58   : 	_bool m_isWinMotionPlay = false;
+; 59   : 	//레벨 승리 모션중
+; 60   : 	_bool m_isWinMotionPlay = false;
 
   000bb	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
   000c2	c6 40 4b 00	 mov	 BYTE PTR [rax+75], 0
 
-; 59   : 
-; 60   : 	//스폰되기전 이펙트 false
-; 61   : 	_bool m_bEnemySpawned = false;
+; 61   : 
+; 62   : 	//스폰되기전 이펙트 false
+; 63   : 	_bool m_bEnemySpawned = false;
 
   000c6	48 8b 85 00 01
 	00 00		 mov	 rax, QWORD PTR this$[rbp]

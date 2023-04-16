@@ -3662,7 +3662,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?IsDeadWait@CEnemy@Client@@QEBA_NXZ PROC		; Client::CEnemy::IsDeadWait, COMDAT
 
-; 130  : 	_bool IsDeadWait() const { return m_bDeadWait; }
+; 132  : 	_bool IsDeadWait() const { return m_bDeadWait; }
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx

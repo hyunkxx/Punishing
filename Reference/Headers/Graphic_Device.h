@@ -12,8 +12,8 @@ private:
 	CGraphic_Device() = default;
 	virtual ~CGraphic_Device() = default;
 public:
-	enum PRE_RENDERTARGET { MAIN, BLOOM, DISTORTION, PRE_TARGET_MAX };
-	enum POST_RENDERTARGET { BACK_BUFFER, CURRENT_BUFFER, XBLUR_BUFFER, YBLUR_BUFFER, POST_DISTORTION, FINAL_BUFFER, POST_TARGET_MAX };
+	enum PRE_RENDERTARGET { MAIN, BLOOM, DISTORTION, DEPTH, SHADOW_DEPTH, PRE_TARGET_MAX };
+	enum POST_RENDERTARGET { BACK_BUFFER, CURRENT_BUFFER, SHADOW_BUFFER , MAIN_SHADOW, XBLUR_BUFFER, YBLUR_BUFFER, POST_DISTORTION, FINAL_BUFFER, POST_TARGET_MAX };
 
 public:
 	HRESULT Ready_Graphic_Device(HWND hWnd, GRAPHIC_DESC::WIN_MODE eWinMode, _uint iWinSizeX, _uint iWinSizeY, ID3D11Device** ppDevice_out, ID3D11DeviceContext** ppContext_out);
@@ -23,7 +23,9 @@ public:
 
 public://Pre Rendertarget
 	HRESULT SetPreRenderTargets();
+	HRESULT SetPreRenderTarget(PRE_RENDERTARGET eTarget);
 	HRESULT Clear_PreRenderTargetViews(_float4 vClearColor);
+	HRESULT Clear_PreRenderTargetViews(PRE_RENDERTARGET eTarget, _float4 vClearColor);
 	ID3D11RenderTargetView* GetRenderTarget(PRE_RENDERTARGET eTarget) { return m_pPreRenderTargetViews[eTarget]; };
 	ID3D11ShaderResourceView* GetShaderResourceView(PRE_RENDERTARGET eTarget) { return m_pPreShaderResourceViews[eTarget]; };
 
@@ -58,8 +60,7 @@ private:
 	/* pRTV & pDSV */
 	ID3D11RenderTargetView*		m_pRenderTargetView = { nullptr };
 	ID3D11DepthStencilView*		m_pDepthStencilView = { nullptr };
-
-	
+		
 private:
 	//이펙트 적용전 그리기위한 렌더타겟들
 	ID3D11Texture2D*			m_pPreBufferTextures[PRE_TARGET_MAX];

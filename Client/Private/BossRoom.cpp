@@ -55,7 +55,7 @@ void CBossRoom::LateTick(_double TimeDelta)
 	__super::Tick(TimeDelta);
 
 	if (nullptr != m_pRenderer)
-		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_NONALPHA, this);
+		m_pRenderer->Add_RenderGroup(CRenderer::RENDER_PRIORITY, this);
 
 }
 

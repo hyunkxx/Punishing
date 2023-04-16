@@ -121,6 +121,9 @@
     <Filter Include="utility\03. Components\02. Renderer\03. VIBuffer\Instance">
       <UniqueIdentifier>{6043714e-87ce-457f-b852-eaac02e877ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="system\Sound">
+      <UniqueIdentifier>{7f5943d1-020e-42ea-928c-dc1786f2fdb5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\private\Base.cpp">
@@ -257,6 +260,12 @@
     </ClCompile>
     <ClCompile Include="..\private\DistortionEffect.cpp">
       <Filter>utility\03. Components\02. Renderer\PostEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\private\Shadow.cpp">
+      <Filter>utility\03. Components\02. Renderer\PostEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Downloads\fmod_1\Sound_Manager.cpp">
+      <Filter>system\Sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -406,6 +415,36 @@
     </ClInclude>
     <ClInclude Include="..\public\DistortionEffect.h">
       <Filter>utility\03. Components\02. Renderer\PostEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\public\Shadow.h">
+      <Filter>utility\03. Components\02. Renderer\PostEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Sound_Manager.h">
+      <Filter>system\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Fmod\fmod.h">
+      <Filter>system\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Fmod\fmod.hpp">
+      <Filter>system\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Fmod\fmod_codec.h">
+      <Filter>system\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Fmod\fmod_common.h">
+      <Filter>system\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Fmod\fmod_dsp.h">
+      <Filter>system\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Fmod\fmod_dsp_effects.h">
+      <Filter>system\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Fmod\fmod_errors.h">
+      <Filter>system\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Public\Fmod\fmod_output.h">
+      <Filter>system\Sound</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
